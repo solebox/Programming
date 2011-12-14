@@ -1,0 +1,25 @@
+>>general program stracture:
+
+.data 				#all initialized data
+
+.bss 					#all uninitialized data
+
+.text  				#program instructions
+
+	.globl _start 
+	_start:
+
+>>Data types in .DATA:
+.byte = 1 byte
+.ascii = string
+.asciz = null terminated string
+.int = 32 bit integer
+.short = 16 bit integer
+.float = single precision floating point num
+.double = double precision floating point num
+>> data type in .BSS:
+.comm = declares common memory area
+.lcomm = declares local common memory area 
+>> commands
+ mov source, destination - copy from source to destination
+ lea var, %register - load effective address insctuction - copy address of var into register

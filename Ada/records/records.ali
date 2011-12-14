@@ -1,0 +1,35 @@
+V "GNAT Lib v4.4"
+M P W=b
+A -gnatc
+A -gnatA
+P NO SS ZX
+R nnnnnnnnnnnnnnnnnnnnnnvnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnvnvnnnnnnnnnnnnnnnn
+
+U records%b		records.adb		6bc9e8fd OO SU IL
+W text_io%s		text_io.ads		text_io.ali
+
+D ada.ads		20070406091342 9c7dd3ea
+D a-ioexce.ads		20070406091342 be0900a0
+D a-stream.ads		20090409232307 34aca5be
+D a-textio.ads		20090409232307 fe8af46e
+D interfac.ads		20090409232307 a69cad5c
+D i-cstrea.ads		20090409232307 e1e064a9
+D records.adb		20111110044504 17fe2002
+D system.ads		20110917192145 df55302f
+D s-crtl.ads		20090409232307 997234a1
+D s-ficobl.ads		20090409232307 8bb681e5
+D s-parame.ads		20090409232307 f32e56e9
+D s-wchcon.ads		20090409232307 ab028799
+D text_io.ads		20070406091342 7c37c8ff
+X 4 a-textio.ads
+242U14*Put 7|12r4 14r4
+263U14*Put_Line 7|13r4 15r4
+X 7 records.adb
+3U11*records 3b11 16l5 16t12
+4R9 Kaka 7e14 8r9
+5i7 age{integer} 10m9 13r32
+6a7 scent{string} 11m9 15m18
+8r4 laka{4R9} 10m4 11m4 13r27 15r13
+X 13 text_io.ads
+24K9*Text_IO=24:29 7|2w6 2r19
+

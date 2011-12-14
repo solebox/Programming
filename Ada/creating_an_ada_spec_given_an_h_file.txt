@@ -1,0 +1,6 @@
+ray122: I would check by putting al C function declarations in 
+        a header file and seeing what gnat would produce: 
+        
+        gcc -c -fdump-ada-spec -C foo.h
+< Kensan> this will give you an Ada spec file
+

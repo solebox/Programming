@@ -1,0 +1,66 @@
+V "GNAT Lib v4.4"
+M P W=b
+P SS ZX
+R nnnnnnnnnnnnnnnnnnnnnnvnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn
+
+U main%b		main.adb		98cd0a1b NE OO SU IL KM
+W ada.tags%s		a-tags.adb		a-tags.ali
+W text_io%s		text_io.ads		text_io.ali
+
+D ada.ads		20070406091342 9c7dd3ea
+D a-except.ads		20090409232307 b54b55de
+D a-finali.ads		20090409232307 9eaacebd
+D a-filico.ads		20090409232307 9299732a
+D a-ioexce.ads		20070406091342 be0900a0
+D a-stream.ads		20090409232307 34aca5be
+D a-tags.ads		20090409232307 bfa07446
+D a-textio.ads		20090409232307 fe8af46e
+D a-unccon.ads		20070406091342 51e09df2
+D interfac.ads		20090409232307 a69cad5c
+D i-cstrea.ads		20090409232307 e1e064a9
+D main.adb		20111214152507 e4fac2e4
+D system.ads		20110917192145 df55302f
+D s-crtl.ads		20090409232307 997234a1
+D s-exctab.ads		20090409232307 5c1c61ae
+D s-ficobl.ads		20090409232307 8bb681e5
+D s-finimp.ads		20090409232307 9449f4cb
+D s-finroo.ads		20090409232307 1408f9d1
+D s-parame.ads		20090409232307 f32e56e9
+D s-secsta.ads		20090409232307 7bae3621
+D s-soflin.ads		20090409232307 0c6fd39d
+D s-stache.ads		20090409232307 257b3be8
+D s-stalib.ads		20090409232307 52b793d5
+D s-stoele.ads		20090409232307 ed966df3
+D s-stoele.adb		20090409232307 e9998c78
+D s-stratt.ads		20090409232307 fef7c1da
+D s-traent.ads		20090409232307 bd5f2753
+D s-unstyp.ads		20090409232307 c0f9fae5
+D s-wchcon.ads		20090409232307 ab028799
+D text_io.ads		20070406091342 7c37c8ff
+X 8 a-textio.ads
+166U14*New_Line 12|14r4
+208U14*Put 12|12r9
+249U14*Get_Line 12|10r5
+X 12 main.adb
+3U11*main 3b11 15l5 15t9
+4E9 Month 4e67 5r48
+4n19 jan{4E9}
+4n23 feb{4E9}
+4n27 mar{4E9}
+4n31 apr{4E9}
+4n35 may{4E9}
+4n39 jun{4E9}
+4n43 jul{4E9}
+4n47 aug{4E9}
+4n51 sep{4E9}
+4n55 oct{4E9}
+4n59 nov{4E9}
+4n63 dec{4E9}
+5A9 Year(4E9)<integer> 6r8
+6a4 yea{5A9}
+7a4 str{string} 10m14 12r13
+8i4 len{integer} 10m18 11r17
+11i9 i{integer} 12r17
+X 30 text_io.ads
+24K9*Text_IO=24:29 12|2w6 2r19
+

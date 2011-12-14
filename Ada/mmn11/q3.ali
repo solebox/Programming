@@ -1,0 +1,108 @@
+V "GNAT Lib v4.4"
+M P W=b
+A -gnat95
+P SS ZX
+R nnnnnnnvnnnnvnnvnnvnnnvnnnnnvnnnnnnnnnnnnvnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn
+
+U q3%b			q3.adb			8e832070 NE OO SU IL
+W ada%s			ada.ads			ada.ali
+W ada.exceptions%s	a-except.adb		a-except.ali
+W ada.tags%s		a-tags.adb		a-tags.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+W ada.text_io.integer_aux%s  a-tiinau.adb	a-tiinau.ali
+W interfaces%s		interfac.ads		interfac.ali
+W system%s		system.ads		system.ali
+W system.img_enum_new%s	s-imenne.adb		s-imenne.ali
+W system.soft_links%s	s-soflin.adb		s-soflin.ali
+W text_io%s		text_io.ads		text_io.ali
+
+D ada.ads		20070406091342 9c7dd3ea
+D a-except.ads		20090409232307 b54b55de
+D a-finali.ads		20090409232307 9eaacebd
+D a-filico.ads		20090409232307 9299732a
+D a-ioexce.ads		20070406091342 be0900a0
+D a-stream.ads		20090409232307 34aca5be
+D a-tags.ads		20090409232307 bfa07446
+D a-textio.ads		20090409232307 fe8af46e
+D a-tiinau.ads		20090409232307 2625f681
+D a-tiinio.ads		20090409232307 949a7272
+D a-tiinio.adb		20090409232307 cf5588a9
+D a-unccon.ads		20070406091342 51e09df2
+D interfac.ads		20090409232307 a69cad5c
+D i-cstrea.ads		20090409232307 e1e064a9
+D q3.adb		20111114103028 f2b4e88f
+D system.ads		20110917192145 df55302f
+D s-crtl.ads		20090409232307 997234a1
+D s-exctab.ads		20090409232307 5c1c61ae
+D s-ficobl.ads		20090409232307 8bb681e5
+D s-finimp.ads		20090409232307 9449f4cb
+D s-finroo.ads		20090409232307 1408f9d1
+D s-imenne.ads		20090409232307 97a402ea
+D s-parame.ads		20090409232307 f32e56e9
+D s-secsta.ads		20090409232307 7bae3621
+D s-soflin.ads		20090409232307 0c6fd39d
+D s-stache.ads		20090409232307 257b3be8
+D s-stalib.ads		20090409232307 52b793d5
+D s-stoele.ads		20090409232307 ed966df3
+D s-stoele.adb		20090409232307 e9998c78
+D s-stratt.ads		20090409232307 fef7c1da
+D s-traent.ads		20090409232307 bd5f2753
+D s-unstyp.ads		20090409232307 c0f9fae5
+D s-wchcon.ads		20090409232307 ab028799
+D text_io.ads		20070406091342 7c37c8ff
+X 8 a-textio.ads
+166U14*New_Line 15|61r9 67r5
+242U14*Put 15|53r17
+263U14*Put_Line 15|51r17 65r5
+X 10 a-tiinio.ads
+45k21*Integer_IO 84e27 15|4r27
+55U14 Get 15|66r5[4]
+X 15 q3.adb
+3U11*q3 3b11 69l5 69t7
+4K13 POS_IO[10|45] 5r9
+6E10 Day 6e75 53r21 53r31
+6n18 Saturday{6E10}
+6n27 Sunday{6E10}
+6n34 Monday{6E10}
+6n41 Tuesday{6E10}
+6n49 Wednesday{6E10}
+6n59 Thursday{6E10}
+6n68 Friday{6E10}
+7E10 Month 7e68 16r28 27r35
+7n20 Jan{7E10} 16r40
+7n24 Feb{7E10}
+7n28 Mar{7E10}
+7n32 Apr{7E10}
+7n36 May{7E10}
+7n40 Jun{7E10}
+7n44 Jul{7E10}
+7n48 Aug{7E10}
+7n52 Sep{7E10}
+7n56 Oct{7E10}
+7n60 Nov{7E10}
+7n64 Dec{7E10} 16r45
+8R10 Date 14e15 15r74 43r33 48r35 57r15
+9i9 day{integer} 29m17 45r25
+10i9 month{integer} 27m17 30r20 30r42 45r44
+11i9 y{natural} 22m17 31r24 32m25 34m25 34r38 35r27 38m25 38r38 45r65 46r26
+12i9 c{natural} 24m17 31r43 33m25 33r38 35r46 46r38 46r52
+13b9 bc{boolean} 21m17 36m25 50r24
+15U15 userInputIntoDateRecord 15b15 15>39 15=59 42l9 42t32 59r9
+15i39 input_in{integer} 18r26
+15r59 date_io{8R10} 21m9 22m9 24m9 27m9 29m9 30r12 30r34 31r16 31r35 32m17
+. 33m17 33r30 34m17 34r30 35r19 35r38 36m17 38m17 38r30
+16A14 Year(positive)<7E10> 17r18
+17a9 year_arr{16A14} 27r26
+18i9 input{integer} 22r22 23m9 23r18 24r22 25m9 25r18 26r16 28m9 28r18 29r24
+19i9 tmp{integer} 26m9 27r45
+43V14 findDay{integer} 43b14 43>22 47l9 47t16 53r39
+43r22 date_in{8R10} 45r17 45r36 45r57 46r18 46r30 46r44
+48U15 printDay 48b15 48>24 55l9 55t17 60r9
+48r24 date_in{8R10} 50r16 53r47
+56U15 printDay 56b15 56>24 62l9 62t17 68r5
+56i24 user_pos_in{positive} 59r33
+57r9 date1{8R10} 59m45 60r18
+63i5 num{positive} 66m9 68r14
+X 34 text_io.ads
+24K9*Text_IO=24:29 15|2w6 2r19
+

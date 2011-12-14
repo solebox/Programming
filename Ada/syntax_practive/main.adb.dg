@@ -1,0 +1,42 @@
+-- 1: with is_prime;
+
+-- 2: with Ada.Text_IO; use Ada.Text_IO;
+with ada;
+with is_prime;
+with ada.ada__text_io;
+use ada.ada__text_io;
+with interfaces;
+with system.system__img_bool;
+
+-- 3: procedure main is
+procedure main is
+
+-- 4:     num:integer := 7;
+   num : integer := 7;
+
+-- 5:     ret:boolean := false;
+   ret : boolean := false;
+
+-- 6: begin
+begin
+
+-- 7:     ret := is_prime(num);
+   R1b : constant boolean := is_prime (7);
+   [constraint_error when
+     not (interfaces__unsigned_32!(R1b) >= interfaces__unsigned_32!(
+       false) and then interfaces__unsigned_32!(R1b) <=
+       interfaces__unsigned_32!(true))
+     "invalid data"]
+   ret := R1b;
+
+-- 8:     put_line(boolean'image(ret));
+   subtype main__TS2bS is string (1 .. 5);
+   S2b : string (1 .. 5);
+   P3b : natural;
+   $system__img_bool__image_boolean (ret, S2b, P3b);
+   R4b : constant natural := P3b;
+   ada__text_io__put_line__2 (S2b (1 .. R4b));
+
+-- 9: end main;
+   return;
+end main;
