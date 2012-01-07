@@ -1,10 +1,12 @@
 V "GNAT Lib v4.4"
 M P W=b
 P SS ZX
-R nnnnnnnnnnnnnnnnnnnnnnvnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn
+R nnnvnnnnnnnnnnnnnnnnnnvnnnvnvnnnnnnnnnvnnvnnnnnnnnnnnnnvnnnnnnnnnnnnnnnnnnnnn
 
-U main%b		main.adb		98cd0a1b NE OO SU IL KM
+U main%b		main.adb		08ab6d57 NE OO SU IL KM
 W ada.tags%s		a-tags.adb		a-tags.ali
+W system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+W system.string_ops_concat_3%s  s-sopco3.adb	s-sopco3.ali
 W text_io%s		text_io.ads		text_io.ali
 
 D ada.ads		20070406091342 9c7dd3ea
@@ -18,7 +20,7 @@ D a-textio.ads		20090409232307 fe8af46e
 D a-unccon.ads		20070406091342 51e09df2
 D interfac.ads		20090409232307 a69cad5c
 D i-cstrea.ads		20090409232307 e1e064a9
-D main.adb		20111214152507 e4fac2e4
+D main.adb		20120106125844 749ca5a8
 D system.ads		20110917192145 df55302f
 D s-crtl.ads		20090409232307 997234a1
 D s-exctab.ads		20090409232307 5c1c61ae
@@ -33,18 +35,23 @@ D s-stalib.ads		20090409232307 52b793d5
 D s-stoele.ads		20090409232307 ed966df3
 D s-stoele.adb		20090409232307 e9998c78
 D s-stratt.ads		20090409232307 fef7c1da
+D s-strops.ads		20090409232307 845f72d2
+D s-sopco3.ads		20090409232307 72ce1063
+D s-sopco4.ads		20090409232307 bc112723
+D s-sopco5.ads		20090409232307 191315e8
 D s-traent.ads		20090409232307 bd5f2753
 D s-unstyp.ads		20090409232307 c0f9fae5
 D s-wchcon.ads		20090409232307 ab028799
 D text_io.ads		20070406091342 7c37c8ff
 X 8 a-textio.ads
-166U14*New_Line 12|14r4
-208U14*Put 12|12r9
-249U14*Get_Line 12|10r5
+166U14*New_Line 12|22r4
+242U14*Put 12|21r9
+249U14*Get_Line 12|20r5
+263U14*Put_Line 12|24r8
 X 12 main.adb
-3U11*main 3b11 15l5 15t9
+3U11*main 3b11 26l5 26t9
 4E9 Month 4e67 5r48
-4n19 jan{4E9}
+4n19 jan{4E9} 19r23
 4n23 feb{4E9}
 4n27 mar{4E9}
 4n31 apr{4E9}
@@ -56,11 +63,17 @@ X 12 main.adb
 4n55 oct{4E9}
 4n59 nov{4E9}
 4n63 dec{4E9}
-5A9 Year(4E9)<integer> 6r8
-6a4 yea{5A9}
-7a4 str{string} 10m14 12r13
-8i4 len{integer} 10m18 11r17
-11i9 i{integer} 12r17
-X 30 text_io.ads
+5A9 Year(4E9)<integer> 8r8
+6P9 StringPtr(string) 12r14
+7P9 i_acc(integer) 13r11
+8a4 yea{5A9} 19r5
+9a4 str{string} 20m14 21r17
+10i4 len{integer} 20m18 21r24
+11V14 foo{string} 11b14 11>18 17l9 17t12 21r13
+11s18 S{string} 15r28 15r30 15r32
+12p9 stpt{6P9} 15m8 16r16
+13p9 i{7P9}
+23i8 i{integer}
+X 34 text_io.ads
 24K9*Text_IO=24:29 12|2w6 2r19
 
