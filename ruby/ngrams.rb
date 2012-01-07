@@ -1,7 +1,8 @@
 #!/usr/bin/ruby1.9.1
 #my optimized ngrams
+FILENAME = 'sample.txt' #around 6000 words
 def ngrams(n)
-    str = File.read('sample.txt').scan(/\S+/)
+    str = File.read(FILENAME).scan(/\S+/)
     grams = []
     2.upto(n) {|i| grams[i] = Hash.new(0)}
     (str.length-n).times do |i|
@@ -12,4 +13,4 @@ def ngrams(n)
     end
     return grams
 end
-ngrams(6)
+ngrams(6) #returns a hexagram array in 1.83 seconds on my machine :)
