@@ -13,4 +13,11 @@ def ngrams(n)
     end
     return grams
 end
-ngrams(6) #returns a hexagram array in 1.83 seconds on my machine :)
+grams = ngrams(6) #returns an array of <=hexgrams in 1.83 seconds on my machine :)
+#usage:
+#get all the bi grams
+#grams[2].each {|k,v| p k p v}
+#get all the tri grams
+#grams[3].each {|k,v| p k p v}
+# etc etc etc....
+#if you want a way to get just a specifir gram and not all the ones before it, contact me ill send it...
