@@ -1,6 +1,8 @@
 #!/usr/bin/ruby1.9.1
 #my optimized ngrams
 FILENAME = 'sample.txt' #around 6000 words
+#this method returns an array from 2 up to n of hashes in which reside 
+#all possible ngrams and their corresponding instance count
 def ngrams(n)
     str = File.read(FILENAME).scan(/\S+/)
     grams = []
@@ -13,16 +15,14 @@ def ngrams(n)
     end
     return grams
 end
+#returns one hash of just the wanted ngram without the preceeding ones
+# for speed and space optimization and more specific usage
 def ngram(n)
     str = File.read(FILENAME).scan(/\S+/)
-    gram = Hash.new(0)
-    
+    ngram = Hash.new(0)
+    (str.length - n).times do |i| 
+        ng = str[i..i+n-1].join(" ")
+        ngram[ng] += 1
+    end
+    return ngram
 end
-grams = ngrams(6) #returns an array of <=hexgrams in 1.83 seconds on my machine :)
-#usage:
-#get all the bi grams
-#grams[2].each {|k,v| p k p v}
-#get all the tri grams
-#grams[3].each {|k,v| p k p v}
-# etc etc etc....
-#if you want a way to get just a specifir gram and not all the ones before it, contact me ill send it...
