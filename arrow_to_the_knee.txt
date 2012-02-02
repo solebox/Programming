@@ -1,0 +1,39 @@
+=begin
+
+= How to Shoot Yourself with an arrow to the knee
+
+== C
+
+=== you shoot an arrow to your knee
+
+== C++
+
+=== You accidently create a dozen instances of yourself and shoot them all in the knee.
+=== Providing emergency medical assistance is impossible since you can't tell which are bitwise copies and which are just pointing at others and saying "That's me, over there. take out the arrow please"
+
+== FORTRAN
+
+=== You shoot yourself in the leg, iteratively, until you run out of blood or hit the knee, then you read in the next leg and repeat. If you run out of arrows, you continue anyway because you have no exception-handling facility.
+
+== Modula-2
+
+=== After realizing that you can't actually accomplish anything in this language, you shoot yourself in the head.
+
+== COBOL
+
+=== USEing a COLT 45 CROSSBOW, AIM gun at LEG.KNEE, THEN place ARM.HAND.FINGER on CROSSBOW.TRIGGER and SQUEEZE. THEN return CROSSBOW to HOLSTER. CHECK whether shoelace needs to be retied.
+
+== Lisp
+
+=== You shoot yourself in the appendage which holds the bow with which you shoot yourself in the appendage which holds the bow with which you shoot yourself in the appendage which holds...
+
+== BASIC
+
+=== Shoot yourself in the knee with a water pistol. On big systems, continue until entire lower body is waterlogged.
+
+== Forth
+
+=== Knee yourself in the arrow
+
+==
+

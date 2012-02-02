@@ -1,12 +1,19 @@
 V "GNAT Lib v4.4"
 M P W=b
 P SS ZX
-R nnnvnnnnnnnnnnnnnnnnnnvnnnnnvnnnnnnnnnvnnvnnnnnnnnnnnnnvnnnnnnnnnnnnnnnnnnnnn
+R nnnnnnnnnnnnnnnvnnvnnnvvvnnnnnnnnnnnnnvnnvnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn
 
-U main%b		main.adb		e80cf603 NE OO SU IL KM
+U main%b		main.adb		5a7fdcf8 NE OO SU IL
+W ada.exceptions%s	a-except.adb		a-except.ali
+W ada.streams%s		a-stream.ads		a-stream.ali
 W ada.tags%s		a-tags.adb		a-tags.ali
+W system%s		system.ads		system.ali
+W system.address_image%s  s-addima.adb		s-addima.ali
+W system.finalization_root%s  s-finroo.adb	s-finroo.ali
 W system.secondary_stack%s  s-secsta.adb	s-secsta.ali
-W system.string_ops_concat_3%s  s-sopco3.adb	s-sopco3.ali
+W system.soft_links%s	s-soflin.adb		s-soflin.ali
+W system.storage_elements%s  s-stoele.adb	s-stoele.ali
+W system.string_ops%s	s-strops.adb		s-strops.ali
 W text_io%s		text_io.ads		text_io.ali
 
 D ada.ads		20070406091342 9c7dd3ea
@@ -20,8 +27,9 @@ D a-textio.ads		20090409232307 fe8af46e
 D a-unccon.ads		20070406091342 51e09df2
 D interfac.ads		20090409232307 a69cad5c
 D i-cstrea.ads		20090409232307 e1e064a9
-D main.adb		20120117192157 943b3efc
+D main.adb		20120117152623 26481407
 D system.ads		20110917192145 df55302f
+D s-addima.ads		20090409232307 d3f93a86
 D s-crtl.ads		20090409232307 997234a1
 D s-exctab.ads		20090409232307 5c1c61ae
 D s-ficobl.ads		20090409232307 8bb681e5
@@ -44,37 +52,15 @@ D s-unstyp.ads		20090409232307 c0f9fae5
 D s-wchcon.ads		20090409232307 ab028799
 D text_io.ads		20070406091342 7c37c8ff
 X 8 a-textio.ads
-166U14*New_Line 12|24r4
-242U14*Put 12|23r9
-249U14*Get_Line 12|20r5 22r5
-263U14*Put_Line 12|21r5 26r8
+263U14*Put_Line 12|12r5
 X 12 main.adb
-3U11*main 3b11 28l5 28t9
-4E9 Month 4e67 5r48
-4n19 jan{4E9}
-4n23 feb{4E9}
-4n27 mar{4E9}
-4n31 apr{4E9}
-4n35 may{4E9}
-4n39 jun{4E9}
-4n43 jul{4E9}
-4n47 aug{4E9}
-4n51 sep{4E9}
-4n55 oct{4E9}
-4n59 nov{4E9}
-4n63 dec{4E9}
-5A9 Year(4E9)<integer> 8r8
-6P9 StringPtr(string) 13r14
-7P9 i_acc(integer) 14r11
-8a4 yea{5A9}
-9a4 str{string} 22m14 23r17
-10a4 str2{string} 20m14 21r14
-11i4 len{integer} 20m19 22m18 23r24
-12V14 foo{string} 12b14 12>18 18l9 18t12 23r13
-12s18 S{string} 16r28 16r30 16r32
-13p9 stpt{6P9} 16m8 17r16
-14p9 i{7P9}
-25i8 i{integer}
-X 34 text_io.ads
-24K9*Text_IO=24:29 12|2w6 2r19
+2U11*main 2b11 13l5 13t9
+3H10 dad 3e44 4r22 5r21
+4x15 putz 4>20
+4r20 d{3R10}
+5R10 son<3R10> 5e41 6r22
+6U15 putz 6b15 6>20 9l9 9t13
+6r20 s{5R10}
+X 35 text_io.ads
+24K9*Text_IO=24:29 12|1w6 1r19
 
