@@ -20,7 +20,7 @@
 
 == COBOL
 
-=== USEing a COLT 45 CROSSBOW, AIM gun at LEG.KNEE, THEN place ARM.HAND.FINGER on CROSSBOW.TRIGGER and SQUEEZE. THEN return CROSSBOW to HOLSTER. CHECK whether shoelace needs to be retied.
+=== USEing a DWARVEN SPHERE CROSSBOW, AIM gun at LEG.KNEE, THEN place ARM.HAND.FINGER on CROSSBOW.TRIGGER and SQUEEZE. THEN return CROSSBOW to HOLSTER. CHECK whether shoelace needs to be retied.
 
 == Lisp
 
