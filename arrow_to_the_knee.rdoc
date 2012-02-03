@@ -34,5 +34,140 @@
 
 === Knee yourself in the arrow
 
-==
+== APL
+
+=== You shoot yourself in the knee; then spend all day figuring out how to do it in fewer characters.
+
+== Pascal
+
+=== The compiler won't let you shoot yourself in the knee.
+
+== Snobol
+
+=== If you succeed, shoot yourself in the left knee. If you fail, shoot yourself in the right knee.
+
+== HyperTalk
+
+=== Put the first arrow of the quiver into foot left of leg of you. Answer the result.
+
+== Prolog
+
+=== You tell your program you want to be shot in the knee with an arrow. The program figures out how to do it, but the syntax doesn't allow it to explain.
+
+== 370 JCL
+
+=== You send your knee down to MIS with a 4000-page document explaining how you want it to be shot and with what arrow. Three years later, your knee comes back deep-fried.
+
+== FORTRAN-77
+
+=== You shoot yourself in the leg, iteratively, until you run out of blood or hit the knee, then you read in the next leg and repeat. If you run out of arrows, you continue anyway because you still dont have exception-processing.
+
+== BASIC (compiled)
+
+=== You shoot yourself in the knee with a dart using a SCUD missile launcher.
+
+== Visual Basic
+
+=== You'll really only appear to have shot yourself with an arrow to the knee, but you'll have so much fun doing it that you won't care.
+
+== COMAL
+
+=== You attempt to shoot yourself in the knee with a water pistol, but the bore is clogged, and the pressure build-up blows apart both the pistol and your hand. 
+===or 
+===draw_pistol 
+===aim_at_knee(left) 
+===pull_trigger 
+===hop(swearing)
+
+== Scheme
+
+=== As Lisp, but none of the other appendages are aware of this happening.
+
+== Ada 
+
+=== If you are dumb enough to actually use this language, the United States Department of Defense will kidnap you, stand you up in front of a firing squad and tell the soldiers, "Shoot at the knee." 
+===
+=== or
+===  procedure main is
+===     type Bow is new Weapon with private;
+===     type Arrow is new Ammo with private;
+===     type Knee is new Limb with Private;
+===     task type Shoot_In_Knee is
+===          entry start(b:in Bow; a: in Arrow; k: in out Knee);
+===     end Shoot_In_Knee;
+===     
+===     task body Shoot_In_Knee is
+===      tb:Bow;
+===      ta:Arrow;
+===      tk:Knee;
+===     begin
+===       loop
+===         select
+===           accept start(b:in Bow; a: in Arrow; k: in out Knee) do
+===              tb := b;
+===              ta := a;
+===              tk := k;
+===           end start;
+===           load(tb,ta);
+===           shoot(tk,tb);
+===         or
+===           Terminate;
+===         end select;
+===       end loop;
+===     end Shoot_In_Knee;
+===     shoot:Shoot_In_Knee;
+===     arrow1:Arrow;bow1:Bow;knee_left:Knee;
+===  begin
+===     shoot.start(bow1,arrow1, knee);
+===  end main;
+
+== SmallTalk
+
+=== You spend so much time playing with the graphics and windowing system that your boss shoots you in the knee, takes away your workstation and makes you develop in COBOL on a character terminal. 
+
+== Object Oriented Pascal
+
+=== You perform a shooting on what might currently be a knee with what might currently be an arrow fired from what might currently be a bow.
+
+== PL/I
+
+=== You consume all available system resources, including all the offline arrows. The Data Processing & Payroll Department doubles its size, triples its budget, acquires four new mainframes and drops the original one on your knee.
+
+== Postscript
+
+=== knee arrows 6 locate loadbow aim bow shoot showpage 
+
+== PERL
+
+=== You stab yourself in the knee repeatedly with an incredibly large and very heavy Swiss Army knife. 
+
+== Assembly Language
+
+=== You crash the OS and overwrite the root disk. The system administrator arrives and shoots you in the knee. After a moment of contemplation, the administrator shoots himself in the knee and then hops around the room rabidly shooting at everyone in sight. 
+
+
+== BCPL
+
+=== You shoot yourself somewhere in the leg -- you can't get any finer resolution than that.
+
+== Concurrent Euclid
+
+=== You shoot yourself in somebody else's knee.
+
+== Motif
+
+=== You spend days writing a UIL description of your knee, the trajectory, the arrow and the intricate carvings on the bow. When you finally get around to pulling the string, it rips and the bow breaks apart.
+
+== Powerbuilder
+
+=== While attempting to load the crossbow you discover that the LoadCrossBow system function is buggy; as a work around you tape the arrow to the handle of the bow and unsuccessfully attempt to shoot it with a nail. In frustration you club your knee with the bow itself and explain to your client that this approximates the functionality of shooting yourself in the knee and that the next version of Powerbuilder will fix it.
+
+== Standard ML
+
+=== By the time you get your code to typecheck, you're using a knee to arrow yourself in the bow.
+
+
+
+
+
 
