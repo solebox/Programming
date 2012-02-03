@@ -167,8 +167,9 @@
 
 === By the time you get your code to typecheck, you're using a knee to arrow yourself in the bow.
 
+== Brainfuck
 
-
+=== ++>+++>+<<<<-]>++.>+.++++>>>--[-[]+>><]
 
 
 
