@@ -74,9 +74,9 @@
 
 === You attempt to shoot yourself in the knee with a water pistol, but the bore is clogged, and the pressure build-up blows apart both the pistol and your hand. 
 ===or 
-===draw_pistol 
+===draw_bow 
 ===aim_at_knee(left) 
-===pull_trigger 
+===pull_cord
 ===hop(swearing)
 
 == Scheme
