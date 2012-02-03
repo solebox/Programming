@@ -87,7 +87,7 @@
 
 === If you are dumb enough to actually use this language, the United States Department of Defense will kidnap you, stand you up in front of a firing squad and tell the soldiers, "Shoot at the knee." 
 ===or
-===After correctly packaging your foot, you attempt to concurrently load the bow, pull the string, scream and shoot yourself in the knee. When you try, however, you discover that your foot is of the wrong type. 
+===After correctly packaging your knee, you attempt to concurrently load the bow, pull the string, scream and shoot yourself in the knee. When you try, however, you discover that your foot is of the wrong type. 
 ===or
       procedure main is
          type Bow is new Weapon with private;
