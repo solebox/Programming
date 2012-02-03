@@ -88,38 +88,38 @@
 === If you are dumb enough to actually use this language, the United States Department of Defense will kidnap you, stand you up in front of a firing squad and tell the soldiers, "Shoot at the knee." 
 ===
 === or
-===  procedure main is
-===     type Bow is new Weapon with private;
-===     type Arrow is new Ammo with private;
-===     type Knee is new Limb with Private;
-===     task type Shoot_In_Knee is
-===          entry start(b:in Bow; a: in Arrow; k: in out Knee);
-===     end Shoot_In_Knee;
-===     
-===     task body Shoot_In_Knee is
-===      tb:Bow;
-===      ta:Arrow;
-===      tk:Knee;
-===     begin
-===       loop
-===         select
-===           accept start(b:in Bow; a: in Arrow; k: in out Knee) do
-===              tb := b;
-===              ta := a;
-===              tk := k;
-===           end start;
-===           load(tb,ta);
-===           shoot(tk,tb);
-===         or
-===           Terminate;
-===         end select;
-===       end loop;
-===     end Shoot_In_Knee;
-===     shoot:Shoot_In_Knee;
-===     arrow1:Arrow;bow1:Bow;knee_left:Knee;
-===  begin
-===     shoot.start(bow1,arrow1, knee);
-===  end main;
+    ===  procedure main is
+    ===     type Bow is new Weapon with private;
+    ===     type Arrow is new Ammo with private;
+    ===     type Knee is new Limb with Private;
+    ===     task type Shoot_In_Knee is
+    ===          entry start(b:in Bow; a: in Arrow; k: in out Knee);
+    ===     end Shoot_In_Knee;
+    ===     
+    ===     task body Shoot_In_Knee is
+    ===      tb:Bow;
+    ===      ta:Arrow;
+    ===      tk:Knee;
+    ===     begin
+    ===       loop
+    ===         select
+    ===           accept start(b:in Bow; a: in Arrow; k: in out Knee) do
+    ===              tb := b;
+    ===              ta := a;
+    ===              tk := k;
+    ===           end start;
+    ===           load(tb,ta);
+    ===           shoot(tk,tb);
+    ===         or
+    ===           Terminate;
+    ===         end select;
+    ===       end loop;
+    ===     end Shoot_In_Knee;
+    ===     shoot:Shoot_In_Knee;
+    ===     arrow1:Arrow;bow1:Bow;knee_left:Knee;
+    ===  begin
+    ===     shoot.start(bow1,arrow1, knee);
+    ===  end main;
 
 == SmallTalk
 
