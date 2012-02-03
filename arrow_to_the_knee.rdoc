@@ -86,8 +86,7 @@
 == Ada 
 
 === If you are dumb enough to actually use this language, the United States Department of Defense will kidnap you, stand you up in front of a firing squad and tell the soldiers, "Shoot at the knee." 
-===
-=== or
+===or
       procedure main is
          type Bow is new Weapon with private;
          type Arrow is new Ammo with private;
