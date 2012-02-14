@@ -1,0 +1,19 @@
+V "GNAT Lib v4.4"
+M P W=b
+A -g
+A -g
+A -gnato
+A -gnatwa
+A -gnatQ
+A -gnatc
+A -gnatQ
+A -gnatA
+P CE NO ZX
+R nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnvnvnnnnnnnnnnnnnnnn
+
+U unit_testing%b	unittesting.adb		455443ec OO SU IL
+
+D unittesting.adb	20111210160907 455443ec
+X 1 unittesting.adb
+1U11*unit_testing 1b11 3l8 3t20
+

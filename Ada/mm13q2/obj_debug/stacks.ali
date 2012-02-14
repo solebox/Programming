@@ -1,0 +1,34 @@
+V "GNAT Lib v4.4"
+A -g
+A -g
+A -gnato
+A -gnatwa
+A -gnatQ
+A -gnatc
+A -gnatQ
+A -gnatA
+P CE NO ZX
+R nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnvnnnnnnnnnnnnnnnnvnvnnnnnnnnnnnnnnnn
+
+U stacks%s		stacks.ads		c564a7bd EE OO PK
+
+D stacks.ads		20111128141356 c564a7bd
+X 1 stacks.ads
+1K9*Stacks 17l5 17e11
+2R9*Stack 3r27 4r28 5r22 13c9 16e14
+3V14*pop{integer} 3>18
+3r18 s{2R9}
+4U14*push 4=19 4>34
+4r19 s{2R9}
+4i34 num{integer}
+5V13*top{integer} 5>17
+5r17 s{2R9}
+7R9 Node 8r27 9c9 12e14
+8P9 NodePtr(7R9) 11r17 14r18
+10i7*key{integer}
+11p7*next{8P9}
+11p12*prev{8P9}
+14p7*first{8P9}
+14p13*last{8P9}
+15i7*size{integer}
+

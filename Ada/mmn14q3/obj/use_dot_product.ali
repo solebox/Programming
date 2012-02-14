@@ -1,0 +1,63 @@
+V "GNAT Lib v4.4"
+M P W=b
+A -g
+A -g
+A -gnato
+A -gnatwa
+A -gnatQ
+A -gnat05
+A -gnatA
+P SS ZX
+R nnnvnnnnnnnnnnnnnnnnnnnnnnnnvnnnnnnnnnvnnvnnnnnnnnnnnnnvnnvnnnnnnnnnnnnnnnnnn
+
+U use_dot_product%b	use_dot_product.adb	2f93c8dc NE OO SU IL
+W dot_product%s		dot_product.adb		dot_product.ali
+W gnat%s		gnat.ads		gnat.ali
+W gnat.io%s		g-io.adb		g-io.ali
+W system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+W system.string_ops%s	s-strops.adb		s-strops.ali
+
+D ada.ads		20070406091342 9c7dd3ea
+D a-unccon.ads		20070406091342 51e09df2
+D dot_product.ads	20120101224139 a9d19700
+D dot_product.adb	20111231141803 b5c3176f
+D gnat.ads		20050905075125 96410e68
+D g-io.ads		20050905080700 71d8ada9
+D system.ads		20110917192145 df55302f
+D s-secsta.ads		20090409232307 7bae3621
+D s-stoele.ads		20090409232307 ed966df3
+D s-stoele.adb		20090409232307 e9998c78
+D s-strops.ads		20090409232307 845f72d2
+D s-sopco3.ads		20090409232307 72ce1063
+D s-sopco4.ads		20090409232307 bc112723
+D s-sopco5.ads		20090409232307 191315e8
+D use_dot_product.adb	20120101152034 f79af275
+X 3 dot_product.ads
+9E9 LIndex 15|24r47
+11+9 LItem 15|24r67
+13A9 LVec(11+9)<9E9> 15|24r87
+15E9 RIndex 15|25r47
+17+9 RItem 15|25r67
+19A9 RVec(17+9)<15E9> 15|25r86
+21+9 Result 15|26r47
+23V18 "*"{21+9} 15|27r47
+25V18 "+"{21+9} 15|28r47
+31v10*dot_product 15|2w6 24r35
+X 5 gnat.ads
+36K9*GNAT 39e9 15|1r6 1r20
+X 6 g-io.ads
+43K14*IO 93e12 15|1w11 1r25
+74U14*Put_Line 15|32r7
+X 15 use_dot_product.adb
+10U11*use_dot_product 10b11 33l5 33t20
+11A9 Numrr(positive)<integer> 25r94 30r20
+13V13 multiply_ch{string} 13b13 13>25 13>38 22l8 22t19 27r54
+13e25 ch{character} 19r41
+13i38 num{positive} 18r19
+14P12 StrPtr(string) 15r12
+15p7 stpt{14P12} 17m7 19m10 19r30 21r14
+18i11 i{integer}
+24V13 my_dot_product[3|31]{string} 4|1b10 15|32r16
+29a4 s1{string} 32r31
+30a4 numrr1{11A9} 32r34
+

@@ -1,0 +1,56 @@
+V "GNAT Lib v4.4"
+M P W=b
+P SS ZX
+R nnnvnnnnnnnnnnnnnnnnnnnnnnnnvnnnnnnnnnvnnvnnnnnnnnnnnnnvnnnnnnnnnnnnnnnnnnnnn
+
+U use_dot_product%b	use_dot_product.adb	cd4c2944 NE OO SU IL
+W dot_product%s		dot_product.adb		dot_product.ali
+W gnat%s		gnat.ads		gnat.ali
+W gnat.io%s		g-io.adb		g-io.ali
+W system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+W system.string_ops%s	s-strops.adb		s-strops.ali
+
+D ada.ads		20070406091342 9c7dd3ea
+D a-unccon.ads		20070406091342 51e09df2
+D dot_product.ads	20111231132349 4b0e7698
+D dot_product.adb	20111231141803 b5c3176f
+D gnat.ads		20050905075125 96410e68
+D g-io.ads		20050905080700 71d8ada9
+D system.ads		20110917192145 df55302f
+D s-secsta.ads		20090409232307 7bae3621
+D s-stoele.ads		20090409232307 ed966df3
+D s-stoele.adb		20090409232307 e9998c78
+D s-strops.ads		20090409232307 845f72d2
+D s-sopco3.ads		20090409232307 72ce1063
+D s-sopco4.ads		20090409232307 bc112723
+D s-sopco5.ads		20090409232307 191315e8
+D use_dot_product.adb	20111231145056 f79af275
+X 3 dot_product.ads
+2E9 LIndex 15|16r47
+3+9 LItem 15|16r67
+4A9 LVec(3+9)<2E9> 15|16r87
+6E9 RIndex 15|17r47
+7+9 RItem 15|17r67
+8A9 RVec(7+9)<6E9> 15|17r86
+10+9 Result 15|18r47
+12V18 "*"{10+9} 15|19r47
+13V18 "+"{10+9} 15|20r47
+15v10*dot_product 15|2w6 16r35
+X 5 gnat.ads
+36K9*GNAT 39e9 15|1r6 1r20
+X 6 g-io.ads
+43K14*IO 93e12 15|1w11 1r25
+74U14*Put_Line 15|26r7
+X 15 use_dot_product.adb
+3U11*use_dot_product 3b11 27l5 27t20
+4A9 Numrr(positive)<integer> 17r94 22r20
+5V13 multiply_ch{string} 5b13 5>25 5>38 14l8 14t19 19r54
+5e25 ch{character} 11r41
+5i38 num{positive} 10r19
+6P12 StrPtr(string) 7r12
+7p7 stpt{6P12} 9m7 11m10 11r30 13r14
+10i11 i{integer}
+16V13 my_dot_product[3|15]{string} 4|1b10 15|26r16
+21a4 s1{string} 26r31
+22a4 numrr1{4A9} 26r34
+

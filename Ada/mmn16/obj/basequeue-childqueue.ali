@@ -1,0 +1,47 @@
+V "GNAT Lib v4.4"
+A -g
+A -g
+A -gnato
+A -gnatwa
+A -gnatQ
+A -gnat05
+A -gnatc
+A -gnatQ
+A -gnatA
+P NO ZX
+R nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnvnvnnnnnnnnnnnnnnnn
+
+U basequeue.boundedqueues%s  basequeue-childqueue.ads  fdcc8de0 EE OO PK GE IL
+W basequeue%s		basequeue.ads		basequeue.ali
+
+D basequeue.ads		20120108193453 8ab9bb8c
+D basequeue-childqueue.ads  20120108193644 7775366c
+X 1 basequeue.ads
+3+9 Item 2|11r24 15r31 26r44
+6k9*BaseQueue 29e14 2|3r9 35r5
+8H9*Queue 28e45 2|4r29 29r29
+X 2 basequeue-childqueue.ads
+3k19 BoundedQueues 1|6k9 2|35l15 35e28
+4R9*BoundedQueue<1|8R9> 7P14 7r38 11P14 11r47 15P14 15r53 17P13 17r35 22P13
+. 22r31 29c9 34e14
+7U14*create<1|11p14> 7=21
+7r21 queue_io{4R9}
+11U14*add<1|15p14> 11>18 11=30
+11*18 i{1|3+9}
+11r30 queue_io{4R9}
+15U14*remove<1|19p14> 15=21 15=36
+15*21 i{1|3+9}
+15r36 queue_io{4R9}
+17V13*toString{string}<1|21p13> 17>22
+17r22 queue_in{4R9}
+22V13*size{natural}<1|26p13> 22>18
+22r18 queue_in{4R9}
+25N4 MAX_SIZE 26r31 27r49
+26A9 ItemArray(1|3+9)<integer> 30r12
+27I12 BoundedQueueMark{natural} 31r12 32r12
+29R9 BoundedQueue<1|8R9> 7P14 11P14 15P14 17P13 22P13
+30a7 Data{26A9}
+31i7 head{27I12}
+32i7 tail{27I12}
+33i7 size{natural}
+

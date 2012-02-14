@@ -1,0 +1,35 @@
+V "GNAT Lib v4.4"
+A -g
+A -g
+A -gnato
+A -gnatwa
+A -gnatQ
+A -gnat05
+A -gnatA
+P ZX
+R nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnvnnnnnnnnnnnnnnnnnn
+
+U queues.maxqueues%s	queues-maxqueues.ads	85ca5dc9 NE OO PK GE
+W queues%s		queues.ads		queues.ali
+
+D queues.ads		20120117100035 9f1c4db9
+D queues-maxqueues.ads	20120117100112 1ad61070
+D system.ads		20110917192145 df55302f
+X 1 queues.ads
+3+9 Item 2|3r34 9r44
+6k9*Queues 27e11 2|4r9 10r5
+7H9*Queue 26e45 2|6r34
+10y13*create{7R9}
+14x14*add
+18x14*remove
+20y13*toString{string}
+22y13*size{natural}
+X 2 queues-maxqueues.ads
+3V18 "<"{boolean} 3>22 3>28
+3*22 item1{1|3+9}
+3*28 item2{1|3+9}
+4k16 MaxQueues 1|6k9 2|3z18 10l12 10e21
+6H9*MaxQueue<1|7R9> 1|10p13 14p14 18p14 20p13 22p13 2|6e56 9p13 9r27
+9y13*Max{1|3+9} 9>17
+9r17 max_queue{6R9}
+

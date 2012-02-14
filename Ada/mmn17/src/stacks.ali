@@ -1,0 +1,44 @@
+V "GNAT Lib v4.4"
+P ZX
+R nnnnnnnnnnnnnnnnnnvnnnnnnnvnnnnnnnnnnnnnnvnnnnnnnnnnnnnnnnnnvnnnnnnnnnnnnnnnn
+
+U stacks%b		stacks.adb		ace81796 NE OO PK IL
+W ada.exceptions%s	a-except.adb		a-except.ali
+
+U stacks%s		stacks.ads		791f2461 EE OO PK IL
+W system%s		system.ads		system.ali
+W system.exception_table%s  s-exctab.adb	s-exctab.ali
+W system.standard_library%s  s-stalib.adb	s-stalib.ali
+
+D ada.ads		20070406091342 9c7dd3ea
+D a-except.ads		20090409232307 b54b55de
+D a-unccon.ads		20070406091342 51e09df2
+D stacks.ads		20120205005248 791f2461
+D stacks.adb		20120205005350 d5f733f7
+D system.ads		20110917192145 df55302f
+D s-exctab.ads		20090409232307 5c1c61ae
+D s-parame.ads		20090409232307 f32e56e9
+D s-stalib.ads		20090409232307 52b793d5
+D s-traent.ads		20090409232307 bd5f2753
+X 4 stacks.ads
+1K9*stacks 23l5 23e11 5|1b14 36l5 36t11
+3R9*Stack 5r31 6r34 7r33 8r29 15c9 19e14 5|3r31 11r34 21r33 31r29
+5U14*init 5<19 5|3b14 9l8 9t12
+5r19 a_stack{3R9} 5|3b19 5m7 6m7 7m7 8m7
+6U14*push 6=19 6>41 5|11b14 19l8 19t12
+6r19 a_stack{3R9} 5|11b19 13r10 16m7 16r20 17m7 17r23 18m7 18r23
+6i41 an_element{integer} 5|11b41 16r37
+7U14*pop 7=18 7<40 5|21b14 29l8 29t11
+7r18 a_stack{3R9} 5|21b18 23r10 26m7 26r23 27r21 27r34 28m7 28r23
+7i40 an_element{integer} 5|21b40 27m7
+8V13*size{natural} 8>18 5|31b13 34l8 34t12
+8r18 a_stack{3R9} 5|31b18 33r14
+9i4*STACK_MAX_SIZE{positive} 16r26 5|13r25
+10X4*UNDERFLOW 5|24r16
+10X14*OVERFLOW 5|14r16
+13A9 Stack_Data(integer)<integer> 16r12
+16a7*data{13A9} 5|8m15 16m15 27m29
+17i7*head{positive} 5|6m15
+17i12*tail{positive} 5|7m15 16r28 17m15 17r31 26m15 26r31 27r42
+18i7*size{natural} 5|5m15 13r18 18m15 18r31 23r18 28m15 28r31 33r22
+

@@ -1,0 +1,36 @@
+V "GNAT Lib v4.4"
+P ZX
+R nnnvnnnnnnnnnnnnnnnnnnnnnnnnvnnnnnnnnnnnnvnnnnnnnnnnnnnvnnnnnnnnnnnnnnnnnnnnn
+
+U dot_product%b		dot_product.adb		fecd61f7 NE OO SU GE IL
+
+U dot_product%s		dot_product.ads		4b0e7698 BN EE NE OO GE IL
+
+D dot_product.ads	20111231132349 4b0e7698
+D dot_product.adb	20111231141803 b5c3176f
+D system.ads		20110917192145 df55302f
+X 1 dot_product.ads
+2E9 LIndex 4r23 2|3r7 12r10 22r16
+3+9 LItem 4r43 12r28
+4A9 LVec(3+9)<2E9> 15r29 2|1r29
+6E9 RIndex 8r23 2|4r7 11r10 16r16
+7+9 RItem 8r43 12r42
+8A9 RVec(7+9)<6E9> 15r42 2|1r41
+10+9 Result 12r56 13r33 13r48 15r55 2|1r54 2r29 10r14 15r20 21r20
+12V18 "*"{10+9} 12>22 12>35 2|10r32 15r46 21r47
+12*22 left{3+9}
+12*35 right{7+9}
+13V18 "+"{10+9} 13>22 13>27 2|15r35 21r35
+13*22 left{10+9}
+13*27 right{10+9}
+15v10*dot_product 15>22 15>34 2|1b10 27l5 27t16
+15*22 leftv{4A9} 2|1b22 8r10 10r22 13r7 14r20 15r38 21r38
+15*34 rightv{8A9} 2|1b34 9r10 10r35 13r23 15r47 20r20 21r48
+X 2 dot_product.adb
+2P9 ResultPtr(1|10+9) 5r7
+3*4 li{1|2E9} 8m4 10r28 12m4 12r22 14r16 21r44 22m10 22r28
+4*4 ri{1|6E9} 9m4 10r42 11m4 11r22 15r54 16m10 16r28 20r16
+5p4 rp{2P9} 10m4 15m10 15r28 21m10 21r28 26r11
+14e11 i 15r44
+20e11 i 21r55
+

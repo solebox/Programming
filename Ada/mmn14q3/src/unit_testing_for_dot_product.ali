@@ -1,0 +1,43 @@
+V "GNAT Lib v4.4"
+P ZX
+R nnnvnnnnnnnnnnnnnnnnnvnnnnnnvnnnnnnnnnnnnvnnnnnnnnnnnnnvnnnnnnnnnnnnnnnnnnnnn
+
+U unit_testing_for_dot_product%b  unit_testing_for_dot_product.adb  c30b9d84 NE OO PK IL
+W dot_product%s		dot_product.adb		dot_product.ali
+
+U unit_testing_for_dot_product%s  unit_testing_for_dot_product.ads  bf756997 EE NE OO PK IL
+
+D dot_product.ads	20111231132349 4b0e7698
+D dot_product.adb	20111231141803 b5c3176f
+D system.ads		20110917192145 df55302f
+D unit_testing_for_dot_product.ads  20120101130956 bf756997
+D unit_testing_for_dot_product.adb  20120101132236 3770828b
+X 1 dot_product.ads
+2E9 LIndex 5|13r48 27r46
+3+9 LItem 5|13r68 27r64
+4A9 LVec(3+9)<2E9> 5|14r7 28r7
+6E9 RIndex 5|14r22 28r23
+7+9 RItem 5|14r42 28r42
+8A9 RVec(7+9)<6E9> 5|14r58 28r57
+10+9 Result 5|14r74 28r72
+12V18 "*"{10+9} 5|14r90 28r86
+13V18 "+"{10+9} 5|14r99 28r95
+15v10*dot_product 5|2w6 13r36 27r34
+X 4 unit_testing_for_dot_product.ads
+1K9*unit_testing_for_dot_product 6l5 6e33 5|4b14 38l5 38t33
+2V10*int_with_int{boolean} 5|6b13 18l11 18t23
+3V10*float_with_float{boolean} 5|20b13 33l11 33t27
+X 5 unit_testing_for_dot_product.adb
+7A12 vector1(integer)<integer> 8r13 14r14
+8a7 vec1{7A12} 16r29
+9A12 vector2(integer)<integer> 10r13 14r65
+10a7 vec2{9A12} 16r35
+11b7 flag{boolean} 16m10 17r17
+13V16 int_with_int[1|15]{integer} 2|1b10 5|16r16
+21A9 vector1(float)<integer> 22r13 28r15
+22a7 vec1{21A9} 31r27
+23A12 vector2(float)<integer> 24r13 28r63
+24a7 vec2{23A12} 31r33
+25b7 flag{boolean} 31m10 32r17
+27V16 fl_with_fl[1|15]{float} 2|1b10 5|31r16
+

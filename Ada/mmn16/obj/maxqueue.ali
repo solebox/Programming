@@ -1,0 +1,23 @@
+V "GNAT Lib v4.4"
+A -g
+A -g
+A -gnato
+A -gnatwa
+A -gnatQ
+A -gnat05
+A -gnatc
+A -gnatQ
+A -gnatA
+P NO ZX
+R nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnvnvnnnnnnnnnnnnnnnn
+
+U queues.maxqueue%s	maxqueue.ads		25ddd256 EE OO PK GE
+W queues%s		queues.ads		queues.ali
+
+D queues.ads		20120114131723 dcfd6eda
+D maxqueue.ads		20120114135759 f920bc8c
+X 1 queues.ads
+6k9*Queues 27e11 2|2r9 4r5
+X 2 maxqueue.ads
+2k16 MaxQueue 1|6k9 2|4l12 4e20
+

@@ -1,0 +1,24 @@
+V "GNAT Lib v4.4"
+A -g
+A -g
+A -gnato
+A -gnatwa
+A -gnatQ
+A -gnatc
+A -gnatQ
+A -gnatA
+P NO ZX
+R nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnvnvnnnnnnnnnnnnnnnn
+
+U bankunittesting%s	bankunittesting.ads	ed37d971 EE OO PK IL
+
+D bankunittesting.ads	20111210164515 ed37d971
+X 1 bankunittesting.ads
+1K9*BankUnitTesting 8l5 8e20
+2X4*Test_Failed
+3U14*deposit_check
+4U14*withdrawal_check
+5U14*transfer_check
+6U14*get_balance_check
+7U14*get_owner_name_check
+

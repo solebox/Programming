@@ -1,0 +1,23 @@
+V "GNAT Lib v4.4"
+A -g
+A -g
+A -gnato
+A -gnatwa
+A -gnatQ
+A -gnat05
+A -gnatc
+A -gnatQ
+A -gnatA
+P NO ZX
+R nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnvnvnnnnnnnnnnnnnnnn
+
+U gqueue_testing%s	gqueue_testing.ads	280ff1bd EE OO PK
+
+D gqueue_testing.ads	20111227200953 280ff1bd
+X 1 gqueue_testing.ads
+5K9*Gqueue_Testing 14l5 14e19
+7U14*add_remove_test
+9U14*underflow_exception_test
+12U14*overflow_exception_test
+13X4*TEST_FAILED
+

@@ -1,0 +1,128 @@
+V "GNAT Lib v4.4"
+A -g
+A -g
+A -gnatA
+A -gnatWb
+A -gnatiw
+A -g
+A -gnatws
+A -mtune=generic
+P ZX
+R nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnvvnnvnnnnnnnnnnnnnnn
+
+U ada_main%b		b~use_dot_product.adb	b8aa3a80 NE OO PK IL
+W system%s		system.ads		system.ali
+
+U ada_main%s		b~use_dot_product.ads	59c8d110 EE NE OO PK IL
+W system%s		system.ads		system.ali
+
+D b~use_dot_product.ads	20120106113646 869de13f
+D b~use_dot_product.adb	20120106113646 3e37dbbf
+D system.ads		20110917192145 df55302f
+X 1 b~use_dot_product.ads
+3K9*ada_main 199l5 199e13 2|5b14 135l5 135t13
+6i4*gnat_argc{integer} 10m22 2|113m7
+7m4*gnat_argv{3|64M9} 11m22 2|114m7
+8m4*gnat_envp{3|64M9} 12m22 2|115m7
+14i4*gnat_exit_status{integer} 15m22 2|123r15
+17a4*GNAT_Version{string} 19r22
+21a4*Ada_Main_Program_Name{string} 22r22 2|109r52
+24U14*adafinal 25r22 2|87b14 90l8 90t16
+27U14*adainit 28r22 2|14b14 85l8 85t15 118r7
+30U14*Break_Start 31b<c,__gnat_break_start>22 2|119r7
+33V13*main{integer} 34>7 35>7 36>7 38r22 2|92b13 124t7
+34i7 argc{integer} 2|93b7 113r20
+35m7 argv{3|64M9} 2|94b7 114r20
+36m7 envp{3|64M9} 2|95b7 115r20
+40M9*Version_32 41r22 42r22 43r22 44r22 45r22 46r22 47r22 48r22 49r22 50r22
+. 51r22 52r22 53r22 54r22 55r22 56r22 57r22 58r22 59r22 60r22 61r22 62r22
+. 63r22 64r22 65r22 66r22 67r22 68r22 69r22 70r22 71r22 72r22 73r22 74r22
+. 75r22 76r22 77r22 78r22 79r22 80r22 81r22 82r22 83r22 84r22 85r22 86r22
+. 87r22 88r22 89r22 90r22 91r22
+41m4*u00001{40M9} 93r22
+42m4*u00002{40M9} 94r22
+43m4*u00003{40M9} 95r22
+44m4*u00004{40M9} 96r22
+45m4*u00005{40M9} 97r22
+46m4*u00006{40M9} 98r22
+47m4*u00007{40M9} 99r22
+48m4*u00008{40M9} 100r22
+49m4*u00009{40M9} 101r22
+50m4*u00010{40M9} 102r22
+51m4*u00011{40M9} 103r22
+52m4*u00012{40M9} 104r22
+53m4*u00013{40M9} 105r22
+54m4*u00014{40M9} 106r22
+55m4*u00015{40M9} 107r22
+56m4*u00016{40M9} 108r22
+57m4*u00017{40M9} 109r22
+58m4*u00018{40M9} 110r22
+59m4*u00019{40M9} 111r22
+60m4*u00020{40M9} 112r22
+61m4*u00021{40M9} 113r22
+62m4*u00022{40M9} 114r22
+63m4*u00023{40M9} 115r22
+64m4*u00024{40M9} 116r22
+65m4*u00025{40M9} 117r22
+66m4*u00026{40M9} 118r22
+67m4*u00027{40M9} 119r22
+68m4*u00028{40M9} 120r22
+69m4*u00029{40M9} 121r22
+70m4*u00030{40M9} 122r22
+71m4*u00031{40M9} 123r22
+72m4*u00032{40M9} 124r22
+73m4*u00033{40M9} 125r22
+74m4*u00034{40M9} 126r22
+75m4*u00035{40M9} 127r22
+76m4*u00036{40M9} 128r22
+77m4*u00037{40M9} 129r22
+78m4*u00038{40M9} 130r22
+79m4*u00039{40M9} 131r22
+80m4*u00040{40M9} 132r22
+81m4*u00041{40M9} 133r22
+82m4*u00042{40M9} 134r22
+83m4*u00043{40M9} 135r22
+84m4*u00044{40M9} 136r22
+85m4*u00045{40M9} 137r22
+86m4*u00046{40M9} 138r22
+87m4*u00047{40M9} 139r22
+88m4*u00048{40M9} 140r22
+89m4*u00049{40M9} 141r22
+90m4*u00050{40M9} 142r22
+91m4*u00051{40M9} 143r22
+X 2 b~use_dot_product.adb
+8U14 Do_Finalize 9b<c,system__standard_library__adafinal>22 89r7 121r7
+11a4 Local_Priority_Specific_Dispatching{string} 64r9
+12a4 Local_Interrupt_States{string} 66r27
+15b7*E10{boolean} 15m42 81m7
+16b7*E16{boolean} 16m42 79m7
+17b7*E22{boolean} 17m42 83m7
+18b7*E05{boolean} 18m42 84m7
+20i7*Main_Priority{integer} 21m25 57m7
+22i7*Time_Slice_Value{integer} 23m25 58m7
+24e7*WC_Encoding{character} 25m25 59m7
+26e7*Locking_Policy{character} 27m25 60m7
+28e7*Queuing_Policy{character} 29m25 61m7
+30e7*Task_Dispatching_Policy{character} 31m25 62m7
+32m7*Priority_Specific_Dispatching{3|64M9} 33m25 63m7
+34i7*Num_Specific_Dispatching{integer} 35m25 65m7
+36m7*Interrupt_States{3|64M9} 37m25 66m7
+38i7*Num_Interrupt_States{integer} 39m25 67m7
+40i7*Unreserve_All_Interrupts{integer} 41m25 68m7
+42i7*Zero_Cost_Exceptions{integer} 43m25 69m7
+44i7*Detect_Blocking{integer} 45m25 70m7
+46i7*Default_Stack_Size{integer} 47m25 71m7
+48i7*Leap_Seconds_Support{integer} 49m25 72m7
+51U17*Install_Handler 52b<c,__gnat_install_handler>25 75r10
+54i7*Handler_Installed{integer} 55m25 74r10
+98U17*initialize 98>29 99b<c,__gnat_initialize>25 117r7
+98m29 Addr{3|64M9}
+101U17*finalize 102b<c,__gnat_finalize>25 122r7
+104U17*Ada_Main_Program 105b<ada,_ada_use_dot_product>27 120r7
+107a7 SEH(integer) 117m19
+109m7 Ensure_Reference{3|64M9} 110r24
+X 3 system.ads
+37K9*System 1|2w6 7r16 8r16 35r14 36r14 2|32r39 36r26 94r14 95r14 98r36 109r34
+. 3|153e11
+64M9*Address 1|7r23 8r23 35r21 36r21 2|32r46 36r33 94r21 95r21 98r43 109r41
+

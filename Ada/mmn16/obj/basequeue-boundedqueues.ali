@@ -1,0 +1,55 @@
+V "GNAT Lib v4.4"
+A -g
+A -g
+A -gnato
+A -gnatwa
+A -gnatQ
+A -gnat05
+A -gnatA
+P ZX
+R nnnvnnnnnnnnnnnnnnnnnnnnnnnnvnnnnnnnnnnnnvnnnnnnnnnnnnnvnnvnnnnnnnnnnnnnnnnnn
+
+U basequeue.boundedqueues%b  basequeue-boundedqueues.adb  546f2611 NE OO PK GE IL
+W basequeue%s		basequeue.ads		basequeue.ali
+
+U basequeue.boundedqueues%s  basequeue-boundedqueues.ads  fdcc8de0 BN EE NE OO PK GE IL
+W basequeue%s		basequeue.ads		basequeue.ali
+
+D basequeue.ads		20120111100035 8ab9bb8c
+D basequeue-boundedqueues.ads  20120111101255 7775366c
+D basequeue-boundedqueues.adb  20120111093052 231a107d
+D system.ads		20110917192145 df55302f
+X 1 basequeue.ads
+3+9 Item 2|11r24 15r31 26r44 3|9r27 16r34
+5V18 itemToString{string} 3|28r70
+6k9*BaseQueue 28e14 2|3r9 35r5 3|1r14 37r5
+8H9*Queue 27e45 2|4r29 29r29
+X 2 basequeue-boundedqueues.ads
+3k19 BoundedQueues 1|6k9 2|35l15 35e28 3|1b24 37l15 37t28
+4R9*BoundedQueue<1|8R9> 7P14 7r38 11P14 11r47 15P14 15r53 17P13 17r35 22P13
+. 22r31 29c9 34e14 3|3r38 9r50 16r56 22r38 33r34
+7U14*create<1|10p14> 7=21 3|3b14 7l8 7t14
+7r21 queue_io{4R9} 3|3b21 5m7 6m7
+11U14*add<1|14p14> 11>18 11=30 3|9b17 14l11 14t14
+11*18 i{1|3+9} 3|9b21 12r42
+11r30 queue_io{4R9} 3|9b33 11m10 11r27 12m10 12r24
+15U14*remove<1|18p14> 15=21 15=36 3|16b17 20l11 20t17
+15*21 i{1|3+9} 3|16b24 18m10
+15r36 queue_io{4R9} 3|16b39 18r15 18r29 19m10 19r27
+17V13*toString{string}<1|20p13> 17>22 3|22b16 31l11 31t19
+17r22 queue_in{4R9} 3|22b25 27r19 28r83
+22V13*size{natural}<1|25p13> 22>18 3|33b16 36l11 36t15
+22r18 queue_in{4R9} 3|33b21 35r25 35r41
+25N4 MAX_SIZE 26r31 27r49
+26A9 ItemArray(1|3+9)<integer> 30r12
+27I12 BoundedQueueMark{natural} 31r12 32r12
+29R9 BoundedQueue<1|8R9> 7P14 11P14 15P14 17P13 22P13
+30a7 Data{26A9} 3|12m19 18m24 27r28 28m92
+31i7 head{27I12} 3|5m16 18r38 19r36 35r50
+32i7 tail{27I12} 3|6m16 11m19 11r36 12r33 19m19 35r34
+33i7 size{natural}
+X 3 basequeue-boundedqueues.adb
+23P15 strPtr(string) 24r25
+24p10 string_pointer{23P15} 26m10 28m13 28r43 30r17
+27i14 j{integer} 28r97
+

@@ -1,0 +1,43 @@
+V "GNAT Lib v4.4"
+M P W=b
+A -g
+A -g
+A -gnato
+A -gnatwa
+A -gnatQ
+A -gnat05
+A -gnatc
+A -gnatQ
+A -gnatA
+P NO ZX
+R nnnnnnnnnnnnnnnnnnnnnnvnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnvnvnnnnnnnnnnnnnnnn
+
+U use_unit_testing_for_dot_product%b  use_unit_testing_for_dot_product.adb  cf813d8e OO SU IL
+W text_io%s		text_io.ads		text_io.ali
+W unit_testing_for_dot_product%s  unit_testing_for_dot_product.adb  unit_testing_for_dot_product.ali
+
+D ada.ads		20070406091342 9c7dd3ea
+D a-ioexce.ads		20070406091342 be0900a0
+D a-stream.ads		20090409232307 34aca5be
+D a-textio.ads		20090409232307 fe8af46e
+D interfac.ads		20090409232307 a69cad5c
+D i-cstrea.ads		20090409232307 e1e064a9
+D system.ads		20110917192145 df55302f
+D s-crtl.ads		20090409232307 997234a1
+D s-ficobl.ads		20090409232307 8bb681e5
+D s-parame.ads		20090409232307 f32e56e9
+D s-wchcon.ads		20090409232307 ab028799
+D text_io.ads		20070406091342 7c37c8ff
+D unit_testing_for_dot_product.ads  20120101130956 bf756997
+D use_unit_testing_for_dot_product.adb  20120101131032 0cc39ce6
+X 4 a-textio.ads
+263U14*Put_Line 14|5r9 7r12 9r12 12r12 14r12
+X 12 text_io.ads
+24K9*Text_IO=24:29 14|1w6 1r19
+X 13 unit_testing_for_dot_product.ads
+1K9*unit_testing_for_dot_product 6e33 14|2w6 2r40
+2V10*int_with_int{boolean} 14|6r12
+3V10*float_with_float{boolean} 14|11r12
+X 14 use_unit_testing_for_dot_product.adb
+3U11*use_unit_testing_for_dot_product 3b11 17l6 17t38
+

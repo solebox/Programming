@@ -1,0 +1,74 @@
+V "GNAT Lib v4.4"
+A -g
+A -g
+A -gnato
+A -gnatwa
+A -gnatQ
+A -gnatA
+P SS ZX
+R nnnvnnnnnnnnnnnvnnvnnnnnnnnnvnnnnnnnnnvnnvnnnnnnnnnnnnnnnnvnvnnnnnnnnnnnnnnnn
+
+U accounts%b		accounts.adb		d52c2b65 NE OO PK
+W ada.exceptions%s	a-except.adb		a-except.ali
+W system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+W system.soft_links%s	s-soflin.adb		s-soflin.ali
+
+U accounts%s		accounts.ads		04db2600 EE OO PK
+W system%s		system.ads		system.ali
+W system.exception_table%s  s-exctab.adb	s-exctab.ali
+W system.standard_library%s  s-stalib.adb	s-stalib.ali
+
+D accounts.ads		20111205234538 04db2600
+D accounts.adb		20111205234458 d1f70d65
+D ada.ads		20070406091342 9c7dd3ea
+D a-except.ads		20090409232307 b54b55de
+D a-unccon.ads		20070406091342 51e09df2
+D system.ads		20110917192145 df55302f
+D s-exctab.ads		20090409232307 5c1c61ae
+D s-parame.ads		20090409232307 f32e56e9
+D s-secsta.ads		20090409232307 7bae3621
+D s-soflin.ads		20090409232307 0c6fd39d
+D s-stache.ads		20090409232307 257b3be8
+D s-stalib.ads		20090409232307 52b793d5
+D s-stoele.ads		20090409232307 ed966df3
+D s-stoele.adb		20090409232307 e9998c78
+D s-traent.ads		20090409232307 bd5f2753
+X 1 accounts.ads
+1K9*Accounts 26l5 26e13 2|1b14 50l5 50t13
+2X4*exceeding_minimum_balance 2|17r19
+3X4*exceeding_maximum_balance 2|24r16
+4R9*Account 6r29 7r36 8r33 9r40 11r36 12r33 13r43 14r35 20c9 24e14 25r29
+. 2|2r29 8r29 12r36 19r33 26r40 31r36 35r33 39r43 43r35
+6U14*set 6=18 6>37 6>52 2|8b14 11l8 11t11
+6r18 acc{4R9} 2|8b18 10m11
+6s37 name{string} 2|8b37 10r15
+6i52 acc_number{positive} 2|8b52 10r20
+7U14*withdrawal 7=25 7>44 2|12b14 18l8 18t18 28r7
+7r25 acc{4R9} 2|12b25 14m7 14r26
+7i44 amount{positive} 2|12b44 14r44
+8U14*deposit 8=22 8>41 2|19b14 25l8 25t15 29r7
+8r22 acc{4R9} 2|19b22 21m7 21r26
+8i41 amount{positive} 2|19b41 21r44
+9U14*transfer 9=23 9=28 9>48 2|26b14 30l8 30t16
+9r23 acc1{4R9} 2|26b23 28m18
+9r28 acc2{4R9} 2|26b28 29m15
+9i48 amount{positive} 2|26b48 28r23 29r20
+11V13*balance_inquiry{integer} 11>29 2|31b13 34l8 34t23
+11r29 acc{4R9} 2|31b29 33r14
+12V13*name_inquiry{string} 12>26 2|35b13 38l8 38t20
+12r26 acc{4R9} 2|35b26 37r14
+13V13*account_number_inquiry{positive} 13>36 2|39b13 42l8 42t30
+13r36 acc{4R9} 2|39b36 41r14
+14V13*is_initialized{boolean} 14>28 2|43b13 49l8 49t22
+14r28 acc{4R9} 2|43b28 45r10
+17P9 Client(string) 21r19
+18I12 Balance{integer} 23r19 25r90 2|2r90
+21p7*client_name{17P9} 2|4m11 37m18 45r14
+22i7*acc_number{positive} 2|5m11 41r18
+23i7*acc_balance{18I12} 2|6m11 14m11 14r30 21m11 21r30 33r18
+25U14 set 25=18 25>37 25>52 25>75 2|2b14 7l8 7t11 10r7
+25r18 acc{4R9} 2|2b18 4m7 5m7 6m7
+25s37 name{string} 2|2b37 4r38
+25i52 acc_number{positive} 2|2b52 5r25
+25i75 acc_balance{18I12} 2|2b75 6r26
+

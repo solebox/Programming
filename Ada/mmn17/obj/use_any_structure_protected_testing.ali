@@ -1,0 +1,21 @@
+V "GNAT Lib v4.4"
+A -g
+A -g
+A -gnato
+A -gnatwa
+A -gnatQ
+A -gnat05
+A -gnatc
+A -gnatQ
+A -gnatA
+P NO ZX
+R nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnvnvnnnnnnnnnnnnnnnn
+
+U use_any_structure_protected_testing%s  use_any_structure_protected_testing.ads  41b62c78 EE OO PK IL
+
+D use_any_structure_protected_testing.ads  20120207151701 41b62c78
+X 1 use_any_structure_protected_testing.ads
+1K9*use_any_structure_protected_testing 5l5 5e40
+3U14*test_insert_and_remove
+4X4*TEST_FAILED
+

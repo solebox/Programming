@@ -1,0 +1,54 @@
+V "GNAT Lib v4.4"
+M P W=b
+A -g
+A -g
+A -gnato
+A -gnatwa
+A -gnatQ
+A -gnatA
+P ZX
+R nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnvnnvnnnnnnnnnnnnnnnnnn
+
+U banking%b		banking.adb		a61c3324 NE OO SU IL
+W accounts%s		accounts.adb		accounts.ali
+W bank%s		bank.adb		bank.ali
+W gnat%s		gnat.ads		gnat.ali
+W gnat.io%s		g-io.adb		g-io.ali
+
+D accounts.ads		20111205234538 04db2600
+D ada.ads		20070406091342 9c7dd3ea
+D a-unccon.ads		20070406091342 51e09df2
+D bank.ads		20111210163752 0cc447b7
+D banking.adb		20111205234946 dfdbff3a
+D gnat.ads		20050905075125 96410e68
+D g-io.ads		20050905080700 71d8ada9
+D system.ads		20110917192145 df55302f
+D s-exctab.ads		20090409232307 5c1c61ae
+D s-stalib.ads		20090409232307 52b793d5
+X 1 accounts.ads
+1K9*Accounts 26e13 5|2w6 2r20
+4R9*Account 24e14 5|5r9 6r9 7r9
+6U14*set 5|9r4 10r4 11r4
+6r18 acc{4R9} 5|9r8 10r8 11r8
+6s37 name{string} 5|9r20 10r21 11r21
+6i52 acc_number{positive} 5|9r37 10r37 11r39
+8U14*deposit 5|12r4 13r4 14r4
+13V13*account_number_inquiry{positive} 5|21r20
+X 4 bank.ads
+2K9*Bank 49e9 5|3w6 15r4 16r4 17r4 18r4 19r4 20r4 21r4 22r4
+16U14*insert 5|15r9 16r9 17r9
+18U14*put_all 5|22r9
+23U14*deposit 5|18r9
+28U14*withdrawal 5|19r9 21r9
+33U14*transfer 5|20r9
+X 5 banking.adb
+4U11*banking 4b11 24l5 24t12
+5r4 acc1{1|4R9} 9m15 12m12 15r16
+6r4 acc2{1|4R9} 10m15 13m12 16r16
+7r4 acc3{1|4R9} 11m15 14m12 17r16 21r43
+X 6 gnat.ads
+36K9*GNAT 5|1r6 1r20 6|39e9
+X 7 g-io.ads
+43K14*IO 5|1w11 1r25 7|93e12
+74U14*Put_Line 5|23r4
+

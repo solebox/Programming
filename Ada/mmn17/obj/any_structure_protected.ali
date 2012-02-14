@@ -1,0 +1,33 @@
+V "GNAT Lib v4.4"
+A -g
+A -g
+A -gnato
+A -gnatwa
+A -gnatQ
+A -gnat05
+A -gnatc
+A -gnatQ
+A -gnatA
+P NO ZX
+R nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnvnnnnnnnnnnnnnnnnnnnnnnnnvnvnnnnnnnnnnnnnnnn
+
+U any_structure_protected%s  any_structure_protected.ads  c5315f25 EE OO PK GE
+W any_structure%s	any_structure.ads	any_structure.ali
+
+D any_structure.ads	20120203162612 a13a7775
+D any_structure_protected.ads  20120207151002 640b2850
+X 1 any_structure.ads
+2+9 Structure 2|16r19[4]
+3+9 Element 2|12r30[4] 14r31[4]
+7k9*Any_Structure 8e18 2|2w6 4r47
+X 2 any_structure_protected.ads
+4K17 the_any_structure_pack[1|7] 5r8
+6k9*Any_Structure_Protected 4z17 19l5 19e28
+8W19*protected_structure 17l8 17e27
+10U17 init
+12U17 insert 12>24
+12*24 E{1|3+9[4]}
+14U17 remove 14<24
+14*24 E{1|3+9[4]}
+16*7 myStructure{1|2+9[4]}
+

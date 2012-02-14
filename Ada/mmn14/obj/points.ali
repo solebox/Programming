@@ -1,0 +1,28 @@
+V "GNAT Lib v4.4"
+A -g
+A -g
+A -gnato
+A -gnatwa
+A -gnatQ
+A -gnat05
+A -gnatc
+A -gnatQ
+A -gnatA
+P NO SS ZX
+R nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnvnvnnnnnnnnnnnnnnnn
+
+U points%s		points.ads		24b299d3 EE OO PK
+
+D points.ads		20111227161553 24b299d3
+X 1 points.ads
+2K9*Points 11l5 11e11
+3R9*Point 5r31 6r39 8c9 10e14
+5U14*print_point 5>26
+5r26 p{3R9}
+6U14*set_coordinates 6=30 6>45 6>47
+6r30 p{3R9}
+6i45 x{integer}
+6i47 y{integer}
+9i7*x{integer}
+9i9*y{integer}
+

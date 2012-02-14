@@ -1,0 +1,62 @@
+V "GNAT Lib v4.4"
+A -g
+A -g
+A -gnato
+A -gnatwa
+A -gnatQ
+A -gnat05
+A -gnatA
+P ZX
+R nnnvnnnnnnnnnnnnnnvnnnnnnnnnvnnnnnnnnnnnnvnnnnnnnnnnnnnnnnvnnnnnnnnnnnnnnnnnn
+
+U queues.boundedqueues%b  queues-boundedqueues.adb  831ffb32 NE OO PK GE
+W queues%s		queues.ads		queues.ali
+
+U queues.boundedqueues%s  queues-boundedqueues.ads  561b9a33 BN EE NE OO PK GE
+W queues%s		queues.ads		queues.ali
+
+D queues.ads		20120117100035 9f1c4db9
+D queues-boundedqueues.ads  20120117100320 c907d78a
+D queues-boundedqueues.adb  20120117104740 4a182cb8
+D system.ads		20110917192145 df55302f
+X 1 queues.ads
+3+9 Item 2|10r58 14r61 27r41 3|6r58 23r61
+5V18 itemToString{string} 3|46r42
+6k9*Queues 27e11 2|4r9 32r5 3|1r14 68r5
+7H9*Queue 26e45 2|6r29 28r29
+24X4*UNDERFLOW 3|29r16
+24X14*OVERFLOW 3|13r19
+X 2 queues-boundedqueues.ads
+4k16 BoundedQueues 1|6k9 2|32l12 32e25 3|1b21 68l12 68t25
+6R9*BoundedQueue<1|7R9> 10P14 10r34 14P14 14r37 16P13 16r27 19P13 19r31 22P13
+. 22r27 28c9 31e14 3|3r45 6r34 23r37 33r27 34r10 41r31 51r27 57r45
+10U14*add<1|14p14> 10=18 10>47 3|6b14 21l8 21t11
+10r18 queue_io{6R9} 3|6b18 8r10 9m10 9r24 10m10 10r27 12r13 15r28 16m28 17m13
+. 17r27 18m13 18r30
+10*47 item_in{1|3+9} 3|6b47 9r41 17r45
+14U14*remove<1|18p14> 14=21 14<50 3|23b14 31l8 31t14
+14r21 queue_io{6R9} 3|23b21 25r10 25r26 26r20 26r34 27m10 27r27
+14*50 item_o{1|3+9} 3|23b50 26m10
+16V13*create{6R9}<1|10p13> 3|33b13 39l8 39t14
+19V13*toString{string}<1|20p13> 19>22 3|41b13 49l8 49t16
+19r22 queue_in{6R9} 3|41b22 45r17 45r34 46r55
+22V13*size{natural}<1|22p13> 22>18 3|51b13 54l8 54t12
+22r18 queue_in{6R9} 3|51b18 53r14 53r30
+26i4 MAX_SIZE{positive} 27r28 3|8r27
+27A9 BQData(1|3+9)<integer> 30r12
+28R9 BoundedQueue<1|7R9> 10P14 14P14 16P13 19P13 22P13
+29i7 head{positive} 3|12r22 15r37 25r19 26r43 27m19 27r36 36m10 45r26 53r39
+. 60r25 64m16
+29i12 tail{positive} 3|8r19 9r33 10m19 10r36 17r36 18m22 18r39 25r35 37m10
+. 45r43 53r23 60r41 65m16
+30a7 info{27A9} 3|9m19 17m22 26m29 46m64 61m18 61m38
+X 3 queues-boundedqueues.adb
+3U14 info_dock_left 3=29 16r13 57b14 66l8 66t22
+3r29 queue_io{2|6R9} 57b29 60r16 60r32 61m9 61r29 64m7 65m7
+34r7 bq{2|6R9} 36m7 37m7 38r14
+42P12 StringPtr(string) 43r12
+43p7 stpt{42P12} 46m10 46r31 48r14
+45i11 i{integer} 46r69
+58i7 t{positive} 61r23 62m9 62r14 65r24
+60i11 i{integer} 61r43
+

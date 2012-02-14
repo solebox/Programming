@@ -1,0 +1,43 @@
+V "GNAT Lib v4.4"
+A -g
+A -g
+A -gnato
+A -gnatwa
+A -gnatQ
+A -gnat05
+A -gnatc
+A -gnatQ
+A -gnatA
+P NO ZX
+R nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnvnvnnnnnnnnnnnnnnnn
+
+U gqueue%s		gqueue.ads		b23c9211 EE OO PK GE IL
+
+D gqueue.ads		20111227161244 b23c9211
+X 1 gqueue.ads
+9+9 Item 10r39 18r41 22r49 43r11
+10U19 put_item 10>28
+10*28 item_in{9+9}
+11k9*Gqueue 9z9 10z19 50l5 50e11
+14R9*Queue 18r27 22r30 25r22 28r33 33r20 46c8 49e14
+18U14*add 18=18 18>33
+18r18 q{14R9}
+18*33 item_in{9+9}
+22U14*remove 22=21 22<36
+22r21 q{14R9}
+22*36 item_out{9+9}
+25U14*print 25>20
+25r20 q{14R9}
+28U14*create 28=21
+28r21 q_io{14R9}
+33V13*size{natural} 33>18
+33r18 q{14R9}
+36X4*CANT_REMOVE_ITEM_FROM_EMPTY_QUEUE
+37X4*CANT_ADD_QUEUE_FULL
+40R9 QueueNode 41r32 42c9 45e14
+41P9 QueueNodePtr(40R9) 44r12 47r15
+43*7 key{9+9}
+44p7 next{41P9}
+47p10 head{41P9}
+48i10 size{natural}
+

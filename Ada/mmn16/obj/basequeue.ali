@@ -1,0 +1,36 @@
+V "GNAT Lib v4.4"
+A -g
+A -g
+A -gnato
+A -gnatwa
+A -gnatQ
+A -gnat05
+A -gnatA
+P ZX
+R nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnvnnnnnnnnnnnnnnnnnn
+
+U basequeue%s		basequeue.ads		8ab9bb8c NE OO PK GE IL
+
+D basequeue.ads		20120111100035 8ab9bb8c
+D system.ads		20110917192145 df55302f
+X 1 basequeue.ads
+3+9 Item 5r33 14r24 18r31
+5V18 itemToString{string} 5>31
+5*31 i{3+9}
+6k9*BaseQueue 3z9 5z18 28l5 28e14
+8H9*Queue 10p14 10r38 14p14 14r47 18p14 18r53 20p13 20r35 25p13 25r31 27c9
+. 27e45
+10x14*create 10=21
+10r21 queue_io{8R9}
+14x14*add 14>18 14=30
+14*18 i{3+9}
+14r30 queue_io{8R9}
+18x14*remove 18=21 18=36
+18*21 i{3+9}
+18r36 queue_io{8R9}
+20y13*toString{string} 20>22
+20r22 queue_in{8R9}
+25y13*size{natural} 25>18
+25r18 queue_in{8R9}
+27H9 Queue<8R9> 10p14 14p14 18p14 20p13 25p13
+

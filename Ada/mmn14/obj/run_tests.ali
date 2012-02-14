@@ -1,0 +1,26 @@
+V "GNAT Lib v4.4"
+M P W=b
+A -g
+A -g
+A -gnato
+A -gnatwa
+A -gnatQ
+A -gnat05
+A -gnatc
+A -gnatQ
+A -gnatA
+P NO ZX
+R nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnvnvnnnnnnnnnnnnnnnn
+
+U run_tests%b		run_tests.adb		69f2c5e9 OO SU IL
+W gqueue_testing%s	gqueue_testing.adb	gqueue_testing.ali
+
+D gqueue_testing.ads	20111227195706 280ff1bd
+D run_tests.adb		20111227200406 41fd3454
+X 1 gqueue_testing.ads
+1K9*Gqueue_Testing 6e19 2|1w6 1r26
+2U14*add_remove_test 2|4r5
+3U14*underflow_exception_test 2|5r5
+X 2 run_tests.adb
+2U11*run_tests 2b11 7l5 7t14
+

@@ -1,0 +1,136 @@
+V "GNAT Lib v4.4"
+A -gnat95
+P SS ZX
+R nnnnnnvvnnnnnnnvnnvnvnvnvvvnvnvnnvnnvnvvnvnnnnvnvvnnnnnvnnnnvnnnnnv3nv2nv1+nnnv1+nn
+
+U use_any_structure_protected%b  use_any_structure_protected.adb  e2feb8cc NE OO PK IL
+W ada.calendar.delays%s	a-caldel.adb		a-caldel.ali
+W ada.exceptions%s	a-except.adb		a-except.ali
+W ada.real_time%s	a-reatim.adb		a-reatim.ali
+W any_structure%s	any_structure.ads	any_structure.ali
+W any_structure_protected%s  any_structure_protected.adb  any_structure_protected.ali  AD
+W system.img_int%s	s-imgint.adb		s-imgint.ali
+W system.parameters%s	s-parame.adb		s-parame.ali
+W system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+W system.soft_links%s	s-soflin.adb		s-soflin.ali
+W system.task_info%s	s-tasinf.adb		s-tasinf.ali
+W system.tasking%s	s-taskin.adb		s-taskin.ali
+W system.tasking.protected_objects%s  s-taprob.adb  s-taprob.ali
+W system.tasking.rendezvous%s  s-tasren.adb	s-tasren.ali
+W system.tasking.stages%s  s-tassta.adb		s-tassta.ali
+W text_io%s		text_io.ads		text_io.ali
+
+U use_any_structure_protected%s  use_any_structure_protected.ads  9c665ded EE OO PK IL
+W ada.tags%s		a-tags.adb		a-tags.ali
+W any_structure%s	any_structure.ads	any_structure.ali
+W any_structure_protected%s  any_structure_protected.adb  any_structure_protected.ali
+W stacks%s		stacks.adb		stacks.ali
+W system%s		system.ads		system.ali
+W system.exception_table%s  s-exctab.adb	s-exctab.ali
+W system.standard_library%s  s-stalib.adb	s-stalib.ali
+
+D ada.ads		20070406091342 9c7dd3ea
+D a-calend.ads		20090409232307 19486c30
+D a-caldel.ads		20090409232307 c565f6eb
+D a-except.ads		20090409232307 b54b55de
+D a-finali.ads		20090409232307 9eaacebd
+D a-filico.ads		20090409232307 9299732a
+D a-ioexce.ads		20070406091342 be0900a0
+D a-reatim.ads		20090409232307 7c462ab4
+D a-stream.ads		20090409232307 34aca5be
+D a-tags.ads		20090409232307 bfa07446
+D a-textio.ads		20090409232307 fe8af46e
+D a-unccon.ads		20070406091342 51e09df2
+D any_structure.ads	20120203162612 a13a7775
+D any_structure_protected.ads  20120203163333 640b2850
+D any_structure_protected.adb  20120203183158 3d91badd
+D interfac.ads		20090409232307 a69cad5c
+D i-c.ads		20070406091342 bc3ef662
+D i-cstrea.ads		20090409232307 e1e064a9
+D stacks.ads		20120205005248 791f2461
+D system.ads		20110917192145 df55302f
+D s-atacco.ads		20090409232307 60789a20
+D s-crtl.ads		20090409232307 997234a1
+D s-exctab.ads		20090409232307 5c1c61ae
+D s-ficobl.ads		20090409232307 8bb681e5
+D s-finimp.ads		20090409232307 9449f4cb
+D s-finroo.ads		20090409232307 1408f9d1
+D s-imgint.ads		20090409232307 f77d133c
+D s-linux.ads		20090409232307 ad070dbe
+D s-osinte.ads		20080408064315 b04c0edf
+D s-parame.ads		20090409232307 f32e56e9
+D s-secsta.ads		20090409232307 7bae3621
+D s-soflin.ads		20090409232307 0c6fd39d
+D s-stache.ads		20090409232307 257b3be8
+D s-stausa.ads		20090409232307 6ab7dd35
+D s-stalib.ads		20090409232307 52b793d5
+D s-stoele.ads		20090409232307 ed966df3
+D s-stoele.adb		20090409232307 e9998c78
+D s-stratt.ads		20090409232307 fef7c1da
+D s-tasinf.ads		20090409232307 268f0cd4
+D s-taspri.ads		20080408071349 5459bcd0
+D s-taprop.ads		20090409232307 25a7965c
+D s-taskin.ads		20090409232307 376ff2dd
+D s-taprob.ads		20090409232307 5e00115c
+D s-tpoben.ads		20090409232307 37be425d
+D s-tasren.ads		20090409232307 5bda31d2
+D s-tassta.ads		20090409232307 71d2b71d
+D s-traent.ads		20090409232307 bd5f2753
+D s-unstyp.ads		20090409232307 c0f9fae5
+D s-wchcon.ads		20090409232307 ab028799
+D text_io.ads		20070406091342 7c37c8ff
+D use_any_structure_protected.ads  20120205005521 204826a9
+D use_any_structure_protected.adb  20120207150202 be81569a
+X 11 a-textio.ads
+263U14*Put_Line 52|63r25
+X 13 any_structure.ads
+2+9 Structure 52|4r55
+3+9 Element 52|4r75
+4U19 init 52|4r94
+5U19 Insert 52|4r108
+6U19 remove 52|4r123
+7k9*Any_Structure 8e18 51|2w6 52|4r41
+X 14 any_structure_protected.ads
+5k9*Any_Structure_Protected 15e28 51|3w6 52|5r51
+7W19*protected_structure 52|10r15[5]
+8U17 init 52|79r15[5]
+9U17 insert 52|29r24[5] 38r24[5]
+10U17 remove 52|62r33[5]
+X 19 stacks.ads
+1K9*stacks 23e11 51|1w6 1r18
+3R9*Stack 19e14 52|4r68
+5U14*init 52|4r102
+6U14*push 52|4r118
+7U14*pop 52|4r133
+X 50 text_io.ads
+24K9*Text_IO=24:29 52|1w6 1r19
+X 51 use_any_structure_protected.ads
+4K9*use_any_structure_protected 11l5 11e32 52|3b14 88l5 88t32
+6U14*any_structure_protected_use_case 6>47 6>49 52|9b14 85l8 85t40
+6i47 m{integer} 52|9b47 61r35 80r20 83r47
+6i49 n{integer} 52|9b49 61r37 80r10 84r47
+8X4*STACK_PRINTING_HAS_FAILED 52|67r31
+9X4*INVALID_INPUT_FOR_EXAMPLE_PROCEDURE 52|81r16
+X 52 use_any_structure_protected.adb
+4K12 my_any_structure_pack[13|7] 5r75
+5K12 my_any_structure_protected_pack[14|5] 6r8
+10w7 p_stack{14|7W19[5]} 29r16 38r16 62r25 79r7
+11t12 print_stack 32r14 41r13 49b17 74l11 74t22
+12Y16 stack_writer_done 32r26 41r25 55b23 57l20 57t37
+14T17 stack_writer 17l11 17e23 19b17 45l11 45t23 76r62
+15Y16 start_positive 15>31 25b20 27l17 27t31 83r32
+15i31 m{integer} 26r26
+16Y16 start_negative 16>31 34b20 36l17 36t31 84r32
+16i31 n{integer} 35r26
+20i10 task_n{integer} 35m16 37r30
+21i10 task_m{integer} 26m16 28r25
+25i35 m{integer}
+28i17 i{integer} 29r31
+34i35 n{integer}
+37i17 i{integer} 38r31
+50i10 number{integer} 62m40 63r48
+51i10 counter{natural} 58m16 58r27 59r19
+61i26 i{integer}
+76A12 stack_writer_array(14T17)<integer> 77r29
+77a7 my_stack_writer_array{76A12} 83r7 84r7
+

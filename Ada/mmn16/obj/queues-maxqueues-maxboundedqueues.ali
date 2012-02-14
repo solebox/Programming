@@ -1,0 +1,75 @@
+V "GNAT Lib v4.4"
+A -g
+A -g
+A -gnato
+A -gnatwa
+A -gnatQ
+A -gnat05
+A -gnatA
+P ZX
+R nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnvnnnnnnnnnnnnnnnnnn
+
+U queues.maxqueues.maxboundedqueues%b  queues-maxqueues-maxboundedqueues.adb  6175b59f NE OO PK GE
+W queues.maxqueues%s	queues-maxqueues.ads	queues-maxqueues.ali
+
+U queues.maxqueues.maxboundedqueues%s  queues-maxqueues-maxboundedqueues.ads  c1b96ed9 BN EE NE OO PK GE
+W queues%s		queues.ads		queues.ali
+W queues.boundedqueues%s  queues-boundedqueues.adb  queues-boundedqueues.ali
+W queues.maxqueues%s	queues-maxqueues.ads	queues-maxqueues.ali
+
+D queues.ads		20120117100035 9f1c4db9
+D queues-boundedqueues.ads  20120117100320 c907d78a
+D queues-maxqueues.ads	20120117100112 1ad61070
+D queues-maxqueues-maxboundedqueues.ads  20120116132730 1268a923
+D queues-maxqueues-maxboundedqueues.adb  20120116103102 731d1cbc
+D system.ads		20110917192145 df55302f
+X 1 queues.ads
+3+9 Item 4|10r75 14r81 25r65 5|3r75 8r81 30r93 31r53 33r16 49r62
+6k9*Queues 27e11 4|1r6 3r46 4r9 31r5 5|1r14 56r5
+X 2 queues-boundedqueues.ads
+4k16 BoundedQueues 32e25 4|1w13
+6R9 BoundedQueue<1|7R9> 4|29r47[3] 5|34r48[4|3]
+10U14 add<1|14p14> 5|5r29[4|3]
+14U14 remove<1|18p14> 5|10r29[4|3] 38r32[4|3]
+16V13 create{6R9[4|3]}<1|10p13> 5|16r70[4|3]
+19V13 toString{string}<1|20p13> 5|22r36[4|3]
+22V13 size{natural}<1|22p13> 5|27r36[4|3] 52r51[4|3]
+X 3 queues-maxqueues.ads
+3V18 "<"{boolean} 5|42r22
+4k16 MaxQueues 1|6k9 3|10e21 4|4r16 31r12 5|1r21 56r12
+6H9*MaxQueue<1|7R9> 6e56 4|6r32 28r32
+X 4 queues-maxqueues-maxboundedqueues.ads
+3K17 queues_bounded_queues[2|4] 29r25 5|5r7 10r7 16r48 22r14 27r14 34r26
+. 38r10 52r29
+4k26 MaxBoundedQueues 3|4k16 4|3z17 31l22 31e38 5|1b31 56l22 56t38
+6R9*MaxBoundedQueue<3|6R9> 10P14 10r47 14P14 14r50 16P13 16r27 19P13 19r43
+. 22P13 22r39 25P13 25r41 28c9 30e14 5|3r47 8r50 13r27 14r28 20r43 25r39
+. 30r41 49r38
+10U14*add<1|14p14> 10=18 10>63 5|3b14 6l8 6t11
+10r18 max_bounded_queue_io{6R9} 5|3b18 5m33
+10*63 item_in{1|3+9} 5|3b63 5r71
+14U14*remove<1|18p14> 14=21 14<67 5|8b14 11l8 11t14
+14r21 max_bounded_queue_io{6R9} 5|8b21 10m36
+14*67 item_out{1|3+9} 5|8b67 10m74
+16V13*create{6R9}<1|10p13> 5|13b13 18l8 18t14
+19V13*toString{string}<1|20p13> 19>22 5|20b13 23l8 23t16
+19r22 max_bounded_queue_in{6R9} 5|20b22 22r45
+22V13*size{natural}<1|22p13> 22>18 5|25b13 28l8 28t12
+22r18 max_bounded_queue_in{6R9} 5|25b18 27r41
+25V13*max{1|3+9}<3|9p13> 25>17 5|49b13 54l8 54t11
+25r17 max_bounded_queue_in{6R9} 5|49b17 52r56 53r18
+28R9 MaxBoundedQueue<3|6R9> 10P14 14P14 16P13 19P13 22P13 25P13
+29r7 bounded_instance{2|6R9[3]} 5|5m54 10m57 16m28 22r66 27r62 36r50 52r77
+X 5 queues-maxqueues-maxboundedqueues.adb
+14r7 max_bounded_queue_io{4|6R9} 16m7 17r15
+30V13 max{1|3+9} 30b13 30>17 30>57 47l8 47t11 53r14
+30r17 max_bounded_queue_in{4|6R9} 36r29
+30i57 bounded_queue_size{positive} 32r31
+31A12 ItemArray(1|3+9)<integer> 32r18
+32a7 item_array{31A12} 37r16 38m58 40r19 40r30 41r16 42r24 43r25
+33*7 max_item{1|3+9} 40m7 42r13 43m13 46r14
+34r7 temp_bounded_queue{2|6R9[4|3]} 36m7 38m39
+37i11 i{integer} 38r69
+41i11 i{integer} 42r35 43r36
+50i7 bounded_queue_size{positive} 52m7 53r39
+

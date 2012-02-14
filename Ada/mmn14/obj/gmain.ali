@@ -1,0 +1,46 @@
+V "GNAT Lib v4.4"
+M P W=b
+A -g
+A -g
+A -gnato
+A -gnatwa
+A -gnatQ
+A -gnat05
+A -gnatc
+A -gnatQ
+A -gnatA
+P NO SS ZX
+R nnnnnnnnnnnnnnnnnnnnnnnnnnnnvnnnnnnnnnnnnvnnnnnnnnnnnnnnnnvnvnnnnnnnnnnnnnnnn
+
+U gmain%b		gmain.adb		5e0c056c OO SU
+W gqueue%s		gqueue.adb		gqueue.ali
+W points%s		points.adb		points.ali
+
+D gmain.adb		20111227162139 c8820eae
+D gqueue.ads		20111227161244 b23c9211
+D points.ads		20111227161553 24b299d3
+X 1 gmain.adb
+5U11*Gmain 5b11 31l5 31t10
+7K12 my_queue[2|11] 8r8 9r10
+9r4 q1{2|14R9[7]} 13m11 22m8 23m11 24m8 25m8 29r10
+9r7 q2{2|14R9[7]} 14m11 26m8 27m8 30r10
+10r4 p0{3|3R9} 22r11 23m14
+10r7 p1{3|3R9} 16m20 24r11
+10r10 p2{3|3R9} 17m20 25r11
+10r13 p3{3|3R9} 18m20 26r11
+10r16 p4{3|3R9} 19m20 27r11
+X 2 gqueue.ads
+9+9 Item 1|7r35
+10U19 put_item 1|7r49
+11k9*Gqueue 1|1w6 7r28 2|50e11
+14R9 Queue 1|9r19[7]
+18U14 add 1|22r4[7] 24r4[7] 25r4[7] 26r4[7] 27r4[7]
+22U14 remove 1|23r4[7]
+25U14 print 1|29r4[7] 30r4[7]
+28U14 create 1|13r4[7] 14r4[7]
+X 3 points.ads
+2K9*Points 1|2w6 2r18 3|11e11
+3R9*Point 1|7r43 10r19 3|10e14
+5U14*print_point 1|7r61
+6U14*set_coordinates 1|16r4 17r4 18r4 19r4
+

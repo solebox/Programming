@@ -1,0 +1,36 @@
+V "GNAT Lib v4.4"
+A -g
+A -g
+A -gnato
+A -gnatwa
+A -gnatQ
+A -gnat05
+A -gnatc
+A -gnatQ
+A -gnatA
+P NO SS ZX
+R nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnvnvnnnnnnnnnnnnnnnn
+
+U use_any_structure_protected%s  use_any_structure_protected.ads  9c665ded EE OO PK IL
+W any_structure%s	any_structure.ads	any_structure.ali
+W any_structure_protected%s  any_structure_protected.adb  any_structure_protected.ali
+W stacks%s		stacks.adb		stacks.ali
+
+D any_structure.ads	20120203162612 a13a7775
+D any_structure_protected.ads  20120203163333 640b2850
+D stacks.ads		20120207150601 791f2461
+D use_any_structure_protected.ads  20120207150746 204826a9
+X 1 any_structure.ads
+7k9*Any_Structure 8e18 4|2w6
+X 2 any_structure_protected.ads
+5k9*Any_Structure_Protected 15e28 4|3w6
+X 3 stacks.ads
+1K9*stacks 24e11 4|1w6 1r18
+X 4 use_any_structure_protected.ads
+4K9*use_any_structure_protected 11l5 11e32
+6U14*any_structure_protected_use_case 6>47 6>49
+6i47 m{integer}
+6i49 n{integer}
+8X4*STACK_PRINTING_HAS_FAILED
+9X4*INVALID_INPUT_FOR_EXAMPLE_PROCEDURE
+

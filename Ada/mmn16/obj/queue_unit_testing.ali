@@ -1,0 +1,19 @@
+V "GNAT Lib v4.4"
+A -g
+A -g
+A -gnato
+A -gnatwa
+A -gnatQ
+A -gnat05
+A -gnatc
+A -gnatQ
+A -gnatA
+P CE NO ZX
+R nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnvnvnnnnnnnnnnnnnnnn
+
+U queue%s		queue_unit_testing.ads	b7a85abc EE OO PK
+
+D queue_unit_testing.ads  20120114134357 b7a85abc
+X 1 queue_unit_testing.ads
+1K9*Queue
+

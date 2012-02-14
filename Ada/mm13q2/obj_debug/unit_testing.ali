@@ -1,0 +1,58 @@
+V "GNAT Lib v4.4"
+M P W=b
+A -g
+A -g
+A -gnato
+A -gnatwa
+A -gnatQ
+A -gnatc
+A -gnatQ
+A -gnatA
+P NO ZX
+R nnnnnnnnnnnnnnnnnnnnnnvnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnvnvnnnnnnnnnnnnnnnn
+
+U unit_testing%b	unit_testing.adb	d68ce497 OO SU IL
+W accountunittesting%s	accountunittesting.adb	accountunittesting.ali
+W bankunittesting%s	bankunittesting.adb	bankunittesting.ali
+W text_io%s		text_io.ads		text_io.ali
+
+D accountunittesting.ads  20111210155011 bd61c477
+D ada.ads		20070406091342 9c7dd3ea
+D a-ioexce.ads		20070406091342 be0900a0
+D a-stream.ads		20090409232307 34aca5be
+D a-textio.ads		20090409232307 fe8af46e
+D bankunittesting.ads	20111210164515 ed37d971
+D interfac.ads		20090409232307 a69cad5c
+D i-cstrea.ads		20090409232307 e1e064a9
+D system.ads		20110917192145 df55302f
+D s-crtl.ads		20090409232307 997234a1
+D s-ficobl.ads		20090409232307 8bb681e5
+D s-parame.ads		20090409232307 f32e56e9
+D s-wchcon.ads		20090409232307 ab028799
+D text_io.ads		20070406091342 7c37c8ff
+D unit_testing.adb	20111210165556 faed316e
+X 1 accountunittesting.ads
+1K9*AccountUnitTesting 12e23 15|1w6 7r4 8r4 9r4 10r4 11r4 12r4 13r4 14r4
+3U14*set_check 15|7r23
+4U14*over_withdrawl_check 15|11r23
+5U14*deposit_withdrawl_check 15|12r23
+6U14*transfer_too_much_check 15|14r23
+7U14*transfer_check 15|13r23
+8U14*balance_inquiry_check 15|8r23
+9U14*name_inquiry_check 15|9r23
+10U14*account_number_inquiry_check 15|10r23
+X 5 a-textio.ads
+166U14*New_Line 15|16r4
+263U14*Put_Line 15|6r4 15r4 17r4 23r4
+X 6 bankunittesting.ads
+1K9*BankUnitTesting 8e20 15|2w6 18r4 19r4 20r4 21r4 22r4
+3U14*deposit_check 15|18r20
+4U14*withdrawal_check 15|19r20
+5U14*transfer_check 15|20r20
+6U14*get_balance_check 15|21r20
+7U14*get_owner_name_check 15|22r20
+X 14 text_io.ads
+24K9*Text_IO=24:29 15|3w6 3r19
+X 15 unit_testing.adb
+4U11*unit_testing 4b11 25l5 25t17
+

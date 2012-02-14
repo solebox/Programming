@@ -1,0 +1,21 @@
+V "GNAT Lib v4.4"
+A -g
+A -g
+A -gnato
+A -gnatwa
+A -gnatQ
+A -gnat05
+A -gnatc
+A -gnatQ
+A -gnatA
+P NO ZX
+R nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnvnvnnnnnnnnnnnnnnnn
+
+U unit_testing_for_dot_product%s  unit_testing_for_dot_product.ads  bf756997 EE OO PK IL
+
+D unit_testing_for_dot_product.ads  20120101215859 bf756997
+X 1 unit_testing_for_dot_product.ads
+1K9*unit_testing_for_dot_product 6l5 6e33
+2V10*int_with_int{boolean}
+3V10*float_with_float{boolean}
+

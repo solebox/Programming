@@ -1,0 +1,31 @@
+V "GNAT Lib v4.4"
+M P W=b
+P ZX
+R nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnvnnnnnnnnnnnnnnnnnnnnn
+
+U main%b		main.adb		3d9a0454 NE OO SU IL
+W stacks%s		stacks.adb		stacks.ali
+W use_any_structure_protected%s  use_any_structure_protected.adb  use_any_structure_protected.ali
+
+D ada.ads		20070406091342 9c7dd3ea
+D a-unccon.ads		20070406091342 51e09df2
+D any_structure.ads	20120203162612 a13a7775
+D any_structure_protected.ads  20120203163333 640b2850
+D main.adb		20120205005548 64cd069c
+D stacks.ads		20120205005248 791f2461
+D system.ads		20110917192145 df55302f
+D s-exctab.ads		20090409232307 5c1c61ae
+D s-stalib.ads		20090409232307 52b793d5
+D use_any_structure_protected.ads  20120205005521 204826a9
+X 5 main.adb
+3U11*main 3b11 10l5 10t9
+4r4 s{6|3R9} 7m12
+6i8 i{integer} 7r14
+X 6 stacks.ads
+1K9*stacks 5|2w6 2r18 6|23e11
+3R9*Stack 5|4r6 6|19e14
+6U14*push 5|7r7
+X 10 use_any_structure_protected.ads
+4K9*use_any_structure_protected 5|1w6 1r39 10|11e32
+6U14*any_structure_protected_use_case 5|9r4
+

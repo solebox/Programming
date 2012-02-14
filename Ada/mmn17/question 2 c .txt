@@ -1,0 +1,7 @@
+the output is not predictable due to the fact the tasts are overlapping in insertion times 
+both fight over the same protected resources queue and the schedualer sets the fight
+by choosing which task would insert the number first , 
+0.5 seconds and 1.0 seconds , each second time the 0.5s task inserts 
+the 2 tasks are "supposed" to insert the number in the same time into the protected 
+struct , the fight is sattled by the schedualer each time in a different manner
+hence the random results...

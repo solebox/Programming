@@ -1,0 +1,22 @@
+V "GNAT Lib v4.4"
+A -gnat95
+P ZX
+R nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn
+
+U any_structure%s	any_structure.ads	a13a7775 NE OO PK GE IL
+
+D any_structure.ads	20120203162612 a13a7775
+D system.ads		20110917192145 df55302f
+X 1 any_structure.ads
+2+9 Structure 4r30 5r35 6r35
+3+9 Element 5r50 6r51
+4U19 init 4<24
+4*24 S{2+9}
+5U19 Insert 5=26 5>45
+5*26 S{2+9}
+5*45 E{3+9}
+6U19 remove 6=26 6<45
+6*26 S{2+9}
+6*45 E{3+9}
+7k9*Any_Structure 2z9 3z9 4z19 5z19 6z19 8l5 8e18
+

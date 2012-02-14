@@ -1,0 +1,23 @@
+V "GNAT Lib v4.4"
+A -g
+A -g
+A -gnato
+A -gnatwa
+A -gnatQ
+A -gnat05
+A -gnatc
+A -gnatQ
+A -gnatA
+P NO ZX
+R nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnvnvnnnnnnnnnnnnnnnn
+
+U queueunittesting%s	queueunittesting.ads	36db198c EE OO PK
+
+D queueunittesting.ads	20120114134910 36db198c
+X 1 queueunittesting.ads
+1K9*QueueUnitTesting 6l5 6e21
+2U14*testSizeFunction
+3U14*testOverFlow
+4U14*testUnderFlow
+5U14*testQueueOrderMaintanence
+

@@ -1,0 +1,127 @@
+V "GNAT Lib v4.4"
+M P W=b
+A -g
+A -g
+A -gnato
+A -gnatwa
+A -gnatQ
+A -gnat05
+A -gnatA
+P SS ZX
+R nnnvnnnnnnnnnnnvnnvnnnvvvnvnvnnnnnnnnnvnnvnnnnnnnnnnnnnvnnvnnnnnnnnnnnnnnnnnn
+
+U main%b		main.adb		799a949c NE OO SU IL
+W ada%s			ada.ads			ada.ali
+W ada.exceptions%s	a-except.adb		a-except.ali
+W ada.streams%s		a-stream.ads		a-stream.ali
+W ada.tags%s		a-tags.adb		a-tags.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+W ada.text_io.integer_aux%s  a-tiinau.adb	a-tiinau.ali
+W queues%s		queues.ads		queues.ali
+W queues.boundedqueues%s  queues-boundedqueues.adb  queues-boundedqueues.ali
+W queues.maxqueues%s	queues-maxqueues.ads	queues-maxqueues.ali
+W queues.maxqueues.maxboundedqueues%s  queues-maxqueues-maxboundedqueues.adb  queues-maxqueues-maxboundedqueues.ali
+W system%s		system.ads		system.ali
+W system.address_image%s  s-addima.adb		s-addima.ali
+W system.exception_table%s  s-exctab.adb	s-exctab.ali
+W system.finalization_root%s  s-finroo.adb	s-finroo.ali
+W system.img_int%s	s-imgint.adb		s-imgint.ali
+W system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+W system.soft_links%s	s-soflin.adb		s-soflin.ali
+W system.standard_library%s  s-stalib.adb	s-stalib.ali
+W system.storage_elements%s  s-stoele.adb	s-stoele.ali
+W system.stream_attributes%s  s-stratt.adb	s-stratt.ali
+W system.string_ops%s	s-strops.adb		s-strops.ali
+W system.string_ops_concat_3%s  s-sopco3.adb	s-sopco3.ali
+W text_io%s		text_io.ads		text_io.ali
+
+D ada.ads		20070406091342 9c7dd3ea
+D a-except.ads		20090409232307 b54b55de
+D a-finali.ads		20090409232307 9eaacebd
+D a-filico.ads		20090409232307 9299732a
+D a-ioexce.ads		20070406091342 be0900a0
+D a-stream.ads		20090409232307 34aca5be
+D a-tags.ads		20090409232307 bfa07446
+D a-textio.ads		20090409232307 fe8af46e
+D a-tiinau.ads		20090409232307 2625f681
+D a-tiinio.ads		20090409232307 949a7272
+D a-tiinio.adb		20090409232307 cf5588a9
+D a-unccon.ads		20070406091342 51e09df2
+D interfac.ads		20090409232307 a69cad5c
+D i-cstrea.ads		20090409232307 e1e064a9
+D main.adb		20120117122611 dec222ca
+D queues.ads		20120117100035 9f1c4db9
+D queues-boundedqueues.ads  20120117100320 c907d78a
+D queues-boundedqueues.adb  20120117104740 4a182cb8
+D queues-maxqueues.ads	20120117100112 1ad61070
+D queues-maxqueues-maxboundedqueues.ads  20120116132730 1268a923
+D queues-maxqueues-maxboundedqueues.adb  20120116103102 731d1cbc
+D system.ads		20110917192145 df55302f
+D s-addima.ads		20090409232307 d3f93a86
+D s-crtl.ads		20090409232307 997234a1
+D s-exctab.ads		20090409232307 5c1c61ae
+D s-ficobl.ads		20090409232307 8bb681e5
+D s-finimp.ads		20090409232307 9449f4cb
+D s-finroo.ads		20090409232307 1408f9d1
+D s-imgint.ads		20090409232307 f77d133c
+D s-parame.ads		20090409232307 f32e56e9
+D s-secsta.ads		20090409232307 7bae3621
+D s-soflin.ads		20090409232307 0c6fd39d
+D s-stache.ads		20090409232307 257b3be8
+D s-stalib.ads		20090409232307 52b793d5
+D s-stoele.ads		20090409232307 ed966df3
+D s-stoele.adb		20090409232307 e9998c78
+D s-stratt.ads		20090409232307 fef7c1da
+D s-strops.ads		20090409232307 845f72d2
+D s-sopco3.ads		20090409232307 72ce1063
+D s-sopco4.ads		20090409232307 bc112723
+D s-sopco5.ads		20090409232307 191315e8
+D s-traent.ads		20090409232307 bd5f2753
+D s-unstyp.ads		20090409232307 c0f9fae5
+D s-wchcon.ads		20090409232307 ab028799
+D text_io.ads		20070406091342 7c37c8ff
+X 8 a-textio.ads
+166U14*New_Line 15|46r7 65r4
+169U14*Skip_Line 15|35r21 52r21
+242U14*Put 15|45r7 62r7
+263U14*Put_Line 15|26r4 27r4 34r13 43r13 51r13 57r4 66r4
+298X4*Data_Error 15|33r15 50r15
+X 10 a-tiinio.ads
+45k21*Integer_IO 84e27 15|19r33
+55U14 Get 15|30r16[19] 48r10[19]
+65U14 Put 15|59r4[19] 67r4[19]
+X 15 main.adb
+5U11*main 5b11 69l5 69t9
+6V13 toS{string} 6b13 6>17 9l8 9t11 11r52
+6i17 i{integer} 8r28
+11K12 QueuePackInstance[16|6] 13r34 14r40 42r15
+13K12 BqPackInstance[17|4] 15r85 16r8
+14K12 MaxQueuePackInstance[19|4] 15r47
+15K12 MaxBoundedQueuePackInstance[20|4] 17r8 55r12
+19K12 IntIO[10|45] 20r8 30r10
+21r4 max_bounded_queue{20|6R9[15]} 40m14 45r67 55r45 56r19 58m11 61m14
+22i4 user_int{integer} 30m20 38r10 40r32 48m14
+22i13 max_int{integer} 56m4 67r8
+22i21 helper_int{integer} 58m29 59r8 61m32 62r29
+23b4 wrong_input{boolean} 28r10 31m10
+24i4 size{natural} 55m4 60r10 63m7 63r15
+X 16 queues.ads
+6k9*Queues 15|3r6 4r6 11r37 16|27e11
+7H9 Queue
+24X14 OVERFLOW 15|42r33[11]
+X 17 queues-boundedqueues.ads
+4k16 BoundedQueues 15|4w13 17|32e25
+X 19 queues-maxqueues.ads
+3V18 "<"{boolean} 15|14r68
+4k16 MaxQueues 15|3r13 19|10e21
+6H9 MaxQueue<16|7R9[15|11]>
+X 20 queues-maxqueues-maxboundedqueues.ads
+4k26 MaxBoundedQueues 15|3w23 20|31e38
+6R9 MaxBoundedQueue<19|6R9[15|14]> 15|21r22[15]
+10U14 add<16|14p14> 15|40r10[15]
+14U14 remove<16|18p14> 15|58r4[15] 61r7[15]
+22V13 size{natural}<16|22p13> 15|55r40[15]
+25V13 max{integer}<19|9p13> 15|45r63[15] 56r15[15]
+X 45 text_io.ads
+24K9*Text_IO=24:29 15|1w6 1r18 19r25 35r13 52r13
+

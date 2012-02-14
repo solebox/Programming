@@ -1,0 +1,38 @@
+V "GNAT Lib v4.4"
+A -g
+A -g
+A -gnato
+A -gnatwa
+A -gnatQ
+A -gnat05
+A -gnatc
+A -gnatQ
+A -gnatA
+P NO ZX
+R nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnvnvnnnnnnnnnnnnnnnn
+
+U stacks%s		stacks.ads		791f2461 EE OO PK IL
+
+D stacks.ads		20120207150601 791f2461
+X 1 stacks.ads
+1K9*stacks 24l5 24e11
+4R9*Stack 6r31 7r34 8r33 9r29 16c9 20e14
+6U14*init 6<19
+6r19 a_stack{4R9}
+7U14*push 7=19 7>41
+7r19 a_stack{4R9}
+7i41 an_element{integer}
+8U14*pop 8=18 8<40
+8r18 a_stack{4R9}
+8i40 an_element{integer}
+9V13*size{natural} 9>18
+9r18 a_stack{4R9}
+10i4*STACK_MAX_SIZE{positive} 17r26
+11X4*UNDERFLOW
+11X14*OVERFLOW
+14A9 Stack_Data(integer)<integer> 17r12
+17a7*data{14A9}
+18i7*head{positive}
+18i12*tail{positive}
+19i7*size{natural}
+
