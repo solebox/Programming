@@ -7,7 +7,10 @@ procedure main is
     begin
         null;
     end putz;
-
+    num1,num2,num3:Float;
 begin
-    put_line("lol");
+    num1 := 0.1;
+    num2 := 0.2;
+    num3 := 0.3;
+    put_line(Float'image( num1 + (num2 + num3) ));
 end main;

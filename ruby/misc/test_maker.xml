@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
+  xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
+  <channel>
+    <title>Example - Accademic Stock</title>
+    <link>http://www.example.com/</link>
+    <description>Accademic stock</description>
+    <pubDate>Mon, 14 Nov 2011 02:41:59 +0200</pubDate>
+    <item>
+      <title>kovets ledugma</title>
+      <link>http://dugma.com</link>
+      <pubDate>Mon, 14 Nov 2011 02:41:59 +0200</pubDate>
+      <dc:date>2011-11-14T02:41:59.665575+02:00</dc:date>
+    </item>
+    <dc:date>2011-11-14T02:41:59.655108+02:00</dc:date>
+  </channel>
+</rss>
