@@ -1,0 +1,3 @@
+main:asm
+asm:AsmCommandQueue.c AsmCommandQueue.h ComputerCommandsQueue.c ComputerCommandsQueue.h Enums.h Files.c Files.h Global_Defines.h InitializationFunctions.c InitializationFunctions.h Lables_LinkedList.c Lables_LinkedList.h Linkage_Symbols.c Linkage_Symbols.h miscellaneous.c miscellaneous.h  Project_Main.c Structs.c StructsFunctions.c StructsFunctions.h Structs.h WorkFlow.c WorkFlow.h
+	gcc -ansi -pedantic -g -Wall -lm AsmCommandQueue.c ComputerCommandsQueue.c Files.c InitializationFunctions.c Lables_LinkedList.c Linkage_Symbols.c miscellaneous.c Project_Main.c Structs.c StructsFunctions.c WorkFlow.c -o zilkoby

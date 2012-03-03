@@ -1,0 +1,224 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+ALLOCATE_STRING	Global_Defines.h	26;"	d
+AddCharToString	miscellaneous.c	/^char *AddCharToString(char *string,char item)$/;"	f
+AddItemToLayout	WorkFlow.c	/^void AddItemToLayout(Cmd tempRecord,CmdQueue layoutQueue)$/;"	f
+AddLabelItem	Lables_LinkedList.c	/^labelNode *AddLabelItem(labelNode *head,char* labelName, char v10[],char v12[],char type)$/;"	f
+AddLinkageItem	Linkage_Symbols.c	/^void AddLinkageItem(LinkedList_Linkage *head,enum Directive what_directive,char* directiveName,char *lineNumber)$/;"	f
+AddMachineFieldToTemplate	ComputerCommandsQueue.c	/^char* AddMachineFieldToTemplate(char *command,char *itemToAdd)$/;"	f
+All	Enums.h	/^enum TrimMethod {All, Start, End}; $/;"	e	enum:TrimMethod
+AlterBmcValue	ComputerCommandsQueue.c	/^BinaryMachineCode AlterBmcValue(enum BmcField field,int value,BinaryMachineCode bmc)$/;"	f
+AnalyzeCommand	WorkFlow.c	/^char *AnalyzeCommand(char *temp)$/;"	f
+AnalyzeText	WorkFlow.c	/^enum Boolean AnalyzeText(char *tempInputCommand)$/;"	f
+Asm	AsmCommandQueue.h	/^typedef struct CmdStructure *Asm;$/;"	t	typeref:struct:CmdStructure
+AsmCommandRecord	AsmCommandQueue.h	/^struct AsmCommandRecord$/;"	s
+AsmQueue	AsmCommandQueue.h	/^typedef PtrToAsmRecord AsmQueue;$/;"	t
+AsmQueue_AddRecord	AsmCommandQueue.c	/^void AsmQueue_AddRecord(char *input, AsmQueue Q)$/;"	f
+BASE_12_MACHINE_CODE_DIGITS	Global_Defines.h	3;"	d
+BMC_LENGTH	Global_Defines.h	4;"	d
+BMC_OPCODE_LENGTH	Global_Defines.h	12;"	d
+BMC_REG_LENGTH	Global_Defines.h	13;"	d
+BinaryMachineCode	ComputerCommandsQueue.h	/^}BinaryMachineCode;$/;"	t	typeref:struct:__anon1
+BmcDstAddType	Enums.h	/^enum BmcField{BmcOperationCode,BmcSrcAddType,BmcSrcReg,BmcDstAddType,BmcDstReg };$/;"	e	enum:BmcField
+BmcDstReg	Enums.h	/^enum BmcField{BmcOperationCode,BmcSrcAddType,BmcSrcReg,BmcDstAddType,BmcDstReg };$/;"	e	enum:BmcField
+BmcField	Enums.h	/^enum BmcField{BmcOperationCode,BmcSrcAddType,BmcSrcReg,BmcDstAddType,BmcDstReg };$/;"	g
+BmcOperationCode	Enums.h	/^enum BmcField{BmcOperationCode,BmcSrcAddType,BmcSrcReg,BmcDstAddType,BmcDstReg };$/;"	e	enum:BmcField
+BmcSrcAddType	Enums.h	/^enum BmcField{BmcOperationCode,BmcSrcAddType,BmcSrcReg,BmcDstAddType,BmcDstReg };$/;"	e	enum:BmcField
+BmcSrcReg	Enums.h	/^enum BmcField{BmcOperationCode,BmcSrcAddType,BmcSrcReg,BmcDstAddType,BmcDstReg };$/;"	e	enum:BmcField
+BmcStyle	Enums.h	/^enum StringStyle{PrintStyle,BmcStyle};$/;"	e	enum:StringStyle
+Boolean	Enums.h	/^enum  Boolean {FALSE,TRUE};$/;"	g
+CalculateAddressesForLabels	Lables_LinkedList.c	/^void CalculateAddressesForLabels(labelNode *head,int ICAddress)$/;"	f
+Cmd	ComputerCommandsQueue.h	/^typedef struct CmdStructure *Cmd;$/;"	t	typeref:struct:CmdStructure
+CmdQueue	ComputerCommandsQueue.h	/^typedef PtrToCmdRecord CmdQueue;$/;"	t
+CmdQueue_AddRecord	ComputerCommandsQueue.c	/^void CmdQueue_AddRecord(Cmd item, CmdQueue Q)$/;"	f
+CmdStructure	ComputerCommandsQueue.h	/^struct CmdStructure$/;"	s
+CompilingError	Enums.h	/^enum  RuntimeErrors {OutOfMemory,StackEmpty,UnableToOpenFile,UnableToWriteFile,NCA,CompilingError,FatalError,UnableToDeleteTempFile};$/;"	e	enum:RuntimeErrors
+ConversionToAddress	Enums.h	/^enum  TypeOfConversion{ConversionToSimple,ConversionToAddress,ConversionToBase_12_Code,ConversionToBmcType,ConversionToBmcOpCode,ConversionToBmcOpRegField};$/;"	e	enum:TypeOfConversion
+ConversionToBase_12_Code	Enums.h	/^enum  TypeOfConversion{ConversionToSimple,ConversionToAddress,ConversionToBase_12_Code,ConversionToBmcType,ConversionToBmcOpCode,ConversionToBmcOpRegField};$/;"	e	enum:TypeOfConversion
+ConversionToBmcOpCode	Enums.h	/^enum  TypeOfConversion{ConversionToSimple,ConversionToAddress,ConversionToBase_12_Code,ConversionToBmcType,ConversionToBmcOpCode,ConversionToBmcOpRegField};$/;"	e	enum:TypeOfConversion
+ConversionToBmcOpRegField	Enums.h	/^enum  TypeOfConversion{ConversionToSimple,ConversionToAddress,ConversionToBase_12_Code,ConversionToBmcType,ConversionToBmcOpCode,ConversionToBmcOpRegField};$/;"	e	enum:TypeOfConversion
+ConversionToBmcType	Enums.h	/^enum  TypeOfConversion{ConversionToSimple,ConversionToAddress,ConversionToBase_12_Code,ConversionToBmcType,ConversionToBmcOpCode,ConversionToBmcOpRegField};$/;"	e	enum:TypeOfConversion
+ConversionToSimple	Enums.h	/^enum  TypeOfConversion{ConversionToSimple,ConversionToAddress,ConversionToBase_12_Code,ConversionToBmcType,ConversionToBmcOpCode,ConversionToBmcOpRegField};$/;"	e	enum:TypeOfConversion
+ConvertBinaryStringToBase12	miscellaneous.c	/^char *ConvertBinaryStringToBase12(char *bmcString)$/;"	f
+ConvertCharToInt	miscellaneous.c	/^int ConvertCharToInt(char *inputNumber)$/;"	f
+ConvertCmdToString	ComputerCommandsQueue.c	/^char *ConvertCmdToString(Cmd command,char *Scommand)$/;"	f
+ConvertIntToCharByBase	miscellaneous.c	/^char* ConvertIntToCharByBase(int num,enum TypeOfConversion convType,int baseToConvertTo)$/;"	f
+CreateAsmQueue	AsmCommandQueue.c	/^AsmQueue CreateAsmQueue()$/;"	f
+CreateAsmQueueArray	AsmCommandQueue.c	/^AsmQueue **CreateAsmQueueArray(int arraySize)$/;"	f
+CreateBmc	WorkFlow.c	/^void CreateBmc(char* inputCommand,char* directive,enum ItemType type,char *label,char* command,char* operands)$/;"	f
+CreateBmcCode	ComputerCommandsQueue.c	/^BinaryMachineCode CreateBmcCode(char *binaryNumber)$/;"	f
+CreateBmcForCommand	WorkFlow.c	/^void CreateBmcForCommand(char* line,char* label,opcode thisOpcode,char* paramSrc,char* paramDst,int addressingTypeSrc, int addressingTypeDst)$/;"	f
+CreateCmdObject	ComputerCommandsQueue.c	/^Cmd CreateCmdObject(char* labelName,char decimal_address[],	char base_12_address[],	char* command,	char* operands,	BinaryMachineCode bmc,char base_12_machine_code[],char kind)$/;"	f
+CreateCmdQueue	ComputerCommandsQueue.c	/^CmdQueue CreateCmdQueue()$/;"	f
+CreateFileName	Files.c	/^char* CreateFileName(char *filename,enum FileExtension extension)$/;"	f
+CreateInputFileArray	Files.c	/^FILE **CreateInputFileArray(char **files,int filesCount)$/;"	f
+CreateLabelNode	Lables_LinkedList.c	/^labelNode *CreateLabelNode()$/;"	f
+CreateLinkageNode	Linkage_Symbols.c	/^linkageNode *CreateLinkageNode()$/;"	f
+DATA	Enums.h	/^enum Directive { STRING, DATA, ENTRY, EXTERN, NONE };$/;"	e	enum:Directive
+DATA_INSTRUCTION	Global_Defines.h	7;"	d
+DC	WorkFlow.c	/^static int DC;$/;"	v	file:
+DELIMITERS	WorkFlow.c	/^static const char DELIMITERS[]={' ',':',',','\\t','\\0','\\r','\\n'};$/;"	v	file:
+Directive	Enums.h	/^enum Directive { STRING, DATA, ENTRY, EXTERN, NONE };$/;"	g
+ENTRY	Enums.h	/^enum Directive { STRING, DATA, ENTRY, EXTERN, NONE };$/;"	e	enum:Directive
+ENTRY_INSTRUCTION	Global_Defines.h	10;"	d
+EXTERN	Enums.h	/^enum Directive { STRING, DATA, ENTRY, EXTERN, NONE };$/;"	e	enum:Directive
+EXTERN_INSTRUCTION	Global_Defines.h	9;"	d
+EmptyAsmQueue	AsmCommandQueue.c	/^void EmptyAsmQueue(AsmQueue Q)$/;"	f
+EmptyCmdQueue	ComputerCommandsQueue.c	/^void EmptyCmdQueue(CmdQueue Q)$/;"	f
+End	Enums.h	/^enum TrimMethod {All, Start, End}; $/;"	e	enum:TrimMethod
+ErrorHandler	miscellaneous.c	/^void ErrorHandler(enum RuntimeErrors error,char *moreInfo)$/;"	f
+FALSE	Enums.h	/^enum  Boolean {FALSE,TRUE};$/;"	e	enum:Boolean
+FILE_ENT	Enums.h	/^enum FileExtension{FILE_OB,FILE_EXT,FILE_ENT};$/;"	e	enum:FileExtension
+FILE_EXT	Enums.h	/^enum FileExtension{FILE_OB,FILE_EXT,FILE_ENT};$/;"	e	enum:FileExtension
+FILE_OB	Enums.h	/^enum FileExtension{FILE_OB,FILE_EXT,FILE_ENT};$/;"	e	enum:FileExtension
+FIX_NULL_STRING	Global_Defines.h	20;"	d
+FatalError	Enums.h	/^enum  RuntimeErrors {OutOfMemory,StackEmpty,UnableToOpenFile,UnableToWriteFile,NCA,CompilingError,FatalError,UnableToDeleteTempFile};$/;"	e	enum:RuntimeErrors
+FileExtension	Enums.h	/^enum FileExtension{FILE_OB,FILE_EXT,FILE_ENT};$/;"	g
+FindLabel	Lables_LinkedList.c	/^labelNode *FindLabel(labelNode *head,char* labelToFind)$/;"	f
+FindLinkage	Linkage_Symbols.c	/^linkageNode *FindLinkage(LinkedList_Linkage *head,char* directiveName,enum Directive directiveToFind)$/;"	f
+FindMinimalLineInLinkageList	Linkage_Symbols.c	/^char *FindMinimalLineInLinkageList(LinkedList_Linkage *L)$/;"	f
+FindParamType	miscellaneous.c	/^enum ParamType FindParamType(char *param)$/;"	f
+FirstPass	WorkFlow.c	/^void FirstPass(char **files,int filesCount)$/;"	f
+FirstPassInitialization	WorkFlow.c	/^void FirstPassInitialization(char **files,int filesCount)$/;"	f
+GetFileSize	Files.c	/^long GetFileSize(FILE *fp)$/;"	f
+GetOpcodeDefinition	Structs.c	/^opcode GetOpcodeDefinition(char op[],opcode opcodesList[])$/;"	f
+GoToEndOfLinkageList	Linkage_Symbols.c	/^linkageNode *GoToEndOfLinkageList(LinkedList_Linkage *head)$/;"	f
+HandleCommand	WorkFlow.c	/^void HandleCommand(char *line,int* curPos,opcode thisOpcode,char* label)$/;"	f
+HandleDirective	WorkFlow.c	/^void HandleDirective(char* tempInputCommand,char* label,char* Directive)$/;"	f
+HandleLabel	WorkFlow.c	/^char *HandleLabel(char* label,char *line,int* loc)$/;"	f
+IC	WorkFlow.c	/^static int IC=IC_STARTING_ADDRESS;$/;"	v	file:
+IC_STARTING_ADDRESS	Global_Defines.h	14;"	d
+INPUTFILE_EXT	Global_Defines.h	5;"	d
+IdentifyAddressing	miscellaneous.c	/^int IdentifyAddressing(char* param)$/;"	f
+InitializeOpcodeList	InitializationFunctions.c	/^opcode* InitializeOpcodeList(opcode* list)$/;"	f
+IsAddressingAllowedForCommand	miscellaneous.c	/^enum Boolean IsAddressingAllowedForCommand(int addressing,int allowedAddressing[])$/;"	f
+IsAsmQueueEmpty	AsmCommandQueue.c	/^enum Boolean IsAsmQueueEmpty(AsmQueue Q)$/;"	f
+IsCmdQueueEmpty	ComputerCommandsQueue.c	/^enum Boolean IsCmdQueueEmpty(CmdQueue Q)$/;"	f
+IsDelimiter	WorkFlow.c	/^enum Boolean IsDelimiter(char test,char specificDelimiter)$/;"	f
+IsLabel	WorkFlow.c	/^enum Boolean IsLabel(char *string)$/;"	f
+IsLegalNumber	miscellaneous.c	/^enum Boolean IsLegalNumber(char *strToCheck)$/;"	f
+IsLinkageListEmpty	Linkage_Symbols.c	/^enum Boolean IsLinkageListEmpty(LinkedList_Linkage *head)$/;"	f
+IsMachineRegister	miscellaneous.c	/^enum Boolean IsMachineRegister(char* str)$/;"	f
+ItemType	Enums.h	/^enum ItemType{TDirective, TCommand,TLabel};$/;"	g
+KindOfSort_CmdQ	ComputerCommandsQueue.c	/^CmdQueue KindOfSort_CmdQ(CmdQueue Q)$/;"	f
+Label_Name	Lables_LinkedList.h	/^	char* Label_Name;$/;"	m	struct:__anon5
+Linkage_List	WorkFlow.c	/^static LinkedList_Linkage Linkage_List;$/;"	v	file:
+LinkedList_Labels	Lables_LinkedList.h	/^}LinkedList_Labels;$/;"	t	typeref:struct:__anon6
+LinkedList_Linkage	Linkage_Symbols.h	/^}LinkedList_Linkage;$/;"	t	typeref:struct:__anon3
+MAX_ADDRESSING_AMOUNT	Global_Defines.h	11;"	d
+MAX_ADDRESS_DIGITS	Global_Defines.h	2;"	d
+MINIMUM_STRING_LENGTH	Global_Defines.h	6;"	d
+NCA	Enums.h	/^enum  RuntimeErrors {OutOfMemory,StackEmpty,UnableToOpenFile,UnableToWriteFile,NCA,CompilingError,FatalError,UnableToDeleteTempFile};$/;"	e	enum:RuntimeErrors
+NONE	Enums.h	/^enum Directive { STRING, DATA, ENTRY, EXTERN, NONE };$/;"	e	enum:Directive
+NOT_ENOUGH_MEMORY	Global_Defines.h	17;"	d
+OPCODE_COUNT	Global_Defines.h	1;"	d
+ObtainFileNames	miscellaneous.c	/^char **ObtainFileNames(int numOfFiles,char *filesV[])$/;"	f
+OctalToDecimal	miscellaneous.c	/^int OctalToDecimal(int octal)$/;"	f
+OutOfMemory	Enums.h	/^enum  RuntimeErrors {OutOfMemory,StackEmpty,UnableToOpenFile,UnableToWriteFile,NCA,CompilingError,FatalError,UnableToDeleteTempFile};$/;"	e	enum:RuntimeErrors
+ParamType	Enums.h	/^enum ParamType {Param_register,Param_word,Param_dimentional,Param_relative,Param_Number,Param_error};$/;"	g
+Param_Number	Enums.h	/^enum ParamType {Param_register,Param_word,Param_dimentional,Param_relative,Param_Number,Param_error};$/;"	e	enum:ParamType
+Param_dimentional	Enums.h	/^enum ParamType {Param_register,Param_word,Param_dimentional,Param_relative,Param_Number,Param_error};$/;"	e	enum:ParamType
+Param_error	Enums.h	/^enum ParamType {Param_register,Param_word,Param_dimentional,Param_relative,Param_Number,Param_error};$/;"	e	enum:ParamType
+Param_register	Enums.h	/^enum ParamType {Param_register,Param_word,Param_dimentional,Param_relative,Param_Number,Param_error};$/;"	e	enum:ParamType
+Param_relative	Enums.h	/^enum ParamType {Param_register,Param_word,Param_dimentional,Param_relative,Param_Number,Param_error};$/;"	e	enum:ParamType
+Param_word	Enums.h	/^enum ParamType {Param_register,Param_word,Param_dimentional,Param_relative,Param_Number,Param_error};$/;"	e	enum:ParamType
+PrintStyle	Enums.h	/^enum StringStyle{PrintStyle,BmcStyle};$/;"	e	enum:StringStyle
+PtrToAsmRecord	AsmCommandQueue.h	/^typedef struct AsmCommandRecord *PtrToAsmRecord;$/;"	t	typeref:struct:AsmCommandRecord
+PtrToCmdRecord	ComputerCommandsQueue.h	/^typedef struct _CmdRec *PtrToCmdRecord;$/;"	t	typeref:struct:_CmdRec
+ReadAdditionalValues	WorkFlow.c	/^char* ReadAdditionalValues(char* line) \/* need to fix in order to use *\/$/;"	f
+ReadFile	WorkFlow.c	/^void ReadFile(int index)$/;"	f
+ReadFiles	WorkFlow.c	/^void ReadFiles(int filesCount)$/;"	f
+ReadLineFromFile	Files.c	/^char *ReadLineFromFile(FILE *fp,long fileSize)$/;"	f
+ReadWord	WorkFlow.c	/^char *ReadWord(char *text,int* curLoc,char specificDelimiter) \/* white space fix (bug fix: input changed to "by reference") *\/$/;"	f
+ReadWord_by_value	WorkFlow.c	/^char *ReadWord_by_value(char *text,int curLoc,char specificDelimiter)$/;"	f
+RemoveItemFromLinkageList	Linkage_Symbols.c	/^void RemoveItemFromLinkageList(LinkedList_Linkage *L,char* lineNumber,char* name)$/;"	f
+RemoveRecordFromAsmQueue	AsmCommandQueue.c	/^void RemoveRecordFromAsmQueue(AsmQueue Q)$/;"	f
+RemoveRecordFromCmdQueue	ComputerCommandsQueue.c	/^void RemoveRecordFromCmdQueue(CmdQueue Q)$/;"	f
+RetreiveLinkageItem	Linkage_Symbols.c	/^linkageNode *RetreiveLinkageItem(LinkedList_Linkage *head)$/;"	f
+RetrieveAsmRecord	AsmCommandQueue.c	/^char *RetrieveAsmRecord(AsmQueue Q)$/;"	f
+RetrieveRecord	ComputerCommandsQueue.c	/^Cmd RetrieveRecord(CmdQueue Q)$/;"	f
+ReturnOpcodeValue	StructsFunctions.c	/^opcode* ReturnOpcodeValue(opcode* _list,char opcodeName[]) \/*returns -1 if opcode is not found.*\/$/;"	f
+RuntimeErrors	Enums.h	/^enum  RuntimeErrors {OutOfMemory,StackEmpty,UnableToOpenFile,UnableToWriteFile,NCA,CompilingError,FatalError,UnableToDeleteTempFile};$/;"	g
+STRING	Enums.h	/^enum Directive { STRING, DATA, ENTRY, EXTERN, NONE };$/;"	e	enum:Directive
+STRING_INSTRUCTION	Global_Defines.h	8;"	d
+SecondPass	WorkFlow.c	/^void SecondPass(char* fileName)$/;"	f
+SetCompilingError	miscellaneous.c	/^void SetCompilingError()$/;"	f
+StackEmpty	Enums.h	/^enum  RuntimeErrors {OutOfMemory,StackEmpty,UnableToOpenFile,UnableToWriteFile,NCA,CompilingError,FatalError,UnableToDeleteTempFile};$/;"	e	enum:RuntimeErrors
+Start	Enums.h	/^enum TrimMethod {All, Start, End}; $/;"	e	enum:TrimMethod
+StringMoveToNextItem	miscellaneous.c	/^char *StringMoveToNextItem(char* text)$/;"	f
+StringStyle	Enums.h	/^enum StringStyle{PrintStyle,BmcStyle};$/;"	g
+StringTrim	miscellaneous.c	/^char* StringTrim(char *stringToTrim)$/;"	f
+TCommand	Enums.h	/^enum ItemType{TDirective, TCommand,TLabel};$/;"	e	enum:ItemType
+TDirective	Enums.h	/^enum ItemType{TDirective, TCommand,TLabel};$/;"	e	enum:ItemType
+TLabel	Enums.h	/^enum ItemType{TDirective, TCommand,TLabel};$/;"	e	enum:ItemType
+TRUE	Enums.h	/^enum  Boolean {FALSE,TRUE};$/;"	e	enum:Boolean
+TrimMethod	Enums.h	/^enum TrimMethod {All, Start, End}; $/;"	g
+TypeOfConversion	Enums.h	/^enum  TypeOfConversion{ConversionToSimple,ConversionToAddress,ConversionToBase_12_Code,ConversionToBmcType,ConversionToBmcOpCode,ConversionToBmcOpRegField};$/;"	g
+UnableToDeleteTempFile	Enums.h	/^enum  RuntimeErrors {OutOfMemory,StackEmpty,UnableToOpenFile,UnableToWriteFile,NCA,CompilingError,FatalError,UnableToDeleteTempFile};$/;"	e	enum:RuntimeErrors
+UnableToOpenFile	Enums.h	/^enum  RuntimeErrors {OutOfMemory,StackEmpty,UnableToOpenFile,UnableToWriteFile,NCA,CompilingError,FatalError,UnableToDeleteTempFile};$/;"	e	enum:RuntimeErrors
+UnableToWriteFile	Enums.h	/^enum  RuntimeErrors {OutOfMemory,StackEmpty,UnableToOpenFile,UnableToWriteFile,NCA,CompilingError,FatalError,UnableToDeleteTempFile};$/;"	e	enum:RuntimeErrors
+UpdateEntryLabels	Linkage_Symbols.c	/^void UpdateEntryLabels(LinkedList_Linkage *linkage,labelNode *labels)$/;"	f
+ValidateLabel	miscellaneous.c	/^char* ValidateLabel(char* label)$/;"	f
+Value_10	Lables_LinkedList.h	/^	char Value_10[MAX_ADDRESS_DIGITS+1];$/;"	m	struct:__anon5
+Value_12	Lables_LinkedList.h	/^	char Value_12[MAX_ADDRESS_DIGITS+1];$/;"	m	struct:__anon5
+WasThereCompilingError	miscellaneous.c	/^enum Boolean WasThereCompilingError()$/;"	f
+WhatDirective	WorkFlow.c	/^enum Directive WhatDirective(char *text)$/;"	f
+WriteExtAndEntFiles	Files.c	/^void WriteExtAndEntFiles(char* fileName,LinkedList_Linkage *linkage)$/;"	f
+WriteObjFile	Files.c	/^void WriteObjFile(char *filename,CmdQueue Q,int ic,int dc)$/;"	f
+_AssemblerCommandsQueue	WorkFlow.c	/^static AsmQueue **_AssemblerCommandsQueue;$/;"	v	file:
+_CmdRec	ComputerCommandsQueue.h	/^struct _CmdRec$/;"	s
+_CommandsQueue_	ComputerCommandsQueue.h	7;"	d
+_CompilingError	miscellaneous.c	/^static enum Boolean  _CompilingError = FALSE;$/;"	v	typeref:enum:Boolean	file:
+_FilesList	WorkFlow.c	/^FILE static **_FilesList;$/;"	v	file:
+_GLOBAL_DEFINES_H	miscellaneous.h	5;"	d
+_LabelsLinkedList_	Lables_LinkedList.h	2;"	d
+_LinkageLinkedList_	Linkage_Symbols.h	4;"	d
+_STRUCTS_H_	Structs.h	4;"	d
+_command	ComputerCommandsQueue.h	/^	Cmd _command;$/;"	m	struct:_CmdRec
+_enums_	Enums.h	3;"	d
+_labels	WorkFlow.c	/^static labelNode *_labels;$/;"	v	file:
+a	ComputerCommandsQueue.h	/^	char *a;$/;"	m	struct:__anon1
+adddressing_type_dst	Structs.h	/^	int adddressing_type_dst[MAX_ADDRESSING_AMOUNT];$/;"	m	struct:__anon4
+adddressing_type_src	Structs.h	/^	int adddressing_type_src[MAX_ADDRESSING_AMOUNT];$/;"	m	struct:__anon4
+asmString	AsmCommandQueue.h	/^	char *asmString;$/;"	m	struct:AsmCommandRecord
+b	ComputerCommandsQueue.h	/^	char *b;$/;"	m	struct:__anon1
+base_12_address	ComputerCommandsQueue.h	/^	char base_12_address[MAX_ADDRESS_DIGITS+1];$/;"	m	struct:CmdStructure
+base_12_machine_code	ComputerCommandsQueue.h	/^	char base_12_machine_code[9];$/;"	m	struct:CmdStructure
+bmc	ComputerCommandsQueue.h	/^	BinaryMachineCode bmc;$/;"	m	struct:CmdStructure
+c	ComputerCommandsQueue.h	/^	char *c;$/;"	m	struct:__anon1
+command	ComputerCommandsQueue.h	/^	char* command;$/;"	m	struct:CmdStructure
+computerLanguage	WorkFlow.c	/^static CmdQueue computerLanguage;$/;"	v	file:
+convertBinaryMachineCodeToString	ComputerCommandsQueue.c	/^char *convertBinaryMachineCodeToString(BinaryMachineCode bmc,enum StringStyle style)$/;"	f
+d	ComputerCommandsQueue.h	/^	char *d;$/;"	m	struct:__anon1
+decimal_address	ComputerCommandsQueue.h	/^	char decimal_address[MAX_ADDRESS_DIGITS+1];$/;"	m	struct:CmdStructure
+directive	Linkage_Symbols.h	/^	enum Directive directive;$/;"	m	struct:__anon2	typeref:enum:__anon2::Directive
+e	ComputerCommandsQueue.h	/^	char *e;$/;"	m	struct:__anon1
+kind	ComputerCommandsQueue.h	/^	char kind;$/;"	m	struct:CmdStructure
+labelName	ComputerCommandsQueue.h	/^	char* labelName;$/;"	m	struct:CmdStructure
+labelNode	Lables_LinkedList.h	/^}labelNode;$/;"	t	typeref:struct:__anon5
+label_type	Lables_LinkedList.h	/^	char label_type;$/;"	m	struct:__anon5
+lineNumber	Linkage_Symbols.h	/^	char* lineNumber;$/;"	m	struct:__anon2
+linkageNode	Linkage_Symbols.h	/^}linkageNode;$/;"	t	typeref:struct:__anon2
+main	Project_Main.c	/^int main(int argc,char* argv[])$/;"	f
+name	Linkage_Symbols.h	/^	char* name;$/;"	m	struct:__anon2
+next	AsmCommandQueue.h	/^	PtrToAsmRecord next;$/;"	m	struct:AsmCommandRecord
+next	ComputerCommandsQueue.h	/^	PtrToCmdRecord next;$/;"	m	struct:_CmdRec
+next	Lables_LinkedList.h	/^	labelNode *next;$/;"	m	struct:__anon6
+next	Lables_LinkedList.h	/^	struct labelNode *next;$/;"	m	struct:__anon5	typeref:struct:__anon5::labelNode
+next	Linkage_Symbols.h	/^	linkageNode *next;$/;"	m	struct:__anon3
+next	Linkage_Symbols.h	/^	struct linkageNode *next;$/;"	m	struct:__anon2	typeref:struct:__anon2::linkageNode
+op	Structs.h	/^	char op[4];$/;"	m	struct:__anon4
+opcode	Structs.h	/^}opcode;$/;"	t	typeref:struct:__anon4
+opcodes	WorkFlow.c	/^static opcode *opcodes;$/;"	v	file:
+openFile	Files.c	/^FILE *openFile(char *filename,char* mode)$/;"	f
+operand_count	Structs.h	/^	int operand_count;$/;"	m	struct:__anon4
+operands	ComputerCommandsQueue.h	/^	char* operands;$/;"	m	struct:CmdStructure
+previous	AsmCommandQueue.h	/^	PtrToAsmRecord previous;$/;"	m	struct:AsmCommandRecord
+previous	ComputerCommandsQueue.h	/^	PtrToCmdRecord previous;$/;"	m	struct:_CmdRec
+value_8	Structs.h	/^	int value_8;$/;"	m	struct:__anon4
+zero	WorkFlow.c	/^static int zero=0;$/;"	v	file:
+zeroPointer	WorkFlow.c	/^static int* zeroPointer;$/;"	v	file:
