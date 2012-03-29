@@ -1,8 +1,7 @@
 @variables {
 	DropDownPadding: 30px;
 }
-.js_fancyDropDown { position: relative; padding: 0; padding-top: 30px/* var(DropDownPadding) */; background: #ccc; direction: rtl;list-style: none;}
+.js_fancyDropDown { position: relative; padding: 0;/* var(DropDownPadding) */; background: #ccc; direction: rtl;list-style: none;}
 
 .js_fancyDropDown li { background: #cfa; }
 .js_fancyDropDown li:hover { background: #ccc;}
-.js_fancyDropDown span { display: block; height: 30px/*var(dropDownPadding)*/; position: absolute; top: 0;  right: 0; left: 0;  }

@@ -6,7 +6,7 @@
 		 <script>
 			 function populateDropdownFromArray(drop_down_id,data_array){
 					var theOl = $("ol#" + drop_down_id)
-					theOl.append("<span>בחר אפשרות</span>");
+					theOl.append("בחר בבקשה"); /* to add some elements before the lis (not wise)*/
 					var i = 0;
 					for (i=0;i<data_array.length;i++){
 							theOl.append("<label><li>"+
@@ -14,16 +14,16 @@
 											""+data_array[i]+
 										 "</li></label>");
 					}
-					$("#"+ drop_down_id + " span").click(function(e){
-							
-							$("#"+ drop_down_id + " li").toggle();
-							e.stopPropagation();
-					});
+					
 					$(document).click(function(e){
 							var target = e.target;
 							if (!($(target).is('#' + drop_down_id)) && !($(target).parents().is('#' + drop_down_id ))) {
 									$('#' + drop_down_id + " li").hide();
 							}
+							/**/
+							if ( $(target).is('#'+drop_down_id) && !$(target).parents().is('#'+drop_down_id) ){
+								$("#"+ drop_down_id + " li").toggle();
+							} /**/
 					});
 			}
 			$(document).ready(function(){
