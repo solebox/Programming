@@ -4,17 +4,17 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 		 <script>
-			 function populateDropdownFromArray(drop_down_id,data_array){
+			 function populateDropdownFromArray(drop_down_id,data_obj){
 					var theOl = $("ol#" + drop_down_id)
 					theOl.append("בחר בבקשה"); /* to add some elements before the lis (not wise)*/
-					var i = 0;
-					for (i=0;i<data_array.length;i++){
+					for (var key in data_obj) {
+                        var obj = data_obj[key];
 							theOl.append("<label><li>"+
-											"<input type='checkbox' name='"+drop_down_id+"[]' value='"+  (i + 1) +"'/>"+
-											""+data_array[i]+
+											"<input type='checkbox' name='"+drop_down_id+"[]' value='"+  (key) +"'/>"+
+											""+obj+
 										 "</li></label>");
 					}
-					
+					$('#' + drop_down_id + " li").hide();
 					$(document).click(function(e){
 							var target = e.target;
 							if (!($(target).is('#' + drop_down_id)) && !($(target).parents().is('#' + drop_down_id ))) {
@@ -27,11 +27,12 @@
 					});
 			}
 			$(document).ready(function(){
-				var arr = new Array("דבש","מלון","בננה","מנגו");
-				populateDropdownFromArray("shopping",arr);
+                var obj2 = {30:"מנגו",12:"בננה",80:"מלון"};
+				populateDropdownFromArray("shopping",obj2);
 				//	$("ol.js_fancyDropDown")
 				$("form").submit(function(){
 						alert($(this).serialize());
+                        return false;
 				});
 			});
 		 </script>
