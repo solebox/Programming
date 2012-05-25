@@ -28,10 +28,12 @@
 		}
 		
 		.inmost {
+            text-decoration: none;
 			float: left;
 			margin: 25px;
 			float: left;
-		 	background-color: #fdffe8;
+		 	background: url(images/intro_tab_bg.png) repeat-x;
+            border: solid 2px #ccc;
 			width: 323px;
 			height: 170px;
             border-radius: 25px;
@@ -40,18 +42,48 @@
         .inmost div {
             width:291px;
             height:170px;
-            margin: 0 auto;
+            float: right;
+            margin-right: 50px;
         }
+        .inmost div  + div {
+            width: 150px;    
+            margin: 0;
+        }
+        .inmost div  h1 {
+            color: #000;
+            font-size: 18pt;
+            margin: 0 auto;
+            float: right;
+            margin-top: 60px;
+            margin-right: 15px;
+        }
+        .inmost div p { 
+              display: none;
+              margin-right: 10px;
+              margin-top: 25px;
+              color: #000;
+              direction: rtl; 
+              line-height: 1.5;
+         }
+         .inmost:hover { 
+		 	background: url(images/intro_tab_orange_bg.png) repeat-x;
+         }
+        .inmost:hover div h1 { display: none; }
+        .inmost:hover div p { display: block; }
         .inmost div.pro {
+            width: 95px;
             background: url(images/avodot_miktzoit_rashi.png) no-repeat;   
         }
         .inmost div.personal {
+            width: 123px;
             background: url(images/avodot_ishit_rashi.png) no-repeat;   
         }
         .inmost div.temp {
+            width: 100px;
             background: url(images/avodot_mizdamnot_rashi.png) no-repeat;   
         }
         .inmost div.quality {
+            width: 120px;
             background: url(images/avodot_rashi_qual.png) no-repeat;   
         }
 	</style>
@@ -61,10 +93,34 @@
     <div class="hackout">
         <div class="hackmiddle">
             <div class="outer">
-                <a href="#" class="inmost"><div class="pro"></div></a>
-                <a href="#" class="inmost"><div class="personal"></div></a>
-                <a href="#" class="inmost"><div class="temp"></div></a>
-                <a href="#" class="inmost"><div class="quality"></div></a>
+                <a href="#" class="inmost">
+                    <div class="pro"></div>
+                    <div class="proTxt">
+                        <h1>הדרכה מקצועית</h1>
+                        <P>צריך\ה עזרה? מיטב אנשי המקצוע מעניקים לך שירות באמצעות סרטונים ואמצעי הדרכה!</p>
+                    </div>    
+                </a>
+                <a href="#" class="inmost">
+                    <div class="personal"></div>
+                    <div class="personalTxt">
+                        <h1>הכוונה אישית</h1>
+                        <P>מבולבל\ת? לא יודע\ת מה מעניין? מה התואר שלך מאפשר לך? אנחנו כאן בכדי להכווין אותך למקום הנכון!</p>
+                    </div>
+                </a>
+                <a href="#" class="inmost">
+                    <div class="temp"></div>
+                    <div class="tempTxt">
+                        <h1>עבודות זמניות</h1>
+                        <P>רוצה לעבוד לשם השלמת הכנסה? מלצרות\משמרות\עבודה לפי שעות תמצ\אי פה!</p>
+                    </div>
+                </a>
+                <a href="#" class="inmost">
+                    <div class="quality"></div>
+                    <div class="qualityTxt">
+                        <h1>עבודות איכות</h1>
+                        <P>מאגר עבודות בהתאם לתואר האקדמי שלך! סטודנט זו ההזדמנות שלך להתמקצע במהלך התואר</p>
+                    </div>
+                </a>
             </div>    
         </div>
         
