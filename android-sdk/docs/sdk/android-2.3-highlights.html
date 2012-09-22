@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<link rel="shortcut icon" type="image/x-icon" href="../favicon.ico" />
+<title>Android 2.3 Platform Highlights | Android Developers</title>
+<link href="../assets/android-developer-docs-devguide.css" rel="stylesheet" type="text/css" />
+<script src="../assets/search_autocomplete.js" type="text/javascript"></script>
+<script src="../assets/jquery-resizable.min.js" type="text/javascript"></script>
+<script src="../assets/android-developer-docs.js" type="text/javascript"></script>
+<script src="../assets/prettify.js" type="text/javascript"></script>
+<script type="text/javascript">
+  setToRoot("../");
+</script>
+<noscript>
+  <style type="text/css">
+    html,body{overflow:auto;}
+    #body-content{position:relative; top:0;}
+    #doc-content{overflow:visible;border-left:3px solid #666;}
+    #side-nav{padding:0;}
+    #side-nav .toggle-list ul {display:block;}
+    #resize-packages-nav{border-bottom:3px solid #666;}
+  </style>
+</noscript>
+</head>
+<body class="gc-documentation" itemscope itemtype="http://schema.org/Article">
+
+  <div id="header">
+      <div id="headerLeft">
+          <a href="../index.html" tabindex="-1"><img
+              src="../assets/images/bg_logo.png" alt="Android Developers" /></a>
+          <ul id="header-tabs" class="sdk">
+    
+	<li id="home-link"><a href="../offline.html">
+	
+		<span class="en">Home</span>
+		<span style="display:none" class="de">Startseite</span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ホーム</span>
+		<span style="display:none" class="zh-CN">主页</span>
+		<span style="display:none" class="zh-TW">首頁</span>
+	
+	</a></li>
+	<li id="sdk-link"><a href="../sdk/index.html">
+		<span class="en">SDK</span>
+	</a></li>
+	<li id="guide-link"><a href="../guide/index.html" onClick="return loadLast('guide')">
+	
+		<span class="en">Dev Guide</span>
+		<span style="display:none" class="de">Handbuch</span>
+		<span style="display:none" class="es">Guía</span>
+		<span style="display:none" class="fr">Guide</span>
+		<span style="display:none" class="it">Guida</span>
+		<span style="display:none" class="ja">開発ガイド</span>
+		<span style="display:none" class="zh-CN">开发人员指南</span>
+		<span style="display:none" class="zh-TW">開發指南</span>
+	
+	</a></li>
+	<li id="reference-link"><a href="../reference/packages.html" onClick="return loadLast('reference')">
+	
+		<span class="en">Reference</span>
+		<span style="display:none" class="de">Referenz</span>
+		<span style="display:none" class="es">Referencia</span>
+		<span style="display:none" class="fr">Référence</span>
+		<span style="display:none" class="it">Riferimento</span>
+		<span style="display:none" class="ja">リファレンス</span>
+		<span style="display:none" class="zh-CN">参考</span>
+		<span style="display:none" class="zh-TW">參考資料</span>
+	
+	</a></li>
+	<li id="resources-link"><a href="../resources/index.html" onClick="return loadLast('resources')">
+	
+		<span class="en">Resources</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+    		<span style="display:none" class="ja"></span>
+		<span style="display:none" class="zh-CN"></span>
+		<span style="display:none" class="zh-TW"></span>
+	
+	</a></li>
+	<li id="videos-link"><a href="../videos/index.html" onClick="return loadLast('videos')">
+	
+		<span class="en">Videos</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ビデオ</span>
+		<span style="display:none" class="zh-CN"></span>
+		<span style="display:none" class="zh-TW"></span>
+	
+	</a></li>
+	<li><a href="http://android-developers.blogspot.com" onClick="return requestAppendHL(this.href)">
+	
+		<span class="en">Blog</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ブログ</span>
+		<span style="display:none" class="zh-CN">博客</span>
+		<span style="display:none" class="zh-TW">網誌</span>
+	
+	</a></li>
+
+
+     
+</ul>
+     
+      </div>
+      <div id="headerRight">
+          <div id="headerLinks">
+          &nbsp;&nbsp;
+          <a href="../design/index.html">Android Design</a>&nbsp;&nbsp;
+          <a href="http://www.android.com">Android.com</a>
+          </div>
+  <div id="search" >
+      <div id="searchForm">
+          <form accept-charset="utf-8" class="gsc-search-box" 
+                onsubmit="return submit_search()">
+            <table class="gsc-search-box" cellpadding="0" cellspacing="0"><tbody>
+                <tr>
+                  <td class="gsc-input">
+                    <input id="search_autocomplete" class="gsc-input" type="text" size="33" autocomplete="off"
+                      title="search developer docs" name="q"
+                      value="search developer docs"
+                      onFocus="search_focus_changed(this, true)"
+                      onBlur="search_focus_changed(this, false)"
+                      onkeydown="return search_changed(event, true, '../')"
+                      onkeyup="return search_changed(event, false, '../')" />
+                  <div id="search_filtered_div" class="no-display">
+                      <table id="search_filtered" cellspacing=0>
+                      </table>
+                  </div>
+                  </td>
+                  <td class="gsc-search-button">
+                    <input type="submit" value="Search" title="search" id="search-button" class="gsc-search-button" />
+                  </td>
+                  <td class="gsc-clear-button">
+                    <div title="clear results" class="gsc-clear-button">&nbsp;</div>
+                  </td>
+                </tr></tbody>
+              </table>
+          </form>
+      </div><!-- searchForm -->
+  </div><!-- search -->
+      </div><!-- headerRight -->
+      <script type="text/javascript">
+        <!--  
+        changeTabLang(getLangPref());
+        //-->
+      </script>
+  </div><!-- header -->
+
+  <div class="g-section g-tpl-240" id="body-content">
+    <div class="g-unit g-first" id="side-nav" itemscope itemtype="http://schema.org/SiteNavigationElement">
+      <div id="devdoc-nav">
+<ul>
+  <li>
+    <span class="heading">
+      <span class="en">Android SDK Starter Package</span>
+      <span style="display:none" class="de">Aktuelle SDK-Version</span>
+      <span style="display:none" class="es">Versión actual del SDK</span>
+      <span style="display:none" class="fr">Version actuelle du SDK</span>
+      <span style="display:none" class="it">Release SDK attuale</span>
+      <span style="display:none" class="ja">現在リリースされている SDK</span>
+      <span style="display:none" class="zh-CN">当前的 SDK 版本</span>
+      <span style="display:none" class="zh-TW">目前 SDK 發行版本</span>
+    </span>
+    <ul>
+      <li><a href="../sdk/installing.html">
+          <span class="en">Installing the SDK</span>
+          <span style="display:none" class="de">Installieren</span>
+          <span style="display:none" class="es">Instalación</span>
+          <span style="display:none" class="fr">Installation</span>
+          <span style="display:none" class="it">Installazione</span>
+          <span style="display:none" class="ja">インストール</span>
+          <span style="display:none" class="zh-CN">安装</span>
+          <span style="display:none" class="zh-TW">安裝</span>
+        </a></li>
+    </ul>
+  </li>
+  
+  <li>
+    <span class="heading">
+      <span class="en">Downloadable SDK Components</span>
+      <span style="display:none" class="de"></span>
+      <span style="display:none" class="es"></span>
+      <span style="display:none" class="fr"></span>
+      <span style="display:none" class="it"></span>
+      <span style="display:none" class="ja"></span>
+      <span style="display:none" class="zh-CN"></span>
+      <span style="display:none" class="zh-TW"></span>
+    </span>
+    <ul>
+      <li><a href="../sdk/adding-components.html">
+      <span class="en">Adding SDK Components</span>
+      <span style="display:none" class="de"></span>
+      <span style="display:none" class="es"></span>
+      <span style="display:none" class="fr"></span>
+      <span style="display:none" class="it"></span>
+      <span style="display:none" class="ja"></span>
+      <span style="display:none" class="zh-CN"></span>
+      <span style="display:none" class="zh-TW"></span></a>
+      </li>
+    </ul>
+    <ul>
+      <li class="toggle-list">
+        <div><a href="../sdk/android-4.0-highlights.html">
+        <span class="en">Android 4.0.x Platform</span></a> <span class="new">new!</span></div>
+        <ul>
+          <li><a href="../sdk/android-4.0.3.html">Android 4.0.3 Platform</a> <span class="new">new!</span></li>
+          <li><a href="../sdk/android-4.0.html">Android 4.0 Platform</a> </li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../sdk/android-3.2.html">
+        <span class="en">Android 3.2 Platform</span></a></div>
+        <ul>
+          <!-- <li><a href="../sdk/android-3.2-highlights.html">Platform Highlights</a></li> -->
+          <li><a href="../sdk/api_diff/13/changes.html">API Differences Report &raquo;</a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../sdk/android-3.1.html">
+        <span class="en">Android 3.1 Platform</span></a></div>
+        <ul>
+          <li><a href="../sdk/android-3.1-highlights.html">Platform Highlights</a></li>
+          <li><a href="../sdk/api_diff/12/changes.html">API Differences Report &raquo;</a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../sdk/android-3.0.html">
+        <span class="en">Android 3.0 Platform</span></a></div>
+        <ul>
+          <li><a href="../sdk/android-3.0-highlights.html">Platform Highlights</a></li>
+          <li><a href="../sdk/api_diff/11/changes.html">API Differences Report &raquo;</a></li>
+        </ul>
+      </li>
+      <li><a href="../sdk/android-2.3.4.html">Android 2.3.4 Platform</span></a></li>
+      <li class="toggle-list">
+      <div><a href="../sdk/android-2.3.3.html">
+      <span class="en">Android 2.3.3 Platform</span></a></div>
+        <ul>
+          <li><a href="../sdk/api_diff/10/changes.html">API Differences Report &raquo;</a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../sdk/android-2.2.html">
+        <span class="en">Android 2.2 Platform</span></a></div>
+        <ul>
+          <li><a href="../sdk/android-2.2-highlights.html">Platform Highlights</a></li>
+          <li><a href="../sdk/api_diff/8/changes.html">API Differences Report &raquo;</a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../sdk/android-2.1.html">
+        <span class="en">Android 2.1 Platform</span></a></div>
+        <ul>
+          <li><a href="../sdk/api_diff/7/changes.html">API Differences Report &raquo;</a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="#" onclick="toggle(this.parentNode.parentNode,true); return false;">Other Platforms</a></div>
+        <ul>
+          <li class="toggle-list">
+            <div><a href="../sdk/android-2.3.html">
+            <span class="en">Android 2.3 Platform</span></a></div>
+              <ul>
+                <li><a href="../sdk/android-2.3-highlights.html">Platform Highlights</a></li>
+                <li><a href="../sdk/api_diff/9/changes.html">API Differences Report &raquo;</a></li>
+              </ul>
+          </li>
+          <li><a href="../sdk/android-2.0.1.html">Android 2.0.1 Platform</a></li>
+          <li><a href="../sdk/android-2.0.html">Android 2.0 Platform</a></li>
+          <li><a href="../sdk/android-1.6.html">Android 1.6 Platform</a></li>
+          <li><a href="../sdk/android-1.5.html">Android 1.5 Platform</a></li>
+          <li><a href="../sdk/android-1.1.html">Android 1.1 Platform</a></li>
+        </ul>
+      </li>
+    </ul>
+    <ul>
+      <li><a href="../sdk/tools-notes.html">SDK Tools, r16</a> <span
+class="new">new!</span></li>
+      <li><a href="../sdk/win-usb.html">Google USB Driver, r4</a></li>
+      <li><a href="../sdk/compatibility-library.html">Support Package, r6</a>
+      <span class="new">new!</span></li>
+    </ul>
+  </li>
+  <li>
+    <span class="heading">
+      <span class="en">ADT Plugin for Eclipse</span>
+      <span style="display:none" class="de"></span>
+      <span style="display:none" class="es"></span>
+      <span style="display:none" class="fr"></span>
+      <span style="display:none" class="it"></span>
+      <span style="display:none" class="ja"></span>
+      <span style="display:none" class="zh-CN"></span>
+      <span style="display:none" class="zh-TW"></span>
+    </span>
+    <ul>
+      <li><a href="../sdk/eclipse-adt.html">ADT 16.0.1
+      <span style="display:none" class="de"></span>
+      <span style="display:none" class="es"></span>
+      <span style="display:none" class="fr"></span>
+      <span style="display:none" class="it"></span>
+      <span style="display:none" class="ja"></span>
+      <span style="display:none" class="zh-CN"></span>
+      <span style="display:none" class="zh-TW"></span></a> <span
+class="new">new!</span>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <span class="heading">
+      <span class="en">Native Development Tools</span>
+      <span style="display:none" class="de"></span>
+      <span style="display:none" class="es"></span>
+      <span style="display:none" class="fr"></span>
+      <span style="display:none" class="it"></span>
+      <span style="display:none" class="ja"></span>
+      <span style="display:none" class="zh-CN"></span>
+      <span style="display:none" class="zh-TW"></span>
+    </span>
+    <ul>
+      <li><a href="../sdk/ndk/index.html">Android NDK, r7b</a>
+        <span class="new">new!</span>
+        </li>
+      <li><a href="../sdk/ndk/overview.html">What is the NDK?</a></li>
+    </ul>
+  </li>
+
+  <li>
+    <span class="heading">
+      <span class="en">More Information</span>
+      <span style="display:none" class="de"></span>
+      <span style="display:none" class="es"></span>
+      <span style="display:none" class="fr"></span>
+      <span style="display:none" class="it"></span>
+      <span style="display:none" class="ja"></span>
+      <span style="display:none" class="zh-CN"></span>
+      <span style="display:none" class="zh-TW"></span>
+    </span>
+    <ul>
+      <li><a href="../sdk/oem-usb.html">
+        <span class="en">OEM USB Drivers</span>
+      </a></li>
+      <li><a href="../sdk/requirements.html">SDK System Requirements</a></li>
+      <li><a href="../sdk/older_releases.html">SDK Archives</a></li>
+
+    </ul>
+  </li>
+
+</ul>
+
+<script type="text/javascript">
+<!--
+    buildToggleLists();
+    changeNavLang(getLangPref());
+//-->
+</script>
+
+
+      </div>
+    </div> <!-- end side-nav -->
+
+
+
+
+<div class="g-unit" id="doc-content"><a name="top"></a>
+
+<div id="jd-header" class="guide-header">
+  <span class="crumb" itemprop="breadcrumb">
+    &nbsp;
+    
+  </span>
+<h1 itemprop="name">Android 2.3 Platform Highlights</h1>
+</div>
+
+  
+  <div id="jd-content">
+ 
+    
+
+
+    <div class="jd-descr" itemprop="articleBody">
+    <style type="text/css">
+#jd-content {
+  max-width:1200px;
+}
+#jd-content div.screenshot {
+  float:left;
+  clear:left;
+  padding:15px 30px 15px 0;
+}
+#jd-content div.video {
+  float:right;
+  padding:0 60px 40px;
+  margin-top:-15px;
+}
+#jd-content table.columns {
+  margin:0 0 1em 0;
+}
+#jd-content table.columns td {
+  padding:0;
+}
+#jd-content table.columns td+td {
+  padding:0 2em;
+}
+#jd-content table.columns td img {
+  margin:0;
+}
+#jd-content table.columns td+td>*:first-child {
+  margin-top:-2em;
+}
+.green {
+  color:#8db529;
+  font-weight:bold;
+}
+</style>
+
+<div class="video">
+<object width="278" height="180">
+<param name="movie" value="http://www.youtube.com/v/Jx3pdWBlZ34?hl=en&fs=1"></param>
+<param name="allowFullScreen" value="true"></param><param name="allowscriptaccess"
+value="always"></param>
+<embed src="http://www.youtube.com/v/Jx3pdWBlZ34?hl=en&fs=1" type="application/x-shockwave-flash"
+allowscriptaccess="always" allowfullscreen="true" width="278" height="180"></embed>
+</object>
+</div>
+
+<p>The Android 2.3 platform introduces many new and exciting features for
+users and developers. This document provides a glimpse at some of the new features
+and technologies in Android 2.3. For detailed information about the new developer APIs, see the <a
+href="android-2.3.html">Android 2.3 version notes</a>.</p>
+
+<ul>
+  <li><a href="#UserFeatures">New User Features</a></li>
+  <li><a href="#DeveloperApis">New Developer Features</a></li>
+  <li><a href="#PlatformTechnologies">New Platform Technologies</a></li>
+</ul>
+
+
+<h2 id="UserFeatures" style="clear:right">New User Features</h2>
+
+<div>
+<img style="float:right;padding-bottom:2em;" src="images/2.3/home-menu.png" alt="" height="280" />
+<img style="float:right;padding-bottom:2em;" src="images/2.3/home-plain.png" alt="" height="280" />
+
+<h3>UI refinements for simplicity and speed</h3>
+
+<p>The user interface is refined in many ways across the system, making it
+easier to learn, faster to use, and more power-efficient. A simplified
+visual theme of colors against black brings vividness and contrast to the
+notification bar, menus, and other parts of the UI.  Changes in menus and
+settings make it easier for the user to navigate and control the features
+of the system and device. </p>
+
+<h3>Faster, more intuitive text input</h3>
+
+<p>The Android soft keyboard is redesigned and optimized for faster text input
+and editing. The keys themselves are reshaped and repositioned for improved
+targeting, making them easier to see and press accurately, even at high speeds.
+The keyboard also displays the current character and dictionary suggestions in a
+larger, more vivid style that is easier to read.</p>
+
+<p>The keyboard adds the capability to correct entered words from suggestions in
+the dictionary. As the user selects a word already entered, the keyboard
+displays suggestions that the user can choose from, to replace the selection.
+The user can also switch to voice input mode to replace the selection. Smart
+suggestions let the user accept a suggestion and then return to correct it
+later, if needed, from the original set of suggestions.</p>
+
+<p>New multitouch key-chording lets the user quickly enter numbers and symbols
+by pressing Shift+&lt;<em>letter</em>&gt; and ?123+&lt;<em>symbol</em>&gt;,
+without needing to manually switch input modes. From certain keys, users can
+also access a popup menu of accented characters, numbers, and symbols by holding
+the key and sliding to select a character.</p>
+</div>
+
+<div  style="padding-top:1em;">
+<div style="margin-right:1em;float:left;"><img src="images/2.3/onetouch.png" alt="" height="260" /></div>
+<div style="padding-right:2em;float:left;"><img src="images/2.3/selection.png" alt="" height="160" /></div>
+
+
+<h3>One-touch word selection and copy/paste</h3>
+
+<p>When entering text or viewing a web page, the user can quickly select a word
+by press-hold, then copy to the clipboard and paste. Pressing on a word enters a
+free-selection mode &mdash; the user can adjust the selection area as needed by
+dragging a set of bounding arrows to new positions, then copy the bounded area
+by pressing anywhere in the selection area. For text entry, the user can
+slide-press to enter a cursor mode, then reposition the cursor easily and
+accurately by dragging the cursor arrow. With both the selection and cursor
+modes, no use of a trackball is needed.</p>
+
+</div>
+
+<div style="clear:left">
+<div style="padding-right:2em;float:right;"><img src="images/2.3/running.png" alt="" height="280" /></div>
+<div style="padding-left:1em;float:right;"><img src="images/2.3/power.png" alt="" height="280" /></div>
+
+<h3>Improved power management </h3>
+
+<p>The Android system takes a more active role in managing apps that are keeping
+the device awake for too long or that are consuming CPU while running in the
+background. By managing such apps &mdash; closing them if appropriate &mdash;
+the system helps ensure best possible performance and maximum battery life.</p>
+
+<p>The system also gives the user more visibility over the power being consumed
+by system components and running apps. The Application settings provides an
+accurate overview of how the battery  is being used, with details of the usage
+and relative power consumed  by each component or application.</p>
+
+<h3>Control over applications</h3>
+
+<p>A shortcut to the Manage Applications control now appears in the Options Menu
+in the Home screen and Launcher, making it much easier to check and manage
+application activity. Once the user enters Manage Applications, a new Running
+tab displays a list of active applications and the storage and memory being used
+by each. The user can read further details about each application and if
+necessary stop an application or report feedback to its developer. </p>
+</div>
+
+<h3>New ways of communicating, organizing</h3>
+
+<p>An updated set of standard applications lets the user take new approaches to
+managing information and relationships. </p>
+
+<div  style="padding-top:1em;">
+<div style="padding-right:1.5em;float:left;"><img src="images/2.3/sipcall.png" alt="" height="190" align="left"/><br>
+<img src="images/2.3/ffc.png" alt="" height="190" align="left" style="margin-bottom:1.5em;margin-top:.75em;"/><div></div>
+</div>
+
+<p style="margin-top:1em;margin-bottom:.75em;"><strong>Internet calling</strong></p>
+
+<p>The user can make voice calls over the internet to other users who have SIP
+accounts. The user can add an internet calling number (a SIP address) to any
+Contact and can initiate a call from Quick Contact or Dialer. To use internet
+calling, the user must create an account at the SIP provider of their choice
+&mdash; SIP accounts are not provided as part of the internet calling feature.
+Additionally, support for the platform's SIP and internet calling features on
+specific devices is determined by their manufacturers and associated carriers.
+</p>
+
+<div style="padding-right:1.5em;float:right;;"><img src="images/2.3/nfc.png" alt="" height="190" /> </div>
+
+<p style="margin-top:1.25em;margin-bottom:.75em;"><strong>Near-field communications</strong></p>
+
+<p>An NFC Reader application lets the user read and interact with near-field
+communication (NFC)  tags. For example, the user can “touch” or “swipe” an NFC
+tag that might be embedded in a poster, sticker, or advertisement, then act on
+the data read from the tag. A typical use would be to read a tag at a
+restaurant, store, or event and then rate or register by jumping to a web site
+whose URL is included in the tag data. NFC communication relies on wireless
+technology in the device hardware, so support for the platform's NFC features on
+specific devices is determined by their manufacturers.
+</p>
+</div>
+
+<p style="margin-top:1.25em;margin-bottom:.75em;"><strong>Downloads management</strong></p>
+
+<p>The Downloads application gives the user easy access to any file downloaded from
+the browser, email, or another application. Downloads is built on an completely new
+download manager facility in the system that any other applications can use, to
+more easily manage and store their downloads.</p>
+
+<p style="margin-top:1.25em;margin-bottom:.75em;"><strong>Camera</strong></p>
+
+<p>The application now lets the user access multiple cameras on the device,
+including a front-facing camera, if available. </p>
+
+
+<h2 id="DeveloperApis" style="clear:both">New Developer Features</h2>
+
+<p>Android 2.3 delivers a variety of features and APIs that
+let developers bring new types of applications to the Android
+platform.</p>
+
+ <ul>
+<li><a href="#gaming">Enhancements for gaming</a></li>
+<li><a href="#communication">New forms of communication</a></li>
+<li><a href="#multimedia">Rich multimedia</a></li>
+</ul>
+
+<h3 id="gaming">Enhancements for gaming</h3>
+
+<p style="margin-top:.75em;margin-bottom:.75em;"><strong>Performance</strong></p>
+
+<p>Android 2.3 includes a variety of improvements across the system that make
+common operations faster and more efficient for all applications. Of particular
+interest to game developers are:</p>
+
+<ul>
+<li>Concurrent garbage collector &mdash; The Dalivik VM introduces a new,
+concurrent garbage collector that minimizes application pauses, helping to
+ensure smoother animation and increased responsiveness in games and similar
+applications. </li>
+<li>Faster event distribution &mdash; The plaform now handles touch and keyboard
+events faster and more efficiently, minimizing CPU utilization during event
+distribution. The changes improve responsiveness for all applications, but
+especially benefit games that use touch events in combination with 3D graphics
+or other CPU-intensive operations. </li>
+<li>Updated video drivers &mdash; The platform uses updated third-party video
+drivers that improve the efficiency of OpenGL ES operations, for faster overall
+3D graphics performance. </li>
+</ul>
+
+
+<p style="margin-top:1.25em;margin-bottom:.75em;"><strong>Native input and
+sensor events</strong></p>
+
+<p>Applications that use native code can now receive and process input and
+sensor events directly in their native code, which dramatically improves
+efficiency and responsiveness. </p>
+
+<p>Native libraries exposed by the platform let applications handle the same
+types of input events as those available through the framework. Applications
+can receive events from all supported sensor types and can enable/disable
+specific sensors and manage event delivery rate and queueing. </p>
+
+
+<p style="margin-top:1.25em;margin-bottom:.75em;"><strong>Gyroscope and other
+new sensors, for improved 3D motion processing</strong></p>
+
+<p>Android 2.3 adds API support for several new sensor types, including
+gyroscope, rotation vector, linear acceleration, gravity, and barometer sensors.
+Applications can use the new sensors in combination with any other sensors
+available on the device, to track three-dimensional device motion and
+orientation change with high precision and accuracy. For example, a game
+application could use readings from a gyroscope and accelerometer on the device
+to recognize complex user gestures and motions, such as tilt, spin, thrust, and
+slice.  </p>
+
+
+<p style="margin-top:1.25em;margin-bottom:.75em;"><strong>Open API for native
+audio</strong></p>
+
+<p>The platform provides a software implementation of <a
+href="http://www.khronos.org/opensles/">Khronos OpenSL ES</a>, a standard API
+that gives applications access to powerful audio controls and effects from
+native code. Applications can use the API to manage audio devices and control
+audio input, output, and processing directly from native code.</p>
+
+<p style="margin-top:1.25em;margin-bottom:.75em;"><strong>Native graphics
+management</strong></p>
+
+<p>The platform provides an interface to its <a
+href="http://www.khronos.org/egl/">Khronos EGL</a> library, which lets
+applications manage graphics contexts and create and manage OpenGL ES textures
+and surfaces from native code.</p>
+
+
+<p style="margin-top:1.25em;margin-bottom:.75em;"><strong>Native access to
+Activity lifecycle, window management</strong></p>
+
+<p>Native applications can declare a new type of Activity class,
+<code>NativeActivity</code> whose lifecycle callbacks are implemented directly
+in native code. The <code>NativeActivity</code> and its underlying native code
+run in the system just as do other Activities &mdash; they run in the
+application's system process and execute on the application's main UI thread,
+and they receive the same lifecycle callbacks as do other Activities. </p>
+
+<p>The platform also exposes native APIs for managing windows, including the
+ability to lock/unlock the pixel buffer to draw directly into it. Through the
+API, applications can obtain a native window object associated with a framework
+Surface object and interact with it directly in native code.</p>
+
+
+<p style="margin-top:1.25em;margin-bottom:.75em;"><strong>Native access to
+assets, storage</strong></p>
+
+<p>Applications can now access a native Asset Manager API to retrieve
+application assets directly from native code without needing to go through JNI.
+If the assets are compressed, the platform does streaming decompression as the
+application reads the asset data. There is no longer a limit on the size of
+compressed <code>.apk</code> assets that can be read.</p>
+
+<p>Additionally, applications can access a native Storage Manager API to work
+directly with OBB files downloaded and managed by the system. Note that although
+platform support for OBB is available in Android 2.3, development tools for
+creating and managing OBB files will not be available until early 2011.</p>
+
+
+<p style="margin-top:1.25em;margin-bottom:.75em;"><strong>Robust native
+development environment</strong></p>
+
+<p>The Android NDK (r5 or higher) provides a complete set of tools, toolchains,
+and libraries for developing applications that use the rich native environment
+offered by the Android 2.3 platform. For more information or to download the
+NDK, please see the <a
+href="http://developer.android.com/sdk/ndk/index.html">Android&nbsp;NDK</a>
+page. </p>
+
+
+<h3 id="communication">New forms of communication</h3>
+
+<p style="margin-top:.75em;margin-bottom:.75em;"><strong>Internet
+telephony</strong></p>
+
+<p>Developers can now add SIP-based internet telephony features to their
+applications. Android 2.3 includes a full SIP protocol stack and integrated call
+management services that let applications easily set up outgoing and incoming
+voice calls, without having to manage sessions, transport-level communication,
+or audio record or playback directly. </p>
+
+<p>Support for the platform's SIP and internet calling features on specific
+devices is determined by their manufacturers and associated carriers.</p>
+
+
+<p style="margin-top:1.25em;margin-bottom:.75em;"><strong>Near Field
+Communications (NFC)</strong></p>
+
+<p>The platform's support for Near Field Communications (NFC) lets developers
+get started creating a whole new class of applications for Android. Developers
+can create new applications that offer proximity-based information and services
+to users, organizations, merchants, and advertisers. </p>
+
+<p>Using the NFC API,
+applications can read and respond to NFC tags “discovered” as the user “touches” an
+NFC-enabled device to elements embedded in stickers, smart posters, and even
+other devices. When a tag of interest is collected, applications can respond to
+the tag, read messages from it, and then store the messages, prompting
+the user as needed. </p>
+
+<p>Starting from Android 2.3.3, applications can also write to tags and
+set up peer-to-peer connections with other NFC devices.</p>
+
+<p>NFC communication relies on wireless technology in the device hardware, so
+support for the platform's NFC features on specific devices is determined by
+their manufacturers.</p>
+
+
+<h3 id="multimedia">Rich multimedia</h3>
+
+<p style="margin-top:.75em;margin-bottom:.75em;"><strong>Mixable audio
+effects</strong></p>
+
+<p>A new audio effects API lets developers easily create rich audio environments
+by adding equalization, bass boost, headphone virtualization (widened
+soundstage), and reverb to audio tracks and sounds. Developers can mix multiple
+audio effects in a local track or apply effects globally, across multiple
+tracks.</p>
+
+<p style="margin-top:1.25em;margin-bottom:.75em;"><strong>Support for new media
+formats</strong></p>
+
+<p>The platform now offers built-in support for the VP8 open video compression
+format and the WebM open container format. The platform also adds support for
+AAC encoding and AMR wideband encoding (in software), so that applications can
+capture higher quality audio than narrowband. </p>
+
+<p style="margin-top:1.25em;margin-bottom:.75em;"><strong>Access to multiple
+cameras</strong></p>
+
+<p>The Camera API now lets developers access any cameras that are available on a
+device, including a front-facing camera. Applications can query the platform for
+the number of cameras on the device and their types and characteristics, then
+open the camera needed. For example, a video chat application might want to access a
+front-facing camera that offers lower-resolution, while a photo application
+might prefer a back-facing camera that offers higher-resolution.</p>
+
+
+<h2 id="PlatformTechnologies">New Platform Technologies</h2>
+
+<h3>Media Framework</h3>
+
+<ul>
+<li>New media framework fully replaces OpenCore, maintaining all previous
+codec/container support for encoding and decoding.</li>
+<li>Integrated support for the VP8 open video compression format and the WebM
+open container format</li>
+<li>Adds AAC encoding and AMR wideband encoding</li>
+</ul>
+
+<h3>Linux Kernel </h3>
+<ul>
+<li>Upgraded to 2.6.35</li>
+</ul>
+
+<h3>Networking</h3>
+<ul>
+<li>SIP stack, configurable by device manufacturer
+<li>Support for Near Field Communications (NFC), configurable by device manufacturer</li>
+<li>Updated BlueZ stack</li>
+</ul>
+
+<h3>Dalvik runtime</h3>
+
+<ul>
+<li>Dalvik VM:
+<ul>
+<li>Concurrent garbage collector (target sub-3ms pauses)</li>
+<li>Adds further JIT (code-generation) optimizations</li>
+<li>Improved code verification</li>
+<li>StrictMode debugging, for identifying performance and memory issues</li>
+</ul>
+</li>
+
+
+<li>Core libraries:
+<ul>
+  <li>Expanded I18N support (full worldwide encodings, more locales)
+  <li>Faster Formatter and number formatting. For example, float formatting is 2.5x faster.</li>
+  <li>HTTP responses are gzipped by default. XML and JSON API response sizes may be reduced by 60% or more.</li>
+  <li>New collections and utilities APIs</li>
+  <li>Improved network APIs</li>
+  <li>Improved file read and write controls</li>
+  <li>Updated JDBC</li>
+</ul>
+</li>
+
+<li>Updates from upstream projects:
+  <ul>
+  <li>OpenSSL 1.0.0a</li>
+  <li>BouncyCastle 1.45</li>
+  <li>ICU 4.4</li>
+  <li>zlib 1.2.5</li>
+  </ul>
+</li>
+
+
+</ul>
+
+<p>For more information about the new developer APIs, see the <a
+href="android-2.3.html">Android 2.3 version notes</a> and the <a
+href="../sdk/api_diff/9/changes.html">API Differences Report</a>.</p>
+
+    </div>
+
+    
+    
+    <a href="#top" style="float:right">&uarr; Go to top</a>
+    
+
+  </div> <!-- end jd-content -->
+
+<div id="footer">
+
+
+  <div id="copyright">
+    
+  Except as noted, this content is 
+  licensed under <a href="http://creativecommons.org/licenses/by/2.5/">
+  Creative Commons Attribution 2.5</a>. For details and 
+  restrictions, see the <a href="../license.html">Content 
+  License</a>.
+  </div>
+
+  <div id="footerlinks">
+    
+  <p>
+    <a href="http://www.google.com/intl/en/policies/" target="_blank">Privacy &amp; Terms</a> -
+    <a href="http://www.android.com/branding.html" target="_blank">Brand Guidelines</a> -
+    <a
+href="http://code.google.com/p/android/issues/entry?template=Developer%20Documentation"
+target="_blank">Report Document Issues</a>
+  </p>
+  </div>
+
+</div> <!-- end footer -->
+
+</div><!-- end doc-content -->
+
+</div> <!-- end body-content --> 
+
+<script type="text/javascript">
+init(); /* initialize android-developer-docs.js */
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-5831155-1");
+pageTracker._trackPageview();
+</script>
+
+</body>
+</html>
+
+
+

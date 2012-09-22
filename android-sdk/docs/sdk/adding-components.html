@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<link rel="shortcut icon" type="image/x-icon" href="../favicon.ico" />
+<title>Adding SDK Components | Android Developers</title>
+<link href="../assets/android-developer-docs-devguide.css" rel="stylesheet" type="text/css" />
+<script src="../assets/search_autocomplete.js" type="text/javascript"></script>
+<script src="../assets/jquery-resizable.min.js" type="text/javascript"></script>
+<script src="../assets/android-developer-docs.js" type="text/javascript"></script>
+<script src="../assets/prettify.js" type="text/javascript"></script>
+<script type="text/javascript">
+  setToRoot("../");
+</script>
+<noscript>
+  <style type="text/css">
+    html,body{overflow:auto;}
+    #body-content{position:relative; top:0;}
+    #doc-content{overflow:visible;border-left:3px solid #666;}
+    #side-nav{padding:0;}
+    #side-nav .toggle-list ul {display:block;}
+    #resize-packages-nav{border-bottom:3px solid #666;}
+  </style>
+</noscript>
+</head>
+<body class="gc-documentation" itemscope itemtype="http://schema.org/Article">
+
+  <div id="header">
+      <div id="headerLeft">
+          <a href="../index.html" tabindex="-1"><img
+              src="../assets/images/bg_logo.png" alt="Android Developers" /></a>
+          <ul id="header-tabs" class="sdk">
+    
+	<li id="home-link"><a href="../offline.html">
+	
+		<span class="en">Home</span>
+		<span style="display:none" class="de">Startseite</span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ホーム</span>
+		<span style="display:none" class="zh-CN">主页</span>
+		<span style="display:none" class="zh-TW">首頁</span>
+	
+	</a></li>
+	<li id="sdk-link"><a href="../sdk/index.html">
+		<span class="en">SDK</span>
+	</a></li>
+	<li id="guide-link"><a href="../guide/index.html" onClick="return loadLast('guide')">
+	
+		<span class="en">Dev Guide</span>
+		<span style="display:none" class="de">Handbuch</span>
+		<span style="display:none" class="es">Guía</span>
+		<span style="display:none" class="fr">Guide</span>
+		<span style="display:none" class="it">Guida</span>
+		<span style="display:none" class="ja">開発ガイド</span>
+		<span style="display:none" class="zh-CN">开发人员指南</span>
+		<span style="display:none" class="zh-TW">開發指南</span>
+	
+	</a></li>
+	<li id="reference-link"><a href="../reference/packages.html" onClick="return loadLast('reference')">
+	
+		<span class="en">Reference</span>
+		<span style="display:none" class="de">Referenz</span>
+		<span style="display:none" class="es">Referencia</span>
+		<span style="display:none" class="fr">Référence</span>
+		<span style="display:none" class="it">Riferimento</span>
+		<span style="display:none" class="ja">リファレンス</span>
+		<span style="display:none" class="zh-CN">参考</span>
+		<span style="display:none" class="zh-TW">參考資料</span>
+	
+	</a></li>
+	<li id="resources-link"><a href="../resources/index.html" onClick="return loadLast('resources')">
+	
+		<span class="en">Resources</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+    		<span style="display:none" class="ja"></span>
+		<span style="display:none" class="zh-CN"></span>
+		<span style="display:none" class="zh-TW"></span>
+	
+	</a></li>
+	<li id="videos-link"><a href="../videos/index.html" onClick="return loadLast('videos')">
+	
+		<span class="en">Videos</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ビデオ</span>
+		<span style="display:none" class="zh-CN"></span>
+		<span style="display:none" class="zh-TW"></span>
+	
+	</a></li>
+	<li><a href="http://android-developers.blogspot.com" onClick="return requestAppendHL(this.href)">
+	
+		<span class="en">Blog</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ブログ</span>
+		<span style="display:none" class="zh-CN">博客</span>
+		<span style="display:none" class="zh-TW">網誌</span>
+	
+	</a></li>
+
+
+     
+</ul>
+     
+      </div>
+      <div id="headerRight">
+          <div id="headerLinks">
+          &nbsp;&nbsp;
+          <a href="../design/index.html">Android Design</a>&nbsp;&nbsp;
+          <a href="http://www.android.com">Android.com</a>
+          </div>
+  <div id="search" >
+      <div id="searchForm">
+          <form accept-charset="utf-8" class="gsc-search-box" 
+                onsubmit="return submit_search()">
+            <table class="gsc-search-box" cellpadding="0" cellspacing="0"><tbody>
+                <tr>
+                  <td class="gsc-input">
+                    <input id="search_autocomplete" class="gsc-input" type="text" size="33" autocomplete="off"
+                      title="search developer docs" name="q"
+                      value="search developer docs"
+                      onFocus="search_focus_changed(this, true)"
+                      onBlur="search_focus_changed(this, false)"
+                      onkeydown="return search_changed(event, true, '../')"
+                      onkeyup="return search_changed(event, false, '../')" />
+                  <div id="search_filtered_div" class="no-display">
+                      <table id="search_filtered" cellspacing=0>
+                      </table>
+                  </div>
+                  </td>
+                  <td class="gsc-search-button">
+                    <input type="submit" value="Search" title="search" id="search-button" class="gsc-search-button" />
+                  </td>
+                  <td class="gsc-clear-button">
+                    <div title="clear results" class="gsc-clear-button">&nbsp;</div>
+                  </td>
+                </tr></tbody>
+              </table>
+          </form>
+      </div><!-- searchForm -->
+  </div><!-- search -->
+      </div><!-- headerRight -->
+      <script type="text/javascript">
+        <!--  
+        changeTabLang(getLangPref());
+        //-->
+      </script>
+  </div><!-- header -->
+
+  <div class="g-section g-tpl-240" id="body-content">
+    <div class="g-unit g-first" id="side-nav" itemscope itemtype="http://schema.org/SiteNavigationElement">
+      <div id="devdoc-nav">
+<ul>
+  <li>
+    <span class="heading">
+      <span class="en">Android SDK Starter Package</span>
+      <span style="display:none" class="de">Aktuelle SDK-Version</span>
+      <span style="display:none" class="es">Versión actual del SDK</span>
+      <span style="display:none" class="fr">Version actuelle du SDK</span>
+      <span style="display:none" class="it">Release SDK attuale</span>
+      <span style="display:none" class="ja">現在リリースされている SDK</span>
+      <span style="display:none" class="zh-CN">当前的 SDK 版本</span>
+      <span style="display:none" class="zh-TW">目前 SDK 發行版本</span>
+    </span>
+    <ul>
+      <li><a href="../sdk/installing.html">
+          <span class="en">Installing the SDK</span>
+          <span style="display:none" class="de">Installieren</span>
+          <span style="display:none" class="es">Instalación</span>
+          <span style="display:none" class="fr">Installation</span>
+          <span style="display:none" class="it">Installazione</span>
+          <span style="display:none" class="ja">インストール</span>
+          <span style="display:none" class="zh-CN">安装</span>
+          <span style="display:none" class="zh-TW">安裝</span>
+        </a></li>
+    </ul>
+  </li>
+  
+  <li>
+    <span class="heading">
+      <span class="en">Downloadable SDK Components</span>
+      <span style="display:none" class="de"></span>
+      <span style="display:none" class="es"></span>
+      <span style="display:none" class="fr"></span>
+      <span style="display:none" class="it"></span>
+      <span style="display:none" class="ja"></span>
+      <span style="display:none" class="zh-CN"></span>
+      <span style="display:none" class="zh-TW"></span>
+    </span>
+    <ul>
+      <li><a href="../sdk/adding-components.html">
+      <span class="en">Adding SDK Components</span>
+      <span style="display:none" class="de"></span>
+      <span style="display:none" class="es"></span>
+      <span style="display:none" class="fr"></span>
+      <span style="display:none" class="it"></span>
+      <span style="display:none" class="ja"></span>
+      <span style="display:none" class="zh-CN"></span>
+      <span style="display:none" class="zh-TW"></span></a>
+      </li>
+    </ul>
+    <ul>
+      <li class="toggle-list">
+        <div><a href="../sdk/android-4.0-highlights.html">
+        <span class="en">Android 4.0.x Platform</span></a> <span class="new">new!</span></div>
+        <ul>
+          <li><a href="../sdk/android-4.0.3.html">Android 4.0.3 Platform</a> <span class="new">new!</span></li>
+          <li><a href="../sdk/android-4.0.html">Android 4.0 Platform</a> </li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../sdk/android-3.2.html">
+        <span class="en">Android 3.2 Platform</span></a></div>
+        <ul>
+          <!-- <li><a href="../sdk/android-3.2-highlights.html">Platform Highlights</a></li> -->
+          <li><a href="../sdk/api_diff/13/changes.html">API Differences Report &raquo;</a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../sdk/android-3.1.html">
+        <span class="en">Android 3.1 Platform</span></a></div>
+        <ul>
+          <li><a href="../sdk/android-3.1-highlights.html">Platform Highlights</a></li>
+          <li><a href="../sdk/api_diff/12/changes.html">API Differences Report &raquo;</a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../sdk/android-3.0.html">
+        <span class="en">Android 3.0 Platform</span></a></div>
+        <ul>
+          <li><a href="../sdk/android-3.0-highlights.html">Platform Highlights</a></li>
+          <li><a href="../sdk/api_diff/11/changes.html">API Differences Report &raquo;</a></li>
+        </ul>
+      </li>
+      <li><a href="../sdk/android-2.3.4.html">Android 2.3.4 Platform</span></a></li>
+      <li class="toggle-list">
+      <div><a href="../sdk/android-2.3.3.html">
+      <span class="en">Android 2.3.3 Platform</span></a></div>
+        <ul>
+          <li><a href="../sdk/api_diff/10/changes.html">API Differences Report &raquo;</a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../sdk/android-2.2.html">
+        <span class="en">Android 2.2 Platform</span></a></div>
+        <ul>
+          <li><a href="../sdk/android-2.2-highlights.html">Platform Highlights</a></li>
+          <li><a href="../sdk/api_diff/8/changes.html">API Differences Report &raquo;</a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../sdk/android-2.1.html">
+        <span class="en">Android 2.1 Platform</span></a></div>
+        <ul>
+          <li><a href="../sdk/api_diff/7/changes.html">API Differences Report &raquo;</a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="#" onclick="toggle(this.parentNode.parentNode,true); return false;">Other Platforms</a></div>
+        <ul>
+          <li class="toggle-list">
+            <div><a href="../sdk/android-2.3.html">
+            <span class="en">Android 2.3 Platform</span></a></div>
+              <ul>
+                <li><a href="../sdk/android-2.3-highlights.html">Platform Highlights</a></li>
+                <li><a href="../sdk/api_diff/9/changes.html">API Differences Report &raquo;</a></li>
+              </ul>
+          </li>
+          <li><a href="../sdk/android-2.0.1.html">Android 2.0.1 Platform</a></li>
+          <li><a href="../sdk/android-2.0.html">Android 2.0 Platform</a></li>
+          <li><a href="../sdk/android-1.6.html">Android 1.6 Platform</a></li>
+          <li><a href="../sdk/android-1.5.html">Android 1.5 Platform</a></li>
+          <li><a href="../sdk/android-1.1.html">Android 1.1 Platform</a></li>
+        </ul>
+      </li>
+    </ul>
+    <ul>
+      <li><a href="../sdk/tools-notes.html">SDK Tools, r16</a> <span
+class="new">new!</span></li>
+      <li><a href="../sdk/win-usb.html">Google USB Driver, r4</a></li>
+      <li><a href="../sdk/compatibility-library.html">Support Package, r6</a>
+      <span class="new">new!</span></li>
+    </ul>
+  </li>
+  <li>
+    <span class="heading">
+      <span class="en">ADT Plugin for Eclipse</span>
+      <span style="display:none" class="de"></span>
+      <span style="display:none" class="es"></span>
+      <span style="display:none" class="fr"></span>
+      <span style="display:none" class="it"></span>
+      <span style="display:none" class="ja"></span>
+      <span style="display:none" class="zh-CN"></span>
+      <span style="display:none" class="zh-TW"></span>
+    </span>
+    <ul>
+      <li><a href="../sdk/eclipse-adt.html">ADT 16.0.1
+      <span style="display:none" class="de"></span>
+      <span style="display:none" class="es"></span>
+      <span style="display:none" class="fr"></span>
+      <span style="display:none" class="it"></span>
+      <span style="display:none" class="ja"></span>
+      <span style="display:none" class="zh-CN"></span>
+      <span style="display:none" class="zh-TW"></span></a> <span
+class="new">new!</span>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <span class="heading">
+      <span class="en">Native Development Tools</span>
+      <span style="display:none" class="de"></span>
+      <span style="display:none" class="es"></span>
+      <span style="display:none" class="fr"></span>
+      <span style="display:none" class="it"></span>
+      <span style="display:none" class="ja"></span>
+      <span style="display:none" class="zh-CN"></span>
+      <span style="display:none" class="zh-TW"></span>
+    </span>
+    <ul>
+      <li><a href="../sdk/ndk/index.html">Android NDK, r7b</a>
+        <span class="new">new!</span>
+        </li>
+      <li><a href="../sdk/ndk/overview.html">What is the NDK?</a></li>
+    </ul>
+  </li>
+
+  <li>
+    <span class="heading">
+      <span class="en">More Information</span>
+      <span style="display:none" class="de"></span>
+      <span style="display:none" class="es"></span>
+      <span style="display:none" class="fr"></span>
+      <span style="display:none" class="it"></span>
+      <span style="display:none" class="ja"></span>
+      <span style="display:none" class="zh-CN"></span>
+      <span style="display:none" class="zh-TW"></span>
+    </span>
+    <ul>
+      <li><a href="../sdk/oem-usb.html">
+        <span class="en">OEM USB Drivers</span>
+      </a></li>
+      <li><a href="../sdk/requirements.html">SDK System Requirements</a></li>
+      <li><a href="../sdk/older_releases.html">SDK Archives</a></li>
+
+    </ul>
+  </li>
+
+</ul>
+
+<script type="text/javascript">
+<!--
+    buildToggleLists();
+    changeNavLang(getLangPref());
+//-->
+</script>
+
+
+      </div>
+    </div> <!-- end side-nav -->
+
+
+
+
+<div class="g-unit" id="doc-content"><a name="top"></a>
+
+<div id="jd-header" class="guide-header">
+  <span class="crumb" itemprop="breadcrumb">
+    &nbsp;
+    
+  </span>
+<h1 itemprop="name">Adding SDK Components</h1>
+</div>
+
+  
+  <div id="jd-content">
+ 
+    
+
+
+    <div class="jd-descr" itemprop="articleBody">
+    <div id="qv-wrapper">
+<div id="qv">
+<h2>Quickview</h2>
+<ul>
+  <li>Use the Android SDK and AVD Manager to
+   set up your SDK and keep it up-to-date.</li>
+</ul>
+
+<h2>In this document</h2>
+<ol>
+  <li><a href="#launching">Launching the Android SDK and AVD Manager</a>
+  <li><a href="#InstallingComponents">Installing SDK Components</a>
+  <li><a href="#UpdatingComponents">Updating SDK Components</a>
+  <li><a href="#dependencies">Component Dependencies</a></li>
+  <li><a href="#AddingSites">Adding New Sites</a></li>
+  <li><a href="#troubleshooting">Troubleshooting</a></li>
+</ol>
+</div>
+</div>
+
+<p>Adding and updating components in your Android SDK is fast and easy. To add or
+update the individual SDK components that you need, use the <em>Android SDK and AVD
+Manager</em> (included in the SDK Tools).</p>
+
+<p>It only takes a couple of clicks to install individual versions of the
+Android platform, new development tools, new documentation, and SDK add-ons. The
+new SDK components are automatically installed into your existing SDK directory,
+so you don't need to update your development environment to specify a new SDK
+location.</p>
+
+<p>If you're setting up your Android SDK for the first time,
+see <a href="../sdk/installing.html#components">Installing the SDK</a> for information about
+what components to install.</p>
+
+<p class="note"><strong>Note:</strong> If you develop in Eclipse, you might also need
+to update your ADT plugin when you update your development tools. See the revisions listed in the
+<a href="../sdk/eclipse-adt.html">ADT Plugin for Eclipse</a> document.</p>
+
+<img src="../images/sdk_manager_packages.png" alt="" />
+<p class="img-caption"><strong>Figure 1.</strong> The Android SDK and AVD Manager's
+<strong>Available Packages</strong> panel, which shows the SDK components that are
+available for you to download into your environment. </p>
+</div>
+
+<h2 id="launching">Launching the Android SDK and AVD Manager</h2>
+
+<p>The Android SDK and AVD Manager is the tool that you use to install and
+upgrade SDK components in your development environment. </p>
+
+<p>You can launch the Android SDK and AVD Manager in one of the following ways.</p>
+
+<h4>Launching from Eclipse/ADT</h4>
+
+<p>If you are developing in Eclipse and have already installed the ADT Plugin,
+follow these steps to access the Android SDK and AVD Manager tool:</p>
+
+<ol>
+<li>Open Eclipse</li>
+<li>Select <strong>Window</strong> &gt; <strong>Android SDK and AVD
+Manager</strong>.</li>
+</ol>
+
+<h4>Launching from the SDK Manager script (Windows only)</h4>
+
+<p>For Windows only, the SDK includes a script that invokes the Android SDK and
+AVD Manager. To launch the tool using the script, double-click <code>SDK
+Manager.exe</code> at the root of the the SDK directory.</p>
+
+<h4>Launching from a command line</h4>
+
+<p>In all development environments, follow these steps to access the Android SDK
+and AVD Manager tool from the command line: </p>
+
+<ol>
+<li>Navigate to the <code>&lt;<em>sdk</em>&gt;/tools/</code> directory.</li>
+<li>Execute the <code>android</code> tool command with no options.
+  <pre style="width:400px">$ android</pre></li>
+</ol>
+
+
+<h2 id="InstallingComponents">Installing SDK Components</h2>
+
+<p class="caution"><strong>Caution:</strong> Before you install SDK components,
+we recommend that you disable any antivirus software that may be running on
+your computer. There are cases in which antivirus software on Windows is known to interfere with the
+installation process, so we suggest you disable your antivirus until installation is
+complete.</p>
+
+<p>Follow these steps to install new SDK components in your environment:</p>
+
+<ol>
+  <li>Launch the Android SDK and AVD Manager as described in the section above.</li>
+  <li>Select <strong>Available Packages</strong> in the left panel.
+  This will reveal all of the components that are currently available for download
+  from the SDK repository.</li>
+  <li>Select the component(s) you'd like to install and click <strong>Install
+  Selected</strong>. (If you aren't sure which packages to select, read <a
+  href="installing.html#which">Recommended Components</a>.)</li>
+  <li>Verify and accept the components you want (ensure each one is selected with a green
+checkmark) and click <strong>Install</strong>. The components will now be installed into
+your existing Android SDK directories.</li>
+</ol>
+
+<p>New platforms are automatically saved into the
+<code>&lt;sdk&gt;/platforms/</code> directory of your SDK;
+new add-ons are saved in the <code>&lt;sdk&gt;/add-ons/</code>
+directory; samples are saved in the
+<code>&lt;sdk&gt;/samples/android-&lt;level&gt;/</code>;
+and new documentation is saved in the existing
+<code>&lt;sdk&gt;/docs/</code> directory (old docs are replaced).</p>
+
+
+<h2 id="UpdatingComponents">Updating SDK Components</h2>
+
+<p>From time to time, new revisions of existing SDK components are released and
+made available to you through the SDK repository. In most cases, if you have those
+components installed in your environment, you will want
+to download the new revisions as soon as possible. </p>
+
+<p>You can learn about the release of new revisions in two ways: </p>
+
+<ul>
+<li>You can watch for updates listed in the "SDK" tab of the Android Developers
+site, in the "Downloadable SDK Components" section. </li>
+<li>You can watch for updates listed in the <strong>Available Packages</strong>
+panel of the Android SDK and AVD Manager. </li>
+</ul>
+
+<p>When you see that a new revision is available, you can use the Android SDK
+and AVD Manager to quickly download it to your environment. Follow the same
+procedure as given in <a href="#InstallingComponents">Installing SDK Components</a>, above. The new
+component is installed in place of the old, but without impacting your
+applications. </p>
+
+<p class="note"><strong>Tip:</strong>
+Use the "Display updates only" checkbox to show only the components
+you do not have.</p>
+
+
+<h2 id="dependencies">SDK Component Dependencies</h2>
+
+<p>In some cases, an SDK component may require a specific minimum revision of
+another component or SDK tool. Where such dependencies exist, they are
+documented in the revision notes for each component, available from the links in
+the "Downloadable SDK Components" section at left.</p>
+
+<p>For example, there may be a dependency between the ADT Plugin for Eclipse and
+the SDK Tools component. When you install the SDK Tools
+component, you should also upgrade to the required version of ADT (if you
+are developing in Eclipse). In this case,  the major version number for your ADT plugin should
+always match the revision number of your SDK Tools (for example, ADT 8.x requires SDK Tools r8).
+</p>
+
+<p>Also make sure that, each time you install a new version of the Android platform, you have
+the latest version of the SDK Platform-tools component. The SDK Platform-tools contain
+tools that are backward compatible with all versions of the Android platform and are
+often updated to support new features in the latest version of the Android platform.</p>
+
+<p>The development tools will notify you with debug warnings if there is dependency that you need to
+address. The SDK and AVD Manager also enforces dependencies by requiring that you download any
+components that are needed by those you have selected.</p>
+
+
+<h2 id="AddingSites">Adding New Sites</h2>
+
+<p>By default, <strong>Available Packages</strong> displays components available from the
+<em>Android Repository</em> and <em>Third party Add-ons</em>. You can add other sites that host
+their own Android SDK add-ons, then download the SDK add-ons
+from those sites.</p>
+
+<p>For example, a mobile carrier or device manufacturer might offer additional
+API libraries that are supported by their own Android-powered devices. In order
+to develop using their libraries, you must install their Android SDK add-on, if it's not already
+available under <em>Third party Add-ons</em>. </p>
+
+<p>If a carrier or device manufacturer has hosted an SDK add-on repository file
+on their web site, follow these steps to add their site to the SDK and AVD
+Manager:</p>
+
+<ol>
+  <li>Select <strong>Available Packages</strong> in the left panel.</li>
+  <li>Click <strong>Add Add-on Site</strong> and enter the URL of the
+<code>repository.xml</code> file. Click <strong>OK</strong>.</li>
+</ol>
+<p>Any SDK components available from the site will now be listed under a new item named
+<strong>User Add-ons</strong>.</p>
+
+
+<h2 id="troubleshooting">Troubleshooting</h2>
+
+<p><strong>Problems connecting to the SDK repository</strong></p>
+
+<p>If you are using the SDK and AVD Manager to download components and are encountering
+connection problems, try connecting over http, rather than https. To switch the
+protocol used by the SDK and AVD Manager, follow these steps: </p>
+
+<ol>
+  <li>With the Android SDK and AVD Manager window open, select "Settings" in the
+  left pane. </li>
+  <li>On the right, in the "Misc" section, check the checkbox labeled "Force
+  https://... sources to be fetched using http://..." </li>
+  <li>Click <strong>Save &amp; Apply</strong>.</li>
+</ol>
+
+
+
+    </div>
+
+    
+    
+    <a href="#top" style="float:right">&uarr; Go to top</a>
+    
+
+  </div> <!-- end jd-content -->
+
+<div id="footer">
+
+
+  <div id="copyright">
+    
+  Except as noted, this content is 
+  licensed under <a href="http://creativecommons.org/licenses/by/2.5/">
+  Creative Commons Attribution 2.5</a>. For details and 
+  restrictions, see the <a href="../license.html">Content 
+  License</a>.
+  </div>
+
+  <div id="footerlinks">
+    
+  <p>
+    <a href="http://www.google.com/intl/en/policies/" target="_blank">Privacy &amp; Terms</a> -
+    <a href="http://www.android.com/branding.html" target="_blank">Brand Guidelines</a> -
+    <a
+href="http://code.google.com/p/android/issues/entry?template=Developer%20Documentation"
+target="_blank">Report Document Issues</a>
+  </p>
+  </div>
+
+</div> <!-- end footer -->
+
+</div><!-- end doc-content -->
+
+</div> <!-- end body-content --> 
+
+<script type="text/javascript">
+init(); /* initialize android-developer-docs.js */
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-5831155-1");
+pageTracker._trackPageview();
+</script>
+
+</body>
+</html>
+
+
+

@@ -1,0 +1,82 @@
+@font-face {
+    font-family: 'EmilysCandy';    
+    src: url(EmilysCandy-Regular.ttf);
+
+}
+
+body {
+	font-family:Arial,EmilysCandy; 
+	background-color:#E6E6EC;
+	}
+
+#main {
+        position: relative;
+        text-align:center; 
+		width:871px;	
+        height: 615px; /* just for the heck of it*/
+        margin: 0 auto;
+		}
+
+#main > div {
+     background: url("logo.jpg");
+     border-bottom-left-radius: 30px;
+     border-top-left-radius: 30px;
+	 width:332px; height: 612px; 
+     float: left;
+     opacity: 0.75;
+     border: 1px solid #000;
+     border-width: 1px 0 1px 1px;
+	}
+#main > div[title="right"]{
+     border-width: 1px 1px 1px 0px;
+     border-bottom-left-radius: 0px;
+     border-top-left-radius: 0px;
+     border-top-right-radius: 30px;
+     border-bottom-right-radius: 30px;
+    background: url("logo.jpg") right;
+    float: right;    
+}
+
+
+
+h1 {
+     position: absolute;
+     top: 148px;
+     left: 260px;
+	 width:337px;
+     margin: 0;
+     height: 90px;
+	 font-size:56px; line-height:40px; 
+     border: solid #000;
+     border-width: 2px 0;
+	 color:#004000; 
+	}
+h1 span {
+    margin-bottom: 5px;     
+    display: block;
+}
+h1 span:nth-of-type(2) {
+    letter-spacing: 0.5ex;
+}
+
+
+.mute {display:none;}
+
+
+#note {
+    font-family: EmilysCandy;
+    font-size: 20pt;
+    position: relative;
+    top: 450px;
+    left: 15px;
+}
+
+
+/*    *****
+
+To complete the challenge you will need to add some selectors 
+as well as add properties and values to some of the selectors that are given here.
+
+Good Luck!
+
+ ******   */

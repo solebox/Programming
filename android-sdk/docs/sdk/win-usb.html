@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<link rel="shortcut icon" type="image/x-icon" href="../favicon.ico" />
+<title>Google USB Driver | Android Developers</title>
+<link href="../assets/android-developer-docs-devguide.css" rel="stylesheet" type="text/css" />
+<script src="../assets/search_autocomplete.js" type="text/javascript"></script>
+<script src="../assets/jquery-resizable.min.js" type="text/javascript"></script>
+<script src="../assets/android-developer-docs.js" type="text/javascript"></script>
+<script src="../assets/prettify.js" type="text/javascript"></script>
+<script type="text/javascript">
+  setToRoot("../");
+</script>
+<noscript>
+  <style type="text/css">
+    html,body{overflow:auto;}
+    #body-content{position:relative; top:0;}
+    #doc-content{overflow:visible;border-left:3px solid #666;}
+    #side-nav{padding:0;}
+    #side-nav .toggle-list ul {display:block;}
+    #resize-packages-nav{border-bottom:3px solid #666;}
+  </style>
+</noscript>
+</head>
+<body class="gc-documentation" itemscope itemtype="http://schema.org/Article">
+
+  <div id="header">
+      <div id="headerLeft">
+          <a href="../index.html" tabindex="-1"><img
+              src="../assets/images/bg_logo.png" alt="Android Developers" /></a>
+          <ul id="header-tabs" class="sdk">
+    
+	<li id="home-link"><a href="../offline.html">
+	
+		<span class="en">Home</span>
+		<span style="display:none" class="de">Startseite</span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ホーム</span>
+		<span style="display:none" class="zh-CN">主页</span>
+		<span style="display:none" class="zh-TW">首頁</span>
+	
+	</a></li>
+	<li id="sdk-link"><a href="../sdk/index.html">
+		<span class="en">SDK</span>
+	</a></li>
+	<li id="guide-link"><a href="../guide/index.html" onClick="return loadLast('guide')">
+	
+		<span class="en">Dev Guide</span>
+		<span style="display:none" class="de">Handbuch</span>
+		<span style="display:none" class="es">Guía</span>
+		<span style="display:none" class="fr">Guide</span>
+		<span style="display:none" class="it">Guida</span>
+		<span style="display:none" class="ja">開発ガイド</span>
+		<span style="display:none" class="zh-CN">开发人员指南</span>
+		<span style="display:none" class="zh-TW">開發指南</span>
+	
+	</a></li>
+	<li id="reference-link"><a href="../reference/packages.html" onClick="return loadLast('reference')">
+	
+		<span class="en">Reference</span>
+		<span style="display:none" class="de">Referenz</span>
+		<span style="display:none" class="es">Referencia</span>
+		<span style="display:none" class="fr">Référence</span>
+		<span style="display:none" class="it">Riferimento</span>
+		<span style="display:none" class="ja">リファレンス</span>
+		<span style="display:none" class="zh-CN">参考</span>
+		<span style="display:none" class="zh-TW">參考資料</span>
+	
+	</a></li>
+	<li id="resources-link"><a href="../resources/index.html" onClick="return loadLast('resources')">
+	
+		<span class="en">Resources</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+    		<span style="display:none" class="ja"></span>
+		<span style="display:none" class="zh-CN"></span>
+		<span style="display:none" class="zh-TW"></span>
+	
+	</a></li>
+	<li id="videos-link"><a href="../videos/index.html" onClick="return loadLast('videos')">
+	
+		<span class="en">Videos</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ビデオ</span>
+		<span style="display:none" class="zh-CN"></span>
+		<span style="display:none" class="zh-TW"></span>
+	
+	</a></li>
+	<li><a href="http://android-developers.blogspot.com" onClick="return requestAppendHL(this.href)">
+	
+		<span class="en">Blog</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ブログ</span>
+		<span style="display:none" class="zh-CN">博客</span>
+		<span style="display:none" class="zh-TW">網誌</span>
+	
+	</a></li>
+
+
+     
+</ul>
+     
+      </div>
+      <div id="headerRight">
+          <div id="headerLinks">
+          &nbsp;&nbsp;
+          <a href="../design/index.html">Android Design</a>&nbsp;&nbsp;
+          <a href="http://www.android.com">Android.com</a>
+          </div>
+  <div id="search" >
+      <div id="searchForm">
+          <form accept-charset="utf-8" class="gsc-search-box" 
+                onsubmit="return submit_search()">
+            <table class="gsc-search-box" cellpadding="0" cellspacing="0"><tbody>
+                <tr>
+                  <td class="gsc-input">
+                    <input id="search_autocomplete" class="gsc-input" type="text" size="33" autocomplete="off"
+                      title="search developer docs" name="q"
+                      value="search developer docs"
+                      onFocus="search_focus_changed(this, true)"
+                      onBlur="search_focus_changed(this, false)"
+                      onkeydown="return search_changed(event, true, '../')"
+                      onkeyup="return search_changed(event, false, '../')" />
+                  <div id="search_filtered_div" class="no-display">
+                      <table id="search_filtered" cellspacing=0>
+                      </table>
+                  </div>
+                  </td>
+                  <td class="gsc-search-button">
+                    <input type="submit" value="Search" title="search" id="search-button" class="gsc-search-button" />
+                  </td>
+                  <td class="gsc-clear-button">
+                    <div title="clear results" class="gsc-clear-button">&nbsp;</div>
+                  </td>
+                </tr></tbody>
+              </table>
+          </form>
+      </div><!-- searchForm -->
+  </div><!-- search -->
+      </div><!-- headerRight -->
+      <script type="text/javascript">
+        <!--  
+        changeTabLang(getLangPref());
+        //-->
+      </script>
+  </div><!-- header -->
+
+  <div class="g-section g-tpl-240" id="body-content">
+    <div class="g-unit g-first" id="side-nav" itemscope itemtype="http://schema.org/SiteNavigationElement">
+      <div id="devdoc-nav">
+<ul>
+  <li>
+    <span class="heading">
+      <span class="en">Android SDK Starter Package</span>
+      <span style="display:none" class="de">Aktuelle SDK-Version</span>
+      <span style="display:none" class="es">Versión actual del SDK</span>
+      <span style="display:none" class="fr">Version actuelle du SDK</span>
+      <span style="display:none" class="it">Release SDK attuale</span>
+      <span style="display:none" class="ja">現在リリースされている SDK</span>
+      <span style="display:none" class="zh-CN">当前的 SDK 版本</span>
+      <span style="display:none" class="zh-TW">目前 SDK 發行版本</span>
+    </span>
+    <ul>
+      <li><a href="../sdk/installing.html">
+          <span class="en">Installing the SDK</span>
+          <span style="display:none" class="de">Installieren</span>
+          <span style="display:none" class="es">Instalación</span>
+          <span style="display:none" class="fr">Installation</span>
+          <span style="display:none" class="it">Installazione</span>
+          <span style="display:none" class="ja">インストール</span>
+          <span style="display:none" class="zh-CN">安装</span>
+          <span style="display:none" class="zh-TW">安裝</span>
+        </a></li>
+    </ul>
+  </li>
+  
+  <li>
+    <span class="heading">
+      <span class="en">Downloadable SDK Components</span>
+      <span style="display:none" class="de"></span>
+      <span style="display:none" class="es"></span>
+      <span style="display:none" class="fr"></span>
+      <span style="display:none" class="it"></span>
+      <span style="display:none" class="ja"></span>
+      <span style="display:none" class="zh-CN"></span>
+      <span style="display:none" class="zh-TW"></span>
+    </span>
+    <ul>
+      <li><a href="../sdk/adding-components.html">
+      <span class="en">Adding SDK Components</span>
+      <span style="display:none" class="de"></span>
+      <span style="display:none" class="es"></span>
+      <span style="display:none" class="fr"></span>
+      <span style="display:none" class="it"></span>
+      <span style="display:none" class="ja"></span>
+      <span style="display:none" class="zh-CN"></span>
+      <span style="display:none" class="zh-TW"></span></a>
+      </li>
+    </ul>
+    <ul>
+      <li class="toggle-list">
+        <div><a href="../sdk/android-4.0-highlights.html">
+        <span class="en">Android 4.0.x Platform</span></a> <span class="new">new!</span></div>
+        <ul>
+          <li><a href="../sdk/android-4.0.3.html">Android 4.0.3 Platform</a> <span class="new">new!</span></li>
+          <li><a href="../sdk/android-4.0.html">Android 4.0 Platform</a> </li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../sdk/android-3.2.html">
+        <span class="en">Android 3.2 Platform</span></a></div>
+        <ul>
+          <!-- <li><a href="../sdk/android-3.2-highlights.html">Platform Highlights</a></li> -->
+          <li><a href="../sdk/api_diff/13/changes.html">API Differences Report &raquo;</a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../sdk/android-3.1.html">
+        <span class="en">Android 3.1 Platform</span></a></div>
+        <ul>
+          <li><a href="../sdk/android-3.1-highlights.html">Platform Highlights</a></li>
+          <li><a href="../sdk/api_diff/12/changes.html">API Differences Report &raquo;</a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../sdk/android-3.0.html">
+        <span class="en">Android 3.0 Platform</span></a></div>
+        <ul>
+          <li><a href="../sdk/android-3.0-highlights.html">Platform Highlights</a></li>
+          <li><a href="../sdk/api_diff/11/changes.html">API Differences Report &raquo;</a></li>
+        </ul>
+      </li>
+      <li><a href="../sdk/android-2.3.4.html">Android 2.3.4 Platform</span></a></li>
+      <li class="toggle-list">
+      <div><a href="../sdk/android-2.3.3.html">
+      <span class="en">Android 2.3.3 Platform</span></a></div>
+        <ul>
+          <li><a href="../sdk/api_diff/10/changes.html">API Differences Report &raquo;</a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../sdk/android-2.2.html">
+        <span class="en">Android 2.2 Platform</span></a></div>
+        <ul>
+          <li><a href="../sdk/android-2.2-highlights.html">Platform Highlights</a></li>
+          <li><a href="../sdk/api_diff/8/changes.html">API Differences Report &raquo;</a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../sdk/android-2.1.html">
+        <span class="en">Android 2.1 Platform</span></a></div>
+        <ul>
+          <li><a href="../sdk/api_diff/7/changes.html">API Differences Report &raquo;</a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="#" onclick="toggle(this.parentNode.parentNode,true); return false;">Other Platforms</a></div>
+        <ul>
+          <li class="toggle-list">
+            <div><a href="../sdk/android-2.3.html">
+            <span class="en">Android 2.3 Platform</span></a></div>
+              <ul>
+                <li><a href="../sdk/android-2.3-highlights.html">Platform Highlights</a></li>
+                <li><a href="../sdk/api_diff/9/changes.html">API Differences Report &raquo;</a></li>
+              </ul>
+          </li>
+          <li><a href="../sdk/android-2.0.1.html">Android 2.0.1 Platform</a></li>
+          <li><a href="../sdk/android-2.0.html">Android 2.0 Platform</a></li>
+          <li><a href="../sdk/android-1.6.html">Android 1.6 Platform</a></li>
+          <li><a href="../sdk/android-1.5.html">Android 1.5 Platform</a></li>
+          <li><a href="../sdk/android-1.1.html">Android 1.1 Platform</a></li>
+        </ul>
+      </li>
+    </ul>
+    <ul>
+      <li><a href="../sdk/tools-notes.html">SDK Tools, r16</a> <span
+class="new">new!</span></li>
+      <li><a href="../sdk/win-usb.html">Google USB Driver, r4</a></li>
+      <li><a href="../sdk/compatibility-library.html">Support Package, r6</a>
+      <span class="new">new!</span></li>
+    </ul>
+  </li>
+  <li>
+    <span class="heading">
+      <span class="en">ADT Plugin for Eclipse</span>
+      <span style="display:none" class="de"></span>
+      <span style="display:none" class="es"></span>
+      <span style="display:none" class="fr"></span>
+      <span style="display:none" class="it"></span>
+      <span style="display:none" class="ja"></span>
+      <span style="display:none" class="zh-CN"></span>
+      <span style="display:none" class="zh-TW"></span>
+    </span>
+    <ul>
+      <li><a href="../sdk/eclipse-adt.html">ADT 16.0.1
+      <span style="display:none" class="de"></span>
+      <span style="display:none" class="es"></span>
+      <span style="display:none" class="fr"></span>
+      <span style="display:none" class="it"></span>
+      <span style="display:none" class="ja"></span>
+      <span style="display:none" class="zh-CN"></span>
+      <span style="display:none" class="zh-TW"></span></a> <span
+class="new">new!</span>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <span class="heading">
+      <span class="en">Native Development Tools</span>
+      <span style="display:none" class="de"></span>
+      <span style="display:none" class="es"></span>
+      <span style="display:none" class="fr"></span>
+      <span style="display:none" class="it"></span>
+      <span style="display:none" class="ja"></span>
+      <span style="display:none" class="zh-CN"></span>
+      <span style="display:none" class="zh-TW"></span>
+    </span>
+    <ul>
+      <li><a href="../sdk/ndk/index.html">Android NDK, r7b</a>
+        <span class="new">new!</span>
+        </li>
+      <li><a href="../sdk/ndk/overview.html">What is the NDK?</a></li>
+    </ul>
+  </li>
+
+  <li>
+    <span class="heading">
+      <span class="en">More Information</span>
+      <span style="display:none" class="de"></span>
+      <span style="display:none" class="es"></span>
+      <span style="display:none" class="fr"></span>
+      <span style="display:none" class="it"></span>
+      <span style="display:none" class="ja"></span>
+      <span style="display:none" class="zh-CN"></span>
+      <span style="display:none" class="zh-TW"></span>
+    </span>
+    <ul>
+      <li><a href="../sdk/oem-usb.html">
+        <span class="en">OEM USB Drivers</span>
+      </a></li>
+      <li><a href="../sdk/requirements.html">SDK System Requirements</a></li>
+      <li><a href="../sdk/older_releases.html">SDK Archives</a></li>
+
+    </ul>
+  </li>
+
+</ul>
+
+<script type="text/javascript">
+<!--
+    buildToggleLists();
+    changeNavLang(getLangPref());
+//-->
+</script>
+
+
+      </div>
+    </div> <!-- end side-nav -->
+
+
+
+
+<div class="g-unit" id="doc-content"><a name="top"></a>
+
+<div id="jd-header" class="guide-header">
+  <span class="crumb" itemprop="breadcrumb">
+    &nbsp;
+    
+  </span>
+<h1 itemprop="name">Google USB Driver</h1>
+</div>
+
+  
+  <div id="jd-content">
+ 
+    
+
+
+    <div class="jd-descr" itemprop="articleBody">
+    <div id="qv-wrapper">
+<div id="qv">
+  <h2>In this document</h2>
+  <ol>
+    <li><a href="#notes">Revisions</a></li>
+    <li><a href="#WinUsbDriver">Downloading the Google USB Driver</a></li>
+  </ol>
+  <h2>See also</h2>
+  <ol>
+    <li><a href="../sdk/oem-usb.html#InstallingDriver">Installing a USB Driver</a></li>
+    <li><a href="../guide/developing/device.html">Using Hardware Devices</a></li>
+    <li><a href="../sdk/adding-components.html">Adding SDK Components</a></li>
+  </ol>
+</div>
+</div>
+
+<p>The Google USB driver is a downloadable component for the Android SDK, available
+from the SDK Manager. The driver is for Windows only and provides the necessary drivers for the
+following devices:</p>
+  <ul>
+    <li>ADP1 / T-Mobile G1*</li>
+    <li>ADP2 / Google Ion / T-Mobile myTouch 3G*</li>
+    <li>Verizon Droid*</li>
+    <li>Nexus One</li>
+    <li>Nexus S</li>
+  </ul>
+  <p>* <em>Or similar hardware on other carriers</em></p>
+  
+  <p>All other devices require Windows drivers provided by the hardware manufacturer, as listed in
+the <a href="../sdk/oem-usb.html">OEM USB Drivers</a> document. The Galaxy Nexus
+driver is also distributed by <a
+href="http://www.samsung.com/us/support/downloads/verizon-wireless/SCH-I515MSAVZW">Samsung</a>
+(listed as model SCH-I515).</p>
+
+<p class="note"><strong>Note:</strong>
+If you're developing on Mac OS X or Linux, then you do not need to install a USB driver. To start
+developing with your device, also read <a href="../guide/developing/device.html">Using
+Hardware Devices</a>.</p>
+
+<p>The sections below provide instructions on how to download and install the Google USB Driver
+for Windows. </p>
+
+
+
+
+<h2 id="notes">Revisions</h2>
+
+<p>The sections below provide notes about successive revisions of the USB Driver
+for Windows, as denoted by revision number. To determine what revision of the
+USB Driver for Windows you are using, refer to the "Installed Packages" listing
+in the Android SDK and AVD Manager.</p>
+
+<script type="text/javascript">
+function toggleDiv(link) {
+  var toggleable = $(link).parent();
+  if (toggleable.hasClass("closed")) {
+    //$(".toggleme", toggleable).slideDown("fast");
+    toggleable.removeClass("closed");
+    toggleable.addClass("open");
+    $(".toggle-img", toggleable).attr("title", "hide").attr("src", (toRoot + "assets/images/triangle-opened.png"));
+  } else {
+    //$(".toggleme", toggleable).slideUp("fast");
+    toggleable.removeClass("open");
+    toggleable.addClass("closed");
+    $(".toggle-img", toggleable).attr("title", "show").attr("src", (toRoot + "assets/images/triangle-closed.png"));
+  }
+  return false;
+}
+</script>
+<style>
+.toggleable {
+padding: .25em 1em;
+}
+.toggleme {
+  padding: 1em 1em 0 2em;
+  line-height:1em;
+}
+.toggleable a {
+  text-decoration:none;
+}
+.toggleme a {
+  text-decoration:underline;
+}
+.toggleable.closed .toggleme {
+  display:none;
+}
+#jd-content .toggle-img {
+  margin:0;
+}
+</style>
+
+<div class="toggleable opened">
+  <a href="#" onclick="return toggleDiv(this)">
+        <img src="../assets/images/triangle-opened.png" class="toggle-img" height="9px"
+width="9px" />
+USB Driver for Windows, Revision 4</a> <em>(December 2010)</em>
+  <div class="toggleme">
+
+<dl>
+<dt><p>Adds support for the Nexus S.</p></dt>
+</dl>
+ </div>
+</div>
+
+<div class="toggleable closed">
+  <a href="#" onclick="return toggleDiv(this)">
+        <img src="../assets/images/triangle-closed.png" class="toggle-img" height="9px"
+width="9px" />
+USB Driver for Windows, Revision 3</a> <em>(January 2010)</em>
+  <div class="toggleme">
+
+<dl>
+<dt><p>Adds support for the Nexus One.</p></dt>
+</dl>
+ </div>
+</div>
+
+<div class="toggleable closed">
+  <a href="#" onclick="return toggleDiv(this)">
+        <img src="../assets/images/triangle-closed.png" class="toggle-img" height="9px" width="9px" />
+USB Driver for Windows, Revision 2</a> <em>(November 2009)</em>
+  <div class="toggleme">
+
+<dl>
+<dt><p>Adds support for the Verizon Droid (or similar hardware on
+other carriers).</p></dt>
+</dl>
+ </div>
+</div>
+
+<div class="toggleable closed">
+  <a href="#" onclick="return toggleDiv(this)">
+        <img src="../assets/images/triangle-closed.png" class="toggle-img" height="9px" width="9px" />
+USB Driver for Windows, Revision 1</a> <em>(October 2009)</em>
+  <div class="toggleme">
+
+<dl>
+<dt><p>Initial release of the WinUsb-based driver, with support
+for the T-Mobile G1 and myTouch 3G (and similar devices).</p></dt>
+</dl>
+ </div>
+</div>
+
+
+<h2 id="WinUsbDriver">Downloading the Google USB Driver</h2>
+
+<div class="figure" style="width:536px;margin:0">
+  <img src="../images/developing/sdk-usb-driver.png" alt="" />
+  <p class="img-caption"><strong>Figure 1.</strong> The SDK and AVD Manager
+    with the Google USB Driver selected.</p>
+</div>
+
+<p>The USB Driver for Windows is available for download as an optional SDK
+component. You need the driver only if you are developing on Windows and 
+want to connect an Android-powered device (ADP, Nexus One, or Nexus S) to your
+development environment over USB. </p>
+
+<p>To download the driver, use the Android SDK and AVD Manager tool that is
+included with the <a href="../sdk/index.html">Android SDK</a>:</p>
+<ol>
+  <li>Launch the SDK and AVD Manager by double-clicking <code>SDK Manager.exe</code>,
+  at the root of your SDK directory.</li>
+  <li>Expand <em>Extras</em>.</li>
+  <li>Check <strong>Google USB Driver package</strong> and click <strong>Install</strong>.</li>
+  <li>Proceed to install the package. When done, the driver files are
+downloaded into the <code>&lt;sdk&gt;\extras\google\usb_driver\</code> directory.</li>
+</ol>
+
+<p>For installation information, read <a href="../sdk/oem-usb.html#InstallingDriver">Installing a USB Driver</a>.</p>
+
+    </div>
+
+    
+    
+    <a href="#top" style="float:right">&uarr; Go to top</a>
+    
+
+  </div> <!-- end jd-content -->
+
+<div id="footer">
+
+
+  <div id="copyright">
+    
+  Except as noted, this content is 
+  licensed under <a href="http://creativecommons.org/licenses/by/2.5/">
+  Creative Commons Attribution 2.5</a>. For details and 
+  restrictions, see the <a href="../license.html">Content 
+  License</a>.
+  </div>
+
+  <div id="footerlinks">
+    
+  <p>
+    <a href="http://www.google.com/intl/en/policies/" target="_blank">Privacy &amp; Terms</a> -
+    <a href="http://www.android.com/branding.html" target="_blank">Brand Guidelines</a> -
+    <a
+href="http://code.google.com/p/android/issues/entry?template=Developer%20Documentation"
+target="_blank">Report Document Issues</a>
+  </p>
+  </div>
+
+</div> <!-- end footer -->
+
+</div><!-- end doc-content -->
+
+</div> <!-- end body-content --> 
+
+<script type="text/javascript">
+init(); /* initialize android-developer-docs.js */
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-5831155-1");
+pageTracker._trackPageview();
+</script>
+
+</body>
+</html>
+
+
+

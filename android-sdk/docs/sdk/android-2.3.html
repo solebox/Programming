@@ -1,0 +1,1370 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<link rel="shortcut icon" type="image/x-icon" href="../favicon.ico" />
+<title>Android 2.3 Platform | Android Developers</title>
+<link href="../assets/android-developer-docs-devguide.css" rel="stylesheet" type="text/css" />
+<script src="../assets/search_autocomplete.js" type="text/javascript"></script>
+<script src="../assets/jquery-resizable.min.js" type="text/javascript"></script>
+<script src="../assets/android-developer-docs.js" type="text/javascript"></script>
+<script src="../assets/prettify.js" type="text/javascript"></script>
+<script type="text/javascript">
+  setToRoot("../");
+</script>
+<noscript>
+  <style type="text/css">
+    html,body{overflow:auto;}
+    #body-content{position:relative; top:0;}
+    #doc-content{overflow:visible;border-left:3px solid #666;}
+    #side-nav{padding:0;}
+    #side-nav .toggle-list ul {display:block;}
+    #resize-packages-nav{border-bottom:3px solid #666;}
+  </style>
+</noscript>
+</head>
+<body class="gc-documentation" itemscope itemtype="http://schema.org/Article">
+
+  <div id="header">
+      <div id="headerLeft">
+          <a href="../index.html" tabindex="-1"><img
+              src="../assets/images/bg_logo.png" alt="Android Developers" /></a>
+          <ul id="header-tabs" class="sdk">
+    
+	<li id="home-link"><a href="../offline.html">
+	
+		<span class="en">Home</span>
+		<span style="display:none" class="de">Startseite</span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ホーム</span>
+		<span style="display:none" class="zh-CN">主页</span>
+		<span style="display:none" class="zh-TW">首頁</span>
+	
+	</a></li>
+	<li id="sdk-link"><a href="../sdk/index.html">
+		<span class="en">SDK</span>
+	</a></li>
+	<li id="guide-link"><a href="../guide/index.html" onClick="return loadLast('guide')">
+	
+		<span class="en">Dev Guide</span>
+		<span style="display:none" class="de">Handbuch</span>
+		<span style="display:none" class="es">Guía</span>
+		<span style="display:none" class="fr">Guide</span>
+		<span style="display:none" class="it">Guida</span>
+		<span style="display:none" class="ja">開発ガイド</span>
+		<span style="display:none" class="zh-CN">开发人员指南</span>
+		<span style="display:none" class="zh-TW">開發指南</span>
+	
+	</a></li>
+	<li id="reference-link"><a href="../reference/packages.html" onClick="return loadLast('reference')">
+	
+		<span class="en">Reference</span>
+		<span style="display:none" class="de">Referenz</span>
+		<span style="display:none" class="es">Referencia</span>
+		<span style="display:none" class="fr">Référence</span>
+		<span style="display:none" class="it">Riferimento</span>
+		<span style="display:none" class="ja">リファレンス</span>
+		<span style="display:none" class="zh-CN">参考</span>
+		<span style="display:none" class="zh-TW">參考資料</span>
+	
+	</a></li>
+	<li id="resources-link"><a href="../resources/index.html" onClick="return loadLast('resources')">
+	
+		<span class="en">Resources</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+    		<span style="display:none" class="ja"></span>
+		<span style="display:none" class="zh-CN"></span>
+		<span style="display:none" class="zh-TW"></span>
+	
+	</a></li>
+	<li id="videos-link"><a href="../videos/index.html" onClick="return loadLast('videos')">
+	
+		<span class="en">Videos</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ビデオ</span>
+		<span style="display:none" class="zh-CN"></span>
+		<span style="display:none" class="zh-TW"></span>
+	
+	</a></li>
+	<li><a href="http://android-developers.blogspot.com" onClick="return requestAppendHL(this.href)">
+	
+		<span class="en">Blog</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ブログ</span>
+		<span style="display:none" class="zh-CN">博客</span>
+		<span style="display:none" class="zh-TW">網誌</span>
+	
+	</a></li>
+
+
+     
+</ul>
+     
+      </div>
+      <div id="headerRight">
+          <div id="headerLinks">
+          &nbsp;&nbsp;
+          <a href="../design/index.html">Android Design</a>&nbsp;&nbsp;
+          <a href="http://www.android.com">Android.com</a>
+          </div>
+  <div id="search" >
+      <div id="searchForm">
+          <form accept-charset="utf-8" class="gsc-search-box" 
+                onsubmit="return submit_search()">
+            <table class="gsc-search-box" cellpadding="0" cellspacing="0"><tbody>
+                <tr>
+                  <td class="gsc-input">
+                    <input id="search_autocomplete" class="gsc-input" type="text" size="33" autocomplete="off"
+                      title="search developer docs" name="q"
+                      value="search developer docs"
+                      onFocus="search_focus_changed(this, true)"
+                      onBlur="search_focus_changed(this, false)"
+                      onkeydown="return search_changed(event, true, '../')"
+                      onkeyup="return search_changed(event, false, '../')" />
+                  <div id="search_filtered_div" class="no-display">
+                      <table id="search_filtered" cellspacing=0>
+                      </table>
+                  </div>
+                  </td>
+                  <td class="gsc-search-button">
+                    <input type="submit" value="Search" title="search" id="search-button" class="gsc-search-button" />
+                  </td>
+                  <td class="gsc-clear-button">
+                    <div title="clear results" class="gsc-clear-button">&nbsp;</div>
+                  </td>
+                </tr></tbody>
+              </table>
+          </form>
+      </div><!-- searchForm -->
+  </div><!-- search -->
+      </div><!-- headerRight -->
+      <script type="text/javascript">
+        <!--  
+        changeTabLang(getLangPref());
+        //-->
+      </script>
+  </div><!-- header -->
+
+  <div class="g-section g-tpl-240" id="body-content">
+    <div class="g-unit g-first" id="side-nav" itemscope itemtype="http://schema.org/SiteNavigationElement">
+      <div id="devdoc-nav">
+<ul>
+  <li>
+    <span class="heading">
+      <span class="en">Android SDK Starter Package</span>
+      <span style="display:none" class="de">Aktuelle SDK-Version</span>
+      <span style="display:none" class="es">Versión actual del SDK</span>
+      <span style="display:none" class="fr">Version actuelle du SDK</span>
+      <span style="display:none" class="it">Release SDK attuale</span>
+      <span style="display:none" class="ja">現在リリースされている SDK</span>
+      <span style="display:none" class="zh-CN">当前的 SDK 版本</span>
+      <span style="display:none" class="zh-TW">目前 SDK 發行版本</span>
+    </span>
+    <ul>
+      <li><a href="../sdk/installing.html">
+          <span class="en">Installing the SDK</span>
+          <span style="display:none" class="de">Installieren</span>
+          <span style="display:none" class="es">Instalación</span>
+          <span style="display:none" class="fr">Installation</span>
+          <span style="display:none" class="it">Installazione</span>
+          <span style="display:none" class="ja">インストール</span>
+          <span style="display:none" class="zh-CN">安装</span>
+          <span style="display:none" class="zh-TW">安裝</span>
+        </a></li>
+    </ul>
+  </li>
+  
+  <li>
+    <span class="heading">
+      <span class="en">Downloadable SDK Components</span>
+      <span style="display:none" class="de"></span>
+      <span style="display:none" class="es"></span>
+      <span style="display:none" class="fr"></span>
+      <span style="display:none" class="it"></span>
+      <span style="display:none" class="ja"></span>
+      <span style="display:none" class="zh-CN"></span>
+      <span style="display:none" class="zh-TW"></span>
+    </span>
+    <ul>
+      <li><a href="../sdk/adding-components.html">
+      <span class="en">Adding SDK Components</span>
+      <span style="display:none" class="de"></span>
+      <span style="display:none" class="es"></span>
+      <span style="display:none" class="fr"></span>
+      <span style="display:none" class="it"></span>
+      <span style="display:none" class="ja"></span>
+      <span style="display:none" class="zh-CN"></span>
+      <span style="display:none" class="zh-TW"></span></a>
+      </li>
+    </ul>
+    <ul>
+      <li class="toggle-list">
+        <div><a href="../sdk/android-4.0-highlights.html">
+        <span class="en">Android 4.0.x Platform</span></a> <span class="new">new!</span></div>
+        <ul>
+          <li><a href="../sdk/android-4.0.3.html">Android 4.0.3 Platform</a> <span class="new">new!</span></li>
+          <li><a href="../sdk/android-4.0.html">Android 4.0 Platform</a> </li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../sdk/android-3.2.html">
+        <span class="en">Android 3.2 Platform</span></a></div>
+        <ul>
+          <!-- <li><a href="../sdk/android-3.2-highlights.html">Platform Highlights</a></li> -->
+          <li><a href="../sdk/api_diff/13/changes.html">API Differences Report &raquo;</a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../sdk/android-3.1.html">
+        <span class="en">Android 3.1 Platform</span></a></div>
+        <ul>
+          <li><a href="../sdk/android-3.1-highlights.html">Platform Highlights</a></li>
+          <li><a href="../sdk/api_diff/12/changes.html">API Differences Report &raquo;</a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../sdk/android-3.0.html">
+        <span class="en">Android 3.0 Platform</span></a></div>
+        <ul>
+          <li><a href="../sdk/android-3.0-highlights.html">Platform Highlights</a></li>
+          <li><a href="../sdk/api_diff/11/changes.html">API Differences Report &raquo;</a></li>
+        </ul>
+      </li>
+      <li><a href="../sdk/android-2.3.4.html">Android 2.3.4 Platform</span></a></li>
+      <li class="toggle-list">
+      <div><a href="../sdk/android-2.3.3.html">
+      <span class="en">Android 2.3.3 Platform</span></a></div>
+        <ul>
+          <li><a href="../sdk/api_diff/10/changes.html">API Differences Report &raquo;</a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../sdk/android-2.2.html">
+        <span class="en">Android 2.2 Platform</span></a></div>
+        <ul>
+          <li><a href="../sdk/android-2.2-highlights.html">Platform Highlights</a></li>
+          <li><a href="../sdk/api_diff/8/changes.html">API Differences Report &raquo;</a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../sdk/android-2.1.html">
+        <span class="en">Android 2.1 Platform</span></a></div>
+        <ul>
+          <li><a href="../sdk/api_diff/7/changes.html">API Differences Report &raquo;</a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="#" onclick="toggle(this.parentNode.parentNode,true); return false;">Other Platforms</a></div>
+        <ul>
+          <li class="toggle-list">
+            <div><a href="../sdk/android-2.3.html">
+            <span class="en">Android 2.3 Platform</span></a></div>
+              <ul>
+                <li><a href="../sdk/android-2.3-highlights.html">Platform Highlights</a></li>
+                <li><a href="../sdk/api_diff/9/changes.html">API Differences Report &raquo;</a></li>
+              </ul>
+          </li>
+          <li><a href="../sdk/android-2.0.1.html">Android 2.0.1 Platform</a></li>
+          <li><a href="../sdk/android-2.0.html">Android 2.0 Platform</a></li>
+          <li><a href="../sdk/android-1.6.html">Android 1.6 Platform</a></li>
+          <li><a href="../sdk/android-1.5.html">Android 1.5 Platform</a></li>
+          <li><a href="../sdk/android-1.1.html">Android 1.1 Platform</a></li>
+        </ul>
+      </li>
+    </ul>
+    <ul>
+      <li><a href="../sdk/tools-notes.html">SDK Tools, r16</a> <span
+class="new">new!</span></li>
+      <li><a href="../sdk/win-usb.html">Google USB Driver, r4</a></li>
+      <li><a href="../sdk/compatibility-library.html">Support Package, r6</a>
+      <span class="new">new!</span></li>
+    </ul>
+  </li>
+  <li>
+    <span class="heading">
+      <span class="en">ADT Plugin for Eclipse</span>
+      <span style="display:none" class="de"></span>
+      <span style="display:none" class="es"></span>
+      <span style="display:none" class="fr"></span>
+      <span style="display:none" class="it"></span>
+      <span style="display:none" class="ja"></span>
+      <span style="display:none" class="zh-CN"></span>
+      <span style="display:none" class="zh-TW"></span>
+    </span>
+    <ul>
+      <li><a href="../sdk/eclipse-adt.html">ADT 16.0.1
+      <span style="display:none" class="de"></span>
+      <span style="display:none" class="es"></span>
+      <span style="display:none" class="fr"></span>
+      <span style="display:none" class="it"></span>
+      <span style="display:none" class="ja"></span>
+      <span style="display:none" class="zh-CN"></span>
+      <span style="display:none" class="zh-TW"></span></a> <span
+class="new">new!</span>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <span class="heading">
+      <span class="en">Native Development Tools</span>
+      <span style="display:none" class="de"></span>
+      <span style="display:none" class="es"></span>
+      <span style="display:none" class="fr"></span>
+      <span style="display:none" class="it"></span>
+      <span style="display:none" class="ja"></span>
+      <span style="display:none" class="zh-CN"></span>
+      <span style="display:none" class="zh-TW"></span>
+    </span>
+    <ul>
+      <li><a href="../sdk/ndk/index.html">Android NDK, r7b</a>
+        <span class="new">new!</span>
+        </li>
+      <li><a href="../sdk/ndk/overview.html">What is the NDK?</a></li>
+    </ul>
+  </li>
+
+  <li>
+    <span class="heading">
+      <span class="en">More Information</span>
+      <span style="display:none" class="de"></span>
+      <span style="display:none" class="es"></span>
+      <span style="display:none" class="fr"></span>
+      <span style="display:none" class="it"></span>
+      <span style="display:none" class="ja"></span>
+      <span style="display:none" class="zh-CN"></span>
+      <span style="display:none" class="zh-TW"></span>
+    </span>
+    <ul>
+      <li><a href="../sdk/oem-usb.html">
+        <span class="en">OEM USB Drivers</span>
+      </a></li>
+      <li><a href="../sdk/requirements.html">SDK System Requirements</a></li>
+      <li><a href="../sdk/older_releases.html">SDK Archives</a></li>
+
+    </ul>
+  </li>
+
+</ul>
+
+<script type="text/javascript">
+<!--
+    buildToggleLists();
+    changeNavLang(getLangPref());
+//-->
+</script>
+
+
+      </div>
+    </div> <!-- end side-nav -->
+
+
+
+
+<div class="g-unit" id="doc-content"><a name="top"></a>
+
+<div id="jd-header" class="guide-header">
+  <span class="crumb" itemprop="breadcrumb">
+    &nbsp;
+    
+  </span>
+<h1 itemprop="name">Android 2.3 Platform</h1>
+</div>
+
+  
+  <div id="jd-content">
+ 
+    
+
+
+    <div class="jd-descr" itemprop="articleBody">
+    <div id="qv-wrapper">
+<div id="qv">
+
+<h2>In this document</h2>
+<ol>
+  <li><a href="#relnotes">Revisions</a></li>
+  <li><a href="#api">API Overview</a></li>
+  <li><a href="#api-level">API Level</a></li>
+  <li><a href="#apps">Built-in Applications</a></li>
+  <li><a href="#locs">Locales</a></li>
+  <li><a href="#skins">Emulator Skins</a></li>
+</ol>
+
+<h2>Reference</h2>
+<ol>
+<li><a
+href="../sdk/api_diff/9/changes.html">API
+Differences Report &raquo;</a> </li>
+</ol>
+
+<h2>See Also</h2>
+<ol>
+  <li><a href="../sdk/adding-components.html">Adding SDK Components</a></li>
+</ol>
+
+</div>
+</div>
+
+<p>
+<em>API Level:</em>&nbsp;<strong>9</strong></p>
+
+<p>For developers, the Android 2.3 platform is available as a
+downloadable component for the Android SDK. The downloadable platform includes 
+an Android library and system image, as well as a set of emulator
+skins and more. The downloadable platform
+includes no external libraries.</p>
+
+<p>To get started developing or testing against Android
+2.3, use the Android SDK Manager to
+download the platform into your SDK. For more information,
+see <a href="../sdk/adding-components.html">Adding SDK
+Components</a>. If you are new to Android, <a
+href="../sdk/index.html">download the SDK Starter Package</a>
+first.</p>
+
+<p>For a high-level introduction to Android 2.3, see the <a
+href="../sdk/android-2.3-highlights.html">Platform Highlights</a>.</p>
+
+
+<h2 id="relnotes">Revisions</h2>
+
+<p>The sections below provide notes about successive releases of
+the Android 2.3 platform component for the Android SDK, as denoted by
+revision number. To determine what revision(s) of the Android
+2.3 platforms are installed in your SDK environment, refer to
+the "Installed Packages" listing in the Android SDK and AVD Manager.</p>
+
+<script type="text/javascript">
+function toggleDiv(link) {
+  var toggleable = $(link).parent();
+  if (toggleable.hasClass("closed")) {
+    //$(".toggleme", toggleable).slideDown("fast");
+    toggleable.removeClass("closed");
+    toggleable.addClass("open");
+    $(".toggle-img", toggleable).attr("title", "hide").attr("src", (toRoot + "assets/images/triangle-opened.png"));
+  } else {
+    //$(".toggleme", toggleable).slideUp("fast");
+    toggleable.removeClass("open");
+    toggleable.addClass("closed");
+    $(".toggle-img", toggleable).attr("title", "show").attr("src", (toRoot + "assets/images/triangle-closed.png"));
+  }
+  return false;
+}
+</script>
+<style>
+.toggleable {
+  padding: .25em 1em 0em 1em;
+  margin-bottom: 0;
+}
+.toggleme {
+  padding: 1em 1em 0 2em;
+  line-height:1em;
+}
+.toggleable a {
+  text-decoration:none;
+}
+.toggleme a {
+  text-decoration:underline;
+}
+.toggleable.closed .toggleme {
+  display:none;
+}
+#jd-content .toggle-img {
+  margin:0;
+}
+</style>
+
+<div class="toggleable opened">
+  <a href="#" onclick="return toggleDiv(this)">
+        <img src="../assets/images/triangle-opened.png" class="toggle-img" height="9px" width="9px" />
+        Android 2.3, Revision 1</a> <em>(December 2010)</em></a>
+  <div class="toggleme">
+<dl>
+<dt>Dependencies:</dt>
+<dd>
+<p>Requires SDK Tools r8 or higher.</p>
+</dd>
+
+</dl>
+ </div>
+</div>
+
+<h2 id="api">API Overview</h2>
+
+<p>The sections below provide a technical overview of what's new for developers
+in 2.3, including new features and changes in the framework
+API since the previous version.</p>
+
+
+<h3 id="sip">SIP-based VoIP</h3>
+
+<p>The platform now includes a SIP protocol stack and framework API that lets
+developers build internet telephony applications. Using the API, applications can offer
+voice calling features without having to manage sessions, transport-level
+communication, or audio &mdash; these are handled
+transparently by the platform's SIP API and services.</p>
+
+<p>The SIP API is available in the <code><a href="../reference/android/net/sip/package-summary.html">android.net.sip</a></code>
+package. The key class is <code><a href="../reference/android/net/sip/SipManager.html">SipManager</a></code>, which applications
+use to set up and manage SIP profiles, then initiate audio calls and receive
+audio calls. Once an audio call is established, applications can mute calls,
+turn on speaker mode, send DTMF tones, and more. Applications can also use the
+<code><a href="../reference/android/net/sip/SipManager.html">SipManager</a></code> to create generic SIP connections.</p>
+
+<p>The platform’s underlying SIP stack and services are available on devices at
+the discretion of the manufacturer and associated carrier. For this reason,
+applications should use the  <code><a href="../reference/android/net/sip/SipManager.html#isApiSupported(android.content.Context)">isApiSupported()</a></code> method to check whether SIP support is available, before
+exposing calling functionality to users. </p>
+
+<p>To use the SIP API, applications must request permission from the user by
+declaring <code>&lt;uses-permission
+android:name="android.permission.INTERNET"&gt;</code> and <code>&lt;uses-permission
+android:name="android.permission.USE_SIP"&gt;</code> in their manifest files.</p>
+
+<p>Additionally, developers can request filtering on Google Play, such that
+their applications are not discoverable to users whose devices do not include
+the platform’s SIP stack and services. To request filtering, add <code>&lt;uses-feature
+android:name="android.software.sip"
+android:required="true"&gt;</code> and <code>&lt;uses-feature
+android:name="android.software.sip.voip"&gt;</code> to the application manifest.</p>
+
+<p class="note">To look at a sample application that uses the SIP API, see <a
+href="../resources/samples/SipDemo/index.html">SIP Demo</a>.</p>
+
+<h3 id="nfc">Near Field Communications (NFC)</h3>
+
+<p>Android 2.3 includes an NFC stack and framework API that lets developers
+read NDEF tags that are discovered as a user touches an NFC-enabled device
+to tag elements embedded in stickers, smart posters, and even other devices.</p>
+
+<p>The platform provides the underlying NFC services that work with the device
+hardware to discover tags when they come into range. On discovering a tag, the
+platform notifies applications by broadcasting an Intent, appending the tag's
+NDEF messages to the Intent as extras. Applications can create Intent filters to
+recognize and handle targeted tags and messages. For example, after receiving a
+tag by Intent, applications extract the NDEF messages, store them, alert the
+user, or handle them in other ways. </p>
+
+<p>The NFC API is available in the <code><a href="../reference/android/nfc/package-summary.html">android.nfc</a></code> package. The key classes are: </p>
+
+<ul><li><code><a href="../reference/android/nfc/NfcAdapter.html">NfcAdapter</a></code>, which represents the NFC hardware on the device.</li>
+<li><code><a href="../reference/android/nfc/NdefMessage.html">NdefMessage</a></code>, which represents an NDEF data message,
+the standard format in which "records" carrying data are transmitted between
+devices and tags. Applications can receive these messages from <code><a href="../reference/android/nfc/NfcAdapter.html#ACTION_TAG_DISCOVERED">ACTION_TAG_DISCOVERED</a></code></code> Intents.</li>
+<li><code><a href="../reference/android/nfc/NdefRecord.html">NdefRecord</a></code>, delivered in an
+<code><a href="../reference/android/nfc/NdefMessage.html">NdefMessage</a></code>, which describes the type of data being shared and
+carries the data itself.</li>
+</ul>
+
+<p>NFC communication relies on wireless technology in the device hardware, so
+support for the platform's NFC features on specific devices is determined by
+their manufacturers. To determine the NFC support on the current device,
+applications can call <code><a href="../reference/android/nfc/NfcAdapter.html#isEnabled()">isEnabled()</a></code> to
+query the <code><a href="../reference/android/nfc/NfcAdapter.html">NfcAdapter</a></code>. The NFC API is always present,
+however, regardless of underlying hardware support.</p>
+
+<p>To use the NFC API, applications must request permission from the user by
+declaring <code>&lt;uses-permission
+android:name="android.permission.NFC"&gt;</code> in their manifest files.</p>
+
+<p>Additionally, developers can request filtering on Google Play, such that
+their applications are not discoverable to users whose devices do not support
+NFC. To request filtering, add
+<code>&lt;uses-feature android:name="android.hardware.nfc"
+android:required="true"&gt;</code> to the application's manifest.</p>
+
+<p class="note">To look at a sample application that uses the NFC API, see
+<a href="../resources/samples/NFCDemo/index.html">NFCDemo</a>.</p>
+
+<h3 id="sensors">Gyroscope and other sensors</h3>
+
+<p>Android 2.3 adds platform and API support for several new sensor reading
+types &mdash; gyroscope, rotation vector, linear acceleration, gravity, and barometer.
+Developers can use the new sensor readings to create applications that respond
+quickly and smoothly to precise changes in device position and motion. The
+Sensor API reports gyroscope and other sensor changes to interested
+applications, whether they are running on the application framework or in native
+code. </p>
+
+<p>Note that the specific set of hardware sensors available on any given device
+varies at the discretion of the device manufacturer. </p>
+
+<p>Developers can request filtering on Google Play, such that their
+applications are not discoverable to users whose devices do not offer a
+gyroscope sensor. To do so, add <code>&lt;uses-feature
+android:name="android.hardware.sensor.gyroscope"
+android:required="true"&gt;</code> to the application manifest.</p>
+
+<p>For API details, see <code><a href="../reference/android/hardware/Sensor.html">Sensor</a></code>.</p>
+
+
+<h3 id="cameras">Multiple cameras support</h3>
+
+<p>Applications can now make use of any cameras that are available on a device,
+for either photo or video capture. The <code><a href="../reference/android/hardware/Camera.html">Camera</a></code> lets
+applications query for the number of cameras available and the unique
+characteristics of each. </p>
+
+<ul>
+<li>New <code><a href="../reference/android/hardware/Camera.CameraInfo.html">Camera.CameraInfo</a></code> class stores a camera's
+positional characteristics (orientation, front-facing or back-facing).</li>
+<li>New <code><a href="../reference/android/hardware/Camera.html#getNumberOfCameras()">getNumberOfCameras()</a></code> and <code><a href="../reference/android/hardware/Camera.html#getCameraInfo(int, android.hardware.Camera.CameraInfo)">getCameraInfo()</a></code> methods in the <code><a href="../reference/android/hardware/Camera.html">Camera</a></code> class let applications query for the cameras available
+and open the camera that they need.</li>
+<li>New <code><a href="../reference/android/media/CamcorderProfile.html#get(int)">get()</a></code> method lets
+applications retrieve a <code><a href="../reference/android/media/CamcorderProfile.html">CamcorderProfile</a></code> for a specific camera. </li>
+<li>New <code><a href="../reference/android/media/CameraProfile.html#getJpegEncodingQualityParameter(int, int)">getJpegEncodingQualityParameter()</a></code> lets applications obtain the still-image
+capture quality level for a specific camera.</li>
+</ul>
+
+<p class="note">To look at sample code for accessing a front-facing camera, see <a href="../resources/samples/ApiDemos/src/com/example/android/apis/graphics/CameraPreview.html">CameraPreview.java</a>
+in the ApiDemos sample application.</p>
+
+<p>The Camera API also adds: </p>
+<ul>
+<li>New parameters for cameras, including focus distance, focus mode, and
+preview fps maximum/minimum. New <code><a href="../reference/android/hardware/Camera.Parameters.html#getFocusDistances(float[])">getFocusDistances()</a></code>, <code><a href="../reference/android/hardware/Camera.Parameters.html#getPreviewFpsRange(int[])">getPreviewFpsRange()</a></code>, and <code><a href="../reference/android/hardware/Camera.Parameters.html#getSupportedPreviewFpsRange()">getSupportedPreviewFpsRange()</a></code> for getting camera parameters, as well as <code><a href="../reference/android/hardware/Camera.Parameters.html#setPreviewFpsRange(int, int)">setPreviewFpsRange()</a></code> for setting preview framerate. </li>
+</ul>
+
+<h3 id="media">Mixable audio effects</h3>
+
+<p>The platform's media framework adds support for new per-track or global audio effects,
+including bass boost, headphone virtualization, equalization, and reverb.</p>
+<ul>
+<li>New <code><a href="../reference/android/media/audiofx/package-summary.html">android.media.audiofx</a></code> package provides the
+API to access audio effects.</li>
+<li>New <code><a href="../reference/android/media/audiofx/AudioEffect.html">AudioEffect</a></code> is the  base class
+for controlling audio effects provided by the Android audio framework.
+<li>New audio session ID that lets an application associate a set of audio
+effects with an instance of <code><a href="../reference/android/media/AudioTrack.html">AudioTrack</a></code> or <code><a href="../reference/android/media/MediaPlayer.html">MediaPlayer</a></code>.</li>
+<li>New <code><a href="../reference/android/media/AudioTrack.html#AudioTrack(int, int, int, int, int, int, int)">AudioTrack</a></code> class constructor that lets you create an <code><a href="../reference/android/media/AudioTrack.html">AudioTrack</a></code> with a specific session ID. New <code><a href="../reference/android/media/AudioTrack.html#attachAuxEffect(int)">attachAuxEffect()</a></code>, <code><a href="../reference/android/media/AudioTrack.html#getAudioSessionId()">getAudioSessionId()</a></code>, and <code><a href="../reference/android/media/AudioTrack.html#setAuxEffectSendLevel(float)">setAuxEffectSendLevel()</a></code>
+methods.</li>
+<li>New <code><a href="../reference/android/media/MediaPlayer.html#attachAuxEffect(int)">attachAuxEffect()</a></code>, <code><a href="../reference/android/media/MediaPlayer.html#getAudioSessionId()">getAudioSessionId()</a></code>, <code><a href="../reference/android/media/MediaPlayer.html#setAudioSessionId(int)">setAudioSessionId(int)</a></code>, and <code><a href="../reference/android/media/MediaPlayer.html#setAuxEffectSendLevel(float)">setAuxEffectSendLevel()</a></code>
+methods and supporting types.</li>
+</ul>
+
+<p class="note">To look at sample code for audio effects, see
+<a href="../resources/samples/ApiDemos/src/com/example/android/apis/media/AudioFxDemo.html">AudioFxDemo.java</a>
+in the ApiDemos sample application.</p>
+
+<p>The media framework also adds:</p>
+<ul>
+<li>New support for altitude tag in EXIF metadata for JPEG files. New method
+<code><a href="../reference/android/media/ExifInterface.html#getAltitude(double)">getAltitude()</a></code> method to
+retrieve the value of the EXIF altitude tag.</li>
+<li>New <code><a href="../reference/android/media/MediaRecorder.html#setOrientationHint(int)">setOrientationHint()</a></code> method lets an application tell <code><a href="../reference/android/media/MediaRecorder.html">MediaRecorder</a></code> of the orientation during video capture.</li>
+</ul>
+
+<h3 id="download">Download manager</h3>
+
+<p>The platform includes a new <code><a href="../reference/android/app/DownloadManager.html">DownloadManager</a></code> system service
+that handles long-running HTTP downloads. Applications can request that a URI be
+downloaded to a particular destination file. The <code>DownloadManager</code>
+will conduct the download in the background, taking care of HTTP interactions
+and retrying downloads after failures or across connectivity changes and system
+reboots. </p>
+<ul>
+<li>Applications can obtain an instance of the <code><a href="../reference/android/app/DownloadManager.html">DownloadManager</a></code>
+class by calling <code><a href="../reference/android/content/Context.html#getSystemService(java.lang.String)">getSystemService(String)</a></code> and passing
+<code><a href="../reference/android/content/Context.html#DOWNLOAD_SERVICE">DOWNLOAD_SERVICE</a></code>. Applications that request 
+downloads through this API should register a broadcast receiver for <code><a href="../reference/android/app/DownloadManager.html#ACTION_NOTIFICATION_CLICKED">ACTION_NOTIFICATION_CLICKED</a></code>, to appropriately
+handle when the user clicks on a running download in a notification or from the
+Downloads UI.</li>
+<li>The <code><a href="../reference/android/app/DownloadManager.Request.html">DownloadManager.Request</a></code> class lets an
+application provide all the information necessary to request a new download,
+such as request URI and download destination. A request URI is the only required
+parameter. Note that the default download destination is a shared volume where
+the system can delete your file if it needs to reclaim space for system use. For
+persistent storage of a download, specify a download destination on external
+storage (see <code><a href="../reference/android/app/DownloadManager.Request.html#setDestinationUri(android.net.Uri)">setDestinationUri(Uri)</a></code>).</li>
+<li>The <code><a href="../reference/android/app/DownloadManager.Query.html">DownloadManager.Query</a></code> class provides methods that let
+an application query for and filter active downloads.</li>
+</ul>
+
+<h3 id="strictmode">StrictMode</h3>
+
+<p>To help developers monitor and improve the performance of their applications,
+the platform offers a new system facility called <code><a href="../reference/android/os/StrictMode.html">StrictMode</a></code>.
+When implemented in an application, StrictMode catches and notifies the
+developer of accidental disk or network activity that could degrade application
+performance, such as activity taking place on the application's main thread
+(where UI operations are received and animations are also taking place).
+Developers can evaluate the network and disk usages issues raised in StrictMode
+and correct them if needed, keeping the main thread more responsive and
+preventing ANR dialogs from being shown to users.
+
+<ul>
+<li><code><a href="../reference/android/os/StrictMode.html">StrictMode</a></code> is the core class and is the main integration
+point with the system and VM. The class provides convenience methods for
+managing the thread and VM policies that apply to the instance.</li>
+<li><code><a href="../reference/android/os/StrictMode.ThreadPolicy.html">StrictMode.ThreadPolicy</a></code> and <code><a href="../reference/android/os/StrictMode.VmPolicy.html">StrictMode.VmPolicy</a></code> hold the policies that you define and apply to
+thread and VM instances.</li>
+</ul>
+
+<p>For more information about how to use StrictMode to optimize your
+application, see the class documentation and sample code at <code><a href="../reference/android/os/StrictMode.html">android.os.StrictMode</a></code>.</p>
+
+<h3 id="ui">UI Framework</h3>
+
+<ul>
+<li>Support for overscroll
+<ul>
+<li>New support for overscroll in Views and Widgets. In Views, applications can
+enable/disable overscroll for a given view, set the overscoll mode, control the
+overscroll distance, and handle the results of overscrolling. </li>
+<li>In Widgets, applications can control overscroll characteristics such as
+animation, springback, and overscroll distance. For more information, see <code><a href="../reference/android/view/View.html">android.view.View</a></code> and <code><a href="../reference/android/widget/OverScroller.html">android.widget.OverScroller</a></code>. </li>
+<li><code><a href="../reference/android/view/ViewConfiguration.html">ViewConfiguration</a></code> also provides methods <code><a href="../reference/android/view/ViewConfiguration.html#getScaledOverflingDistance()">getScaledOverflingDistance()</a></code> and <code><a href="../reference/android/view/ViewConfiguration.html#getScaledOverscrollDistance()">getScaledOverscrollDistance()</a></code>.</li>
+<li>New <code>overScrollMode</code>, <code>overScrollFooter</code>, and
+<code>overScrollHeader</code> attributes for <code>&lt;ListView&gt;</code> elements,
+for controlling overscroll behavior.</li>
+</ul>
+</li>
+
+<li>Support for touch filtering
+<ul>
+<li>New support for touch filtering, which lets an application improve the
+security of Views that provide access to sensitive functionality. For example,
+touch filtering is appropriate to ensure the security of user actions such as
+granting a permission request, making a purchase, or clicking on an
+advertisement. For details, see the <a
+href="../reference/android/view/View.html#Security">View class
+documentation</a>.</li>
+<li>New <code>filterTouchesWhenObscured</code> attribute for view elements,
+which declares whether to filter touches when the view's window is obscured by
+another visible window. When set to <code>"true"</code>, the view will not
+receive touches whenever a toast, dialog or other window appears above the
+view's window. Refer to <a
+href="../reference/android/view/View.html#Security">View security
+documentation</a> for details.</li>
+</ul>
+
+<p class="note">To look at sample code for touch filtering, see
+<a href="../resources/samples/ApiDemos/src/com/example/android/apis/view/SecureView.html">SecureView.java</a>
+in the ApiDemos sample application.</p>
+</li>
+
+<li>Improved event management
+<ul>
+<li>New base class for input events, <code><a href="../reference/android/view/InputEvent.html">InputEvent</a></code>. The class
+provides methods that let applications determine the meaning of the event, such
+as by querying for the InputDevice from which the event orginated. The <code><a href="../reference/android/view/KeyEvent.html">KeyEvent</a></code> and <code><a href="../reference/android/view/MotionEvent.html">MotionEvent</a></code> are subclasses of
+<code><a href="../reference/android/view/InputEvent.html">InputEvent</a></code>.</li>
+<li>New base class for input devices, <code><a href="../reference/android/view/InputDevice.html">InputDevice</a></code>. The
+class stores information about the capabilities of a particular input device and
+provides methods that let applications determine how to interpret events from an
+input device.</li>
+</ul>
+</li>
+
+<li>Improved motion events
+<ul>
+<li>The <code><a href="../reference/android/view/MotionEvent.html">MotionEvent</a></code> API is extended to include "pointer ID"
+information, which lets applications to keep track of individual fingers as they
+move up and down. The class adds a variety of methods that let an application
+work efficiently with motion events.</li>
+<li>The input system now has logic to generate motion events with the new
+pointer ID information, synthesizing identifiers as new pointers are down. The
+system tracks multiple pointer IDs separately during a motion event, and
+ensures proper continuity of pointers by evaluating at the distance
+between the last and next set of pointers.</li>
+</ul>
+</li>
+
+<li>Text selection controls
+<ul>
+<li>A new <code>setComposingRegion</code> method lets an application mark a
+region of text as composing text, maintaining the current styling. A
+<code>getSelectedText</code> method returns the selected text to the
+application. The methods are available in <code><a href="../reference/android/view/inputmethod/BaseInputConnection.html">BaseInputConnection</a></code>, <code><a href="../reference/android/view/inputmethod/InputConnection.html">InputConnection</a></code>, and <code><a href="../reference/android/view/inputmethod/InputConnectionWrapper.html">InputConnectionWrapper</a></code>.</li>
+<li>New <code>textSelectHandle</code>, <code>textSelectHandleLeft</code>,
+<code>textSelectHandleRight</code>, and <code>textSelectHandleWindowStyle</code>
+attributes for <code>&lt;TextView&gt;</code>, for referencing drawables that will be
+used to display text-selection anchors and the style for the containing
+window.</li>
+</ul>
+</li>
+
+<li>Activity controls
+<ul>
+<li><code><a href="../reference/android/content/pm/ActivityInfo.html">ActivityInfo</a></code> adds new constants for managing
+Activity orientation:
+<code><a href="../reference/android/content/pm/ActivityInfo.html#SCREEN_ORIENTATION_FULL_SENSOR">SCREEN_ORIENTATION_FULL_SENSOR</a></code>,
+<code><a href="../reference/android/content/pm/ActivityInfo.html#SCREEN_ORIENTATION_REVERSE_LANDSCAPE">SCREEN_ORIENTATION_REVERSE_LANDSCAPE</a></code>,
+<code><a href="../reference/android/content/pm/ActivityInfo.html#SCREEN_ORIENTATION_REVERSE_PORTRAIT">SCREEN_ORIENTATION_REVERSE_PORTRAIT</a></code>,
+<code><a href="../reference/android/content/pm/ActivityInfo.html#SCREEN_ORIENTATION_SENSOR_LANDSCAPE">SCREEN_ORIENTATION_SENSOR_LANDSCAPE</a></code>,
+and
+<code><a href="../reference/android/content/pm/ActivityInfo.html#SCREEN_ORIENTATION_SENSOR_PORTRAIT">SCREEN_ORIENTATION_SENSOR_PORTRAIT</a></code>.
+</li>
+<li>New constant <code><a href="../reference/android/app/ActivityManager.RunningAppProcessInfo.html#IMPORTANCE_PERCEPTIBLE">IMPORTANCE_PERCEPTIBLE</a></code> for
+the <code><a href="../reference/android/app/ActivityManager.RunningAppProcessInfo.html#importance">importance</a></code> field
+in <code><a href="../reference/android/app/ActivityManager.RunningAppProcessInfo.html">ActivityManager.RunningAppProcessInfo</a></code>. The value
+indicates that a specific process is running something that is considered to be
+actively perceptible to the user. An example would be an application performing
+background music playback.</li>
+<li>The Activity.setPersistent(boolean) method to mark an
+Activity as persistent is now deprecated and the implementation is a no-op.</li>
+</ul>
+</li>
+
+<li>Notification text and icon styles
+<ul>
+<li>New <code><a href="../reference/android/R.style.html#TextAppearance_StatusBar_EventContent">TextAppearance.StatusBar.EventContent</a></code>,
+<code><a href="../reference/android/R.style.html#TextAppearance_StatusBar_EventContent_Title">TextAppearance.StatusBar.EventContent.Title</a></code>,
+<code><a href="../reference/android/R.style.html#TextAppearance_StatusBar_Icon">TextAppearance.StatusBar.Icon</a></code>, and
+<code><a href="../reference/android/R.style.html#TextAppearance_StatusBar_Title">TextAppearance.StatusBar.Title</a></code> for managing
+notification style.</li>
+</ul>
+</li>
+
+<li>WebView
+<ul>
+<li>New <code><a href="../reference/android/webkit/WebSettings.html#setUseWebViewBackgroundForOverscrollBackground(boolean)">setUseWebViewBackgroundForOverscrollBackground()</a></code> method lets a <code><a href="../reference/android/webkit/WebView.html">WebView</a></code> specify whether to use its own background for the
+overscroll background. </li>
+</ul>
+</li>
+</ul>
+
+<h3 id="extralargescreens">Extra Large Screens</h3>
+
+<p>The platform now supports extra large screen sizes, such as those that might
+be found on tablet devices. Developers can indicate that their applications are
+designed to support extra large screen sizes by adding a <code>&lt;supports
+screens ... android:xlargeScreens="true"&gt;</code> element to their manifest
+files. Applications can use a new resource qualifier, <code>xlarge</code>, to
+tag resources that are specific to extra large screens. For
+details on how to support extra large and other screen sizes, see <a
+href="../guide/practices/screens_support.html">Supporting Multiple
+Screens</a>.</p>
+
+<h3 id="graphics">Graphics</h3>
+
+<ul>
+<li>Adds remaining OpenGL ES 2.0 methods <code><a href="../reference/android/opengl/GLES20.html#glDrawElements(int, int, int, int)">glDrawElements()</a></code> and
+<code><a href="../reference/android/opengl/GLES20.html#glVertexAttribPointer(int, int, int, boolean, int, int)">glVertexAttribPointer()</a></code> in the <code><a href="../reference/android/opengl/GLES20.html">android.opengl.GLES20</a></code> class.</li>
+<li>Adds support for <code><a href="../reference/android/graphics/ImageFormat.html#YV12">YV12</a></code> pixel format, a
+planar 4:2:0 YCrCb format.</li>
+</ul>
+
+<h3 id="providers">Content Providers</h3>
+
+<ul>
+<li>New <code><a href="../reference/android/provider/AlarmClock.html">AlarmClock</a></code> provider class for setting an alarm
+or handling an alarm. The provider contains a <code>ACTION_SET_ALARM</code> Intent
+action and extras that can be used to start an Activity to set a new alarm in an
+alarm clock application. Applications that wish to receive the
+<code>SET_ALARM</code> Intent should create an activity that requires the
+the SET_ALARM permission. Applications that wish to create a new
+alarm should use <code><a href="../reference/android/content/Context.html#startActivity(android.content.Intent)">Context.startActivity()</a></code>, so that the user has the option of choosing
+which alarm clock application to use.</li>
+
+<li><code><a href="../reference/android/provider/MediaStore.html">MediaStore</a></code> supports a new Intent action, <code><a href="../reference/android/provider/MediaStore.html#INTENT_ACTION_MEDIA_PLAY_FROM_SEARCH">PLAY_FROM_SEARCH</a></code>, that lets an application search for music media and
+automatically play content from the result when possible. For example, an
+application could fire this Intent as the result of a voice recognition command
+to listen to music.</li>
+<li><code><a href="../reference/android/provider/MediaStore.html">MediaStore</a></code> also adds a new <code><a href="../reference/android/provider/MediaStore.html#MEDIA_IGNORE_FILENAME">MEDIA_IGNORE_FILENAME</a></code> flag that tells the media
+scanner to ignore media in the containing directory and its subdirectories.
+Developers can use this to avoid having graphics appear in the Gallery and
+likewise prevent application sounds and music from showing up in the Music
+app.</li>
+
+<li>The <code><a href="../reference/android/provider/Settings.html">Settings</a></code> provider adds the new Activity actions
+<code><a href="../reference/android/provider/Settings.html#ACTION_APPLICATION_DETAILS_SETTINGS">APPLICATION_DETAILS_SETTINGS</a></code> and <code><a href="../reference/android/provider/Settings.html#ACTION_MANAGE_ALL_APPLICATIONS_SETTINGS">MANAGE_ALL_APPLICATIONS_SETTINGS</a></code>, which let an application show the details
+screen for a specific application or show the Manage Applications screen. </li>
+
+<li>The <code><a href="../reference/android/provider/ContactsContract.html">ContactsContract</a></code> provider adds the <code><a href="../reference/android/provider/ContactsContract.CommonDataKinds.SipAddress.html">ContactsContract.CommonDataKinds.SipAddress</a></code> data kind, for
+storing a contact's SIP (Internet telephony) address. </li>
+</ul>
+
+<h3 id="location">Location</h3>
+
+<ul>
+<li>The <code><a href="../reference/android/location/LocationManager.html">LocationManager</a></code> now tracks application
+requests that result in wake locks or wifi locks according to
+<code><a href="../reference/android/os/WorkSource.html">WorkSource</a></code>, a system-managed class that identifies the
+application.
+<p>The <code>LocationManager</code> keeps track
+of all clients requesting periodic updates, and tells its providers
+about them as a <code>WorkSource</code> parameter, when setting their minimum
+update times.
+The network location provider uses <code>WorkSource</code> to track the
+wake and wifi locks initiated by an application and adds it to the application's
+battery usage reported in Manage Applications. </p></li>
+<li>The <code><a href="../reference/android/location/LocationManager.html">LocationManager</a></code> adds several new methods that
+let an Activity register to receive periodic or one-time location updates based
+on specified criteria (see below).</li>
+<li>A new  <code><a href="../reference/android/location/Criteria.html">Criteria</a></code> class lets an application specify a
+set of criteria for selecting a location provider. For example, providers may be
+ordered according to accuracy, power usage, ability to report altitude, speed,
+and bearing, and monetary cost. </li>
+</ul>
+
+<h3 id="storage">Storage</h3>
+
+<ul>
+<li>Android 2.3 adds a new <code><a href="../reference/android/os/storage/StorageManager.html">StorageManager</a></code> that
+supports OBB (Opaque Binary Blob) files. Although platform support for OBB is
+available in Android 2.3, development tools for creating and managing OBB files
+will not be availble until early 2011.</li>
+<li>The Android 2.3 platform adds official support for devices that do not
+include SD cards (although it provides virtual SD Card partition, when no
+physical SD card is available). A convenience method, <code><a href="../reference/android/os/Environment.html#isExternalStorageRemovable()">isExternalStorageRemovable()</a></code>, lets applications
+determine whether a physical SD card is present.</li>
+</ul>
+
+<h3 id="packagemanager">Package Manager</h3>
+
+<ul>
+<li>New constants for declaring hardware and software features. See the list in
+the <a href="#feature_constants">New Feature Constants</a> section, below.</li>
+<li><code><a href="../reference/android/content/pm/PackageInfo.html">PackageInfo</a></code> adds new <code><a href="../reference/android/content/pm/PackageInfo.html#firstInstallTime">firstInstallTime</a></code> and <code><a href="../reference/android/content/pm/PackageInfo.html#lastUpdateTime">lastUpdateTime</a></code> fields that store the time of the
+package installation and last update. </li>
+<li>New <code><a href="../reference/android/content/pm/PackageManager.html#getProviderInfo(android.content.ComponentName, int)">getProviderInfo()</a></code> method for retrieving all of the information known about
+a particular content provider class.</li>
+</ul>
+
+<h3 id="telephony">Telephony</h3>
+
+<ul>
+<li>The <code><a href="../reference/android/telephony/TelephonyManager.html">TelephonyManager</a></code> adds the constant <code><a href="../reference/android/telephony/TelephonyManager.html#NETWORK_TYPE_EVDO_B">NETWORK_TYPE_EVDO_B</a></code> for specifying the CDMA
+EVDO Rev B network type.</li>
+<li>New <code><a href="../reference/android/telephony/gsm/GsmCellLocation.html#getPsc()">getPsc()</a></code> method returns
+the primary scrambling code of the serving cell on a UMTS network.</li>
+</ul>
+
+<h3 id="native">Native access to Activity lifecycle, windows</h3>
+
+<p>Android 2.3 exposes a broad set of APIs to applications that use native
+code. Framework classes of interest to such applications include: </p>
+
+<ul>
+<li><code><a href="../reference/android/app/NativeActivity.html">NativeActivity</a></code> is a new type of Activity class, whose
+lifecycle callbacks are implemented directly in native code. A
+<code>NativeActivity</code> and its underlying native code run in the system
+just as do other Activities &mdash; specifically they run in the Android
+application's system process and execute on the application's main UI thread,
+and they receive the same lifecycle callbacks as do other Activities. </li>
+<li>New <code><a href="../reference/android/view/InputQueue.html">InputQueue</a></code> class and callback interface lets native
+code manage event queueing. </li>
+<li>New <code><a href="../reference/android/view/SurfaceHolder.Callback2.html">SurfaceHolder.Callback2</a></code> interface lets native code
+manage a <code><a href="../reference/android/view/SurfaceHolder.html">SurfaceHolder</a></code>. </li>
+<li>New <code><a href="../reference/android/view/Window.html#takeInputQueue(android.view.InputQueue.Callback)">takeInputQueue</a></code> and <code><a href="../reference/android/view/Window.html#takeSurface(android.view.SurfaceHolder.Callback2)">takeSurface()</a></code> methods in <code><a href="../reference/android/view/Window.html">Window</a></code> let native code manage
+events and surfaces.</li>
+</ul>
+
+<p>For full information on working with native code or to download the NDK,
+see the <a href="../sdk/ndk/index.html">Android NDK</a> page.</p>
+
+
+<h3 id="dalvik">Dalvik Runtime</h3>
+
+<ul>
+<li><code><a href="../reference/dalvik/system/package-summary.html">dalvik.system</a></code>
+removes several classes that were previously deprecated.</li>
+<li>Dalvik core libraries:
+<ul>
+  <li>New collections: <code><a href="../reference/java/util/ArrayDeque.html">ArrayDeque</a></code>, <code><a href="../reference/java/util/NavigableMap.html">NavigableMap</a></code>,
+  <code><a href="../reference/java/util/concurrent/ConcurrentSkipListMap.html">ConcurrentSkipListMap</a></code>,
+  <code><a href="../reference/java/util/concurrent/LinkedBlockingDeque.html">LinkedBlockingDeque</a></code></li>
+  <li>New <code><a href="../reference/java/util/Arrays.html">Arrays</a></code> utilities: <code>binarySearch()</code>,
+  <code>copyOf()</code>, <code>copyOfRange()</code>, and others.</li>
+  <li><code><a href="../reference/java/net/CookieManager.html">CookieManager</a></code> for <code><a href="../reference/java/net/HttpURLConnection.html">HttpURLConnection</a></code>.</li>
+  <li>More complete network APIs: <code><a href="../reference/java/net/InterfaceAddress.html">InterfaceAddress</a></code>,
+  <code><a href="../reference/java/net/NetworkInterface.html">NetworkInterface</a></code> and <code><a href="../reference/java/net/IDN.html">IDN</a></code></li>
+  <li><code><a href="../reference/java/io/File.html">File</a></code> read and write controls</li>
+  <li><code><a href="../reference/java/lang/String.html#isEmpty()">String.isEmpty()</a></code></li>
+  <li><code><a href="../reference/java/text/Normalizer.html">Normalizer</a></code> and <code><a href="../reference/java/text/Normalizer.Form.html">Normalizer.Form</a></code></li>
+  <li>Improved <code><a href="../reference/javax/net/ssl/package-summary.html">javax.net.ssl</a></code> server sockets.</li>
+</ul>
+</li>
+</ul>
+
+<h3 id="manifest">New manifest elements and attributes</h3>
+
+<ul>
+<li>New <code>xlargeScreens</code> attribute for <a
+href="../guide/topics/manifest/supports-screens-element.html"><code>&lt;supports-screens&gt;</code></a>
+element, to indicate whether the application supports
+extra large screen form-factors. For details, see <a
+href="../guide/practices/screens_support.html">Supporting Multiple
+Screens</a>.</li>
+<li>New values for <code>android:screenOrientation</code> attribute of
+<code>&lt;activity&gt;</code> element:
+<ul>
+<li><code>"reverseLandscape"</code> &mdash; The Activity would like to have the
+screen in landscape orientation, turned in the opposite direction from normal
+landscape.</li>
+<li><code>"reversePortrait"</code> &mdash; The Activity would like to have the
+screen in portrait orientation, turned in the opposite direction from normal
+portrait.</li>
+<li><code>"sensorLandscape"</code> &mdash; The Activity would like to have the
+screen in landscape orientation, but can use the sensor to change which
+direction the screen is facing.</li>
+<li><code>"sensorPortrait"</code> &mdash; The Activity would like to have the
+screen in portrait orientation, but can use the sensor to change which direction
+the screen is facing.</li>
+<li><code>"fullSensor"</code> &mdash; Orientation is determined by a physical
+orientation sensor: the display will rotate based on how the user moves the
+device. This allows any of the 4 possible rotations, regardless of what the
+device will normally do (for example some devices won't normally use 180 degree
+rotation).</li>
+</ul>
+</li>
+</ul>
+
+<h3 id="permissions">New Permissions</h3>
+
+<ul>
+<li><code>com.android.permission.SET_ALARM</code> &mdash; Allows an application
+to broadcast an Intent to set an alarm for the user. An Activity that handles
+the <code><a href="../reference/android/provider/AlarmClock.html#ACTION_SET_ALARM">SET_ALARM</a></code> Intent action
+should require this permission.</li>
+<li><code>android.permission.USE_SIP</code> &mdash; Allows an application to use
+the <code><a href="../reference/android/net/sip/package-summary.html">SIP API</a></code> to make or receive internet calls.
+<li><code>android.permission.NFC</code> &mdash; Allows an application to use the
+<code><a href="../reference/android/nfc/package-summary.html">NFC API</a></code> to read NFC tags.</li>
+</ul>
+
+<h3 id="feature_constants">New Feature Constants</h3>
+
+<p>The platform adds several new hardware features that developers can declare
+in their application manifests as being required by their applications. This
+lets developers control how their application is filtered, when published on
+Google Play. </p>
+
+<ul>
+<li><code><a href="../reference/android/content/pm/PackageManager.html#FEATURE_AUDIO_LOW_LATENCY">android.hardware.audio.low_latency</a></code> &mdash; The application uses a low-latency
+audio pipeline on the device and is sensitive to delays or lag in sound input or
+output.</li>
+<li><code><a href="../reference/android/content/pm/PackageManager.html#FEATURE_CAMERA_FRONT">android.hardware.camera.front</a></code> &mdash; The application uses a front-facing
+camera on the device.</li>
+<li><code><a href="../reference/android/content/pm/PackageManager.html#FEATURE_NFC">android.hardware.nfc</a></code>
+&mdash; The application uses NFC radio features in the device.</li>
+<li><code><a href="../reference/android/content/pm/PackageManager.html#FEATURE_SENSOR_BAROMETER">android.hardware.sensor.barometer</a></code> &mdash; The application uses the device's
+barometer.</li>
+<li><code><a href="../reference/android/content/pm/PackageManager.html#FEATURE_SENSOR_GYROSCOPE">android.hardware.sensor.gyroscope</a></code> &mdash; The application uses the device's
+gyroscope sensor.</li>
+<li><code><a href="../reference/android/content/pm/PackageManager.html#FEATURE_SIP">android.software.sip</a></code>
+&mdash; The application uses the SIP API on the device.</li>
+<li><code><a href="../reference/android/content/pm/PackageManager.html#FEATURE_SIP_VOIP">android.software.sip.voip</a></code> &mdash; The application uses a SIP-based VoIP
+service on the device.</li>
+<li><code><a href="../reference/android/content/pm/PackageManager.html#FEATURE_TOUCHSCREEN_MULTITOUCH_JAZZHAND">android.hardware.touchscreen.multitouch.jazzhand</a></code> &mdash; The application uses
+advanced multipoint multitouch capabilities on the device screen, for tracking
+five or more points fully independently.</li>
+</ul>
+
+<p>For full information about how to declare features and use them for
+filtering, see the documentation for <a
+href="../guide/topics/manifest/uses-feature-element.html"><code>&lt;uses-feature&gt;</code></a>.</p>
+
+<h3 id="api-diff">API differences report</h3>
+
+<p>For a detailed view of all API changes in Android 2.3 (API
+Level 9), see the <a
+href="../sdk/api_diff/9/changes.html">API
+Differences Report</a>.</p>
+
+
+<h2 id="api-level">API Level</h2>
+
+<p>The Android 2.3 platform delivers an updated version of
+the framework API. The Android 2.3 API
+is assigned an integer identifier &mdash;
+<strong>9</strong> &mdash; that is
+stored in the system itself. This identifier, called the "API Level", allows the
+system to correctly determine whether an application is compatible with
+the system, prior to installing the application. </p>
+
+<p>To use APIs introduced in Android 2.3 in your application,
+you need compile the application against the Android library that is provided in
+the Android 2.3 SDK platform. Depending on your needs, you might 
+also need to add an <code>android:minSdkVersion="9"</code>
+attribute to the <code>&lt;uses-sdk&gt;</code> element in the application's
+manifest. If your application is designed to run only on Android 2.3 and higher,
+declaring the attribute prevents the application from being installed on earlier
+versions of the platform.</p>
+
+<p>For more information about how to use API Level, see the <a
+href="../guide/appendix/api-levels.html">API Levels</a> document. </p>
+
+<h2 id="apps">Built-in Applications</h2>
+
+<p>The system image included in the downloadable platform provides these
+built-in applications:</p>
+
+<table style="border:0;padding-bottom:0;margin-bottom:0;">
+<tr>
+<td style="border:0;padding-bottom:0;margin-bottom:0;">
+<ul>
+<li>Browser</li>
+<li>Calculator</li>
+<li>Camera</li>
+<li>Clock</li>
+<li>Contacts</li>
+<li>Cusom Locale</li>
+<li>Dev Tools</li>
+<li>Downloads</li>
+<li>Email</li>
+</ul>
+</td>
+<td style="border:0;padding-bottom:0;margin-bottom:0;padding-left:5em;">
+<ul>
+<li>Gallery</li>
+<li>IMEs for Japanese, Chinese, and Latin text input</li>
+<li>Messaging</li>
+<li>Music</li>
+<li>Phone</li>
+<li>Search</li>
+<li>Settings</li>
+<li>Spare Parts (developer app)</li>
+<li>Speech Recorder</li>
+</ul>
+</td>
+</tr>
+</table>
+
+
+<h2 id="locs" style="margin-top:.75em;">Locales</h2>
+
+<p>The system image included in the downloadable SDK platform provides a variety of
+built-in locales. In some cases, region-specific strings are available for the
+locales. In other cases, a default version of the language is used. The
+languages that are available in the Android 2.3 system
+image are listed below (with <em>language</em>_<em>country/region</em> locale
+descriptor).</p>
+
+<table style="border:0;padding-bottom:0;margin-bottom:0;">
+<tr>
+<td style="border:0;padding-bottom:0;margin-bottom:0;">
+<ul>
+<li>Arabic, Egypt (ar_EG)</li>
+<li>Arabic, Israel (ar_IL)</li>
+<li>Bulgarian, Bulgaria (bg_BG)</li>
+<li>Catalan, Spain (ca_ES)</li>
+<li>Czech, Czech Republic (cs_CZ)</li>
+<li>Danish, Denmark(da_DK)</li>
+<li>German, Austria (de_AT)</li>
+<li>German, Switzerland (de_CH)</li>
+<li>German, Germany (de_DE)</li>
+<li>German, Liechtenstein (de_LI)</li>
+<li>Greek, Greece (el_GR)</li>
+<li>English, Australia (en_AU)</li>
+<li>English, Canada (en_CA)</li>
+<li>English, Britain (en_GB)</li>
+<li>English, Ireland (en_IE)</li>
+<li>English, India (en_IN)</li>
+<li>English, New Zealand (en_NZ)</li>
+<li>English, Singapore(en_SG)</li>
+<li>English, US (en_US)</li>
+<li>English, South Africa (en_ZA)</li>
+<li>Spanish (es_ES)</li>
+<li>Spanish, US (es_US)</li>
+<li>Finnish, Finland (fi_FI)</li>
+<li>French, Belgium (fr_BE)</li>
+<li>French, Canada (fr_CA)</li>
+<li>French, Switzerland (fr_CH)</li>
+<li>French, France (fr_FR)</li>
+<li>Hebrew, Israel (he_IL)</li>
+<li>Hindi, India (hi_IN)</li>
+</ul>
+</td>
+<td style="border:0;padding-bottom:0;margin-bottom:0;padding-left:5em;">
+<li>Croatian, Croatia (hr_HR)</li>
+<li>Hungarian, Hungary (hu_HU)</li>
+<li>Indonesian, Indonesia (id_ID)</li>
+<li>Italian, Switzerland (it_CH)</li>
+<li>Italian, Italy (it_IT)</li>
+<li>Japanese (ja_JP)</li>
+<li>Korean (ko_KR)</li>
+<li>Lithuanian, Lithuania (lt_LT)</li>
+<li>Latvian, Latvia (lv_LV)</li>
+<li>Norwegian-Bokmol, Norway(nb_NO)</li>
+<li>Dutch, Belgium (nl_BE)</li>
+<li>Dutch, Netherlands (nl_NL)</li>
+<li>Polish (pl_PL)</li>
+<li>Portuguese, Brazil (pt_BR)</li>
+<li>Portuguese, Portugal (pt_PT)</li>
+<li>Romanian, Romania (ro_RO)</li>
+<li>Russian (ru_RU)</li></li>
+<li>Slovak, Slovakia (sk_SK)</li>
+<li>Slovenian, Slovenia (sl_SI)</li>
+<li>Serbian (sr_RS)</li>
+<li>Swedish, Sweden (sv_SE)</li>
+<li>Thai, Thailand (th_TH)</li>
+<li>Tagalog, Philippines (tl_PH)</li>
+<li>Turkish, Turkey (tr_TR)</li>
+<li>Ukrainian, Ukraine (uk_UA)</li>
+<li>Vietnamese, Vietnam (vi_VN)</li>
+<li>Chinese, PRC (zh_CN)</li>
+<li>Chinese, Taiwan (zh_TW)</li>
+</td>
+</tr>
+</table>
+
+<p class="note"><strong>Note:</strong> The Android platform may support more
+locales than are included in the SDK system image. All of the supported locales
+are available in the <a href="http://source.android.com/">Android Open Source
+Project</a>.</p>
+
+<h2 id="skins">Emulator Skins</h2>
+
+<p>The downloadable platform includes a set of emulator skins that you can use
+for modeling your application in different screen sizes and resolutions. The
+emulator skins are:</p>
+
+<ul>
+  <li>
+    QVGA (240x320, low density, small screen)
+  </li>
+  <li>
+    WQVGA400 (240x400, low density, normal screen)
+  </li>
+  <li>
+    WQVGA432 (240x432, low density, normal screen)
+  </li>
+  <li>
+    HVGA (320x480, medium density, normal screen)
+  </li>
+  <li>
+    WVGA800 (480x800, high density, normal screen)
+  </li>
+  <li>
+    WVGA854 (480x854 high density, normal screen)
+  </li>
+</ul>
+
+<p>For more information about how to develop an application that displays
+and functions properly on all Android-powered devices, see <a
+href="../guide/practices/screens_support.html">Supporting Multiple
+Screens</a>.</p>
+
+    </div>
+
+    
+    
+    <a href="#top" style="float:right">&uarr; Go to top</a>
+    
+
+  </div> <!-- end jd-content -->
+
+<div id="footer">
+
+
+  <div id="copyright">
+    
+  Except as noted, this content is 
+  licensed under <a href="http://creativecommons.org/licenses/by/2.5/">
+  Creative Commons Attribution 2.5</a>. For details and 
+  restrictions, see the <a href="../license.html">Content 
+  License</a>.
+  </div>
+
+  <div id="footerlinks">
+    
+  <p>
+    <a href="http://www.google.com/intl/en/policies/" target="_blank">Privacy &amp; Terms</a> -
+    <a href="http://www.android.com/branding.html" target="_blank">Brand Guidelines</a> -
+    <a
+href="http://code.google.com/p/android/issues/entry?template=Developer%20Documentation"
+target="_blank">Report Document Issues</a>
+  </p>
+  </div>
+
+</div> <!-- end footer -->
+
+</div><!-- end doc-content -->
+
+</div> <!-- end body-content --> 
+
+<script type="text/javascript">
+init(); /* initialize android-developer-docs.js */
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-5831155-1");
+pageTracker._trackPageview();
+</script>
+
+</body>
+</html>
+
+
+

@@ -1,0 +1,1712 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico" />
+<title>Supporting Tablets and Handsets | Android Developers</title>
+<link href="../../assets/android-developer-docs-devguide.css" rel="stylesheet" type="text/css" />
+<script src="../../assets/search_autocomplete.js" type="text/javascript"></script>
+<script src="../../assets/jquery-resizable.min.js" type="text/javascript"></script>
+<script src="../../assets/android-developer-docs.js" type="text/javascript"></script>
+<script src="../../assets/prettify.js" type="text/javascript"></script>
+<script type="text/javascript">
+  setToRoot("../../");
+</script>
+<noscript>
+  <style type="text/css">
+    html,body{overflow:auto;}
+    #body-content{position:relative; top:0;}
+    #doc-content{overflow:visible;border-left:3px solid #666;}
+    #side-nav{padding:0;}
+    #side-nav .toggle-list ul {display:block;}
+    #resize-packages-nav{border-bottom:3px solid #666;}
+  </style>
+</noscript>
+</head>
+<body class="gc-documentation" itemscope itemtype="http://schema.org/Article">
+
+  <div id="header">
+      <div id="headerLeft">
+          <a href="../../index.html" tabindex="-1"><img
+              src="../../assets/images/bg_logo.png" alt="Android Developers" /></a>
+          <ul id="header-tabs" class="guide">
+    
+	<li id="home-link"><a href="../../offline.html">
+	
+		<span class="en">Home</span>
+		<span style="display:none" class="de">Startseite</span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ホーム</span>
+		<span style="display:none" class="zh-CN">主页</span>
+		<span style="display:none" class="zh-TW">首頁</span>
+	
+	</a></li>
+	<li id="sdk-link"><a href="../../sdk/index.html">
+		<span class="en">SDK</span>
+	</a></li>
+	<li id="guide-link"><a href="../../guide/index.html" onClick="return loadLast('guide')">
+	
+		<span class="en">Dev Guide</span>
+		<span style="display:none" class="de">Handbuch</span>
+		<span style="display:none" class="es">Guía</span>
+		<span style="display:none" class="fr">Guide</span>
+		<span style="display:none" class="it">Guida</span>
+		<span style="display:none" class="ja">開発ガイド</span>
+		<span style="display:none" class="zh-CN">开发人员指南</span>
+		<span style="display:none" class="zh-TW">開發指南</span>
+	
+	</a></li>
+	<li id="reference-link"><a href="../../reference/packages.html" onClick="return loadLast('reference')">
+	
+		<span class="en">Reference</span>
+		<span style="display:none" class="de">Referenz</span>
+		<span style="display:none" class="es">Referencia</span>
+		<span style="display:none" class="fr">Référence</span>
+		<span style="display:none" class="it">Riferimento</span>
+		<span style="display:none" class="ja">リファレンス</span>
+		<span style="display:none" class="zh-CN">参考</span>
+		<span style="display:none" class="zh-TW">參考資料</span>
+	
+	</a></li>
+	<li id="resources-link"><a href="../../resources/index.html" onClick="return loadLast('resources')">
+	
+		<span class="en">Resources</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+    		<span style="display:none" class="ja"></span>
+		<span style="display:none" class="zh-CN"></span>
+		<span style="display:none" class="zh-TW"></span>
+	
+	</a></li>
+	<li id="videos-link"><a href="../../videos/index.html" onClick="return loadLast('videos')">
+	
+		<span class="en">Videos</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ビデオ</span>
+		<span style="display:none" class="zh-CN"></span>
+		<span style="display:none" class="zh-TW"></span>
+	
+	</a></li>
+	<li><a href="http://android-developers.blogspot.com" onClick="return requestAppendHL(this.href)">
+	
+		<span class="en">Blog</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ブログ</span>
+		<span style="display:none" class="zh-CN">博客</span>
+		<span style="display:none" class="zh-TW">網誌</span>
+	
+	</a></li>
+
+
+     
+</ul>
+     
+      </div>
+      <div id="headerRight">
+          <div id="headerLinks">
+          &nbsp;&nbsp;
+          <a href="../../design/index.html">Android Design</a>&nbsp;&nbsp;
+          <a href="http://www.android.com">Android.com</a>
+          </div>
+  <div id="search" >
+      <div id="searchForm">
+          <form accept-charset="utf-8" class="gsc-search-box" 
+                onsubmit="return submit_search()">
+            <table class="gsc-search-box" cellpadding="0" cellspacing="0"><tbody>
+                <tr>
+                  <td class="gsc-input">
+                    <input id="search_autocomplete" class="gsc-input" type="text" size="33" autocomplete="off"
+                      title="search developer docs" name="q"
+                      value="search developer docs"
+                      onFocus="search_focus_changed(this, true)"
+                      onBlur="search_focus_changed(this, false)"
+                      onkeydown="return search_changed(event, true, '../../')"
+                      onkeyup="return search_changed(event, false, '../../')" />
+                  <div id="search_filtered_div" class="no-display">
+                      <table id="search_filtered" cellspacing=0>
+                      </table>
+                  </div>
+                  </td>
+                  <td class="gsc-search-button">
+                    <input type="submit" value="Search" title="search" id="search-button" class="gsc-search-button" />
+                  </td>
+                  <td class="gsc-clear-button">
+                    <div title="clear results" class="gsc-clear-button">&nbsp;</div>
+                  </td>
+                </tr></tbody>
+              </table>
+          </form>
+      </div><!-- searchForm -->
+  </div><!-- search -->
+      </div><!-- headerRight -->
+      <script type="text/javascript">
+        <!--  
+        changeTabLang(getLangPref());
+        //-->
+      </script>
+  </div><!-- header -->
+
+  <div class="g-section g-tpl-240" id="body-content">
+    <div class="g-unit g-first" id="side-nav" itemscope itemtype="http://schema.org/SiteNavigationElement">
+      <div id="devdoc-nav">
+<ul>
+
+  <li>
+    <span class="heading">
+      <span class="en">Android Basics</span>
+      <span class="de" style="display:none">Einführung in Android</span>
+      <span class="es" style="display:none">Información básica sobre Android</span>
+      <span class="fr" style="display:none">Présentation d'Android</span>
+      <span class="it" style="display:none">Nozioni di base su Android</span>
+      <span class="ja" style="display:none">Android の基本</span>
+      <span class="zh-CN" style="display:none">Android 基础知识</span>
+      <span class="zh-TW" style="display:none">Android 簡介</span>
+    </span>
+    <ul>
+      <li><a href="../../guide/basics/what-is-android.html">
+        <span class="en">What Is Android?</span>
+        <span class="de" style="display:none">Was ist Android?</span>
+        <span class="es" style="display:none">¿Qué es Android?</span>
+        <span class="fr" style="display:none">Qu'est-ce qu'Android&nbsp;?</span>
+        <span class="it" style="display:none">Che cos'è Android?</span>
+        <span class="ja" style="display:none">Android とは</span>
+        <span class="zh-CN" style="display:none">Android 是什么？</span>
+        <span class="zh-TW" style="display:none">什麼是 Android？</span>
+          </a></li>
+      <li><a href="../../guide/topics/fundamentals.html">
+        <span class="en">Application Fundamentals</span>
+        <span class="de" style="display:none">Anwendungsgrundlagen</span>
+        <span class="es" style="display:none">Fundamentos de las aplicaciones</span>
+        <span class="fr" style="display:none">Principes de base des applications</span>
+        <span class="it" style="display:none">Concetti fondamentali sulle applicazioni</span>
+        <span class="ja" style="display:none">開発の基礎</span>
+        <span class="zh-CN" style="display:none">应用程序基础</span>
+        <span class="zh-TW" style="display:none">應用程式基本原理</span>
+      </a></li>
+
+  <!--  <li><a style="color:gray;">The Android SDK</a></li> -->
+  <!--  <li><a style="color:gray;">Walkthrough for Developers</a></li> -->
+      <!-- quick overview of what it's like to develop on Android -->
+    </ul>
+  </li>
+
+  <li>
+    <span class="heading">
+      <span class="en">Framework Topics</span>
+      <span class="de" style="display:none">Framework-Themen</span>
+      <span class="es" style="display:none">Temas sobre el framework</span>
+      <span class="fr" style="display:none">Thèmes relatifs au framework</span>
+      <span class="it" style="display:none">Argomenti relativi al framework</span>
+      <span class="ja" style="display:none">フレームワーク トピック</span>
+      <span class="zh-CN" style="display:none">框架主题</span>
+      <span class="zh-TW" style="display:none">架構主題</span>
+    </span>
+    <ul>
+      <li class="toggle-list">
+        <div><a href="../../guide/topics/fundamentals/activities.html">
+          <span class="en">Activities</span>
+        </a></div>
+        <ul>
+          <li><a href="../../guide/topics/fundamentals/fragments.html">
+            <span class="en">Fragments</span>
+          </a></li>
+          <li><a href="../../guide/topics/fundamentals/loaders.html">
+            <span class="en">Loaders</span>
+          </a></li>
+          <li><a href="../../guide/topics/fundamentals/tasks-and-back-stack.html">
+            <span class="en">Tasks and Back Stack</span></a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../../guide/topics/fundamentals/services.html">
+          <span class="en">Services</span>
+        </a></div>
+        <ul>
+          <li><a href="../../guide/topics/fundamentals/bound-services.html">
+            <span class="en">Bound Services</span>
+          </a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+          <div><a href="../../guide/topics/providers/content-providers.html">
+            <span class="en">Content Providers</span>
+          </a></div>
+          <ul>
+            <li>
+                <a href="../../guide/topics/providers/content-provider-basics.html">
+                    <span class="en">Content Provider Basics</span>
+                </a>
+                <span class="new">new!</span>
+            </li>
+            <li>
+                <a href="../../guide/topics/providers/content-provider-creating.html">
+                    <span class="en">Creating a Content Provider</span>
+                </a>
+                <span class="new">new!</span>
+            </li>
+            <li>
+                <a href="../../guide/topics/providers/calendar-provider.html">
+                    <span class="en">Calendar Provider</span>
+                </a>
+                <span class="new">new!</span>
+            </li>
+          </ul>
+      </li>
+      <li><a href="../../guide/topics/intents/intents-filters.html">
+            <span class="en">Intents and Intent Filters</span>
+          </a></li>
+      <li><a href="../../guide/topics/fundamentals/processes-and-threads.html">
+            <span class="en">Processes and Threads</span>
+          </a></li>
+    </ul>
+
+
+    <ul>
+      <li class="toggle-list">
+        <div><a href="../../guide/topics/ui/index.html">
+            <span class="en">User Interface</span>
+          </a></div>
+        <ul>
+          <li><a href="../../guide/topics/ui/declaring-layout.html">
+               <span class="en">XML Layouts</span>
+              </a></li>
+          <li><a href="../../guide/topics/ui/ui-events.html">
+                <span class="en">Input Events</span>
+              </a></li>
+          <li><a href="../../guide/topics/ui/menus.html">
+               <span class="en">Menus</span>
+              </a> <span class="new">updated</span></li>
+          <li><a href="../../guide/topics/ui/actionbar.html">
+               <span class="en">Action Bar</span>
+              </a></li>
+          <li><a href="../../guide/topics/ui/dialogs.html">
+                <span class="en">Dialogs</span>
+              </a></li>
+          <li class="toggle-list">
+            <div><a href="../../guide/topics/ui/notifiers/index.html">
+                <span class="en">Notifications</span>
+            </a></div>
+            <ul>
+              <li><a href="../../guide/topics/ui/notifiers/toasts.html">
+                <span class="en">Toast Notifications</span>
+              </a></li>
+              <li><a href="../../guide/topics/ui/notifiers/notifications.html">
+                <span class="en">Status Bar Notifications</span>
+              </a></li>
+            </ul>
+          </li>
+          <li><a href="../../guide/topics/ui/drag-drop.html">
+                <span class="en">Drag and Drop</span>
+              </a></li>
+          <li><a href="../../guide/topics/ui/themes.html">
+                <span class="en">Styles and Themes</span>
+              </a></li>
+          <li><a href="../../guide/topics/ui/custom-components.html">
+                <span class="en">Custom Components</span>
+              </a></li>
+          <li><a href="../../guide/topics/ui/binding.html">
+                <span class="en">Binding to Data with AdapterView</span>
+              </a></li>
+          <li><a href="../../guide/topics/ui/layout-objects.html">
+                <span class="en">Common Layout Objects</span>
+              </a></li>
+          <li><a href="../../guide/topics/ui/how-android-draws.html">
+                <span class="en">How Android Draws Views</span>
+              </a></li>
+        </ul>
+      </li><!-- end of User Interface -->
+
+      <li class="toggle-list">
+        <div><a href="../../guide/topics/resources/index.html">
+               <span class="en">Application Resources</span>
+             </a></div>
+        <ul>
+          <li><a href="../../guide/topics/resources/providing-resources.html">
+                <span class="en">Providing Resources</span>
+              </a></li>
+          <li><a href="../../guide/topics/resources/accessing-resources.html">
+                <span class="en">Accessing Resources</span>
+              </a></li>
+          <li><a href="../../guide/topics/resources/runtime-changes.html">
+                <span class="en">Handling Runtime Changes</span>
+              </a></li>
+          <li><a href="../../guide/topics/resources/localization.html">
+                <span class="en">Localization</span>
+              </a></li>
+          <li class="toggle-list">
+            <div><a href="../../guide/topics/resources/available-resources.html">
+              <span class="en">Resource Types</span>
+            </a></div>
+            <ul>
+              <li><a href="../../guide/topics/resources/animation-resource.html">Animation</a></li>
+              <li><a href="../../guide/topics/resources/color-list-resource.html">Color State List</a></li>
+              <li><a href="../../guide/topics/resources/drawable-resource.html">Drawable</a></li>
+              <li><a href="../../guide/topics/resources/layout-resource.html">Layout</a></li>
+              <li><a href="../../guide/topics/resources/menu-resource.html">Menu</a></li>
+              <li><a href="../../guide/topics/resources/string-resource.html">String</a></li>
+              <li><a href="../../guide/topics/resources/style-resource.html">Style</a></li>
+              <li><a href="../../guide/topics/resources/more-resources.html">More Types</a></li>
+            </ul>
+          </li><!-- end of resource types -->
+        </ul>
+      </li><!-- end of app resources -->
+      <li class="toggle-list">
+        <div><a href="../../guide/topics/data/data-storage.html">
+            <span class="en">Data Storage</span>
+          </a></div>
+          <ul>
+            <li><a href="../../guide/topics/data/backup.html">
+                <span class="en">Data Backup</span>
+              </a>
+            </li>
+          </ul>
+      </li>
+      <li><a href="../../guide/topics/security/security.html">
+            <span class="en">Security and Permissions</span>
+          </a></li>
+      <li class="toggle-list">
+        <div><a href="../../guide/topics/manifest/manifest-intro.html">
+          <span class="en">The AndroidManifest.xml File</span>
+        </a></div>
+        <ul>
+          <li><a href="../../guide/topics/manifest/action-element.html">&lt;action&gt;</a></li>
+          <li><a href="../../guide/topics/manifest/activity-element.html">&lt;activity&gt;</a></li>
+          <li><a href="../../guide/topics/manifest/activity-alias-element.html">&lt;activity-alias&gt;</a></li>
+          <li><a href="../../guide/topics/manifest/application-element.html">&lt;application&gt;</a></li>
+          <li><a href="../../guide/topics/manifest/category-element.html">&lt;category&gt;</a></li>
+          <li><a href="../../guide/topics/manifest/compatible-screens-element.html">&lt;compatible-screens&gt;</a></li>
+          <li><a href="../../guide/topics/manifest/data-element.html">&lt;data&gt;</a></li>
+          <li><a href="../../guide/topics/manifest/grant-uri-permission-element.html">&lt;grant-uri-permission&gt;</a></li>
+          <li><a href="../../guide/topics/manifest/instrumentation-element.html">&lt;instrumentation&gt;</a></li>
+          <li><a href="../../guide/topics/manifest/intent-filter-element.html">&lt;intent-filter&gt;</a></li>
+          <li><a href="../../guide/topics/manifest/manifest-element.html">&lt;manifest&gt;</a></li>
+          <li><a href="../../guide/topics/manifest/meta-data-element.html">&lt;meta-data&gt;</a></li>
+          <li><a href="../../guide/topics/manifest/path-permission-element.html">&lt;path-permission&gt;</a></li>
+          <li><a href="../../guide/topics/manifest/permission-element.html">&lt;permission&gt;</a></li>
+          <li><a href="../../guide/topics/manifest/permission-group-element.html">&lt;permission-group&gt;</a></li>
+          <li><a href="../../guide/topics/manifest/permission-tree-element.html">&lt;permission-tree&gt;</a></li>
+          <li><a href="../../guide/topics/manifest/provider-element.html">&lt;provider&gt;</a></li>
+          <li><a href="../../guide/topics/manifest/receiver-element.html">&lt;receiver&gt;</a></li>
+          <li><a href="../../guide/topics/manifest/service-element.html">&lt;service&gt;</a></li>
+          <li><a href="../../guide/topics/manifest/supports-gl-texture-element.html">&lt;supports-gl-texture&gt;</a></li>
+          <li><a href="../../guide/topics/manifest/supports-screens-element.html">&lt;supports-screens&gt;</a></li><!-- ##api level 4## -->
+          <li><a href="../../guide/topics/manifest/uses-configuration-element.html">&lt;uses-configuration&gt;</a></li>
+          <li><a href="../../guide/topics/manifest/uses-feature-element.html">&lt;uses-feature&gt;</a></li> <!-- ##api level 4## -->
+          <li><a href="../../guide/topics/manifest/uses-library-element.html">&lt;uses-library&gt;</a></li>
+          <li><a href="../../guide/topics/manifest/uses-permission-element.html">&lt;uses-permission&gt;</a></li>
+          <li><a href="../../guide/topics/manifest/uses-sdk-element.html">&lt;uses-sdk&gt;</a></li>
+        </ul>
+      </li><!-- end of the manifest file -->
+    </ul>
+
+    <ul>
+    <li class="toggle-list">
+        <div><a href="../../guide/topics/graphics/index.html">
+            <span class="en">Graphics</span>
+          </a> <span class="new-child">new!</span></div>
+        <ul>
+          <li><a href="../../guide/topics/graphics/2d-graphics.html">
+              <span class="en">Canvas and Drawables</span></a></li>
+          <li><a href="../../guide/topics/graphics/hardware-accel.html">
+              <span class="en">Hardware Acceleration</span></a>
+            <span class="new">new!</span></li>
+          <li><a href="../../guide/topics/graphics/opengl.html">
+              <span class="en">OpenGL</span>
+            </a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../../guide/topics/graphics/animation.html">
+            <span class="en">Animation</span>
+          </a></div>
+        <ul>
+          <li><a href="../../guide/topics/graphics/prop-animation.html">
+              <span class="en">Property Animation</span></a></li>
+          <li><a href="../../guide/topics/graphics/view-animation.html">
+              <span class="en">View Animation</span></a></li>
+          <li><a href="../../guide/topics/graphics/drawable-animation.html">
+              <span class="en">Drawable Animation</span></a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../../guide/topics/renderscript/index.html">
+          <span class="en">Renderscript</span></a>
+          <span class="new">updated</span>
+        </div>
+        <ul>
+          <li><a href="../../guide/topics/renderscript/graphics.html">
+                <span class="en">Graphics</span>
+              </a>
+          </li>
+          <li><a href="../../guide/topics/renderscript/compute.html">
+                <span class="en">Compute</span>
+              </a>
+          </li>
+          <li><a href="../../guide/topics/renderscript/reference.html">
+                <span class="en">Runtime API Reference</span>
+              </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="toggle-list">
+          <div><a href="../../guide/topics/media/index.html">
+            <span class="en">Multimedia and Camera</span>
+          </a></div>
+          <ul>
+            <li><a href="../../guide/topics/media/mediaplayer.html">
+                  <span class="en">Media Playback</span></a>
+                </li>
+            <li><a href="../../guide/topics/media/jetplayer.html">
+                  <span class="en">JetPlayer</span></a>
+                </li>
+            <li><a href="../../guide/topics/media/camera.html">
+                  <span class="en">Camera</span></a>
+                  <span class="new">new!</span>
+                </li>
+            <li><a href="../../guide/topics/media/audio-capture.html">
+                  <span class="en">Audio Capture</span></a>
+                </li>
+          </ul>
+      </li>
+      <li>
+        <a href="../../guide/topics/clipboard/copy-paste.html">
+            <span class="en">Copy and Paste</span>
+        </a></li>
+      <li class="toggle-list">
+        <div><a href="../../guide/topics/sensors/index.html">
+              <span class="en">Sensors</span>
+              </a> <span class="new">new!</span></div>
+        <ul>
+          <li><a href="../../guide/topics/sensors/sensors_overview.html">
+              <span class="en">Sensors Overview</span>
+            </a></li>
+          <li><a href="../../guide/topics/sensors/sensors_motion.html">
+              <span class="en">Motion Sensors</span>
+            </a></li>
+          <li><a href="../../guide/topics/sensors/sensors_position.html">
+              <span class="en">Position Sensors</span>
+            </a></li>
+          <li><a href="../../guide/topics/sensors/sensors_environment.html">
+              <span class="en">Environment Sensors</span>
+            </a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../../guide/topics/location/index.html">
+               <span class="en">Location and Maps</span>
+             </a></div>
+        <ul>
+          <li><a href="../../guide/topics/location/obtaining-user-location.html">
+                <span class="en">Obtaining User Location</span>
+              </a></li>
+        </ul>
+      </li>
+  <!--<li class="toggle-list">
+        <div><a style="color:gray;">Wireless Controls</a></div>
+          <ul>
+            <li><a style="color:gray;">Wi-Fi</a></li>
+          </ul>
+      </li> -->
+  <!--<li><a style="color:gray;">Localization</a></li>  -->
+      <li><a href="../../guide/topics/appwidgets/index.html">
+            <span class="en">App Widgets</span></a>
+          </li>
+      <li><a href="../../guide/topics/wireless/bluetooth.html">
+            <span class="en">Bluetooth</span></a>
+          </li>
+      <li class="toggle-list">
+        <div><a href="../../guide/topics/nfc/index.html">
+          <span class="en">Near Field Communication</span></a> <span class="new">updated</span>
+        </div>
+        <ul>
+          <li><a href="../../guide/topics/nfc/nfc.html">NFC Basics</a></li>
+          <li><a href="../../guide/topics/nfc/advanced-nfc.html">Advanced NFC</a></li>
+        </ul>
+      </li>
+      <li><a href="../../guide/topics/wireless/wifip2p.html">
+            <span class="en">Wi-Fi Direct</span></a> <span class="new">new!</span>
+          </li>
+      <li class="toggle-list">
+          <div><a href="../../guide/topics/usb/index.html">
+            <span class="en">USB</span></a>
+          </div>
+            <ul>
+              <li><a href="../../guide/topics/usb/accessory.html">Accessory</a></li>
+              <li><a href="../../guide/topics/usb/host.html">Host</a></li>
+              <li><a href="../../guide/topics/usb/adk.html">Open Accessory Dev Kit</a></li>
+            </ul>
+          </li>
+
+       <li><a href="../../guide/topics/network/sip.html">
+            <span class="en">Session Initiation Protocol</span>
+          </a></li>
+      <li class="toggle-list">
+        <div><a href="../../guide/topics/search/index.html">
+            <span class="en">Search</span>
+          </a></div>
+          <ul>
+            <li><a href="../../guide/topics/search/search-dialog.html">Creating a Search Interface</a></li>
+            <li><a href="../../guide/topics/search/adding-recent-query-suggestions.html">Adding Recent Query Suggestions</a></li>
+            <li><a href="../../guide/topics/search/adding-custom-suggestions.html">Adding Custom Suggestions</a></li>
+            <li><a href="../../guide/topics/search/searchable-config.html">Searchable Configuration</a></li>
+          </ul>
+      </li>
+      <li><a href="../../guide/topics/admin/device-admin.html">
+            <span class="en">Device Administration</span></a>
+      </li>
+      <li class="toggle-list">
+           <div>
+                <a href="../../guide/topics/testing/index.html">
+                   <span class="en">Testing</span>
+               </a>
+           </div>
+           <ul>
+              <li>
+                <a href="../../guide/topics/testing/testing_android.html">
+                <span class="en">Testing Fundamentals</span></a>
+              </li>
+              <li>
+                <a href="../../guide/topics/testing/activity_testing.html">
+                <span class="en">Activity Testing</span></a>
+              </li>
+              <li>
+                <a href="../../guide/topics/testing/contentprovider_testing.html">
+                <span class="en">Content Provider Testing</span></a>
+              </li>
+              <li>
+                <a href="../../guide/topics/testing/service_testing.html">
+                <span class="en">Service Testing</span></a>
+              </li>
+              <li>
+                <a href="../../guide/topics/testing/what_to_test.html">
+                <span class="en">What To Test</span></a>
+              </li>
+           </ul>
+      </li>
+    </ul>
+  </li>
+
+  <li>
+    <h2>
+      <span class="en">Google Play Topics</span>
+    </h2>
+    <ul>
+      <li><a href="../../guide/publishing/publishing.html">
+          <span class="en">Publishing on Google Play</span>
+          </a></li>
+      <li class="toggle-list">
+        <div><a href="../../guide/market/licensing/index.html">
+          <span class="en">Application Licensing</span></a>
+        </div>
+        <ul>
+          <li><a href="../../guide/market/licensing/overview.html">
+              <span class="en">Licensing Overview</span></a>
+          </li>
+          <li><a href="../../guide/market/licensing/setting-up.html">
+              <span class="en">Setting Up for Licensing</span></a>
+          </li>
+          <li><a href="../../guide/market/licensing/adding-licensing.html">
+              <span class="en">Adding Licensing to Your App</span></a>
+          </li>
+          <li><a href="../../guide/market/licensing/licensing-reference.html">
+              <span class="en">Licensing Reference</span></a>
+          </li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../../guide/market/billing/index.html">
+            <span class="en">In-app Billing</span></a>
+        </div>
+        <ul>
+          <li><a href="../../guide/market/billing/billing_overview.html">
+              <span class="en">In-app Billing Overview</span></a>
+          </li>
+          <li><a href="../../guide/market/billing/billing_integrate.html">
+              <span class="en">Implementing In-app Billing</span></a>
+          </li>
+          <li><a href="../../guide/market/billing/billing_best_practices.html">
+              <span class="en">Security and Design</span></a>
+          </li>
+          <li><a href="../../guide/market/billing/billing_testing.html">
+              <span class="en">Testing In-app Billing</span></a>
+          </li>
+          <li><a href="../../guide/market/billing/billing_admin.html">
+              <span class="en">Administering In-app Billing</span></a>
+          </li>
+          <li><a href="../../guide/market/billing/billing_reference.html">
+              <span class="en">In-app Billing Reference</span></a>
+          </li>
+        </ul>
+      </li>
+      <li><a href="../../guide/appendix/market-filters.html">
+          <span class="en">Filters on Google Play</span></a>
+      </li>
+      <li><a href="../../guide/market/publishing/multiple-apks.html">
+          <span class="en">Multiple APK Support</span></a>
+      </li>
+      <li><a href="../../guide/market/expansion-files.html">
+          <span class="en">APK Expansion Files</span></a>
+          <span class="new">new!</span>
+      </li>
+    </ul>
+  </li>
+
+
+  <li>
+    <span class="heading">
+      <span class="en">Developing</span>
+      <span class="de" style="display:none">Entwicklung</span>
+      <span class="es" style="display:none">Desarrollo</span>
+      <span class="fr" style="display:none">Développement</span>
+      <span class="it" style="display:none">Sviluppo</span>
+      <span class="ja" style="display:none">開発</span>
+      <span class="zh-CN" style="display:none">开发</span>
+      <span class="zh-TW" style="display:none">開發</span>
+    </span>
+    <ul>
+  <!--<li><a href="">Developing for Android</a></li>
+      signing, upgrading, selecting a package name, select device profile, touch, trackball, dpad available, etc. -->
+      <li>
+        <a href="../../guide/developing/index.html">
+        <span class="en">Introduction</span></a>
+      </li>
+
+      <li class="toggle-list">
+        <div>
+           <a href="../../guide/developing/devices/index.html">
+                <span class="en">Managing Virtual Devices</span>
+            </a>
+        </div>
+        <ul>
+          <li>
+            <a href="../../guide/developing/devices/managing-avds.html">
+              <span class="en">With AVD Manager</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../guide/developing/devices/managing-avds-cmdline.html">
+              <span class="en">From the Command Line</span>
+            </a>
+          </li>
+          <li>
+           <a href="../../guide/developing/devices/emulator.html">
+                <span class="en">Using the Android Emulator</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="../../guide/developing/device.html">
+          <span class="en">Using Hardware Devices</span>
+        </a>
+      </li>
+
+      <li class="toggle-list">
+        <div>
+          <a href="../../guide/developing/projects/index.html">
+            <span class="en">Managing Projects</span>
+          </a>
+        </div>
+        <ul>
+          <li>
+            <a href="../../guide/developing/projects/projects-eclipse.html">
+              <span class="en">From Eclipse with ADT</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../guide/developing/projects/projects-cmdline.html">
+                <span class="en">From the Command Line</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="toggle-list">
+        <div>
+          <a href="../../guide/developing/building/index.html">
+            <span class="en">Building and Running</span>
+          </a>
+        </div>
+        <ul>
+          <li><a href="../../guide/developing/building/building-eclipse.html">
+            <span class="en">From Eclipse with ADT</span>
+          </a></li>
+          <li><a href="../../guide/developing/building/building-cmdline.html">
+            <span class="en">From the Command Line</span></a></li>
+        </ul>
+      </li>
+
+      <li class="toggle-list">
+        <div>
+          <a href="../../guide/developing/debugging/index.html">
+            <span class="en">Debugging</span>
+          </a>
+        </div>
+        <ul>
+          <li>
+            <a href="../../guide/developing/debugging/debugging-projects.html">
+                <span class="en">From Eclipse with ADT</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../guide/developing/debugging/debugging-projects-cmdline.html">
+                <span class="en">From Other IDEs</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../guide/developing/debugging/ddms.html">
+              <span class="en">Using DDMS</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../guide/developing/debugging/debugging-log.html">
+                <span class="en">Reading and Writing Logs</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../guide/developing/debugging/debugging-ui.html">
+                <span class="en">Debugging and Profiling UIs</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../guide/developing/debugging/debugging-tracing.html">
+                <span class="en">Profiling with Traceview and dmtracedump</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../guide/developing/debugging/debugging-devtools.html">
+                <span class="en">Using the Dev Tools App</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="toggle-list">
+           <div>
+                <a href="../../guide/developing/testing/index.html">
+                   <span class="en">Testing</span>
+               </a>
+           </div>
+           <ul>
+              <li>
+                <a href="../../guide/developing/testing/testing_eclipse.html">
+                  <span class="en">From Eclipse with ADT</span>
+                </a>
+              </li>
+
+              <li>
+                <a href="../../guide/developing/testing/testing_otheride.html">
+                  <span class="en">From Other IDEs</span>
+                </a>
+              </li>
+           </ul>
+         </li>
+
+         <li class="toggle-list">
+        <div><a href="../../guide/developing/tools/index.html">
+            <span class="en">Tools</span>
+          </a></div>
+        <ul>
+          <li><a href="../../guide/developing/tools/adb.html">adb</a></li>
+          <li><a href="../../guide/developing/tools/adt.html">ADT</a></li>
+          <li><a href="../../guide/developing/tools/android.html">android</a></li>
+          <li><a href="../../guide/developing/tools/bmgr.html">bmgr</a>
+          <li><a href="../../guide/developing/tools/dmtracedump.html">dmtracedump</a></li>
+          <li><a href="../../guide/developing/tools/draw9patch.html">Draw
+          9-Patch</a></li>
+          <li><a href="../../guide/developing/tools/emulator.html">Emulator</a></li>
+          <li><a href="../../guide/developing/tools/etc1tool.html">etc1tool</a></li>
+          <li><a href="../../guide/developing/tools/hierarchy-viewer.html">Hierarchy Viewer</a></li>
+          <li><a href="../../guide/developing/tools/hprof-conv.html">hprof-conv</a></li>
+          <li><a href="../../guide/developing/tools/layoutopt.html">layoutopt</a></li>
+          <li><a href="../../guide/developing/tools/logcat.html">logcat</a></li>
+          <li><a href="../../guide/developing/tools/mksdcard.html">mksdcard</a></li>
+          <li><a href="../../guide/developing/tools/monkey.html">Monkey</a></li>
+          <li class="toggle-list">
+            <div><a href="../../guide/developing/tools/monkeyrunner_concepts.html">
+              <span class="en">monkeyrunner</span>
+            </a></div>
+            <ul>
+              <li><a href="../../guide/developing/tools/MonkeyDevice.html">
+                <span class="en">MonkeyDevice</span>
+                </a></li>
+              <li><a href="../../guide/developing/tools/MonkeyImage.html">
+                <span class="en">MonkeyImage</span>
+                </a></li>
+              <li><a href="../../guide/developing/tools/MonkeyRunner.html">
+                <span class="en">MonkeyRunner</span>
+                </a></li>
+            </ul>
+          </li>
+          <li><a href="../../guide/developing/tools/proguard.html">ProGuard</a></li>
+          <li><a href="../../guide/developing/tools/adb.html#sqlite">sqlite3</a></li>
+          <li><a href="../../guide/developing/tools/traceview.html">Traceview</a></li>
+          <li><a href="../../guide/developing/tools/zipalign.html">zipalign</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+
+  <li>
+    <span class="heading">
+      <span class="en">Publishing</span>
+      <span class="de" style="display:none">Veröffentlichung</span>
+      <span class="es" style="display:none">Publicación</span>
+      <span class="fr" style="display:none">Publication</span>
+      <span class="it" style="display:none">Pubblicazione</span>
+      <span class="ja" style="display:none">公開</span>
+      <span class="zh-CN" style="display:none">发布</span>
+      <span class="zh-TW" style="display:none">發佈</span>
+    </span>
+    <ul>
+      <li><a href="../../guide/publishing/publishing_overview.html">
+            <span class="en">Publishing Overview</span>
+          </a></li>
+      <li><a href="../../guide/publishing/preparing.html">
+            <span class="en">Preparing for Release</span>
+            <span class="de" style="display:none">Vorbereitung auf die Veröffentlichung</span>
+            <span class="es" style="display:none">Publicación de aplicaciones</span>
+            <span class="fr" style="display:none">Préparation à la publication</span>
+            <span class="it" style="display:none">Preparativi per la pubblicazione</span>
+            <span class="ja" style="display:none">公開の準備</span>
+            <span class="zh-CN" style="display:none">准备发布</span>
+            <span class="zh-TW" style="display:none">準備發佈</span>
+          </a></li>
+      <li><a href="../../guide/publishing/app-signing.html">
+            <span class="en">Signing Your Applications</span>
+            <span class="de" style="display:none">Signieren Ihrer Anwendungen</span>
+            <span class="es" style="display:none">Firma de aplicaciones</span>
+            <span class="fr" style="display:none">Attribution de votre signature <br />à vos
+applications</span>
+            <span class="it" style="display:none">Firma delle applicazioni</span>
+            <span class="ja" style="display:none">アプリケーションへの署名</span>
+            <span class="zh-CN" style="display:none">应用程序签名</span>
+            <span class="zh-TW" style="display:none">簽署應用程式</span>
+          </a></li>
+      <li><a href="../../guide/publishing/versioning.html">
+            <span class="en">Versioning Your Applications</span>
+            <span class="de" style="display:none">Versionsverwaltung für Ihre <br
+/>Anwendungen</span>
+            <span class="es" style="display:none">Versiones de las aplicaciones</span>
+            <span class="fr" style="display:none">Attribution d'une version à vos
+applications</span>
+            <span class="it" style="display:none">Controllo versioni delle applicazioni</span>
+            <span class="ja" style="display:none">アプリケーションのバージョニング</span>
+            <span class="zh-CN" style="display:none">应用程序版本控制</span>
+            <span class="zh-TW" style="display:none">應用程式版本設定</span>
+          </a></li>
+    </ul>
+  </li>
+
+  <li>
+    <span class="heading">
+      <span class="en">Best Practices</span>
+      <span class="de" style="display:none">Bewährte Verfahren</span>
+      <span class="es" style="display:none">Prácticas recomendadas</span>
+      <span class="fr" style="display:none">Meilleures pratiques</span>
+      <span class="it" style="display:none">Best practice</span>
+      <span class="ja" style="display:none">ベスト プラクティス</span>
+      <span class="zh-CN" style="display:none">最佳实践</span>
+      <span class="zh-TW" style="display:none">最佳實務</span>
+    </span>
+    <ul>
+      <li><a href="../../guide/practices/compatibility.html">
+            <span class="en">Compatibility</span>
+          </a></li>
+      <li class="toggle-list">
+        <div><a href="../../guide/practices/screens_support.html">
+          <span class="en">Supporting Multiple Screens</span>
+        </a></div>
+        <ul>
+          <li><a href="../../guide/practices/screens-distribution.html">
+            <span class="en">Distributing to Specific Screens</span>
+          </a></li>
+          <li><a href="../../guide/practices/screen-compat-mode.html">
+            <span class="en">Screen Compatibility Mode</span>
+          </a></li>
+          <li><a href="../../guide/practices/screens-support-1.5.html">
+            <span class="en">Strategies for Android 1.5</span>
+          </a></li>
+        </ul>
+      </li>
+      <li><a href="../../guide/practices/tablets-and-handsets.html">
+            <span class="en">Supporting Tablets and Handsets</span>
+          </a> <span class="new">new!</span></li>
+      <li class="toggle-list">
+        <div><a href="../../guide/practices/ui_guidelines/index.html">
+               <span class="en">UI Guidelines</span>
+             </a></div>
+        <ul>
+          <li class="toggle-list">
+            <div><a href="../../guide/practices/ui_guidelines/icon_design.html">
+                   <span class="en">Icon Design</span>
+                 </a></div>
+            <ul>
+              <li><a href="../../guide/practices/ui_guidelines/icon_design_launcher.html">
+                    <span class="en">Launcher Icons</span>
+                  </a></li>
+              <li><a href="../../guide/practices/ui_guidelines/icon_design_menu.html">
+                    <span class="en">Menu Icons</span>
+                  </a></li>
+              <li><a href="../../guide/practices/ui_guidelines/icon_design_action_bar.html">
+                    <span class="en">Action Bar Icons</span>
+                  </a></li>
+              <li><a href="../../guide/practices/ui_guidelines/icon_design_status_bar.html">
+                    <span class="en">Status Bar Icons</span>
+                  </a></li>
+              <li><a href="../../guide/practices/ui_guidelines/icon_design_tab.html">
+                    <span class="en">Tab Icons</span>
+                  </a></li>
+              <li><a href="../../guide/practices/ui_guidelines/icon_design_dialog.html">
+                    <span class="en">Dialog Icons</span>
+                  </a></li>
+              <li><a href="../../guide/practices/ui_guidelines/icon_design_list.html">
+                    <span class="en">List View Icons</span>
+                  </a></li>
+            </ul>
+          </li>
+          <li><a href="../../guide/practices/ui_guidelines/widget_design.html">
+                <span class="en">App Widget Design</span>
+              </a></li>
+          <li><a href="../../guide/practices/ui_guidelines/activity_task_design.html">
+                <span class="en">Activity and Task Design</span>
+              </a></li>
+          <li><a href="../../guide/practices/ui_guidelines/menu_design.html">
+                <span class="en">Menu Design</span>
+              </a></li>
+        </ul>
+      </li>
+      </ul>
+      <ul>
+      <li><a href="../../guide/practices/design/accessibility.html">
+            <span class="en">Designing for Accessibility</span>
+          </a></li>
+      <li class="toggle-list">
+        <div><a href="../../guide/practices/design/performance.html">
+            <span class="en">Designing for Performance</span>
+          </a></div>
+        <ul>
+          <li><a href="../../guide/practices/design/jni.html">
+                <span class="en">JNI Tips</span>
+              </a></li>
+        </ul>
+      </li>
+      <li><a href="../../guide/practices/design/responsiveness.html">
+            <span class="en">Designing for Responsiveness</span>
+          </a></li>
+      <li><a href="../../guide/practices/design/seamlessness.html">
+            <span class="en">Designing for Seamlessness</span>
+          </a></li>
+      <li><a href="../../guide/practices/security.html">
+            <span class="en">Designing for Security</span></a>
+            </li>
+    </ul>
+  </li>
+
+  <li>
+    <span class="heading">
+      <span class="en">Web Applications</span>
+    </span>
+    <ul>
+      <li><a href="../../guide/webapps/index.html">
+            <span class="en">Web Apps Overview</span>
+          </a></li>
+      <li><a href="../../guide/webapps/targeting.html">
+            <span class="en">Targeting Screens from Web Apps</span>
+          </a></li>
+      <li><a href="../../guide/webapps/webview.html">
+            <span class="en">Building Web Apps in WebView</span>
+          </a></li>
+      <li><a href="../../guide/webapps/debugging.html">
+            <span class="en">Debugging Web Apps</span>
+          </a></li>
+      <li><a href="../../guide/webapps/best-practices.html">
+            <span class="en">Best Practices for Web Apps</span>
+          </a></li>
+    </ul>
+  </li>
+
+  <li>
+    <span class="heading">
+      <span class="en">Appendix</span>
+      <span class="de" style="display:none">Anhang</span>
+      <span class="es" style="display:none">Apéndice</span>
+      <span class="fr" style="display:none">Annexes</span>
+      <span class="it" style="display:none">Appendice</span>
+      <span class="ja" style="display:none">付録</span>
+      <span class="zh-CN" style="display:none">附录</span>
+      <span class="zh-TW" style="display:none">附錄</span>
+    </span>
+    <ul>
+      <li><a href="../../guide/appendix/api-levels.html">
+            <span class="en">Android API Levels</span>
+          </a></li>
+      <li><a href="../../guide/appendix/install-location.html">
+            <span class="en">App Install Location</span>
+          </a></li>
+      <li><a href="../../guide/appendix/media-formats.html">
+            <span class="en">Supported Media Formats</span>
+          </a></li>
+      <li><a href="../../guide/appendix/g-app-intents.html">
+            <span class="en">Intents List: Google Apps</span>
+          </a></li>
+      <li><a href="../../guide/developing/tools/aidl.html">AIDL</a></li>
+      <li><a href="../../guide/appendix/glossary.html">
+            <span class="en">Glossary</span>
+          </a></li>
+    </ul>
+  </li>
+
+</ul>
+
+<script type="text/javascript">
+<!--
+    buildToggleLists();
+    changeNavLang(getLangPref());
+//-->
+</script>
+
+      </div>
+    </div> <!-- end side-nav -->
+    <script>
+      addLoadEvent(function() {
+        scrollIntoView("devdoc-nav");
+        });
+    </script>
+
+
+
+
+<div class="g-unit" id="doc-content"><a name="top"></a>
+
+<div id="jd-header" class="guide-header">
+  <span class="crumb" itemprop="breadcrumb">
+    &nbsp;
+    
+  </span>
+<h1 itemprop="name">Supporting Tablets and Handsets</h1>
+</div>
+
+  
+  <div id="jd-content">
+ 
+    
+
+
+    <div class="jd-descr" itemprop="articleBody">
+    <div id="qv-wrapper">
+<ol id="qv">
+
+<h2>In this document</h2>
+<ol>
+  <li><a href="#Guidelines">Basic Guidelines</a></li>
+  <li><a href="#Fragments">Creating Single-pane and Multi-pane Layouts</a></li>
+  <li><a href="#ActionBar">Using the Action Bar</a>
+    <ol>
+      <li><a href="#SplitActionBar">Using split action bar</a></li>
+      <li><a href="#NavigatingUp">Using "up" navigation</a></li>
+    </ol>
+  </li>
+  <li><a href="#Tips">Other Design Tips</a></li>
+</ol>
+
+<h2>Related samples</h2>
+<ol>
+  <li><a href="../../resources/samples/HoneycombGallery/index.html">Honeycomb
+Gallery</a></li>
+</ol>
+
+<h2>See also</h2>
+<ol>
+  <li><a href="../../guide/topics/fundamentals/fragments.html">Fragments</a></li>
+  <li><a href="../../guide/topics/ui/actionbar.html">Action Bar</a></li>
+  <li><a href="../../guide/practices/screens_support.html">Supporting Multiple Screens</a></li>
+</ol>
+
+
+
+</div>
+</div>
+
+
+
+<p>The Android platform runs on a variety of screen sizes and the system gracefully resizes your
+application's UI to fit each one. Typically, all you need to do is design your UI to be flexible and
+optimize some elements for different sizes by providing <a
+href="../../guide/topics/resources/providing-resources.html#AlternativeResources">alternative
+resources</a> (such as alternative layouts that reposition some views or alternative
+dimension values for views). However, sometimes you might want to go a step further to
+optimize the overall user experience for different screen sizes. For example, tablets offer
+more space in which your application can present multiple sets of information at once, while a
+handset device usually requires that you split those sets apart and display them separately. So
+even though a UI designed for handsets will properly resize to fit a tablet, it does not fully
+leverage the potential of the tablet's screen to enhance the user experience.</p>
+
+<p>With Android 3.0 (API level 11), Android introduced a new set of framework APIs that allow you
+ to more effectively design activities that take advantage of large screens: the <code><a href="../../reference/android/app/Fragment.html">Fragment</a></code> APIs. Fragments allow you to separate distinct behavioral components of your
+UI into separate parts, which you can then combine to create multi-pane layouts when running on a
+tablet or place in separate activities when running on a handset. Android 3.0 also introduced
+<code><a href="../../reference/android/app/ActionBar.html">ActionBar</a></code>, which provides a dedicated UI at the top of the screen to identify
+the app and provide user actions and navigation.</p>
+
+<p>This document provides guidance that can help you create an application that offers a unique and
+optimized user experience on both handsets and tablets, using fragments and the action bar.</p>
+
+<p>Before you continue with this guide, it's important that you first read the
+guide to <a href="../../guide/practices/screens_support.html">Supporting Multiple
+Screens</a>. That document describes the fundamental design principles for developing a UI that
+supports different screen sizes and densities with flexible layouts and alternative bitmaps,
+respectively.</p>
+
+
+
+
+<h2 id="Guidelines">Basic Guidelines</h2>
+
+<p>Here are a few guidelines that will help you create an app that provides an optimized user
+experience on both tablets and handsets:</p>
+
+<ul>
+  <li><strong>Build your activity designs based on fragments</strong> that you can reuse in
+different combinations&mdash;in multi-pane layouts on tablets and single-pane layouts on handsets.
+
+<p>A <code><a href="../../reference/android/app/Fragment.html">Fragment</a></code> represents a behavior or a portion of user interface in an
+activity. You can think of a fragment as a modular section of an activity (a "fragment" of an
+activity), which has its own lifecycle and which you can add or remove while the activity is
+running.</p>
+
+<p>If you haven't used fragments yet, start by reading the <a
+href="../../guide/topics/fundamentals/fragments.html">Fragments</a> developer guide.</p>
+</li>
+
+
+  <li><strong>Use the action bar</strong>, but follow best practices and ensure your design 
+is flexible enough for the system to adjust the action bar layout based on the screen size.
+
+<p>The <code><a href="../../reference/android/app/ActionBar.html">ActionBar</a></code> is a UI component for activities that replaces the traditional
+title bar at the top of the screen. By default, the action bar includes the application logo on the
+left side, followed by the activity title, and access to items from the options menu on the right
+side.</p>
+
+<p>You can enable items from the options menu to appear directly in the action bar as "action
+items". You can also add navigation features to the action bar, such as tabs or a drop-down list,
+and use the application icon to supplement the system's <em>Back</em> button behavior with the option to
+navigate to
+your application's "home" activity or "up" the application's structural hierarchy.</p>
+
+<p>This guide provides some tips for using the action bar in ways that support both tablets and
+handsets. For a detailed discussion of the action bar APIs, read the <a
+href="../../guide/topics/ui/actionbar.html">Action Bar</a> developer guide.</p>
+</li>
+
+
+  <li><strong>Implement flexible layouts</strong>, as discussed in the
+<a href="../../guide/practices/screens_support.html#screen-independence">Best Practices</a> for
+supporting multiple screens and the blog post, <a
+href="http://android-developers.blogspot.com/2011/09/thinking-like-web-designer.html">Thinking
+Like a Web Designer</a>.
+  <p>A flexible layout design allows your application to adapt to variations in screen
+sizes. Not all tablets are the same size, nor are all handsets the same size. While you might
+provide different fragment combinations for "tablets" and "handsets", it's still necessary that
+each design be flexible to resize to variations in size and aspect ratio.</p>
+</li>
+</ul>
+
+<p>The following sections discuss the first two recommendations in more detail. For more
+information about creating flexible layouts, refer to the links provided above.</p>
+
+
+<p class="note"><strong>Note:</strong> Aside from one feature in the action bar, all the
+APIs needed to accomplish the recommendations in this document are available in Android
+3.0. Additionally, you can even implement the fragment design patterns and remain
+backward-compatible with Android 1.6, by using the support library&mdash;discussed in the side
+bar below.</p>
+
+
+
+<h2 id="Fragments">Creating Single-pane and Multi-pane Layouts</h2>
+
+
+<div class="sidebox-wrapper">
+<div class="sidebox">
+  <h3>Remaining backward-compatible</h3>
+<p>If you want to use fragments in your application <em>and</em> remain compatible with
+versions of Android older than 3.0, you can do so by using the Android <a
+href="../../sdk/compatibility-library.html">Support Library</a> (downloadable from the
+SDK Manager).</p>
+<p>The support library includes APIs for <a
+href="../../guide/topics/fundamentals/fragments.html">fragments</a>, <a
+href="../../guide/topics/fundamentals/loaders.html">loaders</a>, and other APIs added in newer
+versions of Android. By simply adding this library to your Android project, you can use
+backward-compatible versions of these APIs in your application and remain compatible with Android
+1.6 (your <a href="../../guide/topics/manifest/uses-sdk-element.html#min"><code>android:minSdkVersion</code></a> value can be as low as <code>"4"</code>). For information about how to get the
+library and start using it, see the <a href="../../sdk/compatibility-library.html">Support
+Library</a> document.</p>
+
+<p>The support library <em>does not</em> provide APIs for the action bar, but you can use
+code from the sample app, <a
+href="../../resources/samples/ActionBarCompat/index.html">Action Bar Compatibility</a>, to
+create an action bar that supports all devices.</p>
+</div>
+</div>
+
+
+
+
+<p>The most effective way to create a distinct user experience for tablets and handsets is to create
+layouts with different combinations of fragments, such that you can design "multi-pane" layouts for
+tablets and "single-pane" layouts for handsets. For example, a news application on a tablet might
+show a list of articles on the left side and a full article on the right side&mdash;selecting an
+article on the left updates the article view on the right. On a handset, however, these two
+components should appear on separate screens&mdash;selecting an article from a list changes the
+entire screen to show that article. There are two techniques to accomplish this design with
+fragments:</p>
+
+
+<ul>
+  <li><em>Multiple fragments, one activity</em>: Use one activity regardless of the device size,
+but decide at runtime whether to combine fragments in the layout (to create a multiple-pane design)
+or swap fragments (to create a single-pane design). Or...</li>
+
+  <li><em>Multiple fragments, multiple activities</em>: On a tablet, place multiple fragments in
+one activity; on a handset, use separate activities to host each fragment. For example,
+when the tablet design uses two fragments in an activity, use the same activity for handsets, but
+supply an alternative layout that includes just the first fragment. When running on a handset and
+you need to switch fragments (such as when the user selects an item), start another activity that
+hosts the second fragment.</li>
+</ul>
+
+<p>The approach you choose depends on your design and personal preferences. The first option
+(one activity; swapping fragments) requires that you determine the screen size at runtime
+and dynamically add each fragment as appropriate&mdash;rather than declare the fragments
+in your activity's XML layout&mdash;because you <em>cannot</em> remove a fragment from an activity
+if it's been declared in the XML layout. When using the first technique, you might also need to
+update the action bar each time the fragments change, depending on what actions or navigation modes
+are available for each fragment. In some cases, these factors might not affect your design, so
+using one activity and swapping fragments might work well (especially if your tablet design requires
+that you add fragments dynamically anyway). Other times, however, dynamically swapping
+fragments for your handset design can make your code more complicated, because you must manage all
+the fragment combinations in the activity's code (rather than use alternative layout resources to
+define fragment combinations) and manage the back stack of fragments yourself (rather than
+allow the normal activity stack to handle back-navigation).</p>
+
+<p>This guide focuses on the second option, in which you display each fragment in a separate
+activity when on a smaller screen. Using this technique means that you can use alternative layout
+files that define different fragment combinations for different screen sizes, keep fragment code
+modular, simplify action bar management, and let the system handle all the back stack work on
+handsets.</p>
+
+<p>Figure 1 illustrates how an application with two fragments might be arranged for
+both handsets and tablets when using separate activities for the handset design:</p>
+
+<img src="../../images/fundamentals/fragments.png" alt="" />
+<p class="img-caption"><strong>Figure 1.</strong> Different design patterns for tablets and
+handsets when selecting an item to view its details.</p>
+
+<p>In the application shown in figure 1, Activity A is the "main activity" and uses different
+layouts to display either one or two fragments at a time, depending on the size of the screen:</p>
+<ul>
+  <li>On a tablet-sized screen, the Activity A layout contains both Fragment A and Fragment B.</li>
+  <li>On a handset-sized screen, the Activity A layout contains only Fragment A (the list
+view). In order to show the details in Fragment B, Activity B must open.</li>
+</ul>
+
+<p class="note"><strong>Note:</strong> Activity B is never used on a tablet. It is simply a
+container to present Fragment B, so is only used on handset devices when the two fragments must
+be displayed separately.</p>
+
+<p>Depending on the screen size, the system applies a different <code>main.xml</code> layout file:</p>
+
+<p><code>res/layout/main.xml</code> for handsets:</p>
+
+<pre>
+&lt;?xml version="1.0" encoding="utf-8"?>
+&lt;FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    &lt;!-- "Fragment A" --&gt;
+    &lt;fragment class="<b>com.example.android.TitlesFragment</b>"
+              android:id="@+id/list_frag"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"/>
+&lt;/FrameLayout>
+</pre>
+
+<p><code>res/layout-large/main.xml</code> for tablets:</p>
+
+<pre>
+&lt;?xml version="1.0" encoding="utf-8"?>
+&lt;LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  android:orientation="horizontal"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:id="@+id/frags">
+    &lt;!-- "Fragment A" --&gt;
+  &lt;fragment class="<b>com.example.android.TitlesFragment</b>"
+            android:id="@+id/list_frag"
+            android:layout_width="@dimen/titles_size"
+            android:layout_height="match_parent"/>
+    &lt;!-- "Fragment B" --&gt;
+  &lt;fragment class="<b>com.example.android.DetailsFragment</b>"
+            android:id="@+id/details_frag"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+&lt;/LinearLayout>
+</pre>
+
+
+<div class="sidebox-wrapper">
+<div class="sidebox">
+  <h3>Supporting sizes based on screen width</h3>
+  <p>Android 3.2 (API level 13) adds new APIs that provide more fine-grain control over what screen
+sizes your app supports and what resources it uses, by declaring screen sizes based on the minimum
+width your layouts require. For example, both a 5" and 7" device qualify as a "large" screen, so
+your "large" layout resources are used on both devices. With API level 13, you can distinguish
+between these two sizes based on the screen width, as measured in density-independent pixels.</p>
+  <p>For details, read the blog post about <a
+href="http://android-developers.blogspot.com/2011/07/new-tools-for-managing-screen-sizes.html">
+New Tools for Managing Screen Sizes</a>.</p>
+</div>
+</div>
+
+<p class="note"><strong>Note:</strong> Although the above sample layout for tablets is based on
+the "large" screen configuration qualifier, you should also use the new "minimum width" size
+qualifiers in order to more precisely control the screen size at which the system applies your
+handset or tablet layout. See the sidebar for more information.</p>
+
+<p>How the application responds when a user selects an item from the list depends on whether
+Fragment B is available in the layout:</p>
+<ul>
+  <li>If Fragment B is in the layout, Activity A notifies Fragment B to update itself.</li>
+  <li>If Fragment B is <em>not</em> in the layout, Activity A starts Activity B (which hosts
+Fragment B).</li>
+</ul>
+
+
+<p>To implement this pattern for your application, it's important
+that you develop your fragments to be highly compartmentalized. Specifically, you should follow two
+guidelines:</p>
+
+<ul>
+  <li>Do not manipulate one fragment directly from another.</li>
+  <li>Keep all code that concerns content in a fragment inside that fragment, rather than putting it
+in the host activity's code.</li>
+</ul>
+
+<p>To avoid directly calling one fragment from another, <strong>define a callback interface in each
+fragment</strong> class that it can use to deliver events to
+its host activity, which implements the callback
+interface. When the activity receives a callback due to an event (such as the user selecting a list
+item), the activity responds appropriately based on the current fragment configuration.</p>
+
+<p>For example, Activity A from above can handle item selections depending on whether it's using
+the tablet or handset layout like this:</p>
+
+<pre>
+public class MainActivity extends Activity implements TitlesFragment.OnItemSelectedListener {
+    ...
+
+    /** This is a callback that the list fragment (Fragment A)
+        calls when a list item is selected */
+    public void onItemSelected(int position) {
+        DisplayFragment displayFrag = (DisplayFragment) getFragmentManager()
+                                    .findFragmentById(R.id.display_frag);
+        if (displayFrag == null) {
+            // DisplayFragment (Fragment B) is not in the layout (handset layout),
+            // so start DisplayActivity (Activity B)
+            // and pass it the info about the selected item
+            Intent intent = new Intent(this, DisplayActivity.class);
+            intent.putExtra("position", position);
+            startActivity(intent);
+        } else {
+            // DisplayFragment (Fragment B) is in the layout (tablet layout),
+            // so tell the fragment to update
+            displayFrag.updateContent(position);
+        }
+    }
+}
+</pre>
+
+<p>When <code>DisplayActivity</code> (Activity B) starts, it reads the data delivered by the
+<code><a href="../../reference/android/content/Intent.html">Intent</a></code> and passes it to the <code>DisplayFragment</code> (Fragment B).</p>
+
+<p>If Fragment B needs to deliver a result back to Fragment A (because Activity B was started with
+<code><a href="../../reference/android/app/Activity.html#startActivityForResult(android.content.Intent, int)">startActivityForResult()</a></code>), then the process
+works similarly with a callback interface between Fragment B and Activity B. That is, Activity B
+implements a different callback interface defined by Fragment B. When Activity B receives the
+callback with a result from the fragment, it sets the result for the activity (with <code><a href="../../reference/android/app/Activity.html#setResult(int)">setResult()</a></code>) and finishes itself. Activity A then receives the
+result and delivers it to Fragment A.</p>
+
+<p>For a demonstration of this technique for creating different fragment combinations for
+tablets and handsets, see the updated version of the <a
+href="../../resources/samples/HoneycombGallery/index.html">Honeycomb Gallery</a>
+sample.</p>
+
+
+
+
+
+
+<h2 id="ActionBar">Using the Action Bar</h2>
+
+<p>The <a href="../../guide/topics/ui/actionbar.html">Action Bar</a> is an important UI
+component for Android apps on both tablets and handsets. To ensure that the action bar
+behaves appropriately on all screen sizes, it's important that you use the <code><a href="../../reference/android/app/ActionBar.html">ActionBar</a></code> APIs without adding complex customizations. By using the standard <code><a href="../../reference/android/app/ActionBar.html">ActionBar</a></code> APIs to design your action bar, the Android system does all
+the work to gracefully adapt the action bar for different screen sizes. Here are some important
+tips to follow when creating your action bar:</p>
+
+<ul>
+  <li>When setting a menu item to be an action item, <strong>avoid using the <code>"always"</code>
+value</strong>. In your <a
+href="../../guide/topics/resources/menu-resource.html">menu resource</a>, use <code>"ifRoom"</code>
+for the <code>android:showAsAction</code> attribute if you'd like the menu item to appear in the action
+bar. However, you might need <code>"always"</code> when an action view does not provide a default
+action for the overflow menu (that is, it must appear as an action view). However,
+you should not use <code>"always"</code> more than once or twice. In almost all other cases, use <code>"ifRoom"</code> as the value for <code>"android:showAsAction"</code> when you want the item to appear as an
+action item. Forcing too many action items into the action bar can create a cluttered UI and
+action items may overlap with other action bar elements such as the title or navigation items.</li>
+
+  <li>When adding action items to the action bar with a text title, also <strong>provide an
+icon</strong>, when appropriate, and declare <code>showAsAction="ifRoom|withText"</code>.
+This way, if there's not enough room for the title, but there is enough room for the icon, then only
+the icon may be used.</li>
+
+
+  <li>Always <strong>provide a title</strong> for your action items, even if you don't enable <code>"withText"</code>, because users can view the title as a "tool-tip" by performing a
+"long click" on the item&mdash;the title text appears momentarily in a toast message. Providing
+a title is also critical for accessibility, because screen readers read aloud the item title
+even when not visible.</li>
+
+
+  <li><strong>Avoid using custom navigation modes when possible</strong>. Use the built-in tab
+and drop-down navigation modes when possible&mdash;they're designed so the system can adapt their
+presentation to different screen sizes. For example, when the width is too narrow for both tabs and
+other action items (such as a handset in portrait orientation), the tabs appear below the action bar
+(this is known as the "stacked action bar"). If you must build a custom navigation mode or other
+custom views in the action bar, thoroughly test them on smaller screens and make any
+necessary adjustments to support a narrow action bar.</li>
+</ul>
+
+<p>For example, the mock-ups below demonstrate how the system may adapt an action bar based
+on the available screen space. On the handset, only two action items fit, so the remaining menu
+items appear in the overflow menu (because <code>android:showAsAction</code> was set to <code>"ifRoom"</code>)
+and the tabs appear in a separate row (the stacked action bar). On the tablet, more action items can
+fit in the action bar and so do the tabs.</p>
+
+<img src="../../images/practices/actionbar-phone-tablet.png" alt=""/>
+<p class="img-caption"><strong>Figure 2.</strong> Mock-up showing how the system re-configures
+action bar components based on the available screen space.</p>
+
+
+<h3 id="SplitActionBar">Using split action bar</h3>
+
+<p>When your application is running on Android 4.0 (API level 14) and
+higher, there's an extra mode available for the action bar called "split action bar." When
+you enable split action bar, a separate bar appears at the bottom of the screen to
+display all action items when the activity is running on a narrow screen (such as a portrait
+handset). Splitting the action bar ensures that a reasonable amount of space is available to
+display action items on a narrow screen and also leave room for navigation and title elements
+at the top.</p>
+
+<p>To enable split action bar, simply add <code>uiOptions="splitActionBarWhenNarrow"</code> to your
+<a href="../../guide/topics/manifest/activity-element.html"><code>&lt;activity&gt;</code></a> or
+<a href="../../guide/topics/manifest/application-element.html"><code>&lt;application&gt;</code></a>
+manifest element.</p>
+
+
+<img src="../../images/practices/actionbar-phone-splitaction.png" alt=""/>
+<p class="img-caption"><strong>Figure 3.</strong> Split action bar with navigation tabs on the left;
+with the app icon and title disabled on the right.</p>
+
+
+<p>If you'd like to hide the main action bar at the top, because you're using the built-in
+navigation tabs along with the split action bar, call <code><a href="../../reference/android/app/ActionBar.html#setDisplayShowHomeEnabled(boolean)">setDisplayShowHomeEnabled(false)</a></code> to disable the
+application icon in the action bar. In this case, there's now nothing left in the main action bar,
+so it disappears and all that’s left are the navigation tabs at the top and the action items at the
+bottom, as shown by the second device in figure 3.</p>
+
+<p class="note"><strong>Note:</strong> Although the <code>uiOptions</code> attribute was added in Android
+4.0 (API level 14), you can safely include it in your application even if your <a
+href="../../guide/topics/manifest/uses-sdk-element.html#min"><code>minSdkVersion</code></a> is set to
+a value lower than <code>"14"</code> to remain compatible with older versions of Android. When running on
+older versions, the system simply ignores the attribute because it doesn't understand it. The only
+condition to adding it to your manifest is that you must compile your application against a platform
+version that supports API level 14 or higher. Just be sure that you don't openly use other APIs in
+your application code that aren't supported by the version declared by your <a
+href="../../guide/topics/manifest/uses-sdk-element.html#min"><code>minSdkVersion</code></a>
+attribute.</p>
+
+
+<h3 id="NavigatingUp">Using "up" navigation</h3>
+
+<p>As discussed in the <a href="../../guide/topics/ui/actionbar.html#Home">Action Bar</a>
+developer guide, you can use the application icon in the action bar to facilitate user navigation
+when appropriate&mdash;either as a method to get back to the "home" activity (similar to clicking
+the logo on a web site) or as a way to navigate up the application's structural hierarchy. Although
+it might seem similar to the standard <em>Back</em> navigation in some cases, the up navigation
+option
+provides a more predictable navigation method for situations in which the user may have entered
+from an external location, such as a notification, app widget, or a different application.</p>
+
+<p>When using fragments in different combinations for different devices, it's important to give
+extra consideration to how your up navigation behaves in each configuration. For example, when on a
+handset and your application shows just one fragment at a time, it might be appropriate to enable up
+navigation to go up to the parent screen, whereas it's not necessary when showing the same
+fragment in a multi-pane configuration.</p>
+
+<p>For more information about enabling up navigation, see the <a
+href="../../guide/topics/ui/actionbar.html#Home">Action Bar</a> developer guide.</p>
+
+
+
+
+<h2 id="Tips">Other Design Tips</h2>
+
+<ul>
+  <li>When working with a <code><a href="../../reference/android/widget/ListView.html">ListView</a></code>, consider how you might provide more or less
+information in each list item based on the available space. That is, you can create alternative
+layouts to be used by the items in your list adapter such that a large screen might display more
+detail for each item.</li>
+  <li>Create <a href="../../guide/topics/resources/more-resources.html">alternative resource
+files</a> for values such as integers, dimensions, and even booleans. Using size qualifiers for
+these resources, you can easily apply different layout sizes, font sizes, or enable/disable features
+based on the current screen size.</li>
+</ul>
+
+
+
+    </div>
+
+    
+    
+    <a href="#top" style="float:right">&uarr; Go to top</a>
+    
+
+  </div> <!-- end jd-content -->
+
+<div id="footer">
+
+
+  <div id="copyright">
+    
+  Except as noted, this content is licensed under <a
+  href="http://www.apache.org/licenses/LICENSE-2.0">Apache 2.0</a>. 
+  For details and restrictions, see the <a href="../../license.html">
+  Content License</a>.
+  </div>
+  <div id="build_info">
+    
+  Android 4.0&nbsp;r1 - 16 Mar 2012 16:45
+
+  </div>
+
+  <div id="footerlinks">
+    
+  <p>
+    <a href="http://www.google.com/intl/en/policies/" target="_blank">Privacy &amp; Terms</a> -
+    <a href="http://www.android.com/branding.html" target="_blank">Brand Guidelines</a> -
+    <a
+href="http://code.google.com/p/android/issues/entry?template=Developer%20Documentation"
+target="_blank">Report Document Issues</a>
+  </p>
+  </div>
+
+</div> <!-- end footer -->
+
+</div><!-- end doc-content -->
+
+</div> <!-- end body-content --> 
+
+<script type="text/javascript">
+init(); /* initialize android-developer-docs.js */
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-5831155-1");
+pageTracker._trackPageview();
+</script>
+
+</body>
+</html>
+
+
+

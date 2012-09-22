@@ -1,0 +1,2297 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico" />
+<title>Adding Licensing to Your App | Android Developers</title>
+<link href="../../../assets/android-developer-docs-devguide.css" rel="stylesheet" type="text/css" />
+<script src="../../../assets/search_autocomplete.js" type="text/javascript"></script>
+<script src="../../../assets/jquery-resizable.min.js" type="text/javascript"></script>
+<script src="../../../assets/android-developer-docs.js" type="text/javascript"></script>
+<script src="../../../assets/prettify.js" type="text/javascript"></script>
+<script type="text/javascript">
+  setToRoot("../../../");
+</script>
+<noscript>
+  <style type="text/css">
+    html,body{overflow:auto;}
+    #body-content{position:relative; top:0;}
+    #doc-content{overflow:visible;border-left:3px solid #666;}
+    #side-nav{padding:0;}
+    #side-nav .toggle-list ul {display:block;}
+    #resize-packages-nav{border-bottom:3px solid #666;}
+  </style>
+</noscript>
+</head>
+<body class="gc-documentation" itemscope itemtype="http://schema.org/Article">
+
+  <div id="header">
+      <div id="headerLeft">
+          <a href="../../../index.html" tabindex="-1"><img
+              src="../../../assets/images/bg_logo.png" alt="Android Developers" /></a>
+          <ul id="header-tabs" class="guide">
+    
+	<li id="home-link"><a href="../../../offline.html">
+	
+		<span class="en">Home</span>
+		<span style="display:none" class="de">Startseite</span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ホーム</span>
+		<span style="display:none" class="zh-CN">主页</span>
+		<span style="display:none" class="zh-TW">首頁</span>
+	
+	</a></li>
+	<li id="sdk-link"><a href="../../../sdk/index.html">
+		<span class="en">SDK</span>
+	</a></li>
+	<li id="guide-link"><a href="../../../guide/index.html" onClick="return loadLast('guide')">
+	
+		<span class="en">Dev Guide</span>
+		<span style="display:none" class="de">Handbuch</span>
+		<span style="display:none" class="es">Guía</span>
+		<span style="display:none" class="fr">Guide</span>
+		<span style="display:none" class="it">Guida</span>
+		<span style="display:none" class="ja">開発ガイド</span>
+		<span style="display:none" class="zh-CN">开发人员指南</span>
+		<span style="display:none" class="zh-TW">開發指南</span>
+	
+	</a></li>
+	<li id="reference-link"><a href="../../../reference/packages.html" onClick="return loadLast('reference')">
+	
+		<span class="en">Reference</span>
+		<span style="display:none" class="de">Referenz</span>
+		<span style="display:none" class="es">Referencia</span>
+		<span style="display:none" class="fr">Référence</span>
+		<span style="display:none" class="it">Riferimento</span>
+		<span style="display:none" class="ja">リファレンス</span>
+		<span style="display:none" class="zh-CN">参考</span>
+		<span style="display:none" class="zh-TW">參考資料</span>
+	
+	</a></li>
+	<li id="resources-link"><a href="../../../resources/index.html" onClick="return loadLast('resources')">
+	
+		<span class="en">Resources</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+    		<span style="display:none" class="ja"></span>
+		<span style="display:none" class="zh-CN"></span>
+		<span style="display:none" class="zh-TW"></span>
+	
+	</a></li>
+	<li id="videos-link"><a href="../../../videos/index.html" onClick="return loadLast('videos')">
+	
+		<span class="en">Videos</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ビデオ</span>
+		<span style="display:none" class="zh-CN"></span>
+		<span style="display:none" class="zh-TW"></span>
+	
+	</a></li>
+	<li><a href="http://android-developers.blogspot.com" onClick="return requestAppendHL(this.href)">
+	
+		<span class="en">Blog</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ブログ</span>
+		<span style="display:none" class="zh-CN">博客</span>
+		<span style="display:none" class="zh-TW">網誌</span>
+	
+	</a></li>
+
+
+     
+</ul>
+     
+      </div>
+      <div id="headerRight">
+          <div id="headerLinks">
+          &nbsp;&nbsp;
+          <a href="../../../design/index.html">Android Design</a>&nbsp;&nbsp;
+          <a href="http://www.android.com">Android.com</a>
+          </div>
+  <div id="search" >
+      <div id="searchForm">
+          <form accept-charset="utf-8" class="gsc-search-box" 
+                onsubmit="return submit_search()">
+            <table class="gsc-search-box" cellpadding="0" cellspacing="0"><tbody>
+                <tr>
+                  <td class="gsc-input">
+                    <input id="search_autocomplete" class="gsc-input" type="text" size="33" autocomplete="off"
+                      title="search developer docs" name="q"
+                      value="search developer docs"
+                      onFocus="search_focus_changed(this, true)"
+                      onBlur="search_focus_changed(this, false)"
+                      onkeydown="return search_changed(event, true, '../../../')"
+                      onkeyup="return search_changed(event, false, '../../../')" />
+                  <div id="search_filtered_div" class="no-display">
+                      <table id="search_filtered" cellspacing=0>
+                      </table>
+                  </div>
+                  </td>
+                  <td class="gsc-search-button">
+                    <input type="submit" value="Search" title="search" id="search-button" class="gsc-search-button" />
+                  </td>
+                  <td class="gsc-clear-button">
+                    <div title="clear results" class="gsc-clear-button">&nbsp;</div>
+                  </td>
+                </tr></tbody>
+              </table>
+          </form>
+      </div><!-- searchForm -->
+  </div><!-- search -->
+      </div><!-- headerRight -->
+      <script type="text/javascript">
+        <!--  
+        changeTabLang(getLangPref());
+        //-->
+      </script>
+  </div><!-- header -->
+
+  <div class="g-section g-tpl-240" id="body-content">
+    <div class="g-unit g-first" id="side-nav" itemscope itemtype="http://schema.org/SiteNavigationElement">
+      <div id="devdoc-nav">
+<ul>
+
+  <li>
+    <span class="heading">
+      <span class="en">Android Basics</span>
+      <span class="de" style="display:none">Einführung in Android</span>
+      <span class="es" style="display:none">Información básica sobre Android</span>
+      <span class="fr" style="display:none">Présentation d'Android</span>
+      <span class="it" style="display:none">Nozioni di base su Android</span>
+      <span class="ja" style="display:none">Android の基本</span>
+      <span class="zh-CN" style="display:none">Android 基础知识</span>
+      <span class="zh-TW" style="display:none">Android 簡介</span>
+    </span>
+    <ul>
+      <li><a href="../../../guide/basics/what-is-android.html">
+        <span class="en">What Is Android?</span>
+        <span class="de" style="display:none">Was ist Android?</span>
+        <span class="es" style="display:none">¿Qué es Android?</span>
+        <span class="fr" style="display:none">Qu'est-ce qu'Android&nbsp;?</span>
+        <span class="it" style="display:none">Che cos'è Android?</span>
+        <span class="ja" style="display:none">Android とは</span>
+        <span class="zh-CN" style="display:none">Android 是什么？</span>
+        <span class="zh-TW" style="display:none">什麼是 Android？</span>
+          </a></li>
+      <li><a href="../../../guide/topics/fundamentals.html">
+        <span class="en">Application Fundamentals</span>
+        <span class="de" style="display:none">Anwendungsgrundlagen</span>
+        <span class="es" style="display:none">Fundamentos de las aplicaciones</span>
+        <span class="fr" style="display:none">Principes de base des applications</span>
+        <span class="it" style="display:none">Concetti fondamentali sulle applicazioni</span>
+        <span class="ja" style="display:none">開発の基礎</span>
+        <span class="zh-CN" style="display:none">应用程序基础</span>
+        <span class="zh-TW" style="display:none">應用程式基本原理</span>
+      </a></li>
+
+  <!--  <li><a style="color:gray;">The Android SDK</a></li> -->
+  <!--  <li><a style="color:gray;">Walkthrough for Developers</a></li> -->
+      <!-- quick overview of what it's like to develop on Android -->
+    </ul>
+  </li>
+
+  <li>
+    <span class="heading">
+      <span class="en">Framework Topics</span>
+      <span class="de" style="display:none">Framework-Themen</span>
+      <span class="es" style="display:none">Temas sobre el framework</span>
+      <span class="fr" style="display:none">Thèmes relatifs au framework</span>
+      <span class="it" style="display:none">Argomenti relativi al framework</span>
+      <span class="ja" style="display:none">フレームワーク トピック</span>
+      <span class="zh-CN" style="display:none">框架主题</span>
+      <span class="zh-TW" style="display:none">架構主題</span>
+    </span>
+    <ul>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/fundamentals/activities.html">
+          <span class="en">Activities</span>
+        </a></div>
+        <ul>
+          <li><a href="../../../guide/topics/fundamentals/fragments.html">
+            <span class="en">Fragments</span>
+          </a></li>
+          <li><a href="../../../guide/topics/fundamentals/loaders.html">
+            <span class="en">Loaders</span>
+          </a></li>
+          <li><a href="../../../guide/topics/fundamentals/tasks-and-back-stack.html">
+            <span class="en">Tasks and Back Stack</span></a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/fundamentals/services.html">
+          <span class="en">Services</span>
+        </a></div>
+        <ul>
+          <li><a href="../../../guide/topics/fundamentals/bound-services.html">
+            <span class="en">Bound Services</span>
+          </a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+          <div><a href="../../../guide/topics/providers/content-providers.html">
+            <span class="en">Content Providers</span>
+          </a></div>
+          <ul>
+            <li>
+                <a href="../../../guide/topics/providers/content-provider-basics.html">
+                    <span class="en">Content Provider Basics</span>
+                </a>
+                <span class="new">new!</span>
+            </li>
+            <li>
+                <a href="../../../guide/topics/providers/content-provider-creating.html">
+                    <span class="en">Creating a Content Provider</span>
+                </a>
+                <span class="new">new!</span>
+            </li>
+            <li>
+                <a href="../../../guide/topics/providers/calendar-provider.html">
+                    <span class="en">Calendar Provider</span>
+                </a>
+                <span class="new">new!</span>
+            </li>
+          </ul>
+      </li>
+      <li><a href="../../../guide/topics/intents/intents-filters.html">
+            <span class="en">Intents and Intent Filters</span>
+          </a></li>
+      <li><a href="../../../guide/topics/fundamentals/processes-and-threads.html">
+            <span class="en">Processes and Threads</span>
+          </a></li>
+    </ul>
+
+
+    <ul>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/ui/index.html">
+            <span class="en">User Interface</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../guide/topics/ui/declaring-layout.html">
+               <span class="en">XML Layouts</span>
+              </a></li>
+          <li><a href="../../../guide/topics/ui/ui-events.html">
+                <span class="en">Input Events</span>
+              </a></li>
+          <li><a href="../../../guide/topics/ui/menus.html">
+               <span class="en">Menus</span>
+              </a> <span class="new">updated</span></li>
+          <li><a href="../../../guide/topics/ui/actionbar.html">
+               <span class="en">Action Bar</span>
+              </a></li>
+          <li><a href="../../../guide/topics/ui/dialogs.html">
+                <span class="en">Dialogs</span>
+              </a></li>
+          <li class="toggle-list">
+            <div><a href="../../../guide/topics/ui/notifiers/index.html">
+                <span class="en">Notifications</span>
+            </a></div>
+            <ul>
+              <li><a href="../../../guide/topics/ui/notifiers/toasts.html">
+                <span class="en">Toast Notifications</span>
+              </a></li>
+              <li><a href="../../../guide/topics/ui/notifiers/notifications.html">
+                <span class="en">Status Bar Notifications</span>
+              </a></li>
+            </ul>
+          </li>
+          <li><a href="../../../guide/topics/ui/drag-drop.html">
+                <span class="en">Drag and Drop</span>
+              </a></li>
+          <li><a href="../../../guide/topics/ui/themes.html">
+                <span class="en">Styles and Themes</span>
+              </a></li>
+          <li><a href="../../../guide/topics/ui/custom-components.html">
+                <span class="en">Custom Components</span>
+              </a></li>
+          <li><a href="../../../guide/topics/ui/binding.html">
+                <span class="en">Binding to Data with AdapterView</span>
+              </a></li>
+          <li><a href="../../../guide/topics/ui/layout-objects.html">
+                <span class="en">Common Layout Objects</span>
+              </a></li>
+          <li><a href="../../../guide/topics/ui/how-android-draws.html">
+                <span class="en">How Android Draws Views</span>
+              </a></li>
+        </ul>
+      </li><!-- end of User Interface -->
+
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/resources/index.html">
+               <span class="en">Application Resources</span>
+             </a></div>
+        <ul>
+          <li><a href="../../../guide/topics/resources/providing-resources.html">
+                <span class="en">Providing Resources</span>
+              </a></li>
+          <li><a href="../../../guide/topics/resources/accessing-resources.html">
+                <span class="en">Accessing Resources</span>
+              </a></li>
+          <li><a href="../../../guide/topics/resources/runtime-changes.html">
+                <span class="en">Handling Runtime Changes</span>
+              </a></li>
+          <li><a href="../../../guide/topics/resources/localization.html">
+                <span class="en">Localization</span>
+              </a></li>
+          <li class="toggle-list">
+            <div><a href="../../../guide/topics/resources/available-resources.html">
+              <span class="en">Resource Types</span>
+            </a></div>
+            <ul>
+              <li><a href="../../../guide/topics/resources/animation-resource.html">Animation</a></li>
+              <li><a href="../../../guide/topics/resources/color-list-resource.html">Color State List</a></li>
+              <li><a href="../../../guide/topics/resources/drawable-resource.html">Drawable</a></li>
+              <li><a href="../../../guide/topics/resources/layout-resource.html">Layout</a></li>
+              <li><a href="../../../guide/topics/resources/menu-resource.html">Menu</a></li>
+              <li><a href="../../../guide/topics/resources/string-resource.html">String</a></li>
+              <li><a href="../../../guide/topics/resources/style-resource.html">Style</a></li>
+              <li><a href="../../../guide/topics/resources/more-resources.html">More Types</a></li>
+            </ul>
+          </li><!-- end of resource types -->
+        </ul>
+      </li><!-- end of app resources -->
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/data/data-storage.html">
+            <span class="en">Data Storage</span>
+          </a></div>
+          <ul>
+            <li><a href="../../../guide/topics/data/backup.html">
+                <span class="en">Data Backup</span>
+              </a>
+            </li>
+          </ul>
+      </li>
+      <li><a href="../../../guide/topics/security/security.html">
+            <span class="en">Security and Permissions</span>
+          </a></li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/manifest/manifest-intro.html">
+          <span class="en">The AndroidManifest.xml File</span>
+        </a></div>
+        <ul>
+          <li><a href="../../../guide/topics/manifest/action-element.html">&lt;action&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/activity-element.html">&lt;activity&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/activity-alias-element.html">&lt;activity-alias&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/application-element.html">&lt;application&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/category-element.html">&lt;category&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/compatible-screens-element.html">&lt;compatible-screens&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/data-element.html">&lt;data&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/grant-uri-permission-element.html">&lt;grant-uri-permission&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/instrumentation-element.html">&lt;instrumentation&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/intent-filter-element.html">&lt;intent-filter&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/manifest-element.html">&lt;manifest&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/meta-data-element.html">&lt;meta-data&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/path-permission-element.html">&lt;path-permission&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/permission-element.html">&lt;permission&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/permission-group-element.html">&lt;permission-group&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/permission-tree-element.html">&lt;permission-tree&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/provider-element.html">&lt;provider&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/receiver-element.html">&lt;receiver&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/service-element.html">&lt;service&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/supports-gl-texture-element.html">&lt;supports-gl-texture&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/supports-screens-element.html">&lt;supports-screens&gt;</a></li><!-- ##api level 4## -->
+          <li><a href="../../../guide/topics/manifest/uses-configuration-element.html">&lt;uses-configuration&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/uses-feature-element.html">&lt;uses-feature&gt;</a></li> <!-- ##api level 4## -->
+          <li><a href="../../../guide/topics/manifest/uses-library-element.html">&lt;uses-library&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/uses-permission-element.html">&lt;uses-permission&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/uses-sdk-element.html">&lt;uses-sdk&gt;</a></li>
+        </ul>
+      </li><!-- end of the manifest file -->
+    </ul>
+
+    <ul>
+    <li class="toggle-list">
+        <div><a href="../../../guide/topics/graphics/index.html">
+            <span class="en">Graphics</span>
+          </a> <span class="new-child">new!</span></div>
+        <ul>
+          <li><a href="../../../guide/topics/graphics/2d-graphics.html">
+              <span class="en">Canvas and Drawables</span></a></li>
+          <li><a href="../../../guide/topics/graphics/hardware-accel.html">
+              <span class="en">Hardware Acceleration</span></a>
+            <span class="new">new!</span></li>
+          <li><a href="../../../guide/topics/graphics/opengl.html">
+              <span class="en">OpenGL</span>
+            </a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/graphics/animation.html">
+            <span class="en">Animation</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../guide/topics/graphics/prop-animation.html">
+              <span class="en">Property Animation</span></a></li>
+          <li><a href="../../../guide/topics/graphics/view-animation.html">
+              <span class="en">View Animation</span></a></li>
+          <li><a href="../../../guide/topics/graphics/drawable-animation.html">
+              <span class="en">Drawable Animation</span></a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/renderscript/index.html">
+          <span class="en">Renderscript</span></a>
+          <span class="new">updated</span>
+        </div>
+        <ul>
+          <li><a href="../../../guide/topics/renderscript/graphics.html">
+                <span class="en">Graphics</span>
+              </a>
+          </li>
+          <li><a href="../../../guide/topics/renderscript/compute.html">
+                <span class="en">Compute</span>
+              </a>
+          </li>
+          <li><a href="../../../guide/topics/renderscript/reference.html">
+                <span class="en">Runtime API Reference</span>
+              </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="toggle-list">
+          <div><a href="../../../guide/topics/media/index.html">
+            <span class="en">Multimedia and Camera</span>
+          </a></div>
+          <ul>
+            <li><a href="../../../guide/topics/media/mediaplayer.html">
+                  <span class="en">Media Playback</span></a>
+                </li>
+            <li><a href="../../../guide/topics/media/jetplayer.html">
+                  <span class="en">JetPlayer</span></a>
+                </li>
+            <li><a href="../../../guide/topics/media/camera.html">
+                  <span class="en">Camera</span></a>
+                  <span class="new">new!</span>
+                </li>
+            <li><a href="../../../guide/topics/media/audio-capture.html">
+                  <span class="en">Audio Capture</span></a>
+                </li>
+          </ul>
+      </li>
+      <li>
+        <a href="../../../guide/topics/clipboard/copy-paste.html">
+            <span class="en">Copy and Paste</span>
+        </a></li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/sensors/index.html">
+              <span class="en">Sensors</span>
+              </a> <span class="new">new!</span></div>
+        <ul>
+          <li><a href="../../../guide/topics/sensors/sensors_overview.html">
+              <span class="en">Sensors Overview</span>
+            </a></li>
+          <li><a href="../../../guide/topics/sensors/sensors_motion.html">
+              <span class="en">Motion Sensors</span>
+            </a></li>
+          <li><a href="../../../guide/topics/sensors/sensors_position.html">
+              <span class="en">Position Sensors</span>
+            </a></li>
+          <li><a href="../../../guide/topics/sensors/sensors_environment.html">
+              <span class="en">Environment Sensors</span>
+            </a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/location/index.html">
+               <span class="en">Location and Maps</span>
+             </a></div>
+        <ul>
+          <li><a href="../../../guide/topics/location/obtaining-user-location.html">
+                <span class="en">Obtaining User Location</span>
+              </a></li>
+        </ul>
+      </li>
+  <!--<li class="toggle-list">
+        <div><a style="color:gray;">Wireless Controls</a></div>
+          <ul>
+            <li><a style="color:gray;">Wi-Fi</a></li>
+          </ul>
+      </li> -->
+  <!--<li><a style="color:gray;">Localization</a></li>  -->
+      <li><a href="../../../guide/topics/appwidgets/index.html">
+            <span class="en">App Widgets</span></a>
+          </li>
+      <li><a href="../../../guide/topics/wireless/bluetooth.html">
+            <span class="en">Bluetooth</span></a>
+          </li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/nfc/index.html">
+          <span class="en">Near Field Communication</span></a> <span class="new">updated</span>
+        </div>
+        <ul>
+          <li><a href="../../../guide/topics/nfc/nfc.html">NFC Basics</a></li>
+          <li><a href="../../../guide/topics/nfc/advanced-nfc.html">Advanced NFC</a></li>
+        </ul>
+      </li>
+      <li><a href="../../../guide/topics/wireless/wifip2p.html">
+            <span class="en">Wi-Fi Direct</span></a> <span class="new">new!</span>
+          </li>
+      <li class="toggle-list">
+          <div><a href="../../../guide/topics/usb/index.html">
+            <span class="en">USB</span></a>
+          </div>
+            <ul>
+              <li><a href="../../../guide/topics/usb/accessory.html">Accessory</a></li>
+              <li><a href="../../../guide/topics/usb/host.html">Host</a></li>
+              <li><a href="../../../guide/topics/usb/adk.html">Open Accessory Dev Kit</a></li>
+            </ul>
+          </li>
+
+       <li><a href="../../../guide/topics/network/sip.html">
+            <span class="en">Session Initiation Protocol</span>
+          </a></li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/search/index.html">
+            <span class="en">Search</span>
+          </a></div>
+          <ul>
+            <li><a href="../../../guide/topics/search/search-dialog.html">Creating a Search Interface</a></li>
+            <li><a href="../../../guide/topics/search/adding-recent-query-suggestions.html">Adding Recent Query Suggestions</a></li>
+            <li><a href="../../../guide/topics/search/adding-custom-suggestions.html">Adding Custom Suggestions</a></li>
+            <li><a href="../../../guide/topics/search/searchable-config.html">Searchable Configuration</a></li>
+          </ul>
+      </li>
+      <li><a href="../../../guide/topics/admin/device-admin.html">
+            <span class="en">Device Administration</span></a>
+      </li>
+      <li class="toggle-list">
+           <div>
+                <a href="../../../guide/topics/testing/index.html">
+                   <span class="en">Testing</span>
+               </a>
+           </div>
+           <ul>
+              <li>
+                <a href="../../../guide/topics/testing/testing_android.html">
+                <span class="en">Testing Fundamentals</span></a>
+              </li>
+              <li>
+                <a href="../../../guide/topics/testing/activity_testing.html">
+                <span class="en">Activity Testing</span></a>
+              </li>
+              <li>
+                <a href="../../../guide/topics/testing/contentprovider_testing.html">
+                <span class="en">Content Provider Testing</span></a>
+              </li>
+              <li>
+                <a href="../../../guide/topics/testing/service_testing.html">
+                <span class="en">Service Testing</span></a>
+              </li>
+              <li>
+                <a href="../../../guide/topics/testing/what_to_test.html">
+                <span class="en">What To Test</span></a>
+              </li>
+           </ul>
+      </li>
+    </ul>
+  </li>
+
+  <li>
+    <h2>
+      <span class="en">Google Play Topics</span>
+    </h2>
+    <ul>
+      <li><a href="../../../guide/publishing/publishing.html">
+          <span class="en">Publishing on Google Play</span>
+          </a></li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/market/licensing/index.html">
+          <span class="en">Application Licensing</span></a>
+        </div>
+        <ul>
+          <li><a href="../../../guide/market/licensing/overview.html">
+              <span class="en">Licensing Overview</span></a>
+          </li>
+          <li><a href="../../../guide/market/licensing/setting-up.html">
+              <span class="en">Setting Up for Licensing</span></a>
+          </li>
+          <li><a href="../../../guide/market/licensing/adding-licensing.html">
+              <span class="en">Adding Licensing to Your App</span></a>
+          </li>
+          <li><a href="../../../guide/market/licensing/licensing-reference.html">
+              <span class="en">Licensing Reference</span></a>
+          </li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/market/billing/index.html">
+            <span class="en">In-app Billing</span></a>
+        </div>
+        <ul>
+          <li><a href="../../../guide/market/billing/billing_overview.html">
+              <span class="en">In-app Billing Overview</span></a>
+          </li>
+          <li><a href="../../../guide/market/billing/billing_integrate.html">
+              <span class="en">Implementing In-app Billing</span></a>
+          </li>
+          <li><a href="../../../guide/market/billing/billing_best_practices.html">
+              <span class="en">Security and Design</span></a>
+          </li>
+          <li><a href="../../../guide/market/billing/billing_testing.html">
+              <span class="en">Testing In-app Billing</span></a>
+          </li>
+          <li><a href="../../../guide/market/billing/billing_admin.html">
+              <span class="en">Administering In-app Billing</span></a>
+          </li>
+          <li><a href="../../../guide/market/billing/billing_reference.html">
+              <span class="en">In-app Billing Reference</span></a>
+          </li>
+        </ul>
+      </li>
+      <li><a href="../../../guide/appendix/market-filters.html">
+          <span class="en">Filters on Google Play</span></a>
+      </li>
+      <li><a href="../../../guide/market/publishing/multiple-apks.html">
+          <span class="en">Multiple APK Support</span></a>
+      </li>
+      <li><a href="../../../guide/market/expansion-files.html">
+          <span class="en">APK Expansion Files</span></a>
+          <span class="new">new!</span>
+      </li>
+    </ul>
+  </li>
+
+
+  <li>
+    <span class="heading">
+      <span class="en">Developing</span>
+      <span class="de" style="display:none">Entwicklung</span>
+      <span class="es" style="display:none">Desarrollo</span>
+      <span class="fr" style="display:none">Développement</span>
+      <span class="it" style="display:none">Sviluppo</span>
+      <span class="ja" style="display:none">開発</span>
+      <span class="zh-CN" style="display:none">开发</span>
+      <span class="zh-TW" style="display:none">開發</span>
+    </span>
+    <ul>
+  <!--<li><a href="">Developing for Android</a></li>
+      signing, upgrading, selecting a package name, select device profile, touch, trackball, dpad available, etc. -->
+      <li>
+        <a href="../../../guide/developing/index.html">
+        <span class="en">Introduction</span></a>
+      </li>
+
+      <li class="toggle-list">
+        <div>
+           <a href="../../../guide/developing/devices/index.html">
+                <span class="en">Managing Virtual Devices</span>
+            </a>
+        </div>
+        <ul>
+          <li>
+            <a href="../../../guide/developing/devices/managing-avds.html">
+              <span class="en">With AVD Manager</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../guide/developing/devices/managing-avds-cmdline.html">
+              <span class="en">From the Command Line</span>
+            </a>
+          </li>
+          <li>
+           <a href="../../../guide/developing/devices/emulator.html">
+                <span class="en">Using the Android Emulator</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="../../../guide/developing/device.html">
+          <span class="en">Using Hardware Devices</span>
+        </a>
+      </li>
+
+      <li class="toggle-list">
+        <div>
+          <a href="../../../guide/developing/projects/index.html">
+            <span class="en">Managing Projects</span>
+          </a>
+        </div>
+        <ul>
+          <li>
+            <a href="../../../guide/developing/projects/projects-eclipse.html">
+              <span class="en">From Eclipse with ADT</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../guide/developing/projects/projects-cmdline.html">
+                <span class="en">From the Command Line</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="toggle-list">
+        <div>
+          <a href="../../../guide/developing/building/index.html">
+            <span class="en">Building and Running</span>
+          </a>
+        </div>
+        <ul>
+          <li><a href="../../../guide/developing/building/building-eclipse.html">
+            <span class="en">From Eclipse with ADT</span>
+          </a></li>
+          <li><a href="../../../guide/developing/building/building-cmdline.html">
+            <span class="en">From the Command Line</span></a></li>
+        </ul>
+      </li>
+
+      <li class="toggle-list">
+        <div>
+          <a href="../../../guide/developing/debugging/index.html">
+            <span class="en">Debugging</span>
+          </a>
+        </div>
+        <ul>
+          <li>
+            <a href="../../../guide/developing/debugging/debugging-projects.html">
+                <span class="en">From Eclipse with ADT</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../guide/developing/debugging/debugging-projects-cmdline.html">
+                <span class="en">From Other IDEs</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../guide/developing/debugging/ddms.html">
+              <span class="en">Using DDMS</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../guide/developing/debugging/debugging-log.html">
+                <span class="en">Reading and Writing Logs</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../guide/developing/debugging/debugging-ui.html">
+                <span class="en">Debugging and Profiling UIs</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../guide/developing/debugging/debugging-tracing.html">
+                <span class="en">Profiling with Traceview and dmtracedump</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../guide/developing/debugging/debugging-devtools.html">
+                <span class="en">Using the Dev Tools App</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="toggle-list">
+           <div>
+                <a href="../../../guide/developing/testing/index.html">
+                   <span class="en">Testing</span>
+               </a>
+           </div>
+           <ul>
+              <li>
+                <a href="../../../guide/developing/testing/testing_eclipse.html">
+                  <span class="en">From Eclipse with ADT</span>
+                </a>
+              </li>
+
+              <li>
+                <a href="../../../guide/developing/testing/testing_otheride.html">
+                  <span class="en">From Other IDEs</span>
+                </a>
+              </li>
+           </ul>
+         </li>
+
+         <li class="toggle-list">
+        <div><a href="../../../guide/developing/tools/index.html">
+            <span class="en">Tools</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../guide/developing/tools/adb.html">adb</a></li>
+          <li><a href="../../../guide/developing/tools/adt.html">ADT</a></li>
+          <li><a href="../../../guide/developing/tools/android.html">android</a></li>
+          <li><a href="../../../guide/developing/tools/bmgr.html">bmgr</a>
+          <li><a href="../../../guide/developing/tools/dmtracedump.html">dmtracedump</a></li>
+          <li><a href="../../../guide/developing/tools/draw9patch.html">Draw
+          9-Patch</a></li>
+          <li><a href="../../../guide/developing/tools/emulator.html">Emulator</a></li>
+          <li><a href="../../../guide/developing/tools/etc1tool.html">etc1tool</a></li>
+          <li><a href="../../../guide/developing/tools/hierarchy-viewer.html">Hierarchy Viewer</a></li>
+          <li><a href="../../../guide/developing/tools/hprof-conv.html">hprof-conv</a></li>
+          <li><a href="../../../guide/developing/tools/layoutopt.html">layoutopt</a></li>
+          <li><a href="../../../guide/developing/tools/logcat.html">logcat</a></li>
+          <li><a href="../../../guide/developing/tools/mksdcard.html">mksdcard</a></li>
+          <li><a href="../../../guide/developing/tools/monkey.html">Monkey</a></li>
+          <li class="toggle-list">
+            <div><a href="../../../guide/developing/tools/monkeyrunner_concepts.html">
+              <span class="en">monkeyrunner</span>
+            </a></div>
+            <ul>
+              <li><a href="../../../guide/developing/tools/MonkeyDevice.html">
+                <span class="en">MonkeyDevice</span>
+                </a></li>
+              <li><a href="../../../guide/developing/tools/MonkeyImage.html">
+                <span class="en">MonkeyImage</span>
+                </a></li>
+              <li><a href="../../../guide/developing/tools/MonkeyRunner.html">
+                <span class="en">MonkeyRunner</span>
+                </a></li>
+            </ul>
+          </li>
+          <li><a href="../../../guide/developing/tools/proguard.html">ProGuard</a></li>
+          <li><a href="../../../guide/developing/tools/adb.html#sqlite">sqlite3</a></li>
+          <li><a href="../../../guide/developing/tools/traceview.html">Traceview</a></li>
+          <li><a href="../../../guide/developing/tools/zipalign.html">zipalign</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+
+  <li>
+    <span class="heading">
+      <span class="en">Publishing</span>
+      <span class="de" style="display:none">Veröffentlichung</span>
+      <span class="es" style="display:none">Publicación</span>
+      <span class="fr" style="display:none">Publication</span>
+      <span class="it" style="display:none">Pubblicazione</span>
+      <span class="ja" style="display:none">公開</span>
+      <span class="zh-CN" style="display:none">发布</span>
+      <span class="zh-TW" style="display:none">發佈</span>
+    </span>
+    <ul>
+      <li><a href="../../../guide/publishing/publishing_overview.html">
+            <span class="en">Publishing Overview</span>
+          </a></li>
+      <li><a href="../../../guide/publishing/preparing.html">
+            <span class="en">Preparing for Release</span>
+            <span class="de" style="display:none">Vorbereitung auf die Veröffentlichung</span>
+            <span class="es" style="display:none">Publicación de aplicaciones</span>
+            <span class="fr" style="display:none">Préparation à la publication</span>
+            <span class="it" style="display:none">Preparativi per la pubblicazione</span>
+            <span class="ja" style="display:none">公開の準備</span>
+            <span class="zh-CN" style="display:none">准备发布</span>
+            <span class="zh-TW" style="display:none">準備發佈</span>
+          </a></li>
+      <li><a href="../../../guide/publishing/app-signing.html">
+            <span class="en">Signing Your Applications</span>
+            <span class="de" style="display:none">Signieren Ihrer Anwendungen</span>
+            <span class="es" style="display:none">Firma de aplicaciones</span>
+            <span class="fr" style="display:none">Attribution de votre signature <br />à vos
+applications</span>
+            <span class="it" style="display:none">Firma delle applicazioni</span>
+            <span class="ja" style="display:none">アプリケーションへの署名</span>
+            <span class="zh-CN" style="display:none">应用程序签名</span>
+            <span class="zh-TW" style="display:none">簽署應用程式</span>
+          </a></li>
+      <li><a href="../../../guide/publishing/versioning.html">
+            <span class="en">Versioning Your Applications</span>
+            <span class="de" style="display:none">Versionsverwaltung für Ihre <br
+/>Anwendungen</span>
+            <span class="es" style="display:none">Versiones de las aplicaciones</span>
+            <span class="fr" style="display:none">Attribution d'une version à vos
+applications</span>
+            <span class="it" style="display:none">Controllo versioni delle applicazioni</span>
+            <span class="ja" style="display:none">アプリケーションのバージョニング</span>
+            <span class="zh-CN" style="display:none">应用程序版本控制</span>
+            <span class="zh-TW" style="display:none">應用程式版本設定</span>
+          </a></li>
+    </ul>
+  </li>
+
+  <li>
+    <span class="heading">
+      <span class="en">Best Practices</span>
+      <span class="de" style="display:none">Bewährte Verfahren</span>
+      <span class="es" style="display:none">Prácticas recomendadas</span>
+      <span class="fr" style="display:none">Meilleures pratiques</span>
+      <span class="it" style="display:none">Best practice</span>
+      <span class="ja" style="display:none">ベスト プラクティス</span>
+      <span class="zh-CN" style="display:none">最佳实践</span>
+      <span class="zh-TW" style="display:none">最佳實務</span>
+    </span>
+    <ul>
+      <li><a href="../../../guide/practices/compatibility.html">
+            <span class="en">Compatibility</span>
+          </a></li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/practices/screens_support.html">
+          <span class="en">Supporting Multiple Screens</span>
+        </a></div>
+        <ul>
+          <li><a href="../../../guide/practices/screens-distribution.html">
+            <span class="en">Distributing to Specific Screens</span>
+          </a></li>
+          <li><a href="../../../guide/practices/screen-compat-mode.html">
+            <span class="en">Screen Compatibility Mode</span>
+          </a></li>
+          <li><a href="../../../guide/practices/screens-support-1.5.html">
+            <span class="en">Strategies for Android 1.5</span>
+          </a></li>
+        </ul>
+      </li>
+      <li><a href="../../../guide/practices/tablets-and-handsets.html">
+            <span class="en">Supporting Tablets and Handsets</span>
+          </a> <span class="new">new!</span></li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/practices/ui_guidelines/index.html">
+               <span class="en">UI Guidelines</span>
+             </a></div>
+        <ul>
+          <li class="toggle-list">
+            <div><a href="../../../guide/practices/ui_guidelines/icon_design.html">
+                   <span class="en">Icon Design</span>
+                 </a></div>
+            <ul>
+              <li><a href="../../../guide/practices/ui_guidelines/icon_design_launcher.html">
+                    <span class="en">Launcher Icons</span>
+                  </a></li>
+              <li><a href="../../../guide/practices/ui_guidelines/icon_design_menu.html">
+                    <span class="en">Menu Icons</span>
+                  </a></li>
+              <li><a href="../../../guide/practices/ui_guidelines/icon_design_action_bar.html">
+                    <span class="en">Action Bar Icons</span>
+                  </a></li>
+              <li><a href="../../../guide/practices/ui_guidelines/icon_design_status_bar.html">
+                    <span class="en">Status Bar Icons</span>
+                  </a></li>
+              <li><a href="../../../guide/practices/ui_guidelines/icon_design_tab.html">
+                    <span class="en">Tab Icons</span>
+                  </a></li>
+              <li><a href="../../../guide/practices/ui_guidelines/icon_design_dialog.html">
+                    <span class="en">Dialog Icons</span>
+                  </a></li>
+              <li><a href="../../../guide/practices/ui_guidelines/icon_design_list.html">
+                    <span class="en">List View Icons</span>
+                  </a></li>
+            </ul>
+          </li>
+          <li><a href="../../../guide/practices/ui_guidelines/widget_design.html">
+                <span class="en">App Widget Design</span>
+              </a></li>
+          <li><a href="../../../guide/practices/ui_guidelines/activity_task_design.html">
+                <span class="en">Activity and Task Design</span>
+              </a></li>
+          <li><a href="../../../guide/practices/ui_guidelines/menu_design.html">
+                <span class="en">Menu Design</span>
+              </a></li>
+        </ul>
+      </li>
+      </ul>
+      <ul>
+      <li><a href="../../../guide/practices/design/accessibility.html">
+            <span class="en">Designing for Accessibility</span>
+          </a></li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/practices/design/performance.html">
+            <span class="en">Designing for Performance</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../guide/practices/design/jni.html">
+                <span class="en">JNI Tips</span>
+              </a></li>
+        </ul>
+      </li>
+      <li><a href="../../../guide/practices/design/responsiveness.html">
+            <span class="en">Designing for Responsiveness</span>
+          </a></li>
+      <li><a href="../../../guide/practices/design/seamlessness.html">
+            <span class="en">Designing for Seamlessness</span>
+          </a></li>
+      <li><a href="../../../guide/practices/security.html">
+            <span class="en">Designing for Security</span></a>
+            </li>
+    </ul>
+  </li>
+
+  <li>
+    <span class="heading">
+      <span class="en">Web Applications</span>
+    </span>
+    <ul>
+      <li><a href="../../../guide/webapps/index.html">
+            <span class="en">Web Apps Overview</span>
+          </a></li>
+      <li><a href="../../../guide/webapps/targeting.html">
+            <span class="en">Targeting Screens from Web Apps</span>
+          </a></li>
+      <li><a href="../../../guide/webapps/webview.html">
+            <span class="en">Building Web Apps in WebView</span>
+          </a></li>
+      <li><a href="../../../guide/webapps/debugging.html">
+            <span class="en">Debugging Web Apps</span>
+          </a></li>
+      <li><a href="../../../guide/webapps/best-practices.html">
+            <span class="en">Best Practices for Web Apps</span>
+          </a></li>
+    </ul>
+  </li>
+
+  <li>
+    <span class="heading">
+      <span class="en">Appendix</span>
+      <span class="de" style="display:none">Anhang</span>
+      <span class="es" style="display:none">Apéndice</span>
+      <span class="fr" style="display:none">Annexes</span>
+      <span class="it" style="display:none">Appendice</span>
+      <span class="ja" style="display:none">付録</span>
+      <span class="zh-CN" style="display:none">附录</span>
+      <span class="zh-TW" style="display:none">附錄</span>
+    </span>
+    <ul>
+      <li><a href="../../../guide/appendix/api-levels.html">
+            <span class="en">Android API Levels</span>
+          </a></li>
+      <li><a href="../../../guide/appendix/install-location.html">
+            <span class="en">App Install Location</span>
+          </a></li>
+      <li><a href="../../../guide/appendix/media-formats.html">
+            <span class="en">Supported Media Formats</span>
+          </a></li>
+      <li><a href="../../../guide/appendix/g-app-intents.html">
+            <span class="en">Intents List: Google Apps</span>
+          </a></li>
+      <li><a href="../../../guide/developing/tools/aidl.html">AIDL</a></li>
+      <li><a href="../../../guide/appendix/glossary.html">
+            <span class="en">Glossary</span>
+          </a></li>
+    </ul>
+  </li>
+
+</ul>
+
+<script type="text/javascript">
+<!--
+    buildToggleLists();
+    changeNavLang(getLangPref());
+//-->
+</script>
+
+      </div>
+    </div> <!-- end side-nav -->
+    <script>
+      addLoadEvent(function() {
+        scrollIntoView("devdoc-nav");
+        });
+    </script>
+
+
+
+
+<div class="g-unit" id="doc-content"><a name="top"></a>
+
+<div id="jd-header" class="guide-header">
+  <span class="crumb" itemprop="breadcrumb">
+    
+      <a href="index.html">Application Licensing</a>:
+    
+  </span>
+<h1 itemprop="name">Adding Licensing to Your App</h1>
+</div>
+
+  
+  <div id="jd-content">
+ 
+    
+
+
+    <div class="jd-descr" itemprop="articleBody">
+    <div id="qv-wrapper">
+<div id="qv">
+  
+  <h2>In this document</h2>
+  <ol>
+  <li><a href="#manifest-permission">Adding the Licensing Permission</a></li>
+  <li><a href="#impl-Policy">Implementing a Policy</a>
+    <ol>
+      <li><a href="#custom-policies">Guidelines for custom policies</a></li>
+      <li><a href="#ServerManagedPolicy">ServerManagedPolicy</a></li>
+      <li><a href="#StrictPolicy">StrictPolicy</a></li>
+    </ol>
+  </li>
+  <li><a href="#impl-Obfuscator">Implementing an Obfuscator</a>
+    <ol>
+      <li><a href="#AESObfuscator">AESObfuscator</a></li>
+    </ol>
+  </li>
+  <li><a href="#impl-lc">Checking the License from an Activity</a>
+    <ol>
+      <li><a href="#lc-overview">Overview of license check and response</a></li>
+      <li><a href="#imports">Add imports</a></li>
+      <li><a href="#lc-impl">Implement LicenseCheckerCallback as a private inner class</a></li>
+      <li><a href="#thread-handler">Create a Handler for posting from LicenseCheckerCallback
+to the UI thread</a></li>
+      <li><a href="#lc-lcc">Instantiate LicenseChecker and LicenseCheckerCallback</a></li>
+      <li><a href="#check-access">Call checkAccess() to initiate the license check</a></li>
+      <li><a href="#account-key">Embed your public key for licensing</a></li>
+      <li><a href="#handler-cleanup">Call your LicenseChecker's onDestroy() method
+to close IPC connections</a></li>
+    </ol>
+  </li>
+  <li><a href="#impl-DeviceLimiter">Implementing a DeviceLimiter</a></li>
+  <li><a href="#app-obfuscation">Obfuscating Your Code</a></li>
+  <li><a href="#app-publishing">Publishing a Licensed Application</a>
+    <ol>
+      <li><a href="#">Removing Copy Protection</a></li>
+    </ol>
+  </li>
+  <li><a href="#support">Where to Get Support</a></li>
+</ol>
+  
+</div>
+</div>
+
+
+
+<p>After you've set up a publisher account and development environment (see <a
+href="setting-up.html">Setting Up for Licensing</a>), you are ready to add license verification to
+your app with the License Verification Library (LVL).</p>
+
+<p>Adding license verification with the LVL involves these tasks:</p>
+
+<ol>
+<li><a href="#manifest-permission">Adding the licensing permission</a> your application's manifest.</li>
+<li><a href="#impl-Policy">Implementing a Policy</a> &mdash; you can choose one of the full implementations provided in the LVL or create your own.</li>
+<li><a href="#impl-Obfuscator">Implementing an Obfuscator</a>, if your <code>Policy</code> will cache any
+license response data. </li>
+<li><a href="#impl-lc">Adding code to check the license</a> in your application's main
+Activity.</li>
+<li><a href="#impl-DeviceLimiter">Implementing a DeviceLimiter</a> (optional and not recommended for
+most applications).</li>
+</ol>
+
+<p>The sections below describe these tasks. When you are done with the
+integration, you should be able to compile your application successfully and you
+can begin testing, as described in <a
+href="../../../guide/market/licensing/setting-up.html#test-env">Setting Up the Test
+Environment</a>.</p>
+
+<p>For an overview of the full set of source files included in the LVL, see <a
+href="../../../guide/market/licensing/licensing-reference.html#lvl-summary">Summary of LVL Classes
+and Interfaces</a>.</p>
+
+
+<h2 id="manifest-permission">Adding the Licensing Permission</h2>
+
+<p>To use the Google Play application for sending a license check to the
+server, your application must request the proper permission,
+<code>com.android.vending.CHECK_LICENSE</code>. If your application does
+not declare the licensing permission but attempts to initiate a license check,
+the LVL throws a security exception.</p>
+
+<p>To request the licensing permission in your application, declare a <a
+href="../../../guide/topics/manifest/uses-permission-element.html"><code>&lt;uses-permission&gt;</code></a>
+element as a child of <code>&lt;manifest&gt;</code>, as follows: </p>
+
+<p style="margin-left:2em;"><code>&lt;uses-permission
+android:name="com.android.vending.CHECK_LICENSE"&gt;</code></p>
+
+<p>For example, here's how the LVL sample application declares the permission:
+</p>
+
+<pre>&lt;?xml version="1.0" encoding="utf-8"?&gt;
+
+&lt;manifest xmlns:android="http://schemas.android.com/apk/res/android" ..."&gt;
+    &lt;!-- Devices &gt;= 3 have version of Google Play that supports licensing. --&gt;
+    &lt;uses-sdk android:minSdkVersion="3" /&gt;
+    &lt;!-- Required permission to check licensing. --&gt;
+    &lt;uses-permission android:name="com.android.vending.CHECK_LICENSE" /&gt;
+    ...
+&lt;/manifest&gt;
+</pre>
+
+<p class="note"><strong>Note:</strong> Currently, you cannot declare the
+<code>CHECK_LICENSE</code> permission in the LVL library project's manifest,
+because the SDK Tools will not merge it into the manifests of dependent
+applications. Instead, you must declare the permission in each dependent
+application's manifest. </p>
+
+
+<h2 id="impl-Policy">Implementing a Policy</h2>
+
+<div class="sidebox-wrapper">
+<div class="sidebox">
+<h2>ServerManagedPolicy</h2>
+
+<p>The LVL includes a complete <code>Policy</code> implementation called ServerManagedPolicy
+that makes use of license-management settings provided by the Google Play
+server. </p>
+
+<p style="margin-top:.5em;">Use of ServerManagedPolicy as the basis for your
+Policy is strongly recommended. For more information, see <a
+href="#ServerManagedPolicy">ServerManagedPolicy</a> section, below.</p>
+
+</div>
+</div>
+
+<p>Google Play licensing service does not itself determine whether a
+given user with a given license should be granted access to your application.
+Rather, that responsibility is left to a <code>Policy</code> implementation that you provide
+in your application.</p>
+
+<p>Policy is an interface declared by the LVL that is designed to hold your
+application's logic for allowing or disallowing user access, based on the result
+of a license check. To use the LVL, your application <em>must</em> provide an
+implementation of <code>Policy</code>. </p>
+
+<p>The <code>Policy</code> interface declares two methods, <code>allowAccess()</code> and
+<code>processServerResponse()</code>, which are called by a <code>LicenseChecker</code>
+instance when processing a response from the license server. It also declares an
+enum called <code>LicenseResponse</code>, which specifies the license response
+value passed in calls to <code>processServerResponse()</code>. </p>
+
+<ul>
+<li><code>processServerResponse()</code> lets you preprocess the raw response
+data received from the licensing server, prior to determining whether to grant
+access.
+
+<p>A typical implementation would extract some or all fields from the license
+response and store the data locally to a persistent store, such as through
+<code><a href="../../../reference/android/content/SharedPreferences.html">SharedPreferences</a></code> storage, to ensure that the data is
+accessible across application invocations and device power cycles. For example,
+a <code>Policy</code> would maintain the timestamp of the last successful license check, the
+retry count, the license validity period, and similar information in a
+persistent store, rather than resetting the values each time the application is
+launched.</p>
+
+<p>When storing response data locally, the <code>Policy</code> must ensure that the data is
+obfuscated (see <a href="#impl-Obfuscator">Implementing an Obfuscator</a>,
+below).</p></li>
+
+<li><code>allowAccess()</code> determines whether to grant the user access to
+your application, based on any available license response data (from the
+licensing server or from cache) or other application-specific information.  For
+example, your implementation of <code>allowAccess()</code> could take into
+account additional criteria, such as usage or other data retrieved from a
+backend server. In all cases, an implementation of <code>allowAccess()</code>
+should only return <code>true</code> if the user is licensed to use the
+application, as determined by the licensing server, or if there is a transient
+network or system problem that prevents the license check from completing. In
+such cases, your implementation can maintain a count of retry responses and
+provisionally allow access until the next license check is complete.</li>
+
+</ul>
+
+<p>To simplify the process of adding licensing to your application and to
+provide an illustration of how a <code>Policy</code> should be designed, the LVL includes
+two full <code>Policy</code> implementations that you can use without modification or
+adapt to your needs:</p>
+
+<ul>
+<li><a href="#ServerManagedPolicy">ServerManagedPolicy</a>, a flexible <code>Policy</code>
+that uses server-provided settings and cached responses to manage access across
+varied network conditions, and</li>
+<li><a href="#StrictPolicy">StrictPolicy</a>, which does not cache any response
+data and allows access <em>only</em> if the server returns a licensed
+response.</li>
+</ul>
+
+<p>For most applications, the use of ServerManagedPolicy is highly
+recommended. ServerManagedPolicy is the LVL default and is integrated with
+the LVL sample application.</p>
+
+
+<h3 id="custom-policies">Guidelines for custom policies</h3>
+
+<p>In your licensing implementation, you can use one of the complete policies
+provided in the LVL (ServerManagedPolicy or StrictPolicy) or you can create a
+custom policy. For any type of custom policy, there are several important design
+points to understand and account for in your implementation.</p>
+
+<p>The licensing server applies general request limits to guard against overuse
+of resources that could result in denial of service. When an application exceeds
+the request limit, the licensing server returns a 503 response, which gets
+passed through to your application as a general server error. This means that no
+license response will be available to the user until the limit is reset, which
+can affect the user for an indefinite period.</p>
+
+<p>If you are designing a custom policy, we recommend that the <code>Policy</code>:
+<ol>
+<!-- <li>Limits the number of points at which your app calls for a license check
+to the minimum. </li> -->
+<li>Caches (and properly obfuscates) the most recent successful license response
+in local persistent storage.</li>
+<li>Returns the cached response for all license checks, for as long as the
+cached response is valid, rather than making a request to the licensing server.
+Setting the response validity according to the server-provided <code>VT</code>
+extra is highly recommended. See <a
+href="../../../guide/market/licensing/licensing-reference.html#extras">Server Response Extras</a>
+for more information.</li>
+<li>Uses an exponential backoff period, if retrying any requests the result in
+errors. Note that the Google Play client automatically retries failed
+requests, so in most cases there is no need for your <code>Policy</code> to retry them.</li>
+<li>Provides for a "grace period" that allows the user to access your
+application for a limited time or number of uses, while a license check is being
+retried. The grace period benefits the user by allowing access until the next
+license check can be completed successfully and it benefits you by placing a
+hard limit on access to your application when there is no valid license response
+available.</li>
+</ol>
+
+<p>Designing your <code>Policy</code> according to the guidelines listed above is critical,
+because it ensures the best possible experience for users while giving you
+effective control over your application even in error conditions. </p>
+
+<p>Note that any <code>Policy</code> can use settings provided by the licensing server to
+help manage validity and caching, retry grace period, and more. Extracting the
+server-provided settings is straightforward and making use of them is highly
+recommended. See the ServerManagedPolicy implementation for an example of how to
+extract and use the extras. For a list of server settings and information about
+how to use them, see  <a
+href="../../../guide/market/licensing/licensing-reference.html#extras">Server Response
+Extras</a>.</p>
+
+<h3 id="ServerManagedPolicy">ServerManagedPolicy</h3>
+
+<div class="sidebox-wrapper">
+<div class="sidebox">
+<h2>Server Response Extras</h2>
+
+<p>For certain types of licensing responses, the licensing server appends extra
+settings to the responses, to help the application manage licensing effectively.
+</p>
+
+<p style="margin-top:.5em;">See <a
+href="../../../guide/market/licensing/licensing-reference.html#extras">Server Response Extras</a>
+for
+a list of settings and <code>ServerManagedPolicy.java</code> for information
+about how a <code>Policy</code> can use the extras.</p>
+
+</div>
+</div>
+
+<p>The LVL includes a full and recommended implementation of the <code>Policy</code>
+interface called ServerManagedPolicy. The implementation is integrated with the
+LVL classes and serves as the default <code>Policy</code> in the library. </p>
+
+<p>ServerManagedPolicy provides all of the handling for license and retry
+responses. It caches all of the response data locally in a
+<code><a href="../../../reference/android/content/SharedPreferences.html">SharedPreferences</a></code> file, obfuscating it with the
+application's <code>Obfuscator</code> implementation. This ensures that the license response
+data is secure and persists across device power cycles. ServerManagedPolicy
+provides concrete implementations of the interface methods
+<code>processServerResponse()</code> and <code>allowAccess()</code> and also
+includes a set of supporting methods and types for managing license
+responses.</p>
+
+<p>Importantly, a key feature of ServerMangedPolicy is its use of
+server-provided settings as the basis for managing licensing across an
+application's refund period and through varying network and error conditions.
+When an application contacts the Google Play server for a license check, the
+server appends several settings as key-value pairs in the extras field of certain
+license response types. For example, the server provides recommended values for the
+application's license validity period, retry grace period, and maximum allowable
+retry count, among others. ServerManagedPolicy extracts the values from the
+license response in its <code>processServerResponse()</code> method and checks
+them in its <code>allowAccess()</code> method. For a list of the server-provided
+settings used by ServerManagedPolicy, see <a
+href="../../../guide/market/licensing/licensing-reference.html#extras">Server Response
+Extras</a>.</p>
+
+<p>For convenience, best performance, and the benefit of using license settings
+from the Google Play server, <strong>using ServerManagedPolicy as your
+licensing <code>Policy</code> is strongly recommended</strong>. </p>
+
+<p>If you are concerned about the security of license response data that is
+stored locally in <code><a href="../../../reference/android/content/SharedPreferences.html">SharedPreferences</a></code>, you can use a stronger obfuscation
+algorithm or design a stricter <code>Policy</code> that does not store license data. The LVL
+includes an example of such a <code>Policy</code> &mdash; see <a
+href="#StrictPolicy">StrictPolicy</a> for more information.</p>
+
+<p>To use ServerManagedPolicy, simply import it to your Activity, create an
+instance, and pass a reference to the instance when constructing your
+<code>LicenseChecker</code>. See <a href="#lc-lcc">Instantiate LicenseChecker and
+LicenseCheckerCallback</a> for more information. </p>
+
+<h3 id="StrictPolicy">StrictPolicy</h3>
+
+<p>The LVL includes an alternative full implementation of the <code>Policy</code> interface
+called StrictPolicy. The StrictPolicy implementation provides a more restrictive
+Policy than ServerManagedPolicy, in that it does not allow the user to access
+the application unless a license response is received from the server at the
+time of access that indicates that the user is licensed.</p>
+
+<p>The principal feature of StrictPolicy is that it does not store <em>any</em>
+license response data locally, in a persistent store. Because no data is stored,
+retry requests are not tracked and cached responses can not be used to fulfill
+license checks. The <code>Policy</code> allows access only if:</p>
+
+<ul>
+<li>The license response is received from the licensing server, and </li>
+<li>The license response indicates that the user is licensed to access the
+application. </li>
+</ul>
+
+<p>Using StrictPolicy is appropriate if your primary concern is to ensure that,
+in all possible cases, no user will be allowed to access the application unless
+the user is confirmed to be licensed at the time of use. Additionally, the
+Policy offers slightly more security than ServerManagedPolicy &mdash; since
+there is no data cached locally, there is no way a malicious user could tamper
+with the cached data and obtain access to the application.</p>
+
+<p>At the same time, this <code>Policy</code> presents a challenge for normal users, since it
+means that they won't be able to access the application when there is no network
+(cell or Wi-Fi) connection available. Another side-effect is that your
+application will send more license check requests to the server, since using a
+cached response is not possible.</p>
+
+<p>Overall, this policy represents a tradeoff of some degree of user convenience
+for absolute security and control over access. Consider the tradeoff carefully
+before using this <code>Policy</code>.</p>
+
+<p>To use StrictPolicy, simply import it to your Activity, create an instance,
+and pass a reference to it when constructing your <code>LicenseChecker</code>. See
+<a href="#lc-lcc">Instantiate LicenseChecker and LicenseCheckerCallback</a>
+for more information. </p>
+
+<h2 id="impl-Obfuscator">Implementing an Obfuscator</h2>
+
+<div class="sidebox-wrapper">
+<div class="sidebox">
+<h2>AESObfuscator</h2>
+
+<p>The LVL includes a full <code>Obfuscator</code> implementation in the
+<code>AESObfuscator.java</code> file. The <code>Obfuscator</code> uses AES encryption to
+obfuscate/unobfuscate data. If you are using a <code>Policy</code> (such as
+ServerManagedPolicy) that caches license response data, using AESObfuscator as
+basis for your <code>Obfuscator</code> implementation is highly recommended. </p>
+
+</div>
+</div>
+
+<p>A typical <code>Policy</code> implementation needs to save the license response data for
+an application to a persistent store, so that it is accessible across
+application invocations and device power cycles.  For example, a <code>Policy</code> would
+maintain the timestamp of the last successful license check, the retry count,
+the license validity period, and similar information in a persistent store,
+rather than resetting the values each time the application is launched. The
+default <code>Policy</code> included in the LVL, ServerManagedPolicy, stores license response
+data in a <code><a href="../../../reference/android/content/SharedPreferences.html">SharedPreferences</a></code> instance, to ensure that the
+data is persistent. </p>
+
+<p>Because the <code>Policy</code> will use stored license response data to determine whether
+to allow or disallow access to the application, it <em>must</em> ensure that any
+stored data is secure and cannot be reused or manipulated by a root user on a
+device. Specifically, the <code>Policy</code> must always obfuscate the data before storing
+it, using a key that is unique for the application and device. Obfuscating using
+a key that is both application-specific and device-specific is critical, because
+it prevents the obfuscated data from being shared among applications and
+devices.</p>
+
+<p>The LVL assists the application with storing its license response data in a
+secure, persistent manner. First, it provides an <code>Obfuscator</code>
+interface that lets your application supply the obfuscation algorithm of its
+choice for stored data. Building on that, the LVL provides the helper class
+PreferenceObfuscator, which handles most of the work of calling the
+application's <code>Obfuscator</code> class and reading and writing the obfuscated data in a
+<code><a href="../../../reference/android/content/SharedPreferences.html">SharedPreferences</a></code> instance. </p>
+
+<p>The LVL provides a full <code>Obfuscator</code> implementation called
+AESObfuscator that uses AES encryption to obfuscate data. You can
+use AESObfuscator in your application without modification or you
+can adapt it to your needs. For more information, see the next section.</p>
+
+
+<h3 id="AESObfuscator">AESObfuscator</h3>
+
+<p>The LVL includes a full and recommended implementation of the <code>Obfuscator</code>
+interface called AESObfuscator. The implementation is integrated with the
+LVL sample application and serves as the default <code>Obfuscator</code> in the library. </p>
+
+<p>AESObfuscator provides secure obfuscation of data by using AES to
+encrypt and decrypt the data as it is written to or read from storage.
+The <code>Obfuscator</code> seeds the encryption using three data fields provided
+by the application: </p>
+
+<ol>
+<li>A salt &mdash; an array of random bytes to use for each (un)obfuscation. </li>
+<li>An application identifier string, typically the package name of the application.</li>
+<li>A device identifier string, derived from as many device-specific sources
+as possible, so as to make it as unique.</li>
+</ol>
+
+<p>To use AESObfuscator, first import it to your Activity. Declare a private
+static final array to hold the salt bytes and initialize it to 20 randomly
+generated bytes.</p>
+
+<pre>    ...
+    // Generate 20 random bytes, and put them here.
+    private static final byte[] SALT = new byte[] {
+     -46, 65, 30, -128, -103, -57, 74, -64, 51, 88, -95,
+     -45, 77, -117, -36, -113, -11, 32, -64, 89
+     };
+    ...
+</pre>
+
+<p>Next, declare a variable to hold a device identifier and generate a value for
+it in any way needed. For example, the sample application included in the LVL
+queries the system settings for the
+<code>android.Settings.Secure.ANDROID_ID</code>, which is unique to each device.
+</p>
+
+<p>Note that, depending on the APIs you use, your application might need to
+request additional permissions in order to acquire device-specific information.
+For example, to query the <code><a href="../../../reference/android/telephony/TelephonyManager.html">TelephonyManager</a></code> to obtain
+the device IMEI or related data, the application will also need to request the
+<code>android.permission.READ_PHONE_STATE</code> permission in its manifest.</p>
+
+<p>Before requesting new permissions for the <em>sole purpose</em> of acquiring
+device-specific information for use in your <code>Obfuscator</code>, consider
+how doing so might affect your application or its filtering on Google Play
+(since some permissions can cause the SDK build tools to add
+the associated <code>&lt;uses-feature&gt;</code>).</p>
+
+<p>Finally, construct an instance of AESObfuscator, passing the salt,
+application identifier, and device identifier. You can construct the instance
+directly, while constructing your <code>Policy</code> and <code>LicenseChecker</code>. For example:</p>
+
+<pre>    ...
+    // Construct the LicenseChecker with a Policy.
+    mChecker = new LicenseChecker(
+        this, new ServerManagedPolicy(this,
+            new AESObfuscator(SALT, getPackageName(), deviceId)),
+        BASE64_PUBLIC_KEY  // Your public licensing key.
+        );
+    ...
+</pre>
+
+<p>For a complete example, see MainActivity in the LVL sample application.</p>
+
+
+<h2 id="impl-lc">Checking the License from an Activity</h2>
+
+<p>Once you've implemented a <code>Policy</code> for managing access to your application, the
+next step is to add a license check to your application, which initiates a query
+to the licensing server if needed and manages access to the application based on
+the license response. All of the work of adding the license check and handling
+the response takes place in your main <code><a href="../../../reference/android/app/Activity.html">Activity</a></code> source file.
+</p>
+
+<p>To add the license check and handle the response, you must:</p>
+
+<ol>
+    <li><a href="#imports">Add imports</a></li>
+    <li><a href="#lc-impl">Implement LicenseCheckerCallback</a> as a private inner class</li>
+    <li><a href="#thread-handler">Create a Handler</a> for posting from LicenseCheckerCallback to the UI thread</li>
+    <li><a href="#lc-lcc">Instantiate LicenseChecker</a> and LicenseCheckerCallback</li>
+    <li><a href="#check-access">Call checkAccess()</a> to initiate the license check</li>
+    <li><a href="#account-key">Embed your public key</a> for licensing</li>
+    <li><a href="#handler-cleanup">Call your LicenseChecker's onDestroy() method</a> to close IPC connections.</li>
+</ol>
+
+<p>The sections below describe these tasks. </p>
+
+<h3 id="lc-overview">Overview of license check and response</h3>
+
+<div class="sidebox-wrapper">
+<div class="sidebox">
+<h2>Example: MainActivity</h2>
+
+<p>The sample application included with the LVL provides a full example of how
+to initiate a license check and handle the result, in the
+<code>MainActivity.java</code> file.</p>
+
+</div>
+</div>
+
+<p>In most cases, you should add the license check to your application's main
+<code><a href="../../../reference/android/app/Activity.html">Activity</a></code>, in the <code><a href="../../../reference/android/app/Activity.html#onCreate(android.os.Bundle)">onCreate()</a></code> method. This
+ensures that when the user launches your application directly, the license check
+will be invoked immediately. In some cases, you can add license checks in other
+locations as well. For example, if your application includes multiple Activity
+components that other applications can start by <code><a href="../../../reference/android/content/Intent.html">Intent</a></code>,
+you could add license checks in those Activities.</p>
+
+<p>A license check consists of two main actions: </p>
+
+<ul>
+<li>A call to a method to initiate the license check &mdash; in the LVL, this is
+a call to the <code>checkAccess()</code> method of a <code>LicenseChecker</code> object that
+you construct.</li>
+<li>A callback that returns the result of the license check. In the LVL, this is
+a <code>LicenseCheckerCallback</code> interface that you implement. The
+interface declares two methods, <code>allow()</code> and
+<code>dontAllow()</code>, which are invoked by the library based on to the
+result of the license check. You implement these two methods with whatever logic
+you need, to allow or disallow the user access to your application. Note that
+these methods do not determine <em>whether</em> to allow access &mdash; that
+determination is the responsibility of your <code>Policy</code> implementation. Rather, these
+methods simply provide the application behaviors for <em>how</em> to allow and
+disallow access (and handle application errors).
+  <p>The <code>allow()</code> and <code>dontAllow()</code> methods do provide a "reason"
+for their response, which can be one of the <code>Policy</code> values, <code>LICENSED</code>,
+<code>NOT_LICENSED</code>, or <code>RETRY</code>. In particular, you should handle the case in which
+the method receives the <code>RETRY</code> response for <code>dontAllow()</code> and provide the user with an
+"Retry" button, which might have happened because the service was unavailable during the
+request.</p></li>
+</ul>
+
+<div style="margin-bottom:2em;">
+
+<img src="../../../images/licensing_flow.png" style="text-align:left;margin-bottom:0;margin-left:3em;" />
+<div style="margin:.5em 0 1.5em 2em;padding:0"><strong>Figure 6.</strong> Overview of a
+typical license check interaction.</div>
+</div>
+
+<p>The diagram above illustrates how a typical license check takes place: </p>
+
+<ol>
+<li>Code in the application's main Activity instantiates <code>LicenseCheckerCallback</code>
+and <code>LicenseChecker</code> objects. When constructing <code>LicenseChecker</code>, the code passes in
+<code><a href="../../../reference/android/content/Context.html">Context</a></code>, a <code>Policy</code> implementation to use, and the
+publisher account's public key for licensing as parameters. </li>
+<li>The code then calls the <code>checkAccess()</code> method on the
+<code>LicenseChecker</code> object. The method implementation calls the <code>Policy</code> to determine
+whether there is a valid license response cached locally, in
+<code><a href="../../../reference/android/content/SharedPreferences.html">SharedPreferences</a></code>.
+  <ul>
+    <li>If so, the <code>checkAccess()</code> implementation calls
+  <code>allow()</code>.</li>
+    <li>Otherwise, the <code>LicenseChecker</code> initiates a license check request that is sent
+  to the licensing server.</li>
+  </ul>
+
+<p class="note"><strong>Note:</strong> The licensing server always returns
+<code>LICENSED</code> when you perform a license check of a draft application.</p>
+</li>
+<li>When a response is received, <code>LicenseChecker</code> creates a LicenseValidator that
+verifies the signed license data and extracts the fields of the response, then
+passes them to your <code>Policy</code> for further evaluation.
+  <ul>
+    <li>If the license is valid, the <code>Policy</code> caches the response in
+<code><a href="../../../reference/android/content/SharedPreferences.html">SharedPreferences</a></code> and notifies the validator, which then calls the
+<code>allow()</code> method on the <code>LicenseCheckerCallback</code> object. </li>
+    <li>If the license not valid, the <code>Policy</code> notifies the validator, which calls
+the <code>dontAllow()</code> method on <code>LicenseCheckerCallback</code>. </li>
+  </ul>
+</li>
+<li>In case of a recoverable local or server error, such as when the network is
+not available to send the request, <code>LicenseChecker</code> passes a <code>RETRY</code> response to
+your <code>Policy</code> object's <code>processServerResponse()</code> method. 
+  <p>Also, both the <code>allow()</code> and <code>dontAllow()</code> callback methods receive a
+<code>reason</code> argument. The <code>allow()</code> method's reason is usually <code>Policy.LICENSED</code> or <code>Policy.RETRY</code> and the <code>dontAllow()</code> reason is usually <code>Policy.NOT_LICENSED</code> or <code>Policy.RETRY</code>. These response values are useful so you can show
+an appropriate response for the user, such as by providing a "Retry" button when <code>dontAllow()</code> responds with <code>Policy.RETRY</code>, which might have been because the service was
+unavailable.</p></li>
+<li>In case of a application error, such as when the application attempts to
+check the license of an invalid package name, <code>LicenseChecker</code> passes an error
+response to the LicenseCheckerCallback's  <code>applicationError()</code>
+method. </li>
+</ol>
+
+<p>Note that, in addition to initiating the license check and handling the
+result, which are described in the sections below, your application also needs
+to provide a <a href="#impl-Policy">Policy implementation</a> and, if the <code>Policy</code>
+stores response data (such as ServerManagedPolicy), an <a
+href="#impl-Obfuscator">Obfuscator</a> implementation. </p>
+
+
+<h3 id="imports">Add imports</h3>
+
+<p>First, open the class file of the application's main Activity and import
+<code>LicenseChecker</code> and <code>LicenseCheckerCallback</code> from the LVL package.</p>
+
+<pre>    import com.android.vending.licensing.LicenseChecker;
+    import com.android.vending.licensing.LicenseCheckerCallback;</pre>
+
+<p>If you are using the default <code>Policy</code> implementation provided with the LVL,
+ServerManagedPolicy, import it also, together with the AESObfuscator. If you are
+using a custom <code>Policy</code> or <code>Obfuscator</code>, import those instead. </p>
+
+<pre>    import com.android.vending.licensing.ServerManagedPolicy;
+    import com.android.vending.licensing.AESObfuscator;</pre>
+
+<h3 id="lc-impl">Implement LicenseCheckerCallback as a private inner class</h3>
+
+<p><code>LicenseCheckerCallback</code> is an interface provided by the LVL for handling
+result of a license check. To support licensing using the LVL, you must
+implement <code>LicenseCheckerCallback</code> and
+its methods to allow or disallow access to the application.</p>
+
+<p>The result of a license check is always a call to one of the
+<code>LicenseCheckerCallback</code> methods, made based on the validation of the response
+payload, the server response code itself, and any additional processing provided
+by your <code>Policy</code>. Your application can implement the methods in any way needed. In
+general, it's best to keep the methods simple, limiting them to managing UI
+state and application access. If you want to add further processing of license
+responses, such as by contacting a backend server or applying custom constraints,
+you should consider incorporating that code into your <code>Policy</code>, rather than
+putting it in the <code>LicenseCheckerCallback</code> methods. </p>
+
+<p>In most cases, you should declare your implementation of
+<code>LicenseCheckerCallback</code> as a private class inside your application's main
+Activity class. </p>
+
+<p>Implement the <code>allow()</code> and <code>dontAllow()</code> methods as
+needed. To start with, you can use simple result-handling behaviors in the
+methods, such as displaying the license result in a dialog. This helps you get
+your application running sooner and can assist with debugging. Later, after you
+have determined the exact behaviors you want, you can add more complex handling.
+</p>
+
+<p>Some suggestions for handling unlicensed responses in
+<code>dontAllow()</code> include: </p>
+
+<ul>
+<li>Display a "Try again" dialog to the user, including a button to initiate a
+new license check if the <code>reason</code> supplied is <code>Policy.RETRY</code>. </li>
+<li>Display a "Purchase this application" dialog, including a button that
+deep-links the user to the application's details page on Google Play, from which the
+use can purchase the application. For more information on how to set up such
+links, see <a
+href="../../../guide/publishing/publishing.html#marketintent">Linking to your apps
+on Google Play</a>. </li>
+<li>Display a Toast notification that indicates that the features of the
+application are limited because it is not licensed. </li>
+</ul>
+
+<p>The example below shows how the LVL sample application implements
+<code>LicenseCheckerCallback</code>, with methods that display the license check result in a
+dialog. </p>
+
+<pre>
+private class MyLicenseCheckerCallback implements LicenseCheckerCallback {
+    public void allow(int reason) {
+        if (isFinishing()) {
+            // Don't update UI if Activity is finishing.
+            return;
+        }
+        // Should allow user access.
+        displayResult(getString(R.string.allow));
+    }
+
+    public void dontAllow(int reason) {
+        if (isFinishing()) {
+            // Don't update UI if Activity is finishing.
+            return;
+        }
+        displayResult(getString(R.string.dont_allow));
+        
+        if (reason == Policy.RETRY) {
+            // If the reason received from the policy is RETRY, it was probably
+            // due to a loss of connection with the service, so we should give the
+            // user a chance to retry. So show a dialog to retry.
+            showDialog(DIALOG_RETRY);
+        } else {
+            // Otherwise, the user is not licensed to use this app.
+            // Your response should always inform the user that the application
+            // is not licensed, but your behavior at that point can vary. You might
+            // provide the user a limited access version of your app or you can
+            // take them to Google Play to purchase the app.
+            showDialog(DIALOG_GOTOMARKET);
+        }
+    }
+}
+</pre>
+
+<p>Additionally, you should implement the <code>applicationError()</code>
+method, which the LVL calls to let your application handle errors that are not
+retryable. For a list of such errors, see <a
+href="../../../guide/market/licensing/licensing-reference.html#server-response-codes">Server
+Response Codes</a> in the <a
+href="guide/market/licensing/licensing-reference.html">Licensing Reference</a>. You can implement
+the method in any way needed. In most cases, the
+method should log the error code and call <code>dontAllow()</code>.</p>
+
+<h3 id="thread-handler">Create a Handler for posting from LicenseCheckerCallback
+to the UI thread</h3>
+
+<p>During a license check, the LVL passes the request to the Google Play
+application, which handles communication with the licensing server. The LVL
+passes the request over asynchronous IPC (using <code><a href="../../../reference/android/os/Binder.html">Binder</a></code>) so
+the actual processing and network communication do not take place on a thread
+managed by your application. Similarly, when the Google Play application
+receives the result, it invokes a  callback method over IPC, which in turn
+executes in an IPC thread pool in your application's process.</p>
+
+<p>The <code>LicenseChecker</code> class manages your application's IPC communication with
+the Google Play application, including the call that sends the request and
+the callback that receives the response. <code>LicenseChecker</code> also tracks open license
+requests and manages their timeouts. </p>
+
+<p>So that it can handle timeouts properly and also process incoming responses
+without affecting your application's UI thread, <code>LicenseChecker</code> spawns a
+background thread at instantiation. In the thread it does all processing of
+license check results, whether the result is a response received from the server
+or a timeout error. At the conclusion of processing, the LVL calls your
+<code>LicenseCheckerCallback</code> methods from the background thread. </p>
+
+<p>To your application, this means that:</p>
+
+<ol>
+<li>Your <code>LicenseCheckerCallback</code> methods will be invoked, in many cases, from a
+background thread.</li>
+<li>Those methods won't be able to update state or invoke any processing in the
+UI thread, unless you create a Handler in the UI thread and have your callback
+methods post to the Handler.</li>
+</ol>
+
+<p>If you want your <code>LicenseCheckerCallback</code> methods to update the UI thread,
+instantiate a <code><a href="../../../reference/android/os/Handler.html">Handler</a></code> in the main Activity's
+<code><a href="../../../reference/android/app/Activity.html#onCreate(android.os.Bundle)">onCreate()</a></code> method,
+as shown below. In this example, the LVL sample application's
+<code>LicenseCheckerCallback</code> methods (see above) call <code>displayResult()</code> to
+update the UI thread through the Handler's
+<code><a href="../../../reference/android/os/Handler.html#post(java.lang.Runnable)">post()</a></code> method.</p>
+
+<pre>private Handler mHandler;
+
+    &#64;Override
+    public void onCreate(Bundle savedInstanceState) {
+        ...
+        mHandler = new Handler();
+    }
+</pre>
+
+<p>Then, in your <code>LicenseCheckerCallback</code> methods, you can use Handler methods to
+post Runnable or Message objects to the Handler. Here's how the sample
+application included in the LVL posts a Runnable to a Handler in the UI thread
+to display the license status.</p>
+
+<pre>    private void displayResult(final String result) {
+        mHandler.post(new Runnable() {
+            public void run() {
+                mStatusText.setText(result);
+                setProgressBarIndeterminateVisibility(false);
+                mCheckLicenseButton.setEnabled(true);
+            }
+        });
+    }
+</pre>
+
+<h3 id="lc-lcc">Instantiate LicenseChecker and LicenseCheckerCallback</h3>
+
+<p>In the main Activity's
+<code><a href="../../../reference/android/app/Activity.html#onCreate(android.os.Bundle)">onCreate()</a></code> method,
+create private instances of LicenseCheckerCallback and <code>LicenseChecker</code>. You must
+instantiate <code>LicenseCheckerCallback</code> first, because you need to pass a reference
+to that instance when you call the constructor for <code>LicenseChecker</code>. </p>
+
+<p>When you instantiate <code>LicenseChecker</code>, you need to pass in these parameters:</p>
+
+<ul>
+<li>The application <code><a href="../../../reference/android/content/Context.html">Context</a></code></li>
+<li>A reference to the <code>Policy</code> implementation to use for the license check. In
+most cases, you would use the default <code>Policy</code> implementation provided by the LVL,
+ServerManagedPolicy. </li>
+<li>The String variable holding your publisher account's public key for
+licensing. </li>
+</ul>
+
+<p>If you are using ServerManagedPolicy, you won't need to access the class
+directly, so you can instantiate it in the <code>LicenseChecker</code> constructor,
+as shown in the example below. Note that you need to pass a reference to a new
+Obfuscator instance when you construct ServerManagedPolicy.</p>
+
+<p>The example below shows the instantiation of <code>LicenseChecker</code> and
+<code>LicenseCheckerCallback</code> from the <code>onCreate()</code> method of an Activity
+class. </p>
+
+<pre>public class MainActivity extends Activity {
+    ...
+    private LicenseCheckerCallback mLicenseCheckerCallback;
+    private LicenseChecker mChecker;
+
+    &#64;Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        ...
+        // Construct the LicenseCheckerCallback. The library calls this when done.
+        mLicenseCheckerCallback = new MyLicenseCheckerCallback();
+
+        // Construct the LicenseChecker with a Policy.
+        mChecker = new LicenseChecker(
+            this, new ServerManagedPolicy(this,
+                new AESObfuscator(SALT, getPackageName(), deviceId)),
+            BASE64_PUBLIC_KEY  // Your public licensing key.
+            );
+        ...
+    }
+}
+</pre>
+
+
+<p>Note that <code>LicenseChecker</code> calls the <code>LicenseCheckerCallback</code> methods from the UI
+thread <em>only</em> if there is valid license response cached locally. If the
+license check is sent to the server, the callbacks always originate from the
+background thread, even for network errors. </p>
+
+
+<h3 id="check-access">Call checkAccess() to initiate the license check</h3>
+
+<p>In your main Activity, add a call to the <code>checkAccess()</code> method of the
+<code>LicenseChecker</code> instance. In the call, pass a reference to your
+<code>LicenseCheckerCallback</code> instance as a parameter. If you need to handle any
+special UI effects or state management before the call, you might find it useful
+to call <code>checkAccess()</code> from a wrapper method. For example, the LVL
+sample application calls <code>checkAccess()</code> from a
+<code>doCheck()</code> wrapper method:</p>
+
+<pre>    &#64;Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        ...
+        // Call a wrapper method that initiates the license check
+        doCheck();
+        ...
+    }
+    ...
+    private void doCheck() {
+        mCheckLicenseButton.setEnabled(false);
+        setProgressBarIndeterminateVisibility(true);
+        mStatusText.setText(R.string.checking_license);
+        mChecker.checkAccess(mLicenseCheckerCallback);
+    }
+</pre>
+
+
+<h3 id="account-key">Embed your public key for licensing</h3>
+
+<p>For each publisher account, the Google Play service automatically
+generates a  2048-bit RSA public/private key pair that is used exclusively for
+licensing. The key pair is uniquely associated with the publisher account and is
+shared across all applications that are published through the account. Although
+associated with a publisher account, the key pair is <em>not</em> the same as
+the key that you use to sign your applications (or derived from it).</p>
+
+<p>The Google Play publisher site exposes the public key for licensing to any
+developer signed in to the publisher account, but it keeps the private key
+hidden from all users in a secure location. When an application requests a
+license check for an application published in your account, the licensing server
+signs the license response using the private key of your account's key pair.
+When the LVL receives the response, it uses the public key provided by the
+application to verify the signature of the license response. </p>
+
+<p>To add licensing to an application, you must obtain your publisher account's
+public key for licensing and copy it into your application. Here's how to find
+your account's public key for licensing:</p>
+
+<ol>
+<li>Go to the Google Play <a
+href="http://play.google.com/apps/publish">publisher site</a> and sign in.
+Make sure that you sign in to the account from which the application you are
+licensing is published (or will be published). </li>
+<li>In the account home page, locate the "Edit profile" link and click it. </li>
+<li>In the Edit Profile page, locate the "Licensing" pane, shown below. Your
+public key for licensing is given in the "Public key" text box. </li>
+</ol>
+
+<p>To add the public key to your application, simply copy/paste the key string
+from the text box into your application as the value of the String variable
+<code>BASE64_PUBLIC_KEY</code>. When you are copying, make sure that you have
+selected the entire key string, without omitting any characters. </p>
+
+<p>Here's an example from the LVL sample application:</p>
+
+<pre>    public class MainActivity extends Activity {
+        private static final String BASE64_PUBLIC_KEY = "MIIBIjANBgkqhkiG ... "; //truncated for this example
+    ...
+    }
+</pre>
+
+<h3 id="handler-cleanup">Call your LicenseChecker's onDestroy() method
+to close IPC connections</h3>
+
+<p>Finally, to let the LVL clean up before your application
+<code><a href="../../../reference/android/content/Context.html">Context</a></code> changes, add a call to the <code>LicenseChecker</code>'s
+<code>onDestroy()</code> method from your Activity's
+<code><a href="../../../reference/android/app/Activity.html#onDestroy()">onDestroy()</a></code> implementation. The call causes the
+<code>LicenseChecker</code> to properly close any open IPC connection to the Google Play
+application's ILicensingService and removes any local references to the service
+and handler.</p>
+
+<p>Failing to call the <code>LicenseChecker</code>'s <code>onDestroy()</code> method
+can lead to problems over the lifecycle of your application. For example, if the
+user changes screen orientation while a license check is active, the application
+<code><a href="../../../reference/android/content/Context.html">Context</a></code> is destroyed. If your application does not
+properly close the <code>LicenseChecker</code>'s IPC connection, your application will crash
+when the response is received. Similarly, if the user exits your application
+while a license check is in progress,  your application will crash when the
+response is received, unless it has properly called the
+<code>LicenseChecker</code>'s <code>onDestroy()</code> method to disconnect from the service.
+</p>
+
+<p>Here's an example from the sample application included in the LVL, where
+<code>mChecker</code> is the <code>LicenseChecker</code> instance:</p>
+
+<pre>    &#64;Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mChecker.onDestroy();
+        ...
+    }
+</pre>
+
+<p>If you are extending or modifying <code>LicenseChecker</code>, you might also need to call
+the <code>LicenseChecker</code>'s <code>finishCheck()</code> method, to clean up any open IPC
+connections.</p>
+
+<h2 id="impl-DeviceLimiter">Implementing a DeviceLimiter</h2>
+
+<p>In some cases, you might want your <code>Policy</code> to limit the number of actual
+devices that are permitted to use a single license. This would prevent a user
+from moving a licensed application onto a number of devices and using the
+application on those devices under the same account ID. It would also prevent a
+user from "sharing" the application by providing the account information
+associated with the license to other individuals, who could then sign in to that
+account on their devices and access the license to the application. </p>
+
+<p>The LVL supports per-device licensing by providing a
+<code>DeviceLimiter</code> interface, which declares a single method,
+<code>allowDeviceAccess()</code>. When a LicenseValidator is handling a response
+from the licensing server, it calls <code>allowDeviceAccess()</code>, passing a
+user ID string extracted from the response.</p>
+
+<p>If you do not want to support device limitation, <strong>no work is
+required</strong> &mdash; the <code>LicenseChecker</code> class automatically uses a default
+implementation called NullDeviceLimiter. As the name suggests, NullDeviceLimiter
+is a "no-op" class whose <code>allowDeviceAccess()</code> method simply returns
+a <code>LICENSED</code> response for all users and devices. </p>
+
+<div style="border-left:4px solid #FFCF00;margin:1em;padding: 0 0 0 .5em">
+<p><strong>Caution:</strong> Per-device licensing is <em>not recommended for
+most applications</em> because:</p>
+<ul>
+<li>It requires that you provide a backend server to manage a users and devices
+mapping, and </li>
+<li>It could inadvertently result in a user being denied access to an
+application that they have legitimately purchased on another device.</li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="app-obfuscation">Obfuscating Your Code</h2>
+
+<p>To ensure the security of your application, particularly for a paid
+application that uses licensing and/or custom constraints and protections, it's
+very important to obfuscate your application code. Properly obfuscating your
+code makes it more difficult for a malicious user to decompile the application's
+bytecode, modify it &mdash; such as by removing the license check &mdash;
+and then recompile it.</p>
+
+<p>Several obfuscator programs are available for Android applications, including
+<a href="http://proguard.sourceforge.net/">ProGuard</a>, which also offers
+code-optimization features. The use of ProGuard or a similar program to obfuscate
+your code is <em>strongly recommended</em> for all applications that use Google
+Play Licensing. </p>
+
+<h2 id="app-publishing">Publishing a Licensed Application</h2>
+
+<p>When you are finished testing your license implementation, you are ready to
+publish the application on Google Play. Follow the normal steps to <a
+href="../../../guide/publishing/preparing.html">prepare</a>, <a
+href="../../../guide/publishing/app-signing.html">sign</a>, and then <a
+href="../../../guide/publishing/publishing.html">publish the application</a>.
+</p>
+
+<h3>Removing Copy Protection</h3>
+
+<p>After uploading your licensed application, remember to remove copy protection
+from the application, if it is currently used. To check and remove copy
+protection, sign in to the publisher site and go the application's upload
+details page. In the Publishing options section, make sure that the Copy
+Protection radio button selection is "Off".</p>
+
+
+<h2 id="support">Where to Get Support</h2>
+
+<p>If you have questions or encounter problems while implementing or deploying
+publishing in your applications, please use the support resources listed in the
+table below. By directing your queries to the correct forum, you can get the
+support you need more quickly. </p>
+
+<p class="table-caption"><strong>Table 2.</strong> Developer support resources
+for Google Play Licensing Service.</p>
+
+<table>
+
+<tr>
+<th>Support Type</th>
+<th>Resource</th>
+<th>Range of Topics</th>
+</tr>
+<tr>
+<td rowspan="2">Development and testing issues</td>
+<td>Google Groups: <a
+href="http://groups.google.com/group/android-developers">android-developers</a>
+</td>
+<td rowspan="2">LVL download and integration, library projects, <code>Policy</code>
+questions, user experience ideas, handling of responses, <code>Obfuscator</code>, IPC, test
+environment setup</td>
+</tr>
+<tr>
+<td>Stack Overflow: <a
+href="http://stackoverflow.com/questions/tagged/android">http://stackoverflow.com/questions/tagged/android</a></td>
+</tr>
+<tr>
+<td rowspan="2">Accounts, publishing, and deployment issues</td>
+<td><a href="http://www.google.com/support/forum/p/Android+Market">Google Play
+Help Forum</a></td>
+<td rowspan="2">Publisher accounts, licensing key pair, test accounts, server
+responses, test responses, application deployment and results</td>
+</tr>
+<tr>
+<td><a
+href="http://market.android.com/support/bin/answer.py?answer=186113">Market
+Licensing Support FAQ</a></td>
+</tr>
+<tr>
+<td>LVL issue tracker</td>
+<td><a href="http://code.google.com/p/marketlicensing/issues/">Marketlicensing
+project issue tracker</a></td>
+<td>Bug and issue reports related specifically to the LVL source code classes
+and interface implementations</td>
+</tr>
+
+</table>
+
+<p>For general information about how to post to the groups listed above, see <a
+href="../../../resources/community-groups.html">Developer Forums</a> document
+in the Resources tab.</p>
+
+
+
+    </div>
+
+    
+    
+    <a href="#top" style="float:right">&uarr; Go to top</a>
+    
+      <p><a href="index.html">&larr; Back to Application Licensing</a></p>
+    
+
+  </div> <!-- end jd-content -->
+
+<div id="footer">
+
+
+  <div id="copyright">
+    
+  Except as noted, this content is licensed under <a
+  href="http://www.apache.org/licenses/LICENSE-2.0">Apache 2.0</a>. 
+  For details and restrictions, see the <a href="../../../license.html">
+  Content License</a>.
+  </div>
+  <div id="build_info">
+    
+  Android 4.0&nbsp;r1 - 16 Mar 2012 16:45
+
+  </div>
+
+  <div id="footerlinks">
+    
+  <p>
+    <a href="http://www.google.com/intl/en/policies/" target="_blank">Privacy &amp; Terms</a> -
+    <a href="http://www.android.com/branding.html" target="_blank">Brand Guidelines</a> -
+    <a
+href="http://code.google.com/p/android/issues/entry?template=Developer%20Documentation"
+target="_blank">Report Document Issues</a>
+  </p>
+  </div>
+
+</div> <!-- end footer -->
+
+</div><!-- end doc-content -->
+
+</div> <!-- end body-content --> 
+
+<script type="text/javascript">
+init(); /* initialize android-developer-docs.js */
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-5831155-1");
+pageTracker._trackPageview();
+</script>
+
+</body>
+</html>
+
+
+

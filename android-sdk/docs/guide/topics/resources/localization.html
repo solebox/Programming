@@ -1,0 +1,1876 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico" />
+<title>Localization | Android Developers</title>
+<link href="../../../assets/android-developer-docs-devguide.css" rel="stylesheet" type="text/css" />
+<script src="../../../assets/search_autocomplete.js" type="text/javascript"></script>
+<script src="../../../assets/jquery-resizable.min.js" type="text/javascript"></script>
+<script src="../../../assets/android-developer-docs.js" type="text/javascript"></script>
+<script src="../../../assets/prettify.js" type="text/javascript"></script>
+<script type="text/javascript">
+  setToRoot("../../../");
+</script>
+<noscript>
+  <style type="text/css">
+    html,body{overflow:auto;}
+    #body-content{position:relative; top:0;}
+    #doc-content{overflow:visible;border-left:3px solid #666;}
+    #side-nav{padding:0;}
+    #side-nav .toggle-list ul {display:block;}
+    #resize-packages-nav{border-bottom:3px solid #666;}
+  </style>
+</noscript>
+</head>
+<body class="gc-documentation" itemscope itemtype="http://schema.org/Article">
+
+  <div id="header">
+      <div id="headerLeft">
+          <a href="../../../index.html" tabindex="-1"><img
+              src="../../../assets/images/bg_logo.png" alt="Android Developers" /></a>
+          <ul id="header-tabs" class="guide">
+    
+	<li id="home-link"><a href="../../../offline.html">
+	
+		<span class="en">Home</span>
+		<span style="display:none" class="de">Startseite</span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ホーム</span>
+		<span style="display:none" class="zh-CN">主页</span>
+		<span style="display:none" class="zh-TW">首頁</span>
+	
+	</a></li>
+	<li id="sdk-link"><a href="../../../sdk/index.html">
+		<span class="en">SDK</span>
+	</a></li>
+	<li id="guide-link"><a href="../../../guide/index.html" onClick="return loadLast('guide')">
+	
+		<span class="en">Dev Guide</span>
+		<span style="display:none" class="de">Handbuch</span>
+		<span style="display:none" class="es">Guía</span>
+		<span style="display:none" class="fr">Guide</span>
+		<span style="display:none" class="it">Guida</span>
+		<span style="display:none" class="ja">開発ガイド</span>
+		<span style="display:none" class="zh-CN">开发人员指南</span>
+		<span style="display:none" class="zh-TW">開發指南</span>
+	
+	</a></li>
+	<li id="reference-link"><a href="../../../reference/packages.html" onClick="return loadLast('reference')">
+	
+		<span class="en">Reference</span>
+		<span style="display:none" class="de">Referenz</span>
+		<span style="display:none" class="es">Referencia</span>
+		<span style="display:none" class="fr">Référence</span>
+		<span style="display:none" class="it">Riferimento</span>
+		<span style="display:none" class="ja">リファレンス</span>
+		<span style="display:none" class="zh-CN">参考</span>
+		<span style="display:none" class="zh-TW">參考資料</span>
+	
+	</a></li>
+	<li id="resources-link"><a href="../../../resources/index.html" onClick="return loadLast('resources')">
+	
+		<span class="en">Resources</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+    		<span style="display:none" class="ja"></span>
+		<span style="display:none" class="zh-CN"></span>
+		<span style="display:none" class="zh-TW"></span>
+	
+	</a></li>
+	<li id="videos-link"><a href="../../../videos/index.html" onClick="return loadLast('videos')">
+	
+		<span class="en">Videos</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ビデオ</span>
+		<span style="display:none" class="zh-CN"></span>
+		<span style="display:none" class="zh-TW"></span>
+	
+	</a></li>
+	<li><a href="http://android-developers.blogspot.com" onClick="return requestAppendHL(this.href)">
+	
+		<span class="en">Blog</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ブログ</span>
+		<span style="display:none" class="zh-CN">博客</span>
+		<span style="display:none" class="zh-TW">網誌</span>
+	
+	</a></li>
+
+
+     
+</ul>
+     
+      </div>
+      <div id="headerRight">
+          <div id="headerLinks">
+          &nbsp;&nbsp;
+          <a href="../../../design/index.html">Android Design</a>&nbsp;&nbsp;
+          <a href="http://www.android.com">Android.com</a>
+          </div>
+  <div id="search" >
+      <div id="searchForm">
+          <form accept-charset="utf-8" class="gsc-search-box" 
+                onsubmit="return submit_search()">
+            <table class="gsc-search-box" cellpadding="0" cellspacing="0"><tbody>
+                <tr>
+                  <td class="gsc-input">
+                    <input id="search_autocomplete" class="gsc-input" type="text" size="33" autocomplete="off"
+                      title="search developer docs" name="q"
+                      value="search developer docs"
+                      onFocus="search_focus_changed(this, true)"
+                      onBlur="search_focus_changed(this, false)"
+                      onkeydown="return search_changed(event, true, '../../../')"
+                      onkeyup="return search_changed(event, false, '../../../')" />
+                  <div id="search_filtered_div" class="no-display">
+                      <table id="search_filtered" cellspacing=0>
+                      </table>
+                  </div>
+                  </td>
+                  <td class="gsc-search-button">
+                    <input type="submit" value="Search" title="search" id="search-button" class="gsc-search-button" />
+                  </td>
+                  <td class="gsc-clear-button">
+                    <div title="clear results" class="gsc-clear-button">&nbsp;</div>
+                  </td>
+                </tr></tbody>
+              </table>
+          </form>
+      </div><!-- searchForm -->
+  </div><!-- search -->
+      </div><!-- headerRight -->
+      <script type="text/javascript">
+        <!--  
+        changeTabLang(getLangPref());
+        //-->
+      </script>
+  </div><!-- header -->
+
+  <div class="g-section g-tpl-240" id="body-content">
+    <div class="g-unit g-first" id="side-nav" itemscope itemtype="http://schema.org/SiteNavigationElement">
+      <div id="devdoc-nav">
+<ul>
+
+  <li>
+    <span class="heading">
+      <span class="en">Android Basics</span>
+      <span class="de" style="display:none">Einführung in Android</span>
+      <span class="es" style="display:none">Información básica sobre Android</span>
+      <span class="fr" style="display:none">Présentation d'Android</span>
+      <span class="it" style="display:none">Nozioni di base su Android</span>
+      <span class="ja" style="display:none">Android の基本</span>
+      <span class="zh-CN" style="display:none">Android 基础知识</span>
+      <span class="zh-TW" style="display:none">Android 簡介</span>
+    </span>
+    <ul>
+      <li><a href="../../../guide/basics/what-is-android.html">
+        <span class="en">What Is Android?</span>
+        <span class="de" style="display:none">Was ist Android?</span>
+        <span class="es" style="display:none">¿Qué es Android?</span>
+        <span class="fr" style="display:none">Qu'est-ce qu'Android&nbsp;?</span>
+        <span class="it" style="display:none">Che cos'è Android?</span>
+        <span class="ja" style="display:none">Android とは</span>
+        <span class="zh-CN" style="display:none">Android 是什么？</span>
+        <span class="zh-TW" style="display:none">什麼是 Android？</span>
+          </a></li>
+      <li><a href="../../../guide/topics/fundamentals.html">
+        <span class="en">Application Fundamentals</span>
+        <span class="de" style="display:none">Anwendungsgrundlagen</span>
+        <span class="es" style="display:none">Fundamentos de las aplicaciones</span>
+        <span class="fr" style="display:none">Principes de base des applications</span>
+        <span class="it" style="display:none">Concetti fondamentali sulle applicazioni</span>
+        <span class="ja" style="display:none">開発の基礎</span>
+        <span class="zh-CN" style="display:none">应用程序基础</span>
+        <span class="zh-TW" style="display:none">應用程式基本原理</span>
+      </a></li>
+
+  <!--  <li><a style="color:gray;">The Android SDK</a></li> -->
+  <!--  <li><a style="color:gray;">Walkthrough for Developers</a></li> -->
+      <!-- quick overview of what it's like to develop on Android -->
+    </ul>
+  </li>
+
+  <li>
+    <span class="heading">
+      <span class="en">Framework Topics</span>
+      <span class="de" style="display:none">Framework-Themen</span>
+      <span class="es" style="display:none">Temas sobre el framework</span>
+      <span class="fr" style="display:none">Thèmes relatifs au framework</span>
+      <span class="it" style="display:none">Argomenti relativi al framework</span>
+      <span class="ja" style="display:none">フレームワーク トピック</span>
+      <span class="zh-CN" style="display:none">框架主题</span>
+      <span class="zh-TW" style="display:none">架構主題</span>
+    </span>
+    <ul>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/fundamentals/activities.html">
+          <span class="en">Activities</span>
+        </a></div>
+        <ul>
+          <li><a href="../../../guide/topics/fundamentals/fragments.html">
+            <span class="en">Fragments</span>
+          </a></li>
+          <li><a href="../../../guide/topics/fundamentals/loaders.html">
+            <span class="en">Loaders</span>
+          </a></li>
+          <li><a href="../../../guide/topics/fundamentals/tasks-and-back-stack.html">
+            <span class="en">Tasks and Back Stack</span></a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/fundamentals/services.html">
+          <span class="en">Services</span>
+        </a></div>
+        <ul>
+          <li><a href="../../../guide/topics/fundamentals/bound-services.html">
+            <span class="en">Bound Services</span>
+          </a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+          <div><a href="../../../guide/topics/providers/content-providers.html">
+            <span class="en">Content Providers</span>
+          </a></div>
+          <ul>
+            <li>
+                <a href="../../../guide/topics/providers/content-provider-basics.html">
+                    <span class="en">Content Provider Basics</span>
+                </a>
+                <span class="new">new!</span>
+            </li>
+            <li>
+                <a href="../../../guide/topics/providers/content-provider-creating.html">
+                    <span class="en">Creating a Content Provider</span>
+                </a>
+                <span class="new">new!</span>
+            </li>
+            <li>
+                <a href="../../../guide/topics/providers/calendar-provider.html">
+                    <span class="en">Calendar Provider</span>
+                </a>
+                <span class="new">new!</span>
+            </li>
+          </ul>
+      </li>
+      <li><a href="../../../guide/topics/intents/intents-filters.html">
+            <span class="en">Intents and Intent Filters</span>
+          </a></li>
+      <li><a href="../../../guide/topics/fundamentals/processes-and-threads.html">
+            <span class="en">Processes and Threads</span>
+          </a></li>
+    </ul>
+
+
+    <ul>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/ui/index.html">
+            <span class="en">User Interface</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../guide/topics/ui/declaring-layout.html">
+               <span class="en">XML Layouts</span>
+              </a></li>
+          <li><a href="../../../guide/topics/ui/ui-events.html">
+                <span class="en">Input Events</span>
+              </a></li>
+          <li><a href="../../../guide/topics/ui/menus.html">
+               <span class="en">Menus</span>
+              </a> <span class="new">updated</span></li>
+          <li><a href="../../../guide/topics/ui/actionbar.html">
+               <span class="en">Action Bar</span>
+              </a></li>
+          <li><a href="../../../guide/topics/ui/dialogs.html">
+                <span class="en">Dialogs</span>
+              </a></li>
+          <li class="toggle-list">
+            <div><a href="../../../guide/topics/ui/notifiers/index.html">
+                <span class="en">Notifications</span>
+            </a></div>
+            <ul>
+              <li><a href="../../../guide/topics/ui/notifiers/toasts.html">
+                <span class="en">Toast Notifications</span>
+              </a></li>
+              <li><a href="../../../guide/topics/ui/notifiers/notifications.html">
+                <span class="en">Status Bar Notifications</span>
+              </a></li>
+            </ul>
+          </li>
+          <li><a href="../../../guide/topics/ui/drag-drop.html">
+                <span class="en">Drag and Drop</span>
+              </a></li>
+          <li><a href="../../../guide/topics/ui/themes.html">
+                <span class="en">Styles and Themes</span>
+              </a></li>
+          <li><a href="../../../guide/topics/ui/custom-components.html">
+                <span class="en">Custom Components</span>
+              </a></li>
+          <li><a href="../../../guide/topics/ui/binding.html">
+                <span class="en">Binding to Data with AdapterView</span>
+              </a></li>
+          <li><a href="../../../guide/topics/ui/layout-objects.html">
+                <span class="en">Common Layout Objects</span>
+              </a></li>
+          <li><a href="../../../guide/topics/ui/how-android-draws.html">
+                <span class="en">How Android Draws Views</span>
+              </a></li>
+        </ul>
+      </li><!-- end of User Interface -->
+
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/resources/index.html">
+               <span class="en">Application Resources</span>
+             </a></div>
+        <ul>
+          <li><a href="../../../guide/topics/resources/providing-resources.html">
+                <span class="en">Providing Resources</span>
+              </a></li>
+          <li><a href="../../../guide/topics/resources/accessing-resources.html">
+                <span class="en">Accessing Resources</span>
+              </a></li>
+          <li><a href="../../../guide/topics/resources/runtime-changes.html">
+                <span class="en">Handling Runtime Changes</span>
+              </a></li>
+          <li><a href="../../../guide/topics/resources/localization.html">
+                <span class="en">Localization</span>
+              </a></li>
+          <li class="toggle-list">
+            <div><a href="../../../guide/topics/resources/available-resources.html">
+              <span class="en">Resource Types</span>
+            </a></div>
+            <ul>
+              <li><a href="../../../guide/topics/resources/animation-resource.html">Animation</a></li>
+              <li><a href="../../../guide/topics/resources/color-list-resource.html">Color State List</a></li>
+              <li><a href="../../../guide/topics/resources/drawable-resource.html">Drawable</a></li>
+              <li><a href="../../../guide/topics/resources/layout-resource.html">Layout</a></li>
+              <li><a href="../../../guide/topics/resources/menu-resource.html">Menu</a></li>
+              <li><a href="../../../guide/topics/resources/string-resource.html">String</a></li>
+              <li><a href="../../../guide/topics/resources/style-resource.html">Style</a></li>
+              <li><a href="../../../guide/topics/resources/more-resources.html">More Types</a></li>
+            </ul>
+          </li><!-- end of resource types -->
+        </ul>
+      </li><!-- end of app resources -->
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/data/data-storage.html">
+            <span class="en">Data Storage</span>
+          </a></div>
+          <ul>
+            <li><a href="../../../guide/topics/data/backup.html">
+                <span class="en">Data Backup</span>
+              </a>
+            </li>
+          </ul>
+      </li>
+      <li><a href="../../../guide/topics/security/security.html">
+            <span class="en">Security and Permissions</span>
+          </a></li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/manifest/manifest-intro.html">
+          <span class="en">The AndroidManifest.xml File</span>
+        </a></div>
+        <ul>
+          <li><a href="../../../guide/topics/manifest/action-element.html">&lt;action&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/activity-element.html">&lt;activity&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/activity-alias-element.html">&lt;activity-alias&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/application-element.html">&lt;application&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/category-element.html">&lt;category&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/compatible-screens-element.html">&lt;compatible-screens&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/data-element.html">&lt;data&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/grant-uri-permission-element.html">&lt;grant-uri-permission&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/instrumentation-element.html">&lt;instrumentation&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/intent-filter-element.html">&lt;intent-filter&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/manifest-element.html">&lt;manifest&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/meta-data-element.html">&lt;meta-data&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/path-permission-element.html">&lt;path-permission&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/permission-element.html">&lt;permission&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/permission-group-element.html">&lt;permission-group&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/permission-tree-element.html">&lt;permission-tree&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/provider-element.html">&lt;provider&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/receiver-element.html">&lt;receiver&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/service-element.html">&lt;service&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/supports-gl-texture-element.html">&lt;supports-gl-texture&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/supports-screens-element.html">&lt;supports-screens&gt;</a></li><!-- ##api level 4## -->
+          <li><a href="../../../guide/topics/manifest/uses-configuration-element.html">&lt;uses-configuration&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/uses-feature-element.html">&lt;uses-feature&gt;</a></li> <!-- ##api level 4## -->
+          <li><a href="../../../guide/topics/manifest/uses-library-element.html">&lt;uses-library&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/uses-permission-element.html">&lt;uses-permission&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/uses-sdk-element.html">&lt;uses-sdk&gt;</a></li>
+        </ul>
+      </li><!-- end of the manifest file -->
+    </ul>
+
+    <ul>
+    <li class="toggle-list">
+        <div><a href="../../../guide/topics/graphics/index.html">
+            <span class="en">Graphics</span>
+          </a> <span class="new-child">new!</span></div>
+        <ul>
+          <li><a href="../../../guide/topics/graphics/2d-graphics.html">
+              <span class="en">Canvas and Drawables</span></a></li>
+          <li><a href="../../../guide/topics/graphics/hardware-accel.html">
+              <span class="en">Hardware Acceleration</span></a>
+            <span class="new">new!</span></li>
+          <li><a href="../../../guide/topics/graphics/opengl.html">
+              <span class="en">OpenGL</span>
+            </a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/graphics/animation.html">
+            <span class="en">Animation</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../guide/topics/graphics/prop-animation.html">
+              <span class="en">Property Animation</span></a></li>
+          <li><a href="../../../guide/topics/graphics/view-animation.html">
+              <span class="en">View Animation</span></a></li>
+          <li><a href="../../../guide/topics/graphics/drawable-animation.html">
+              <span class="en">Drawable Animation</span></a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/renderscript/index.html">
+          <span class="en">Renderscript</span></a>
+          <span class="new">updated</span>
+        </div>
+        <ul>
+          <li><a href="../../../guide/topics/renderscript/graphics.html">
+                <span class="en">Graphics</span>
+              </a>
+          </li>
+          <li><a href="../../../guide/topics/renderscript/compute.html">
+                <span class="en">Compute</span>
+              </a>
+          </li>
+          <li><a href="../../../guide/topics/renderscript/reference.html">
+                <span class="en">Runtime API Reference</span>
+              </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="toggle-list">
+          <div><a href="../../../guide/topics/media/index.html">
+            <span class="en">Multimedia and Camera</span>
+          </a></div>
+          <ul>
+            <li><a href="../../../guide/topics/media/mediaplayer.html">
+                  <span class="en">Media Playback</span></a>
+                </li>
+            <li><a href="../../../guide/topics/media/jetplayer.html">
+                  <span class="en">JetPlayer</span></a>
+                </li>
+            <li><a href="../../../guide/topics/media/camera.html">
+                  <span class="en">Camera</span></a>
+                  <span class="new">new!</span>
+                </li>
+            <li><a href="../../../guide/topics/media/audio-capture.html">
+                  <span class="en">Audio Capture</span></a>
+                </li>
+          </ul>
+      </li>
+      <li>
+        <a href="../../../guide/topics/clipboard/copy-paste.html">
+            <span class="en">Copy and Paste</span>
+        </a></li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/sensors/index.html">
+              <span class="en">Sensors</span>
+              </a> <span class="new">new!</span></div>
+        <ul>
+          <li><a href="../../../guide/topics/sensors/sensors_overview.html">
+              <span class="en">Sensors Overview</span>
+            </a></li>
+          <li><a href="../../../guide/topics/sensors/sensors_motion.html">
+              <span class="en">Motion Sensors</span>
+            </a></li>
+          <li><a href="../../../guide/topics/sensors/sensors_position.html">
+              <span class="en">Position Sensors</span>
+            </a></li>
+          <li><a href="../../../guide/topics/sensors/sensors_environment.html">
+              <span class="en">Environment Sensors</span>
+            </a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/location/index.html">
+               <span class="en">Location and Maps</span>
+             </a></div>
+        <ul>
+          <li><a href="../../../guide/topics/location/obtaining-user-location.html">
+                <span class="en">Obtaining User Location</span>
+              </a></li>
+        </ul>
+      </li>
+  <!--<li class="toggle-list">
+        <div><a style="color:gray;">Wireless Controls</a></div>
+          <ul>
+            <li><a style="color:gray;">Wi-Fi</a></li>
+          </ul>
+      </li> -->
+  <!--<li><a style="color:gray;">Localization</a></li>  -->
+      <li><a href="../../../guide/topics/appwidgets/index.html">
+            <span class="en">App Widgets</span></a>
+          </li>
+      <li><a href="../../../guide/topics/wireless/bluetooth.html">
+            <span class="en">Bluetooth</span></a>
+          </li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/nfc/index.html">
+          <span class="en">Near Field Communication</span></a> <span class="new">updated</span>
+        </div>
+        <ul>
+          <li><a href="../../../guide/topics/nfc/nfc.html">NFC Basics</a></li>
+          <li><a href="../../../guide/topics/nfc/advanced-nfc.html">Advanced NFC</a></li>
+        </ul>
+      </li>
+      <li><a href="../../../guide/topics/wireless/wifip2p.html">
+            <span class="en">Wi-Fi Direct</span></a> <span class="new">new!</span>
+          </li>
+      <li class="toggle-list">
+          <div><a href="../../../guide/topics/usb/index.html">
+            <span class="en">USB</span></a>
+          </div>
+            <ul>
+              <li><a href="../../../guide/topics/usb/accessory.html">Accessory</a></li>
+              <li><a href="../../../guide/topics/usb/host.html">Host</a></li>
+              <li><a href="../../../guide/topics/usb/adk.html">Open Accessory Dev Kit</a></li>
+            </ul>
+          </li>
+
+       <li><a href="../../../guide/topics/network/sip.html">
+            <span class="en">Session Initiation Protocol</span>
+          </a></li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/search/index.html">
+            <span class="en">Search</span>
+          </a></div>
+          <ul>
+            <li><a href="../../../guide/topics/search/search-dialog.html">Creating a Search Interface</a></li>
+            <li><a href="../../../guide/topics/search/adding-recent-query-suggestions.html">Adding Recent Query Suggestions</a></li>
+            <li><a href="../../../guide/topics/search/adding-custom-suggestions.html">Adding Custom Suggestions</a></li>
+            <li><a href="../../../guide/topics/search/searchable-config.html">Searchable Configuration</a></li>
+          </ul>
+      </li>
+      <li><a href="../../../guide/topics/admin/device-admin.html">
+            <span class="en">Device Administration</span></a>
+      </li>
+      <li class="toggle-list">
+           <div>
+                <a href="../../../guide/topics/testing/index.html">
+                   <span class="en">Testing</span>
+               </a>
+           </div>
+           <ul>
+              <li>
+                <a href="../../../guide/topics/testing/testing_android.html">
+                <span class="en">Testing Fundamentals</span></a>
+              </li>
+              <li>
+                <a href="../../../guide/topics/testing/activity_testing.html">
+                <span class="en">Activity Testing</span></a>
+              </li>
+              <li>
+                <a href="../../../guide/topics/testing/contentprovider_testing.html">
+                <span class="en">Content Provider Testing</span></a>
+              </li>
+              <li>
+                <a href="../../../guide/topics/testing/service_testing.html">
+                <span class="en">Service Testing</span></a>
+              </li>
+              <li>
+                <a href="../../../guide/topics/testing/what_to_test.html">
+                <span class="en">What To Test</span></a>
+              </li>
+           </ul>
+      </li>
+    </ul>
+  </li>
+
+  <li>
+    <h2>
+      <span class="en">Google Play Topics</span>
+    </h2>
+    <ul>
+      <li><a href="../../../guide/publishing/publishing.html">
+          <span class="en">Publishing on Google Play</span>
+          </a></li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/market/licensing/index.html">
+          <span class="en">Application Licensing</span></a>
+        </div>
+        <ul>
+          <li><a href="../../../guide/market/licensing/overview.html">
+              <span class="en">Licensing Overview</span></a>
+          </li>
+          <li><a href="../../../guide/market/licensing/setting-up.html">
+              <span class="en">Setting Up for Licensing</span></a>
+          </li>
+          <li><a href="../../../guide/market/licensing/adding-licensing.html">
+              <span class="en">Adding Licensing to Your App</span></a>
+          </li>
+          <li><a href="../../../guide/market/licensing/licensing-reference.html">
+              <span class="en">Licensing Reference</span></a>
+          </li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/market/billing/index.html">
+            <span class="en">In-app Billing</span></a>
+        </div>
+        <ul>
+          <li><a href="../../../guide/market/billing/billing_overview.html">
+              <span class="en">In-app Billing Overview</span></a>
+          </li>
+          <li><a href="../../../guide/market/billing/billing_integrate.html">
+              <span class="en">Implementing In-app Billing</span></a>
+          </li>
+          <li><a href="../../../guide/market/billing/billing_best_practices.html">
+              <span class="en">Security and Design</span></a>
+          </li>
+          <li><a href="../../../guide/market/billing/billing_testing.html">
+              <span class="en">Testing In-app Billing</span></a>
+          </li>
+          <li><a href="../../../guide/market/billing/billing_admin.html">
+              <span class="en">Administering In-app Billing</span></a>
+          </li>
+          <li><a href="../../../guide/market/billing/billing_reference.html">
+              <span class="en">In-app Billing Reference</span></a>
+          </li>
+        </ul>
+      </li>
+      <li><a href="../../../guide/appendix/market-filters.html">
+          <span class="en">Filters on Google Play</span></a>
+      </li>
+      <li><a href="../../../guide/market/publishing/multiple-apks.html">
+          <span class="en">Multiple APK Support</span></a>
+      </li>
+      <li><a href="../../../guide/market/expansion-files.html">
+          <span class="en">APK Expansion Files</span></a>
+          <span class="new">new!</span>
+      </li>
+    </ul>
+  </li>
+
+
+  <li>
+    <span class="heading">
+      <span class="en">Developing</span>
+      <span class="de" style="display:none">Entwicklung</span>
+      <span class="es" style="display:none">Desarrollo</span>
+      <span class="fr" style="display:none">Développement</span>
+      <span class="it" style="display:none">Sviluppo</span>
+      <span class="ja" style="display:none">開発</span>
+      <span class="zh-CN" style="display:none">开发</span>
+      <span class="zh-TW" style="display:none">開發</span>
+    </span>
+    <ul>
+  <!--<li><a href="">Developing for Android</a></li>
+      signing, upgrading, selecting a package name, select device profile, touch, trackball, dpad available, etc. -->
+      <li>
+        <a href="../../../guide/developing/index.html">
+        <span class="en">Introduction</span></a>
+      </li>
+
+      <li class="toggle-list">
+        <div>
+           <a href="../../../guide/developing/devices/index.html">
+                <span class="en">Managing Virtual Devices</span>
+            </a>
+        </div>
+        <ul>
+          <li>
+            <a href="../../../guide/developing/devices/managing-avds.html">
+              <span class="en">With AVD Manager</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../guide/developing/devices/managing-avds-cmdline.html">
+              <span class="en">From the Command Line</span>
+            </a>
+          </li>
+          <li>
+           <a href="../../../guide/developing/devices/emulator.html">
+                <span class="en">Using the Android Emulator</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="../../../guide/developing/device.html">
+          <span class="en">Using Hardware Devices</span>
+        </a>
+      </li>
+
+      <li class="toggle-list">
+        <div>
+          <a href="../../../guide/developing/projects/index.html">
+            <span class="en">Managing Projects</span>
+          </a>
+        </div>
+        <ul>
+          <li>
+            <a href="../../../guide/developing/projects/projects-eclipse.html">
+              <span class="en">From Eclipse with ADT</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../guide/developing/projects/projects-cmdline.html">
+                <span class="en">From the Command Line</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="toggle-list">
+        <div>
+          <a href="../../../guide/developing/building/index.html">
+            <span class="en">Building and Running</span>
+          </a>
+        </div>
+        <ul>
+          <li><a href="../../../guide/developing/building/building-eclipse.html">
+            <span class="en">From Eclipse with ADT</span>
+          </a></li>
+          <li><a href="../../../guide/developing/building/building-cmdline.html">
+            <span class="en">From the Command Line</span></a></li>
+        </ul>
+      </li>
+
+      <li class="toggle-list">
+        <div>
+          <a href="../../../guide/developing/debugging/index.html">
+            <span class="en">Debugging</span>
+          </a>
+        </div>
+        <ul>
+          <li>
+            <a href="../../../guide/developing/debugging/debugging-projects.html">
+                <span class="en">From Eclipse with ADT</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../guide/developing/debugging/debugging-projects-cmdline.html">
+                <span class="en">From Other IDEs</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../guide/developing/debugging/ddms.html">
+              <span class="en">Using DDMS</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../guide/developing/debugging/debugging-log.html">
+                <span class="en">Reading and Writing Logs</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../guide/developing/debugging/debugging-ui.html">
+                <span class="en">Debugging and Profiling UIs</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../guide/developing/debugging/debugging-tracing.html">
+                <span class="en">Profiling with Traceview and dmtracedump</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../guide/developing/debugging/debugging-devtools.html">
+                <span class="en">Using the Dev Tools App</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="toggle-list">
+           <div>
+                <a href="../../../guide/developing/testing/index.html">
+                   <span class="en">Testing</span>
+               </a>
+           </div>
+           <ul>
+              <li>
+                <a href="../../../guide/developing/testing/testing_eclipse.html">
+                  <span class="en">From Eclipse with ADT</span>
+                </a>
+              </li>
+
+              <li>
+                <a href="../../../guide/developing/testing/testing_otheride.html">
+                  <span class="en">From Other IDEs</span>
+                </a>
+              </li>
+           </ul>
+         </li>
+
+         <li class="toggle-list">
+        <div><a href="../../../guide/developing/tools/index.html">
+            <span class="en">Tools</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../guide/developing/tools/adb.html">adb</a></li>
+          <li><a href="../../../guide/developing/tools/adt.html">ADT</a></li>
+          <li><a href="../../../guide/developing/tools/android.html">android</a></li>
+          <li><a href="../../../guide/developing/tools/bmgr.html">bmgr</a>
+          <li><a href="../../../guide/developing/tools/dmtracedump.html">dmtracedump</a></li>
+          <li><a href="../../../guide/developing/tools/draw9patch.html">Draw
+          9-Patch</a></li>
+          <li><a href="../../../guide/developing/tools/emulator.html">Emulator</a></li>
+          <li><a href="../../../guide/developing/tools/etc1tool.html">etc1tool</a></li>
+          <li><a href="../../../guide/developing/tools/hierarchy-viewer.html">Hierarchy Viewer</a></li>
+          <li><a href="../../../guide/developing/tools/hprof-conv.html">hprof-conv</a></li>
+          <li><a href="../../../guide/developing/tools/layoutopt.html">layoutopt</a></li>
+          <li><a href="../../../guide/developing/tools/logcat.html">logcat</a></li>
+          <li><a href="../../../guide/developing/tools/mksdcard.html">mksdcard</a></li>
+          <li><a href="../../../guide/developing/tools/monkey.html">Monkey</a></li>
+          <li class="toggle-list">
+            <div><a href="../../../guide/developing/tools/monkeyrunner_concepts.html">
+              <span class="en">monkeyrunner</span>
+            </a></div>
+            <ul>
+              <li><a href="../../../guide/developing/tools/MonkeyDevice.html">
+                <span class="en">MonkeyDevice</span>
+                </a></li>
+              <li><a href="../../../guide/developing/tools/MonkeyImage.html">
+                <span class="en">MonkeyImage</span>
+                </a></li>
+              <li><a href="../../../guide/developing/tools/MonkeyRunner.html">
+                <span class="en">MonkeyRunner</span>
+                </a></li>
+            </ul>
+          </li>
+          <li><a href="../../../guide/developing/tools/proguard.html">ProGuard</a></li>
+          <li><a href="../../../guide/developing/tools/adb.html#sqlite">sqlite3</a></li>
+          <li><a href="../../../guide/developing/tools/traceview.html">Traceview</a></li>
+          <li><a href="../../../guide/developing/tools/zipalign.html">zipalign</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+
+  <li>
+    <span class="heading">
+      <span class="en">Publishing</span>
+      <span class="de" style="display:none">Veröffentlichung</span>
+      <span class="es" style="display:none">Publicación</span>
+      <span class="fr" style="display:none">Publication</span>
+      <span class="it" style="display:none">Pubblicazione</span>
+      <span class="ja" style="display:none">公開</span>
+      <span class="zh-CN" style="display:none">发布</span>
+      <span class="zh-TW" style="display:none">發佈</span>
+    </span>
+    <ul>
+      <li><a href="../../../guide/publishing/publishing_overview.html">
+            <span class="en">Publishing Overview</span>
+          </a></li>
+      <li><a href="../../../guide/publishing/preparing.html">
+            <span class="en">Preparing for Release</span>
+            <span class="de" style="display:none">Vorbereitung auf die Veröffentlichung</span>
+            <span class="es" style="display:none">Publicación de aplicaciones</span>
+            <span class="fr" style="display:none">Préparation à la publication</span>
+            <span class="it" style="display:none">Preparativi per la pubblicazione</span>
+            <span class="ja" style="display:none">公開の準備</span>
+            <span class="zh-CN" style="display:none">准备发布</span>
+            <span class="zh-TW" style="display:none">準備發佈</span>
+          </a></li>
+      <li><a href="../../../guide/publishing/app-signing.html">
+            <span class="en">Signing Your Applications</span>
+            <span class="de" style="display:none">Signieren Ihrer Anwendungen</span>
+            <span class="es" style="display:none">Firma de aplicaciones</span>
+            <span class="fr" style="display:none">Attribution de votre signature <br />à vos
+applications</span>
+            <span class="it" style="display:none">Firma delle applicazioni</span>
+            <span class="ja" style="display:none">アプリケーションへの署名</span>
+            <span class="zh-CN" style="display:none">应用程序签名</span>
+            <span class="zh-TW" style="display:none">簽署應用程式</span>
+          </a></li>
+      <li><a href="../../../guide/publishing/versioning.html">
+            <span class="en">Versioning Your Applications</span>
+            <span class="de" style="display:none">Versionsverwaltung für Ihre <br
+/>Anwendungen</span>
+            <span class="es" style="display:none">Versiones de las aplicaciones</span>
+            <span class="fr" style="display:none">Attribution d'une version à vos
+applications</span>
+            <span class="it" style="display:none">Controllo versioni delle applicazioni</span>
+            <span class="ja" style="display:none">アプリケーションのバージョニング</span>
+            <span class="zh-CN" style="display:none">应用程序版本控制</span>
+            <span class="zh-TW" style="display:none">應用程式版本設定</span>
+          </a></li>
+    </ul>
+  </li>
+
+  <li>
+    <span class="heading">
+      <span class="en">Best Practices</span>
+      <span class="de" style="display:none">Bewährte Verfahren</span>
+      <span class="es" style="display:none">Prácticas recomendadas</span>
+      <span class="fr" style="display:none">Meilleures pratiques</span>
+      <span class="it" style="display:none">Best practice</span>
+      <span class="ja" style="display:none">ベスト プラクティス</span>
+      <span class="zh-CN" style="display:none">最佳实践</span>
+      <span class="zh-TW" style="display:none">最佳實務</span>
+    </span>
+    <ul>
+      <li><a href="../../../guide/practices/compatibility.html">
+            <span class="en">Compatibility</span>
+          </a></li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/practices/screens_support.html">
+          <span class="en">Supporting Multiple Screens</span>
+        </a></div>
+        <ul>
+          <li><a href="../../../guide/practices/screens-distribution.html">
+            <span class="en">Distributing to Specific Screens</span>
+          </a></li>
+          <li><a href="../../../guide/practices/screen-compat-mode.html">
+            <span class="en">Screen Compatibility Mode</span>
+          </a></li>
+          <li><a href="../../../guide/practices/screens-support-1.5.html">
+            <span class="en">Strategies for Android 1.5</span>
+          </a></li>
+        </ul>
+      </li>
+      <li><a href="../../../guide/practices/tablets-and-handsets.html">
+            <span class="en">Supporting Tablets and Handsets</span>
+          </a> <span class="new">new!</span></li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/practices/ui_guidelines/index.html">
+               <span class="en">UI Guidelines</span>
+             </a></div>
+        <ul>
+          <li class="toggle-list">
+            <div><a href="../../../guide/practices/ui_guidelines/icon_design.html">
+                   <span class="en">Icon Design</span>
+                 </a></div>
+            <ul>
+              <li><a href="../../../guide/practices/ui_guidelines/icon_design_launcher.html">
+                    <span class="en">Launcher Icons</span>
+                  </a></li>
+              <li><a href="../../../guide/practices/ui_guidelines/icon_design_menu.html">
+                    <span class="en">Menu Icons</span>
+                  </a></li>
+              <li><a href="../../../guide/practices/ui_guidelines/icon_design_action_bar.html">
+                    <span class="en">Action Bar Icons</span>
+                  </a></li>
+              <li><a href="../../../guide/practices/ui_guidelines/icon_design_status_bar.html">
+                    <span class="en">Status Bar Icons</span>
+                  </a></li>
+              <li><a href="../../../guide/practices/ui_guidelines/icon_design_tab.html">
+                    <span class="en">Tab Icons</span>
+                  </a></li>
+              <li><a href="../../../guide/practices/ui_guidelines/icon_design_dialog.html">
+                    <span class="en">Dialog Icons</span>
+                  </a></li>
+              <li><a href="../../../guide/practices/ui_guidelines/icon_design_list.html">
+                    <span class="en">List View Icons</span>
+                  </a></li>
+            </ul>
+          </li>
+          <li><a href="../../../guide/practices/ui_guidelines/widget_design.html">
+                <span class="en">App Widget Design</span>
+              </a></li>
+          <li><a href="../../../guide/practices/ui_guidelines/activity_task_design.html">
+                <span class="en">Activity and Task Design</span>
+              </a></li>
+          <li><a href="../../../guide/practices/ui_guidelines/menu_design.html">
+                <span class="en">Menu Design</span>
+              </a></li>
+        </ul>
+      </li>
+      </ul>
+      <ul>
+      <li><a href="../../../guide/practices/design/accessibility.html">
+            <span class="en">Designing for Accessibility</span>
+          </a></li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/practices/design/performance.html">
+            <span class="en">Designing for Performance</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../guide/practices/design/jni.html">
+                <span class="en">JNI Tips</span>
+              </a></li>
+        </ul>
+      </li>
+      <li><a href="../../../guide/practices/design/responsiveness.html">
+            <span class="en">Designing for Responsiveness</span>
+          </a></li>
+      <li><a href="../../../guide/practices/design/seamlessness.html">
+            <span class="en">Designing for Seamlessness</span>
+          </a></li>
+      <li><a href="../../../guide/practices/security.html">
+            <span class="en">Designing for Security</span></a>
+            </li>
+    </ul>
+  </li>
+
+  <li>
+    <span class="heading">
+      <span class="en">Web Applications</span>
+    </span>
+    <ul>
+      <li><a href="../../../guide/webapps/index.html">
+            <span class="en">Web Apps Overview</span>
+          </a></li>
+      <li><a href="../../../guide/webapps/targeting.html">
+            <span class="en">Targeting Screens from Web Apps</span>
+          </a></li>
+      <li><a href="../../../guide/webapps/webview.html">
+            <span class="en">Building Web Apps in WebView</span>
+          </a></li>
+      <li><a href="../../../guide/webapps/debugging.html">
+            <span class="en">Debugging Web Apps</span>
+          </a></li>
+      <li><a href="../../../guide/webapps/best-practices.html">
+            <span class="en">Best Practices for Web Apps</span>
+          </a></li>
+    </ul>
+  </li>
+
+  <li>
+    <span class="heading">
+      <span class="en">Appendix</span>
+      <span class="de" style="display:none">Anhang</span>
+      <span class="es" style="display:none">Apéndice</span>
+      <span class="fr" style="display:none">Annexes</span>
+      <span class="it" style="display:none">Appendice</span>
+      <span class="ja" style="display:none">付録</span>
+      <span class="zh-CN" style="display:none">附录</span>
+      <span class="zh-TW" style="display:none">附錄</span>
+    </span>
+    <ul>
+      <li><a href="../../../guide/appendix/api-levels.html">
+            <span class="en">Android API Levels</span>
+          </a></li>
+      <li><a href="../../../guide/appendix/install-location.html">
+            <span class="en">App Install Location</span>
+          </a></li>
+      <li><a href="../../../guide/appendix/media-formats.html">
+            <span class="en">Supported Media Formats</span>
+          </a></li>
+      <li><a href="../../../guide/appendix/g-app-intents.html">
+            <span class="en">Intents List: Google Apps</span>
+          </a></li>
+      <li><a href="../../../guide/developing/tools/aidl.html">AIDL</a></li>
+      <li><a href="../../../guide/appendix/glossary.html">
+            <span class="en">Glossary</span>
+          </a></li>
+    </ul>
+  </li>
+
+</ul>
+
+<script type="text/javascript">
+<!--
+    buildToggleLists();
+    changeNavLang(getLangPref());
+//-->
+</script>
+
+      </div>
+    </div> <!-- end side-nav -->
+    <script>
+      addLoadEvent(function() {
+        scrollIntoView("devdoc-nav");
+        });
+    </script>
+
+
+
+
+<div class="g-unit" id="doc-content"><a name="top"></a>
+
+<div id="jd-header" class="guide-header">
+  <span class="crumb" itemprop="breadcrumb">
+    
+      <a href="index.html">Application Resources</a>:
+    
+  </span>
+<h1 itemprop="name">Localization</h1>
+</div>
+
+  
+  <div id="jd-content">
+ 
+    
+
+
+    <div class="jd-descr" itemprop="articleBody">
+    <div id="qv-wrapper">
+    <div id="qv">
+
+<h2>Localization quickview</h2>
+
+<ul>
+  <li>Android lets you create different resource sets for different locales.</li>
+  <li>When your application runs, Android will load the resource set
+that match the device's locale.</li>
+  <li>If locale-specific resources are not available, Android falls back to
+defaults.</li>
+  <li>The emulator has features for testing localized apps. </li>
+</ul>
+
+<h2>In this document</h2>
+<ol>
+  <li><a href="#resource-switching">Overview: Resource-Switching in Android</a>
+
+</li>
+<ol><li><a href="#defaults-r-important">Why Default Resources Are Important</a></li></ol>
+<li><a href="#using-framework">Using Resources for Localization</a>
+  <ol>
+    <li><a href="#creating-defaults">How to Create Default Resources</a></li>
+    <li><a href="#creating-alternatives">How to Create Alternative Resources</a></li>
+    <li><a href="#resource-precedence">Which Resources Take Precedence?</a></li>
+    <li><a href="#referring-to-resources">Referring to Resources in Java</a></li>
+  </ol>
+</li>
+<li><a href="#strategies">Localization Strategies</a></li>
+<li><a href="#testing">Testing Localized Applications</a></li>
+  <ol>
+  <li><a href="#device">Testing on a Device</a></li>
+  <li><a href="#emulator">Testing on an Emulator</a></li>
+  <li><a href="#test-for-default">Testing for Default Resources</a></li>
+  </ol>
+<li><a href="#publishing">Publishing</a></li>
+<li><a href="#checklist">Localization Checklists</a></li>
+  <ol>
+  <li><a href="#planning-checklist">Planning and Design Checklist</a></li>
+  <li><a href="#content-checklist">Content Checklist</a></li>
+  <li><a href="#testing-checklist">Testing and Publishing Checklist</a></li>
+  </ol>
+</ol>
+
+<h2>See also</h2>
+  <ol>
+  <li><a
+href="../../../resources/tutorials/localization/index.html">Hello, L10N Tutorial</a></li>
+    <li><a href="../../../guide/topics/resources/providing-resources.html">Providing Resources</a></li>
+    <li><a href="../../../guide/topics/ui/declaring-layout.html">XML Layouts</a></li>
+    <li><a href="../../../reference/android/app/Activity.html#ActivityLifecycle">Activity Lifecycle</a></li>
+</ol>
+</div>
+</div>
+
+<p>Android will run on many  devices in many  regions. To reach the most users,
+your application should handle text, audio files, numbers, currency, and
+graphics in ways appropriate to the locales where your application will be used.
+</p>
+
+<p>This document describes best practices for localizing Android
+applications. The principles apply whether you are developing your application  
+using ADT with Eclipse, Ant-based tools, or any other IDE. </p>
+
+<p>You should already have a working knowledge of Java and be  familiar with
+Android resource loading, the declaration of user interface elements in XML,
+development considerations such as Activity lifecycle, and general principles of
+internationalization and localization. </p>
+
+<p>It is good practice to use the Android resource framework to separate the
+localized aspects of your application as much as possible from the core Java
+functionality:</p>
+
+<ul>
+  <li>You can put most or all of the <em>contents</em> of your application's
+user interface into resource files, as described in this document and in <a
+href="../../../guide/topics/resources/providing-resources.html">Providing Resources</a>.</li>
+  <li>The <em>behavior</em> of the user interface, on the other hand, is driven
+by your Java code. 
+    For example, if users input data that needs to be formatted or sorted
+differently depending on locale, then you would use Java to handle the data
+programmatically. This document does not cover how to  localize your Java code.
+</li>
+</ul>
+
+<p>The <a
+href="../../../resources/tutorials/localization/index.html">Hello, L10N
+</a> tutorial takes you through the steps of creating a simple localized
+application that uses  locale-specific resources in the way described in this
+document. </p>
+
+
+<h2 id="resource-switching">Overview: Resource-Switching in Android</h2>
+
+<p>Resources are text strings, layouts, sounds, graphics, and any other static
+data that your  Android application  needs. An application can include multiple
+sets of resources, each customized for a different device configuration. When a
+user runs the application,  Android    automatically selects and loads the 
+resources that best match the device.</p>
+
+<p>(This document focuses on localization and locale. For a complete description
+of resource-switching and all the types of configurations that you can
+specify &#8212; screen orientation, touchscreen type, and so on &#8212; see <a
+href="../../../guide/topics/resources/providing-resources.html#AlternativeResources">Providing
+Alternative Resources</a>.)</p>
+
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr border="0">
+    <td width="180" style="border: 0pt none ;"><p class="special-note">
+    <strong>When you write your application:</strong>
+    <br><br>
+    You create a set of default resources, plus alternatives to be used in
+    different locales.</p></td>
+    <td style="border: 0pt none; padding:0">
+    <p style="border:0; padding:0"><img src="../../../images/resources/right-arrow.png" alt="right-arrow" 
+    width="51" height="17"></p></td>
+    <td width="180" style="border: 0pt none ;"><p class="special-note">
+    <strong>When a user runs your application:</strong>
+    <br><br>The Android system selects which resources to load, based on the
+    device's locale.</p></td>
+  </tr>
+</table>
+
+<p>When you write your application, you create default and alternative resources
+for your application to use. To create  resources, you place files within
+specially named subdirectories of the project's <code>res/</code> directory.
+</p>
+
+
+
+<h3 id="defaults-r-important">Why Default Resources Are Important</h3>
+
+<p>Whenever the application runs in a locale for which you have not provided
+locale-specific text,  Android will load the default strings from
+<code>res/values/strings.xml</code>. If this default  file is absent, or if it 
+is missing a string that your application needs, then your application will not run 
+and will show an error. 
+The example below illustrates what can happen when the default text file is incomplete. </p>
+
+<p><em>Example:</em>
+<p>An application's Java code refers to just two strings, <code>text_a</code> and 
+	<code>text_b</code>. This application includes a localized resource file 
+	(<code>res/values-en/strings.xml</code>) that defines <code>text_a</code> and 
+	<code>text_b</code> in English. This application also includes a default 
+	resource file (<code>res/values/strings.xml</code>) that includes a
+definition for <code>text_a</code>, but not for <code>text_b</code>:
+<ul>
+  <li>This application might compile without a problem. An IDE such as Eclipse 
+  	will not highlight any errors if a resource is missing.</li>
+  <li>When this application is launched on a device with locale set to English, 
+  	the application  might run without a problem, because 
+  	<code>res/values-en/strings.xml</code> contains both of the needed text 
+  	strings.</li>
+  <li>However, <strong>the user  will see an error message and a Force Close 
+  	button</strong> when this application is launched on a device set to a 
+  	language other than English. The application will not load.</li>
+</ul>
+
+
+<p>To prevent this situation, make sure that a <code>res/values/strings.xml</code> 
+	file exists and that it defines every needed string. The situation applies to 
+	all types of resources, not just strings: You 
+	need to create a  set of default resource files containing all 
+	the resources that your application calls upon &#8212; layouts, drawables, 
+	animations, etc. For information about testing, see <a href="#test-for-default">
+	Testing for Default Resources</a>.</p>
+
+<h2 id="using-framework">Using Resources for Localization</h2>
+
+<h3 id="creating-defaults">How to Create Default Resources</h3>
+
+<p>Put the application's default text in
+a file with the following location and name:</p>
+<p><code>&nbsp;&nbsp;&nbsp;&nbsp;res/values/strings.xml</code> (required directory)</p>
+
+<p>The text strings in <code>res/values/strings.xml</code> should  use the
+default language, which is the language that you expect most of your application's users to
+speak.  </p>
+
+<p>The default resource set must also include any default drawables and layouts, 
+	and can include other types of resources such as animations. 
+<br>
+  <code>&nbsp;&nbsp;&nbsp;&nbsp;res/drawable/</code>(required directory holding at least
+  one graphic file, for the application's icon on Google Play)<br>
+  <code>&nbsp;&nbsp;&nbsp;&nbsp;res/layout/</code> (required directory holding an XML
+  file that defines the default layout)<br>
+  <code>&nbsp;&nbsp;&nbsp;&nbsp;res/anim/</code> (required if you have any 
+  <code>res/anim-<em>&lt;qualifiers&gt;</em></code> folders)<br>
+  <code>&nbsp;&nbsp;&nbsp;&nbsp;res/xml/</code> (required if you have any 
+  <code>res/xml-<em>&lt;qualifiers&gt;</em></code> folders)<br>
+  <code>&nbsp;&nbsp;&nbsp;&nbsp;res/raw/</code> (required if you have any 
+  <code>res/raw-<em>&lt;qualifiers&gt;</em></code> folders)
+</p>
+
+<p class="note"><strong>Tip:</strong> In your code, examine each reference to 
+	an Android resource. Make sure that a default resource is defined for each
+	one. Also make sure that the default string file is complete: A <em>
+	localized</em> string file can contain a subset of the strings, but the 
+	<em>default</em> string file must contain them all. 
+</p>
+
+<h3 id="creating-alternatives">How to Create Alternative Resources</h3>
+
+<p>A large part of localizing an application is providing alternative text for
+different languages. In some cases you will also provide alternative graphics,
+sounds, layouts, and other locale-specific resources. </p>
+
+<p>An application can specify many <code>res/<em>&lt;qualifiers&gt;</em>/</code>
+directories, each with different qualifiers. To create an alternative resource for
+a different locale, you use a qualifier that specifies a language or a 
+language-region combination. (The name of a resource directory must conform 
+to the naming scheme described in 
+<a href="../../../guide/topics/resources/providing-resources.html#AlternativeResources">Providing
+Alternative Resources</a>,
+or else it will not compile.)</p>
+
+<p><em>Example:</em></p>
+
+<p>Suppose that your application's default language is English. Suppose also
+that you want to localize all the text in your application to French, and most
+of the text in your application (everything except the application's title) to
+Japanese. In this case, you could create three alternative <code>strings.xml</code>
+files, each stored in a locale-specific resource directory:</p>
+
+<ol>
+  <li><code>res/values/strings.xml</code><br>
+    Contains  English text for all  the strings that the application uses,
+including text for a string named <code>title</code>.</li>
+  <li><code>res/values-fr/strings.xml</code><br>
+    Contain French text for all  the strings, including <code>title</code>.</li>
+  <li><code>res/values-ja/strings.xml</code><br>
+    Contain Japanese text for all  the strings <em>except</em>
+<code>title</code>.<br>
+  <code></code></li>
+</ol>
+
+<p>If your Java code refers to <code>R.string.title</code>,  here is what will
+happen at runtime:</p>
+
+<ul>
+  <li>If the device is set to any language other than French, Android will load
+<code>title</code> from the <code>res/values/strings.xml</code> file.</li>
+  <li>If the device is set to French, Android will load <code>title</code> from
+the <code>res/values-fr/strings.xml</code> file.</li>
+</ul>
+
+<p>Notice that if the device is set to Japanese, Android will look for
+<code>title</code> in the <code>res/values-ja/strings.xml</code> file. But
+because no such string is included in that file, Android will fall back to the
+default, and will load  <code>title</code> in English from the
+<code>res/values/strings.xml</code> file.  </p>
+
+<h3 id="resource-precedence">Which Resources Take Precedence?</h3>
+
+<p> If multiple resource files match a device's configuration, Android follows a
+set of rules in deciding which file to use. Among the qualifiers that can be
+specified in a resource directory name, <strong>locale almost always takes
+precedence</strong>. </p>
+<p><em>Example:</em></p>
+
+<p>Assume that an application  includes a default set of graphics and two other
+sets of graphics, each optimized for a different device setup:</p>
+
+<ul>
+  <li><code>res/drawable/</code><br>
+    Contains
+  default graphics.</li>
+  <li><code>res/drawable-small-land-stylus/</code><br>
+  Contains  graphics optimized for use with a device that expects input from a 
+  stylus and has a QVGA low-density screen in landscape orientation.</li>
+  <li><code>res/drawable-ja/</code> <br>
+  Contains  graphics optimized for use with Japanese.</li>
+</ul>
+
+<p>If the application runs on a device that is configured to use Japanese,
+Android will load graphics from  <code>res/drawable-ja/</code>, even if the
+device happens to be one that expects input from a stylus and has a QVGA 
+low-density screen in landscape orientation.</p>
+
+<p class="note"><strong>Exception:</strong> The only qualifiers that take
+precedence over locale in the selection process are MCC and MNC (mobile country
+code and mobile network code). </p>
+
+<p><em>Example:</em></p>
+
+<p>Assume that you have the following situation:</p>
+
+<ul>
+  <li>The application code calls for <code>R.string.text_a</code></li>
+  <li>Two relevant resource files are available:
+    <ul>
+      <li><code>res/values-mcc404/strings.xml</code>, which includes
+<code>text_a</code> in the application's default language, in this case
+English.</li>
+      <li><code>res/values-hi/strings.xml</code>, which includes
+<code>text_a</code> in Hindi.</li>
+    </ul>
+  </li>
+  <li>The application is running on a device that has the following
+configuration:
+    <ul>
+      <li>The SIM card is connected to a mobile network in India (MCC 404).</li>
+      <li>The language is set to Hindi (<code>hi</code>).</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Android will load <code>text_a</code> from
+<code>res/values-mcc404/strings.xml</code> (in English), even if the device is
+configured for Hindi. That is because in the resource-selection process, Android
+will prefer an MCC match over a language match. </p>
+
+<p>The selection process is not always as straightforward as these examples
+suggest. Please read  <a
+href="../../../guide/topics/resources/providing-resources.html#BestMatch">How Android Finds
+the Best-matching Resource</a> for a more nuanced description of the
+process. All the qualifiers are described and listed in order of
+precedence in <a
+href="../../../guide/topics/resources/providing-resources.html#table2">Table 2 of Providing
+Alternative Resources</a>.</p>
+
+<h3 id="referring-to-resources">Referring to Resources in Java</h3>
+
+<p>In your application's Java code, you refer to  resources using the syntax
+<code>R.<em>resource_type</em>.<em>resource_name</em></code> or
+<code>android.R.<em>resource_type</em>.<em>resource_name</em></code><em>.</em>
+For more about this, see <a
+href="../../../guide/topics/resources/accessing-resources.html">Accessing Resources</a>.</p>
+
+<h2 id="strategies">Localization Strategies</h2>
+
+<h4 id="failing2">Design your application  to work in any locale</h4>
+
+<p>You cannot assume anything about the device on which a user will
+run your application. The device might have hardware that you were not
+anticipating, or it might be set to a locale that you did not plan for or that 
+you cannot test. Design your application so that it will function normally or fail gracefully no 
+matter what device it runs on.</p>
+
+<p class="note"><strong>Important:</strong> Make sure that your application
+includes a full set of default resources.</p> <p>Make sure to include
+<code>res/drawable/</code> and a <code>res/values/</code> folders (without any
+additional modifiers in the folder names) that contain all the images and text
+that your application will need. </p>
+
+<p>If an application is missing even one default resource, it will not run on a 
+	device that is set to an unsupported locale. For example, the 
+	<code>res/values/strings.xml</code> default file might lack one string that 
+	the application needs: When the application runs in an unsupported locale and 
+	attempts to load <code>res/values/strings.xml</code>, the user will see an 
+	error message and a Force Close button. An IDE such as Eclipse will not 
+	highlight this kind of error, and you will not see the problem when you 
+	test the application on a device or emulator that is set to a supported locale.</p>
+
+<p>For more information, see <a href="#test-for-default">Testing for Default Resources</a>.</p>
+
+<h4>Design a flexible layout</h4>
+
+<p> If you need to rearrange your layout to fit a certain language (for example
+German with its long words), you can create an alternative layout for that
+language (for example <code>res/layout-de/main.xml</code>). However, doing this
+can make your application harder to maintain.  It is better to create a single
+layout that is more flexible.</p>
+
+<p>Another typical situation is a language that requires something different in
+its layout. For example, you might have a contact form that should include  two
+name fields when the application runs in Japanese, but three name fields when
+the application  runs in some other language. You could handle this in either of
+two ways:</p>
+
+<ul>
+  <li>Create  one  layout with a field that you can programmatically enable or
+disable, based on the language, or</li>
+  <li>Have the main layout include another layout that  includes the changeable
+field. The second layout can have different configurations for different
+languages.</li>
+</ul>
+
+<h4>Avoid creating more resource files and text strings than you need</h4>
+
+<p>You probably do not need to create a locale-specific
+alternative for every resource in your application. For example, the layout
+defined in the <code>res/layout/main.xml</code> file might work in any locale,
+in which case there would be no need to create any alternative layout files.
+</p>
+
+<p>Also, you might not need to create alternative text for every
+string. For example, assume the following:</p>
+
+<ul>
+  <li>Your application's default language is American
+English. Every string that the application uses is defined, using American
+English spellings, in <code>res/values/strings.xml</code>. </li>
+
+  <li>For  a few important phrases, you want to provide
+British English spelling. You want these alternative strings to be used when your
+application runs on a device in the United Kingdom. </li>
+</ul>
+
+<p>To do this, you could create a small file called
+<code>res/values-en-rGB/strings.xml</code> that includes only the strings that
+should be different when the application  runs in the U.K. For all the rest of
+the strings, the application will fall back to the defaults and use what is
+defined in <code>res/values/strings.xml</code>.</p>
+
+<h4>Use the Android Context object for manual locale lookup</h4>
+
+<p>You can look up the locale using the <code><a href="../../../reference/android/content/Context.html">Context</a></code> object
+that Android makes available:</p>
+
+<pre>String locale = context.getResources().getConfiguration().locale.getDisplayName();</pre>
+
+<h2 id="testing">Testing Localized Applications</h2>
+
+<h3 id="device">Testing on a Device</h3>
+<p>Keep in mind that the device you are testing may be significantly different from 
+	the devices available to consumers in other geographies. The locales available 
+	on your device may differ from those available on other devices. Also, the 
+	resolution and density of the device screen may differ, which could affect 
+	the display of strings and drawables in your UI.</p>
+
+<p>To change the locale on a device, use  the Settings application  (Home &gt;
+Menu &gt; Settings &gt; Locale &amp; text &gt; Select locale). </p>
+
+<h3 id="emulator">Testing on an Emulator</h3>
+
+<p>For details about using the emulator, see See <a
+href="../../../guide/developing/tools/emulator.html">Android Emulator</a>.</p>
+<h4>Creating and using a custom locale</h4>
+
+<p>A &quot;custom&quot; locale is a language/region combination that the Android
+system image does not explicitly support. (For a list of supported locales in
+Android platforms see the Version Notes in the <a
+href="../../../sdk/index.html">SDK</a> tab). You can test
+how your application will run in a custom locale by creating a custom locale in
+the emulator. There are two ways to do this:</p>
+
+<ul>
+  <li>Use the Custom Locale application, which is accessible from the
+Application tab. (After you create a custom locale, switch to it by 
+pressing and holding the locale name.)</li>
+  <li>Change to a custom locale from the adb shell, as described below.</li>
+</ul>
+
+<p>When you set the emulator to a locale that is not available in the Android
+system image, the system itself will display in its default language. Your
+application, however, should localize properly.</p>
+
+<h4>Changing the emulator locale from the adb shell</h4>
+
+<p>To change the locale in the emulator by using the adb shell. </p>
+
+<ol>
+  <li>Pick the locale you want to test and determine its language and region codes, for
+example <code>fr</code> for French and <code>CA</code> for Canada.<br>
+  </li>
+  <li>Launch an emulator.</li>
+  <li>From a command-line shell on the host computer, run the following
+command:<br>
+    <code>adb shell</code><br>
+  or if you have a device attached, specify that you want the emulator by adding
+the <code>-e</code> option:<br>
+  <code>adb -e shell</code></li>
+  <li>At  the  adb shell prompt (<code>#</code>), run this command: <br>
+    <code>setprop persist.sys.language  [<em>language code</em>];setprop
+persist.sys.country [<em>country  code</em>];stop;sleep 5;start <br>
+    </code>Replace bracketed sections with the  appropriate codes from Step
+1.</li>
+</ol>
+
+<p>For instance, to test in Canadian French:</p>
+
+<p><code>setprop persist.sys.language  fr;setprop persist.sys.country
+CA;stop;sleep 5;start </code></p>
+
+<p>This will cause the emulator  to restart. (It will look like a full reboot,
+but it is not.) Once the Home screen appears again, re-launch your application (for
+example, click the Run icon in Eclipse), and the application will launch with
+the new locale. </p>
+
+<h3 id="test-for-default">Testing for Default Resources</h3>
+<p>Here's how to test whether an application includes every string resource that it needs:  </p>
+<ol><li>Set the emulator or device to a language that your application does not 
+	support. For example, if the application has French strings in 
+	<code>res/values-fr/</code> but does not have any Spanish strings in 
+	<code>res/values-es/</code>, then set the emulator's locale to Spanish. 
+	(You can use the Custom Locale application to set the emulator to an 
+	unsupported locale.)</li>
+	<li>Run the application.</li>  
+<li>If the application shows an error message and a Force Close button, it might 
+	be looking for a string that is not available. Make sure that your 
+	<code>res/values/strings.xml</code> file includes a definition for 
+	every string that the application uses.</li>
+</ol> 
+</p> 
+
+<p>If the test is successful, repeat it for other types of 
+	configurations. For example, if the application has a layout file called 
+	<code>res/layout-land/main.xml</code> but does not contain a file called 
+	<code>res/layout-port/main.xml</code>, then set the emulator or device to 
+	portrait orientation and see if the application will run. 
+
+<h2 id="publishing">Publishing Localized Applications</h2>
+
+<p>The Google Play is
+  the main application distribution system for Android devices. To publish a 
+  localized application, you need to sign your application, version it, and go
+through all the other steps described in <a
+href="../../../guide/publishing/preparing.html">Preparing to Publish</a>. </p>
+
+<p>If you split your application in several .apk files, each targeted to a
+different locale, follow these guidelines:</p>
+
+<ul>
+  <li>Sign each .apk file with the same certificate. For more about this, see <a
+href="../../../guide/publishing/app-signing.html#strategies">Signing
+Strategies</a>. </li>
+  <li>Give each .apk file a different application name. Currently it is
+impossible to publish two applications on Google Play that have exactly the
+same name.</li>
+<li>Include a complete set of default resources in each .apk file.</li>
+</ul>
+
+<h2 id="checklist">Localization Checklists</h2>
+
+<p>These  checklists summarize the process of localizing an Android application.
+Not everything on these lists will apply to every application.</p>
+
+<h3 id="planning-checklist">Planning and Design Checklist</h3>
+
+<table  width="100%" border="0" cellpadding="5" cellspacing="0">
+  <tr>
+    <td valign="top" align="center"><img src="../../../images/resources/arrow.png" alt="arrow" width="26"
+border="0"></td>
+    <td>Choose a localization strategy. Which countries and which languages will
+your application support? What is your application's default country and
+language? How will your application behave when it does not have specific
+resources available for a given locale?</td>
+  </tr>
+  <tr>
+    <td valign="top" align="center"><img src="../../../images/resources/arrow.png" alt="arrow" width="26"
+border="0"></td>
+    <td><p>Identify everything in your application   that will need to be
+localized: </p>
+      <ul>
+        <li>Consider  specific details of your application &#8212; text,  images, 
+sounds, music, numbers, money, dates and times. You might not need to localize
+everything. For example, you don't need to localize text that the user never
+sees, or images that are culturally neutral, or icons that convey the same
+meaning in every locale. </li>
+        <li>Consider broad themes. For example, if you hope to sell your
+application in two very culturally different markets, you might want to design
+your UI and present your application in an entirely different way for each
+locale.</li>
+    </ul></td>
+  </tr>
+  <tr>
+    <td valign="top" align="center"><img src="../../../images/resources/arrow.png" alt="arrow" width="26"
+border="0"></td>
+    <td><p>Design your Java code to externalize resources wherever possible:</p>
+      <ul>
+        <li>Use <code>R.string</code> and <code>strings.xml</code> files instead
+of hard-coded strings or string constants. </li>
+        <li>Use <code>R.drawable</code> and <code>R.layout</code> instead of 
+hard-coded drawables or layouts. </li>
+    </ul></td>
+  </tr>
+</table>
+<h3 id="content-checklist">Content Checklist</h3>
+<table border="0" cellspacing="0" cellpadding="5"  width="100%">
+  <tr>
+    <td valign="top" align="center"><img src="../../../images/resources/arrow.png" alt="arrow" width="26"
+border="0"></td>
+    <td>Create a full set of default resources in <code>res/values/</code> and
+other <code>res/</code> folders, as described in <a
+href="#creating-defaults">Creating Default Resources</a>.</td>
+  </tr>
+  <tr>
+    <td valign="top" align="center"><img src="../../../images/resources/arrow.png" alt="arrow" width="26"
+border="0"></td>
+    <td>Obtain reliable translations of  the static text, including menu text,
+button names, error messages, and help text. Place the translated strings in
+<code>res/values-<em>&lt;qualifiers&gt;</em>/strings.xml</code> files. </td>
+  </tr>
+  <tr>
+    <td valign="top" align="center"><img src="../../../images/resources/arrow.png" alt="arrow" width="26"
+border="0"></td>
+    <td>Make sure that your application correctly formats dynamic text (for
+example numbers and dates) for each supported locale. Make sure that your
+application handles word breaks, punctuation, and alphabetical sorting correctly
+for each supported language.</td>
+  </tr>
+  <tr>
+    <td valign="top" align="center"><img src="../../../images/resources/arrow.png" alt="arrow" width="26"
+border="0"></td>
+    <td>If necessary, create locale-specific versions of your graphics and
+layout, and place them in <code>res/drawable-<em>&lt;qualifiers&gt;</em>/</code> and
+<code>res/layout-<em>&lt;qualifiers&gt;</em>/</code> folders.</td>
+  </tr>
+  <tr>
+    <td valign="top" align="center"><img src="../../../images/resources/arrow.png" alt="arrow" width="26"
+border="0"></td>
+    <td>Create any other localized content that your application requires; for
+example, create recordings of sound files for each language, as needed.</td>
+  </tr>
+</table>
+<h3 id="testing-checklist">Testing and Publishing Checklist</h3>
+    <table border="0" cellspacing="0" cellpadding="5" width="100%">
+  <tr>
+    <td valign="top" align="center"><img src="../../../images/resources/arrow.png" alt="arrow" width="26"
+border="0"></td>
+    <td>Test your application for each supported locale. If possible, have a
+person who is native to each locale test your application and give you
+feedback.</td>
+  </tr>
+  <tr>
+    <td valign="top" align="center"><img src="../../../images/resources/arrow.png" alt="arrow" width="26"
+border="0"></td>
+    <td>Test the default resources by loading a locale that is not available on 
+    	the device or emulator. For instructions, see <a href="#test-for-default">
+    		Testing for Default Resources</a>.  </td>
+  </tr>
+    <tr>
+    <td valign="top" align="center"><img src="../../../images/resources/arrow.png" alt="arrow" width="26"
+border="0"></td>
+    <td>Test the localized strings in both landscape and portrait display modes.</td>
+  </tr>
+    <tr>
+    <td valign="top" align="center"><img src="../../../images/resources/arrow.png" alt="arrow" width="26"
+border="0"></td>
+    <td>Sign your application and create your final build or builds.</td>
+  </tr>
+  <tr>
+    <td valign="top" align="center"><img src="../../../images/resources/arrow.png" alt="arrow" width="26"
+border="0"></td>
+    <td>Upload your .apk file or files to Google Play, selecting the appropriate
+languages as
+    you upload. (For more details, see <a
+href="../../../guide/publishing/publishing.html">Publishing Your
+Applications</a>.)</td>
+  </tr>
+</table>
+    </div>
+
+    
+    
+    <a href="#top" style="float:right">&uarr; Go to top</a>
+    
+      <p><a href="index.html">&larr; Back to Application Resources</a></p>
+    
+
+  </div> <!-- end jd-content -->
+
+<div id="footer">
+
+
+  <div id="copyright">
+    
+  Except as noted, this content is licensed under <a
+  href="http://www.apache.org/licenses/LICENSE-2.0">Apache 2.0</a>. 
+  For details and restrictions, see the <a href="../../../license.html">
+  Content License</a>.
+  </div>
+  <div id="build_info">
+    
+  Android 4.0&nbsp;r1 - 16 Mar 2012 16:45
+
+  </div>
+
+  <div id="footerlinks">
+    
+  <p>
+    <a href="http://www.google.com/intl/en/policies/" target="_blank">Privacy &amp; Terms</a> -
+    <a href="http://www.android.com/branding.html" target="_blank">Brand Guidelines</a> -
+    <a
+href="http://code.google.com/p/android/issues/entry?template=Developer%20Documentation"
+target="_blank">Report Document Issues</a>
+  </p>
+  </div>
+
+</div> <!-- end footer -->
+
+</div><!-- end doc-content -->
+
+</div> <!-- end body-content --> 
+
+<script type="text/javascript">
+init(); /* initialize android-developer-docs.js */
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-5831155-1");
+pageTracker._trackPageview();
+</script>
+
+</body>
+</html>
+
+
+

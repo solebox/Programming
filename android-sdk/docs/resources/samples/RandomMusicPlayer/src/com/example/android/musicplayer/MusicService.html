@@ -1,0 +1,1270 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<link rel="shortcut icon" type="image/x-icon" href="../../../../../../../../favicon.ico" />
+<title>MusicService.java | Android Developers</title>
+<link href="../../../../../../../../assets/android-developer-docs-devguide.css" rel="stylesheet" type="text/css" />
+<script src="../../../../../../../../assets/search_autocomplete.js" type="text/javascript"></script>
+<script src="../../../../../../../../assets/jquery-resizable.min.js" type="text/javascript"></script>
+<script src="../../../../../../../../assets/android-developer-docs.js" type="text/javascript"></script>
+<script src="../../../../../../../../assets/prettify.js" type="text/javascript"></script>
+<script type="text/javascript">
+  setToRoot("../../../../../../../../");
+</script>
+<script src="../../../../../../../../resources/resources-data.js" type="text/javascript"></script>
+<noscript>
+  <style type="text/css">
+    html,body{overflow:auto;}
+    #body-content{position:relative; top:0;}
+    #doc-content{overflow:visible;border-left:3px solid #666;}
+    #side-nav{padding:0;}
+    #side-nav .toggle-list ul {display:block;}
+    #resize-packages-nav{border-bottom:3px solid #666;}
+  </style>
+</noscript>
+</head>
+
+  <div id="header">
+      <div id="headerLeft">
+          <a href="../../../../../../../../index.html" tabindex="-1"><img
+              src="../../../../../../../../assets/images/bg_logo.png" alt="Android Developers" /></a>
+          <ul id="header-tabs" class="resources">
+    
+	<li id="home-link"><a href="../../../../../../../../offline.html">
+	
+		<span class="en">Home</span>
+		<span style="display:none" class="de">Startseite</span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ホーム</span>
+		<span style="display:none" class="zh-CN">主页</span>
+		<span style="display:none" class="zh-TW">首頁</span>
+	
+	</a></li>
+	<li id="sdk-link"><a href="../../../../../../../../sdk/index.html">
+		<span class="en">SDK</span>
+	</a></li>
+	<li id="guide-link"><a href="../../../../../../../../guide/index.html" onClick="return loadLast('guide')">
+	
+		<span class="en">Dev Guide</span>
+		<span style="display:none" class="de">Handbuch</span>
+		<span style="display:none" class="es">Guía</span>
+		<span style="display:none" class="fr">Guide</span>
+		<span style="display:none" class="it">Guida</span>
+		<span style="display:none" class="ja">開発ガイド</span>
+		<span style="display:none" class="zh-CN">开发人员指南</span>
+		<span style="display:none" class="zh-TW">開發指南</span>
+	
+	</a></li>
+	<li id="reference-link"><a href="../../../../../../../../reference/packages.html" onClick="return loadLast('reference')">
+	
+		<span class="en">Reference</span>
+		<span style="display:none" class="de">Referenz</span>
+		<span style="display:none" class="es">Referencia</span>
+		<span style="display:none" class="fr">Référence</span>
+		<span style="display:none" class="it">Riferimento</span>
+		<span style="display:none" class="ja">リファレンス</span>
+		<span style="display:none" class="zh-CN">参考</span>
+		<span style="display:none" class="zh-TW">參考資料</span>
+	
+	</a></li>
+	<li id="resources-link"><a href="../../../../../../../../resources/index.html" onClick="return loadLast('resources')">
+	
+		<span class="en">Resources</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+    		<span style="display:none" class="ja"></span>
+		<span style="display:none" class="zh-CN"></span>
+		<span style="display:none" class="zh-TW"></span>
+	
+	</a></li>
+	<li id="videos-link"><a href="../../../../../../../../videos/index.html" onClick="return loadLast('videos')">
+	
+		<span class="en">Videos</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ビデオ</span>
+		<span style="display:none" class="zh-CN"></span>
+		<span style="display:none" class="zh-TW"></span>
+	
+	</a></li>
+	<li><a href="http://android-developers.blogspot.com" onClick="return requestAppendHL(this.href)">
+	
+		<span class="en">Blog</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ブログ</span>
+		<span style="display:none" class="zh-CN">博客</span>
+		<span style="display:none" class="zh-TW">網誌</span>
+	
+	</a></li>
+
+
+     
+</ul>
+     
+      </div>
+      <div id="headerRight">
+          <div id="headerLinks">
+          &nbsp;&nbsp;
+          <a href="../../../../../../../../design/index.html">Android Design</a>&nbsp;&nbsp;
+          <a href="http://www.android.com">Android.com</a>
+          </div>
+  <div id="search" >
+      <div id="searchForm">
+          <form accept-charset="utf-8" class="gsc-search-box" 
+                onsubmit="return submit_search()">
+            <table class="gsc-search-box" cellpadding="0" cellspacing="0"><tbody>
+                <tr>
+                  <td class="gsc-input">
+                    <input id="search_autocomplete" class="gsc-input" type="text" size="33" autocomplete="off"
+                      title="search developer docs" name="q"
+                      value="search developer docs"
+                      onFocus="search_focus_changed(this, true)"
+                      onBlur="search_focus_changed(this, false)"
+                      onkeydown="return search_changed(event, true, '../../../../../../../../')"
+                      onkeyup="return search_changed(event, false, '../../../../../../../../')" />
+                  <div id="search_filtered_div" class="no-display">
+                      <table id="search_filtered" cellspacing=0>
+                      </table>
+                  </div>
+                  </td>
+                  <td class="gsc-search-button">
+                    <input type="submit" value="Search" title="search" id="search-button" class="gsc-search-button" />
+                  </td>
+                  <td class="gsc-clear-button">
+                    <div title="clear results" class="gsc-clear-button">&nbsp;</div>
+                  </td>
+                </tr></tbody>
+              </table>
+          </form>
+      </div><!-- searchForm -->
+  </div><!-- search -->
+      </div><!-- headerRight -->
+      <script type="text/javascript">
+        <!--  
+        changeTabLang(getLangPref());
+        //-->
+      </script>
+  </div><!-- header -->
+
+  <div class="g-section g-tpl-200" id="body-content">
+    <div class="g-unit g-first" id="side-nav" itemscope itemtype="http://schema.org/SiteNavigationElement">
+      <div id="devdoc-nav"><ul>
+  <li>
+    <span class="heading">
+      <span class="en">Android Training</span>
+    </span>
+    <ul>
+      
+      <li><a href="../../../../../../../../training/index.html">
+            <span class="en">Orientation</span>
+          </a>
+      </li>
+
+      <li class="toggle-list">
+        <div><a href="../../../../../../../../training/multiscreen/index.html">
+            <span class="en">Designing for Multiple Screens</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../../../../../../training/multiscreen/screensizes.html">
+            <span class="en">Supporting Different Screen Sizes</span>
+          </a>
+          </li>
+          <li><a href="../../../../../../../../training/multiscreen/screendensities.html">
+            <span class="en">Supporting Different Screen Densities</span>
+          </a>
+          </li>
+          <li><a href="../../../../../../../../training/multiscreen/adaptui.html">
+            <span class="en">Implementing Adaptive UI Flows</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+      
+      <li class="toggle-list">
+        <div><a href="../../../../../../../../training/improving-layouts/index.html">
+            <span class="en">Improving Layout Performance</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../../../../../../training/improving-layouts/optimizing-layout.html">
+            <span class="en">Optimizing Layout Hierarchies</span>
+          </a>
+          </li>
+          <li><a href="../../../../../../../../training/improving-layouts/reusing-layouts.html">
+            <span class="en">Re-using Layouts with &lt;include/&gt;</span>
+          </a>
+          </li>
+          <li><a href="../../../../../../../../training/improving-layouts/loading-ondemand.html">
+            <span class="en">Loading Views On Demand</span>
+          </a>
+          </li>
+          <li><a href="../../../../../../../../training/improving-layouts/smooth-scrolling.html">
+            <span class="en">Making ListView Scrolling Smooth</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+      
+      <li class="toggle-list">
+        <div><a href="../../../../../../../../training/managing-audio/index.html">
+            <span class="en">Managing Audio Playback</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../../../../../../training/managing-audio/volume-playback.html">
+            <span class="en">Controlling Your App’s Volume and Playback</span>
+          </a>
+          </li>
+          <li><a href="../../../../../../../../training/managing-audio/audio-focus.html">
+            <span class="en">Managing Audio Focus</span>
+          </a>
+          </li>
+          <li><a href="../../../../../../../../training/managing-audio/audio-output.html">
+            <span class="en">Dealing with Audio Output Hardware</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+      
+      <li class="toggle-list">
+        <div><a href="../../../../../../../../training/monitoring-device-state/index.html">
+            <span class="en">Optimizing Battery Life</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../../../../../../training/monitoring-device-state/battery-monitoring.html">
+            <span class="en">Monitoring the Battery Level and Charging State</span>
+          </a>
+          </li>
+          <li><a href="../../../../../../../../training/monitoring-device-state/docking-monitoring.html">
+            <span class="en">Determining and Monitoring the Docking State and Type</span>
+          </a>
+          </li>
+          <li><a href="../../../../../../../../training/monitoring-device-state/connectivity-monitoring.html">
+            <span class="en">Determining and Monitoring the Connectivity Status</span>
+          </a>
+          </li>
+          <li><a href="../../../../../../../../training/monitoring-device-state/manifest-receivers.html">
+            <span class="en">Manipulating Broadcast Receivers On Demand</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="toggle-list">
+        <div><a href="../../../../../../../../training/search/index.html">
+            <span class="en">Adding Search Functionality</span>
+          </a> <span class="new">new!</span>
+        </div>
+        <ul>
+          <li><a href="../../../../../../../../training/search/setup.html">
+            <span class="en">Setting up the Search Interface</span>
+          </a>
+          </li>
+          <li><a href="../../../../../../../../training/search/search.html">
+            <span class="en">Storing and Searching for Data</span>
+          </a>
+          </li>
+          <li><a href="../../../../../../../../training/search/backward-compat.html">
+            <span class="en">Remaining Backward Compatible</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="toggle-list">
+        <div><a href="../../../../../../../../training/id-auth/index.html">
+            <span class="en">Remembering Users</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../../../../../../training/id-auth/identify.html">
+            <span class="en">Remembering Your User</span>
+          </a>
+          </li>
+          <li><a href="../../../../../../../../training/id-auth/authenticate.html">
+            <span class="en">Authenticating to OAuth2 Services</span>
+          </a>
+          </li>
+          <li><a href="../../../../../../../../training/id-auth/custom_auth.html">
+            <span class="en">Creating a Custom Account Type</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="toggle-list">
+        <div><a href="../../../../../../../../training/sharing/index.html">
+            <span class="en">Sharing Content</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../../../../../../training/sharing/send.html">
+            <span class="en">Sending Content to Other Apps</span>
+          </a>
+          </li>
+          <li><a href="../../../../../../../../training/sharing/receive.html">
+            <span class="en">Receiving Content from Other Apps</span>
+          </a>
+          </li>
+          <li><a href="../../../../../../../../training/sharing/shareaction.html">
+            <span class="en">Adding an Easy Share Action</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+      
+      <li class="toggle-list">
+        <div><a href="../../../../../../../../training/camera/index.html">
+            <span class="en">Capturing Photos</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../../../../../../training/camera/photobasics.html">
+            <span class="en">Taking Photos Simply</span>
+          </a>
+          </li>
+          <li><a href="../../../../../../../../training/camera/videobasics.html">
+            <span class="en">Recording Videos Simply</span>
+          </a>
+          </li>
+          <li><a href="../../../../../../../../training/camera/cameradirect.html">
+            <span class="en">Controlling the Camera</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+      
+      <li class="toggle-list">
+        <div><a href="../../../../../../../../training/multiple-apks/index.html">
+            <span class="en">Maintaining Multiple APKs</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../../../../../../training/multiple-apks/api.html">
+            <span class="en">Creating Multiple APKs for Different API Levels</span>
+          </a>
+          </li>
+          <li><a href="../../../../../../../../training/multiple-apks/screensize.html">
+            <span class="en">Creating Multiple APKs for Different Screen Sizes</span>
+          </a>
+          </li>
+          <li><a href="../../../../../../../../training/multiple-apks/texture.html">
+            <span class="en">Creating Multiple APKs for Different GL Textures</span>
+          </a>
+          </li>
+          <li><a href="../../../../../../../../training/multiple-apks/multiple.html">
+            <span class="en">Creating Multiple APKs with 2+ Dimensions</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+      
+      <li class="toggle-list">
+        <div><a href="../../../../../../../../training/enterprise/index.html">
+            <span class="en">Developing for Enterprise</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../../../../../../training/enterprise/device-management-policy.html">
+            <span class="en">Enhancing Security with Device Management Policies</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+      
+      <li class="toggle-list">
+        <div><a href="../../../../../../../../training/monetization/index.html">
+            <span class="en">Monetizing Your App</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../../../../../../training/monetization/ads-and-ux.html">
+            <span class="en">Advertising without Compromising User Experience</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+      
+      <li class="toggle-list">
+        <div><a href="../../../../../../../../training/design-navigation/index.html">
+            <span class="en">Designing Effective Navigation</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../../../../../../training/design-navigation/screen-planning.html">
+            <span class="en">Planning Screens and Their Relationships</span>
+          </a>
+          </li>
+          <li><a href="../../../../../../../../training/design-navigation/multiple-sizes.html">
+            <span class="en">Planning for Multiple Touchscreen Sizes</span>
+          </a>
+          </li>
+          <li><a href="../../../../../../../../training/design-navigation/descendant-lateral.html">
+            <span class="en">Providing Descendant and Lateral Navigation</span>
+          </a>
+          </li>
+          <li><a href="../../../../../../../../training/design-navigation/ancestral-temporal.html">
+            <span class="en">Providing Ancestral and Temporal Navigation</span>
+          </a>
+          </li>
+          <li><a href="../../../../../../../../training/design-navigation/wireframing.html">
+            <span class="en">Putting it All Together: Wireframing the Example App</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>    
+      
+      
+  <li>
+    <span class="heading">
+      <span class="en">Technical Resources</span>
+    </span>
+    <ul>
+      <li class="toggle-list">
+        <div><a href="../../../../../../../../resources/browser.html?tag=sample">
+            <span class="en">Sample Code</span>
+            <span class="de" style="display:none">Beispielcode</span>
+            <span class="es" style="display:none">Código de ejemplo</span>
+            <span class="fr" style="display:none">Exemple de code</span>
+            <span class="it" style="display:none">Codice di esempio</span>
+            <span class="ja" style="display:none">サンプル コード</span>
+            <span class="zh-CN" style="display:none"></span>
+            <span class="zh-TW" style="display:none"></span>
+          </a></div>
+        <ul id="devdoc-nav-sample-list">
+          <li><a href="../../../../../../../../resources/samples/get.html">
+                <span class="en">Getting the Samples</span>
+              </a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../../../../../../../../resources/browser.html?tag=article">
+               <span class="en">Articles</span>
+             </a></div>
+        <ul id="devdoc-nav-article-list">
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../../../../../../../../resources/browser.html?tag=tutorial">
+               <span class="en">Tutorials</span>
+               <span class="de" style="display:none">Lernprogramme</span>
+               <span class="es" style="display:none">Tutoriales</span>
+               <span class="fr" style="display:none">Didacticiels</span>
+               <span class="it" style="display:none">Esercitazioni</span>
+               <span class="ja" style="display:none">チュートリアル</span>
+               <span class="zh-CN" style="display:none"></span>
+               <span class="zh-TW" style="display:none"></span>
+             </a></div>
+        <ul id="devdoc-nav-tutorial-list">
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../../../../../../../../resources/topics.html">
+               <span class="en">Topics</span>
+             </a></div>
+        <ul id="devdoc-nav-topic-list">
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <span class="heading">
+      <span class="en">Community</span>
+      <span style="display:none" class="de"></span>
+      <span style="display:none" class="es">Comunidad</span>
+      <span style="display:none" class="fr">Communauté</span>
+      <span style="display:none" class="it"></span>
+      <span style="display:none" class="ja">コミュニティ</span>
+      <span style="display:none" class="zh-CN">社区</span>
+      <span style="display:none" class="zh-TW">社群</span>
+    </span>
+    <ul>
+      <li><a href="../../../../../../../../resources/community-groups.html">
+            <span class="en">Developer Forums</span>
+          </a></li>
+      <li><a href="../../../../../../../../resources/community-more.html">
+            <span class="en">IRC, G+, Twitter</span>
+          </a></li>
+    </ul>
+  </li>
+
+
+  <li>
+    <span class="heading">
+      <span class="en">More</span>
+    </span>
+    <ul>
+      <li><a href="../../../../../../../../resources/faq/commontasks.html">
+            <span class="en">Common Tasks </span>
+          </a></li>
+      <li><a href="../../../../../../../../resources/faq/troubleshooting.html">
+            <span class="en">Troubleshooting Tips</span>
+          </a></li>
+      <li class="toggle-list">
+        <div><a href="../../../../../../../../resources/faq/index.html">
+               <span class="en">FAQs</span>
+             </a></div>
+        <ul>
+        <li><a href="../../../../../../../../resources/faq/framework.html">
+                <span class="en">App Framework FAQ</span>
+                </a></li>
+        <li><a href="../../../../../../../../resources/faq/licensingandoss.html">
+                <span class="en">Licensing FAQ</span>
+                </a></li>
+        <li><a href="../../../../../../../../resources/faq/security.html">
+                <span class="en">Security FAQ</span>
+                </a></li>
+        </ul>
+     </li>
+    </ul>
+  </li>
+</ul>
+
+<script type="text/javascript">
+<!--
+    buildToggleLists();
+    changeNavLang(getLangPref());
+//-->
+</script>
+
+      </div>
+    </div> <!-- end side-nav -->
+    <script>
+      addLoadEvent(function() {
+        scrollIntoView("devdoc-nav");
+        });
+    </script>
+
+
+
+<body class="gc-documentation">
+
+
+<a name="top"></a>
+<div class="g-unit" id="doc-content">
+ <div id="jd-header" class="guide-header">
+  <span class="crumb">&nbsp;</span>
+  <h1>MusicService.java</h1>
+ </div>
+
+<div id="jd-content">
+<p><a href="index.html">&larr; Back</a></p>
+
+<p>The file containing the source code shown below is located in the corresponding directory in <code>&lt;sdk&gt;/samples/android-&lt;version&gt;/...</code></p>
+
+<!-- begin file contents -->
+<pre>/*   
+ * Copyright (C) 2011 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package com.example.android.musicplayer;
+
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.app.Service;
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.media.AudioManager;
+import android.media.MediaMetadataRetriever;
+import android.media.MediaPlayer;
+import android.media.MediaPlayer.OnCompletionListener;
+import android.media.MediaPlayer.OnErrorListener;
+import android.media.MediaPlayer.OnPreparedListener;
+import android.media.RemoteControlClient;
+import android.net.Uri;
+import android.net.wifi.WifiManager;
+import android.net.wifi.WifiManager.WifiLock;
+import android.os.IBinder;
+import android.os.PowerManager;
+import android.util.Log;
+import android.widget.Toast;
+
+import java.io.IOException;
+
+/**
+ * Service that handles media playback. This is the Service through which we perform all the media
+ * handling in our application. Upon initialization, it starts a {@link MusicRetriever} to scan
+ * the user's media. Then, it waits for Intents (which come from our main activity,
+ * {@link MainActivity}, which signal the service to perform specific operations: Play, Pause,
+ * Rewind, Skip, etc.
+ */
+public class MusicService extends Service implements OnCompletionListener, OnPreparedListener,
+                OnErrorListener, MusicFocusable,
+                PrepareMusicRetrieverTask.MusicRetrieverPreparedListener {
+
+    // The tag we put on debug messages
+    final static String TAG = "RandomMusicPlayer";
+
+    // These are the Intent actions that we are prepared to handle. Notice that the fact these
+    // constants exist in our class is a mere convenience: what really defines the actions our
+    // service can handle are the &lt;action&gt; tags in the &lt;intent-filters&gt; tag for our service in
+    // AndroidManifest.xml.
+    public static final String ACTION_TOGGLE_PLAYBACK =
+            "com.example.android.musicplayer.action.TOGGLE_PLAYBACK";
+    public static final String ACTION_PLAY = "com.example.android.musicplayer.action.PLAY";
+    public static final String ACTION_PAUSE = "com.example.android.musicplayer.action.PAUSE";
+    public static final String ACTION_STOP = "com.example.android.musicplayer.action.STOP";
+    public static final String ACTION_SKIP = "com.example.android.musicplayer.action.SKIP";
+    public static final String ACTION_REWIND = "com.example.android.musicplayer.action.REWIND";
+    public static final String ACTION_URL = "com.example.android.musicplayer.action.URL";
+
+    // The volume we set the media player to when we lose audio focus, but are allowed to reduce
+    // the volume instead of stopping playback.
+    public static final float DUCK_VOLUME = 0.1f;
+
+    // our media player
+    MediaPlayer mPlayer = null;
+
+    // our AudioFocusHelper object, if it's available (it's available on SDK level &gt;= 8)
+    // If not available, this will be null. Always check for null before using!
+    AudioFocusHelper mAudioFocusHelper = null;
+
+    // indicates the state our service:
+    enum State {
+        Retrieving, // the MediaRetriever is retrieving music
+        Stopped,    // media player is stopped and not prepared to play
+        Preparing,  // media player is preparing...
+        Playing,    // playback active (media player ready!). (but the media player may actually be
+                    // paused in this state if we don't have audio focus. But we stay in this state
+                    // so that we know we have to resume playback once we get focus back)
+        Paused      // playback paused (media player ready!)
+    };
+
+    State mState = State.Retrieving;
+
+    // if in Retrieving mode, this flag indicates whether we should start playing immediately
+    // when we are ready or not.
+    boolean mStartPlayingAfterRetrieve = false;
+
+    // if mStartPlayingAfterRetrieve is true, this variable indicates the URL that we should
+    // start playing when we are ready. If null, we should play a random song from the device
+    Uri mWhatToPlayAfterRetrieve = null;
+
+    enum PauseReason {
+        UserRequest,  // paused by user request
+        FocusLoss,    // paused because of audio focus loss
+    };
+
+    // why did we pause? (only relevant if mState == State.Paused)
+    PauseReason mPauseReason = PauseReason.UserRequest;
+
+    // do we have audio focus?
+    enum AudioFocus {
+        NoFocusNoDuck,    // we don't have audio focus, and can't duck
+        NoFocusCanDuck,   // we don't have focus, but can play at a low volume ("ducking")
+        Focused           // we have full audio focus
+    }
+    AudioFocus mAudioFocus = AudioFocus.NoFocusNoDuck;
+
+    // title of the song we are currently playing
+    String mSongTitle = "";
+
+    // whether the song we are playing is streaming from the network
+    boolean mIsStreaming = false;
+
+    // Wifi lock that we hold when streaming files from the internet, in order to prevent the
+    // device from shutting off the Wifi radio
+    WifiLock mWifiLock;
+
+    // The ID we use for the notification (the onscreen alert that appears at the notification
+    // area at the top of the screen as an icon -- and as text as well if the user expands the
+    // notification area).
+    final int NOTIFICATION_ID = 1;
+
+    // Our instance of our MusicRetriever, which handles scanning for media and
+    // providing titles and URIs as we need.
+    MusicRetriever mRetriever;
+
+    // our RemoteControlClient object, which will use remote control APIs available in
+    // SDK level &gt;= 14, if they're available.
+    RemoteControlClientCompat mRemoteControlClientCompat;
+
+    // Dummy album art we will pass to the remote control (if the APIs are available).
+    Bitmap mDummyAlbumArt;
+
+    // The component name of MusicIntentReceiver, for use with media button and remote control
+    // APIs
+    ComponentName mMediaButtonReceiverComponent;
+
+    AudioManager mAudioManager;
+    NotificationManager mNotificationManager;
+
+    Notification mNotification = null;
+
+    /**
+     * Makes sure the media player exists and has been reset. This will create the media player
+     * if needed, or reset the existing media player if one already exists.
+     */
+    void createMediaPlayerIfNeeded() {
+        if (mPlayer == null) {
+            mPlayer = new MediaPlayer();
+
+            // Make sure the media player will acquire a wake-lock while playing. If we don't do
+            // that, the CPU might go to sleep while the song is playing, causing playback to stop.
+            //
+            // Remember that to use this, we have to declare the android.permission.WAKE_LOCK
+            // permission in AndroidManifest.xml.
+            mPlayer.setWakeMode(getApplicationContext(), PowerManager.PARTIAL_WAKE_LOCK);
+
+            // we want the media player to notify us when it's ready preparing, and when it's done
+            // playing:
+            mPlayer.setOnPreparedListener(this);
+            mPlayer.setOnCompletionListener(this);
+            mPlayer.setOnErrorListener(this);
+        }
+        else
+            mPlayer.reset();
+    }
+
+    @Override
+    public void onCreate() {
+        Log.i(TAG, "debug: Creating service");
+
+        // Create the Wifi lock (this does not acquire the lock, this just creates it)
+        mWifiLock = ((WifiManager) getSystemService(Context.WIFI_SERVICE))
+                        .createWifiLock(WifiManager.WIFI_MODE_FULL, "mylock");
+
+        mNotificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        mAudioManager = (AudioManager) getSystemService(AUDIO_SERVICE);
+
+        // Create the retriever and start an asynchronous task that will prepare it.
+        mRetriever = new MusicRetriever(getContentResolver());
+        (new PrepareMusicRetrieverTask(mRetriever,this)).execute();
+
+        // create the Audio Focus Helper, if the Audio Focus feature is available (SDK 8 or above)
+        if (android.os.Build.VERSION.SDK_INT &gt;= 8)
+            mAudioFocusHelper = new AudioFocusHelper(getApplicationContext(), this);
+        else
+            mAudioFocus = AudioFocus.Focused; // no focus feature, so we always "have" audio focus
+
+        mDummyAlbumArt = BitmapFactory.decodeResource(getResources(), R.drawable.dummy_album_art);
+
+        mMediaButtonReceiverComponent = new ComponentName(this, MusicIntentReceiver.class);
+    }
+
+    /**
+     * Called when we receive an Intent. When we receive an intent sent to us via startService(),
+     * this is the method that gets called. So here we react appropriately depending on the
+     * Intent's action, which specifies what is being requested of us.
+     */
+    @Override
+    public int onStartCommand(Intent intent, int flags, int startId) {
+        String action = intent.getAction();
+        if (action.equals(ACTION_TOGGLE_PLAYBACK)) processTogglePlaybackRequest();
+        else if (action.equals(ACTION_PLAY)) processPlayRequest();
+        else if (action.equals(ACTION_PAUSE)) processPauseRequest();
+        else if (action.equals(ACTION_SKIP)) processSkipRequest();
+        else if (action.equals(ACTION_STOP)) processStopRequest();
+        else if (action.equals(ACTION_REWIND)) processRewindRequest();
+        else if (action.equals(ACTION_URL)) processAddRequest(intent);
+
+        return START_NOT_STICKY; // Means we started the service, but don't want it to
+                                 // restart in case it's killed.
+    }
+
+    void processTogglePlaybackRequest() {
+        if (mState == State.Paused || mState == State.Stopped) {
+            processPlayRequest();
+        } else {
+            processPauseRequest();
+        }
+    }
+
+    void processPlayRequest() {
+        if (mState == State.Retrieving) {
+            // If we are still retrieving media, just set the flag to start playing when we're
+            // ready
+            mWhatToPlayAfterRetrieve = null; // play a random song
+            mStartPlayingAfterRetrieve = true;
+            return;
+        }
+
+        tryToGetAudioFocus();
+
+        // actually play the song
+
+        if (mState == State.Stopped) {
+            // If we're stopped, just go ahead to the next song and start playing
+            playNextSong(null);
+        }
+        else if (mState == State.Paused) {
+            // If we're paused, just continue playback and restore the 'foreground service' state.
+            mState = State.Playing;
+            setUpAsForeground(mSongTitle + " (playing)");
+            configAndStartMediaPlayer();
+        }
+
+        // Tell any remote controls that our playback state is 'playing'.
+        if (mRemoteControlClientCompat != null) {
+            mRemoteControlClientCompat
+                    .setPlaybackState(RemoteControlClient.PLAYSTATE_PLAYING);
+        }
+    }
+
+    void processPauseRequest() {
+        if (mState == State.Retrieving) {
+            // If we are still retrieving media, clear the flag that indicates we should start
+            // playing when we're ready
+            mStartPlayingAfterRetrieve = false;
+            return;
+        }
+
+        if (mState == State.Playing) {
+            // Pause media player and cancel the 'foreground service' state.
+            mState = State.Paused;
+            mPlayer.pause();
+            relaxResources(false); // while paused, we always retain the MediaPlayer
+            // do not give up audio focus
+        }
+
+        // Tell any remote controls that our playback state is 'paused'.
+        if (mRemoteControlClientCompat != null) {
+            mRemoteControlClientCompat
+                    .setPlaybackState(RemoteControlClient.PLAYSTATE_PAUSED);
+        }
+    }
+
+    void processRewindRequest() {
+        if (mState == State.Playing || mState == State.Paused)
+            mPlayer.seekTo(0);
+    }
+
+    void processSkipRequest() {
+        if (mState == State.Playing || mState == State.Paused) {
+            tryToGetAudioFocus();
+            playNextSong(null);
+        }
+    }
+
+    void processStopRequest() {
+        processStopRequest(false);
+    }
+
+    void processStopRequest(boolean force) {
+        if (mState == State.Playing || mState == State.Paused || force) {
+            mState = State.Stopped;
+
+            // let go of all resources...
+            relaxResources(true);
+            giveUpAudioFocus();
+
+            // Tell any remote controls that our playback state is 'paused'.
+            if (mRemoteControlClientCompat != null) {
+                mRemoteControlClientCompat
+                        .setPlaybackState(RemoteControlClient.PLAYSTATE_STOPPED);
+            }
+
+            // service is no longer necessary. Will be started again if needed.
+            stopSelf();
+        }
+    }
+
+    /**
+     * Releases resources used by the service for playback. This includes the "foreground service"
+     * status and notification, the wake locks and possibly the MediaPlayer.
+     *
+     * @param releaseMediaPlayer Indicates whether the Media Player should also be released or not
+     */
+    void relaxResources(boolean releaseMediaPlayer) {
+        // stop being a foreground service
+        stopForeground(true);
+
+        // stop and release the Media Player, if it's available
+        if (releaseMediaPlayer &amp;&amp; mPlayer != null) {
+            mPlayer.reset();
+            mPlayer.release();
+            mPlayer = null;
+        }
+
+        // we can also release the Wifi lock, if we're holding it
+        if (mWifiLock.isHeld()) mWifiLock.release();
+    }
+
+    void giveUpAudioFocus() {
+        if (mAudioFocus == AudioFocus.Focused &amp;&amp; mAudioFocusHelper != null
+                                &amp;&amp; mAudioFocusHelper.abandonFocus())
+            mAudioFocus = AudioFocus.NoFocusNoDuck;
+    }
+
+    /**
+     * Reconfigures MediaPlayer according to audio focus settings and starts/restarts it. This
+     * method starts/restarts the MediaPlayer respecting the current audio focus state. So if
+     * we have focus, it will play normally; if we don't have focus, it will either leave the
+     * MediaPlayer paused or set it to a low volume, depending on what is allowed by the
+     * current focus settings. This method assumes mPlayer != null, so if you are calling it,
+     * you have to do so from a context where you are sure this is the case.
+     */
+    void configAndStartMediaPlayer() {
+        if (mAudioFocus == AudioFocus.NoFocusNoDuck) {
+            // If we don't have audio focus and can't duck, we have to pause, even if mState
+            // is State.Playing. But we stay in the Playing state so that we know we have to resume
+            // playback once we get the focus back.
+            if (mPlayer.isPlaying()) mPlayer.pause();
+            return;
+        }
+        else if (mAudioFocus == AudioFocus.NoFocusCanDuck)
+            mPlayer.setVolume(DUCK_VOLUME, DUCK_VOLUME);  // we'll be relatively quiet
+        else
+            mPlayer.setVolume(1.0f, 1.0f); // we can be loud
+
+        if (!mPlayer.isPlaying()) mPlayer.start();
+    }
+
+    void processAddRequest(Intent intent) {
+        // user wants to play a song directly by URL or path. The URL or path comes in the "data"
+        // part of the Intent. This Intent is sent by {@link MainActivity} after the user
+        // specifies the URL/path via an alert box.
+        if (mState == State.Retrieving) {
+            // we'll play the requested URL right after we finish retrieving
+            mWhatToPlayAfterRetrieve = intent.getData();
+            mStartPlayingAfterRetrieve = true;
+        }
+        else if (mState == State.Playing || mState == State.Paused || mState == State.Stopped) {
+            Log.i(TAG, "Playing from URL/path: " + intent.getData().toString());
+            tryToGetAudioFocus();
+            playNextSong(intent.getData().toString());
+        }
+    }
+
+    void tryToGetAudioFocus() {
+        if (mAudioFocus != AudioFocus.Focused &amp;&amp; mAudioFocusHelper != null
+                        &amp;&amp; mAudioFocusHelper.requestFocus())
+            mAudioFocus = AudioFocus.Focused;
+    }
+
+    /**
+     * Starts playing the next song. If manualUrl is null, the next song will be randomly selected
+     * from our Media Retriever (that is, it will be a random song in the user's device). If
+     * manualUrl is non-null, then it specifies the URL or path to the song that will be played
+     * next.
+     */
+    void playNextSong(String manualUrl) {
+        mState = State.Stopped;
+        relaxResources(false); // release everything except MediaPlayer
+
+        try {
+            MusicRetriever.Item playingItem = null;
+            if (manualUrl != null) {
+                // set the source of the media player to a manual URL or path
+                createMediaPlayerIfNeeded();
+                mPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
+                mPlayer.setDataSource(manualUrl);
+                mIsStreaming = manualUrl.startsWith("http:") || manualUrl.startsWith("https:");
+
+                playingItem = new MusicRetriever.Item(0, null, manualUrl, null, 0);
+            }
+            else {
+                mIsStreaming = false; // playing a locally available song
+
+                playingItem = mRetriever.getRandomItem();
+                if (playingItem == null) {
+                    Toast.makeText(this,
+                            "No available music to play. Place some music on your external storage "
+                            + "device (e.g. your SD card) and try again.",
+                            Toast.LENGTH_LONG).show();
+                    processStopRequest(true); // stop everything!
+                    return;
+                }
+
+                // set the source of the media player a a content URI
+                createMediaPlayerIfNeeded();
+                mPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
+                mPlayer.setDataSource(getApplicationContext(), playingItem.getURI());
+            }
+
+            mSongTitle = playingItem.getTitle();
+
+            mState = State.Preparing;
+            setUpAsForeground(mSongTitle + " (loading)");
+
+            // Use the media button APIs (if available) to register ourselves for media button
+            // events
+
+            MediaButtonHelper.registerMediaButtonEventReceiverCompat(
+                    mAudioManager, mMediaButtonReceiverComponent);
+
+            // Use the remote control APIs (if available) to set the playback state
+
+            if (mRemoteControlClientCompat == null) {
+                Intent intent = new Intent(Intent.ACTION_MEDIA_BUTTON);
+                intent.setComponent(mMediaButtonReceiverComponent);
+                mRemoteControlClientCompat = new RemoteControlClientCompat(
+                        PendingIntent.getBroadcast(this /*context*/,
+                                0 /*requestCode, ignored*/, intent /*intent*/, 0 /*flags*/));
+                RemoteControlHelper.registerRemoteControlClient(mAudioManager,
+                        mRemoteControlClientCompat);
+            }
+
+            mRemoteControlClientCompat.setPlaybackState(
+                    RemoteControlClient.PLAYSTATE_PLAYING);
+
+            mRemoteControlClientCompat.setTransportControlFlags(
+                    RemoteControlClient.FLAG_KEY_MEDIA_PLAY |
+                    RemoteControlClient.FLAG_KEY_MEDIA_PAUSE |
+                    RemoteControlClient.FLAG_KEY_MEDIA_NEXT |
+                    RemoteControlClient.FLAG_KEY_MEDIA_STOP);
+
+            // Update the remote controls
+            mRemoteControlClientCompat.editMetadata(true)
+                    .putString(MediaMetadataRetriever.METADATA_KEY_ARTIST, playingItem.getArtist())
+                    .putString(MediaMetadataRetriever.METADATA_KEY_ALBUM, playingItem.getAlbum())
+                    .putString(MediaMetadataRetriever.METADATA_KEY_TITLE, playingItem.getTitle())
+                    .putLong(MediaMetadataRetriever.METADATA_KEY_DURATION,
+                            playingItem.getDuration())
+                    // TODO: fetch real item artwork
+                    .putBitmap(
+                            RemoteControlClientCompat.MetadataEditorCompat.METADATA_KEY_ARTWORK,
+                            mDummyAlbumArt)
+                    .apply();
+
+            // starts preparing the media player in the background. When it's done, it will call
+            // our OnPreparedListener (that is, the onPrepared() method on this class, since we set
+            // the listener to 'this').
+            //
+            // Until the media player is prepared, we *cannot* call start() on it!
+            mPlayer.prepareAsync();
+
+            // If we are streaming from the internet, we want to hold a Wifi lock, which prevents
+            // the Wifi radio from going to sleep while the song is playing. If, on the other hand,
+            // we are *not* streaming, we want to release the lock if we were holding it before.
+            if (mIsStreaming) mWifiLock.acquire();
+            else if (mWifiLock.isHeld()) mWifiLock.release();
+        }
+        catch (IOException ex) {
+            Log.e("MusicService", "IOException playing next song: " + ex.getMessage());
+            ex.printStackTrace();
+        }
+    }
+
+    /** Called when media player is done playing current song. */
+    public void onCompletion(MediaPlayer player) {
+        // The media player finished playing the current song, so we go ahead and start the next.
+        playNextSong(null);
+    }
+
+    /** Called when media player is done preparing. */
+    public void onPrepared(MediaPlayer player) {
+        // The media player is done preparing. That means we can start playing!
+        mState = State.Playing;
+        updateNotification(mSongTitle + " (playing)");
+        configAndStartMediaPlayer();
+    }
+
+    /** Updates the notification. */
+    void updateNotification(String text) {
+        PendingIntent pi = PendingIntent.getActivity(getApplicationContext(), 0,
+                new Intent(getApplicationContext(), MainActivity.class),
+                PendingIntent.FLAG_UPDATE_CURRENT);
+        mNotification.setLatestEventInfo(getApplicationContext(), "RandomMusicPlayer", text, pi);
+        mNotificationManager.notify(NOTIFICATION_ID, mNotification);
+    }
+
+    /**
+     * Configures service as a foreground service. A foreground service is a service that's doing
+     * something the user is actively aware of (such as playing music), and must appear to the
+     * user as a notification. That's why we create the notification here.
+     */
+    void setUpAsForeground(String text) {
+        PendingIntent pi = PendingIntent.getActivity(getApplicationContext(), 0,
+                new Intent(getApplicationContext(), MainActivity.class),
+                PendingIntent.FLAG_UPDATE_CURRENT);
+        mNotification = new Notification();
+        mNotification.tickerText = text;
+        mNotification.icon = R.drawable.ic_stat_playing;
+        mNotification.flags |= Notification.FLAG_ONGOING_EVENT;
+        mNotification.setLatestEventInfo(getApplicationContext(), "RandomMusicPlayer",
+                text, pi);
+        startForeground(NOTIFICATION_ID, mNotification);
+    }
+
+    /**
+     * Called when there's an error playing media. When this happens, the media player goes to
+     * the Error state. We warn the user about the error and reset the media player.
+     */
+    public boolean onError(MediaPlayer mp, int what, int extra) {
+        Toast.makeText(getApplicationContext(), "Media player error! Resetting.",
+            Toast.LENGTH_SHORT).show();
+        Log.e(TAG, "Error: what=" + String.valueOf(what) + ", extra=" + String.valueOf(extra));
+
+        mState = State.Stopped;
+        relaxResources(true);
+        giveUpAudioFocus();
+        return true; // true indicates we handled the error
+    }
+
+    public void onGainedAudioFocus() {
+        Toast.makeText(getApplicationContext(), "gained audio focus.", Toast.LENGTH_SHORT).show();
+        mAudioFocus = AudioFocus.Focused;
+
+        // restart media player with new focus settings
+        if (mState == State.Playing)
+            configAndStartMediaPlayer();
+    }
+
+    public void onLostAudioFocus(boolean canDuck) {
+        Toast.makeText(getApplicationContext(), "lost audio focus." + (canDuck ? "can duck" :
+            "no duck"), Toast.LENGTH_SHORT).show();
+        mAudioFocus = canDuck ? AudioFocus.NoFocusCanDuck : AudioFocus.NoFocusNoDuck;
+
+        // start/restart/pause media player with new focus settings
+        if (mPlayer != null &amp;&amp; mPlayer.isPlaying())
+            configAndStartMediaPlayer();
+    }
+
+    public void onMusicRetrieverPrepared() {
+        // Done retrieving!
+        mState = State.Stopped;
+
+        // If the flag indicates we should start playing after retrieving, let's do that now.
+        if (mStartPlayingAfterRetrieve) {
+            tryToGetAudioFocus();
+            playNextSong(mWhatToPlayAfterRetrieve == null ?
+                    null : mWhatToPlayAfterRetrieve.toString());
+        }
+    }
+
+
+    @Override
+    public void onDestroy() {
+        // Service is being killed, so make sure we release our resources
+        mState = State.Stopped;
+        relaxResources(true);
+        giveUpAudioFocus();
+    }
+
+    @Override
+    public IBinder onBind(Intent arg0) {
+        return null;
+    }
+}</pre>
+<!-- end file contents -->
+
+<div id="footer">
+
+
+  <div id="copyright">
+    
+  Except as noted, this content is 
+  licensed under <a href="http://creativecommons.org/licenses/by/2.5/">
+  Creative Commons Attribution 2.5</a>. For details and 
+  restrictions, see the <a href="../../../../../../../../license.html">Content 
+  License</a>.
+  </div>
+
+  <div id="footerlinks">
+    
+  <p>
+    <a href="http://www.google.com/intl/en/policies/" target="_blank">Privacy &amp; Terms</a> -
+    <a href="http://www.android.com/branding.html" target="_blank">Brand Guidelines</a> -
+    <a
+href="http://code.google.com/p/android/issues/entry?template=Developer%20Documentation"
+target="_blank">Report Document Issues</a>
+  </p>
+  </div>
+
+</div> <!-- end footer -->
+
+</div><!-- end jd-content -->
+</div> <!-- end doc-content -->
+
+</div> <!-- end body-content --> 
+
+<script type="text/javascript">
+init(); /* initialize android-developer-docs.js */
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-5831155-1");
+pageTracker._trackPageview();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<link rel="shortcut icon" type="image/x-icon" href="./favicon.ico" />
+<title>Content License | Android Developers</title>
+<link href="./assets/android-developer-docs.css" rel="stylesheet" type="text/css" />
+<script src="./assets/search_autocomplete.js" type="text/javascript"></script>
+<script src="./assets/jquery-resizable.min.js" type="text/javascript"></script>
+<script src="./assets/android-developer-docs.js" type="text/javascript"></script>
+<script src="./assets/prettify.js" type="text/javascript"></script>
+<script type="text/javascript">
+  setToRoot("./");
+</script>
+<noscript>
+  <style type="text/css">
+    html,body{overflow:auto;}
+    #body-content{position:relative; top:0;}
+    #doc-content{overflow:visible;border-left:3px solid #666;}
+    #side-nav{padding:0;}
+    #side-nav .toggle-list ul {display:block;}
+    #resize-packages-nav{border-bottom:3px solid #666;}
+  </style>
+</noscript>
+</head>
+<body class="gc-documentation">
+<a name="top"></a>
+
+  <div id="header">
+      <div id="headerLeft">
+          <a href="./index.html" tabindex="-1"><img
+              src="./assets/images/bg_logo.png" alt="Android Developers" /></a>
+          <ul id="header-tabs" class="">
+    
+	<li id="home-link"><a href="./offline.html">
+	
+		<span class="en">Home</span>
+		<span style="display:none" class="de">Startseite</span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ホーム</span>
+		<span style="display:none" class="zh-CN">主页</span>
+		<span style="display:none" class="zh-TW">首頁</span>
+	
+	</a></li>
+	<li id="sdk-link"><a href="./sdk/index.html">
+		<span class="en">SDK</span>
+	</a></li>
+	<li id="guide-link"><a href="./guide/index.html" onClick="return loadLast('guide')">
+	
+		<span class="en">Dev Guide</span>
+		<span style="display:none" class="de">Handbuch</span>
+		<span style="display:none" class="es">Guía</span>
+		<span style="display:none" class="fr">Guide</span>
+		<span style="display:none" class="it">Guida</span>
+		<span style="display:none" class="ja">開発ガイド</span>
+		<span style="display:none" class="zh-CN">开发人员指南</span>
+		<span style="display:none" class="zh-TW">開發指南</span>
+	
+	</a></li>
+	<li id="reference-link"><a href="./reference/packages.html" onClick="return loadLast('reference')">
+	
+		<span class="en">Reference</span>
+		<span style="display:none" class="de">Referenz</span>
+		<span style="display:none" class="es">Referencia</span>
+		<span style="display:none" class="fr">Référence</span>
+		<span style="display:none" class="it">Riferimento</span>
+		<span style="display:none" class="ja">リファレンス</span>
+		<span style="display:none" class="zh-CN">参考</span>
+		<span style="display:none" class="zh-TW">參考資料</span>
+	
+	</a></li>
+	<li id="resources-link"><a href="./resources/index.html" onClick="return loadLast('resources')">
+	
+		<span class="en">Resources</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+    		<span style="display:none" class="ja"></span>
+		<span style="display:none" class="zh-CN"></span>
+		<span style="display:none" class="zh-TW"></span>
+	
+	</a></li>
+	<li id="videos-link"><a href="./videos/index.html" onClick="return loadLast('videos')">
+	
+		<span class="en">Videos</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ビデオ</span>
+		<span style="display:none" class="zh-CN"></span>
+		<span style="display:none" class="zh-TW"></span>
+	
+	</a></li>
+	<li><a href="http://android-developers.blogspot.com" onClick="return requestAppendHL(this.href)">
+	
+		<span class="en">Blog</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ブログ</span>
+		<span style="display:none" class="zh-CN">博客</span>
+		<span style="display:none" class="zh-TW">網誌</span>
+	
+	</a></li>
+
+
+     
+</ul>
+     
+      </div>
+      <div id="headerRight">
+          <div id="headerLinks">
+          &nbsp;&nbsp;
+          <a href="./design/index.html">Android Design</a>&nbsp;&nbsp;
+          <a href="http://www.android.com">Android.com</a>
+          </div>
+  <div id="search" >
+      <div id="searchForm">
+          <form accept-charset="utf-8" class="gsc-search-box" 
+                onsubmit="return submit_search()">
+            <table class="gsc-search-box" cellpadding="0" cellspacing="0"><tbody>
+                <tr>
+                  <td class="gsc-input">
+                    <input id="search_autocomplete" class="gsc-input" type="text" size="33" autocomplete="off"
+                      title="search developer docs" name="q"
+                      value="search developer docs"
+                      onFocus="search_focus_changed(this, true)"
+                      onBlur="search_focus_changed(this, false)"
+                      onkeydown="return search_changed(event, true, './')"
+                      onkeyup="return search_changed(event, false, './')" />
+                  <div id="search_filtered_div" class="no-display">
+                      <table id="search_filtered" cellspacing=0>
+                      </table>
+                  </div>
+                  </td>
+                  <td class="gsc-search-button">
+                    <input type="submit" value="Search" title="search" id="search-button" class="gsc-search-button" />
+                  </td>
+                  <td class="gsc-clear-button">
+                    <div title="clear results" class="gsc-clear-button">&nbsp;</div>
+                  </td>
+                </tr></tbody>
+              </table>
+          </form>
+      </div><!-- searchForm -->
+  </div><!-- search -->
+      </div><!-- headerRight -->
+      <script type="text/javascript">
+        <!--  
+        changeTabLang(getLangPref());
+        //-->
+      </script>
+  </div><!-- header -->
+
+<div id="body-content">
+<div id="doc-content" style="position:relative;">
+
+<div id="mainBodyFluid">
+<h1>Content License</h1>
+
+<p>For the purposes of licensing, the content of this site is divided
+into two categories:</p>
+<ul>
+  <li>Documentation content, found under the "Dev Guide" and "Reference"
+  tabs, including both static content and content extracted from source 
+  code modules, as well as sample code, and </li>
+<li>All other site content</li>
+</ul>
+
+<p>The documentation content on this site is made available to
+you as part of the <a href="http://source.android.com">Android Open
+Source Project</a>. This documentation, including any code shown in it,
+is licensed under the <a
+href="http://www.apache.org/licenses/LICENSE-2.0">Apache 2.0
+license</a>, the preferred license for all parts of the of the Android
+Open Source Project.</p>
+
+<p>Apache 2.0 is a commercial and open-source-friendly software
+license. The majority of the Android platform and documentation is
+licensed under the Apache 2.0 license. While the project strives to
+adhere to the preferred license, there may be exceptions, such as for
+documentation (code comments) extracted from a source code module that
+is licensed under GPLv2 or other license. In those cases, the license
+covering the source code module will apply to the documentation
+extracted from it. </p>
+
+<p>All other content on this site, except the license documents themselves
+and as otherwise noted, is licensed under the <a
+href="http://creativecommons.org/licenses/by/2.5/">Creative Commons
+Attribution 2.5</a> license. </p>
+
+<p>You may use the content of this site in any way that is consistent
+with the specific license that applies to the content, as described
+above. For content licensed under Creative Commons Attribution 2.5, we
+ask that you give proper <a href="#attribution">attribution</a>. </p>
+
+
+<h3 id="terms">Terms of Use</h3>
+
+<p>We are pleased to license the Android documentation and sample code under
+terms that encourage you to take, modify, reuse, re-purpose, and remix the
+content as you see fit. Except as noted in the Restrictions section below, you
+are free to use the documentation content in your own creations. For example,
+you could quote the text in a book, cut-and-paste sections to your blog, record
+it as an audiobook for the visually impaired, or even translate it. </p>
+
+
+<h3 id="restrictions">Restrictions</h3>
+
+<ul>
+<li>While the documentation itself is available to you under the Apache 2.0
+license, note that proprietary trademarks and brand features are not
+included in that license.</li>
+
+<li>Google's trademarks and other brand features (including the 	
+ANDROID stylized typeface logo) are not included in the license.
+Please see <a href="http://www.google.com/permissions/guidelines.html">
+Guidelines for Third Party Use of Google Brand Features</a> for
+information about this usage. </li>
+
+<li>In some cases, a page may include content, such as an image, that is not 
+covered by the license. In that case, we will label the content that is not licensed. </li>
+
+<li>In addition, content linked from a page on this site is not covered
+by the license unless specifically noted. For example, pages may link to videos or
+slide decks that are not covered.</li>
+
+<li>The use of sample source code provided in the SDK or shown in this
+documentation is subject to the conditions detailed in the <a
+href="http://www.apache.org/licenses/LICENSE-2.0">Apache 2.0 license</a>.</li>
+</ul>
+</h3>
+
+<h3 id="attribution">Attribution</h3>
+<p>
+Proper attribution is required when you reuse or create modified
+versions of content that appears on a page made available under the
+terms of the Creative Commons Attribution license. On this site, the
+requirement for attribution applies only to the non-documentation
+content, as described earlier in this document. The complete 
+requirements for attribution can be found in section 4b of the 
+<a href="http://creativecommons.org/licenses/by/2.5/legalcode">
+Creative Commons legal code</a>.
+</p>
+<p>
+ In practice we ask that you provide attribution to the Android Open
+ Source project to the best of the ability of the medium in which you 
+ are producing the work. There are several typical ways in which this 
+ might apply:
+</p>
+<h4>Exact Reproductions</h4>
+<p>
+ If your online work <em>exactly reproduces</em> text or images from this
+ site, in whole or in part, please include a paragraph at the bottom
+ of your page that reads: 
+</p>
+<blockquote>
+ Portions of this page are reproduced from work created and <a
+ href="http://code.google.com/policies.html">shared by the Android Open Source Project</a>
+ and used according to terms described in the <a
+ href="http://creativecommons.org/licenses/by/2.5/">Creative Commons
+ 2.5 Attribution License</a>.
+
+</blockquote>
+<p>
+ Also, please link back to the original source page so that readers can
+ refer there for more information.
+</p>
+<h4>Modified Versions</h4>
+<p>
+ If your online work shows <em>modified</em> text or images based on
+ the content from this site, please include a paragraph at the bottom of
+ your page that reads:
+</p>
+<blockquote>
+ Portions of this page are modifications based on work created and <a
+ href="http://code.google.com/policies.html">shared by the Android Open
+ Source Project</a> and used according to terms described in the <a
+ href="http://creativecommons.org/licenses/by/2.5/">Creative Commons
+ 2.5 Attribution License</a>.
+</blockquote>
+<p>
+ Again, please link back to the original source page so that readers can
+ refer there for more information. This is even more important when
+ the content has been modified.
+</p>
+<h4>Other Media</h4>
+<p>
+ If you produce non-hypertext works, such as books, audio, or
+ video, we ask that you make a best effort to include a spoken or
+ written attribution in the spirit of the messages above.
+</p>
+
+</div>	
+
+
+
+
+<div id="footer">
+
+
+  <div id="footerlinks">
+    
+  <p>
+    <a href="http://www.google.com/intl/en/policies/" target="_blank">Privacy &amp; Terms</a> -
+    <a href="http://www.android.com/branding.html" target="_blank">Brand Guidelines</a> -
+    <a
+href="http://code.google.com/p/android/issues/entry?template=Developer%20Documentation"
+target="_blank">Report Document Issues</a>
+  </p>
+  </div>
+
+</div> <!-- end footer -->
+
+</div><!-- end doc-content -->
+
+</div> <!-- end body-content --> 
+
+<script type="text/javascript">
+init(); /* initialize android-developer-docs.js */
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-5831155-1");
+pageTracker._trackPageview();
+</script>
+
+</body>
+</html>
+
+
+

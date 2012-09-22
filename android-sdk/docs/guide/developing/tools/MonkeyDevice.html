@@ -1,0 +1,2584 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico" />
+<title>MonkeyDevice | Android Developers</title>
+<link href="../../../assets/android-developer-docs-devguide.css" rel="stylesheet" type="text/css" />
+<script src="../../../assets/search_autocomplete.js" type="text/javascript"></script>
+<script src="../../../assets/jquery-resizable.min.js" type="text/javascript"></script>
+<script src="../../../assets/android-developer-docs.js" type="text/javascript"></script>
+<script src="../../../assets/prettify.js" type="text/javascript"></script>
+<script type="text/javascript">
+  setToRoot("../../../");
+</script>
+<noscript>
+  <style type="text/css">
+    html,body{overflow:auto;}
+    #body-content{position:relative; top:0;}
+    #doc-content{overflow:visible;border-left:3px solid #666;}
+    #side-nav{padding:0;}
+    #side-nav .toggle-list ul {display:block;}
+    #resize-packages-nav{border-bottom:3px solid #666;}
+  </style>
+</noscript>
+</head>
+<body class="gc-documentation" itemscope itemtype="http://schema.org/Article">
+
+  <div id="header">
+      <div id="headerLeft">
+          <a href="../../../index.html" tabindex="-1"><img
+              src="../../../assets/images/bg_logo.png" alt="Android Developers" /></a>
+          <ul id="header-tabs" class="guide">
+    
+	<li id="home-link"><a href="../../../offline.html">
+	
+		<span class="en">Home</span>
+		<span style="display:none" class="de">Startseite</span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ホーム</span>
+		<span style="display:none" class="zh-CN">主页</span>
+		<span style="display:none" class="zh-TW">首頁</span>
+	
+	</a></li>
+	<li id="sdk-link"><a href="../../../sdk/index.html">
+		<span class="en">SDK</span>
+	</a></li>
+	<li id="guide-link"><a href="../../../guide/index.html" onClick="return loadLast('guide')">
+	
+		<span class="en">Dev Guide</span>
+		<span style="display:none" class="de">Handbuch</span>
+		<span style="display:none" class="es">Guía</span>
+		<span style="display:none" class="fr">Guide</span>
+		<span style="display:none" class="it">Guida</span>
+		<span style="display:none" class="ja">開発ガイド</span>
+		<span style="display:none" class="zh-CN">开发人员指南</span>
+		<span style="display:none" class="zh-TW">開發指南</span>
+	
+	</a></li>
+	<li id="reference-link"><a href="../../../reference/packages.html" onClick="return loadLast('reference')">
+	
+		<span class="en">Reference</span>
+		<span style="display:none" class="de">Referenz</span>
+		<span style="display:none" class="es">Referencia</span>
+		<span style="display:none" class="fr">Référence</span>
+		<span style="display:none" class="it">Riferimento</span>
+		<span style="display:none" class="ja">リファレンス</span>
+		<span style="display:none" class="zh-CN">参考</span>
+		<span style="display:none" class="zh-TW">參考資料</span>
+	
+	</a></li>
+	<li id="resources-link"><a href="../../../resources/index.html" onClick="return loadLast('resources')">
+	
+		<span class="en">Resources</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+    		<span style="display:none" class="ja"></span>
+		<span style="display:none" class="zh-CN"></span>
+		<span style="display:none" class="zh-TW"></span>
+	
+	</a></li>
+	<li id="videos-link"><a href="../../../videos/index.html" onClick="return loadLast('videos')">
+	
+		<span class="en">Videos</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ビデオ</span>
+		<span style="display:none" class="zh-CN"></span>
+		<span style="display:none" class="zh-TW"></span>
+	
+	</a></li>
+	<li><a href="http://android-developers.blogspot.com" onClick="return requestAppendHL(this.href)">
+	
+		<span class="en">Blog</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ブログ</span>
+		<span style="display:none" class="zh-CN">博客</span>
+		<span style="display:none" class="zh-TW">網誌</span>
+	
+	</a></li>
+
+
+     
+</ul>
+     
+      </div>
+      <div id="headerRight">
+          <div id="headerLinks">
+          &nbsp;&nbsp;
+          <a href="../../../design/index.html">Android Design</a>&nbsp;&nbsp;
+          <a href="http://www.android.com">Android.com</a>
+          </div>
+  <div id="search" >
+      <div id="searchForm">
+          <form accept-charset="utf-8" class="gsc-search-box" 
+                onsubmit="return submit_search()">
+            <table class="gsc-search-box" cellpadding="0" cellspacing="0"><tbody>
+                <tr>
+                  <td class="gsc-input">
+                    <input id="search_autocomplete" class="gsc-input" type="text" size="33" autocomplete="off"
+                      title="search developer docs" name="q"
+                      value="search developer docs"
+                      onFocus="search_focus_changed(this, true)"
+                      onBlur="search_focus_changed(this, false)"
+                      onkeydown="return search_changed(event, true, '../../../')"
+                      onkeyup="return search_changed(event, false, '../../../')" />
+                  <div id="search_filtered_div" class="no-display">
+                      <table id="search_filtered" cellspacing=0>
+                      </table>
+                  </div>
+                  </td>
+                  <td class="gsc-search-button">
+                    <input type="submit" value="Search" title="search" id="search-button" class="gsc-search-button" />
+                  </td>
+                  <td class="gsc-clear-button">
+                    <div title="clear results" class="gsc-clear-button">&nbsp;</div>
+                  </td>
+                </tr></tbody>
+              </table>
+          </form>
+      </div><!-- searchForm -->
+  </div><!-- search -->
+      </div><!-- headerRight -->
+      <script type="text/javascript">
+        <!--  
+        changeTabLang(getLangPref());
+        //-->
+      </script>
+  </div><!-- header -->
+
+  <div class="g-section g-tpl-240" id="body-content">
+    <div class="g-unit g-first" id="side-nav" itemscope itemtype="http://schema.org/SiteNavigationElement">
+      <div id="devdoc-nav">
+<ul>
+
+  <li>
+    <span class="heading">
+      <span class="en">Android Basics</span>
+      <span class="de" style="display:none">Einführung in Android</span>
+      <span class="es" style="display:none">Información básica sobre Android</span>
+      <span class="fr" style="display:none">Présentation d'Android</span>
+      <span class="it" style="display:none">Nozioni di base su Android</span>
+      <span class="ja" style="display:none">Android の基本</span>
+      <span class="zh-CN" style="display:none">Android 基础知识</span>
+      <span class="zh-TW" style="display:none">Android 簡介</span>
+    </span>
+    <ul>
+      <li><a href="../../../guide/basics/what-is-android.html">
+        <span class="en">What Is Android?</span>
+        <span class="de" style="display:none">Was ist Android?</span>
+        <span class="es" style="display:none">¿Qué es Android?</span>
+        <span class="fr" style="display:none">Qu'est-ce qu'Android&nbsp;?</span>
+        <span class="it" style="display:none">Che cos'è Android?</span>
+        <span class="ja" style="display:none">Android とは</span>
+        <span class="zh-CN" style="display:none">Android 是什么？</span>
+        <span class="zh-TW" style="display:none">什麼是 Android？</span>
+          </a></li>
+      <li><a href="../../../guide/topics/fundamentals.html">
+        <span class="en">Application Fundamentals</span>
+        <span class="de" style="display:none">Anwendungsgrundlagen</span>
+        <span class="es" style="display:none">Fundamentos de las aplicaciones</span>
+        <span class="fr" style="display:none">Principes de base des applications</span>
+        <span class="it" style="display:none">Concetti fondamentali sulle applicazioni</span>
+        <span class="ja" style="display:none">開発の基礎</span>
+        <span class="zh-CN" style="display:none">应用程序基础</span>
+        <span class="zh-TW" style="display:none">應用程式基本原理</span>
+      </a></li>
+
+  <!--  <li><a style="color:gray;">The Android SDK</a></li> -->
+  <!--  <li><a style="color:gray;">Walkthrough for Developers</a></li> -->
+      <!-- quick overview of what it's like to develop on Android -->
+    </ul>
+  </li>
+
+  <li>
+    <span class="heading">
+      <span class="en">Framework Topics</span>
+      <span class="de" style="display:none">Framework-Themen</span>
+      <span class="es" style="display:none">Temas sobre el framework</span>
+      <span class="fr" style="display:none">Thèmes relatifs au framework</span>
+      <span class="it" style="display:none">Argomenti relativi al framework</span>
+      <span class="ja" style="display:none">フレームワーク トピック</span>
+      <span class="zh-CN" style="display:none">框架主题</span>
+      <span class="zh-TW" style="display:none">架構主題</span>
+    </span>
+    <ul>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/fundamentals/activities.html">
+          <span class="en">Activities</span>
+        </a></div>
+        <ul>
+          <li><a href="../../../guide/topics/fundamentals/fragments.html">
+            <span class="en">Fragments</span>
+          </a></li>
+          <li><a href="../../../guide/topics/fundamentals/loaders.html">
+            <span class="en">Loaders</span>
+          </a></li>
+          <li><a href="../../../guide/topics/fundamentals/tasks-and-back-stack.html">
+            <span class="en">Tasks and Back Stack</span></a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/fundamentals/services.html">
+          <span class="en">Services</span>
+        </a></div>
+        <ul>
+          <li><a href="../../../guide/topics/fundamentals/bound-services.html">
+            <span class="en">Bound Services</span>
+          </a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+          <div><a href="../../../guide/topics/providers/content-providers.html">
+            <span class="en">Content Providers</span>
+          </a></div>
+          <ul>
+            <li>
+                <a href="../../../guide/topics/providers/content-provider-basics.html">
+                    <span class="en">Content Provider Basics</span>
+                </a>
+                <span class="new">new!</span>
+            </li>
+            <li>
+                <a href="../../../guide/topics/providers/content-provider-creating.html">
+                    <span class="en">Creating a Content Provider</span>
+                </a>
+                <span class="new">new!</span>
+            </li>
+            <li>
+                <a href="../../../guide/topics/providers/calendar-provider.html">
+                    <span class="en">Calendar Provider</span>
+                </a>
+                <span class="new">new!</span>
+            </li>
+          </ul>
+      </li>
+      <li><a href="../../../guide/topics/intents/intents-filters.html">
+            <span class="en">Intents and Intent Filters</span>
+          </a></li>
+      <li><a href="../../../guide/topics/fundamentals/processes-and-threads.html">
+            <span class="en">Processes and Threads</span>
+          </a></li>
+    </ul>
+
+
+    <ul>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/ui/index.html">
+            <span class="en">User Interface</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../guide/topics/ui/declaring-layout.html">
+               <span class="en">XML Layouts</span>
+              </a></li>
+          <li><a href="../../../guide/topics/ui/ui-events.html">
+                <span class="en">Input Events</span>
+              </a></li>
+          <li><a href="../../../guide/topics/ui/menus.html">
+               <span class="en">Menus</span>
+              </a> <span class="new">updated</span></li>
+          <li><a href="../../../guide/topics/ui/actionbar.html">
+               <span class="en">Action Bar</span>
+              </a></li>
+          <li><a href="../../../guide/topics/ui/dialogs.html">
+                <span class="en">Dialogs</span>
+              </a></li>
+          <li class="toggle-list">
+            <div><a href="../../../guide/topics/ui/notifiers/index.html">
+                <span class="en">Notifications</span>
+            </a></div>
+            <ul>
+              <li><a href="../../../guide/topics/ui/notifiers/toasts.html">
+                <span class="en">Toast Notifications</span>
+              </a></li>
+              <li><a href="../../../guide/topics/ui/notifiers/notifications.html">
+                <span class="en">Status Bar Notifications</span>
+              </a></li>
+            </ul>
+          </li>
+          <li><a href="../../../guide/topics/ui/drag-drop.html">
+                <span class="en">Drag and Drop</span>
+              </a></li>
+          <li><a href="../../../guide/topics/ui/themes.html">
+                <span class="en">Styles and Themes</span>
+              </a></li>
+          <li><a href="../../../guide/topics/ui/custom-components.html">
+                <span class="en">Custom Components</span>
+              </a></li>
+          <li><a href="../../../guide/topics/ui/binding.html">
+                <span class="en">Binding to Data with AdapterView</span>
+              </a></li>
+          <li><a href="../../../guide/topics/ui/layout-objects.html">
+                <span class="en">Common Layout Objects</span>
+              </a></li>
+          <li><a href="../../../guide/topics/ui/how-android-draws.html">
+                <span class="en">How Android Draws Views</span>
+              </a></li>
+        </ul>
+      </li><!-- end of User Interface -->
+
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/resources/index.html">
+               <span class="en">Application Resources</span>
+             </a></div>
+        <ul>
+          <li><a href="../../../guide/topics/resources/providing-resources.html">
+                <span class="en">Providing Resources</span>
+              </a></li>
+          <li><a href="../../../guide/topics/resources/accessing-resources.html">
+                <span class="en">Accessing Resources</span>
+              </a></li>
+          <li><a href="../../../guide/topics/resources/runtime-changes.html">
+                <span class="en">Handling Runtime Changes</span>
+              </a></li>
+          <li><a href="../../../guide/topics/resources/localization.html">
+                <span class="en">Localization</span>
+              </a></li>
+          <li class="toggle-list">
+            <div><a href="../../../guide/topics/resources/available-resources.html">
+              <span class="en">Resource Types</span>
+            </a></div>
+            <ul>
+              <li><a href="../../../guide/topics/resources/animation-resource.html">Animation</a></li>
+              <li><a href="../../../guide/topics/resources/color-list-resource.html">Color State List</a></li>
+              <li><a href="../../../guide/topics/resources/drawable-resource.html">Drawable</a></li>
+              <li><a href="../../../guide/topics/resources/layout-resource.html">Layout</a></li>
+              <li><a href="../../../guide/topics/resources/menu-resource.html">Menu</a></li>
+              <li><a href="../../../guide/topics/resources/string-resource.html">String</a></li>
+              <li><a href="../../../guide/topics/resources/style-resource.html">Style</a></li>
+              <li><a href="../../../guide/topics/resources/more-resources.html">More Types</a></li>
+            </ul>
+          </li><!-- end of resource types -->
+        </ul>
+      </li><!-- end of app resources -->
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/data/data-storage.html">
+            <span class="en">Data Storage</span>
+          </a></div>
+          <ul>
+            <li><a href="../../../guide/topics/data/backup.html">
+                <span class="en">Data Backup</span>
+              </a>
+            </li>
+          </ul>
+      </li>
+      <li><a href="../../../guide/topics/security/security.html">
+            <span class="en">Security and Permissions</span>
+          </a></li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/manifest/manifest-intro.html">
+          <span class="en">The AndroidManifest.xml File</span>
+        </a></div>
+        <ul>
+          <li><a href="../../../guide/topics/manifest/action-element.html">&lt;action&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/activity-element.html">&lt;activity&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/activity-alias-element.html">&lt;activity-alias&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/application-element.html">&lt;application&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/category-element.html">&lt;category&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/compatible-screens-element.html">&lt;compatible-screens&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/data-element.html">&lt;data&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/grant-uri-permission-element.html">&lt;grant-uri-permission&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/instrumentation-element.html">&lt;instrumentation&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/intent-filter-element.html">&lt;intent-filter&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/manifest-element.html">&lt;manifest&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/meta-data-element.html">&lt;meta-data&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/path-permission-element.html">&lt;path-permission&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/permission-element.html">&lt;permission&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/permission-group-element.html">&lt;permission-group&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/permission-tree-element.html">&lt;permission-tree&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/provider-element.html">&lt;provider&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/receiver-element.html">&lt;receiver&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/service-element.html">&lt;service&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/supports-gl-texture-element.html">&lt;supports-gl-texture&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/supports-screens-element.html">&lt;supports-screens&gt;</a></li><!-- ##api level 4## -->
+          <li><a href="../../../guide/topics/manifest/uses-configuration-element.html">&lt;uses-configuration&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/uses-feature-element.html">&lt;uses-feature&gt;</a></li> <!-- ##api level 4## -->
+          <li><a href="../../../guide/topics/manifest/uses-library-element.html">&lt;uses-library&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/uses-permission-element.html">&lt;uses-permission&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/uses-sdk-element.html">&lt;uses-sdk&gt;</a></li>
+        </ul>
+      </li><!-- end of the manifest file -->
+    </ul>
+
+    <ul>
+    <li class="toggle-list">
+        <div><a href="../../../guide/topics/graphics/index.html">
+            <span class="en">Graphics</span>
+          </a> <span class="new-child">new!</span></div>
+        <ul>
+          <li><a href="../../../guide/topics/graphics/2d-graphics.html">
+              <span class="en">Canvas and Drawables</span></a></li>
+          <li><a href="../../../guide/topics/graphics/hardware-accel.html">
+              <span class="en">Hardware Acceleration</span></a>
+            <span class="new">new!</span></li>
+          <li><a href="../../../guide/topics/graphics/opengl.html">
+              <span class="en">OpenGL</span>
+            </a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/graphics/animation.html">
+            <span class="en">Animation</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../guide/topics/graphics/prop-animation.html">
+              <span class="en">Property Animation</span></a></li>
+          <li><a href="../../../guide/topics/graphics/view-animation.html">
+              <span class="en">View Animation</span></a></li>
+          <li><a href="../../../guide/topics/graphics/drawable-animation.html">
+              <span class="en">Drawable Animation</span></a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/renderscript/index.html">
+          <span class="en">Renderscript</span></a>
+          <span class="new">updated</span>
+        </div>
+        <ul>
+          <li><a href="../../../guide/topics/renderscript/graphics.html">
+                <span class="en">Graphics</span>
+              </a>
+          </li>
+          <li><a href="../../../guide/topics/renderscript/compute.html">
+                <span class="en">Compute</span>
+              </a>
+          </li>
+          <li><a href="../../../guide/topics/renderscript/reference.html">
+                <span class="en">Runtime API Reference</span>
+              </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="toggle-list">
+          <div><a href="../../../guide/topics/media/index.html">
+            <span class="en">Multimedia and Camera</span>
+          </a></div>
+          <ul>
+            <li><a href="../../../guide/topics/media/mediaplayer.html">
+                  <span class="en">Media Playback</span></a>
+                </li>
+            <li><a href="../../../guide/topics/media/jetplayer.html">
+                  <span class="en">JetPlayer</span></a>
+                </li>
+            <li><a href="../../../guide/topics/media/camera.html">
+                  <span class="en">Camera</span></a>
+                  <span class="new">new!</span>
+                </li>
+            <li><a href="../../../guide/topics/media/audio-capture.html">
+                  <span class="en">Audio Capture</span></a>
+                </li>
+          </ul>
+      </li>
+      <li>
+        <a href="../../../guide/topics/clipboard/copy-paste.html">
+            <span class="en">Copy and Paste</span>
+        </a></li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/sensors/index.html">
+              <span class="en">Sensors</span>
+              </a> <span class="new">new!</span></div>
+        <ul>
+          <li><a href="../../../guide/topics/sensors/sensors_overview.html">
+              <span class="en">Sensors Overview</span>
+            </a></li>
+          <li><a href="../../../guide/topics/sensors/sensors_motion.html">
+              <span class="en">Motion Sensors</span>
+            </a></li>
+          <li><a href="../../../guide/topics/sensors/sensors_position.html">
+              <span class="en">Position Sensors</span>
+            </a></li>
+          <li><a href="../../../guide/topics/sensors/sensors_environment.html">
+              <span class="en">Environment Sensors</span>
+            </a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/location/index.html">
+               <span class="en">Location and Maps</span>
+             </a></div>
+        <ul>
+          <li><a href="../../../guide/topics/location/obtaining-user-location.html">
+                <span class="en">Obtaining User Location</span>
+              </a></li>
+        </ul>
+      </li>
+  <!--<li class="toggle-list">
+        <div><a style="color:gray;">Wireless Controls</a></div>
+          <ul>
+            <li><a style="color:gray;">Wi-Fi</a></li>
+          </ul>
+      </li> -->
+  <!--<li><a style="color:gray;">Localization</a></li>  -->
+      <li><a href="../../../guide/topics/appwidgets/index.html">
+            <span class="en">App Widgets</span></a>
+          </li>
+      <li><a href="../../../guide/topics/wireless/bluetooth.html">
+            <span class="en">Bluetooth</span></a>
+          </li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/nfc/index.html">
+          <span class="en">Near Field Communication</span></a> <span class="new">updated</span>
+        </div>
+        <ul>
+          <li><a href="../../../guide/topics/nfc/nfc.html">NFC Basics</a></li>
+          <li><a href="../../../guide/topics/nfc/advanced-nfc.html">Advanced NFC</a></li>
+        </ul>
+      </li>
+      <li><a href="../../../guide/topics/wireless/wifip2p.html">
+            <span class="en">Wi-Fi Direct</span></a> <span class="new">new!</span>
+          </li>
+      <li class="toggle-list">
+          <div><a href="../../../guide/topics/usb/index.html">
+            <span class="en">USB</span></a>
+          </div>
+            <ul>
+              <li><a href="../../../guide/topics/usb/accessory.html">Accessory</a></li>
+              <li><a href="../../../guide/topics/usb/host.html">Host</a></li>
+              <li><a href="../../../guide/topics/usb/adk.html">Open Accessory Dev Kit</a></li>
+            </ul>
+          </li>
+
+       <li><a href="../../../guide/topics/network/sip.html">
+            <span class="en">Session Initiation Protocol</span>
+          </a></li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/search/index.html">
+            <span class="en">Search</span>
+          </a></div>
+          <ul>
+            <li><a href="../../../guide/topics/search/search-dialog.html">Creating a Search Interface</a></li>
+            <li><a href="../../../guide/topics/search/adding-recent-query-suggestions.html">Adding Recent Query Suggestions</a></li>
+            <li><a href="../../../guide/topics/search/adding-custom-suggestions.html">Adding Custom Suggestions</a></li>
+            <li><a href="../../../guide/topics/search/searchable-config.html">Searchable Configuration</a></li>
+          </ul>
+      </li>
+      <li><a href="../../../guide/topics/admin/device-admin.html">
+            <span class="en">Device Administration</span></a>
+      </li>
+      <li class="toggle-list">
+           <div>
+                <a href="../../../guide/topics/testing/index.html">
+                   <span class="en">Testing</span>
+               </a>
+           </div>
+           <ul>
+              <li>
+                <a href="../../../guide/topics/testing/testing_android.html">
+                <span class="en">Testing Fundamentals</span></a>
+              </li>
+              <li>
+                <a href="../../../guide/topics/testing/activity_testing.html">
+                <span class="en">Activity Testing</span></a>
+              </li>
+              <li>
+                <a href="../../../guide/topics/testing/contentprovider_testing.html">
+                <span class="en">Content Provider Testing</span></a>
+              </li>
+              <li>
+                <a href="../../../guide/topics/testing/service_testing.html">
+                <span class="en">Service Testing</span></a>
+              </li>
+              <li>
+                <a href="../../../guide/topics/testing/what_to_test.html">
+                <span class="en">What To Test</span></a>
+              </li>
+           </ul>
+      </li>
+    </ul>
+  </li>
+
+  <li>
+    <h2>
+      <span class="en">Google Play Topics</span>
+    </h2>
+    <ul>
+      <li><a href="../../../guide/publishing/publishing.html">
+          <span class="en">Publishing on Google Play</span>
+          </a></li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/market/licensing/index.html">
+          <span class="en">Application Licensing</span></a>
+        </div>
+        <ul>
+          <li><a href="../../../guide/market/licensing/overview.html">
+              <span class="en">Licensing Overview</span></a>
+          </li>
+          <li><a href="../../../guide/market/licensing/setting-up.html">
+              <span class="en">Setting Up for Licensing</span></a>
+          </li>
+          <li><a href="../../../guide/market/licensing/adding-licensing.html">
+              <span class="en">Adding Licensing to Your App</span></a>
+          </li>
+          <li><a href="../../../guide/market/licensing/licensing-reference.html">
+              <span class="en">Licensing Reference</span></a>
+          </li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/market/billing/index.html">
+            <span class="en">In-app Billing</span></a>
+        </div>
+        <ul>
+          <li><a href="../../../guide/market/billing/billing_overview.html">
+              <span class="en">In-app Billing Overview</span></a>
+          </li>
+          <li><a href="../../../guide/market/billing/billing_integrate.html">
+              <span class="en">Implementing In-app Billing</span></a>
+          </li>
+          <li><a href="../../../guide/market/billing/billing_best_practices.html">
+              <span class="en">Security and Design</span></a>
+          </li>
+          <li><a href="../../../guide/market/billing/billing_testing.html">
+              <span class="en">Testing In-app Billing</span></a>
+          </li>
+          <li><a href="../../../guide/market/billing/billing_admin.html">
+              <span class="en">Administering In-app Billing</span></a>
+          </li>
+          <li><a href="../../../guide/market/billing/billing_reference.html">
+              <span class="en">In-app Billing Reference</span></a>
+          </li>
+        </ul>
+      </li>
+      <li><a href="../../../guide/appendix/market-filters.html">
+          <span class="en">Filters on Google Play</span></a>
+      </li>
+      <li><a href="../../../guide/market/publishing/multiple-apks.html">
+          <span class="en">Multiple APK Support</span></a>
+      </li>
+      <li><a href="../../../guide/market/expansion-files.html">
+          <span class="en">APK Expansion Files</span></a>
+          <span class="new">new!</span>
+      </li>
+    </ul>
+  </li>
+
+
+  <li>
+    <span class="heading">
+      <span class="en">Developing</span>
+      <span class="de" style="display:none">Entwicklung</span>
+      <span class="es" style="display:none">Desarrollo</span>
+      <span class="fr" style="display:none">Développement</span>
+      <span class="it" style="display:none">Sviluppo</span>
+      <span class="ja" style="display:none">開発</span>
+      <span class="zh-CN" style="display:none">开发</span>
+      <span class="zh-TW" style="display:none">開發</span>
+    </span>
+    <ul>
+  <!--<li><a href="">Developing for Android</a></li>
+      signing, upgrading, selecting a package name, select device profile, touch, trackball, dpad available, etc. -->
+      <li>
+        <a href="../../../guide/developing/index.html">
+        <span class="en">Introduction</span></a>
+      </li>
+
+      <li class="toggle-list">
+        <div>
+           <a href="../../../guide/developing/devices/index.html">
+                <span class="en">Managing Virtual Devices</span>
+            </a>
+        </div>
+        <ul>
+          <li>
+            <a href="../../../guide/developing/devices/managing-avds.html">
+              <span class="en">With AVD Manager</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../guide/developing/devices/managing-avds-cmdline.html">
+              <span class="en">From the Command Line</span>
+            </a>
+          </li>
+          <li>
+           <a href="../../../guide/developing/devices/emulator.html">
+                <span class="en">Using the Android Emulator</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="../../../guide/developing/device.html">
+          <span class="en">Using Hardware Devices</span>
+        </a>
+      </li>
+
+      <li class="toggle-list">
+        <div>
+          <a href="../../../guide/developing/projects/index.html">
+            <span class="en">Managing Projects</span>
+          </a>
+        </div>
+        <ul>
+          <li>
+            <a href="../../../guide/developing/projects/projects-eclipse.html">
+              <span class="en">From Eclipse with ADT</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../guide/developing/projects/projects-cmdline.html">
+                <span class="en">From the Command Line</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="toggle-list">
+        <div>
+          <a href="../../../guide/developing/building/index.html">
+            <span class="en">Building and Running</span>
+          </a>
+        </div>
+        <ul>
+          <li><a href="../../../guide/developing/building/building-eclipse.html">
+            <span class="en">From Eclipse with ADT</span>
+          </a></li>
+          <li><a href="../../../guide/developing/building/building-cmdline.html">
+            <span class="en">From the Command Line</span></a></li>
+        </ul>
+      </li>
+
+      <li class="toggle-list">
+        <div>
+          <a href="../../../guide/developing/debugging/index.html">
+            <span class="en">Debugging</span>
+          </a>
+        </div>
+        <ul>
+          <li>
+            <a href="../../../guide/developing/debugging/debugging-projects.html">
+                <span class="en">From Eclipse with ADT</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../guide/developing/debugging/debugging-projects-cmdline.html">
+                <span class="en">From Other IDEs</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../guide/developing/debugging/ddms.html">
+              <span class="en">Using DDMS</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../guide/developing/debugging/debugging-log.html">
+                <span class="en">Reading and Writing Logs</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../guide/developing/debugging/debugging-ui.html">
+                <span class="en">Debugging and Profiling UIs</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../guide/developing/debugging/debugging-tracing.html">
+                <span class="en">Profiling with Traceview and dmtracedump</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../guide/developing/debugging/debugging-devtools.html">
+                <span class="en">Using the Dev Tools App</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="toggle-list">
+           <div>
+                <a href="../../../guide/developing/testing/index.html">
+                   <span class="en">Testing</span>
+               </a>
+           </div>
+           <ul>
+              <li>
+                <a href="../../../guide/developing/testing/testing_eclipse.html">
+                  <span class="en">From Eclipse with ADT</span>
+                </a>
+              </li>
+
+              <li>
+                <a href="../../../guide/developing/testing/testing_otheride.html">
+                  <span class="en">From Other IDEs</span>
+                </a>
+              </li>
+           </ul>
+         </li>
+
+         <li class="toggle-list">
+        <div><a href="../../../guide/developing/tools/index.html">
+            <span class="en">Tools</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../guide/developing/tools/adb.html">adb</a></li>
+          <li><a href="../../../guide/developing/tools/adt.html">ADT</a></li>
+          <li><a href="../../../guide/developing/tools/android.html">android</a></li>
+          <li><a href="../../../guide/developing/tools/bmgr.html">bmgr</a>
+          <li><a href="../../../guide/developing/tools/dmtracedump.html">dmtracedump</a></li>
+          <li><a href="../../../guide/developing/tools/draw9patch.html">Draw
+          9-Patch</a></li>
+          <li><a href="../../../guide/developing/tools/emulator.html">Emulator</a></li>
+          <li><a href="../../../guide/developing/tools/etc1tool.html">etc1tool</a></li>
+          <li><a href="../../../guide/developing/tools/hierarchy-viewer.html">Hierarchy Viewer</a></li>
+          <li><a href="../../../guide/developing/tools/hprof-conv.html">hprof-conv</a></li>
+          <li><a href="../../../guide/developing/tools/layoutopt.html">layoutopt</a></li>
+          <li><a href="../../../guide/developing/tools/logcat.html">logcat</a></li>
+          <li><a href="../../../guide/developing/tools/mksdcard.html">mksdcard</a></li>
+          <li><a href="../../../guide/developing/tools/monkey.html">Monkey</a></li>
+          <li class="toggle-list">
+            <div><a href="../../../guide/developing/tools/monkeyrunner_concepts.html">
+              <span class="en">monkeyrunner</span>
+            </a></div>
+            <ul>
+              <li><a href="../../../guide/developing/tools/MonkeyDevice.html">
+                <span class="en">MonkeyDevice</span>
+                </a></li>
+              <li><a href="../../../guide/developing/tools/MonkeyImage.html">
+                <span class="en">MonkeyImage</span>
+                </a></li>
+              <li><a href="../../../guide/developing/tools/MonkeyRunner.html">
+                <span class="en">MonkeyRunner</span>
+                </a></li>
+            </ul>
+          </li>
+          <li><a href="../../../guide/developing/tools/proguard.html">ProGuard</a></li>
+          <li><a href="../../../guide/developing/tools/adb.html#sqlite">sqlite3</a></li>
+          <li><a href="../../../guide/developing/tools/traceview.html">Traceview</a></li>
+          <li><a href="../../../guide/developing/tools/zipalign.html">zipalign</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+
+  <li>
+    <span class="heading">
+      <span class="en">Publishing</span>
+      <span class="de" style="display:none">Veröffentlichung</span>
+      <span class="es" style="display:none">Publicación</span>
+      <span class="fr" style="display:none">Publication</span>
+      <span class="it" style="display:none">Pubblicazione</span>
+      <span class="ja" style="display:none">公開</span>
+      <span class="zh-CN" style="display:none">发布</span>
+      <span class="zh-TW" style="display:none">發佈</span>
+    </span>
+    <ul>
+      <li><a href="../../../guide/publishing/publishing_overview.html">
+            <span class="en">Publishing Overview</span>
+          </a></li>
+      <li><a href="../../../guide/publishing/preparing.html">
+            <span class="en">Preparing for Release</span>
+            <span class="de" style="display:none">Vorbereitung auf die Veröffentlichung</span>
+            <span class="es" style="display:none">Publicación de aplicaciones</span>
+            <span class="fr" style="display:none">Préparation à la publication</span>
+            <span class="it" style="display:none">Preparativi per la pubblicazione</span>
+            <span class="ja" style="display:none">公開の準備</span>
+            <span class="zh-CN" style="display:none">准备发布</span>
+            <span class="zh-TW" style="display:none">準備發佈</span>
+          </a></li>
+      <li><a href="../../../guide/publishing/app-signing.html">
+            <span class="en">Signing Your Applications</span>
+            <span class="de" style="display:none">Signieren Ihrer Anwendungen</span>
+            <span class="es" style="display:none">Firma de aplicaciones</span>
+            <span class="fr" style="display:none">Attribution de votre signature <br />à vos
+applications</span>
+            <span class="it" style="display:none">Firma delle applicazioni</span>
+            <span class="ja" style="display:none">アプリケーションへの署名</span>
+            <span class="zh-CN" style="display:none">应用程序签名</span>
+            <span class="zh-TW" style="display:none">簽署應用程式</span>
+          </a></li>
+      <li><a href="../../../guide/publishing/versioning.html">
+            <span class="en">Versioning Your Applications</span>
+            <span class="de" style="display:none">Versionsverwaltung für Ihre <br
+/>Anwendungen</span>
+            <span class="es" style="display:none">Versiones de las aplicaciones</span>
+            <span class="fr" style="display:none">Attribution d'une version à vos
+applications</span>
+            <span class="it" style="display:none">Controllo versioni delle applicazioni</span>
+            <span class="ja" style="display:none">アプリケーションのバージョニング</span>
+            <span class="zh-CN" style="display:none">应用程序版本控制</span>
+            <span class="zh-TW" style="display:none">應用程式版本設定</span>
+          </a></li>
+    </ul>
+  </li>
+
+  <li>
+    <span class="heading">
+      <span class="en">Best Practices</span>
+      <span class="de" style="display:none">Bewährte Verfahren</span>
+      <span class="es" style="display:none">Prácticas recomendadas</span>
+      <span class="fr" style="display:none">Meilleures pratiques</span>
+      <span class="it" style="display:none">Best practice</span>
+      <span class="ja" style="display:none">ベスト プラクティス</span>
+      <span class="zh-CN" style="display:none">最佳实践</span>
+      <span class="zh-TW" style="display:none">最佳實務</span>
+    </span>
+    <ul>
+      <li><a href="../../../guide/practices/compatibility.html">
+            <span class="en">Compatibility</span>
+          </a></li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/practices/screens_support.html">
+          <span class="en">Supporting Multiple Screens</span>
+        </a></div>
+        <ul>
+          <li><a href="../../../guide/practices/screens-distribution.html">
+            <span class="en">Distributing to Specific Screens</span>
+          </a></li>
+          <li><a href="../../../guide/practices/screen-compat-mode.html">
+            <span class="en">Screen Compatibility Mode</span>
+          </a></li>
+          <li><a href="../../../guide/practices/screens-support-1.5.html">
+            <span class="en">Strategies for Android 1.5</span>
+          </a></li>
+        </ul>
+      </li>
+      <li><a href="../../../guide/practices/tablets-and-handsets.html">
+            <span class="en">Supporting Tablets and Handsets</span>
+          </a> <span class="new">new!</span></li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/practices/ui_guidelines/index.html">
+               <span class="en">UI Guidelines</span>
+             </a></div>
+        <ul>
+          <li class="toggle-list">
+            <div><a href="../../../guide/practices/ui_guidelines/icon_design.html">
+                   <span class="en">Icon Design</span>
+                 </a></div>
+            <ul>
+              <li><a href="../../../guide/practices/ui_guidelines/icon_design_launcher.html">
+                    <span class="en">Launcher Icons</span>
+                  </a></li>
+              <li><a href="../../../guide/practices/ui_guidelines/icon_design_menu.html">
+                    <span class="en">Menu Icons</span>
+                  </a></li>
+              <li><a href="../../../guide/practices/ui_guidelines/icon_design_action_bar.html">
+                    <span class="en">Action Bar Icons</span>
+                  </a></li>
+              <li><a href="../../../guide/practices/ui_guidelines/icon_design_status_bar.html">
+                    <span class="en">Status Bar Icons</span>
+                  </a></li>
+              <li><a href="../../../guide/practices/ui_guidelines/icon_design_tab.html">
+                    <span class="en">Tab Icons</span>
+                  </a></li>
+              <li><a href="../../../guide/practices/ui_guidelines/icon_design_dialog.html">
+                    <span class="en">Dialog Icons</span>
+                  </a></li>
+              <li><a href="../../../guide/practices/ui_guidelines/icon_design_list.html">
+                    <span class="en">List View Icons</span>
+                  </a></li>
+            </ul>
+          </li>
+          <li><a href="../../../guide/practices/ui_guidelines/widget_design.html">
+                <span class="en">App Widget Design</span>
+              </a></li>
+          <li><a href="../../../guide/practices/ui_guidelines/activity_task_design.html">
+                <span class="en">Activity and Task Design</span>
+              </a></li>
+          <li><a href="../../../guide/practices/ui_guidelines/menu_design.html">
+                <span class="en">Menu Design</span>
+              </a></li>
+        </ul>
+      </li>
+      </ul>
+      <ul>
+      <li><a href="../../../guide/practices/design/accessibility.html">
+            <span class="en">Designing for Accessibility</span>
+          </a></li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/practices/design/performance.html">
+            <span class="en">Designing for Performance</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../guide/practices/design/jni.html">
+                <span class="en">JNI Tips</span>
+              </a></li>
+        </ul>
+      </li>
+      <li><a href="../../../guide/practices/design/responsiveness.html">
+            <span class="en">Designing for Responsiveness</span>
+          </a></li>
+      <li><a href="../../../guide/practices/design/seamlessness.html">
+            <span class="en">Designing for Seamlessness</span>
+          </a></li>
+      <li><a href="../../../guide/practices/security.html">
+            <span class="en">Designing for Security</span></a>
+            </li>
+    </ul>
+  </li>
+
+  <li>
+    <span class="heading">
+      <span class="en">Web Applications</span>
+    </span>
+    <ul>
+      <li><a href="../../../guide/webapps/index.html">
+            <span class="en">Web Apps Overview</span>
+          </a></li>
+      <li><a href="../../../guide/webapps/targeting.html">
+            <span class="en">Targeting Screens from Web Apps</span>
+          </a></li>
+      <li><a href="../../../guide/webapps/webview.html">
+            <span class="en">Building Web Apps in WebView</span>
+          </a></li>
+      <li><a href="../../../guide/webapps/debugging.html">
+            <span class="en">Debugging Web Apps</span>
+          </a></li>
+      <li><a href="../../../guide/webapps/best-practices.html">
+            <span class="en">Best Practices for Web Apps</span>
+          </a></li>
+    </ul>
+  </li>
+
+  <li>
+    <span class="heading">
+      <span class="en">Appendix</span>
+      <span class="de" style="display:none">Anhang</span>
+      <span class="es" style="display:none">Apéndice</span>
+      <span class="fr" style="display:none">Annexes</span>
+      <span class="it" style="display:none">Appendice</span>
+      <span class="ja" style="display:none">付録</span>
+      <span class="zh-CN" style="display:none">附录</span>
+      <span class="zh-TW" style="display:none">附錄</span>
+    </span>
+    <ul>
+      <li><a href="../../../guide/appendix/api-levels.html">
+            <span class="en">Android API Levels</span>
+          </a></li>
+      <li><a href="../../../guide/appendix/install-location.html">
+            <span class="en">App Install Location</span>
+          </a></li>
+      <li><a href="../../../guide/appendix/media-formats.html">
+            <span class="en">Supported Media Formats</span>
+          </a></li>
+      <li><a href="../../../guide/appendix/g-app-intents.html">
+            <span class="en">Intents List: Google Apps</span>
+          </a></li>
+      <li><a href="../../../guide/developing/tools/aidl.html">AIDL</a></li>
+      <li><a href="../../../guide/appendix/glossary.html">
+            <span class="en">Glossary</span>
+          </a></li>
+    </ul>
+  </li>
+
+</ul>
+
+<script type="text/javascript">
+<!--
+    buildToggleLists();
+    changeNavLang(getLangPref());
+//-->
+</script>
+
+      </div>
+    </div> <!-- end side-nav -->
+    <script>
+      addLoadEvent(function() {
+        scrollIntoView("devdoc-nav");
+        });
+    </script>
+
+
+
+
+<div class="g-unit" id="doc-content"><a name="top"></a>
+
+<div id="jd-header" class="guide-header">
+  <span class="crumb" itemprop="breadcrumb">
+    
+      <a href="index.html">monkeyrunner</a>:
+    
+  </span>
+<h1 itemprop="name">MonkeyDevice</h1>
+</div>
+
+  
+  <div id="jd-content">
+ 
+    
+
+
+    <div class="jd-descr" itemprop="articleBody">
+    <style>
+    h4.jd-details-title {background-color: #DEE8F1;}
+</style>
+<p>
+    A monkeyrunner class that represents a device or emulator accessible by the workstation running
+<code><a href="../../../guide/developing/tools/monkeyrunner_concepts.html">monkeyrunner</a></code>.
+</p>
+<p>
+    This class is used to control an Android device or emulator. The methods send UI events,
+    retrieve information, install and remove applications, and run applications.
+</p>
+<p>
+    You normally do not have to create an instance of <code>MonkeyDevice</code>. Instead, you
+    use
+<code><a href="../../../guide/developing/tools/MonkeyRunner.html#waitForConnection">
+MonkeyRunner.waitForConnection()</a></code> to create a new object from a connection to a device or
+emulator. For example, instead of
+using:</p>
+<pre>
+newdevice = MonkeyDevice()
+</pre>
+<p>
+    you would use:
+</p>
+<pre>
+newdevice = MonkeyRunner.waitForConnection()
+</pre>
+<h2>Summary</h2>
+    <table id="constants" class="jd-sumtable" style="background-color: white;">
+       <tr>
+            <th colspan="12" style="background-color: #E2E2E2">Constants</th>
+       </tr>
+        <tr class="api" style="background-color: white;">
+            <td class="jd-typecol"><em>string</em></td>
+            <td class="jd-linkcol"><a href="#ACTION_DOWN">DOWN</a></td>
+            <td class="jd-descrcol" width="100%">
+                Use this with the <code>type</code> argument of
+                <code><a href="#press">press()</a></code> or <code><a href="#touch">touch()</a>
+                </code>
+                to send a DOWN event.
+            </td>
+        </tr>
+        <tr class="api" style="background-color: white;">
+            <td class="jd-typecol"><em>string</em></td>
+            <td class="jd-linkcol"><a href="#ACTION_UP">UP</a></td>
+            <td class="jd-descrcol" width="100%">
+                Use this with the <code>type</code> argument of
+                <code><a href="#press">press()</a></code> or <code><a href="#touch">touch()</a>
+                </code>
+                to send an UP event.
+            </td>
+        </tr>
+        <tr class="api" style="background-color: white;">
+            <td class="jd-typecol"><em>string</em></td>
+            <td class="jd-linkcol"><a href="#ACTION_DOWN_AND_UP">DOWN_AND_UP</a></td>
+            <td class="jd-descrcol" width="100%">
+                Use this with the <code>type</code> argument of
+                <code><a href="#press">press()</a></code> or <code><a href="#touch">touch()</a>
+                </code>
+                to send a DOWN event immediately followed by an UP event.
+            </td>
+        </tr>
+    </table>
+<table id="pubmethods" class="jd-sumtable">
+    <tr>
+        <th colspan="12" style="background-color: #E2E2E2">Methods</th>
+    </tr>
+    <tr class="api" >
+        <td class="jd-typecol">
+            <nobr>
+                void
+            </nobr>
+        </td>
+        <td class="jd-linkcol" width="100%">
+            <nobr>
+                <span class="sympad">
+                    <a href="#broadcastIntent">broadcastIntent</a>
+                </span>
+                (<em>string</em> uri,
+                <em>string</em> action,
+                <em>string</em> data,
+                <em>string</em> mimetype,
+                <em>iterable</em> categories
+                <em>dictionary</em> extras,
+                <em>component</em> component,
+                <em>iterable</em> flags)
+            </nobr>
+            <div class="jd-descrdiv">
+                Broadcasts an Intent to this device, as if the Intent were coming from an
+                application.
+            </div>
+        </td>
+    </tr>
+    <tr class="api" >
+        <td class="jd-typecol">
+            <nobr>
+                void
+            </nobr>
+        </td>
+        <td class="jd-linkcol" width="100%">
+            <nobr>
+                <span class="sympad">
+                    <a href="#drag">drag</a>
+                </span>
+                (<em>tuple</em> start,
+                <em>tuple</em> end,
+                <em>float</em> duration,
+                <em>integer</em> steps)
+            </nobr>
+            <div class="jd-descrdiv">
+                Simulates a drag gesture (touch, hold, and move) on this device's screen.
+            </div>
+        </td>
+    </tr>
+    <tr class="api" >
+        <td class="jd-typecol">
+            <nobr>
+                <em>object</em>
+            </nobr>
+        </td>
+        <td class="jd-linkcol" width="100%">
+            <nobr>
+                <span class="sympad">
+                    <a href="#getProperty">getProperty</a>
+                </span>
+                (<em>string</em> key)
+            </nobr>
+            <div class="jd-descrdiv">
+                Given the name of a system environment variable, returns its value for this device.
+                The available variable names are listed in the <a href="#getProperty">
+                detailed description</a> of this method.
+            </div>
+        </td>
+    </tr>
+    <tr class="api" >
+        <td class="jd-typecol">
+            <nobr>
+                <em>object</em>
+            </nobr>
+        </td>
+        <td class="jd-linkcol" width="100%">
+            <nobr>
+                <span class="sympad">
+                    <a href="#getSystemProperty">getSystemProperty</a>
+                </span>
+                (<em>string</em> key)
+            </nobr>
+            <div class="jd-descrdiv">
+.               The API equivalent of <code>adb shell getprop &lt;key&gt;. This is provided for use
+                by platform developers.
+            </div>
+        </td>
+    </tr>
+    <tr class="api" >
+        <td class="jd-typecol">
+            <nobr>
+                void
+            </nobr>
+        </td>
+        <td class="jd-linkcol" width="100%">
+            <nobr>
+                <span class="sympad">
+                    <a href="#installPackage">installPackage</a>
+                </span>
+                (<em>string</em> path)
+            </nobr>
+            <div class="jd-descrdiv">
+                Installs the Android application or test package contained in packageFile onto this
+                device. If the application or test package is already installed, it is replaced.
+            </div>
+        </td>
+    </tr>
+    <tr class="api" >
+        <td class="jd-typecol">
+            <nobr>
+                <em>dictionary</em>
+            </nobr>
+        </td>
+        <td class="jd-linkcol" width="100%">
+            <nobr>
+                <span class="sympad">
+                    <a href="#instrument">instrument</a>
+                </span>
+                (<em>string</em> className,
+                <em>dictionary</em> args)
+            </nobr>
+            <div class="jd-descrdiv">
+                Runs the specified component under Android instrumentation, and returns the results
+                in a dictionary whose exact format is dictated by the component being run. The
+                component must already be present on this device.
+            </div>
+        </td>
+    </tr>
+    <tr class="api">
+        <td class="jd-typecol">
+            <nobr>
+                void
+            </nobr>
+        </td>
+        <td class="jd-linkcol" width="100%">
+            <nobr>
+                <span class="sympad">
+                    <a href="#press">press</a>
+                </span>
+                (<em>string</em> name,
+                <em>dictionary</em> type)
+            </nobr>
+            <div class="jd-descrdiv">
+                Sends the key event specified by type to the key specified by
+                keycode.
+            </div>
+        </td>
+    </tr>
+    <tr class="api" >
+        <td class="jd-typecol">
+            <nobr>
+                void
+            </nobr>
+        </td>
+        <td class="jd-linkcol" width="100%">
+            <nobr>
+                <span class="sympad">
+                    <a href="#reboot">reboot</a>
+                </span>
+                (<em>string</em> into)
+            </nobr>
+            <div class="jd-descrdiv">
+                Reboots this device into the bootloader specified by bootloadType.
+            </div>
+        </td>
+    </tr>
+    <tr class="api" >
+        <td class="jd-typecol">
+            <nobr>
+                void
+            </nobr>
+        </td>
+        <td class="jd-linkcol" width="100%">
+            <nobr>
+                <span class="sympad">
+                    <a href="#removePackage">removePackage</a>
+                </span>
+                (<em>string</em> package)
+            </nobr>
+            <div class="jd-descrdiv">
+                Deletes the specified package from this device, including its data and cache.
+            </div>
+        </td>
+    </tr>
+    <tr class="api" >
+        <td class="jd-typecol">
+            <nobr>
+                <em>object</em>
+            </nobr>
+        </td>
+        <td class="jd-linkcol" width="100%">
+            <nobr>
+                <span class="sympad">
+                    <a href="#shell">shell</a>
+                </span>
+                (<em>string</em> cmd)
+            </nobr>
+            <div class="jd-descrdiv">
+                Executes an <code>adb</code> shell command and returns the result, if any.
+            </div>
+        </td>
+    </tr>
+    <tr class="api" >
+        <td class="jd-typecol">
+            <nobr>
+                void
+            </nobr>
+        </td>
+        <td class="jd-linkcol" width="100%">
+            <nobr>
+                <span class="sympad">
+                    <a href="#startActivity">startActivity</a>
+                </span>
+                (<em>string</em> uri,
+                <em>string</em> action,
+                <em>string</em> data,
+                <em>string</em> mimetype,
+                <em>iterable</em> categories
+                <em>dictionary</em> extras,
+                <em>component</em> component,
+                <em>flags</em>)
+            </nobr>
+            <div class="jd-descrdiv">
+                Starts an Activity on this device by sending an Intent constructed from the
+                supplied arguments.
+            </div>
+        </td>
+    </tr>
+    <tr class="api" >
+        <td class="jd-typecol">
+            <nobr>
+                <code>
+                <a href="../../../guide/developing/tools/MonkeyImage.html">
+                        MonkeyImage
+                    </a>
+                </code>
+            </nobr>
+        </td>
+        <td class="jd-linkcol" width="100%">
+            <nobr>
+                <span class="sympad">
+                    <a href="#takeSnapshot">takeSnapshot</a>()
+                </span>
+            </nobr>
+            <div class="jd-descrdiv">
+                Captures the entire screen buffer of this device, yielding a
+                <code>
+                <a href="../../../guide/developing/tools/MonkeyImage.html">
+                        MonkeyImage
+                </a>
+                </code> object containing a screen capture of the current display.
+            </div>
+        </td>
+    </tr>
+    <tr class="api" >
+        <td class="jd-typecol">
+            <nobr>
+                void
+            </nobr>
+        </td>
+        <td class="jd-linkcol" width="100%">
+            <nobr>
+                <span class="sympad">
+                    <a href="#touch">touch</a>
+                </span>
+               (<em>integer</em> x,
+                 <em>integer</em> y,
+                 <em>integer</em> type)
+            </nobr>
+            <div class="jd-descrdiv">
+                Sends a touch event specified by type to the screen location specified
+                by x and y.
+            </div>
+        </td>
+    </tr>
+    <tr class="api" >
+        <td class="jd-typecol">
+            <nobr>
+                void
+            </nobr>
+        </td>
+        <td class="jd-linkcol" width="100%">
+            <nobr>
+                <span class="sympad">
+                    <a href="#touch">type</a>
+                </span>
+                   (<em>string</em> message)
+            </nobr>
+            <div class="jd-descrdiv">
+                Sends the characters contained in message to this device, as if they
+                had been typed on the device's keyboard. This is equivalent to calling
+                <code><a href="#press">press()</a></code> for each keycode in <code>message</code>
+                using the key event type <code><a href="#ACTION_DOWN_AND_UP"></a>DOWN_AND_UP</code>.
+            </div>
+        </td>
+    </tr>
+    <tr class="api" >
+        <td class="jd-typecol">
+            <nobr>
+                void
+            </nobr>
+        </td>
+        <td class="jd-linkcol" width="100%">
+            <nobr>
+                <span class="sympad">
+                    <a href="#touch">wake</a>
+                </span>
+                   ()
+            </nobr>
+            <div class="jd-descrdiv">
+                Wakes the screen of this device.
+            </div>
+        </td>
+    </tr>
+</table>
+<!-- ========= ENUM CONSTANTS DETAIL ======== -->
+<h2>Constants</h2>
+<A NAME="ACTION_DOWN"></a>
+<div class="jd-details api">
+    <h4 class="jd-details-title">
+        <span class="normal">
+            <em>string</em>
+        </span>
+            DOWN
+    </h4>
+    <div class="jd-details-descr">
+        <div class="jd-tagdata jd-tagdescr">
+            <p>
+                <code><a href="#press">press()</a></code> or
+                <code><a href="#press">touch()</a></code> value.
+                Specifies that a DOWN event type should be sent to the device, corresponding to
+                pressing down on a key or touching the screen.
+            </p>
+        </div>
+    </div>
+</div>
+<A NAME="ACTION_UP"></A>
+<div class="jd-details api">
+    <h4 class="jd-details-title">
+        <span class="normal">
+            <em>string</em>
+        </span>
+            UP
+    </h4>
+    <div class="jd-details-descr">
+        <div class="jd-tagdata jd-tagdescr">
+            <p>
+                <code><a href="#press">press()</a></code> or
+                <code><a href="#press">touch()</a></code> value.
+                Specifies that an UP event type should be sent to the device, corresponding to
+                releasing a key or lifting up from the screen.
+            </p>
+        </div>
+    </div>
+</div>
+<A NAME="ACTION_DOWN_AND_UP"></A>
+
+<div class="jd-details api">
+    <h4 class="jd-details-title">
+        <span class="normal">
+            <em>string</em>
+        </span>
+            DOWN_AND_UP
+    </h4>
+    <div class="jd-details-descr">
+        <div class="jd-tagdata jd-tagdescr">
+            <p>
+                <code><a href="#press">press()</a></code>,
+                <code><a href="#press">touch()</a></code> or
+                <code><a href="#type">type()</a></code> value.
+                Specifies that a DOWN event type followed by an UP event type should be sent to the
+                device, corresponding to typing a key or clicking the screen.
+            </p>
+        </div>
+    </div>
+</div>
+<!-- ========= METHOD DETAIL ======== -->
+<!-- Public methods -->
+<h2>Public Methods</h2>
+<A NAME="broadcastIntent"></A>
+<div class="jd-details api ">
+    <h4 class="jd-details-title">
+      <span class="normal">
+        void
+      </span>
+      <span class="sympad">broadcastIntent</span>
+      <span class="normal">
+      (
+            <em>string</em> uri,
+            <em>string</em> action,
+            <em>string</em> data,
+            <em>string</em> mimetype,
+            <em>iterable</em> categories
+            <em>dictionary</em> extras,
+            <em>component</em> component,
+            <em>iterable</em> flags)
+      </span>
+    </h4>
+  <div class="jd-details-descr">
+
+    <div class="jd-tagdata jd-tagdescr">
+        <p>
+            Broadcasts an Intent to this device, as if the Intent were coming from an
+            application. See <code><a href="../../../reference/android/content/Intent.html">Intent</a></code> for more information about the
+            arguments.
+        </p>
+    </div>
+    <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Arguments</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>uri</th>
+            <td>
+                The URI for the Intent.
+                (see <code><a href="../../../reference/android/content/Intent.html#setData(android.net.Uri)">Intent.setData()</a></code>).
+            </td>
+        </tr>
+        <tr>
+            <th>action</th>
+            <td>
+                The action for this Intent
+                (see <code><a href="../../../reference/android/content/Intent.html#setAction(java.lang.String)">Intent.setAction()</a></code>).
+            </td>
+        </tr>
+        <tr>
+            <th>data</th>
+            <td>
+                The data URI for this Intent
+                (see <code><a href="../../../reference/android/content/Intent.html#setData(android.net.Uri)">Intent.setData()</a></code>).
+            </td>
+        </tr>
+        <tr>
+            <th>mimetype</th>
+            <td>
+                The MIME type for the Intent
+                (see <code><a href="../../../reference/android/content/Intent.html#setType(java.lang.String)">Intent.setType()</a></code>).
+            </td>
+        </tr>
+        <tr>
+            <th>categories</th>
+            <td>
+                An iterable data structure containing strings that define categories for this
+                Intent
+                (see
+                <code><a href="../../../reference/android/content/Intent.html#addCategory(java.lang.String)">Intent.addCategory()</a></code>).
+            </td>
+        </tr>
+        <tr>
+            <th>extras</th>
+            <td>
+                A dictionary of extra data for this Intent
+                (see <code><a href="../../../reference/android/content/Intent.html#putExtra(java.lang.String, java.lang.String)">Intent.putExtra()</a></code>
+                for an example).
+                <p>
+                    The key for each dictionary item should be a <em>string</em>. The item's value
+                    can be any simple or structured data type.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <th>component</th>
+            <td>
+                The component for this Intent (see <code><a href="../../../reference/android/content/ComponentName.html">ComponentName</a></code>).
+                Using this argument will direct the Intent to a specific class within a specific
+                Android package.
+            </td>
+        </tr>
+        <tr>
+            <th>flags</th>
+            <td>
+                An iterable data structure containing flags that control how the Intent is handled
+                (see <code><a href="../../../reference/android/content/Intent.html#setFlags(int)">Intent.setFlags()</a></code>).
+            </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+<A NAME="drag"></A>
+<div class="jd-details api ">
+    <h4 class="jd-details-title">
+      <span class="normal">
+        void
+      </span>
+      <span class="sympad">drag</span>
+      <span class="normal">
+      (
+            <em>tuple</em> start,
+            <em>tuple</em> end,
+            <em>float</em> duration,
+            <em>integer</em> steps)
+      </span>
+    </h4>
+  <div class="jd-details-descr">
+
+    <div class="jd-tagdata jd-tagdescr">
+        <p>
+            Simulates a drag gesture (touch, hold, and move) on this device's screen.
+        </p>
+    </div>
+    <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Arguments</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>start</th>
+          <td>
+            The starting point of the drag gesture, in the form of a <em>tuple</em>
+            (x,y) where x and y are <em>integers</em>.
+          </td>
+        </tr>
+        <tr>
+          <th>end</th>
+          <td>
+            The end point of the drag gesture, in the form of a <em>tuple</em> (x,y)
+            where x and y are <em>integers</em>.
+          </td>
+        </tr>
+        <tr>
+            <th>duration</th>
+            <td>The duration of the drag gesture in seconds. The default is 1.0 seconds.</td>
+        </tr>
+        <tr>
+            <th>steps</th>
+            <td>The number of steps to take when interpolating points. The default is 10.</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+<A NAME="getProperty"></A>
+<div class="jd-details api ">
+    <h4 class="jd-details-title">
+      <span class="normal">
+        <em>object</em>
+      </span>
+      <span class="sympad">getProperty</span>
+      <span class="normal">
+        (<em>string</em> key)
+      </span>
+    </h4>
+  <div class="jd-details-descr">
+
+    <div class="jd-tagdata jd-tagdescr">
+        <p>
+            Given the name of a system environment variable, returns its value for this device.
+        </p>
+    </div>
+    <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Arguments</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>key</th>
+          <td>
+            The name of the system environment variable. The available variable names are listed in
+            <a href="#table1">Table 1. Property variable names</a> at the end of this topic.
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist">
+        <li>
+            The value of the variable. The data format varies according to the variable requested.
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<A NAME="getSystemProperty"></A>
+<div class="jd-details api ">
+    <h4 class="jd-details-title">
+      <span class="normal">
+        <em>object</em>
+      </span>
+      <span class="sympad">getSystemProperty</span>
+      <span class="normal">
+      (<em>string</em> key)
+      </span>
+    </h4>
+  <div class="jd-details-descr">
+
+    <div class="jd-tagdata jd-tagdescr">
+        <p>
+            Synonym for <code><a href="#getProperty">getProperty()</a></code>.
+        </p>
+    </div>
+    <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Arguments</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>key</th>
+          <td>
+            The name of the system environment variable. The available variable names are listed in
+            <a href="#table1">Table 1. Property Variable Names</a>.
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist">
+        <li>
+            The value of the variable. The data format varies according to the variable requested.
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<A NAME="installPackage"></A>
+<div class="jd-details api ">
+    <h4 class="jd-details-title">
+      <span class="normal">
+        void
+      </span>
+      <span class="sympad">installPackage</span>
+      <span class="normal">
+      (<em>string</em> path)
+      </span>
+    </h4>
+  <div class="jd-details-descr">
+
+    <div class="jd-tagdata jd-tagdescr">
+        <p>
+            Installs the Android application or test package contained in packageFile
+            onto this device. If the application or test package is already installed, it is
+            replaced.
+        </p>
+    </div>
+    <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Arguments</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>path</th>
+          <td>
+            The fully-qualified path and filename of the <code>.apk</code> file to install.
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+<A NAME="instrument"></A>
+<div class="jd-details api ">
+    <h4 class="jd-details-title">
+      <span class="normal">
+        <em>dictionary</em>
+      </span>
+      <span class="sympad">instrument</span>
+      <span class="normal">
+      (
+            <em>string</em> className,
+            <em>dictionary</em> args)
+      </span>
+    </h4>
+  <div class="jd-details-descr">
+
+    <div class="jd-tagdata jd-tagdescr">
+        <p>
+            Runs the specified component with Android instrumentation, and returns the results
+            in a dictionary whose exact format is dictated by the component being run. The
+            component must already be present on this device.
+        </p>
+        <p>
+            Use this method to start a test case that uses one of Android's test case classes.
+            See <a href="../../../guide/topics/testing/testing_android.html">Testing
+            Fundamentals</a> to learn more about unit testing with the Android testing
+            framework.
+        </p>
+    </div>
+    <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Arguments</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>className</th>
+          <td>
+            The name of an Android component that is already installed on this device, in the
+            standard form packagename/classname, where packagename is the
+            Android package name of a <code>.apk</code> file on this device, and
+            classname is the class name of an Android component (Activity,
+            ContentProvider, Service, or BroadcastReceiver) in that file. Both
+            packagename and classname must be fully qualified. See
+            <code><a href="../../../reference/android/content/ComponentName.html">ComponentName</a></code> for more details.
+          </td>
+        </tr>
+        <tr>
+          <th>args</th>
+          <td>
+            A dictionary containing flags and their values. These are passed to the component as it
+            is started. If the flag does not take a value, set its dictionary value to an empty
+            string.
+          </td>
+        </tr>
+      </table>
+    <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+        <ul class="nolist">
+            <li>
+                <p>
+                    A dictionary containing the component's output. The contents of the dictionary
+                    are defined by the component itself.
+                </p>
+                <p>
+                    If you use <code><a href="../../../reference/android/test/InstrumentationTestRunner.html">InstrumentationTestRunner</a></code> as the class name in
+                    the componentName argument, then the result dictionary contains
+                    the single key "stream". The value of "stream" is a <em>string</em> containing
+                    the test output, as if <code>InstrumentationTestRunner</code> was run from the
+                    command line. The format of this output is described in
+                    <a href="../../../guide/developing/testing/testing_otheride.html">
+                    Testing in Other IDEs</a>.
+                </p>
+            </li>
+        </ul>
+    </div>
+    </div>
+  </div>
+</div>
+<A NAME="press"></A>
+<div class="jd-details api ">
+    <h4 class="jd-details-title">
+      <span class="normal">
+        void
+      </span>
+      <span class="sympad">press</span>
+      <span class="normal">
+      (<em>string</em> name,
+      <em>integer</em> type)
+      </span>
+    </h4>
+  <div class="jd-details-descr">
+    <div class="jd-tagdata jd-tagdescr">
+        <p>
+            Sends the key event specified by <code>type</code> to the key specified by
+            <code>keycode</code>.
+        </p>
+    </div>
+    <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Arguments</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>name</th>
+          <td>
+            The name of the keycode to send. See <code><a href="../../../reference/android/view/KeyEvent.html">KeyEvent</a></code> for a list of
+            keycode names. Use the keycode name, not its integer value.
+          </td>
+        </tr>
+        <tr>
+          <th>type</th>
+          <td>
+            The type of key event to send. The allowed values are <code><a href="#ACTION_DOWN">
+            DOWN</a></code>, <code><a href="#ACTION_UP">UP</a></code>, and
+            <code><a href="#ACTION_DOWN_AND_UP">DOWN_AND_UP</a></code>.
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+<A NAME="reboot"></A>
+<div class="jd-details api ">
+    <h4 class="jd-details-title">
+      <span class="normal">
+        void
+      </span>
+      <span class="sympad">reboot</span>
+      <span class="normal">
+      (<em>string</em> bootloadType)
+      </span>
+    </h4>
+  <div class="jd-details-descr">
+
+    <div class="jd-tagdata jd-tagdescr">
+        <p>
+                Reboots this device into the bootloader specified by <code>bootloadType</code>.
+        </p>
+    </div>
+    <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Arguments</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>into</th>
+          <td>
+            The type of bootloader to reboot into. The allowed values are
+            "bootloader", "recovery", or "None".
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+<A NAME="removePackage"></A>
+<div class="jd-details api ">
+    <h4 class="jd-details-title">
+      <span class="normal">
+        void
+      </span>
+      <span class="sympad">removePackage</span>
+      <span class="normal">
+      (<em>string</em> package)
+      </span>
+    </h4>
+  <div class="jd-details-descr">
+
+    <div class="jd-tagdata jd-tagdescr">
+        <p>
+            Deletes the specified package from this device, including its data and cache.
+        </p>
+    </div>
+    <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Arguments</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>package</th>
+          <td>
+            The Android package name of an <code>.apk</code> file on this device.
+          </td>
+      </table>
+    </div>
+  </div>
+</div>
+<A NAME="shell"></A>
+<div class="jd-details api ">
+    <h4 class="jd-details-title">
+      <span class="normal">
+        <em>object</em>
+      </span>
+      <span class="sympad">shell</span>
+      <span class="normal">
+      (<em>string</em> cmd)
+      </span>
+    </h4>
+  <div class="jd-details-descr">
+    <div class="jd-tagdata jd-tagdescr">
+        <p>
+            Executes an <code>adb</code> shell command and returns the result, if any.
+        </p>
+    </div>
+    <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Arguments</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>cmd</th>
+          <td>
+            The command to execute in the <code>adb</code> shell. The form of these commands is
+            described in the topic <a href="../../../guide/developing/tools/adb.html">Android
+            Debug Bridge</a>.
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist">
+        <li>
+            The results of the command, if any. The format of the results is determined by the
+            command.
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<A NAME="startActivity"></A>
+<div class="jd-details api ">
+    <h4 class="jd-details-title">
+      <span class="normal">
+        void
+      </span>
+      <span class="sympad">startActivity</span>
+      <span class="normal">
+      (
+            <em>string</em> uri,
+            <em>string</em> action,
+            <em>string</em> data,
+            <em>string</em> mimetype,
+            <em>iterable</em> categories
+            <em>dictionary</em> extras,
+            <em>component</em> component,
+            <em>iterable</em> flags)
+      </span>
+    </h4>
+  <div class="jd-details-descr">
+    <div class="jd-tagdata jd-tagdescr">
+        <p>
+           Starts an Activity on this device by sending an Intent constructed from the
+           supplied arguments.
+        </p>
+    </div>
+    <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Arguments</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>uri</th>
+          <td>
+            The URI for the Intent.
+            (see <code><a href="../../../reference/android/content/Intent.html#setData(android.net.Uri)">Intent.setData()</a></code>).
+          </td>
+        </tr>
+        <tr>
+            <th>action</th>
+            <td>
+                The action for the Intent
+                (see <code><a href="../../../reference/android/content/Intent.html#setAction(java.lang.String)">Intent.setAction()</a></code>).
+            </td>
+        </tr>
+        <tr>
+            <th>data</th>
+            <td>
+                The data URI for the Intent
+                (see <code><a href="../../../reference/android/content/Intent.html#setData(android.net.Uri)">Intent.setData()</a></code>).
+            </td>
+        </tr>
+        <tr>
+            <th>mimetype</th>
+            <td>
+                The MIME type for the Intent
+                (see <code><a href="../../../reference/android/content/Intent.html#setType(java.lang.String)">Intent.setType()</a></code>).
+            </td>
+        </tr>
+        <tr>
+            <th>categories</th>
+            <td>
+                An iterable data structure containing strings that define categories for the
+                Intent
+                (see
+                <code><a href="../../../reference/android/content/Intent.html#addCategory(java.lang.String)">Intent.addCategory()</a></code>).
+            </td>
+        </tr>
+        <tr>
+            <th>extras</th>
+            <td>
+                A dictionary of extra data for the Intent
+                (see
+                <code><a href="../../../reference/android/content/Intent.html#putExtra(java.lang.String, java.lang.String)">Intent.putExtra()</a></code>
+                for an example).
+                <p>
+                    The key for each dictionary item should be a <em>string</em>. The item's value
+                    can be any simple or structured data type.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <th>component</th>
+            <td>
+                The component for the Intent
+                (see <code><a href="../../../reference/android/content/ComponentName.html">ComponentName</a></code>). Using this argument will direct the
+                Intent to a specific class within a specific Android package.
+            </td>
+        </tr>
+        <tr>
+            <th>flags</th>
+            <td>
+                An iterable data structure containing flags that control how the Intent is handled
+                (see <code><a href="../../../reference/android/content/Intent.html#setFlags(int)">Intent.setFlags()</a></code>).
+            </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+<A NAME="takeSnapshot"></A>
+<div class="jd-details api ">
+    <h4 class="jd-details-title">
+      <span class="normal">
+        <code>
+            <a href="../../../guide/developing/tools/MonkeyImage.html">
+                MonkeyImage
+            </a>
+        </code>
+      </span>
+      <span class="sympad">takeSnapshot</span>
+      <span class="normal">
+      ()
+      </span>
+    </h4>
+  <div class="jd-details-descr">
+    <div class="jd-tagdata jd-tagdescr">
+        <p>
+            Captures the entire screen buffer of this device, yielding a
+            screen capture of the current display.
+        </p>
+    </div>
+    <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist">
+        <li>
+            A <a href="../../../guide/developing/tools/MonkeyImage.html">
+            MonkeyImage</a> object containing the image of the current display.
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<A NAME="touch"></A>
+<div class="jd-details api ">
+    <h4 class="jd-details-title">
+      <span class="normal">
+        void
+      </span>
+      <span class="sympad">touch</span>
+      <span class="normal">
+      (
+            <em>integer</em> x,
+            <em>integer</em> y,
+            <em>string</em> type)
+      </span>
+    </h4>
+  <div class="jd-details-descr">
+    <div class="jd-tagdata jd-tagdescr">
+        <p>
+            Sends a touch event specified by type to the screen location specified
+            by x and y.
+        </p>
+    </div>
+    <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Arguments</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>x</th>
+          <td>
+            The horizontal position of the touch in actual device pixels, starting from the left of
+            the screen in its current orientation.
+          </td>
+        </tr>
+        <tr>
+          <th>y</th>
+          <td>
+            The vertical position of the touch in actual device pixels, starting from the top of
+            the screen in its current orientation.
+          </td>
+        </tr>
+        <tr>
+            <th>type</th>
+            <td>
+                The type of key event to send. The allowed values are <code><a href="#ACTION_DOWN">
+                DOWN</a></code>, <code><a href="#ACTION_UP">UP</a></code>, and
+                <code><a href="#ACTION_DOWN_AND_UP">DOWN_AND_UP</a></code>.
+            </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+<A NAME="type"></A>
+<div class="jd-details api ">
+    <h4 class="jd-details-title">
+      <span class="normal">
+        void
+      </span>
+      <span class="sympad">type</span>
+      <span class="normal">
+      (<em>string</em> message)
+      </span>
+    </h4>
+  <div class="jd-details-descr">
+    <div class="jd-tagdata jd-tagdescr">
+        <p>
+            Sends the characters contained in message to this device, as if they
+            had been typed on the device's keyboard. This is equivalent to calling
+            <code><a href="#press">press()</a></code> for each keycode in <code>message</code>
+            using the key event type <code><a href="#ACTION_DOWN_AND_UP">DOWN_AND_UP</a></code>.
+        </p>
+    </div>
+    <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Arguments</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>message</th>
+          <td>
+              A string containing the characters to send.
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+<A NAME="wake"></A>
+<div class="jd-details api">
+    <h4 class="jd-details-title">
+      <span class="normal">
+        void
+      </span>
+      <span class="sympad">wake</span>
+      <span class="normal">
+      ()
+      </span>
+    </h4>
+  <div class="jd-details-descr">
+    <div class="jd-tagdata jd-tagdescr">
+        <p>
+            Wakes the screen of this device.
+        </p>
+    </div>
+  </div>
+</div>
+<hr></hr>
+<h2>Appendix</h2>
+    <p class="table-caption" id="table1">
+        <strong>Table 1.</strong>Property variable names used with
+        <span class="sympad"><a href="#getProperty">getProperty()</a></span> and
+        <span class="sympad"><a href="#getSystemProperty">getSystemProperty()</a></span>.
+    </p>
+    <table>
+        <tr>
+            <th>
+                Property Group
+            </th>
+            <th>
+                Property
+            </th>
+            <th>
+                Description
+            </th>
+            <th>
+                Notes
+            </th>
+        </tr>
+        <tr>
+            <td rowspan="17"><code>build</code></td>
+            <td><code>board</code></td>
+            <td>Code name for the device's system board</td>
+            <td rowspan="17">
+                See <code><a href="../../../reference/android/os/Build.html">Build</a></code>
+            </td>
+        </tr>
+        <tr>
+            <td><code>brand</code></td>
+            <td>The carrier or provider for which the OS is customized.</td>
+        </tr>
+            <tr>
+            <td><code>device</code></td>
+            <td>The device design name.</td>
+        </tr>
+            <tr>
+            <td><code>fingerprint</code></td>
+            <td>A unique identifier for the currently-running build.</td>
+        </tr>
+            <tr>
+            <td><code>host</code></td>
+            <td></td>
+        </tr>
+            <tr>
+            <td><code>ID</code></td>
+            <td>A changelist number or label.</td>
+        </tr>
+            <tr>
+            <td><code>model</code></td>
+            <td>The end-user-visible name for the device.</td>
+        </tr>
+            <tr>
+            <td><code>product</code></td>
+            <td>The overall product name.</td>
+        </tr>
+            <tr>
+            <td><code>tags</code></td>
+            <td>Comma-separated tags that describe the build, such as "unsigned" and "debug".</td>
+        </tr>
+            <tr>
+            <td><code>type</code></td>
+            <td>The build type, such as "user" or "eng".</td>
+        </tr>
+        <tr>
+            <td><code>user</code></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><code>CPU_ABI</code></td>
+            <td>
+                The name of the native code instruction set, in the form CPU type plus
+                ABI convention.
+            </td>
+        </tr>
+        <tr>
+            <td><code>manufacturer</code></td>
+            <td>The product/hardware manufacturer.</td>
+        </tr>
+        <tr>
+            <td><code>version.incremental</code></td>
+            <td>
+                The internal code used by the source control system to represent this version
+                of the software.
+            </td>
+        </tr>
+        <tr>
+            <td><code>version.release</code></td>
+            <td>The user-visible name of this version of the software.</td>
+        </tr>
+        <tr>
+            <td><code>version.sdk</code></td>
+            <td>The user-visible SDK version associated with this version of the OS.</td>
+        </tr>
+        <tr>
+            <td><code>version.codename</code></td>
+            <td>
+                The current development codename, or "REL" if this version of the software has been
+                released.
+            </td>
+        </tr>
+        <tr>
+            <td rowspan="3"><code>display</code></td>
+            <td><code>width</code></td>
+            <td>The device's display width in pixels.</td>
+            <td rowspan="3">
+                See
+                <code><a href="../../../reference/android/util/DisplayMetrics.html">DisplayMetrics</a></code> for details.
+            </td>
+        </tr>
+        <tr>
+            <td><code>height</code></td>
+            <td>The device's display height in pixels.</td>
+        </tr>
+        <tr>
+            <td><code>density</code></td>
+            <td>
+                The logical density of the display. This is a factor that scales
+                DIP (Density-Independent Pixel) units to the device's resolution. DIP is adjusted so
+                that 1 DIP is equivalent to one pixel on a 160 pixel-per-inch display. For example,
+                on a 160-dpi screen, density = 1.0, while on a 120-dpi screen, density = .75.
+                <p>
+                    The value does not exactly follow the real screen size, but is adjusted to
+                    conform to large changes in the display DPI. See
+                    <code><a href="../../../reference/android/util/DisplayMetrics.html#density">density</a></code> for more details.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td rowspan="6"><code>am.current</code></td>
+            <td><code>package</code></td>
+            <td>The Android package name of the currently running package.</td>
+            <td rowspan="6">
+                The <code>am.current</code> keys return information about the currently-running
+                Activity.
+            </td>
+        </tr>
+        <tr>
+            <td><code>action</code></td>
+            <td>
+                The current activity's action. This has the same format as the <code>name</code>
+                attribute of the <code>action</code> element in a package manifest.
+            </td>
+        </tr>
+        <tr>
+            <td><code>comp.class</code></td>
+            <td>
+                The class name of the component that started the current Activity. See
+                <code><a href="#comppackage">comp.package</a></code> for more details.</td>
+        </tr>
+        <tr>
+            <td><a name="comppackage"><code>comp.package</code></a></td>
+            <td>
+                The package name of the component that started the current Activity. A component
+                is specified by a package name and the name of class that the package contains.
+            </td>
+        </tr>
+        <tr>
+            <td><code>data</code></td>
+            <td>The data (if any) contained in the Intent that started the current Activity.</td>
+        </tr>
+        <tr>
+            <td><code>categories</code></td>
+            <td>The categories specified by the Intent that started the current Activity.</td>
+        </tr>
+        <tr>
+            <td rowspan="3"><code>clock</code></td>
+            <td><code>realtime</code></td>
+            <td>
+                The number of milliseconds since the device rebooted, including deep-sleep
+                time.
+            </td>
+            <td rowspan="3">
+                See <code><a href="../../../reference/android/os/SystemClock.html">SystemClock</a></code> for more information.
+            </td>
+        </tr>
+        <tr>
+            <td><code>uptime</code></td>
+            <td>
+                The number of milliseconds since the device rebooted, <em>not</em> including
+                deep-sleep time
+            </td>
+        </tr>
+        <tr>
+            <td><code>millis</code></td>
+            <td>current time since the UNIX epoch, in milliseconds.</td>
+        </tr>
+    </table>
+
+    </div>
+
+    
+    
+    <a href="#top" style="float:right">&uarr; Go to top</a>
+    
+      <p><a href="index.html">&larr; Back to monkeyrunner</a></p>
+    
+
+  </div> <!-- end jd-content -->
+
+<div id="footer">
+
+
+  <div id="copyright">
+    
+  Except as noted, this content is licensed under <a
+  href="http://www.apache.org/licenses/LICENSE-2.0">Apache 2.0</a>. 
+  For details and restrictions, see the <a href="../../../license.html">
+  Content License</a>.
+  </div>
+  <div id="build_info">
+    
+  Android 4.0&nbsp;r1 - 16 Mar 2012 16:45
+
+  </div>
+
+  <div id="footerlinks">
+    
+  <p>
+    <a href="http://www.google.com/intl/en/policies/" target="_blank">Privacy &amp; Terms</a> -
+    <a href="http://www.android.com/branding.html" target="_blank">Brand Guidelines</a> -
+    <a
+href="http://code.google.com/p/android/issues/entry?template=Developer%20Documentation"
+target="_blank">Report Document Issues</a>
+  </p>
+  </div>
+
+</div> <!-- end footer -->
+
+</div><!-- end doc-content -->
+
+</div> <!-- end body-content --> 
+
+<script type="text/javascript">
+init(); /* initialize android-developer-docs.js */
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-5831155-1");
+pageTracker._trackPageview();
+</script>
+
+</body>
+</html>
+
+
+

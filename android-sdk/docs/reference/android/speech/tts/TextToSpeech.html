@@ -1,0 +1,3546 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico" />
+<title>TextToSpeech - Android SDK | Android Developers</title>
+<link href="../../../../assets/android-developer-docs.css" rel="stylesheet" type="text/css" />
+<script src="../../../../assets/search_autocomplete.js" type="text/javascript"></script>
+<script src="../../../../assets/jquery-resizable.min.js" type="text/javascript"></script>
+<script src="../../../../assets/android-developer-docs.js" type="text/javascript"></script>
+<script src="../../../../assets/prettify.js" type="text/javascript"></script>
+<script type="text/javascript">
+  setToRoot("../../../../");
+</script>
+<script src="../../../../assets/android-developer-reference.js" type="text/javascript"></script>
+<script src="../../../../navtree_data.js" type="text/javascript"></script>
+<noscript>
+  <style type="text/css">
+    html,body{overflow:auto;}
+    #body-content{position:relative; top:0;}
+    #doc-content{overflow:visible;border-left:3px solid #666;}
+    #side-nav{padding:0;}
+    #side-nav .toggle-list ul {display:block;}
+    #resize-packages-nav{border-bottom:3px solid #666;}
+  </style>
+</noscript>
+</head>
+<body class="4" itemscope itemtype="http://schema.org/Article">
+
+  <div id="header">
+      <div id="headerLeft">
+          <a href="../../../../index.html" tabindex="-1"><img
+              src="../../../../assets/images/bg_logo.png" alt="Android Developers" /></a>
+          <ul id="header-tabs" class="reference">
+    
+	<li id="home-link"><a href="../../../../offline.html">
+	
+		<span class="en">Home</span>
+		<span style="display:none" class="de">Startseite</span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ホーム</span>
+		<span style="display:none" class="zh-CN">主页</span>
+		<span style="display:none" class="zh-TW">首頁</span>
+	
+	</a></li>
+	<li id="sdk-link"><a href="../../../../sdk/index.html">
+		<span class="en">SDK</span>
+	</a></li>
+	<li id="guide-link"><a href="../../../../guide/index.html" onClick="return loadLast('guide')">
+	
+		<span class="en">Dev Guide</span>
+		<span style="display:none" class="de">Handbuch</span>
+		<span style="display:none" class="es">Guía</span>
+		<span style="display:none" class="fr">Guide</span>
+		<span style="display:none" class="it">Guida</span>
+		<span style="display:none" class="ja">開発ガイド</span>
+		<span style="display:none" class="zh-CN">开发人员指南</span>
+		<span style="display:none" class="zh-TW">開發指南</span>
+	
+	</a></li>
+	<li id="reference-link"><a href="../../../../reference/packages.html" onClick="return loadLast('reference')">
+	
+		<span class="en">Reference</span>
+		<span style="display:none" class="de">Referenz</span>
+		<span style="display:none" class="es">Referencia</span>
+		<span style="display:none" class="fr">Référence</span>
+		<span style="display:none" class="it">Riferimento</span>
+		<span style="display:none" class="ja">リファレンス</span>
+		<span style="display:none" class="zh-CN">参考</span>
+		<span style="display:none" class="zh-TW">參考資料</span>
+	
+	</a></li>
+	<li id="resources-link"><a href="../../../../resources/index.html" onClick="return loadLast('resources')">
+	
+		<span class="en">Resources</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+    		<span style="display:none" class="ja"></span>
+		<span style="display:none" class="zh-CN"></span>
+		<span style="display:none" class="zh-TW"></span>
+	
+	</a></li>
+	<li id="videos-link"><a href="../../../../videos/index.html" onClick="return loadLast('videos')">
+	
+		<span class="en">Videos</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ビデオ</span>
+		<span style="display:none" class="zh-CN"></span>
+		<span style="display:none" class="zh-TW"></span>
+	
+	</a></li>
+	<li><a href="http://android-developers.blogspot.com" onClick="return requestAppendHL(this.href)">
+	
+		<span class="en">Blog</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ブログ</span>
+		<span style="display:none" class="zh-CN">博客</span>
+		<span style="display:none" class="zh-TW">網誌</span>
+	
+	</a></li>
+
+
+     
+</ul>
+     
+      </div>
+      <div id="headerRight">
+          <div id="headerLinks">
+          &nbsp;&nbsp;
+          <a href="../../../../design/index.html">Android Design</a>&nbsp;&nbsp;
+          <a href="http://www.android.com">Android.com</a>
+          </div>
+  <div id="search" >
+      <div id="searchForm">
+          <form accept-charset="utf-8" class="gsc-search-box" 
+                onsubmit="return submit_search()">
+            <table class="gsc-search-box" cellpadding="0" cellspacing="0"><tbody>
+                <tr>
+                  <td class="gsc-input">
+                    <input id="search_autocomplete" class="gsc-input" type="text" size="33" autocomplete="off"
+                      title="search developer docs" name="q"
+                      value="search developer docs"
+                      onFocus="search_focus_changed(this, true)"
+                      onBlur="search_focus_changed(this, false)"
+                      onkeydown="return search_changed(event, true, '../../../../')"
+                      onkeyup="return search_changed(event, false, '../../../../')" />
+                  <div id="search_filtered_div" class="no-display">
+                      <table id="search_filtered" cellspacing=0>
+                      </table>
+                  </div>
+                  </td>
+                  <td class="gsc-search-button">
+                    <input type="submit" value="Search" title="search" id="search-button" class="gsc-search-button" />
+                  </td>
+                  <td class="gsc-clear-button">
+                    <div title="clear results" class="gsc-clear-button">&nbsp;</div>
+                  </td>
+                </tr></tbody>
+              </table>
+          </form>
+      </div><!-- searchForm -->
+  </div><!-- search -->
+    			  <div id="api-level-toggle">
+    			    <input type="checkbox" id="apiLevelCheckbox" onclick="toggleApiLevelSelector(this)" />
+    			    <label for="apiLevelCheckbox" class="disabled">Filter by API Level: </label>
+    			    <select id="apiLevelSelector">
+    			      <!-- option elements added by buildApiLevelSelector() -->
+    			    </select>
+    			  </div>
+    	 	    <script>
+              var SINCE_DATA = [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15' ];
+              buildApiLevelSelector();
+            </script>
+      </div><!-- headerRight -->
+      <script type="text/javascript">
+        <!--  
+        changeTabLang(getLangPref());
+        //-->
+      </script>
+  </div><!-- header -->
+
+  <div class="g-section g-tpl-240" id="body-content">
+    <div class="g-unit g-first" id="side-nav" itemscope itemtype="http://schema.org/SiteNavigationElement">
+      <div id="swapper">
+        <div id="nav-panels">
+          <div id="resize-packages-nav">
+            <div id="packages-nav">
+              <div id="index-links"><nobr>
+                <a href="../../../../reference/packages.html"  >Package Index</a> | 
+                <a href="../../../../reference/classes.html" >Class Index</a></nobr>
+              </div>
+              <ul>
+              	
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/package-summary.html">android</a></li>
+    <li class="api apilevel-4">
+  <a href="../../../../reference/android/accessibilityservice/package-summary.html">android.accessibilityservice</a></li>
+    <li class="api apilevel-5">
+  <a href="../../../../reference/android/accounts/package-summary.html">android.accounts</a></li>
+    <li class="api apilevel-11">
+  <a href="../../../../reference/android/animation/package-summary.html">android.animation</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/app/package-summary.html">android.app</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../../reference/android/app/admin/package-summary.html">android.app.admin</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../../reference/android/app/backup/package-summary.html">android.app.backup</a></li>
+    <li class="api apilevel-3">
+  <a href="../../../../reference/android/appwidget/package-summary.html">android.appwidget</a></li>
+    <li class="api apilevel-5">
+  <a href="../../../../reference/android/bluetooth/package-summary.html">android.bluetooth</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/content/package-summary.html">android.content</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/content/pm/package-summary.html">android.content.pm</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/content/res/package-summary.html">android.content.res</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/database/package-summary.html">android.database</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/database/sqlite/package-summary.html">android.database.sqlite</a></li>
+    <li class="api apilevel-11">
+  <a href="../../../../reference/android/drm/package-summary.html">android.drm</a></li>
+    <li class="api apilevel-4">
+  <a href="../../../../reference/android/gesture/package-summary.html">android.gesture</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/graphics/package-summary.html">android.graphics</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/graphics/drawable/package-summary.html">android.graphics.drawable</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/graphics/drawable/shapes/package-summary.html">android.graphics.drawable.shapes</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/hardware/package-summary.html">android.hardware</a></li>
+    <li class="api apilevel-12">
+  <a href="../../../../reference/android/hardware/usb/package-summary.html">android.hardware.usb</a></li>
+    <li class="api apilevel-3">
+  <a href="../../../../reference/android/inputmethodservice/package-summary.html">android.inputmethodservice</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/location/package-summary.html">android.location</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/media/package-summary.html">android.media</a></li>
+    <li class="api apilevel-9">
+  <a href="../../../../reference/android/media/audiofx/package-summary.html">android.media.audiofx</a></li>
+    <li class="api apilevel-14">
+  <a href="../../../../reference/android/media/effect/package-summary.html">android.media.effect</a></li>
+    <li class="api apilevel-12">
+  <a href="../../../../reference/android/mtp/package-summary.html">android.mtp</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/net/package-summary.html">android.net</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/net/http/package-summary.html">android.net.http</a></li>
+    <li class="api apilevel-12">
+  <a href="../../../../reference/android/net/rtp/package-summary.html">android.net.rtp</a></li>
+    <li class="api apilevel-9">
+  <a href="../../../../reference/android/net/sip/package-summary.html">android.net.sip</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/net/wifi/package-summary.html">android.net.wifi</a></li>
+    <li class="api apilevel-14">
+  <a href="../../../../reference/android/net/wifi/p2p/package-summary.html">android.net.wifi.p2p</a></li>
+    <li class="api apilevel-9">
+  <a href="../../../../reference/android/nfc/package-summary.html">android.nfc</a></li>
+    <li class="api apilevel-10">
+  <a href="../../../../reference/android/nfc/tech/package-summary.html">android.nfc.tech</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/opengl/package-summary.html">android.opengl</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/os/package-summary.html">android.os</a></li>
+    <li class="api apilevel-9">
+  <a href="../../../../reference/android/os/storage/package-summary.html">android.os.storage</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/preference/package-summary.html">android.preference</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/provider/package-summary.html">android.provider</a></li>
+    <li class="api apilevel-11">
+  <a href="../../../../reference/android/renderscript/package-summary.html">android.renderscript</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/sax/package-summary.html">android.sax</a></li>
+    <li class="api apilevel-14">
+  <a href="../../../../reference/android/security/package-summary.html">android.security</a></li>
+    <li class="api apilevel-14">
+  <a href="../../../../reference/android/service/textservice/package-summary.html">android.service.textservice</a></li>
+    <li class="api apilevel-7">
+  <a href="../../../../reference/android/service/wallpaper/package-summary.html">android.service.wallpaper</a></li>
+    <li class="api apilevel-3">
+  <a href="../../../../reference/android/speech/package-summary.html">android.speech</a></li>
+    <li class="selected api apilevel-4">
+  <a href="../../../../reference/android/speech/tts/package-summary.html">android.speech.tts</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v13/app/package-summary.html">android.support.v13.app</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v4/accessibilityservice/package-summary.html">android.support.v4.accessibilityservice</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v4/app/package-summary.html">android.support.v4.app</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v4/content/package-summary.html">android.support.v4.content</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v4/content/pm/package-summary.html">android.support.v4.content.pm</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v4/database/package-summary.html">android.support.v4.database</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v4/os/package-summary.html">android.support.v4.os</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v4/util/package-summary.html">android.support.v4.util</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v4/view/package-summary.html">android.support.v4.view</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v4/view/accessibility/package-summary.html">android.support.v4.view.accessibility</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v4/widget/package-summary.html">android.support.v4.widget</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/telephony/package-summary.html">android.telephony</a></li>
+    <li class="api apilevel-5">
+  <a href="../../../../reference/android/telephony/cdma/package-summary.html">android.telephony.cdma</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/telephony/gsm/package-summary.html">android.telephony.gsm</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/test/package-summary.html">android.test</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/test/mock/package-summary.html">android.test.mock</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/test/suitebuilder/package-summary.html">android.test.suitebuilder</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/text/package-summary.html">android.text</a></li>
+    <li class="api apilevel-3">
+  <a href="../../../../reference/android/text/format/package-summary.html">android.text.format</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/text/method/package-summary.html">android.text.method</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/text/style/package-summary.html">android.text.style</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/text/util/package-summary.html">android.text.util</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/util/package-summary.html">android.util</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/view/package-summary.html">android.view</a></li>
+    <li class="api apilevel-4">
+  <a href="../../../../reference/android/view/accessibility/package-summary.html">android.view.accessibility</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/view/animation/package-summary.html">android.view.animation</a></li>
+    <li class="api apilevel-3">
+  <a href="../../../../reference/android/view/inputmethod/package-summary.html">android.view.inputmethod</a></li>
+    <li class="api apilevel-14">
+  <a href="../../../../reference/android/view/textservice/package-summary.html">android.view.textservice</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/webkit/package-summary.html">android.webkit</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/widget/package-summary.html">android.widget</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/dalvik/bytecode/package-summary.html">dalvik.bytecode</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/dalvik/system/package-summary.html">dalvik.system</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/awt/font/package-summary.html">java.awt.font</a></li>
+    <li class="api apilevel-3">
+  <a href="../../../../reference/java/beans/package-summary.html">java.beans</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/io/package-summary.html">java.io</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/lang/package-summary.html">java.lang</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/lang/annotation/package-summary.html">java.lang.annotation</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/lang/ref/package-summary.html">java.lang.ref</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/lang/reflect/package-summary.html">java.lang.reflect</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/math/package-summary.html">java.math</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/net/package-summary.html">java.net</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/nio/package-summary.html">java.nio</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/nio/channels/package-summary.html">java.nio.channels</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/nio/channels/spi/package-summary.html">java.nio.channels.spi</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/nio/charset/package-summary.html">java.nio.charset</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/nio/charset/spi/package-summary.html">java.nio.charset.spi</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/security/package-summary.html">java.security</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/security/acl/package-summary.html">java.security.acl</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/security/cert/package-summary.html">java.security.cert</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/security/interfaces/package-summary.html">java.security.interfaces</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/security/spec/package-summary.html">java.security.spec</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/sql/package-summary.html">java.sql</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/text/package-summary.html">java.text</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/util/package-summary.html">java.util</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/util/concurrent/package-summary.html">java.util.concurrent</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/util/concurrent/atomic/package-summary.html">java.util.concurrent.atomic</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/util/concurrent/locks/package-summary.html">java.util.concurrent.locks</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/util/jar/package-summary.html">java.util.jar</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/util/logging/package-summary.html">java.util.logging</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/util/prefs/package-summary.html">java.util.prefs</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/util/regex/package-summary.html">java.util.regex</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/util/zip/package-summary.html">java.util.zip</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/javax/crypto/package-summary.html">javax.crypto</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/javax/crypto/interfaces/package-summary.html">javax.crypto.interfaces</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/javax/crypto/spec/package-summary.html">javax.crypto.spec</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/javax/microedition/khronos/egl/package-summary.html">javax.microedition.khronos.egl</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/javax/microedition/khronos/opengles/package-summary.html">javax.microedition.khronos.opengles</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/javax/net/package-summary.html">javax.net</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/javax/net/ssl/package-summary.html">javax.net.ssl</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/javax/security/auth/package-summary.html">javax.security.auth</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/javax/security/auth/callback/package-summary.html">javax.security.auth.callback</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/javax/security/auth/login/package-summary.html">javax.security.auth.login</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/javax/security/auth/x500/package-summary.html">javax.security.auth.x500</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/javax/security/cert/package-summary.html">javax.security.cert</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/javax/sql/package-summary.html">javax.sql</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/javax/xml/package-summary.html">javax.xml</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../../reference/javax/xml/datatype/package-summary.html">javax.xml.datatype</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../../reference/javax/xml/namespace/package-summary.html">javax.xml.namespace</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/javax/xml/parsers/package-summary.html">javax.xml.parsers</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../../reference/javax/xml/transform/package-summary.html">javax.xml.transform</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../../reference/javax/xml/transform/dom/package-summary.html">javax.xml.transform.dom</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../../reference/javax/xml/transform/sax/package-summary.html">javax.xml.transform.sax</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../../reference/javax/xml/transform/stream/package-summary.html">javax.xml.transform.stream</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../../reference/javax/xml/validation/package-summary.html">javax.xml.validation</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../../reference/javax/xml/xpath/package-summary.html">javax.xml.xpath</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/junit/framework/package-summary.html">junit.framework</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/junit/runner/package-summary.html">junit.runner</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/apache/http/package-summary.html">org.apache.http</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/apache/http/auth/package-summary.html">org.apache.http.auth</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/apache/http/auth/params/package-summary.html">org.apache.http.auth.params</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/apache/http/client/package-summary.html">org.apache.http.client</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/apache/http/client/entity/package-summary.html">org.apache.http.client.entity</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/apache/http/client/methods/package-summary.html">org.apache.http.client.methods</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/apache/http/client/params/package-summary.html">org.apache.http.client.params</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/apache/http/client/protocol/package-summary.html">org.apache.http.client.protocol</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/apache/http/client/utils/package-summary.html">org.apache.http.client.utils</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/apache/http/conn/package-summary.html">org.apache.http.conn</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/apache/http/conn/params/package-summary.html">org.apache.http.conn.params</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/apache/http/conn/routing/package-summary.html">org.apache.http.conn.routing</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/apache/http/conn/scheme/package-summary.html">org.apache.http.conn.scheme</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/apache/http/conn/ssl/package-summary.html">org.apache.http.conn.ssl</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/apache/http/conn/util/package-summary.html">org.apache.http.conn.util</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/apache/http/cookie/package-summary.html">org.apache.http.cookie</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/apache/http/cookie/params/package-summary.html">org.apache.http.cookie.params</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/apache/http/entity/package-summary.html">org.apache.http.entity</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/apache/http/impl/package-summary.html">org.apache.http.impl</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/apache/http/impl/auth/package-summary.html">org.apache.http.impl.auth</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/apache/http/impl/client/package-summary.html">org.apache.http.impl.client</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/apache/http/impl/conn/package-summary.html">org.apache.http.impl.conn</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/apache/http/impl/conn/tsccm/package-summary.html">org.apache.http.impl.conn.tsccm</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/apache/http/impl/cookie/package-summary.html">org.apache.http.impl.cookie</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/apache/http/impl/entity/package-summary.html">org.apache.http.impl.entity</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/apache/http/impl/io/package-summary.html">org.apache.http.impl.io</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/apache/http/io/package-summary.html">org.apache.http.io</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/apache/http/message/package-summary.html">org.apache.http.message</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/apache/http/params/package-summary.html">org.apache.http.params</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/apache/http/protocol/package-summary.html">org.apache.http.protocol</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/apache/http/util/package-summary.html">org.apache.http.util</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/json/package-summary.html">org.json</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/w3c/dom/package-summary.html">org.w3c.dom</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../../reference/org/w3c/dom/ls/package-summary.html">org.w3c.dom.ls</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/xml/sax/package-summary.html">org.xml.sax</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/xml/sax/ext/package-summary.html">org.xml.sax.ext</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/xml/sax/helpers/package-summary.html">org.xml.sax.helpers</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/xmlpull/v1/package-summary.html">org.xmlpull.v1</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/xmlpull/v1/sax2/package-summary.html">org.xmlpull.v1.sax2</a></li>
+              </ul><br/>
+            </div> <!-- end packages -->
+          </div> <!-- end resize-packages -->
+          <div id="classes-nav">
+            <ul>
+              
+    <li><h2>Interfaces</h2>
+      <ul>
+          <li class="api apilevel-14"><a href="../../../../reference/android/speech/tts/SynthesisCallback.html">SynthesisCallback</a></li>
+          <li class="api apilevel-4"><a href="../../../../reference/android/speech/tts/TextToSpeech.OnInitListener.html">TextToSpeech.OnInitListener</a></li>
+          <li class="api apilevel-4"><a href="../../../../reference/android/speech/tts/TextToSpeech.OnUtteranceCompletedListener.html">TextToSpeech.OnUtteranceCompletedListener</a></li>
+      </ul>
+    </li>
+              
+    <li><h2>Classes</h2>
+      <ul>
+          <li class="api apilevel-14"><a href="../../../../reference/android/speech/tts/SynthesisRequest.html">SynthesisRequest</a></li>
+          <li class="selected api apilevel-4"><a href="../../../../reference/android/speech/tts/TextToSpeech.html">TextToSpeech</a></li>
+          <li class="api apilevel-4"><a href="../../../../reference/android/speech/tts/TextToSpeech.Engine.html">TextToSpeech.Engine</a></li>
+          <li class="api apilevel-14"><a href="../../../../reference/android/speech/tts/TextToSpeech.EngineInfo.html">TextToSpeech.EngineInfo</a></li>
+          <li class="api apilevel-14"><a href="../../../../reference/android/speech/tts/TextToSpeechService.html">TextToSpeechService</a></li>
+          <li class="api apilevel-15"><a href="../../../../reference/android/speech/tts/UtteranceProgressListener.html">UtteranceProgressListener</a></li>
+      </ul>
+    </li>
+              
+              
+              
+            </ul><br/>
+          </div><!-- end classes -->
+        </div><!-- end nav-panels -->
+        <div id="nav-tree" style="display:none">
+          <div id="index-links"><nobr>
+            <a href="../../../../reference/packages.html"  >Package Index</a> | 
+            <a href="../../../../reference/classes.html" >Class Index</a></nobr>
+          </div>
+        </div><!-- end nav-tree -->
+      </div><!-- end swapper -->
+    </div> <!-- end side-nav -->
+    <script>
+      if (!isMobile) {
+        $("<a href='#' id='nav-swap' onclick='swapNav();return false;' style='font-size:10px;line-height:9px;margin-left:1em;text-decoration:none;'><span id='tree-link'>Use Tree Navigation</span><span id='panel-link' style='display:none'>Use Panel Navigation</span></a>").appendTo("#side-nav");
+        chooseDefaultNav();
+        if ($("#nav-tree").is(':visible')) {
+          init_default_navtree("../../../../");
+        } else {
+          addLoadEvent(function() {
+            scrollIntoView("packages-nav");
+            scrollIntoView("classes-nav");
+          });
+        }
+        $("#swapper").css({borderBottom:"2px solid #aaa"});
+      } else {
+        swapNav(); // tree view should be used on mobile
+      }
+    </script>
+
+
+
+<div class="g-unit" id="doc-content">
+
+<div id="api-info-block">
+
+
+
+  
+   
+  
+  
+  
+  
+
+
+<div class="sum-details-links">
+
+Summary:
+
+  <a href="#nestedclasses">Nested Classes</a>
+  
+
+
+
+
+
+  &#124; <a href="#constants">Constants</a>
+  
+
+
+
+
+
+  &#124; <a href="#pubctors">Ctors</a>
+  
+
+
+
+  &#124; <a href="#pubmethods">Methods</a>
+  
+
+
+
+  &#124; <a href="#inhmethods">Inherited Methods</a>
+
+&#124; <a href="#" onclick="return toggleAllClassInherited()" id="toggleAllClassInherited">[Expand All]</a>
+
+</div><!-- end sum-details-links -->
+<div class="api-level">
+  
+
+  Since: <a href="../../../../guide/appendix/api-levels.html#level4">API Level 4</a>
+
+
+  
+  
+
+</div>
+</div><!-- end api-info-block -->
+
+
+<!-- ======== START OF CLASS DATA ======== -->
+
+<div id="jd-header">
+    public
+     
+     
+    
+    class
+<h1 itemprop="name">TextToSpeech</h1>
+
+
+
+  
+    extends <a href="../../../../reference/java/lang/Object.html">Object</a><br/>
+  
+  
+  
+
+  
+  
+  
+
+
+</div><!-- end header -->
+
+<div id="naMessage"></div>
+
+<div id="jd-content" class="api apilevel-4">
+<table class="jd-inheritance-table">
+
+
+    <tr>
+         	
+        <td colspan="2" class="jd-inheritance-class-cell"><a href="../../../../reference/java/lang/Object.html">java.lang.Object</a></td>
+    </tr>
+    
+
+    <tr>
+        
+            <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
+         	
+        <td colspan="1" class="jd-inheritance-class-cell">android.speech.tts.TextToSpeech</td>
+    </tr>
+    
+
+</table>
+
+
+
+
+
+
+
+<div class="jd-descr">
+
+
+<h2>Class Overview</h2>
+<p itemprop="articleBody">Synthesizes speech from text for immediate playback or to create a sound file.
+ <p>A TextToSpeech instance can only be used to synthesize text once it has completed its
+ initialization. Implement the <code><a href="../../../../reference/android/speech/tts/TextToSpeech.OnInitListener.html">TextToSpeech.OnInitListener</a></code> to be
+ notified of the completion of the initialization.<br>
+ When you are done using the TextToSpeech instance, call the <code><a href="../../../../reference/android/speech/tts/TextToSpeech.html#shutdown()">shutdown()</a></code> method
+ to release the native resources used by the TextToSpeech engine.
+
+</p>
+
+
+
+
+
+</div><!-- jd-descr -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="jd-descr">
+
+
+<h2>Summary</h2>
+
+
+
+<!-- ======== NESTED CLASS SUMMARY ======== -->
+<table id="nestedclasses" class="jd-sumtable"><tr><th colspan="12">Nested Classes</th></tr>
+
+
+  
+    <tr class="alt-color api apilevel-4" >
+      <td class="jd-typecol"><nobr>
+        
+         
+         
+        
+        class</nobr></td>
+      <td class="jd-linkcol"><a href="../../../../reference/android/speech/tts/TextToSpeech.Engine.html">TextToSpeech.Engine</a></td>
+      <td class="jd-descrcol" width="100%">Constants and parameter names for controlling text-to-speech.&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-14" >
+      <td class="jd-typecol"><nobr>
+        
+         
+         
+        
+        class</nobr></td>
+      <td class="jd-linkcol"><a href="../../../../reference/android/speech/tts/TextToSpeech.EngineInfo.html">TextToSpeech.EngineInfo</a></td>
+      <td class="jd-descrcol" width="100%">Information about an installed text-to-speech engine.&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-4" >
+      <td class="jd-typecol"><nobr>
+        
+         
+         
+        
+        interface</nobr></td>
+      <td class="jd-linkcol"><a href="../../../../reference/android/speech/tts/TextToSpeech.OnInitListener.html">TextToSpeech.OnInitListener</a></td>
+      <td class="jd-descrcol" width="100%">Interface definition of a callback to be invoked indicating the completion of the
+ TextToSpeech engine initialization.&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-4" >
+      <td class="jd-typecol"><nobr>
+        
+         
+         
+        
+        interface</nobr></td>
+      <td class="jd-linkcol"><a href="../../../../reference/android/speech/tts/TextToSpeech.OnUtteranceCompletedListener.html">TextToSpeech.OnUtteranceCompletedListener</a></td>
+      <td class="jd-descrcol" width="100%">Listener that will be called when the TTS service has
+ completed synthesizing an utterance.&nbsp;</td>
+    </tr>
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- =========== ENUM CONSTANT SUMMARY =========== -->
+<table id="constants" class="jd-sumtable"><tr><th colspan="12">Constants</th></tr>
+
+
+    
+    <tr class="alt-color api apilevel-4" >
+        <td class="jd-typecol"><a href="../../../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../../../reference/android/speech/tts/TextToSpeech.html#ACTION_TTS_QUEUE_PROCESSING_COMPLETED">ACTION_TTS_QUEUE_PROCESSING_COMPLETED</a></td>
+        <td class="jd-descrcol" width="100%">Broadcast Action: The TextToSpeech synthesizer has completed processing
+ of all the text in the speech queue.</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-4" >
+        <td class="jd-typecol">int</td>
+        <td class="jd-linkcol"><a href="../../../../reference/android/speech/tts/TextToSpeech.html#ERROR">ERROR</a></td>
+        <td class="jd-descrcol" width="100%">Denotes a generic operation failure.</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-4" >
+        <td class="jd-typecol">int</td>
+        <td class="jd-linkcol"><a href="../../../../reference/android/speech/tts/TextToSpeech.html#LANG_AVAILABLE">LANG_AVAILABLE</a></td>
+        <td class="jd-descrcol" width="100%">Denotes the language is available for the language by the locale,
+ but not the country and variant.</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-4" >
+        <td class="jd-typecol">int</td>
+        <td class="jd-linkcol"><a href="../../../../reference/android/speech/tts/TextToSpeech.html#LANG_COUNTRY_AVAILABLE">LANG_COUNTRY_AVAILABLE</a></td>
+        <td class="jd-descrcol" width="100%">Denotes the language is available for the language and country specified
+ by the locale, but not the variant.</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-4" >
+        <td class="jd-typecol">int</td>
+        <td class="jd-linkcol"><a href="../../../../reference/android/speech/tts/TextToSpeech.html#LANG_COUNTRY_VAR_AVAILABLE">LANG_COUNTRY_VAR_AVAILABLE</a></td>
+        <td class="jd-descrcol" width="100%">Denotes the language is available exactly as specified by the locale.</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-4" >
+        <td class="jd-typecol">int</td>
+        <td class="jd-linkcol"><a href="../../../../reference/android/speech/tts/TextToSpeech.html#LANG_MISSING_DATA">LANG_MISSING_DATA</a></td>
+        <td class="jd-descrcol" width="100%">Denotes the language data is missing.</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-4" >
+        <td class="jd-typecol">int</td>
+        <td class="jd-linkcol"><a href="../../../../reference/android/speech/tts/TextToSpeech.html#LANG_NOT_SUPPORTED">LANG_NOT_SUPPORTED</a></td>
+        <td class="jd-descrcol" width="100%">Denotes the language is not supported.</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-4" >
+        <td class="jd-typecol">int</td>
+        <td class="jd-linkcol"><a href="../../../../reference/android/speech/tts/TextToSpeech.html#QUEUE_ADD">QUEUE_ADD</a></td>
+        <td class="jd-descrcol" width="100%">Queue mode where the new entry is added at the end of the playback queue.</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-4" >
+        <td class="jd-typecol">int</td>
+        <td class="jd-linkcol"><a href="../../../../reference/android/speech/tts/TextToSpeech.html#QUEUE_FLUSH">QUEUE_FLUSH</a></td>
+        <td class="jd-descrcol" width="100%">Queue mode where all entries in the playback queue (media to be played
+ and text to be synthesized) are dropped and replaced by the new entry.</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-4" >
+        <td class="jd-typecol">int</td>
+        <td class="jd-linkcol"><a href="../../../../reference/android/speech/tts/TextToSpeech.html#SUCCESS">SUCCESS</a></td>
+        <td class="jd-descrcol" width="100%">Denotes a successful operation.</td>
+    </tr>
+    
+    
+
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+<table id="pubctors" class="jd-sumtable"><tr><th colspan="12">Public Constructors</th></tr>
+
+
+
+	 
+    <tr class="alt-color api apilevel-4" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            </nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../reference/android/speech/tts/TextToSpeech.html#TextToSpeech(android.content.Context, android.speech.tts.TextToSpeech.OnInitListener)">TextToSpeech</a></span>(<a href="../../../../reference/android/content/Context.html">Context</a> context, <a href="../../../../reference/android/speech/tts/TextToSpeech.OnInitListener.html">TextToSpeech.OnInitListener</a> listener)</nobr>
+        
+        <div class="jd-descrdiv">The constructor for the TextToSpeech class, using the default TTS engine.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-14" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            </nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../reference/android/speech/tts/TextToSpeech.html#TextToSpeech(android.content.Context, android.speech.tts.TextToSpeech.OnInitListener, java.lang.String)">TextToSpeech</a></span>(<a href="../../../../reference/android/content/Context.html">Context</a> context, <a href="../../../../reference/android/speech/tts/TextToSpeech.OnInitListener.html">TextToSpeech.OnInitListener</a> listener, <a href="../../../../reference/java/lang/String.html">String</a> engine)</nobr>
+        
+        <div class="jd-descrdiv">The constructor for the TextToSpeech class, using the given TTS engine.</div>
+  
+  </td></tr>
+
+
+
+</table>
+
+
+
+
+
+
+<!-- ========== METHOD SUMMARY =========== -->
+<table id="pubmethods" class="jd-sumtable"><tr><th colspan="12">Public Methods</th></tr>
+
+
+
+	 
+    <tr class="alt-color api apilevel-4" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../reference/android/speech/tts/TextToSpeech.html#addEarcon(java.lang.String, java.lang.String)">addEarcon</a></span>(<a href="../../../../reference/java/lang/String.html">String</a> earcon, <a href="../../../../reference/java/lang/String.html">String</a> filename)</nobr>
+        
+        <div class="jd-descrdiv">Adds a mapping between a string of text and a sound file.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-4" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../reference/android/speech/tts/TextToSpeech.html#addEarcon(java.lang.String, java.lang.String, int)">addEarcon</a></span>(<a href="../../../../reference/java/lang/String.html">String</a> earcon, <a href="../../../../reference/java/lang/String.html">String</a> packagename, int resourceId)</nobr>
+        
+        <div class="jd-descrdiv">Adds a mapping between a string of text and a sound resource in a
+ package.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-4" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../reference/android/speech/tts/TextToSpeech.html#addSpeech(java.lang.String, java.lang.String, int)">addSpeech</a></span>(<a href="../../../../reference/java/lang/String.html">String</a> text, <a href="../../../../reference/java/lang/String.html">String</a> packagename, int resourceId)</nobr>
+        
+        <div class="jd-descrdiv">Adds a mapping between a string of text and a sound resource in a
+ package.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-4" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../reference/android/speech/tts/TextToSpeech.html#addSpeech(java.lang.String, java.lang.String)">addSpeech</a></span>(<a href="../../../../reference/java/lang/String.html">String</a> text, <a href="../../../../reference/java/lang/String.html">String</a> filename)</nobr>
+        
+        <div class="jd-descrdiv">Adds a mapping between a string of text and a sound file.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-8" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../reference/android/speech/tts/TextToSpeech.html#areDefaultsEnforced()">areDefaultsEnforced</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Checks whether the user's settings should override settings requested
+ by the calling application.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-8" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../../reference/java/lang/String.html">String</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../reference/android/speech/tts/TextToSpeech.html#getDefaultEngine()">getDefaultEngine</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Gets the package name of the default speech synthesis engine.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-14" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../../reference/java/util/List.html">List</a>&lt;<a href="../../../../reference/android/speech/tts/TextToSpeech.EngineInfo.html">TextToSpeech.EngineInfo</a>&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../reference/android/speech/tts/TextToSpeech.html#getEngines()">getEngines</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Gets a list of all installed TTS engines.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-15" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../../reference/java/util/Set.html">Set</a>&lt;<a href="../../../../reference/java/lang/String.html">String</a>&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../reference/android/speech/tts/TextToSpeech.html#getFeatures(java.util.Locale)">getFeatures</a></span>(<a href="../../../../reference/java/util/Locale.html">Locale</a> locale)</nobr>
+        
+        <div class="jd-descrdiv">Queries the engine for the set of features it supports for a given locale.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-4" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../../reference/java/util/Locale.html">Locale</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../reference/android/speech/tts/TextToSpeech.html#getLanguage()">getLanguage</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Returns a Locale instance describing the language currently being used by the TextToSpeech
+ engine.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-4" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../reference/android/speech/tts/TextToSpeech.html#isLanguageAvailable(java.util.Locale)">isLanguageAvailable</a></span>(<a href="../../../../reference/java/util/Locale.html">Locale</a> loc)</nobr>
+        
+        <div class="jd-descrdiv">Checks if the specified language as represented by the Locale is available and supported.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-4" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../reference/android/speech/tts/TextToSpeech.html#isSpeaking()">isSpeaking</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Checks whether the TTS engine is busy speaking.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-4" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../reference/android/speech/tts/TextToSpeech.html#playEarcon(java.lang.String, int, java.util.HashMap<java.lang.String, java.lang.String>)">playEarcon</a></span>(<a href="../../../../reference/java/lang/String.html">String</a> earcon, int queueMode, <a href="../../../../reference/java/util/HashMap.html">HashMap</a>&lt;<a href="../../../../reference/java/lang/String.html">String</a>,&nbsp;<a href="../../../../reference/java/lang/String.html">String</a>&gt; params)</nobr>
+        
+        <div class="jd-descrdiv">Plays the earcon using the specified queueing mode and parameters.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-4" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../reference/android/speech/tts/TextToSpeech.html#playSilence(long, int, java.util.HashMap<java.lang.String, java.lang.String>)">playSilence</a></span>(long durationInMs, int queueMode, <a href="../../../../reference/java/util/HashMap.html">HashMap</a>&lt;<a href="../../../../reference/java/lang/String.html">String</a>,&nbsp;<a href="../../../../reference/java/lang/String.html">String</a>&gt; params)</nobr>
+        
+        <div class="jd-descrdiv">Plays silence for the specified amount of time using the specified
+ queue mode.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-8" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../reference/android/speech/tts/TextToSpeech.html#setEngineByPackageName(java.lang.String)">setEngineByPackageName</a></span>(<a href="../../../../reference/java/lang/String.html">String</a> enginePackageName)</nobr>
+        
+        <div class="jd-descrdiv">
+      <em>
+  This method is deprecated.
+      This doesn't inform callers when the TTS engine has been
+        initialized. <code><a href="../../../../reference/android/speech/tts/TextToSpeech.html#TextToSpeech(android.content.Context, android.speech.tts.TextToSpeech.OnInitListener, java.lang.String)">TextToSpeech(Context, OnInitListener, String)</a></code>
+        can be used with the appropriate engine name. Also, there is no
+        guarantee that the engine specified will be loaded. If it isn't
+        installed or disabled, the user / system wide defaults will apply.</em></div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-4" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../reference/android/speech/tts/TextToSpeech.html#setLanguage(java.util.Locale)">setLanguage</a></span>(<a href="../../../../reference/java/util/Locale.html">Locale</a> loc)</nobr>
+        
+        <div class="jd-descrdiv">Sets the text-to-speech language.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-4" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../reference/android/speech/tts/TextToSpeech.html#setOnUtteranceCompletedListener(android.speech.tts.TextToSpeech.OnUtteranceCompletedListener)">setOnUtteranceCompletedListener</a></span>(<a href="../../../../reference/android/speech/tts/TextToSpeech.OnUtteranceCompletedListener.html">TextToSpeech.OnUtteranceCompletedListener</a> listener)</nobr>
+        
+        <div class="jd-descrdiv">
+      <em>
+  This method is deprecated.
+      Use <code><a href="../../../../reference/android/speech/tts/TextToSpeech.html#setOnUtteranceProgressListener(android.speech.tts.UtteranceProgressListener)">setOnUtteranceProgressListener(UtteranceProgressListener)</a></code>
+        instead.
+</em></div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-15" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../reference/android/speech/tts/TextToSpeech.html#setOnUtteranceProgressListener(android.speech.tts.UtteranceProgressListener)">setOnUtteranceProgressListener</a></span>(<a href="../../../../reference/android/speech/tts/UtteranceProgressListener.html">UtteranceProgressListener</a> listener)</nobr>
+        
+        <div class="jd-descrdiv">Sets the listener that will be notified of various events related to the
+ synthesis of a given utterance.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-4" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../reference/android/speech/tts/TextToSpeech.html#setPitch(float)">setPitch</a></span>(float pitch)</nobr>
+        
+        <div class="jd-descrdiv">Sets the speech pitch for the TextToSpeech engine.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-4" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../reference/android/speech/tts/TextToSpeech.html#setSpeechRate(float)">setSpeechRate</a></span>(float speechRate)</nobr>
+        
+        <div class="jd-descrdiv">Sets the speech rate.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-4" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../reference/android/speech/tts/TextToSpeech.html#shutdown()">shutdown</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Releases the resources used by the TextToSpeech engine.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-4" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../reference/android/speech/tts/TextToSpeech.html#speak(java.lang.String, int, java.util.HashMap<java.lang.String, java.lang.String>)">speak</a></span>(<a href="../../../../reference/java/lang/String.html">String</a> text, int queueMode, <a href="../../../../reference/java/util/HashMap.html">HashMap</a>&lt;<a href="../../../../reference/java/lang/String.html">String</a>,&nbsp;<a href="../../../../reference/java/lang/String.html">String</a>&gt; params)</nobr>
+        
+        <div class="jd-descrdiv">Speaks the string using the specified queuing strategy and speech
+ parameters.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-4" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../reference/android/speech/tts/TextToSpeech.html#stop()">stop</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Interrupts the current utterance (whether played or rendered to file) and discards other
+ utterances in the queue.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-4" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../reference/android/speech/tts/TextToSpeech.html#synthesizeToFile(java.lang.String, java.util.HashMap<java.lang.String, java.lang.String>, java.lang.String)">synthesizeToFile</a></span>(<a href="../../../../reference/java/lang/String.html">String</a> text, <a href="../../../../reference/java/util/HashMap.html">HashMap</a>&lt;<a href="../../../../reference/java/lang/String.html">String</a>,&nbsp;<a href="../../../../reference/java/lang/String.html">String</a>&gt; params, <a href="../../../../reference/java/lang/String.html">String</a> filename)</nobr>
+        
+        <div class="jd-descrdiv">Synthesizes the given text to a file using the specified parameters.</div>
+  
+  </td></tr>
+
+
+
+</table>
+
+
+
+
+
+
+
+<!-- ========== METHOD SUMMARY =========== -->
+<table id="inhmethods" class="jd-sumtable"><tr><th>
+  <a href="#" class="toggle-all" onclick="return toggleAllInherited(this, null)">[Expand]</a>
+  <div style="clear:left;">Inherited Methods</div></th></tr>
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-java.lang.Object" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-java.lang.Object-trigger"
+          src="../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From class
+
+  <a href="../../../../reference/java/lang/Object.html">java.lang.Object</a>
+
+<div id="inherited-methods-java.lang.Object">
+  <div id="inherited-methods-java.lang.Object-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-java.lang.Object-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../../reference/java/lang/Object.html">Object</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../reference/java/lang/Object.html#clone()">clone</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Creates and returns a copy of this <code>Object</code>.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../reference/java/lang/Object.html#equals(java.lang.Object)">equals</a></span>(<a href="../../../../reference/java/lang/Object.html">Object</a> o)</nobr>
+        
+        <div class="jd-descrdiv">Compares this instance with the specified object and indicates if they
+ are equal.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../reference/java/lang/Object.html#finalize()">finalize</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Invoked when the garbage collector has detected that this instance is no longer reachable.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            <a href="../../../../reference/java/lang/Class.html">Class</a>&lt;?&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../reference/java/lang/Object.html#getClass()">getClass</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Returns the unique instance of <code><a href="../../../../reference/java/lang/Class.html">Class</a></code> that represents this
+ object's class.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../reference/java/lang/Object.html#hashCode()">hashCode</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Returns an integer hash code for this object.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../reference/java/lang/Object.html#notify()">notify</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Causes a thread which is waiting on this object's monitor (by means of
+ calling one of the <code>wait()</code> methods) to be woken up.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../reference/java/lang/Object.html#notifyAll()">notifyAll</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Causes all threads which are waiting on this object's monitor (by means
+ of calling one of the <code>wait()</code> methods) to be woken up.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../../reference/java/lang/String.html">String</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../reference/java/lang/Object.html#toString()">toString</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Returns a string containing a concise, human-readable description of this
+ object.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../reference/java/lang/Object.html#wait()">wait</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../reference/java/lang/Object.html#wait(long, int)">wait</a></span>(long millis, int nanos)</nobr>
+        
+        <div class="jd-descrdiv">Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
+ specified timeout expires.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../reference/java/lang/Object.html#wait(long)">wait</a></span>(long millis)</nobr>
+        
+        <div class="jd-descrdiv">Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
+ specified timeout expires.</div>
+  
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+</table>
+
+
+</div><!-- jd-descr (summary) -->
+
+<!-- Details -->
+
+
+
+
+
+
+
+
+<!-- XML Attributes -->
+
+
+<!-- Enum Values -->
+
+
+<!-- Constants -->
+
+
+<!-- ========= ENUM CONSTANTS DETAIL ======== -->
+<h2>Constants</h2>
+
+
+
+
+<A NAME="ACTION_TTS_QUEUE_PROCESSING_COMPLETED"></A>
+
+<div class="jd-details api apilevel-4"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../reference/java/lang/String.html">String</a>
+      </span>
+        ACTION_TTS_QUEUE_PROCESSING_COMPLETED
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../../guide/appendix/api-levels.html#level4">API Level 4</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Broadcast Action: The TextToSpeech synthesizer has completed processing
+ of all the text in the speech queue.
+
+ Note that this notifies callers when the <b>engine</b> has finished has
+ processing text data. Audio playback might not have completed (or even started)
+ at this point. If you wish to be notified when this happens, see
+ <code><a href="../../../../reference/android/speech/tts/TextToSpeech.OnUtteranceCompletedListener.html">TextToSpeech.OnUtteranceCompletedListener</a></code>.
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                "android.speech.tts.TTS_QUEUE_PROCESSING_COMPLETED"
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="ERROR"></A>
+
+<div class="jd-details api apilevel-4"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        int
+      </span>
+        ERROR
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../../guide/appendix/api-levels.html#level4">API Level 4</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Denotes a generic operation failure.
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                -1
+                (0xffffffff)
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="LANG_AVAILABLE"></A>
+
+<div class="jd-details api apilevel-4"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        int
+      </span>
+        LANG_AVAILABLE
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../../guide/appendix/api-levels.html#level4">API Level 4</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Denotes the language is available for the language by the locale,
+ but not the country and variant.
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                0
+                (0x00000000)
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="LANG_COUNTRY_AVAILABLE"></A>
+
+<div class="jd-details api apilevel-4"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        int
+      </span>
+        LANG_COUNTRY_AVAILABLE
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../../guide/appendix/api-levels.html#level4">API Level 4</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Denotes the language is available for the language and country specified
+ by the locale, but not the variant.
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                1
+                (0x00000001)
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="LANG_COUNTRY_VAR_AVAILABLE"></A>
+
+<div class="jd-details api apilevel-4"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        int
+      </span>
+        LANG_COUNTRY_VAR_AVAILABLE
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../../guide/appendix/api-levels.html#level4">API Level 4</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Denotes the language is available exactly as specified by the locale.
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                2
+                (0x00000002)
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="LANG_MISSING_DATA"></A>
+
+<div class="jd-details api apilevel-4"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        int
+      </span>
+        LANG_MISSING_DATA
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../../guide/appendix/api-levels.html#level4">API Level 4</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Denotes the language data is missing.
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                -1
+                (0xffffffff)
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="LANG_NOT_SUPPORTED"></A>
+
+<div class="jd-details api apilevel-4"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        int
+      </span>
+        LANG_NOT_SUPPORTED
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../../guide/appendix/api-levels.html#level4">API Level 4</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Denotes the language is not supported.
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                -2
+                (0xfffffffe)
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="QUEUE_ADD"></A>
+
+<div class="jd-details api apilevel-4"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        int
+      </span>
+        QUEUE_ADD
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../../guide/appendix/api-levels.html#level4">API Level 4</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Queue mode where the new entry is added at the end of the playback queue.
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                1
+                (0x00000001)
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="QUEUE_FLUSH"></A>
+
+<div class="jd-details api apilevel-4"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        int
+      </span>
+        QUEUE_FLUSH
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../../guide/appendix/api-levels.html#level4">API Level 4</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Queue mode where all entries in the playback queue (media to be played
+ and text to be synthesized) are dropped and replaced by the new entry.
+ Queues are flushed with respect to a given calling app. Entries in the queue
+ from other callees are not discarded.
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                0
+                (0x00000000)
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="SUCCESS"></A>
+
+<div class="jd-details api apilevel-4"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        int
+      </span>
+        SUCCESS
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../../guide/appendix/api-levels.html#level4">API Level 4</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Denotes a successful operation.
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                0
+                (0x00000000)
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+
+<!-- Fields -->
+
+
+<!-- Public ctors -->
+
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<h2>Public Constructors</h2>
+
+
+
+<A NAME="TextToSpeech(android.content.Context, android.speech.tts.TextToSpeech.OnInitListener)"></A>
+
+<div class="jd-details api apilevel-4"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        
+      </span>
+      <span class="sympad">TextToSpeech</span>
+      <span class="normal">(<a href="../../../../reference/android/content/Context.html">Context</a> context, <a href="../../../../reference/android/speech/tts/TextToSpeech.OnInitListener.html">TextToSpeech.OnInitListener</a> listener)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../../guide/appendix/api-levels.html#level4">API Level 4</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>The constructor for the TextToSpeech class, using the default TTS engine.
+ This will also initialize the associated TextToSpeech engine if it isn't already running.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>context</td>
+          <td>The context this instance is running in.</td>
+        </tr>
+        <tr>
+          <th>listener</td>
+          <td>The <code><a href="../../../../reference/android/speech/tts/TextToSpeech.OnInitListener.html">TextToSpeech.OnInitListener</a></code> that will be called when the
+            TextToSpeech engine has initialized.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="TextToSpeech(android.content.Context, android.speech.tts.TextToSpeech.OnInitListener, java.lang.String)"></A>
+
+<div class="jd-details api apilevel-14"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        
+      </span>
+      <span class="sympad">TextToSpeech</span>
+      <span class="normal">(<a href="../../../../reference/android/content/Context.html">Context</a> context, <a href="../../../../reference/android/speech/tts/TextToSpeech.OnInitListener.html">TextToSpeech.OnInitListener</a> listener, <a href="../../../../reference/java/lang/String.html">String</a> engine)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../../guide/appendix/api-levels.html#level14">API Level 14</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>The constructor for the TextToSpeech class, using the given TTS engine.
+ This will also initialize the associated TextToSpeech engine if it isn't already running.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>context</td>
+          <td>The context this instance is running in.</td>
+        </tr>
+        <tr>
+          <th>listener</td>
+          <td>The <code><a href="../../../../reference/android/speech/tts/TextToSpeech.OnInitListener.html">TextToSpeech.OnInitListener</a></code> that will be called when the
+            TextToSpeech engine has initialized.</td>
+        </tr>
+        <tr>
+          <th>engine</td>
+          <td>Package name of the TTS engine to use.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+
+
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<!-- Protected ctors -->
+
+
+
+<!-- ========= METHOD DETAIL ======== -->
+<!-- Public methdos -->
+
+<h2>Public Methods</h2>
+
+
+
+<A NAME="addEarcon(java.lang.String, java.lang.String)"></A>
+
+<div class="jd-details api apilevel-4"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        int
+      </span>
+      <span class="sympad">addEarcon</span>
+      <span class="normal">(<a href="../../../../reference/java/lang/String.html">String</a> earcon, <a href="../../../../reference/java/lang/String.html">String</a> filename)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../../guide/appendix/api-levels.html#level4">API Level 4</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Adds a mapping between a string of text and a sound file.
+ Use this to add custom earcons.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>earcon</td>
+          <td>The name of the earcon.
+            Example: <code>"[tick]"</code></td>
+        </tr>
+        <tr>
+          <th>filename</td>
+          <td>The full path to the sound file (for example:
+            "/sdcard/mysounds/tick.wav")</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>Code indicating success or failure. See <code><a href="../../../../reference/android/speech/tts/TextToSpeech.html#ERROR">ERROR</a></code> and <code><a href="../../../../reference/android/speech/tts/TextToSpeech.html#SUCCESS">SUCCESS</a></code>.
+</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">See Also</h5>
+      <ul class="nolist"><li><code><a href="../../../../reference/android/speech/tts/TextToSpeech.html#playEarcon(java.lang.String, int, java.util.HashMap<java.lang.String, java.lang.String>)">playEarcon(String, int, HashMap)</a></code></li>
+      </ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="addEarcon(java.lang.String, java.lang.String, int)"></A>
+
+<div class="jd-details api apilevel-4"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        int
+      </span>
+      <span class="sympad">addEarcon</span>
+      <span class="normal">(<a href="../../../../reference/java/lang/String.html">String</a> earcon, <a href="../../../../reference/java/lang/String.html">String</a> packagename, int resourceId)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../../guide/appendix/api-levels.html#level4">API Level 4</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Adds a mapping between a string of text and a sound resource in a
+ package. Use this to add custom earcons.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>earcon</td>
+          <td>The name of the earcon.
+            Example: <code>"[tick]"</code><br/></td>
+        </tr>
+        <tr>
+          <th>packagename</td>
+          <td>the package name of the application that contains the
+            resource. This can for instance be the package name of your own application.
+            Example: <b>"com.google.marvin.compass"</b><br/>
+            The package name can be found in the AndroidManifest.xml of
+            the application containing the resource.
+            <p>
+            <code>&lt;manifest xmlns:android=&quot;...&quot;
+      package=&quot;<b>com.google.marvin.compass</b>&quot;&gt;</code>
+            </p></td>
+        </tr>
+        <tr>
+          <th>resourceId</td>
+          <td>Example: <code>R.raw.tick_snd</code></td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>Code indicating success or failure. See <code><a href="../../../../reference/android/speech/tts/TextToSpeech.html#ERROR">ERROR</a></code> and <code><a href="../../../../reference/android/speech/tts/TextToSpeech.html#SUCCESS">SUCCESS</a></code>.
+</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">See Also</h5>
+      <ul class="nolist"><li><code><a href="../../../../reference/android/speech/tts/TextToSpeech.html#playEarcon(java.lang.String, int, java.util.HashMap<java.lang.String, java.lang.String>)">playEarcon(String, int, HashMap)</a></code></li>
+      </ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="addSpeech(java.lang.String, java.lang.String, int)"></A>
+
+<div class="jd-details api apilevel-4"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        int
+      </span>
+      <span class="sympad">addSpeech</span>
+      <span class="normal">(<a href="../../../../reference/java/lang/String.html">String</a> text, <a href="../../../../reference/java/lang/String.html">String</a> packagename, int resourceId)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../../guide/appendix/api-levels.html#level4">API Level 4</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Adds a mapping between a string of text and a sound resource in a
+ package. After a call to this method, subsequent calls to
+ <code><a href="../../../../reference/android/speech/tts/TextToSpeech.html#speak(java.lang.String, int, java.util.HashMap<java.lang.String, java.lang.String>)">speak(String, int, HashMap)</a></code> will play the specified sound resource
+ if it is available, or synthesize the text it is missing.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>text</td>
+          <td>The string of text. Example: <code>"south_south_east"</code></td>
+        </tr>
+        <tr>
+          <th>packagename</td>
+          <td>Pass the packagename of the application that contains the
+            resource. If the resource is in your own application (this is
+            the most common case), then put the packagename of your
+            application here.<br/>
+            Example: <b>"com.google.marvin.compass"</b><br/>
+            The packagename can be found in the AndroidManifest.xml of
+            your application.
+            <p>
+            <code>&lt;manifest xmlns:android=&quot;...&quot;
+      package=&quot;<b>com.google.marvin.compass</b>&quot;&gt;</code>
+            </p></td>
+        </tr>
+        <tr>
+          <th>resourceId</td>
+          <td>Example: <code>R.raw.south_south_east</code></td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>Code indicating success or failure. See <code><a href="../../../../reference/android/speech/tts/TextToSpeech.html#ERROR">ERROR</a></code> and <code><a href="../../../../reference/android/speech/tts/TextToSpeech.html#SUCCESS">SUCCESS</a></code>.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="addSpeech(java.lang.String, java.lang.String)"></A>
+
+<div class="jd-details api apilevel-4"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        int
+      </span>
+      <span class="sympad">addSpeech</span>
+      <span class="normal">(<a href="../../../../reference/java/lang/String.html">String</a> text, <a href="../../../../reference/java/lang/String.html">String</a> filename)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../../guide/appendix/api-levels.html#level4">API Level 4</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Adds a mapping between a string of text and a sound file. Using this, it
+ is possible to add custom pronounciations for a string of text.
+ After a call to this method, subsequent calls to <code><a href="../../../../reference/android/speech/tts/TextToSpeech.html#speak(java.lang.String, int, java.util.HashMap<java.lang.String, java.lang.String>)">speak(String, int, HashMap)</a></code>
+ will play the specified sound resource if it is available, or synthesize the text it is
+ missing.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>text</td>
+          <td>The string of text. Example: <code>"south_south_east"</code></td>
+        </tr>
+        <tr>
+          <th>filename</td>
+          <td>The full path to the sound file (for example:
+            "/sdcard/mysounds/hello.wav")</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>Code indicating success or failure. See <code><a href="../../../../reference/android/speech/tts/TextToSpeech.html#ERROR">ERROR</a></code> and <code><a href="../../../../reference/android/speech/tts/TextToSpeech.html#SUCCESS">SUCCESS</a></code>.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="areDefaultsEnforced()"></A>
+
+<div class="jd-details api apilevel-8"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        boolean
+      </span>
+      <span class="sympad">areDefaultsEnforced</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../../guide/appendix/api-levels.html#level8">API Level 8</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Checks whether the user's settings should override settings requested
+ by the calling application. As of the Ice cream sandwich release,
+ user settings never forcibly override the app's settings.
+</p></div>
+
+    </div>
+</div>
+
+
+<A NAME="getDefaultEngine()"></A>
+
+<div class="jd-details api apilevel-8"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../../reference/java/lang/String.html">String</a>
+      </span>
+      <span class="sympad">getDefaultEngine</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../../guide/appendix/api-levels.html#level8">API Level 8</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Gets the package name of the default speech synthesis engine.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>Package name of the TTS engine that the user has chosen
+        as their default.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getEngines()"></A>
+
+<div class="jd-details api apilevel-14"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../../reference/java/util/List.html">List</a>&lt;<a href="../../../../reference/android/speech/tts/TextToSpeech.EngineInfo.html">TextToSpeech.EngineInfo</a>&gt;
+      </span>
+      <span class="sympad">getEngines</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../../guide/appendix/api-levels.html#level14">API Level 14</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Gets a list of all installed TTS engines.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>A list of engine info objects. The list can be empty, but never <code>null</code>.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getFeatures(java.util.Locale)"></A>
+
+<div class="jd-details api apilevel-15"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../../reference/java/util/Set.html">Set</a>&lt;<a href="../../../../reference/java/lang/String.html">String</a>&gt;
+      </span>
+      <span class="sympad">getFeatures</span>
+      <span class="normal">(<a href="../../../../reference/java/util/Locale.html">Locale</a> locale)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../../guide/appendix/api-levels.html#level15">API Level 15</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Queries the engine for the set of features it supports for a given locale.
+ Features can either be framework defined, e.g.
+ <code><a href="../../../../reference/android/speech/tts/TextToSpeech.Engine.html#KEY_FEATURE_NETWORK_SYNTHESIS">KEY_FEATURE_NETWORK_SYNTHESIS</a></code> or engine specific.
+ Engine specific keys must be prefixed by the name of the engine they
+ are intended for. These keys can be used as parameters to
+ <code><a href="../../../../reference/android/speech/tts/TextToSpeech.html#speak(java.lang.String, int, java.util.HashMap<java.lang.String, java.lang.String>)">speak(String, int, java.util.HashMap)</a></code> and
+ <code><a href="../../../../reference/android/speech/tts/TextToSpeech.html#synthesizeToFile(java.lang.String, java.util.HashMap<java.lang.String, java.lang.String>, java.lang.String)">synthesizeToFile(String, java.util.HashMap, String)</a></code>.
+
+ Features are boolean flags, and their values in the synthesis parameters
+ must be behave as per <code><a href="../../../../reference/java/lang/Boolean.html#parseBoolean(java.lang.String)">parseBoolean(String)</a></code>.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>locale</td>
+          <td>The locale to query features for.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getLanguage()"></A>
+
+<div class="jd-details api apilevel-4"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../../reference/java/util/Locale.html">Locale</a>
+      </span>
+      <span class="sympad">getLanguage</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../../guide/appendix/api-levels.html#level4">API Level 4</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Returns a Locale instance describing the language currently being used by the TextToSpeech
+ engine.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>language, country (if any) and variant (if any) used by the engine stored in a Locale
+     instance, or <code>null</code> on error.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="isLanguageAvailable(java.util.Locale)"></A>
+
+<div class="jd-details api apilevel-4"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        int
+      </span>
+      <span class="sympad">isLanguageAvailable</span>
+      <span class="normal">(<a href="../../../../reference/java/util/Locale.html">Locale</a> loc)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../../guide/appendix/api-levels.html#level4">API Level 4</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Checks if the specified language as represented by the Locale is available and supported.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>loc</td>
+          <td>The Locale describing the language to be used.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>Code indicating the support status for the locale. See <code><a href="../../../../reference/android/speech/tts/TextToSpeech.html#LANG_AVAILABLE">LANG_AVAILABLE</a></code>,
+         <code><a href="../../../../reference/android/speech/tts/TextToSpeech.html#LANG_COUNTRY_AVAILABLE">LANG_COUNTRY_AVAILABLE</a></code>, <code><a href="../../../../reference/android/speech/tts/TextToSpeech.html#LANG_COUNTRY_VAR_AVAILABLE">LANG_COUNTRY_VAR_AVAILABLE</a></code>,
+         <code><a href="../../../../reference/android/speech/tts/TextToSpeech.html#LANG_MISSING_DATA">LANG_MISSING_DATA</a></code> and <code><a href="../../../../reference/android/speech/tts/TextToSpeech.html#LANG_NOT_SUPPORTED">LANG_NOT_SUPPORTED</a></code>.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="isSpeaking()"></A>
+
+<div class="jd-details api apilevel-4"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        boolean
+      </span>
+      <span class="sympad">isSpeaking</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../../guide/appendix/api-levels.html#level4">API Level 4</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Checks whether the TTS engine is busy speaking. Note that a speech item is
+ considered complete once it's audio data has been sent to the audio mixer, or
+ written to a file. There might be a finite lag between this point, and when
+ the audio hardware completes playback.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li><code>true</code> if the TTS engine is speaking.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="playEarcon(java.lang.String, int, java.util.HashMap<java.lang.String, java.lang.String>)"></A>
+
+<div class="jd-details api apilevel-4"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        int
+      </span>
+      <span class="sympad">playEarcon</span>
+      <span class="normal">(<a href="../../../../reference/java/lang/String.html">String</a> earcon, int queueMode, <a href="../../../../reference/java/util/HashMap.html">HashMap</a>&lt;<a href="../../../../reference/java/lang/String.html">String</a>,&nbsp;<a href="../../../../reference/java/lang/String.html">String</a>&gt; params)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../../guide/appendix/api-levels.html#level4">API Level 4</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Plays the earcon using the specified queueing mode and parameters.
+ The earcon must already have been added with <code><a href="../../../../reference/android/speech/tts/TextToSpeech.html#addEarcon(java.lang.String, java.lang.String)">addEarcon(String, String)</a></code> or
+ <code><a href="../../../../reference/android/speech/tts/TextToSpeech.html#addEarcon(java.lang.String, java.lang.String, int)">addEarcon(String, String, int)</a></code>.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>earcon</td>
+          <td>The earcon that should be played</td>
+        </tr>
+        <tr>
+          <th>queueMode</td>
+          <td><code><a href="../../../../reference/android/speech/tts/TextToSpeech.html#QUEUE_ADD">QUEUE_ADD</a></code> or <code><a href="../../../../reference/android/speech/tts/TextToSpeech.html#QUEUE_FLUSH">QUEUE_FLUSH</a></code>.</td>
+        </tr>
+        <tr>
+          <th>params</td>
+          <td>Parameters for the request. Can be null.
+            Supported parameter names:
+            <code><a href="../../../../reference/android/speech/tts/TextToSpeech.Engine.html#KEY_PARAM_STREAM">KEY_PARAM_STREAM</a></code>,
+            <code><a href="../../../../reference/android/speech/tts/TextToSpeech.Engine.html#KEY_PARAM_UTTERANCE_ID">KEY_PARAM_UTTERANCE_ID</a></code>.
+            Engine specific parameters may be passed in but the parameter keys
+            must be prefixed by the name of the engine they are intended for. For example
+            the keys "com.svox.pico_foo" and "com.svox.pico:bar" will be passed to the
+            engine named "com.svox.pico" if it is being used.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li><code><a href="../../../../reference/android/speech/tts/TextToSpeech.html#ERROR">ERROR</a></code> or <code><a href="../../../../reference/android/speech/tts/TextToSpeech.html#SUCCESS">SUCCESS</a></code>.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="playSilence(long, int, java.util.HashMap<java.lang.String, java.lang.String>)"></A>
+
+<div class="jd-details api apilevel-4"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        int
+      </span>
+      <span class="sympad">playSilence</span>
+      <span class="normal">(long durationInMs, int queueMode, <a href="../../../../reference/java/util/HashMap.html">HashMap</a>&lt;<a href="../../../../reference/java/lang/String.html">String</a>,&nbsp;<a href="../../../../reference/java/lang/String.html">String</a>&gt; params)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../../guide/appendix/api-levels.html#level4">API Level 4</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Plays silence for the specified amount of time using the specified
+ queue mode.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>durationInMs</td>
+          <td>The duration of the silence.</td>
+        </tr>
+        <tr>
+          <th>queueMode</td>
+          <td><code><a href="../../../../reference/android/speech/tts/TextToSpeech.html#QUEUE_ADD">QUEUE_ADD</a></code> or <code><a href="../../../../reference/android/speech/tts/TextToSpeech.html#QUEUE_FLUSH">QUEUE_FLUSH</a></code>.</td>
+        </tr>
+        <tr>
+          <th>params</td>
+          <td>Parameters for the request. Can be null.
+            Supported parameter names:
+            <code><a href="../../../../reference/android/speech/tts/TextToSpeech.Engine.html#KEY_PARAM_UTTERANCE_ID">KEY_PARAM_UTTERANCE_ID</a></code>.
+            Engine specific parameters may be passed in but the parameter keys
+            must be prefixed by the name of the engine they are intended for. For example
+            the keys "com.svox.pico_foo" and "com.svox.pico:bar" will be passed to the
+            engine named "com.svox.pico" if it is being used.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li><code><a href="../../../../reference/android/speech/tts/TextToSpeech.html#ERROR">ERROR</a></code> or <code><a href="../../../../reference/android/speech/tts/TextToSpeech.html#SUCCESS">SUCCESS</a></code>.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setEngineByPackageName(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-8"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        int
+      </span>
+      <span class="sympad">setEngineByPackageName</span>
+      <span class="normal">(<a href="../../../../reference/java/lang/String.html">String</a> enginePackageName)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../../guide/appendix/api-levels.html#level8">API Level 8</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      <p>
+  <p class="caution">
+      <strong>
+  This method is deprecated.</strong><br/> This doesn't inform callers when the TTS engine has been
+        initialized. <code><a href="../../../../reference/android/speech/tts/TextToSpeech.html#TextToSpeech(android.content.Context, android.speech.tts.TextToSpeech.OnInitListener, java.lang.String)">TextToSpeech(Context, OnInitListener, String)</a></code>
+        can be used with the appropriate engine name. Also, there is no
+        guarantee that the engine specified will be loaded. If it isn't
+        installed or disabled, the user / system wide defaults will apply.
+  </p>
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the TTS engine to use.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>enginePackageName</td>
+          <td>The package name for the synthesis engine (e.g. "com.svox.pico")</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li><code><a href="../../../../reference/android/speech/tts/TextToSpeech.html#ERROR">ERROR</a></code> or <code><a href="../../../../reference/android/speech/tts/TextToSpeech.html#SUCCESS">SUCCESS</a></code>.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setLanguage(java.util.Locale)"></A>
+
+<div class="jd-details api apilevel-4"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        int
+      </span>
+      <span class="sympad">setLanguage</span>
+      <span class="normal">(<a href="../../../../reference/java/util/Locale.html">Locale</a> loc)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../../guide/appendix/api-levels.html#level4">API Level 4</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the text-to-speech language.
+ The TTS engine will try to use the closest match to the specified
+ language as represented by the Locale, but there is no guarantee that the exact same Locale
+ will be used. Use <code><a href="../../../../reference/android/speech/tts/TextToSpeech.html#isLanguageAvailable(java.util.Locale)">isLanguageAvailable(Locale)</a></code> to check the level of support
+ before choosing the language to use for the next utterances.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>loc</td>
+          <td>The locale describing the language to be used.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>Code indicating the support status for the locale. See <code><a href="../../../../reference/android/speech/tts/TextToSpeech.html#LANG_AVAILABLE">LANG_AVAILABLE</a></code>,
+         <code><a href="../../../../reference/android/speech/tts/TextToSpeech.html#LANG_COUNTRY_AVAILABLE">LANG_COUNTRY_AVAILABLE</a></code>, <code><a href="../../../../reference/android/speech/tts/TextToSpeech.html#LANG_COUNTRY_VAR_AVAILABLE">LANG_COUNTRY_VAR_AVAILABLE</a></code>,
+         <code><a href="../../../../reference/android/speech/tts/TextToSpeech.html#LANG_MISSING_DATA">LANG_MISSING_DATA</a></code> and <code><a href="../../../../reference/android/speech/tts/TextToSpeech.html#LANG_NOT_SUPPORTED">LANG_NOT_SUPPORTED</a></code>.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setOnUtteranceCompletedListener(android.speech.tts.TextToSpeech.OnUtteranceCompletedListener)"></A>
+
+<div class="jd-details api apilevel-4"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        int
+      </span>
+      <span class="sympad">setOnUtteranceCompletedListener</span>
+      <span class="normal">(<a href="../../../../reference/android/speech/tts/TextToSpeech.OnUtteranceCompletedListener.html">TextToSpeech.OnUtteranceCompletedListener</a> listener)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../../guide/appendix/api-levels.html#level4">API Level 4</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      <p>
+  <p class="caution">
+      <strong>
+  This method is deprecated.</strong><br/> Use <code><a href="../../../../reference/android/speech/tts/TextToSpeech.html#setOnUtteranceProgressListener(android.speech.tts.UtteranceProgressListener)">setOnUtteranceProgressListener(UtteranceProgressListener)</a></code>
+        instead.
+
+  </p>
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the listener that will be notified when synthesis of an utterance completes.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>listener</td>
+          <td>The listener to use.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li><code><a href="../../../../reference/android/speech/tts/TextToSpeech.html#ERROR">ERROR</a></code> or <code><a href="../../../../reference/android/speech/tts/TextToSpeech.html#SUCCESS">SUCCESS</a></code>.</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setOnUtteranceProgressListener(android.speech.tts.UtteranceProgressListener)"></A>
+
+<div class="jd-details api apilevel-15"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        int
+      </span>
+      <span class="sympad">setOnUtteranceProgressListener</span>
+      <span class="normal">(<a href="../../../../reference/android/speech/tts/UtteranceProgressListener.html">UtteranceProgressListener</a> listener)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../../guide/appendix/api-levels.html#level15">API Level 15</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the listener that will be notified of various events related to the
+ synthesis of a given utterance.
+
+ See <code><a href="../../../../reference/android/speech/tts/UtteranceProgressListener.html">UtteranceProgressListener</a></code> and
+ <code><a href="../../../../reference/android/speech/tts/TextToSpeech.Engine.html#KEY_PARAM_UTTERANCE_ID">KEY_PARAM_UTTERANCE_ID</a></code>.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>listener</td>
+          <td>the listener to use.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li><code><a href="../../../../reference/android/speech/tts/TextToSpeech.html#ERROR">ERROR</a></code> or <code><a href="../../../../reference/android/speech/tts/TextToSpeech.html#SUCCESS">SUCCESS</a></code>
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setPitch(float)"></A>
+
+<div class="jd-details api apilevel-4"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        int
+      </span>
+      <span class="sympad">setPitch</span>
+      <span class="normal">(float pitch)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../../guide/appendix/api-levels.html#level4">API Level 4</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the speech pitch for the TextToSpeech engine.
+
+ This has no effect on any pre-recorded speech.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>pitch</td>
+          <td>Speech pitch. <code>1.0</code> is the normal pitch,
+            lower values lower the tone of the synthesized voice,
+            greater values increase it.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li><code><a href="../../../../reference/android/speech/tts/TextToSpeech.html#ERROR">ERROR</a></code> or <code><a href="../../../../reference/android/speech/tts/TextToSpeech.html#SUCCESS">SUCCESS</a></code>.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setSpeechRate(float)"></A>
+
+<div class="jd-details api apilevel-4"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        int
+      </span>
+      <span class="sympad">setSpeechRate</span>
+      <span class="normal">(float speechRate)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../../guide/appendix/api-levels.html#level4">API Level 4</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the speech rate.
+
+ This has no effect on any pre-recorded speech.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>speechRate</td>
+          <td>Speech rate. <code>1.0</code> is the normal speech rate,
+            lower values slow down the speech (<code>0.5</code> is half the normal speech rate),
+            greater values accelerate it (<code>2.0</code> is twice the normal speech rate).</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li><code><a href="../../../../reference/android/speech/tts/TextToSpeech.html#ERROR">ERROR</a></code> or <code><a href="../../../../reference/android/speech/tts/TextToSpeech.html#SUCCESS">SUCCESS</a></code>.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="shutdown()"></A>
+
+<div class="jd-details api apilevel-4"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">shutdown</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../../guide/appendix/api-levels.html#level4">API Level 4</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Releases the resources used by the TextToSpeech engine.
+ It is good practice for instance to call this method in the onDestroy() method of an Activity
+ so the TextToSpeech engine can be cleanly stopped.
+</p></div>
+
+    </div>
+</div>
+
+
+<A NAME="speak(java.lang.String, int, java.util.HashMap<java.lang.String, java.lang.String>)"></A>
+
+<div class="jd-details api apilevel-4"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        int
+      </span>
+      <span class="sympad">speak</span>
+      <span class="normal">(<a href="../../../../reference/java/lang/String.html">String</a> text, int queueMode, <a href="../../../../reference/java/util/HashMap.html">HashMap</a>&lt;<a href="../../../../reference/java/lang/String.html">String</a>,&nbsp;<a href="../../../../reference/java/lang/String.html">String</a>&gt; params)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../../guide/appendix/api-levels.html#level4">API Level 4</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Speaks the string using the specified queuing strategy and speech
+ parameters.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>text</td>
+          <td>The string of text to be spoken.</td>
+        </tr>
+        <tr>
+          <th>queueMode</td>
+          <td>The queuing strategy to use, <code><a href="../../../../reference/android/speech/tts/TextToSpeech.html#QUEUE_ADD">QUEUE_ADD</a></code> or <code><a href="../../../../reference/android/speech/tts/TextToSpeech.html#QUEUE_FLUSH">QUEUE_FLUSH</a></code>.</td>
+        </tr>
+        <tr>
+          <th>params</td>
+          <td>Parameters for the request. Can be null.
+            Supported parameter names:
+            <code><a href="../../../../reference/android/speech/tts/TextToSpeech.Engine.html#KEY_PARAM_STREAM">KEY_PARAM_STREAM</a></code>,
+            <code><a href="../../../../reference/android/speech/tts/TextToSpeech.Engine.html#KEY_PARAM_UTTERANCE_ID">KEY_PARAM_UTTERANCE_ID</a></code>,
+            <code><a href="../../../../reference/android/speech/tts/TextToSpeech.Engine.html#KEY_PARAM_VOLUME">KEY_PARAM_VOLUME</a></code>,
+            <code><a href="../../../../reference/android/speech/tts/TextToSpeech.Engine.html#KEY_PARAM_PAN">KEY_PARAM_PAN</a></code>.
+            Engine specific parameters may be passed in but the parameter keys
+            must be prefixed by the name of the engine they are intended for. For example
+            the keys "com.svox.pico_foo" and "com.svox.pico:bar" will be passed to the
+            engine named "com.svox.pico" if it is being used.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li><code><a href="../../../../reference/android/speech/tts/TextToSpeech.html#ERROR">ERROR</a></code> or <code><a href="../../../../reference/android/speech/tts/TextToSpeech.html#SUCCESS">SUCCESS</a></code>.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="stop()"></A>
+
+<div class="jd-details api apilevel-4"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        int
+      </span>
+      <span class="sympad">stop</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../../guide/appendix/api-levels.html#level4">API Level 4</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Interrupts the current utterance (whether played or rendered to file) and discards other
+ utterances in the queue.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li><code><a href="../../../../reference/android/speech/tts/TextToSpeech.html#ERROR">ERROR</a></code> or <code><a href="../../../../reference/android/speech/tts/TextToSpeech.html#SUCCESS">SUCCESS</a></code>.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="synthesizeToFile(java.lang.String, java.util.HashMap<java.lang.String, java.lang.String>, java.lang.String)"></A>
+
+<div class="jd-details api apilevel-4"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        int
+      </span>
+      <span class="sympad">synthesizeToFile</span>
+      <span class="normal">(<a href="../../../../reference/java/lang/String.html">String</a> text, <a href="../../../../reference/java/util/HashMap.html">HashMap</a>&lt;<a href="../../../../reference/java/lang/String.html">String</a>,&nbsp;<a href="../../../../reference/java/lang/String.html">String</a>&gt; params, <a href="../../../../reference/java/lang/String.html">String</a> filename)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../../guide/appendix/api-levels.html#level4">API Level 4</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Synthesizes the given text to a file using the specified parameters.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>text</td>
+          <td>The text that should be synthesized</td>
+        </tr>
+        <tr>
+          <th>params</td>
+          <td>Parameters for the request. Can be null.
+            Supported parameter names:
+            <code><a href="../../../../reference/android/speech/tts/TextToSpeech.Engine.html#KEY_PARAM_UTTERANCE_ID">KEY_PARAM_UTTERANCE_ID</a></code>.
+            Engine specific parameters may be passed in but the parameter keys
+            must be prefixed by the name of the engine they are intended for. For example
+            the keys "com.svox.pico_foo" and "com.svox.pico:bar" will be passed to the
+            engine named "com.svox.pico" if it is being used.</td>
+        </tr>
+        <tr>
+          <th>filename</td>
+          <td>Absolute file filename to write the generated audio data to.It should be
+            something like "/sdcard/myappsounds/mysound.wav".</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li><code><a href="../../../../reference/android/speech/tts/TextToSpeech.html#ERROR">ERROR</a></code> or <code><a href="../../../../reference/android/speech/tts/TextToSpeech.html#SUCCESS">SUCCESS</a></code>.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+
+
+
+<!-- ========= METHOD DETAIL ======== -->
+
+
+
+<!-- ========= END OF CLASS DATA ========= -->
+<A NAME="navbar_top"></A>
+
+<div id="footer">
+
+
+  <div id="copyright">
+    
+  Except as noted, this content is licensed under <a
+  href="http://www.apache.org/licenses/LICENSE-2.0">Apache 2.0</a>. 
+  For details and restrictions, see the <a href="../../../../license.html">
+  Content License</a>.
+  </div>
+  <div id="build_info">
+    
+  Android 4.0&nbsp;r1 - 16 Mar 2012 16:45
+
+  </div>
+
+  <div id="footerlinks">
+    
+  <p>
+    <a href="http://www.google.com/intl/en/policies/" target="_blank">Privacy &amp; Terms</a> -
+    <a href="http://www.android.com/branding.html" target="_blank">Brand Guidelines</a> -
+    <a
+href="http://code.google.com/p/android/issues/entry?template=Developer%20Documentation"
+target="_blank">Report Document Issues</a>
+  </p>
+  </div>
+
+</div> <!-- end footer -->
+
+</div> <!-- jd-content -->
+
+</div><!-- end doc-content -->
+
+</div> <!-- end body-content --> 
+
+<script type="text/javascript">
+init(); /* initialize android-developer-docs.js */
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-5831155-1");
+pageTracker._trackPageview();
+</script>
+
+</body>
+</html>

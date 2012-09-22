@@ -1,0 +1,2145 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico" />
+<title>Android Open Accessory Development Kit | Android Developers</title>
+<link href="../../../assets/android-developer-docs-devguide.css" rel="stylesheet" type="text/css" />
+<script src="../../../assets/search_autocomplete.js" type="text/javascript"></script>
+<script src="../../../assets/jquery-resizable.min.js" type="text/javascript"></script>
+<script src="../../../assets/android-developer-docs.js" type="text/javascript"></script>
+<script src="../../../assets/prettify.js" type="text/javascript"></script>
+<script type="text/javascript">
+  setToRoot("../../../");
+</script>
+<noscript>
+  <style type="text/css">
+    html,body{overflow:auto;}
+    #body-content{position:relative; top:0;}
+    #doc-content{overflow:visible;border-left:3px solid #666;}
+    #side-nav{padding:0;}
+    #side-nav .toggle-list ul {display:block;}
+    #resize-packages-nav{border-bottom:3px solid #666;}
+  </style>
+</noscript>
+</head>
+<body class="gc-documentation" itemscope itemtype="http://schema.org/Article">
+
+  <div id="header">
+      <div id="headerLeft">
+          <a href="../../../index.html" tabindex="-1"><img
+              src="../../../assets/images/bg_logo.png" alt="Android Developers" /></a>
+          <ul id="header-tabs" class="guide">
+    
+	<li id="home-link"><a href="../../../offline.html">
+	
+		<span class="en">Home</span>
+		<span style="display:none" class="de">Startseite</span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ホーム</span>
+		<span style="display:none" class="zh-CN">主页</span>
+		<span style="display:none" class="zh-TW">首頁</span>
+	
+	</a></li>
+	<li id="sdk-link"><a href="../../../sdk/index.html">
+		<span class="en">SDK</span>
+	</a></li>
+	<li id="guide-link"><a href="../../../guide/index.html" onClick="return loadLast('guide')">
+	
+		<span class="en">Dev Guide</span>
+		<span style="display:none" class="de">Handbuch</span>
+		<span style="display:none" class="es">Guía</span>
+		<span style="display:none" class="fr">Guide</span>
+		<span style="display:none" class="it">Guida</span>
+		<span style="display:none" class="ja">開発ガイド</span>
+		<span style="display:none" class="zh-CN">开发人员指南</span>
+		<span style="display:none" class="zh-TW">開發指南</span>
+	
+	</a></li>
+	<li id="reference-link"><a href="../../../reference/packages.html" onClick="return loadLast('reference')">
+	
+		<span class="en">Reference</span>
+		<span style="display:none" class="de">Referenz</span>
+		<span style="display:none" class="es">Referencia</span>
+		<span style="display:none" class="fr">Référence</span>
+		<span style="display:none" class="it">Riferimento</span>
+		<span style="display:none" class="ja">リファレンス</span>
+		<span style="display:none" class="zh-CN">参考</span>
+		<span style="display:none" class="zh-TW">參考資料</span>
+	
+	</a></li>
+	<li id="resources-link"><a href="../../../resources/index.html" onClick="return loadLast('resources')">
+	
+		<span class="en">Resources</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+    		<span style="display:none" class="ja"></span>
+		<span style="display:none" class="zh-CN"></span>
+		<span style="display:none" class="zh-TW"></span>
+	
+	</a></li>
+	<li id="videos-link"><a href="../../../videos/index.html" onClick="return loadLast('videos')">
+	
+		<span class="en">Videos</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ビデオ</span>
+		<span style="display:none" class="zh-CN"></span>
+		<span style="display:none" class="zh-TW"></span>
+	
+	</a></li>
+	<li><a href="http://android-developers.blogspot.com" onClick="return requestAppendHL(this.href)">
+	
+		<span class="en">Blog</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ブログ</span>
+		<span style="display:none" class="zh-CN">博客</span>
+		<span style="display:none" class="zh-TW">網誌</span>
+	
+	</a></li>
+
+
+     
+</ul>
+     
+      </div>
+      <div id="headerRight">
+          <div id="headerLinks">
+          &nbsp;&nbsp;
+          <a href="../../../design/index.html">Android Design</a>&nbsp;&nbsp;
+          <a href="http://www.android.com">Android.com</a>
+          </div>
+  <div id="search" >
+      <div id="searchForm">
+          <form accept-charset="utf-8" class="gsc-search-box" 
+                onsubmit="return submit_search()">
+            <table class="gsc-search-box" cellpadding="0" cellspacing="0"><tbody>
+                <tr>
+                  <td class="gsc-input">
+                    <input id="search_autocomplete" class="gsc-input" type="text" size="33" autocomplete="off"
+                      title="search developer docs" name="q"
+                      value="search developer docs"
+                      onFocus="search_focus_changed(this, true)"
+                      onBlur="search_focus_changed(this, false)"
+                      onkeydown="return search_changed(event, true, '../../../')"
+                      onkeyup="return search_changed(event, false, '../../../')" />
+                  <div id="search_filtered_div" class="no-display">
+                      <table id="search_filtered" cellspacing=0>
+                      </table>
+                  </div>
+                  </td>
+                  <td class="gsc-search-button">
+                    <input type="submit" value="Search" title="search" id="search-button" class="gsc-search-button" />
+                  </td>
+                  <td class="gsc-clear-button">
+                    <div title="clear results" class="gsc-clear-button">&nbsp;</div>
+                  </td>
+                </tr></tbody>
+              </table>
+          </form>
+      </div><!-- searchForm -->
+  </div><!-- search -->
+      </div><!-- headerRight -->
+      <script type="text/javascript">
+        <!--  
+        changeTabLang(getLangPref());
+        //-->
+      </script>
+  </div><!-- header -->
+
+  <div class="g-section g-tpl-240" id="body-content">
+    <div class="g-unit g-first" id="side-nav" itemscope itemtype="http://schema.org/SiteNavigationElement">
+      <div id="devdoc-nav">
+<ul>
+
+  <li>
+    <span class="heading">
+      <span class="en">Android Basics</span>
+      <span class="de" style="display:none">Einführung in Android</span>
+      <span class="es" style="display:none">Información básica sobre Android</span>
+      <span class="fr" style="display:none">Présentation d'Android</span>
+      <span class="it" style="display:none">Nozioni di base su Android</span>
+      <span class="ja" style="display:none">Android の基本</span>
+      <span class="zh-CN" style="display:none">Android 基础知识</span>
+      <span class="zh-TW" style="display:none">Android 簡介</span>
+    </span>
+    <ul>
+      <li><a href="../../../guide/basics/what-is-android.html">
+        <span class="en">What Is Android?</span>
+        <span class="de" style="display:none">Was ist Android?</span>
+        <span class="es" style="display:none">¿Qué es Android?</span>
+        <span class="fr" style="display:none">Qu'est-ce qu'Android&nbsp;?</span>
+        <span class="it" style="display:none">Che cos'è Android?</span>
+        <span class="ja" style="display:none">Android とは</span>
+        <span class="zh-CN" style="display:none">Android 是什么？</span>
+        <span class="zh-TW" style="display:none">什麼是 Android？</span>
+          </a></li>
+      <li><a href="../../../guide/topics/fundamentals.html">
+        <span class="en">Application Fundamentals</span>
+        <span class="de" style="display:none">Anwendungsgrundlagen</span>
+        <span class="es" style="display:none">Fundamentos de las aplicaciones</span>
+        <span class="fr" style="display:none">Principes de base des applications</span>
+        <span class="it" style="display:none">Concetti fondamentali sulle applicazioni</span>
+        <span class="ja" style="display:none">開発の基礎</span>
+        <span class="zh-CN" style="display:none">应用程序基础</span>
+        <span class="zh-TW" style="display:none">應用程式基本原理</span>
+      </a></li>
+
+  <!--  <li><a style="color:gray;">The Android SDK</a></li> -->
+  <!--  <li><a style="color:gray;">Walkthrough for Developers</a></li> -->
+      <!-- quick overview of what it's like to develop on Android -->
+    </ul>
+  </li>
+
+  <li>
+    <span class="heading">
+      <span class="en">Framework Topics</span>
+      <span class="de" style="display:none">Framework-Themen</span>
+      <span class="es" style="display:none">Temas sobre el framework</span>
+      <span class="fr" style="display:none">Thèmes relatifs au framework</span>
+      <span class="it" style="display:none">Argomenti relativi al framework</span>
+      <span class="ja" style="display:none">フレームワーク トピック</span>
+      <span class="zh-CN" style="display:none">框架主题</span>
+      <span class="zh-TW" style="display:none">架構主題</span>
+    </span>
+    <ul>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/fundamentals/activities.html">
+          <span class="en">Activities</span>
+        </a></div>
+        <ul>
+          <li><a href="../../../guide/topics/fundamentals/fragments.html">
+            <span class="en">Fragments</span>
+          </a></li>
+          <li><a href="../../../guide/topics/fundamentals/loaders.html">
+            <span class="en">Loaders</span>
+          </a></li>
+          <li><a href="../../../guide/topics/fundamentals/tasks-and-back-stack.html">
+            <span class="en">Tasks and Back Stack</span></a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/fundamentals/services.html">
+          <span class="en">Services</span>
+        </a></div>
+        <ul>
+          <li><a href="../../../guide/topics/fundamentals/bound-services.html">
+            <span class="en">Bound Services</span>
+          </a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+          <div><a href="../../../guide/topics/providers/content-providers.html">
+            <span class="en">Content Providers</span>
+          </a></div>
+          <ul>
+            <li>
+                <a href="../../../guide/topics/providers/content-provider-basics.html">
+                    <span class="en">Content Provider Basics</span>
+                </a>
+                <span class="new">new!</span>
+            </li>
+            <li>
+                <a href="../../../guide/topics/providers/content-provider-creating.html">
+                    <span class="en">Creating a Content Provider</span>
+                </a>
+                <span class="new">new!</span>
+            </li>
+            <li>
+                <a href="../../../guide/topics/providers/calendar-provider.html">
+                    <span class="en">Calendar Provider</span>
+                </a>
+                <span class="new">new!</span>
+            </li>
+          </ul>
+      </li>
+      <li><a href="../../../guide/topics/intents/intents-filters.html">
+            <span class="en">Intents and Intent Filters</span>
+          </a></li>
+      <li><a href="../../../guide/topics/fundamentals/processes-and-threads.html">
+            <span class="en">Processes and Threads</span>
+          </a></li>
+    </ul>
+
+
+    <ul>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/ui/index.html">
+            <span class="en">User Interface</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../guide/topics/ui/declaring-layout.html">
+               <span class="en">XML Layouts</span>
+              </a></li>
+          <li><a href="../../../guide/topics/ui/ui-events.html">
+                <span class="en">Input Events</span>
+              </a></li>
+          <li><a href="../../../guide/topics/ui/menus.html">
+               <span class="en">Menus</span>
+              </a> <span class="new">updated</span></li>
+          <li><a href="../../../guide/topics/ui/actionbar.html">
+               <span class="en">Action Bar</span>
+              </a></li>
+          <li><a href="../../../guide/topics/ui/dialogs.html">
+                <span class="en">Dialogs</span>
+              </a></li>
+          <li class="toggle-list">
+            <div><a href="../../../guide/topics/ui/notifiers/index.html">
+                <span class="en">Notifications</span>
+            </a></div>
+            <ul>
+              <li><a href="../../../guide/topics/ui/notifiers/toasts.html">
+                <span class="en">Toast Notifications</span>
+              </a></li>
+              <li><a href="../../../guide/topics/ui/notifiers/notifications.html">
+                <span class="en">Status Bar Notifications</span>
+              </a></li>
+            </ul>
+          </li>
+          <li><a href="../../../guide/topics/ui/drag-drop.html">
+                <span class="en">Drag and Drop</span>
+              </a></li>
+          <li><a href="../../../guide/topics/ui/themes.html">
+                <span class="en">Styles and Themes</span>
+              </a></li>
+          <li><a href="../../../guide/topics/ui/custom-components.html">
+                <span class="en">Custom Components</span>
+              </a></li>
+          <li><a href="../../../guide/topics/ui/binding.html">
+                <span class="en">Binding to Data with AdapterView</span>
+              </a></li>
+          <li><a href="../../../guide/topics/ui/layout-objects.html">
+                <span class="en">Common Layout Objects</span>
+              </a></li>
+          <li><a href="../../../guide/topics/ui/how-android-draws.html">
+                <span class="en">How Android Draws Views</span>
+              </a></li>
+        </ul>
+      </li><!-- end of User Interface -->
+
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/resources/index.html">
+               <span class="en">Application Resources</span>
+             </a></div>
+        <ul>
+          <li><a href="../../../guide/topics/resources/providing-resources.html">
+                <span class="en">Providing Resources</span>
+              </a></li>
+          <li><a href="../../../guide/topics/resources/accessing-resources.html">
+                <span class="en">Accessing Resources</span>
+              </a></li>
+          <li><a href="../../../guide/topics/resources/runtime-changes.html">
+                <span class="en">Handling Runtime Changes</span>
+              </a></li>
+          <li><a href="../../../guide/topics/resources/localization.html">
+                <span class="en">Localization</span>
+              </a></li>
+          <li class="toggle-list">
+            <div><a href="../../../guide/topics/resources/available-resources.html">
+              <span class="en">Resource Types</span>
+            </a></div>
+            <ul>
+              <li><a href="../../../guide/topics/resources/animation-resource.html">Animation</a></li>
+              <li><a href="../../../guide/topics/resources/color-list-resource.html">Color State List</a></li>
+              <li><a href="../../../guide/topics/resources/drawable-resource.html">Drawable</a></li>
+              <li><a href="../../../guide/topics/resources/layout-resource.html">Layout</a></li>
+              <li><a href="../../../guide/topics/resources/menu-resource.html">Menu</a></li>
+              <li><a href="../../../guide/topics/resources/string-resource.html">String</a></li>
+              <li><a href="../../../guide/topics/resources/style-resource.html">Style</a></li>
+              <li><a href="../../../guide/topics/resources/more-resources.html">More Types</a></li>
+            </ul>
+          </li><!-- end of resource types -->
+        </ul>
+      </li><!-- end of app resources -->
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/data/data-storage.html">
+            <span class="en">Data Storage</span>
+          </a></div>
+          <ul>
+            <li><a href="../../../guide/topics/data/backup.html">
+                <span class="en">Data Backup</span>
+              </a>
+            </li>
+          </ul>
+      </li>
+      <li><a href="../../../guide/topics/security/security.html">
+            <span class="en">Security and Permissions</span>
+          </a></li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/manifest/manifest-intro.html">
+          <span class="en">The AndroidManifest.xml File</span>
+        </a></div>
+        <ul>
+          <li><a href="../../../guide/topics/manifest/action-element.html">&lt;action&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/activity-element.html">&lt;activity&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/activity-alias-element.html">&lt;activity-alias&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/application-element.html">&lt;application&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/category-element.html">&lt;category&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/compatible-screens-element.html">&lt;compatible-screens&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/data-element.html">&lt;data&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/grant-uri-permission-element.html">&lt;grant-uri-permission&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/instrumentation-element.html">&lt;instrumentation&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/intent-filter-element.html">&lt;intent-filter&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/manifest-element.html">&lt;manifest&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/meta-data-element.html">&lt;meta-data&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/path-permission-element.html">&lt;path-permission&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/permission-element.html">&lt;permission&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/permission-group-element.html">&lt;permission-group&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/permission-tree-element.html">&lt;permission-tree&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/provider-element.html">&lt;provider&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/receiver-element.html">&lt;receiver&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/service-element.html">&lt;service&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/supports-gl-texture-element.html">&lt;supports-gl-texture&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/supports-screens-element.html">&lt;supports-screens&gt;</a></li><!-- ##api level 4## -->
+          <li><a href="../../../guide/topics/manifest/uses-configuration-element.html">&lt;uses-configuration&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/uses-feature-element.html">&lt;uses-feature&gt;</a></li> <!-- ##api level 4## -->
+          <li><a href="../../../guide/topics/manifest/uses-library-element.html">&lt;uses-library&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/uses-permission-element.html">&lt;uses-permission&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/uses-sdk-element.html">&lt;uses-sdk&gt;</a></li>
+        </ul>
+      </li><!-- end of the manifest file -->
+    </ul>
+
+    <ul>
+    <li class="toggle-list">
+        <div><a href="../../../guide/topics/graphics/index.html">
+            <span class="en">Graphics</span>
+          </a> <span class="new-child">new!</span></div>
+        <ul>
+          <li><a href="../../../guide/topics/graphics/2d-graphics.html">
+              <span class="en">Canvas and Drawables</span></a></li>
+          <li><a href="../../../guide/topics/graphics/hardware-accel.html">
+              <span class="en">Hardware Acceleration</span></a>
+            <span class="new">new!</span></li>
+          <li><a href="../../../guide/topics/graphics/opengl.html">
+              <span class="en">OpenGL</span>
+            </a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/graphics/animation.html">
+            <span class="en">Animation</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../guide/topics/graphics/prop-animation.html">
+              <span class="en">Property Animation</span></a></li>
+          <li><a href="../../../guide/topics/graphics/view-animation.html">
+              <span class="en">View Animation</span></a></li>
+          <li><a href="../../../guide/topics/graphics/drawable-animation.html">
+              <span class="en">Drawable Animation</span></a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/renderscript/index.html">
+          <span class="en">Renderscript</span></a>
+          <span class="new">updated</span>
+        </div>
+        <ul>
+          <li><a href="../../../guide/topics/renderscript/graphics.html">
+                <span class="en">Graphics</span>
+              </a>
+          </li>
+          <li><a href="../../../guide/topics/renderscript/compute.html">
+                <span class="en">Compute</span>
+              </a>
+          </li>
+          <li><a href="../../../guide/topics/renderscript/reference.html">
+                <span class="en">Runtime API Reference</span>
+              </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="toggle-list">
+          <div><a href="../../../guide/topics/media/index.html">
+            <span class="en">Multimedia and Camera</span>
+          </a></div>
+          <ul>
+            <li><a href="../../../guide/topics/media/mediaplayer.html">
+                  <span class="en">Media Playback</span></a>
+                </li>
+            <li><a href="../../../guide/topics/media/jetplayer.html">
+                  <span class="en">JetPlayer</span></a>
+                </li>
+            <li><a href="../../../guide/topics/media/camera.html">
+                  <span class="en">Camera</span></a>
+                  <span class="new">new!</span>
+                </li>
+            <li><a href="../../../guide/topics/media/audio-capture.html">
+                  <span class="en">Audio Capture</span></a>
+                </li>
+          </ul>
+      </li>
+      <li>
+        <a href="../../../guide/topics/clipboard/copy-paste.html">
+            <span class="en">Copy and Paste</span>
+        </a></li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/sensors/index.html">
+              <span class="en">Sensors</span>
+              </a> <span class="new">new!</span></div>
+        <ul>
+          <li><a href="../../../guide/topics/sensors/sensors_overview.html">
+              <span class="en">Sensors Overview</span>
+            </a></li>
+          <li><a href="../../../guide/topics/sensors/sensors_motion.html">
+              <span class="en">Motion Sensors</span>
+            </a></li>
+          <li><a href="../../../guide/topics/sensors/sensors_position.html">
+              <span class="en">Position Sensors</span>
+            </a></li>
+          <li><a href="../../../guide/topics/sensors/sensors_environment.html">
+              <span class="en">Environment Sensors</span>
+            </a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/location/index.html">
+               <span class="en">Location and Maps</span>
+             </a></div>
+        <ul>
+          <li><a href="../../../guide/topics/location/obtaining-user-location.html">
+                <span class="en">Obtaining User Location</span>
+              </a></li>
+        </ul>
+      </li>
+  <!--<li class="toggle-list">
+        <div><a style="color:gray;">Wireless Controls</a></div>
+          <ul>
+            <li><a style="color:gray;">Wi-Fi</a></li>
+          </ul>
+      </li> -->
+  <!--<li><a style="color:gray;">Localization</a></li>  -->
+      <li><a href="../../../guide/topics/appwidgets/index.html">
+            <span class="en">App Widgets</span></a>
+          </li>
+      <li><a href="../../../guide/topics/wireless/bluetooth.html">
+            <span class="en">Bluetooth</span></a>
+          </li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/nfc/index.html">
+          <span class="en">Near Field Communication</span></a> <span class="new">updated</span>
+        </div>
+        <ul>
+          <li><a href="../../../guide/topics/nfc/nfc.html">NFC Basics</a></li>
+          <li><a href="../../../guide/topics/nfc/advanced-nfc.html">Advanced NFC</a></li>
+        </ul>
+      </li>
+      <li><a href="../../../guide/topics/wireless/wifip2p.html">
+            <span class="en">Wi-Fi Direct</span></a> <span class="new">new!</span>
+          </li>
+      <li class="toggle-list">
+          <div><a href="../../../guide/topics/usb/index.html">
+            <span class="en">USB</span></a>
+          </div>
+            <ul>
+              <li><a href="../../../guide/topics/usb/accessory.html">Accessory</a></li>
+              <li><a href="../../../guide/topics/usb/host.html">Host</a></li>
+              <li><a href="../../../guide/topics/usb/adk.html">Open Accessory Dev Kit</a></li>
+            </ul>
+          </li>
+
+       <li><a href="../../../guide/topics/network/sip.html">
+            <span class="en">Session Initiation Protocol</span>
+          </a></li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/search/index.html">
+            <span class="en">Search</span>
+          </a></div>
+          <ul>
+            <li><a href="../../../guide/topics/search/search-dialog.html">Creating a Search Interface</a></li>
+            <li><a href="../../../guide/topics/search/adding-recent-query-suggestions.html">Adding Recent Query Suggestions</a></li>
+            <li><a href="../../../guide/topics/search/adding-custom-suggestions.html">Adding Custom Suggestions</a></li>
+            <li><a href="../../../guide/topics/search/searchable-config.html">Searchable Configuration</a></li>
+          </ul>
+      </li>
+      <li><a href="../../../guide/topics/admin/device-admin.html">
+            <span class="en">Device Administration</span></a>
+      </li>
+      <li class="toggle-list">
+           <div>
+                <a href="../../../guide/topics/testing/index.html">
+                   <span class="en">Testing</span>
+               </a>
+           </div>
+           <ul>
+              <li>
+                <a href="../../../guide/topics/testing/testing_android.html">
+                <span class="en">Testing Fundamentals</span></a>
+              </li>
+              <li>
+                <a href="../../../guide/topics/testing/activity_testing.html">
+                <span class="en">Activity Testing</span></a>
+              </li>
+              <li>
+                <a href="../../../guide/topics/testing/contentprovider_testing.html">
+                <span class="en">Content Provider Testing</span></a>
+              </li>
+              <li>
+                <a href="../../../guide/topics/testing/service_testing.html">
+                <span class="en">Service Testing</span></a>
+              </li>
+              <li>
+                <a href="../../../guide/topics/testing/what_to_test.html">
+                <span class="en">What To Test</span></a>
+              </li>
+           </ul>
+      </li>
+    </ul>
+  </li>
+
+  <li>
+    <h2>
+      <span class="en">Google Play Topics</span>
+    </h2>
+    <ul>
+      <li><a href="../../../guide/publishing/publishing.html">
+          <span class="en">Publishing on Google Play</span>
+          </a></li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/market/licensing/index.html">
+          <span class="en">Application Licensing</span></a>
+        </div>
+        <ul>
+          <li><a href="../../../guide/market/licensing/overview.html">
+              <span class="en">Licensing Overview</span></a>
+          </li>
+          <li><a href="../../../guide/market/licensing/setting-up.html">
+              <span class="en">Setting Up for Licensing</span></a>
+          </li>
+          <li><a href="../../../guide/market/licensing/adding-licensing.html">
+              <span class="en">Adding Licensing to Your App</span></a>
+          </li>
+          <li><a href="../../../guide/market/licensing/licensing-reference.html">
+              <span class="en">Licensing Reference</span></a>
+          </li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/market/billing/index.html">
+            <span class="en">In-app Billing</span></a>
+        </div>
+        <ul>
+          <li><a href="../../../guide/market/billing/billing_overview.html">
+              <span class="en">In-app Billing Overview</span></a>
+          </li>
+          <li><a href="../../../guide/market/billing/billing_integrate.html">
+              <span class="en">Implementing In-app Billing</span></a>
+          </li>
+          <li><a href="../../../guide/market/billing/billing_best_practices.html">
+              <span class="en">Security and Design</span></a>
+          </li>
+          <li><a href="../../../guide/market/billing/billing_testing.html">
+              <span class="en">Testing In-app Billing</span></a>
+          </li>
+          <li><a href="../../../guide/market/billing/billing_admin.html">
+              <span class="en">Administering In-app Billing</span></a>
+          </li>
+          <li><a href="../../../guide/market/billing/billing_reference.html">
+              <span class="en">In-app Billing Reference</span></a>
+          </li>
+        </ul>
+      </li>
+      <li><a href="../../../guide/appendix/market-filters.html">
+          <span class="en">Filters on Google Play</span></a>
+      </li>
+      <li><a href="../../../guide/market/publishing/multiple-apks.html">
+          <span class="en">Multiple APK Support</span></a>
+      </li>
+      <li><a href="../../../guide/market/expansion-files.html">
+          <span class="en">APK Expansion Files</span></a>
+          <span class="new">new!</span>
+      </li>
+    </ul>
+  </li>
+
+
+  <li>
+    <span class="heading">
+      <span class="en">Developing</span>
+      <span class="de" style="display:none">Entwicklung</span>
+      <span class="es" style="display:none">Desarrollo</span>
+      <span class="fr" style="display:none">Développement</span>
+      <span class="it" style="display:none">Sviluppo</span>
+      <span class="ja" style="display:none">開発</span>
+      <span class="zh-CN" style="display:none">开发</span>
+      <span class="zh-TW" style="display:none">開發</span>
+    </span>
+    <ul>
+  <!--<li><a href="">Developing for Android</a></li>
+      signing, upgrading, selecting a package name, select device profile, touch, trackball, dpad available, etc. -->
+      <li>
+        <a href="../../../guide/developing/index.html">
+        <span class="en">Introduction</span></a>
+      </li>
+
+      <li class="toggle-list">
+        <div>
+           <a href="../../../guide/developing/devices/index.html">
+                <span class="en">Managing Virtual Devices</span>
+            </a>
+        </div>
+        <ul>
+          <li>
+            <a href="../../../guide/developing/devices/managing-avds.html">
+              <span class="en">With AVD Manager</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../guide/developing/devices/managing-avds-cmdline.html">
+              <span class="en">From the Command Line</span>
+            </a>
+          </li>
+          <li>
+           <a href="../../../guide/developing/devices/emulator.html">
+                <span class="en">Using the Android Emulator</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="../../../guide/developing/device.html">
+          <span class="en">Using Hardware Devices</span>
+        </a>
+      </li>
+
+      <li class="toggle-list">
+        <div>
+          <a href="../../../guide/developing/projects/index.html">
+            <span class="en">Managing Projects</span>
+          </a>
+        </div>
+        <ul>
+          <li>
+            <a href="../../../guide/developing/projects/projects-eclipse.html">
+              <span class="en">From Eclipse with ADT</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../guide/developing/projects/projects-cmdline.html">
+                <span class="en">From the Command Line</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="toggle-list">
+        <div>
+          <a href="../../../guide/developing/building/index.html">
+            <span class="en">Building and Running</span>
+          </a>
+        </div>
+        <ul>
+          <li><a href="../../../guide/developing/building/building-eclipse.html">
+            <span class="en">From Eclipse with ADT</span>
+          </a></li>
+          <li><a href="../../../guide/developing/building/building-cmdline.html">
+            <span class="en">From the Command Line</span></a></li>
+        </ul>
+      </li>
+
+      <li class="toggle-list">
+        <div>
+          <a href="../../../guide/developing/debugging/index.html">
+            <span class="en">Debugging</span>
+          </a>
+        </div>
+        <ul>
+          <li>
+            <a href="../../../guide/developing/debugging/debugging-projects.html">
+                <span class="en">From Eclipse with ADT</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../guide/developing/debugging/debugging-projects-cmdline.html">
+                <span class="en">From Other IDEs</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../guide/developing/debugging/ddms.html">
+              <span class="en">Using DDMS</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../guide/developing/debugging/debugging-log.html">
+                <span class="en">Reading and Writing Logs</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../guide/developing/debugging/debugging-ui.html">
+                <span class="en">Debugging and Profiling UIs</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../guide/developing/debugging/debugging-tracing.html">
+                <span class="en">Profiling with Traceview and dmtracedump</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../guide/developing/debugging/debugging-devtools.html">
+                <span class="en">Using the Dev Tools App</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="toggle-list">
+           <div>
+                <a href="../../../guide/developing/testing/index.html">
+                   <span class="en">Testing</span>
+               </a>
+           </div>
+           <ul>
+              <li>
+                <a href="../../../guide/developing/testing/testing_eclipse.html">
+                  <span class="en">From Eclipse with ADT</span>
+                </a>
+              </li>
+
+              <li>
+                <a href="../../../guide/developing/testing/testing_otheride.html">
+                  <span class="en">From Other IDEs</span>
+                </a>
+              </li>
+           </ul>
+         </li>
+
+         <li class="toggle-list">
+        <div><a href="../../../guide/developing/tools/index.html">
+            <span class="en">Tools</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../guide/developing/tools/adb.html">adb</a></li>
+          <li><a href="../../../guide/developing/tools/adt.html">ADT</a></li>
+          <li><a href="../../../guide/developing/tools/android.html">android</a></li>
+          <li><a href="../../../guide/developing/tools/bmgr.html">bmgr</a>
+          <li><a href="../../../guide/developing/tools/dmtracedump.html">dmtracedump</a></li>
+          <li><a href="../../../guide/developing/tools/draw9patch.html">Draw
+          9-Patch</a></li>
+          <li><a href="../../../guide/developing/tools/emulator.html">Emulator</a></li>
+          <li><a href="../../../guide/developing/tools/etc1tool.html">etc1tool</a></li>
+          <li><a href="../../../guide/developing/tools/hierarchy-viewer.html">Hierarchy Viewer</a></li>
+          <li><a href="../../../guide/developing/tools/hprof-conv.html">hprof-conv</a></li>
+          <li><a href="../../../guide/developing/tools/layoutopt.html">layoutopt</a></li>
+          <li><a href="../../../guide/developing/tools/logcat.html">logcat</a></li>
+          <li><a href="../../../guide/developing/tools/mksdcard.html">mksdcard</a></li>
+          <li><a href="../../../guide/developing/tools/monkey.html">Monkey</a></li>
+          <li class="toggle-list">
+            <div><a href="../../../guide/developing/tools/monkeyrunner_concepts.html">
+              <span class="en">monkeyrunner</span>
+            </a></div>
+            <ul>
+              <li><a href="../../../guide/developing/tools/MonkeyDevice.html">
+                <span class="en">MonkeyDevice</span>
+                </a></li>
+              <li><a href="../../../guide/developing/tools/MonkeyImage.html">
+                <span class="en">MonkeyImage</span>
+                </a></li>
+              <li><a href="../../../guide/developing/tools/MonkeyRunner.html">
+                <span class="en">MonkeyRunner</span>
+                </a></li>
+            </ul>
+          </li>
+          <li><a href="../../../guide/developing/tools/proguard.html">ProGuard</a></li>
+          <li><a href="../../../guide/developing/tools/adb.html#sqlite">sqlite3</a></li>
+          <li><a href="../../../guide/developing/tools/traceview.html">Traceview</a></li>
+          <li><a href="../../../guide/developing/tools/zipalign.html">zipalign</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+
+  <li>
+    <span class="heading">
+      <span class="en">Publishing</span>
+      <span class="de" style="display:none">Veröffentlichung</span>
+      <span class="es" style="display:none">Publicación</span>
+      <span class="fr" style="display:none">Publication</span>
+      <span class="it" style="display:none">Pubblicazione</span>
+      <span class="ja" style="display:none">公開</span>
+      <span class="zh-CN" style="display:none">发布</span>
+      <span class="zh-TW" style="display:none">發佈</span>
+    </span>
+    <ul>
+      <li><a href="../../../guide/publishing/publishing_overview.html">
+            <span class="en">Publishing Overview</span>
+          </a></li>
+      <li><a href="../../../guide/publishing/preparing.html">
+            <span class="en">Preparing for Release</span>
+            <span class="de" style="display:none">Vorbereitung auf die Veröffentlichung</span>
+            <span class="es" style="display:none">Publicación de aplicaciones</span>
+            <span class="fr" style="display:none">Préparation à la publication</span>
+            <span class="it" style="display:none">Preparativi per la pubblicazione</span>
+            <span class="ja" style="display:none">公開の準備</span>
+            <span class="zh-CN" style="display:none">准备发布</span>
+            <span class="zh-TW" style="display:none">準備發佈</span>
+          </a></li>
+      <li><a href="../../../guide/publishing/app-signing.html">
+            <span class="en">Signing Your Applications</span>
+            <span class="de" style="display:none">Signieren Ihrer Anwendungen</span>
+            <span class="es" style="display:none">Firma de aplicaciones</span>
+            <span class="fr" style="display:none">Attribution de votre signature <br />à vos
+applications</span>
+            <span class="it" style="display:none">Firma delle applicazioni</span>
+            <span class="ja" style="display:none">アプリケーションへの署名</span>
+            <span class="zh-CN" style="display:none">应用程序签名</span>
+            <span class="zh-TW" style="display:none">簽署應用程式</span>
+          </a></li>
+      <li><a href="../../../guide/publishing/versioning.html">
+            <span class="en">Versioning Your Applications</span>
+            <span class="de" style="display:none">Versionsverwaltung für Ihre <br
+/>Anwendungen</span>
+            <span class="es" style="display:none">Versiones de las aplicaciones</span>
+            <span class="fr" style="display:none">Attribution d'une version à vos
+applications</span>
+            <span class="it" style="display:none">Controllo versioni delle applicazioni</span>
+            <span class="ja" style="display:none">アプリケーションのバージョニング</span>
+            <span class="zh-CN" style="display:none">应用程序版本控制</span>
+            <span class="zh-TW" style="display:none">應用程式版本設定</span>
+          </a></li>
+    </ul>
+  </li>
+
+  <li>
+    <span class="heading">
+      <span class="en">Best Practices</span>
+      <span class="de" style="display:none">Bewährte Verfahren</span>
+      <span class="es" style="display:none">Prácticas recomendadas</span>
+      <span class="fr" style="display:none">Meilleures pratiques</span>
+      <span class="it" style="display:none">Best practice</span>
+      <span class="ja" style="display:none">ベスト プラクティス</span>
+      <span class="zh-CN" style="display:none">最佳实践</span>
+      <span class="zh-TW" style="display:none">最佳實務</span>
+    </span>
+    <ul>
+      <li><a href="../../../guide/practices/compatibility.html">
+            <span class="en">Compatibility</span>
+          </a></li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/practices/screens_support.html">
+          <span class="en">Supporting Multiple Screens</span>
+        </a></div>
+        <ul>
+          <li><a href="../../../guide/practices/screens-distribution.html">
+            <span class="en">Distributing to Specific Screens</span>
+          </a></li>
+          <li><a href="../../../guide/practices/screen-compat-mode.html">
+            <span class="en">Screen Compatibility Mode</span>
+          </a></li>
+          <li><a href="../../../guide/practices/screens-support-1.5.html">
+            <span class="en">Strategies for Android 1.5</span>
+          </a></li>
+        </ul>
+      </li>
+      <li><a href="../../../guide/practices/tablets-and-handsets.html">
+            <span class="en">Supporting Tablets and Handsets</span>
+          </a> <span class="new">new!</span></li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/practices/ui_guidelines/index.html">
+               <span class="en">UI Guidelines</span>
+             </a></div>
+        <ul>
+          <li class="toggle-list">
+            <div><a href="../../../guide/practices/ui_guidelines/icon_design.html">
+                   <span class="en">Icon Design</span>
+                 </a></div>
+            <ul>
+              <li><a href="../../../guide/practices/ui_guidelines/icon_design_launcher.html">
+                    <span class="en">Launcher Icons</span>
+                  </a></li>
+              <li><a href="../../../guide/practices/ui_guidelines/icon_design_menu.html">
+                    <span class="en">Menu Icons</span>
+                  </a></li>
+              <li><a href="../../../guide/practices/ui_guidelines/icon_design_action_bar.html">
+                    <span class="en">Action Bar Icons</span>
+                  </a></li>
+              <li><a href="../../../guide/practices/ui_guidelines/icon_design_status_bar.html">
+                    <span class="en">Status Bar Icons</span>
+                  </a></li>
+              <li><a href="../../../guide/practices/ui_guidelines/icon_design_tab.html">
+                    <span class="en">Tab Icons</span>
+                  </a></li>
+              <li><a href="../../../guide/practices/ui_guidelines/icon_design_dialog.html">
+                    <span class="en">Dialog Icons</span>
+                  </a></li>
+              <li><a href="../../../guide/practices/ui_guidelines/icon_design_list.html">
+                    <span class="en">List View Icons</span>
+                  </a></li>
+            </ul>
+          </li>
+          <li><a href="../../../guide/practices/ui_guidelines/widget_design.html">
+                <span class="en">App Widget Design</span>
+              </a></li>
+          <li><a href="../../../guide/practices/ui_guidelines/activity_task_design.html">
+                <span class="en">Activity and Task Design</span>
+              </a></li>
+          <li><a href="../../../guide/practices/ui_guidelines/menu_design.html">
+                <span class="en">Menu Design</span>
+              </a></li>
+        </ul>
+      </li>
+      </ul>
+      <ul>
+      <li><a href="../../../guide/practices/design/accessibility.html">
+            <span class="en">Designing for Accessibility</span>
+          </a></li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/practices/design/performance.html">
+            <span class="en">Designing for Performance</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../guide/practices/design/jni.html">
+                <span class="en">JNI Tips</span>
+              </a></li>
+        </ul>
+      </li>
+      <li><a href="../../../guide/practices/design/responsiveness.html">
+            <span class="en">Designing for Responsiveness</span>
+          </a></li>
+      <li><a href="../../../guide/practices/design/seamlessness.html">
+            <span class="en">Designing for Seamlessness</span>
+          </a></li>
+      <li><a href="../../../guide/practices/security.html">
+            <span class="en">Designing for Security</span></a>
+            </li>
+    </ul>
+  </li>
+
+  <li>
+    <span class="heading">
+      <span class="en">Web Applications</span>
+    </span>
+    <ul>
+      <li><a href="../../../guide/webapps/index.html">
+            <span class="en">Web Apps Overview</span>
+          </a></li>
+      <li><a href="../../../guide/webapps/targeting.html">
+            <span class="en">Targeting Screens from Web Apps</span>
+          </a></li>
+      <li><a href="../../../guide/webapps/webview.html">
+            <span class="en">Building Web Apps in WebView</span>
+          </a></li>
+      <li><a href="../../../guide/webapps/debugging.html">
+            <span class="en">Debugging Web Apps</span>
+          </a></li>
+      <li><a href="../../../guide/webapps/best-practices.html">
+            <span class="en">Best Practices for Web Apps</span>
+          </a></li>
+    </ul>
+  </li>
+
+  <li>
+    <span class="heading">
+      <span class="en">Appendix</span>
+      <span class="de" style="display:none">Anhang</span>
+      <span class="es" style="display:none">Apéndice</span>
+      <span class="fr" style="display:none">Annexes</span>
+      <span class="it" style="display:none">Appendice</span>
+      <span class="ja" style="display:none">付録</span>
+      <span class="zh-CN" style="display:none">附录</span>
+      <span class="zh-TW" style="display:none">附錄</span>
+    </span>
+    <ul>
+      <li><a href="../../../guide/appendix/api-levels.html">
+            <span class="en">Android API Levels</span>
+          </a></li>
+      <li><a href="../../../guide/appendix/install-location.html">
+            <span class="en">App Install Location</span>
+          </a></li>
+      <li><a href="../../../guide/appendix/media-formats.html">
+            <span class="en">Supported Media Formats</span>
+          </a></li>
+      <li><a href="../../../guide/appendix/g-app-intents.html">
+            <span class="en">Intents List: Google Apps</span>
+          </a></li>
+      <li><a href="../../../guide/developing/tools/aidl.html">AIDL</a></li>
+      <li><a href="../../../guide/appendix/glossary.html">
+            <span class="en">Glossary</span>
+          </a></li>
+    </ul>
+  </li>
+
+</ul>
+
+<script type="text/javascript">
+<!--
+    buildToggleLists();
+    changeNavLang(getLangPref());
+//-->
+</script>
+
+      </div>
+    </div> <!-- end side-nav -->
+    <script>
+      addLoadEvent(function() {
+        scrollIntoView("devdoc-nav");
+        });
+    </script>
+
+
+
+
+<div class="g-unit" id="doc-content"><a name="top"></a>
+
+<div id="jd-header" class="guide-header">
+  <span class="crumb" itemprop="breadcrumb">
+    &nbsp;
+    
+  </span>
+<h1 itemprop="name">Android Open Accessory Development Kit</h1>
+</div>
+
+  
+  <div id="jd-content">
+ 
+    
+
+
+    <div class="jd-descr" itemprop="articleBody">
+    <div id="qv-wrapper">
+    <div id="qv">
+      <h2>In this document</h2>
+
+      <ol>
+        <li><a href="#components">ADK Components</a></li>
+        <li>
+
+          <a href="#getting-started">Getting Started with the ADK</a>
+
+          <ol>
+            <li><a href="#installing">Installing the Arduino software and necessary
+            libraries</a></li>
+
+            <li><a href="#installing-firmware">Installing the firmware to the ADK board</a></li>
+
+            <li><a href="#running-demokit">Running the DemoKit Android application</a></li>
+
+            <li><a href="#monitoring">Monitoring the ADK board</a></li>
+          </ol>
+        </li>
+
+        <li>
+          <a href="#accessory-protocol">Implementing the Android Accessory Protocol</a>
+
+          <ol>
+            <li><a href="#wait">Wait for and detect connected devices</a></li>
+
+            <li><a href="#determine">Determine the connected device's accessory mode
+            support</a></li>
+
+            <li><a href="#start">Attempt to start the device in accessory mode</a></li>
+
+            <li><a href="#establish">Establish communication with the device</a></li>
+          </ol>
+        </li>
+
+        <li>
+          <a href="#firmware">How the ADK board implements the Android Accessory Protocol</a>
+
+          <ol>
+            <li><a href="#wait-adk">Wait for and detect connected devices</a></li>
+
+            <li><a href="#determine-adk">Determine the connected device's accessory mode
+            support</a></li>
+
+            <li><a href="#start-adk">Attempt to start the device in accessory mode</a></li>
+
+            <li><a href="#establish-adk">Establish communication with the device</a></li>
+          </ol>
+        </li>
+      </ol>
+
+      <h2>Download</h2>
+      <ol>
+        <li><a href="https://dl-ssl.google.com/android/adk/adk_release_0512.zip">ADK package</a></li>
+      </ol>
+
+      <h2>See also</h2>
+
+      <ol>
+        <li><a href="http://www.youtube.com/watch?v=s7szcpXf2rE">Google I/O Session Video</a></li>
+        <li><a href="../../../guide/topics/usb/accessory.html">USB Accessory Dev Guide</a></li>
+      </ol>
+
+      <h2>Where to buy</h2>
+
+      <ol>
+
+      <li><a href="http://store.arduino.cc/">
+        Arduino Store</a></li>
+
+      <li><a href="https://store.diydrones.com/ProductDetails.asp?ProductCode=BR-PhoneDrone">
+        DIY Drones</a></li>
+
+      <li><a href=
+        "http://mbed.org/order/">
+        mbed</a></li>
+
+      <li><a href=
+        "http://www.microchip.com/android">
+        Microchip</a></li>
+
+      <li><a href="http://shop.moderndevice.com/products/freeduino-usb-host-board">
+        Modern Device</a></li>
+
+      <li><a href=
+        "http://www.rt-net.jp/shop/index.php?main_page=product_info&cPath=3_4&products_id=1">
+        RT Corp</a></li>
+
+      <li><a href="http://www.seeedstudio.com/depot/seeeduino-adk-main-board-p-846.html">
+        Seeed Studio</a></li>
+
+      <li><a href="http://www.sparkfun.com/products/10748">
+        SparkFun</a></li>
+
+      <li><a href="http://troido.de/de/shoplsmallgbuy-android-stufflsmallg">
+        Troido</a></li>
+
+      </ol>
+    </div>
+  </div>
+
+  <p>The Android 3.1 platform (also backported to Android 2.3.4) introduces Android Open Accessory
+  support, which allows external USB hardware (an Android USB accessory) to interact with an
+  Android-powered device in a special "accessory" mode. When an Android-powered powered device is
+  in accessory mode, the connected accessory acts as the USB host (powers the bus and enumerates
+  devices) and the Android-powered device acts as the USB device. Android USB accessories are
+  specifically designed to attach to Android-powered devices and adhere to a simple protocol
+  (Android accessory protocol) that allows them to detect Android-powered devices that support
+  accessory mode. Accessories must also provide 500mA at 5V for charging power. Many previously
+  released Android-powered devices are only capable of acting as a USB device and cannot initiate
+  connections with external USB devices. Android Open Accessory support overcomes this limitation
+  and allows you to build accessories that can interact with an assortment of Android-powered
+  devices by allowing the accessory to initiate the connection.</p>
+
+  <p class="note"><strong>Note:</strong> Accessory mode is ultimately dependent on the device's
+  hardware and not all devices will support accessory mode. Devices that support accessory mode can
+  be filtered using a <code>&lt;uses-feature&gt;</code> element in your corresponding application's
+  Android manifest. For more information, see the <a href=
+  "../../../guide/topics/usb/accessory.html#manifest">USB Accessory</a> Developer Guide.</p>
+
+  <p>The following list of distributers are currently producing Android Open Accessory compatible
+  development boards:</p>
+
+  <ul>
+
+    <li>The <a href="http://store.arduino.cc/">Arduino Store</a> provides the Arduino Mega ADK
+    (in <a href="http://store.arduino.cc/eu/index.php?main_page=product_info&cPath=11_12&products_id=144">EU nations</a>
+    or <a href="http://store.arduino.cc/ww/index.php?main_page=product_info&cPath=11_12&products_id=144">non-EU nations</a>)
+    that is based on the ATmega2560 and supports the ADK firmware.</li>
+
+    <li><a href="https://store.diydrones.com/ProductDetails.asp?ProductCode=BR-PhoneDrone">DIY
+    Drones</a> provides an Arduino-compatible board geared towards RC (radio controlled) and UAV
+    (unmanned aerial vehicle) enthusiasts.</li>
+
+    <li><a href="http://mbed.org/order/">mbed</a> provides a microcontroller and a library
+    to develop accessories that support the Android accessory protocol. For more information, see
+    <a href="http://mbed.org/cookbook/mbed-with-Android-ADK">mbed with the Android ADK</a>.
+    </li>
+
+    <li><a href="http://www.microchip.com/android">Microchip</a> provides a PIC based USB
+    microcontroller board.</li>
+
+    <li><a href="http://shop.moderndevice.com/products/freeduino-usb-host-board">Modern
+    Device</a> provides an Arduino-compatible board that supports the ADK firmware.</li>
+
+    <li><a href="http://www.rt-net.jp/shop/index.php?main_page=product_info&cPath=3_4&products_id=1">
+    RT Corp</a> provides an Arduino-compatible board based on the Android ADK board design.</li>
+
+    <li><a href="http://www.seeedstudio.com/depot/seeeduino-adk-main-board-p-846.html">
+    Seeed Studio</a> provides an Arduino-compatible board that supports the ADK firmware.</li>
+
+    <li><a href="http://www.sparkfun.com/products/10748">
+    SparkFun</a>'s IOIO board now has beta support for the ADK firmware.</li>
+
+  </ul>
+
+  <p>We expect more hardware distributers to create a variety of kits, so please stay tuned for
+  further developments.</p>
+
+  <h2 id="components">ADK Components</h2>
+  <p>The Android Open Accessory Development Kit (ADK) provides an implementation of an Android USB
+  accessory that is based on the <a href="http://www.arduino.cc/">Arduino open source electronics
+  prototyping platform</a>, the accessory's hardware design files, code that implements the
+  accessory's firmware, and the Android application that interacts with the accessory. The hardware
+  design files and firmware code are contained in the <a href=
+  "https://dl-ssl.google.com/android/adk/adk_release_0512.zip">ADK package download</a>.</p>
+  <p>The main hardware and software components of the ADK include:</p>
+
+  <ul>
+    <li>A USB micro-controller board that is based on the Arduino Mega2560 and Circuits@Home USB
+    Host Shield designs (now referred to as the ADK board), which you will later implement as an
+    Android USB accessory. The ADK board provides input and output pins that you can implement
+    through the use of attachments called "shields." Custom firmware, written in C++, is installed
+    on the board to define the board's functionality and interaction with the attached shield and
+    Android-powered device. The hardware design files for the board are located in
+    <code>hardware/</code> directory.</li>
+
+    <li>An Android Demo Shield (ADK shield) that affixes atop the ADK board implements the input
+    and output points on the board. These implementations include a joystick, LED outputs, and
+    temperature and light sensors. You can create or buy your own shields or wire your own features
+    to the ADK board to implement custom functionality. The hardware design files for the shield
+    are located in <code>hardware/</code>.</li>
+
+    <li>A library based on the <a href=
+    "http://www.circuitsathome.com/arduino_usb_host_shield_projects">Arduino USB Host Shield</a>
+    library provides the logic for the USB micro-controller board to act as a USB Host. This allows
+    the board to initiate transactions with USB devices. Describing how to use this entire library
+    is out of the scope of this document. Where needed, this document points out important
+    interactions with the library. For more information, see the source code for the Arduino USB
+    Host Shield library in the <code>firmware/arduino_libs/USB_Host_Shield</code> directory.</li>
+
+    <li>An Arduino sketch, <code>firmware/demokit/demokit.pde</code>, defines the firmware that
+    runs on the ADK board and is written in C++. The sketch calls the Android accessory protocol
+    library to interact with the Android-powered device. It also sends data from the ADK board and
+    shield to the Android application and receives data from the Android application and outputs it
+    to the ADK board and shield.</li>
+
+    <li>The Android accessory protocol library, which is located in the
+    <code>firmware/arduino_libs/AndroidAccessory</code> directory. This library defines how to
+    enumerate the bus, find a connected Android-powered device that supports accessory mode, and
+    how to setup communication with the device.</li>
+
+    <li>Other third party libraries to support the ADK board's functionality:
+      <ul>
+        <li><a href="http://www.arduino.cc/playground/Main/CapSense">CapSense library</a></li>
+
+        <li><a href="http://www.arduino.cc/playground/Learning/I2C">I2C / TWI (Two-Wire Interface)
+        library</a></li>
+
+        <li><a href="http://www.arduino.cc/playground/ComponentLib/Servo">Servo library</a></li>
+
+        <li><a href="http://www.arduino.cc/playground/Code/Spi">Spi library</a></li>
+
+        <li><a href="http://www.arduino.cc/en/Reference/Wire">Wire library</a></li>
+
+        <li>An Android application, DemoKit, that communicates with the ADK board and shield. The
+        source for this project is in the <code>app/</code> directory.</li>
+      </ul>
+    </li>
+
+  </ul>
+
+  <h2 id="getting-started">Getting Started with the ADK</h2>
+
+  <p>The following sections describe how to install the Arduino software on your computer, use the
+  Arduino software to install the ADK board's firmware, and install and run the accompanying
+  Android application for the ADK board. Before you begin, download the following items to set up
+  your development environment:</p>
+
+  <ul>
+    <li><a href="http://www.arduino.cc/en/Main/software">Arduino Software</a>: contains libraries
+    and an IDE for coding and installing firmware to the ADK board.</li>
+
+    <li><a href="http://www.arduino.cc/playground/Main/CapSense">CapSense library</a>: contains the
+    libraries to sense human capacitance. This is needed for the capacative button that is located
+    on the ADK shield.</li>
+
+    <li><a href="https://dl-ssl.google.com/android/adk/adk_release_0512.zip">The ADK package</a>: contains the firmware for the ADK board and hardware design
+    files for the ADK board and shield.</li>
+  </ul>
+
+  <h3 id="installing">Installing the Arduino software and necessary libraries</h3>
+
+  <p>To install the Arduino software:</p>
+
+  <ol>
+    <li>
+      <a href="http://arduino.cc/en/Guide/HomePage">Download and install</a> the Arduino Software
+      as described on the Arduino website.
+
+      <p class="note"><strong>Note:</strong> If you are on a Mac, install the FTDI USB Serial
+      Driver that is included in the Arduino package, even though the installation instructions say
+      otherwise.</p>
+    </li>
+
+    <li><a href="https://dl-ssl.google.com/android/adk/adk_release_0512.zip">Download</a> and
+    extract the ADK package to a directory of your choice. You should have an <code>app</code>,
+    <code>firmware</code>, and <code>hardware</code> directories.</li>
+
+    <li>Extract the CapSense download to a directory of your choice.</li>
+
+    <li>Install the necessary libraries:
+
+      <p>On Windows:</p>
+
+      <ol type="a">
+        <li>Copy the <code>firmware/arduino_libs/AndroidAccessory</code> and
+        <code>firmware/arduino_libs/USB_Host_Shield</code> directories (the complete directories,
+        not just the files within) to the <code>&lt;arduino_installation_root&gt;/libraries/</code>
+        directory.</li>
+
+        <li>Create a CapSense directory in the
+        <code>&lt;arduino_installation_root&gt;/libraries/</code> directory</li>
+
+        <li>Copy <code>CapSense.cpp</code> and <code>CapSense.h</code> from the unzipped CapSense
+        download to the <code>CapSense</code> directory.</li>
+      </ol>
+
+      <p>On Mac:</p>
+
+      <ol type="a">
+        <li>Create, if it does not already exist, an <code>Arduino</code>
+        directory inside your user account's <code>Documents</code> directory, and within
+        that, a <code>libraries</code> directory.</li>
+
+        <li>Copy the <code>firmware/arduino_libs/AndroidAccessory</code> and
+        <code>firmware/arduino_libs/USB_Host_Shield</code> directories (the
+        complete directories, not just the files within) to your
+        <code>Documents/Arduino/libraries/</code> directory.</li>
+
+        <li>Create a <code>CapSense</code> directory in your
+        <code>Documents/Arduino/libraries/</code> directory.</li>
+
+        <li>Copy <code>CapSense.cpp</code> and <code>CapSense.h</code> from the unzipped CapSense
+        download to the <code>CapSense</code> directory.</li>
+      </ol>
+
+      <p>On Linux (Ubuntu):</p>
+
+      <ol type="a">
+        <li>Copy the <code>firmware/arduino_libs/AndroidAccessory</code> and
+        <code>firmware/arduino_libs/USB_Host_Shield</code> directories (the complete directories,
+        not just the files within) to the <code>&lt;arduino_installation_root&gt;/libraries/</code>
+        directory.</li>
+
+        <li>Create a <code>CapSense</code> directory in the
+        <code>&lt;arduino_installation_root&gt;/libraries/</code> directory.</li>
+
+        <li>Copy <code>CapSense.cpp</code> and <code>CapSense.h</code> from the unzipped CapSense
+        download to the <code>CapSense</code> directory.</li>
+
+        <li>Install the avr-libc library by entering <code>sudo apt-get install avr-libc</code>
+        from a shell prompt.</li>
+      </ol>
+    </li>
+  </ol>
+
+  <p>You should now have three new directories in the Arduino libraries directory:
+  <code>AndroidAccessory</code>, <code>USB_Host_Shield</code>, and <code>CapSense</code>.</p>
+
+  <h3 id="installing-firmware">Installing the firmware to the ADK board</h3>
+
+  <p>To install the firmware to the ADK board:</p>
+
+  <ol>
+    <li>Connect the ADK board to your computer using the micro-USB port, which allows two-way
+    communication and provides power to the ADK board.</li>
+
+    <li>Launch Arduino.</li>
+
+    <li>Click <strong>Tools &gt; Board &gt; Arduino Mega 2560</strong> to specify the ADK board's
+    type.</li>
+
+    <li>Select the appropriate USB port:
+
+      <ul>
+        <li>On Windows: click <strong>Tools &gt; Serial Port &gt; COM#</strong> to specify the port
+        of communication. The COM port number varies depending on your computer. COM1 is usually
+        reserved for serial port connections. You most likely want COM2 or COM3.</li>
+
+        <li>On Mac: Click <strong>Tools &gt; Serial Port &gt; dev/tty.usbserial-###</strong> to
+        specify the port of communication.</li>
+
+        <li>On Linux (Ubuntu): Click <strong>Tools &gt; Serial Port &gt; dev/ttyUSB#</strong> to
+        specify the port of communication.</li>
+      </ul>
+    </li>
+
+    <li>To open the firmware code (a sketch), click <strong>File &gt; Open</strong> and select
+    <code>firmware/demokit/demokit.pde</code>.</li>
+
+    <li>Click <strong>Sketch &gt; Verify/Compile</strong> to ensure that the sketch has no
+    errors.</li>
+
+    <li>Select <strong>File &gt; Upload to I/O Board</strong>. When Arduino outputs <strong>Done
+    uploading.</strong>, the board is ready to communicate with your Android-powered device.</li>
+  </ol>
+
+  <h3 id="running-demokit">Running the DemoKit Android application</h3>
+
+  <p>The DemoKit Android application runs on your Android-powered device and communicates with the
+  ADK board. The ADK board receives commands such as lighting up the board's LEDs or sends data
+  from the board such as joystick movement and temperature readings.</p>
+
+  <p>To install and run the application in Eclipse:</p>
+
+  <ol>
+    <li><a href="http://code.google.com/android/add-ons/google-apis/installing.html">Install the
+    Google APIs API Level 10 add-on library</a>, which includes the Open Accessory library for
+    2.3.4 devices that support accessory mode. This library is also forward compatible with Android
+    3.1 or newer devices that support accessory mode. If you only care about Android 3.1 or newer
+    devices, all you need is API Level 12. For more information on deciding which API level to use,
+    see the <a href="../../../guide/topics/usb/accessory.html#choosing">USB Accessory</a>
+    documentation.</li>
+
+    <li>Click <strong>File &gt; New &gt; Project...</strong>, then select <strong>Android &gt;
+    Android Project</strong></li>
+
+    <li>In the <strong>Project name:</strong> field, type DemoKit.</li>
+
+    <li>Choose <strong>Create project from existing source</strong>, click <strong>Browse</strong>,
+    select the <code>app</code> directory, click <strong>Open</strong> to close that dialog and then
+    click <strong>Finish</strong>.</li>
+
+    <li>For Build Target, select <strong>Google APIs</strong> (Platform 2.3.3, API Level 10).
+
+      <p class="note"><strong>Note:</strong> Even though the add-on is labeled as
+      <strong>2.3.3</strong>, the newest Google API add-on library for API level 10 adds USB Open
+      Accessory API support for 2.3.4 devices.</p>
+    </li>
+
+    <li>Click <strong>Finish</strong>.</li>
+
+    <li>Install the application to your device.</li>
+
+    <li>Connect the ADK board (USB-A) to your Android-powered device (micro-USB). Ensure that the
+    power cable to the accessory is plugged in or that the micro-USB port on the accesory is
+    connected to your computer for power (this also allows you to <a href="#monitoring">monitor the
+    ADK board</a>). When connected, accept the prompt that asks for whether or not to open the
+    DemoKit application to connect to the accessory. If the prompt does not show up, connect and
+    reconnect the accessory.</li>
+  </ol>
+
+  <p>You can now interact with the ADK board by moving the color LED or servo sliders (make sure
+  the servos are connected) or by pressing the relay buttons in the application. On the ADK shield,
+  you can press the buttons and move the joystick to see their outputs displayed in the
+  application.</p>
+
+  <h3 id="monitoring">Monitoring the ADK Board</h3>
+
+  <p>The ADK firmware consists of a few files that you should be looking at if you want to build
+  your own accessory. The files in the <code>firmware/arduino_libs/AndroidAccessory</code>
+  directory are the most important files and have the logic to detect and connect to
+  Android-powered devices that support accessory mode. Feel free to add debug statements (Arduino
+  <code>Serial.print()</code> statements) to the code located in the
+  <code>arduino_libraries_directory/AndroidAccessory</code> directory and
+  <code>firmware/demokit/demokit.pde</code> sketch and re-upload the sketch to the ADK board to
+  discover more about how the firmware works.</p>
+
+  <p>You can view the debug statements in the Arduino Serial Monitor by clicking <strong>Tools &gt;
+  Serial Monitor</strong> and setting the baud to 115200. The following sections about how
+  accessories communicate with Android-powered devices describe much of what you should be doing in
+  your own accessory.</p>
+
+  <h2 id="accessory-protocol">Implementing the Android Accessory Protocol</h2>
+
+  <p>An Android USB accessory must adhere to Android Accessory Protocol, which defines how
+  an accessory detects and sets up communication with an Android-powered device. In general, an
+  accessory should carry out the following steps:</p>
+
+  <ol>
+    <li>Wait for and detect connected devices</li>
+
+    <li>Determine the device's accessory mode support</li>
+
+    <li>Attempt to start the device in accessory mode if needed</li>
+
+    <li>Establish communication with the device if it supports the Android accessory protocol</li>
+  </ol>
+
+  <p>The following sections go into depth about how to implement these steps.</p>
+
+  <h3 id="wait">Wait for and detect connected devices</h3>
+
+  <p>Your accessory should have logic to continuously check
+  for connected Android-powered devices. When a device is connected, your accessory should
+  determine if the device supports accessory mode.</p>
+
+  <h3 id="determine">Determine the device's accessory mode support</h3>
+
+
+  <p>When an Android-powered device is connected, it can be in one of three states:</p>
+
+  <ol type="a">
+    <li>The attached device supports Android accessory mode and is already in accessory mode.</li>
+
+    <li>The attached device supports Android accessory mode, but it is not in accessory mode.</li>
+
+    <li>The attached device does not support Android accessory mode.</li>
+  </ol>
+
+  <p>During the initial connection, the accessory should check the vendor and product IDs of the
+  connected device's USB device descriptor. The vendor ID should match Google's ID (0x18D1) and the
+  product ID should be 0x2D00 or 0x2D01 if the device is already in accessory mode (case A). If so,
+  the accessory can now <a href="#establish">establish communication with the device</a> through
+  bulk transfer endpoints with its own communication protocol. There is no need to start the device
+  in accessory mode.</p>
+
+  <p class="note"><strong>Note:</strong> 0x2D00 is reserved for Android-powered devices that
+  support accessory mode. 0x2D01 is reserved for devices that support accessory mode as well as the
+  ADB (Android Debug Bridge) protocol, which exposes a second interface with two bulk endpoints for
+  ADB. You can use these endpoints for debugging the accessory application if you are simulating
+  the accessory on a computer. In general, do not use this interface unless your accessory is
+  implementing a passthrough to ADB on the device.</p>
+
+  <p>If the vendor and product ID do not match, there is no way to distinguish between states b and
+  c, so the accessory <a href="#start">attempts to start the device in accessory mode</a> to figure
+  out if the device is supported.</p>
+
+  <h3 id="start">Attempt to start the device in accessory mode</h3>
+
+  <p>If the vendor and product IDs do not correspond to an Android-powered device in accessory
+  mode, the accessory cannot discern whether the device supports accessory mode and is not in that
+  state, or if the device does not support accessory mode at all. This is because devices that
+  support accessory mode but aren't in it initially report the device's manufacturer vendor ID and
+  product ID, and not the special Android Open Accessory ones. In either case, the accessory should try to start
+  the device into accessory mode to figure out if the device supports it. The following steps
+  explain how to do this:</p>
+
+  <ol>
+    <li>Send a 51 control request ("Get Protocol") to figure out if the device supports the Android
+    accessory protocol. A non-zero number is returned if the protocol is supported, which
+    represents the version of the protocol that the device supports (currently, only version 1
+    exists). This request is a control request on endpoint 0 with the following characteristics:
+      <pre>
+requestType:    USB_DIR_IN | USB_TYPE_VENDOR
+request:        51
+value:          0
+index:          0
+data:           protocol version number (16 bits little endian sent from the device to the accessory)
+</pre>
+    </li>
+
+    <li>If the device returns a proper protocol version, send identifying string information to the
+    device. This information allows the device to figure out an appropriate application for this
+    accessory and also present the user with a URL if an appropriate application does not exist.
+    These requests are control requests on endpoint 0 (for each string ID) with the following
+    characteristics:
+      <pre>
+requestType:    USB_DIR_OUT | USB_TYPE_VENDOR
+request:        52
+value:          0
+index:          string ID
+data            zero terminated UTF8 string sent from accessory to device
+</pre>
+
+      <p>The following string IDs are supported, with a maximum size of 256 bytes for each string
+      (must be zero terminated with \0).</p>
+      <pre>
+manufacturer name:  0
+model name:         1
+description:        2
+version:            3
+URI:                4
+serial number:      5
+</pre>
+    </li>
+
+    <li>When the identifying strings are sent, request the device start up in accessory mode. This
+    request is a control request on endpoint 0 with the following characteristics:
+      <pre>
+requestType:    USB_DIR_OUT | USB_TYPE_VENDOR
+request:        53
+value:          0
+index:          0
+data:           none
+</pre>
+    </li>
+  </ol>
+
+  <p>After sending the final control request, the connected USB device should re-introduce itself
+  on the bus in accessory mode and the accessory can re-enumerate the connected devices. The
+  algorithm jumps back to <a href="#determine">determining the device's accessory mode support</a>
+  to check for the vendor and product ID. The vendor ID and product ID of the device will be
+  different if the device successfully switched to accessory mode and will now correspond to
+  Google's vendor and product IDs instead of the device manufacturer's IDs. The accessory can now
+  <a href="#establish">establish communication with the device</a>.</p>
+
+  <p>If at any point these steps fail, the device does not support Android accessory mode and the
+  accessory should wait for the next device to be connected.</p>
+
+  <h3 id="establish">Establish communication with the device</h3>
+
+  <p>If an Android-powered device in accessory mode is detected, the accessory can query the
+  device's interface and endpoint descriptors to obtain the bulk endpoints to communicate with the
+  device. An Android-powered device that has a product ID of 0x2D00 has one interface with two bulk
+  endpoints for input and output communication. A device with product ID of 0x2D01 has two
+  interfaces with two bulk endpoints each for input and output communication. The first interface
+  is for standard communication while the second interface is for ADB communication. To communicate
+  on an interface, all you need to do is find the first bulk input and output endpoints, set the
+  device's configuration to a value of 1 with a SET_CONFIGURATION (0x09) device request, then
+  communicate using the endpoints.</p>
+
+  <h2 id="firmware">How the ADK board implements the Android Accessory protocol</h2>
+
+  <p>If you have access to the ADK board and shield, the following sections describe the firmware
+  code that you installed onto the ADK board. The firmware demonstrates a practical example of how
+  to implement the Android Accessory protocol. Even if you do not have the ADK board and shield,
+  reading through how the hardware detects and interacts with devices in accessory mode is still
+  useful if you want to port the code over for your own accessories.</p>
+
+  <p>The important pieces of the firmware are the
+  <code>accessory/demokit/demokit/demokit.pde</code> sketch, which is the code that receives and
+  sends data to the DemoKit application running on the Android-powered device. The code to detect
+  and set up communication with the Android-powered device is contained in the
+  <code>accessory/arduino_libs/AndroidAccessory/AndroidAccessory.h</code> and
+  <code>accessory/arduino_libs/AndroidAccessory/AndroidAccessory.cpp</code> files. This code
+  includes most of the logic that will help you implement your own accessory's firmware. It might
+  be useful to have all three of these files open in a text editor as you read through these next
+  sections.</p>
+
+  <p>The following sections describe the firmware code in the context of the algorithm described in
+  <a href="#accessory-protocol">Implementing the Android Accessory Protocol</a>.</p>
+
+  <h3 id="wait-adk">Wait for and detect connected devices</h3>
+
+  <p>In the firmware code (<code>demokit.pde</code>), the <code>loop()</code> function runs
+  repeatedly and calls <code>AndroidAccessory::isConnected()</code> to check for any connected
+  devices. If there is a connected device, it continuously updates the input and output streams
+  going to and from the board and application. If nothing is connected, it continuously checks for
+  a device to be connected:</p>
+  <pre>
+...
+
+AndroidAccessory acc("Google, Inc.",
+                     "DemoKit",
+                     "DemoKit Arduino Board",
+                     "1.0",
+                     "http://www.android.com",
+                     "0000000012345678");
+
+...
+void loop()
+{
+...
+    if (acc.isConnected()) {
+        //communicate with Android application
+    }
+    else{
+        //set the accessory to its default state
+    }
+...
+}
+</pre>
+
+  <h3 id="determine-adk">Determine the connected device's accessory mode support</h3>
+
+  <p>When a device is connected to the ADK board, it can already be in accessory mode, support
+  accessory mode and is not in that mode, or does not support accessory mode. The
+  <code>AndroidAccessory::isConnected()</code> method checks for these cases and responds
+  accordingly when the <code>loop()</code> function calls it. This function first checks to see if
+  the device that is connected hasn't already been handled. If not, it gets the connected device's
+  device descriptor to figure out if the device is already in accessory mode by calling
+  <code>AndroidAccessory::isAccessoryDevice()</code>. This method checks the vendor and product ID
+  of the device descriptor. A device in accessory mode has a vendor ID of 0x18D1 and a product ID
+  of 0x2D00 or 0x2D01. If the device is in accessory mode, then the ADK board can <a href=
+  "#establish">establish communication with the device</a>. If not, the board <a href=
+  "#start">attempts to start the device in accessory mode</a>.</p>
+  <pre>
+bool AndroidAccessory::isConnected(void)
+{
+    USB_DEVICE_DESCRIPTOR *devDesc = (USB_DEVICE_DESCRIPTOR *) descBuff;
+    byte err;
+
+    max.Task();
+    usb.Task();
+
+    if (!connected &amp;&amp;
+        usb.getUsbTaskState() &gt;= USB_STATE_CONFIGURING &amp;&amp;
+        usb.getUsbTaskState() != USB_STATE_RUNNING) {
+        Serial.print("\nDevice addressed... ");
+        Serial.print("Requesting device descriptor.");
+
+        err = usb.getDevDescr(1, 0, 0x12, (char *) devDesc);
+        if (err) {
+            Serial.print("\nDevice descriptor cannot be retrieved. Program Halted\n");
+            while(1);
+        }
+
+        if (isAccessoryDevice(devDesc)) {
+            Serial.print("found android accessory device\n");
+
+            connected = configureAndroid();
+        } else {
+            Serial.print("found possible device. switching to serial mode\n");
+            switchDevice(1);
+        }
+    } else if (usb.getUsbTaskState() == USB_DETACHED_SUBSTATE_WAIT_FOR_DEVICE) {
+        connected = false;
+    }
+
+    return connected;
+}
+</pre>
+
+  <h3 id="start-adk">Attempt to start the device in accessory mode</h3>
+
+  <p>If the device is not already in accessory mode, then the ADK board must determine whether or
+  not it supports it by sending control request 51 to check the version of the USB accessory
+  protocol that the device supports (see <code>AndroidAccessory::getProtocol()</code>). Protocol
+  version 1 is the only version for now, but this can be an integer greater than zero in the
+  future. If the appropriate protocol version is returned, the board sends control request 52 (one
+  for each string with <code>AndroidAcessory:sendString()</code>) to send it's identifying
+  information, and tries to start the device in accessory mode with control request 53. The
+  <code>AndroidAccessory::switchDevice()</code> method takes care of this:</p>
+  <pre>
+bool AndroidAccessory::switchDevice(byte addr)
+{
+    int protocol = getProtocol(addr);
+    if (protocol == 1) {
+        Serial.print("device supports protocol 1\n");
+    } else {
+        Serial.print("could not read device protocol version\n");
+        return false;
+    }
+
+    sendString(addr, ACCESSORY_STRING_MANUFACTURER, manufacturer);
+    sendString(addr, ACCESSORY_STRING_MODEL, model);
+    sendString(addr, ACCESSORY_STRING_DESCRIPTION, description);
+    sendString(addr, ACCESSORY_STRING_VERSION, version);
+    sendString(addr, ACCESSORY_STRING_URI, uri);
+    sendString(addr, ACCESSORY_STRING_SERIAL, serial);
+
+    usb.ctrlReq(addr, 0, USB_SETUP_HOST_TO_DEVICE | USB_SETUP_TYPE_VENDOR | USB_SETUP_RECIPIENT_DEVICE,
+                ACCESSORY_START, 0, 0, 0, 0, NULL);
+    return true;
+}
+</pre>If this method returns false, the board waits until a new device is connected. If it is
+successful, the device displays itself on the USB bus as being in accessory mode when the ADK board
+re-enumerates the bus. When the device is in accessory mode, the accessory then <a href=
+"#establish-adk">establishes communication with the device</a>.
+
+  <h3 id="establish-adk">Establish communication with the device</h3>
+
+  <p>If a device is detected as being in accessory mode, the accessory must find the proper bulk
+  endpoints and set up communication with the device. When the ADK board detects an Android-powered
+  device in accessory mode, it calls the <code>AndroidAccessory::configureAndroid()</code>
+  function:</p>
+  <pre>
+...
+if (isAccessoryDevice(devDesc)) {
+            Serial.print("found android acessory device\n");
+
+            connected = configureAndroid();
+        }
+...
+</pre>
+
+  <p>which in turn calls the <code>findEndpoints()</code> function:</p>
+  <pre>
+...
+bool AndroidAccessory::configureAndroid(void)
+{
+    byte err;
+    EP_RECORD inEp, outEp;
+
+    if (!findEndpoints(1, &amp;inEp, &amp;outEp))
+        return false;
+...
+</pre>
+
+  <p>The <code>AndroidAccessory::findEndpoints()</code> function queries the Android-powered
+  device's configuration descriptor and finds the bulk data endpoints in which to communicate with
+  the USB device. To do this, it first gets the device's first four bytes of the configuration
+  descriptor (only need descBuff[2] and descBuff[3]), which contains the information about the
+  total length of data returned by getting the descriptor. This data is used to determine whether
+  or not the descriptor can fit in the descriptor buffer. This descriptor also contains information
+  about all the interfaces and endpoint descriptors. If the descriptor is of appropriate size, the
+  method reads the entire configuration descriptor and fills the entire descriptor buffer with this
+  device's configuration descriptor. If for some reason the descriptor is no longer attainable, an
+  error is returned.</p>
+  <pre>
+...
+
+bool AndroidAccessory::findEndpoints(byte addr, EP_RECORD *inEp, EP_RECORD *outEp)
+{
+    int len;
+    byte err;
+    uint8_t *p;
+
+    err = usb.getConfDescr(addr, 0, 4, 0, (char *)descBuff);
+    if (err) {
+        Serial.print("Can't get config descriptor length\n");
+        return false;
+    }
+
+
+    len = descBuff[2] | ((int)descBuff[3] &lt;&lt; 8);
+    if (len &gt; sizeof(descBuff)) {
+        Serial.print("config descriptor too large\n");
+            /* might want to truncate here */
+        return false;
+    }
+
+    err = usb.getConfDescr(addr, 0, len, 0, (char *)descBuff);
+    if (err) {
+        Serial.print("Can't get config descriptor\n");
+        return false;
+    }
+
+...
+</pre>
+
+  <p>Once the descriptor is in memory, a pointer is assigned to the first position of the buffer
+  and is used to index the buffer for reading. There are two endpoint pointers (input and output)
+  that are passed into <code>AndroidAccessory::findEndpoints()</code> and their addresses are set
+  to 0, because the code hasn't found any suitable bulk endpoints yet. A loop reads the buffer,
+  parsing each configuration, interface, or endpoint descriptor. For each descriptor, Position 0
+  always contains the size of the descriptor in bytes and position 1 always contains the descriptor
+  type. Using these two values, the loop skips any configuration and interface descriptors and
+  increments the buffer with the <code>descLen</code> variable to get to the next descriptor.</p>
+
+  <p class="note"><strong>Note:</strong> An Android-powered device in accessory mode can
+  potentially have two interfaces, one for the default communication to the device and the other
+  for ADB communication. The default communication interface is always indexed first, so finding
+  the first input and output bulk endpoints will return the default communication endpoints, which
+  is what the <code>demokit.pde</code> sketch does. If you are writing your own firmware, the logic
+  to find the appropriate endpoints for your accessory might be different.</p>
+
+  <p>When it finds the first input and output endpoint descriptors, it sets the endpoint pointers
+  to those addresses. If the findEndpoints() function finds both an input and output endpoint, it
+  returns true. It ignores any other endpoints that it finds (the endpoints for the ADB interface,
+  if present).</p>
+  <pre>
+...
+    p = descBuff;
+    inEp-&gt;epAddr = 0;
+    outEp-&gt;epAddr = 0;
+    while (p &lt; (descBuff + len)){
+        uint8_t descLen = p[0];
+        uint8_t descType = p[1];
+        USB_ENDPOINT_DESCRIPTOR *epDesc;
+        EP_RECORD *ep;
+
+        switch (descType) {
+        case USB_DESCRIPTOR_CONFIGURATION:
+            Serial.print("config desc\n");
+            break;
+
+        case USB_DESCRIPTOR_INTERFACE:
+            Serial.print("interface desc\n");
+            break;
+
+        case USB_DESCRIPTOR_ENDPOINT:
+            epDesc = (USB_ENDPOINT_DESCRIPTOR *)p;
+            if (!inEp-&gt;epAddr &amp;&amp; (epDesc-&gt;bEndpointAddress &amp; 0x80))
+                ep = inEp;
+            else if (!outEp-&gt;epAddr)
+                ep = outEp;
+            else
+                ep = NULL;
+
+            if (ep) {
+                ep-&gt;epAddr = epDesc-&gt;bEndpointAddress &amp; 0x7f;
+                ep-&gt;Attr = epDesc-&gt;bmAttributes;
+                ep-&gt;MaxPktSize = epDesc-&gt;wMaxPacketSize;
+                ep-&gt;sndToggle = bmSNDTOG0;
+                ep-&gt;rcvToggle = bmRCVTOG0;
+            }
+            break;
+
+        default:
+            Serial.print("unkown desc type ");
+            Serial.println( descType, HEX);
+            break;
+        }
+
+        p += descLen;
+    }
+
+    if (!(inEp-&gt;epAddr &amp;&amp; outEp-&gt;epAddr))
+        Serial.println("can't find accessory endpoints");
+
+    return inEp-&gt;epAddr &amp;&amp; outEp-&gt;epAddr;
+}
+
+...
+</pre>
+
+  <p>Back in the <code>configureAndroid()</code> function, if there were endpoints found, they are
+  appropriately set up for communication. The device's configuration is set to 1 and the state of
+  the device is set to "running", which signifies that the device is properly set up to communicate
+  with your USB accessory. Setting this status prevents the device from being re-detected and
+  re-configured in the <code>AndroidAccessory::isConnected()</code> function.</p>
+  <pre>
+bool AndroidAccessory::configureAndroid(void)
+{
+    byte err;
+    EP_RECORD inEp, outEp;
+
+    if (!findEndpoints(1, &amp;inEp, &amp;outEp))
+        return false;
+
+    memset(&amp;epRecord, 0x0, sizeof(epRecord));
+
+    epRecord[inEp.epAddr] = inEp;
+    if (outEp.epAddr != inEp.epAddr)
+        epRecord[outEp.epAddr] = outEp;
+
+    in = inEp.epAddr;
+    out = outEp.epAddr;
+
+    Serial.print("inEp: ");
+    Serial.println(inEp.epAddr, HEX);
+    Serial.print("outEp: ");
+    Serial.println(outEp.epAddr, HEX);
+
+    epRecord[0] = *(usb.getDevTableEntry(0,0));
+    usb.setDevTableEntry(1, epRecord);
+
+    err = usb.setConf( 1, 0, 1 );
+    if (err) {
+        Serial.print("Can't set config to 1\n");
+        return false;
+    }
+
+    usb.setUsbTaskState( USB_STATE_RUNNING );
+
+    return true;
+}
+</pre>
+
+  <p>Lastly, methods to read and write to the appropriate endpoints are needed. The
+  <code>demokit.pde</code> sketch calls these methods depending on the data that is read from the
+  Android-powered device or sent by the ADK board. For instance, moving the joystick on the ADK
+  shield writes data that is read by the DemoKit application running on the Android-powered device.
+  Moving sliders on the DemoKit application is read by the <code>demokit.pde</code> sketch and
+  changes the state of the accessory, such as lighting up or changing the color of the LED
+  lights.</p>
+  <pre>
+int AndroidAccessory::read(void *buff, int len, unsigned int nakLimit) {
+  return usb.newInTransfer(1, in, len, (char *)buff, nakLimit); }
+
+int AndroidAccessory::write(void *buff, int len) {
+  usb.outTransfer(1, out, len, (char *)buff);
+  return len; }
+
+</pre>
+
+  <p>See the <code>firmware/demokit/demokit.pde</code> file for information about how the ADK board
+  reads and writes data.</p>
+
+    </div>
+
+    
+    
+    <a href="#top" style="float:right">&uarr; Go to top</a>
+    
+
+  </div> <!-- end jd-content -->
+
+<div id="footer">
+
+
+  <div id="copyright">
+    
+  Except as noted, this content is licensed under <a
+  href="http://www.apache.org/licenses/LICENSE-2.0">Apache 2.0</a>. 
+  For details and restrictions, see the <a href="../../../license.html">
+  Content License</a>.
+  </div>
+  <div id="build_info">
+    
+  Android 4.0&nbsp;r1 - 16 Mar 2012 16:45
+
+  </div>
+
+  <div id="footerlinks">
+    
+  <p>
+    <a href="http://www.google.com/intl/en/policies/" target="_blank">Privacy &amp; Terms</a> -
+    <a href="http://www.android.com/branding.html" target="_blank">Brand Guidelines</a> -
+    <a
+href="http://code.google.com/p/android/issues/entry?template=Developer%20Documentation"
+target="_blank">Report Document Issues</a>
+  </p>
+  </div>
+
+</div> <!-- end footer -->
+
+</div><!-- end doc-content -->
+
+</div> <!-- end body-content --> 
+
+<script type="text/javascript">
+init(); /* initialize android-developer-docs.js */
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-5831155-1");
+pageTracker._trackPageview();
+</script>
+
+</body>
+</html>
+
+
+

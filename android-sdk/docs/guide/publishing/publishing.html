@@ -1,0 +1,1929 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico" />
+<title>Publishing on Google Play | Android Developers</title>
+<link href="../../assets/android-developer-docs-devguide.css" rel="stylesheet" type="text/css" />
+<script src="../../assets/search_autocomplete.js" type="text/javascript"></script>
+<script src="../../assets/jquery-resizable.min.js" type="text/javascript"></script>
+<script src="../../assets/android-developer-docs.js" type="text/javascript"></script>
+<script src="../../assets/prettify.js" type="text/javascript"></script>
+<script type="text/javascript">
+  setToRoot("../../");
+</script>
+<noscript>
+  <style type="text/css">
+    html,body{overflow:auto;}
+    #body-content{position:relative; top:0;}
+    #doc-content{overflow:visible;border-left:3px solid #666;}
+    #side-nav{padding:0;}
+    #side-nav .toggle-list ul {display:block;}
+    #resize-packages-nav{border-bottom:3px solid #666;}
+  </style>
+</noscript>
+</head>
+<body class="gc-documentation" itemscope itemtype="http://schema.org/Article">
+
+  <div id="header">
+      <div id="headerLeft">
+          <a href="../../index.html" tabindex="-1"><img
+              src="../../assets/images/bg_logo.png" alt="Android Developers" /></a>
+          <ul id="header-tabs" class="guide">
+    
+	<li id="home-link"><a href="../../offline.html">
+	
+		<span class="en">Home</span>
+		<span style="display:none" class="de">Startseite</span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ホーム</span>
+		<span style="display:none" class="zh-CN">主页</span>
+		<span style="display:none" class="zh-TW">首頁</span>
+	
+	</a></li>
+	<li id="sdk-link"><a href="../../sdk/index.html">
+		<span class="en">SDK</span>
+	</a></li>
+	<li id="guide-link"><a href="../../guide/index.html" onClick="return loadLast('guide')">
+	
+		<span class="en">Dev Guide</span>
+		<span style="display:none" class="de">Handbuch</span>
+		<span style="display:none" class="es">Guía</span>
+		<span style="display:none" class="fr">Guide</span>
+		<span style="display:none" class="it">Guida</span>
+		<span style="display:none" class="ja">開発ガイド</span>
+		<span style="display:none" class="zh-CN">开发人员指南</span>
+		<span style="display:none" class="zh-TW">開發指南</span>
+	
+	</a></li>
+	<li id="reference-link"><a href="../../reference/packages.html" onClick="return loadLast('reference')">
+	
+		<span class="en">Reference</span>
+		<span style="display:none" class="de">Referenz</span>
+		<span style="display:none" class="es">Referencia</span>
+		<span style="display:none" class="fr">Référence</span>
+		<span style="display:none" class="it">Riferimento</span>
+		<span style="display:none" class="ja">リファレンス</span>
+		<span style="display:none" class="zh-CN">参考</span>
+		<span style="display:none" class="zh-TW">參考資料</span>
+	
+	</a></li>
+	<li id="resources-link"><a href="../../resources/index.html" onClick="return loadLast('resources')">
+	
+		<span class="en">Resources</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+    		<span style="display:none" class="ja"></span>
+		<span style="display:none" class="zh-CN"></span>
+		<span style="display:none" class="zh-TW"></span>
+	
+	</a></li>
+	<li id="videos-link"><a href="../../videos/index.html" onClick="return loadLast('videos')">
+	
+		<span class="en">Videos</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ビデオ</span>
+		<span style="display:none" class="zh-CN"></span>
+		<span style="display:none" class="zh-TW"></span>
+	
+	</a></li>
+	<li><a href="http://android-developers.blogspot.com" onClick="return requestAppendHL(this.href)">
+	
+		<span class="en">Blog</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ブログ</span>
+		<span style="display:none" class="zh-CN">博客</span>
+		<span style="display:none" class="zh-TW">網誌</span>
+	
+	</a></li>
+
+
+     
+</ul>
+     
+      </div>
+      <div id="headerRight">
+          <div id="headerLinks">
+          &nbsp;&nbsp;
+          <a href="../../design/index.html">Android Design</a>&nbsp;&nbsp;
+          <a href="http://www.android.com">Android.com</a>
+          </div>
+  <div id="search" >
+      <div id="searchForm">
+          <form accept-charset="utf-8" class="gsc-search-box" 
+                onsubmit="return submit_search()">
+            <table class="gsc-search-box" cellpadding="0" cellspacing="0"><tbody>
+                <tr>
+                  <td class="gsc-input">
+                    <input id="search_autocomplete" class="gsc-input" type="text" size="33" autocomplete="off"
+                      title="search developer docs" name="q"
+                      value="search developer docs"
+                      onFocus="search_focus_changed(this, true)"
+                      onBlur="search_focus_changed(this, false)"
+                      onkeydown="return search_changed(event, true, '../../')"
+                      onkeyup="return search_changed(event, false, '../../')" />
+                  <div id="search_filtered_div" class="no-display">
+                      <table id="search_filtered" cellspacing=0>
+                      </table>
+                  </div>
+                  </td>
+                  <td class="gsc-search-button">
+                    <input type="submit" value="Search" title="search" id="search-button" class="gsc-search-button" />
+                  </td>
+                  <td class="gsc-clear-button">
+                    <div title="clear results" class="gsc-clear-button">&nbsp;</div>
+                  </td>
+                </tr></tbody>
+              </table>
+          </form>
+      </div><!-- searchForm -->
+  </div><!-- search -->
+      </div><!-- headerRight -->
+      <script type="text/javascript">
+        <!--  
+        changeTabLang(getLangPref());
+        //-->
+      </script>
+  </div><!-- header -->
+
+  <div class="g-section g-tpl-240" id="body-content">
+    <div class="g-unit g-first" id="side-nav" itemscope itemtype="http://schema.org/SiteNavigationElement">
+      <div id="devdoc-nav">
+<ul>
+
+  <li>
+    <span class="heading">
+      <span class="en">Android Basics</span>
+      <span class="de" style="display:none">Einführung in Android</span>
+      <span class="es" style="display:none">Información básica sobre Android</span>
+      <span class="fr" style="display:none">Présentation d'Android</span>
+      <span class="it" style="display:none">Nozioni di base su Android</span>
+      <span class="ja" style="display:none">Android の基本</span>
+      <span class="zh-CN" style="display:none">Android 基础知识</span>
+      <span class="zh-TW" style="display:none">Android 簡介</span>
+    </span>
+    <ul>
+      <li><a href="../../guide/basics/what-is-android.html">
+        <span class="en">What Is Android?</span>
+        <span class="de" style="display:none">Was ist Android?</span>
+        <span class="es" style="display:none">¿Qué es Android?</span>
+        <span class="fr" style="display:none">Qu'est-ce qu'Android&nbsp;?</span>
+        <span class="it" style="display:none">Che cos'è Android?</span>
+        <span class="ja" style="display:none">Android とは</span>
+        <span class="zh-CN" style="display:none">Android 是什么？</span>
+        <span class="zh-TW" style="display:none">什麼是 Android？</span>
+          </a></li>
+      <li><a href="../../guide/topics/fundamentals.html">
+        <span class="en">Application Fundamentals</span>
+        <span class="de" style="display:none">Anwendungsgrundlagen</span>
+        <span class="es" style="display:none">Fundamentos de las aplicaciones</span>
+        <span class="fr" style="display:none">Principes de base des applications</span>
+        <span class="it" style="display:none">Concetti fondamentali sulle applicazioni</span>
+        <span class="ja" style="display:none">開発の基礎</span>
+        <span class="zh-CN" style="display:none">应用程序基础</span>
+        <span class="zh-TW" style="display:none">應用程式基本原理</span>
+      </a></li>
+
+  <!--  <li><a style="color:gray;">The Android SDK</a></li> -->
+  <!--  <li><a style="color:gray;">Walkthrough for Developers</a></li> -->
+      <!-- quick overview of what it's like to develop on Android -->
+    </ul>
+  </li>
+
+  <li>
+    <span class="heading">
+      <span class="en">Framework Topics</span>
+      <span class="de" style="display:none">Framework-Themen</span>
+      <span class="es" style="display:none">Temas sobre el framework</span>
+      <span class="fr" style="display:none">Thèmes relatifs au framework</span>
+      <span class="it" style="display:none">Argomenti relativi al framework</span>
+      <span class="ja" style="display:none">フレームワーク トピック</span>
+      <span class="zh-CN" style="display:none">框架主题</span>
+      <span class="zh-TW" style="display:none">架構主題</span>
+    </span>
+    <ul>
+      <li class="toggle-list">
+        <div><a href="../../guide/topics/fundamentals/activities.html">
+          <span class="en">Activities</span>
+        </a></div>
+        <ul>
+          <li><a href="../../guide/topics/fundamentals/fragments.html">
+            <span class="en">Fragments</span>
+          </a></li>
+          <li><a href="../../guide/topics/fundamentals/loaders.html">
+            <span class="en">Loaders</span>
+          </a></li>
+          <li><a href="../../guide/topics/fundamentals/tasks-and-back-stack.html">
+            <span class="en">Tasks and Back Stack</span></a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../../guide/topics/fundamentals/services.html">
+          <span class="en">Services</span>
+        </a></div>
+        <ul>
+          <li><a href="../../guide/topics/fundamentals/bound-services.html">
+            <span class="en">Bound Services</span>
+          </a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+          <div><a href="../../guide/topics/providers/content-providers.html">
+            <span class="en">Content Providers</span>
+          </a></div>
+          <ul>
+            <li>
+                <a href="../../guide/topics/providers/content-provider-basics.html">
+                    <span class="en">Content Provider Basics</span>
+                </a>
+                <span class="new">new!</span>
+            </li>
+            <li>
+                <a href="../../guide/topics/providers/content-provider-creating.html">
+                    <span class="en">Creating a Content Provider</span>
+                </a>
+                <span class="new">new!</span>
+            </li>
+            <li>
+                <a href="../../guide/topics/providers/calendar-provider.html">
+                    <span class="en">Calendar Provider</span>
+                </a>
+                <span class="new">new!</span>
+            </li>
+          </ul>
+      </li>
+      <li><a href="../../guide/topics/intents/intents-filters.html">
+            <span class="en">Intents and Intent Filters</span>
+          </a></li>
+      <li><a href="../../guide/topics/fundamentals/processes-and-threads.html">
+            <span class="en">Processes and Threads</span>
+          </a></li>
+    </ul>
+
+
+    <ul>
+      <li class="toggle-list">
+        <div><a href="../../guide/topics/ui/index.html">
+            <span class="en">User Interface</span>
+          </a></div>
+        <ul>
+          <li><a href="../../guide/topics/ui/declaring-layout.html">
+               <span class="en">XML Layouts</span>
+              </a></li>
+          <li><a href="../../guide/topics/ui/ui-events.html">
+                <span class="en">Input Events</span>
+              </a></li>
+          <li><a href="../../guide/topics/ui/menus.html">
+               <span class="en">Menus</span>
+              </a> <span class="new">updated</span></li>
+          <li><a href="../../guide/topics/ui/actionbar.html">
+               <span class="en">Action Bar</span>
+              </a></li>
+          <li><a href="../../guide/topics/ui/dialogs.html">
+                <span class="en">Dialogs</span>
+              </a></li>
+          <li class="toggle-list">
+            <div><a href="../../guide/topics/ui/notifiers/index.html">
+                <span class="en">Notifications</span>
+            </a></div>
+            <ul>
+              <li><a href="../../guide/topics/ui/notifiers/toasts.html">
+                <span class="en">Toast Notifications</span>
+              </a></li>
+              <li><a href="../../guide/topics/ui/notifiers/notifications.html">
+                <span class="en">Status Bar Notifications</span>
+              </a></li>
+            </ul>
+          </li>
+          <li><a href="../../guide/topics/ui/drag-drop.html">
+                <span class="en">Drag and Drop</span>
+              </a></li>
+          <li><a href="../../guide/topics/ui/themes.html">
+                <span class="en">Styles and Themes</span>
+              </a></li>
+          <li><a href="../../guide/topics/ui/custom-components.html">
+                <span class="en">Custom Components</span>
+              </a></li>
+          <li><a href="../../guide/topics/ui/binding.html">
+                <span class="en">Binding to Data with AdapterView</span>
+              </a></li>
+          <li><a href="../../guide/topics/ui/layout-objects.html">
+                <span class="en">Common Layout Objects</span>
+              </a></li>
+          <li><a href="../../guide/topics/ui/how-android-draws.html">
+                <span class="en">How Android Draws Views</span>
+              </a></li>
+        </ul>
+      </li><!-- end of User Interface -->
+
+      <li class="toggle-list">
+        <div><a href="../../guide/topics/resources/index.html">
+               <span class="en">Application Resources</span>
+             </a></div>
+        <ul>
+          <li><a href="../../guide/topics/resources/providing-resources.html">
+                <span class="en">Providing Resources</span>
+              </a></li>
+          <li><a href="../../guide/topics/resources/accessing-resources.html">
+                <span class="en">Accessing Resources</span>
+              </a></li>
+          <li><a href="../../guide/topics/resources/runtime-changes.html">
+                <span class="en">Handling Runtime Changes</span>
+              </a></li>
+          <li><a href="../../guide/topics/resources/localization.html">
+                <span class="en">Localization</span>
+              </a></li>
+          <li class="toggle-list">
+            <div><a href="../../guide/topics/resources/available-resources.html">
+              <span class="en">Resource Types</span>
+            </a></div>
+            <ul>
+              <li><a href="../../guide/topics/resources/animation-resource.html">Animation</a></li>
+              <li><a href="../../guide/topics/resources/color-list-resource.html">Color State List</a></li>
+              <li><a href="../../guide/topics/resources/drawable-resource.html">Drawable</a></li>
+              <li><a href="../../guide/topics/resources/layout-resource.html">Layout</a></li>
+              <li><a href="../../guide/topics/resources/menu-resource.html">Menu</a></li>
+              <li><a href="../../guide/topics/resources/string-resource.html">String</a></li>
+              <li><a href="../../guide/topics/resources/style-resource.html">Style</a></li>
+              <li><a href="../../guide/topics/resources/more-resources.html">More Types</a></li>
+            </ul>
+          </li><!-- end of resource types -->
+        </ul>
+      </li><!-- end of app resources -->
+      <li class="toggle-list">
+        <div><a href="../../guide/topics/data/data-storage.html">
+            <span class="en">Data Storage</span>
+          </a></div>
+          <ul>
+            <li><a href="../../guide/topics/data/backup.html">
+                <span class="en">Data Backup</span>
+              </a>
+            </li>
+          </ul>
+      </li>
+      <li><a href="../../guide/topics/security/security.html">
+            <span class="en">Security and Permissions</span>
+          </a></li>
+      <li class="toggle-list">
+        <div><a href="../../guide/topics/manifest/manifest-intro.html">
+          <span class="en">The AndroidManifest.xml File</span>
+        </a></div>
+        <ul>
+          <li><a href="../../guide/topics/manifest/action-element.html">&lt;action&gt;</a></li>
+          <li><a href="../../guide/topics/manifest/activity-element.html">&lt;activity&gt;</a></li>
+          <li><a href="../../guide/topics/manifest/activity-alias-element.html">&lt;activity-alias&gt;</a></li>
+          <li><a href="../../guide/topics/manifest/application-element.html">&lt;application&gt;</a></li>
+          <li><a href="../../guide/topics/manifest/category-element.html">&lt;category&gt;</a></li>
+          <li><a href="../../guide/topics/manifest/compatible-screens-element.html">&lt;compatible-screens&gt;</a></li>
+          <li><a href="../../guide/topics/manifest/data-element.html">&lt;data&gt;</a></li>
+          <li><a href="../../guide/topics/manifest/grant-uri-permission-element.html">&lt;grant-uri-permission&gt;</a></li>
+          <li><a href="../../guide/topics/manifest/instrumentation-element.html">&lt;instrumentation&gt;</a></li>
+          <li><a href="../../guide/topics/manifest/intent-filter-element.html">&lt;intent-filter&gt;</a></li>
+          <li><a href="../../guide/topics/manifest/manifest-element.html">&lt;manifest&gt;</a></li>
+          <li><a href="../../guide/topics/manifest/meta-data-element.html">&lt;meta-data&gt;</a></li>
+          <li><a href="../../guide/topics/manifest/path-permission-element.html">&lt;path-permission&gt;</a></li>
+          <li><a href="../../guide/topics/manifest/permission-element.html">&lt;permission&gt;</a></li>
+          <li><a href="../../guide/topics/manifest/permission-group-element.html">&lt;permission-group&gt;</a></li>
+          <li><a href="../../guide/topics/manifest/permission-tree-element.html">&lt;permission-tree&gt;</a></li>
+          <li><a href="../../guide/topics/manifest/provider-element.html">&lt;provider&gt;</a></li>
+          <li><a href="../../guide/topics/manifest/receiver-element.html">&lt;receiver&gt;</a></li>
+          <li><a href="../../guide/topics/manifest/service-element.html">&lt;service&gt;</a></li>
+          <li><a href="../../guide/topics/manifest/supports-gl-texture-element.html">&lt;supports-gl-texture&gt;</a></li>
+          <li><a href="../../guide/topics/manifest/supports-screens-element.html">&lt;supports-screens&gt;</a></li><!-- ##api level 4## -->
+          <li><a href="../../guide/topics/manifest/uses-configuration-element.html">&lt;uses-configuration&gt;</a></li>
+          <li><a href="../../guide/topics/manifest/uses-feature-element.html">&lt;uses-feature&gt;</a></li> <!-- ##api level 4## -->
+          <li><a href="../../guide/topics/manifest/uses-library-element.html">&lt;uses-library&gt;</a></li>
+          <li><a href="../../guide/topics/manifest/uses-permission-element.html">&lt;uses-permission&gt;</a></li>
+          <li><a href="../../guide/topics/manifest/uses-sdk-element.html">&lt;uses-sdk&gt;</a></li>
+        </ul>
+      </li><!-- end of the manifest file -->
+    </ul>
+
+    <ul>
+    <li class="toggle-list">
+        <div><a href="../../guide/topics/graphics/index.html">
+            <span class="en">Graphics</span>
+          </a> <span class="new-child">new!</span></div>
+        <ul>
+          <li><a href="../../guide/topics/graphics/2d-graphics.html">
+              <span class="en">Canvas and Drawables</span></a></li>
+          <li><a href="../../guide/topics/graphics/hardware-accel.html">
+              <span class="en">Hardware Acceleration</span></a>
+            <span class="new">new!</span></li>
+          <li><a href="../../guide/topics/graphics/opengl.html">
+              <span class="en">OpenGL</span>
+            </a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../../guide/topics/graphics/animation.html">
+            <span class="en">Animation</span>
+          </a></div>
+        <ul>
+          <li><a href="../../guide/topics/graphics/prop-animation.html">
+              <span class="en">Property Animation</span></a></li>
+          <li><a href="../../guide/topics/graphics/view-animation.html">
+              <span class="en">View Animation</span></a></li>
+          <li><a href="../../guide/topics/graphics/drawable-animation.html">
+              <span class="en">Drawable Animation</span></a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../../guide/topics/renderscript/index.html">
+          <span class="en">Renderscript</span></a>
+          <span class="new">updated</span>
+        </div>
+        <ul>
+          <li><a href="../../guide/topics/renderscript/graphics.html">
+                <span class="en">Graphics</span>
+              </a>
+          </li>
+          <li><a href="../../guide/topics/renderscript/compute.html">
+                <span class="en">Compute</span>
+              </a>
+          </li>
+          <li><a href="../../guide/topics/renderscript/reference.html">
+                <span class="en">Runtime API Reference</span>
+              </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="toggle-list">
+          <div><a href="../../guide/topics/media/index.html">
+            <span class="en">Multimedia and Camera</span>
+          </a></div>
+          <ul>
+            <li><a href="../../guide/topics/media/mediaplayer.html">
+                  <span class="en">Media Playback</span></a>
+                </li>
+            <li><a href="../../guide/topics/media/jetplayer.html">
+                  <span class="en">JetPlayer</span></a>
+                </li>
+            <li><a href="../../guide/topics/media/camera.html">
+                  <span class="en">Camera</span></a>
+                  <span class="new">new!</span>
+                </li>
+            <li><a href="../../guide/topics/media/audio-capture.html">
+                  <span class="en">Audio Capture</span></a>
+                </li>
+          </ul>
+      </li>
+      <li>
+        <a href="../../guide/topics/clipboard/copy-paste.html">
+            <span class="en">Copy and Paste</span>
+        </a></li>
+      <li class="toggle-list">
+        <div><a href="../../guide/topics/sensors/index.html">
+              <span class="en">Sensors</span>
+              </a> <span class="new">new!</span></div>
+        <ul>
+          <li><a href="../../guide/topics/sensors/sensors_overview.html">
+              <span class="en">Sensors Overview</span>
+            </a></li>
+          <li><a href="../../guide/topics/sensors/sensors_motion.html">
+              <span class="en">Motion Sensors</span>
+            </a></li>
+          <li><a href="../../guide/topics/sensors/sensors_position.html">
+              <span class="en">Position Sensors</span>
+            </a></li>
+          <li><a href="../../guide/topics/sensors/sensors_environment.html">
+              <span class="en">Environment Sensors</span>
+            </a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../../guide/topics/location/index.html">
+               <span class="en">Location and Maps</span>
+             </a></div>
+        <ul>
+          <li><a href="../../guide/topics/location/obtaining-user-location.html">
+                <span class="en">Obtaining User Location</span>
+              </a></li>
+        </ul>
+      </li>
+  <!--<li class="toggle-list">
+        <div><a style="color:gray;">Wireless Controls</a></div>
+          <ul>
+            <li><a style="color:gray;">Wi-Fi</a></li>
+          </ul>
+      </li> -->
+  <!--<li><a style="color:gray;">Localization</a></li>  -->
+      <li><a href="../../guide/topics/appwidgets/index.html">
+            <span class="en">App Widgets</span></a>
+          </li>
+      <li><a href="../../guide/topics/wireless/bluetooth.html">
+            <span class="en">Bluetooth</span></a>
+          </li>
+      <li class="toggle-list">
+        <div><a href="../../guide/topics/nfc/index.html">
+          <span class="en">Near Field Communication</span></a> <span class="new">updated</span>
+        </div>
+        <ul>
+          <li><a href="../../guide/topics/nfc/nfc.html">NFC Basics</a></li>
+          <li><a href="../../guide/topics/nfc/advanced-nfc.html">Advanced NFC</a></li>
+        </ul>
+      </li>
+      <li><a href="../../guide/topics/wireless/wifip2p.html">
+            <span class="en">Wi-Fi Direct</span></a> <span class="new">new!</span>
+          </li>
+      <li class="toggle-list">
+          <div><a href="../../guide/topics/usb/index.html">
+            <span class="en">USB</span></a>
+          </div>
+            <ul>
+              <li><a href="../../guide/topics/usb/accessory.html">Accessory</a></li>
+              <li><a href="../../guide/topics/usb/host.html">Host</a></li>
+              <li><a href="../../guide/topics/usb/adk.html">Open Accessory Dev Kit</a></li>
+            </ul>
+          </li>
+
+       <li><a href="../../guide/topics/network/sip.html">
+            <span class="en">Session Initiation Protocol</span>
+          </a></li>
+      <li class="toggle-list">
+        <div><a href="../../guide/topics/search/index.html">
+            <span class="en">Search</span>
+          </a></div>
+          <ul>
+            <li><a href="../../guide/topics/search/search-dialog.html">Creating a Search Interface</a></li>
+            <li><a href="../../guide/topics/search/adding-recent-query-suggestions.html">Adding Recent Query Suggestions</a></li>
+            <li><a href="../../guide/topics/search/adding-custom-suggestions.html">Adding Custom Suggestions</a></li>
+            <li><a href="../../guide/topics/search/searchable-config.html">Searchable Configuration</a></li>
+          </ul>
+      </li>
+      <li><a href="../../guide/topics/admin/device-admin.html">
+            <span class="en">Device Administration</span></a>
+      </li>
+      <li class="toggle-list">
+           <div>
+                <a href="../../guide/topics/testing/index.html">
+                   <span class="en">Testing</span>
+               </a>
+           </div>
+           <ul>
+              <li>
+                <a href="../../guide/topics/testing/testing_android.html">
+                <span class="en">Testing Fundamentals</span></a>
+              </li>
+              <li>
+                <a href="../../guide/topics/testing/activity_testing.html">
+                <span class="en">Activity Testing</span></a>
+              </li>
+              <li>
+                <a href="../../guide/topics/testing/contentprovider_testing.html">
+                <span class="en">Content Provider Testing</span></a>
+              </li>
+              <li>
+                <a href="../../guide/topics/testing/service_testing.html">
+                <span class="en">Service Testing</span></a>
+              </li>
+              <li>
+                <a href="../../guide/topics/testing/what_to_test.html">
+                <span class="en">What To Test</span></a>
+              </li>
+           </ul>
+      </li>
+    </ul>
+  </li>
+
+  <li>
+    <h2>
+      <span class="en">Google Play Topics</span>
+    </h2>
+    <ul>
+      <li><a href="../../guide/publishing/publishing.html">
+          <span class="en">Publishing on Google Play</span>
+          </a></li>
+      <li class="toggle-list">
+        <div><a href="../../guide/market/licensing/index.html">
+          <span class="en">Application Licensing</span></a>
+        </div>
+        <ul>
+          <li><a href="../../guide/market/licensing/overview.html">
+              <span class="en">Licensing Overview</span></a>
+          </li>
+          <li><a href="../../guide/market/licensing/setting-up.html">
+              <span class="en">Setting Up for Licensing</span></a>
+          </li>
+          <li><a href="../../guide/market/licensing/adding-licensing.html">
+              <span class="en">Adding Licensing to Your App</span></a>
+          </li>
+          <li><a href="../../guide/market/licensing/licensing-reference.html">
+              <span class="en">Licensing Reference</span></a>
+          </li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../../guide/market/billing/index.html">
+            <span class="en">In-app Billing</span></a>
+        </div>
+        <ul>
+          <li><a href="../../guide/market/billing/billing_overview.html">
+              <span class="en">In-app Billing Overview</span></a>
+          </li>
+          <li><a href="../../guide/market/billing/billing_integrate.html">
+              <span class="en">Implementing In-app Billing</span></a>
+          </li>
+          <li><a href="../../guide/market/billing/billing_best_practices.html">
+              <span class="en">Security and Design</span></a>
+          </li>
+          <li><a href="../../guide/market/billing/billing_testing.html">
+              <span class="en">Testing In-app Billing</span></a>
+          </li>
+          <li><a href="../../guide/market/billing/billing_admin.html">
+              <span class="en">Administering In-app Billing</span></a>
+          </li>
+          <li><a href="../../guide/market/billing/billing_reference.html">
+              <span class="en">In-app Billing Reference</span></a>
+          </li>
+        </ul>
+      </li>
+      <li><a href="../../guide/appendix/market-filters.html">
+          <span class="en">Filters on Google Play</span></a>
+      </li>
+      <li><a href="../../guide/market/publishing/multiple-apks.html">
+          <span class="en">Multiple APK Support</span></a>
+      </li>
+      <li><a href="../../guide/market/expansion-files.html">
+          <span class="en">APK Expansion Files</span></a>
+          <span class="new">new!</span>
+      </li>
+    </ul>
+  </li>
+
+
+  <li>
+    <span class="heading">
+      <span class="en">Developing</span>
+      <span class="de" style="display:none">Entwicklung</span>
+      <span class="es" style="display:none">Desarrollo</span>
+      <span class="fr" style="display:none">Développement</span>
+      <span class="it" style="display:none">Sviluppo</span>
+      <span class="ja" style="display:none">開発</span>
+      <span class="zh-CN" style="display:none">开发</span>
+      <span class="zh-TW" style="display:none">開發</span>
+    </span>
+    <ul>
+  <!--<li><a href="">Developing for Android</a></li>
+      signing, upgrading, selecting a package name, select device profile, touch, trackball, dpad available, etc. -->
+      <li>
+        <a href="../../guide/developing/index.html">
+        <span class="en">Introduction</span></a>
+      </li>
+
+      <li class="toggle-list">
+        <div>
+           <a href="../../guide/developing/devices/index.html">
+                <span class="en">Managing Virtual Devices</span>
+            </a>
+        </div>
+        <ul>
+          <li>
+            <a href="../../guide/developing/devices/managing-avds.html">
+              <span class="en">With AVD Manager</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../guide/developing/devices/managing-avds-cmdline.html">
+              <span class="en">From the Command Line</span>
+            </a>
+          </li>
+          <li>
+           <a href="../../guide/developing/devices/emulator.html">
+                <span class="en">Using the Android Emulator</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="../../guide/developing/device.html">
+          <span class="en">Using Hardware Devices</span>
+        </a>
+      </li>
+
+      <li class="toggle-list">
+        <div>
+          <a href="../../guide/developing/projects/index.html">
+            <span class="en">Managing Projects</span>
+          </a>
+        </div>
+        <ul>
+          <li>
+            <a href="../../guide/developing/projects/projects-eclipse.html">
+              <span class="en">From Eclipse with ADT</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../guide/developing/projects/projects-cmdline.html">
+                <span class="en">From the Command Line</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="toggle-list">
+        <div>
+          <a href="../../guide/developing/building/index.html">
+            <span class="en">Building and Running</span>
+          </a>
+        </div>
+        <ul>
+          <li><a href="../../guide/developing/building/building-eclipse.html">
+            <span class="en">From Eclipse with ADT</span>
+          </a></li>
+          <li><a href="../../guide/developing/building/building-cmdline.html">
+            <span class="en">From the Command Line</span></a></li>
+        </ul>
+      </li>
+
+      <li class="toggle-list">
+        <div>
+          <a href="../../guide/developing/debugging/index.html">
+            <span class="en">Debugging</span>
+          </a>
+        </div>
+        <ul>
+          <li>
+            <a href="../../guide/developing/debugging/debugging-projects.html">
+                <span class="en">From Eclipse with ADT</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../guide/developing/debugging/debugging-projects-cmdline.html">
+                <span class="en">From Other IDEs</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../guide/developing/debugging/ddms.html">
+              <span class="en">Using DDMS</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../guide/developing/debugging/debugging-log.html">
+                <span class="en">Reading and Writing Logs</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../guide/developing/debugging/debugging-ui.html">
+                <span class="en">Debugging and Profiling UIs</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../guide/developing/debugging/debugging-tracing.html">
+                <span class="en">Profiling with Traceview and dmtracedump</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../guide/developing/debugging/debugging-devtools.html">
+                <span class="en">Using the Dev Tools App</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="toggle-list">
+           <div>
+                <a href="../../guide/developing/testing/index.html">
+                   <span class="en">Testing</span>
+               </a>
+           </div>
+           <ul>
+              <li>
+                <a href="../../guide/developing/testing/testing_eclipse.html">
+                  <span class="en">From Eclipse with ADT</span>
+                </a>
+              </li>
+
+              <li>
+                <a href="../../guide/developing/testing/testing_otheride.html">
+                  <span class="en">From Other IDEs</span>
+                </a>
+              </li>
+           </ul>
+         </li>
+
+         <li class="toggle-list">
+        <div><a href="../../guide/developing/tools/index.html">
+            <span class="en">Tools</span>
+          </a></div>
+        <ul>
+          <li><a href="../../guide/developing/tools/adb.html">adb</a></li>
+          <li><a href="../../guide/developing/tools/adt.html">ADT</a></li>
+          <li><a href="../../guide/developing/tools/android.html">android</a></li>
+          <li><a href="../../guide/developing/tools/bmgr.html">bmgr</a>
+          <li><a href="../../guide/developing/tools/dmtracedump.html">dmtracedump</a></li>
+          <li><a href="../../guide/developing/tools/draw9patch.html">Draw
+          9-Patch</a></li>
+          <li><a href="../../guide/developing/tools/emulator.html">Emulator</a></li>
+          <li><a href="../../guide/developing/tools/etc1tool.html">etc1tool</a></li>
+          <li><a href="../../guide/developing/tools/hierarchy-viewer.html">Hierarchy Viewer</a></li>
+          <li><a href="../../guide/developing/tools/hprof-conv.html">hprof-conv</a></li>
+          <li><a href="../../guide/developing/tools/layoutopt.html">layoutopt</a></li>
+          <li><a href="../../guide/developing/tools/logcat.html">logcat</a></li>
+          <li><a href="../../guide/developing/tools/mksdcard.html">mksdcard</a></li>
+          <li><a href="../../guide/developing/tools/monkey.html">Monkey</a></li>
+          <li class="toggle-list">
+            <div><a href="../../guide/developing/tools/monkeyrunner_concepts.html">
+              <span class="en">monkeyrunner</span>
+            </a></div>
+            <ul>
+              <li><a href="../../guide/developing/tools/MonkeyDevice.html">
+                <span class="en">MonkeyDevice</span>
+                </a></li>
+              <li><a href="../../guide/developing/tools/MonkeyImage.html">
+                <span class="en">MonkeyImage</span>
+                </a></li>
+              <li><a href="../../guide/developing/tools/MonkeyRunner.html">
+                <span class="en">MonkeyRunner</span>
+                </a></li>
+            </ul>
+          </li>
+          <li><a href="../../guide/developing/tools/proguard.html">ProGuard</a></li>
+          <li><a href="../../guide/developing/tools/adb.html#sqlite">sqlite3</a></li>
+          <li><a href="../../guide/developing/tools/traceview.html">Traceview</a></li>
+          <li><a href="../../guide/developing/tools/zipalign.html">zipalign</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+
+  <li>
+    <span class="heading">
+      <span class="en">Publishing</span>
+      <span class="de" style="display:none">Veröffentlichung</span>
+      <span class="es" style="display:none">Publicación</span>
+      <span class="fr" style="display:none">Publication</span>
+      <span class="it" style="display:none">Pubblicazione</span>
+      <span class="ja" style="display:none">公開</span>
+      <span class="zh-CN" style="display:none">发布</span>
+      <span class="zh-TW" style="display:none">發佈</span>
+    </span>
+    <ul>
+      <li><a href="../../guide/publishing/publishing_overview.html">
+            <span class="en">Publishing Overview</span>
+          </a></li>
+      <li><a href="../../guide/publishing/preparing.html">
+            <span class="en">Preparing for Release</span>
+            <span class="de" style="display:none">Vorbereitung auf die Veröffentlichung</span>
+            <span class="es" style="display:none">Publicación de aplicaciones</span>
+            <span class="fr" style="display:none">Préparation à la publication</span>
+            <span class="it" style="display:none">Preparativi per la pubblicazione</span>
+            <span class="ja" style="display:none">公開の準備</span>
+            <span class="zh-CN" style="display:none">准备发布</span>
+            <span class="zh-TW" style="display:none">準備發佈</span>
+          </a></li>
+      <li><a href="../../guide/publishing/app-signing.html">
+            <span class="en">Signing Your Applications</span>
+            <span class="de" style="display:none">Signieren Ihrer Anwendungen</span>
+            <span class="es" style="display:none">Firma de aplicaciones</span>
+            <span class="fr" style="display:none">Attribution de votre signature <br />à vos
+applications</span>
+            <span class="it" style="display:none">Firma delle applicazioni</span>
+            <span class="ja" style="display:none">アプリケーションへの署名</span>
+            <span class="zh-CN" style="display:none">应用程序签名</span>
+            <span class="zh-TW" style="display:none">簽署應用程式</span>
+          </a></li>
+      <li><a href="../../guide/publishing/versioning.html">
+            <span class="en">Versioning Your Applications</span>
+            <span class="de" style="display:none">Versionsverwaltung für Ihre <br
+/>Anwendungen</span>
+            <span class="es" style="display:none">Versiones de las aplicaciones</span>
+            <span class="fr" style="display:none">Attribution d'une version à vos
+applications</span>
+            <span class="it" style="display:none">Controllo versioni delle applicazioni</span>
+            <span class="ja" style="display:none">アプリケーションのバージョニング</span>
+            <span class="zh-CN" style="display:none">应用程序版本控制</span>
+            <span class="zh-TW" style="display:none">應用程式版本設定</span>
+          </a></li>
+    </ul>
+  </li>
+
+  <li>
+    <span class="heading">
+      <span class="en">Best Practices</span>
+      <span class="de" style="display:none">Bewährte Verfahren</span>
+      <span class="es" style="display:none">Prácticas recomendadas</span>
+      <span class="fr" style="display:none">Meilleures pratiques</span>
+      <span class="it" style="display:none">Best practice</span>
+      <span class="ja" style="display:none">ベスト プラクティス</span>
+      <span class="zh-CN" style="display:none">最佳实践</span>
+      <span class="zh-TW" style="display:none">最佳實務</span>
+    </span>
+    <ul>
+      <li><a href="../../guide/practices/compatibility.html">
+            <span class="en">Compatibility</span>
+          </a></li>
+      <li class="toggle-list">
+        <div><a href="../../guide/practices/screens_support.html">
+          <span class="en">Supporting Multiple Screens</span>
+        </a></div>
+        <ul>
+          <li><a href="../../guide/practices/screens-distribution.html">
+            <span class="en">Distributing to Specific Screens</span>
+          </a></li>
+          <li><a href="../../guide/practices/screen-compat-mode.html">
+            <span class="en">Screen Compatibility Mode</span>
+          </a></li>
+          <li><a href="../../guide/practices/screens-support-1.5.html">
+            <span class="en">Strategies for Android 1.5</span>
+          </a></li>
+        </ul>
+      </li>
+      <li><a href="../../guide/practices/tablets-and-handsets.html">
+            <span class="en">Supporting Tablets and Handsets</span>
+          </a> <span class="new">new!</span></li>
+      <li class="toggle-list">
+        <div><a href="../../guide/practices/ui_guidelines/index.html">
+               <span class="en">UI Guidelines</span>
+             </a></div>
+        <ul>
+          <li class="toggle-list">
+            <div><a href="../../guide/practices/ui_guidelines/icon_design.html">
+                   <span class="en">Icon Design</span>
+                 </a></div>
+            <ul>
+              <li><a href="../../guide/practices/ui_guidelines/icon_design_launcher.html">
+                    <span class="en">Launcher Icons</span>
+                  </a></li>
+              <li><a href="../../guide/practices/ui_guidelines/icon_design_menu.html">
+                    <span class="en">Menu Icons</span>
+                  </a></li>
+              <li><a href="../../guide/practices/ui_guidelines/icon_design_action_bar.html">
+                    <span class="en">Action Bar Icons</span>
+                  </a></li>
+              <li><a href="../../guide/practices/ui_guidelines/icon_design_status_bar.html">
+                    <span class="en">Status Bar Icons</span>
+                  </a></li>
+              <li><a href="../../guide/practices/ui_guidelines/icon_design_tab.html">
+                    <span class="en">Tab Icons</span>
+                  </a></li>
+              <li><a href="../../guide/practices/ui_guidelines/icon_design_dialog.html">
+                    <span class="en">Dialog Icons</span>
+                  </a></li>
+              <li><a href="../../guide/practices/ui_guidelines/icon_design_list.html">
+                    <span class="en">List View Icons</span>
+                  </a></li>
+            </ul>
+          </li>
+          <li><a href="../../guide/practices/ui_guidelines/widget_design.html">
+                <span class="en">App Widget Design</span>
+              </a></li>
+          <li><a href="../../guide/practices/ui_guidelines/activity_task_design.html">
+                <span class="en">Activity and Task Design</span>
+              </a></li>
+          <li><a href="../../guide/practices/ui_guidelines/menu_design.html">
+                <span class="en">Menu Design</span>
+              </a></li>
+        </ul>
+      </li>
+      </ul>
+      <ul>
+      <li><a href="../../guide/practices/design/accessibility.html">
+            <span class="en">Designing for Accessibility</span>
+          </a></li>
+      <li class="toggle-list">
+        <div><a href="../../guide/practices/design/performance.html">
+            <span class="en">Designing for Performance</span>
+          </a></div>
+        <ul>
+          <li><a href="../../guide/practices/design/jni.html">
+                <span class="en">JNI Tips</span>
+              </a></li>
+        </ul>
+      </li>
+      <li><a href="../../guide/practices/design/responsiveness.html">
+            <span class="en">Designing for Responsiveness</span>
+          </a></li>
+      <li><a href="../../guide/practices/design/seamlessness.html">
+            <span class="en">Designing for Seamlessness</span>
+          </a></li>
+      <li><a href="../../guide/practices/security.html">
+            <span class="en">Designing for Security</span></a>
+            </li>
+    </ul>
+  </li>
+
+  <li>
+    <span class="heading">
+      <span class="en">Web Applications</span>
+    </span>
+    <ul>
+      <li><a href="../../guide/webapps/index.html">
+            <span class="en">Web Apps Overview</span>
+          </a></li>
+      <li><a href="../../guide/webapps/targeting.html">
+            <span class="en">Targeting Screens from Web Apps</span>
+          </a></li>
+      <li><a href="../../guide/webapps/webview.html">
+            <span class="en">Building Web Apps in WebView</span>
+          </a></li>
+      <li><a href="../../guide/webapps/debugging.html">
+            <span class="en">Debugging Web Apps</span>
+          </a></li>
+      <li><a href="../../guide/webapps/best-practices.html">
+            <span class="en">Best Practices for Web Apps</span>
+          </a></li>
+    </ul>
+  </li>
+
+  <li>
+    <span class="heading">
+      <span class="en">Appendix</span>
+      <span class="de" style="display:none">Anhang</span>
+      <span class="es" style="display:none">Apéndice</span>
+      <span class="fr" style="display:none">Annexes</span>
+      <span class="it" style="display:none">Appendice</span>
+      <span class="ja" style="display:none">付録</span>
+      <span class="zh-CN" style="display:none">附录</span>
+      <span class="zh-TW" style="display:none">附錄</span>
+    </span>
+    <ul>
+      <li><a href="../../guide/appendix/api-levels.html">
+            <span class="en">Android API Levels</span>
+          </a></li>
+      <li><a href="../../guide/appendix/install-location.html">
+            <span class="en">App Install Location</span>
+          </a></li>
+      <li><a href="../../guide/appendix/media-formats.html">
+            <span class="en">Supported Media Formats</span>
+          </a></li>
+      <li><a href="../../guide/appendix/g-app-intents.html">
+            <span class="en">Intents List: Google Apps</span>
+          </a></li>
+      <li><a href="../../guide/developing/tools/aidl.html">AIDL</a></li>
+      <li><a href="../../guide/appendix/glossary.html">
+            <span class="en">Glossary</span>
+          </a></li>
+    </ul>
+  </li>
+
+</ul>
+
+<script type="text/javascript">
+<!--
+    buildToggleLists();
+    changeNavLang(getLangPref());
+//-->
+</script>
+
+      </div>
+    </div> <!-- end side-nav -->
+    <script>
+      addLoadEvent(function() {
+        scrollIntoView("devdoc-nav");
+        });
+    </script>
+
+
+
+
+<div class="g-unit" id="doc-content"><a name="top"></a>
+
+<div id="jd-header" class="guide-header">
+  <span class="crumb" itemprop="breadcrumb">
+    &nbsp;
+    
+  </span>
+<h1 itemprop="name">Publishing on Google Play</h1>
+</div>
+
+  
+  <div id="jd-content">
+ 
+    
+
+
+    <div class="jd-descr" itemprop="articleBody">
+    <div id="qv-wrapper">
+<div id="qv">
+
+<h2>Quickview</h2>
+
+<ul>
+<li>Learn how to publish and update apps on Google Play.</li>
+<li>Find out how to create links to apps that are published on Google Play.</li>
+<li>Learn about Google Play features.</li>
+</ul>
+
+
+<h2>In this document</h2>
+
+<ol>
+<li><a href="#overview">About Google Play</a>
+<li><A href="#marketpublish">Publishing Apps on Google Play</a></li>
+<li><a href="#marketupgrade">Publishing Updates on Google Play</a></li>
+<li><a href="#marketLicensing">Using Google Play Licensing Service</a></li>
+<li><a href="#marketinappbilling">Using Google Play In-app Billing</a></li>
+<li><a href="#marketintent">Linking to Your Apps on Google Play</a>
+  <ol>
+    <li><a href="#OpeningDetails">Opening an app's details page</a></li>
+    <li><a href="#PerformingSearch">Performing a search</a></li>
+    <li><a href="#BuildaButton">Build a Google Play button</a></li>
+    <li><a href="#UriSummary">Summary of URI formats</a></li>
+  </ol>
+</li>
+</ol>
+
+<h2>See also</h2>
+
+<ol>
+<li><a href="../../guide/publishing/publishing_overview.html">Publishing Overview</a></li>
+<li><a href="../../guide/publishing/preparing.html">Preparing for Release</a></li>
+</ol>
+
+<div id="qv-extra">
+  <img id="rule" src="../../assets/images/grad-rule-qv.png">
+  <div id="qv-sub-rule">
+    <img src="../../assets/images/icon_play.png" style="float:left;margin:0;padding:0 5px;">
+    <h2 style="color:#669999;">Already know about Google Play and want to get started?</h2>
+    <p>Go to <a href="http://play.google.com/apps/publish">Google Play</a>, create a developer
+account, and upload your application. For more information about required assets, listing details,
+and publishing options, see <a
+href="http://market.android.com/support/bin/answer.py?answer=113469">Upload
+Applications</a>.</p>
+  </div>
+</div>
+
+</div>
+</div>
+
+<p>One of the most effective ways to get your application into users' hands is to
+publish it on an application marketplace like Google Play. Publishing on Google Play is a
+straightforward process that you can do in just a few simple steps&mdash;register, configure,
+upload, and publish. Registration takes only a few minutes and needs to be done only once.
+The configuration and publishing steps can all be done through the Google Play Android Developer Console
+after you register as a Google Play developer.</p>
+
+<p>To start publishing on Google Play, first read this topic and then go to the <a
+href="https://play.google.com/apps/publish">Google Play Android Developer Console</a> and register as
+a Google Play developer.</p>
+
+
+<h2 id="overview">About Google Play</h2>
+
+<p>Google Play is a robust publishing platform that helps you publicize, sell, and distribute
+your Android applications to users around the world. When you release your applications through
+Google Play you have access to a suite of developer tools that let you analyze your sales,
+identify market trends, and control who your applications are being distributed to. You also have
+access to several revenue-enhancing features, such as <a
+href="../../guide/market/billing/index.html">in-app billing</a> and
+<a href="../../guide/market/licensing/index.html">application licensing</a>.</p>
+
+<p>Before you can publish applications on Google Play, you need to <a
+href="http://play.google.com/apps/publish">register</a> as a Google Play developer. During the
+registration process you will need to create a developer profile, pay a registration fee, and agree
+to the <a href="http://www.android.com/us/developer-distribution-agreement.html">Google Play
+Developer Distribution Agreement</a>. After you register you can access the Developer
+Console, where you can upload applications, configure publishing options, and monitor publishing
+data. If you want to sell your applications or use the in-app billing feature, you will also need
+to set up a Google Checkout merchant account. For more information about the registration process,
+see <a href="https://support.google.com/androidmarket/developer/bin/answer.py?hl=en&answer=113468">
+Developer Registration</a>.</p>
+
+<h2 id="marketpublish">Publishing Apps on Google Play</h2>
+
+<p>Publishing your application on Google Play is a simple process that involves three basic
+tasks (see figure 1):</p>
+
+<ul>
+  <li>Creating various graphical assets that
+accompany your app on Google Play.</li>
+  <li>Using the Google Play <a
+href="http://play.google.com/apps/publish">Developer Console</a> to configure publishing options,
+specify listing details, and upload your app and graphical assets to Google Play.</li>
+  <li>Reviewing your publishing settings and changing the release
+status of your app from Unpublished to Published.</li>
+</ul>
+
+<img src="../../images/publishing/publishing_android_market.png"
+     alt="Shows the three steps that are required to publish on Google Play"
+     height="168"
+     id="figure1" />
+<p class="img-caption">
+  <strong>Figure 1.</strong> To publish apps on Google Play you must first <a
+href="../../guide/publishing/preparing.html">prepare your app for release</a> and then perform
+three simple tasks.
+</p>
+
+<p class="caution"><strong>Important:</strong> You must <a
+href="../../guide/publishing/preparing.html">prepare your application for release</a> before you
+can publish it on Google Play. When you prepare your application for release you configure it for
+release and build it in release mode. Building in release mode signs your application's <code>.apk</code>
+file with your private release key. You cannot publish an application on Google Play unless it is
+signed with your own private release key.</p>
+
+<h3>Preparing promotional materials</h3>
+
+<p>To fully leverage the marketing and publicity capabilities of Google Play, you need to create
+several graphical assets that accompany your app on Google Play, such as screenshots, videos,
+promotional graphics, and promotional text. At a minimum you must provide two screenshots of your
+application and a high resolution application icon. The screenshots are displayed on the details
+page for your application on Google Play, and the high resolution application icon is displayed
+in various locations throughout Google Play. The high resolution icon does not replace the
+launcher icon for your application, rather, it serves as a supplemental icon and should look
+the same as your launcher icon. Promotional video,
+graphics, and text are optional, although we strongly recommended that you prepare these for your
+app. For more information about the graphic assets that accompany your application, see <a
+href="http://support.google.com/androidmarket/developer/bin/answer.py?hl=en&answer=1078870">Graphic
+Assets for your Application</a>.</p>
+
+<h3>Configuring options and uploading assets</h3>
+
+<p>Google Play lets you target your application to a worldwide pool of users and devices. To
+reach these users you can use the Developer Console to configure various publishing
+options and listing details for your app. For example, you can choose the <a
+href="http://support.google.com/androidmarket/developer/bin/answer.py?hl=en&answer=138294&topic=
+2365624&ctx=topic">countries</a> you want to reach, the listing languages you want to use, and the
+<a
+href="http://support.google.com/androidmarket/developer/bin/answer.py?hl=en&answer=138412&topic=
+15867&ctx=topic">price</a> you want to charge in each country. You can also configure listing
+details such as the application type, <a
+href="https://support.google.com/androidmarket/developer/bin/answer.py?hl=en&answer=113475&topic=
+2365760&ctx=topic">category</a>, and <a
+href="http://support.google.com/androidmarket/developer/bin/answer.py?hl=en&answer=188189&topic=
+2364761&ctx=topic">content rating</a>. In addition, if you want to sell items within your app using
+the in-app billing feature, you can use the Developer Console to <a
+href="http://grendel.sea.corp.google.com:48014/guide/market/billing/billing_admin.html#billing-list
+- setup">create a product list</a> and control which items are available for purchase in your
+app.</p>
+
+<p>When you are finished setting publishing options and listing details, you can upload your assets
+and your application to Google Play. You can also upload your application as a draft
+(unpublished) application, which lets you do final testing before you publish it for final
+release.</p>
+
+<p>To learn more about Google Play publishing settings, see the following resources:</p>
+
+<ul>
+  <li><a
+href="http://support.google.com/androidmarket/developer/bin/answer.py?hl=en&answer=113469&topic=
+236562&ctx=topic">Upload Applications</a>&mdash;provides a summary of the publishing settings
+you can configure for an app.</li>
+  <li><a
+href="http://support.google.com/androidmarket/developer/bin/topic.py?hl=en&topic=15867">Selling
+Your Apps</a>&mdash;provides guidance about pricing, supported currencies, tax rates, and many
+other topics related to selling apps.</li>
+  <li><a
+href="https://support.google.com/androidmarket/developer/bin/answer.py?hl=en&answer=1169947&topic=
+15867&ctx=topic">Selling Apps in Multiple Currencies</a>&mdash;provides a description of how
+pricing, payouts, and exchange rates work.</li>
+</ul>
+
+<h3>Publishing your application</h3>
+
+<p>When you are satisfied that your publishing settings are correctly configured and your uploaded
+application is ready to be released to the public, you can simply click <strong>Publish</strong> in
+the Developer Console to make your app available for download
+around the world. Keep in mind, it can take several hours for your app to appear on Google
+Play after you click <strong>Publish</strong> in the Developer Console.</p>
+
+<h3>Controlling Distribution to Devices</h3>
+
+<p>If your application targets different device configurations, you can control which Android-powered
+devices have access to your application on Google Play by
+using Google Play filters. Filtering compares device configurations that you declare in your
+app's manifest file to the configuration defined by a device. For example, if you declare the camera
+filter in your manifest, only those devices that have a camera will see your app on Google
+Play. Filters must be configured in your application's manifest file when you are <a
+href="../../guide/publishing/preparing.html">preparing your app for release</a> (that is, before
+you upload your app to Google Play). For more information, see <a
+href="../../guide/appendix/market-filters.html">Filters on Google Play</a>.</p>
+
+<p>You can also use the multiple APK feature to distribute different <code>.apk</code> files under the same
+application listing and the same package name; however, you should use this option only as a last
+resort. Android applications usually run on most compatible devices with a single APK, by supplying
+alternative resources for different configurations (for example, different layouts for different screen
+sizes) and the Android system selects the appropriate resources for the device at runtime. In a
+few cases, however, a single APK is unable to support all device configurations, because alternative
+resources make the APK file too big (greater than 50MB) or other technical challenges prevent a
+single APK from working on all devices. Although we encourage you to develop and publish a single
+APK that supports as many device configurations as possible, doing so is sometimes
+not possible. To help you publish your application for as many devices as possible, Google Play
+allows you to publish multiple APKs under the same application listing. Google Play then supplies
+each APK to the appropriate devices based on configuration support you've declared in the manifest
+file of each APK. To use this feature, you need to build your separate <code>.apk</code> files when you are <a
+href="../../guide/publishing/preparing.html">preparing your app for release</a> (that is, before
+you upload your app to Google Play). For more information, see <a
+href="../../guide/market/publishing/multiple-apks.html">Multiple APK Support</a>.</p>
+
+<h2 id="marketupgrade">Publishing Updates on Google Play</h2>
+
+<p>At any time after publishing an application on Google Play, you can upload
+and publish an update to the same application package. When you publish an
+update to an application, users who have already installed the
+application may receive a notification that an update is
+available for the application. They can then choose to update the application
+to the latest version.</p>
+
+<p>Before uploading the updated application, be sure that you have incremented
+the <code>android:versionCode</code> and <code>android:versionName</code>
+attributes in the <a
+href="../../guide/topics/manifest/manifest-element.html"><code>&lt;manifest&gt;</code></a>
+element of the manifest file. Also, the package name must be the same as the existing version and
+the <code>.apk</code> file must be signed with the same private key. If the package name and signing
+certificate do <em>not</em> match those of the existing version, Google Play will
+consider it a new application, publish it as such, and will not offer it to existing users as an
+update.</p>
+
+<p>If you plan to publish your application on Google Play, you must make sure
+  that it meets the requirements listed below, which are enforced by Google Play
+  when you upload the application.</p>
+
+<h2 id="marketLicensing">Using Google Play Licensing Service</h2>
+
+<p>Google Play offers a licensing service that lets you enforce licensing
+policies for paid applications that you publish through Google Play. With
+Google Play Licensing, your applications can query Google Play at runtime
+to obtain the licensing status for the current user, then allow or disallow
+further use of the application as appropriate. Using the service, you can apply a flexible
+licensing policy on an application-by-application basis&mdash;each
+application can enforce its licensing status in the way most appropriate
+for it. </p>
+
+<p>Any application that you publish through Google Play can use the Google
+Play Licensing Service. The service uses no dedicated framework APIs, so you can
+add licensing to any application that uses a minimum API Level of 3 or
+higher.</p>
+
+<p>For complete information about Google Play Licensing Service and how to
+use it in your application, read <a
+href="../../guide/market/licensing/index.html">Application Licensing</a>.</p>
+
+<h2 id="marketinappbilling">Using Google Play In-app Billing</h2>
+
+<p><a href="../../guide/market/billing/billing_overview.html">Google Play In-app Billing</a>
+is a Google Play service that lets you sell digital content in your applications. You can use
+the service to sell a wide range of content, including downloadable  content such as media files or
+photos, and virtual content such as game levels or potions.</p>
+
+<p>When you use Google Play's in-app billing service to sell an item, Google Play handles all
+billing details so your application never has to directly process any financial transactions.
+Google Play uses the same checkout service that is used for application purchases, so your users
+experience a consistent and familiar purchase flow (see figure 1). Also, the transaction fee for
+in-app purchases is the same as the transaction fee for application purchases (30%).</p>
+
+<p>Any application that you publish through Google Play can implement in-app billing. No special
+account or registration is required other than a Google Play publisher account and a Google
+Checkout Merchant account. Also, because the service uses no dedicated framework APIs, you can add
+in-app billing to any application that uses a minimum API level of 4 or higher.</p>
+
+<p>To help you integrate in-app billing into your application, the Android SDK provides a <a
+href="../../guide/market/billing/billing_integrate.html#billing-download">sample application</a>
+that demonstrates a simple implementation of in-app billing. The sample application contains
+examples of billing-related classes you can use to implement in-app billing in your application. It
+also contains examples of the database, user interface, and business logic you might use to
+implement in-app billing. For more information about the in-app billing feature, see the
+<a href="../../guide/market/billing/index.html">In-app Billing documentation</a>.</p>
+
+<h2 id="marketintent">Linking to Your Apps on Google Play</h2>
+
+<p>To help users discover your published applications, you can use two special Google Play URIs
+that direct users to your application's details page or perform a search for all of your published
+applications on Google Play. You can use these URIs to create a button in your application or a
+link on a web page that:</p>
+
+<ul>
+  <li>Opens your application's details page in the Google Play application or web site.</li>
+  <li>Searches for all your published applications in the Google Play application or web
+site.</li>
+</ul>
+
+<p>You can launch the Google Play application or web site in the following ways:</p>
+<ul>
+  <li>Initiate an <code><a href="../../reference/android/content/Intent.html">Intent</a></code> from your application that launches the
+Google Play application on the user's device.</li>
+  <li>Provide a link on a web page that opens the Google Play web site (but will also
+open the Google Play application if clicked from a device).</li>
+</ul>
+
+<p>In both cases, whether you want to initiate the action from your application or from a web
+page, the URIs are quite similar. The only difference is the URI prefix.</p>
+
+<p>To open the Google Play application from your application, the prefix for the intent's data
+URI is:</p>
+
+<p style="margin-left:2em"><code>market://</code></p>
+
+<p>To open Google Play store from your web site, the prefix for the link URI is:</p>
+
+<p style="margin-left:2em"><code>http://play.google.com/store/</code></p>
+
+<p>The following sections describe how to create a complete URI for each action.</p>
+
+<p class="note"><strong>Note:</strong> If you create a link to open Google Play from your web
+site and the user selects it from an Android-powered device, the device's Google Play application will
+resolve the link so the user can use the Google Play application on the device instead of opening the web
+site. As such, you should always use <code>http://play.google.com/store/apps/...</code> URIs when
+creating a link on
+a web page. When pointing to your apps from within your Android app, use the
+<code>market://</code> URIs in an intent, so that the Google Play application always opens.</p>
+
+
+<h3 id="OpeningDetails">Opening an app's details page</h3>
+
+<p>As described above, you can open the details page for a specific application either on the
+Google Play application or the Google Play web site. The details page allows the user to see
+the application description, screenshots, reviews and more, and choose to install it.</p>
+
+<p>The format for the URI that opens the details page is:</p>
+
+<p style="margin-left:2em"><code>&lt;URI_prefix&gt;<b>apps/details?id=</b>&lt;package_name&gt;</code></p>
+
+<p>The <code>&lt;package_name&gt;</code> is a placeholder for the target application's
+fully-qualified package name, as declared in the <a
+href="../../guide/topics/manifest/manifest-element.html#package"><code>package</code></a> attribute of the <a href="../../guide/topics/manifest/manifest-element.html"><code>&lt;manifest&gt;</code></a> element.</p>
+
+<p>For example: <code>http://play.google.com/store/apps/details?id=com.example.myapp</code></p>
+
+
+<h4>Opening the app details page from your Android app</h4>
+
+<p>To open the Google Play details page from your application,
+create an intent with the <code><a href="../../reference/android/content/Intent.html#ACTION_VIEW">ACTION_VIEW</a></code> action and include a data URI
+in this format:</p>
+
+<p style="margin-left:2em"><code>market://details?id=&lt;package_name&gt;</code></p>
+
+<p>For example, here's how you can create an intent and open an application's details page in
+Google Play:</p>
+
+<pre>
+Intent intent = new Intent(Intent.ACTION_VIEW);
+intent.setData(Uri.parse("market://details?id=com.example.android"));
+startActivity(intent);
+</pre>
+
+<p>This will open the Google Play application on the device to view the <code>com.example.android</code> application.</p>
+
+
+<h4>Opening the app details page from a web site</h4>
+
+<p>To open the details page from your web site, create a link with a URI in this
+format:</p>
+
+<p style="margin-left:2em">
+  <code>http://play.google.com/store/apps/details?id=&lt;package_name&gt;</code>
+</p>
+
+<p>For example, here's a link that opens an application's details page on Google Play:</p>
+
+<pre>
+&lt;a href="http://play.google.com/store/apps/details?id=com.example.android">App Link&lt;/a>
+</pre>
+
+<p>When clicked from a desktop web browser, this opens the Google Play web site to view the
+<code>com.example.android</code> application. When clicked from an Android-powered device, users are
+given the option to use either their web browser or the Google Play application to view the
+application.</p>
+
+
+
+<h3 id="PerformingSearch">Performing a search</h3>
+
+<p>To initiate a search on Google Play, the format for the URI is:</p>
+
+<p style="margin-left:2em">
+  <code>&lt;URI_prefix&gt;<b>search?q=</b>&lt;query&gt;</code>
+</p>
+
+<p>The <code>&lt;query&gt;</code> is a placeholder for the search query to execute in Google
+Play. The query can be a raw text string or you can include a parameter that performs a search
+based on the publisher name:</p>
+
+<ul>
+  <li>To perform a raw text search, append the query string:
+  <p><code>&lt;URI_prefix&gt;<b>search?q=</b>&lt;search_query&gt;</code></p></li>
+
+  <li>To search based on the publisher name, use the <code>pub:</code> parameter in the query, followed
+by the publisher name:
+  <p><code>&lt;URI_prefix&gt;<b>search?q=pub:</b>&lt;publisher_name&gt;</code></p>
+  <p>You can use this type of search to show all of your published applications.</p></li>
+</ul>
+
+
+<h4>Searching from your Android app</h4>
+
+<p>To initiate a search on Google Play from your application, create an intent with the
+<code><a href="../../reference/android/content/Intent.html#ACTION_VIEW">ACTION_VIEW</a></code> action and include a data URI in this format:</p>
+
+<p style="margin-left:2em"><code>market://search?q=&lt;query&gt;</code></p>
+
+<p>The query may include the <code>pub:</code> parameter described above.</p>
+
+<p>For example, here's how you can initiate a search in the Google Play application, based on the
+publisher name:</p>
+
+<pre>
+Intent intent = new Intent(Intent.ACTION_VIEW);
+intent.setData(Uri.parse("market://search?q=pub:Your Publisher Name"));
+startActivity(intent);
+</pre>
+
+<p>This opens the Google Play application to perform the search. The search result shows all
+applications published by the publisher that are compatible with the current device.</p>
+
+
+<h4>Searching from a web site</h4>
+
+<p>To initiate a search on Google Play from your web site, create a link with a URI in this
+format:</p>
+
+<p style="margin-left:2em">
+  <code>http://play.google.com/store/search?q=&lt;query&gt;</code>
+</p>
+
+<p>The query may include the <code>pub:</code> parameter described above.</p>
+
+<p>For example, here's a link that initiates a search on Google Play, based on the
+publisher name:</p>
+
+<pre>
+&lt;a href="http://play.google.com/store/search?q=pub:Your Publisher Name">Search Link&lt;/a>
+</pre>
+
+<p>When clicked from a desktop web browser, this opens the Google Play web site and performs the
+search. When clicked from an Android-powered device, users are given the option to use either their
+web browser or the Google Play application to perform the search.</p>
+
+
+
+<h3 id="BuildaButton">Build a Google Play button</h3>
+
+<p>Use the following form to create a button for your web site that takes users to your application
+on Google Play. Input either your application's package name or your publisher name and the button
+will take users to Google Play to either view your application's information or view a list of your
+published apps. If users click the button while on an Android-powered device, the Google Play
+application will respond to show users your application(s).</p>
+
+<p>This form offers two styles of the official brand badge each at recommended sizes. You can pick
+between either "Get it on Google Play" or "Android app on Google Play." You should not modify the
+badge images in any way. For more usage guidelines,
+see the <a href="http://www.android.com/branding.html">Android Brand Guidelines</a>.</p>
+
+<style type="text/css">
+
+form.button-form {
+  margin-top:2em;
+}
+
+/* the label and input elements are blocks that float left in order to
+   keep the left edgets of the input aligned, and IE 6/7 do not fully support "inline-block" */
+label.block {
+  display: block;
+  float: left;
+  width: 100px;
+  padding-right: 10px;
+}
+
+input.text {
+  display: block;
+  float: left;
+  width: 250px;
+}
+
+div.button-row {
+  white-space:nowrap;
+  min-height:80px;
+}
+
+div.button-row input {
+  vertical-align:120%;
+}
+
+#jd-content div.button-row img {
+  margin: 0;
+}
+
+</style>
+
+<script type="text/javascript">
+
+// variables for creating 'try it out' demo button
+var imagePath = "http://www.android.com/images/brand/"
+var linkStart = "<a href=\"http://play.google.com/store/";
+var imageStart = "\">\n"
+        + "  <img alt=\"";
+  // leaves opening for the alt text value
+var imageSrc = "\"\n       src=\"" + imagePath;
+  // leaves opening for the image file name
+var imageEnd = ".png\" />\n</a>";
+
+// variables for creating code snippet
+var linkStartCode = "&lt;a href=\"http://play.google.com/store/";
+var imageStartCode = "\"&gt;\n"
+        + "  &lt;img alt=\"";
+  // leaves opening for the alt text value
+var imageSrcCode = "\"\n       src=\"" + imagePath;
+  // leaves opening for the image file name
+var imageEndCode = ".png\" />\n&lt;/a>";
+
+/** Generate the HTML snippet and demo based on form values */
+function buildButton(form) {
+  var selectedValue = $('form input[type=radio]:checked').val();
+  var altText = selectedValue.indexOf("get_it") != -1 ? "Get it on Google Play" : "Android app on Google Play";
+
+  if (form["package"].value != "com.example.android") {
+    $("#preview").show();
+    $("#snippet").show().html(linkStartCode + "apps/details?id=" + form["package"].value
+            + imageStartCode + altText + imageSrcCode
+            + selectedValue + imageEndCode);
+    $("#button-preview").html(linkStart + "apps/details?id=" + form["package"].value
+            + imageStart + altText + imageSrc
+            + selectedValue + imageEnd);
+  } else if (form["publisher"].value != "Example, Inc.") {
+    $("#preview").show();
+    $("#snippet").show().html(linkStartCode + "search?q=pub:" + form["publisher"].value
+            + imageStartCode + altText + imageSrcCode
+            + selectedValue + imageEndCode);
+    $("#button-preview").html(linkStart + "search?q=pub:" + form["publisher"].value
+            + imageStart + altText + imageSrc
+            + selectedValue + imageEnd);
+  } else {
+    alert("Please enter your package name or publisher name");
+  }
+  return false;
+}
+
+/** Listen for Enter key */
+function onTextEntered(event, form, me) {
+  // 13 = enter
+  if (event.keyCode == 13) {
+    buildButton(form);
+  }
+}
+
+/** When input is focused, remove example text and disable other input */
+function onInputFocus(object, example) {
+  if (object.value == example) {
+    $(object).val('').css({'color' : '#000'});
+  }
+  $('input[type="text"]:not(input[name='+object.name+'])',
+          object.parentNode).attr('disabled','true');
+  $('#'+object.name+'-clear').show();
+}
+
+/** When input is blured, restore example text if appropriate and enable other input */
+function onInputBlur(object, example) {
+  if (object.value.length < 1) {
+    $(object).attr('value',example).css({'color':'#ccc'});
+    $('input[type="text"]', object.parentNode).removeAttr('disabled');
+    $('#'+object.name+'-clear').hide();
+  }
+}
+
+/** Clear the form to start over */
+function clearLabel(id, example) {
+  $("#preview").hide();
+  $('#'+id+'').html('').attr('value',example).css({'color':'#ccc'});
+  $('input[type="text"]', $('#'+id+'').parent()).removeAttr('disabled');
+  $('#'+id+'-clear').hide();
+  return false;
+}
+
+/** When the doc is ready, find the inputs and color the input grey if the value is the example
+    text. This is necessary to handle back-navigation, which can auto-fill the form with previous
+    values (and text should not be grey) */
+$(document).ready(function() {
+  $(".button-form input.text").each(function(index) {
+    if ($(this).val() == $(this).attr("default")) {
+      $(this).css("color","#ccc");
+    } else {
+      /* This is necessary to handle back-navigation to the page after form was filled */
+      $('input[type="text"]:not(input[name='+this.name+'])',
+              this.parentNode).attr('disabled','true');
+      $('#'+this.name+'-clear').show();
+    }
+  });
+});
+
+</script>
+
+<form class="button-form">
+  <label class="block" for="package">Package name:</label>
+  <input class="text" type="text" id="package" name="package"
+         value="com.example.android"
+         default="com.example.android"
+         onfocus="onInputFocus(this, 'com.example.android')"
+         onblur="onInputBlur(this, 'com.example.android')"
+         onkeyup="return onTextEntered(event, this.parentNode, this)"/>&nbsp;
+         <a id="package-clear" style="display:none" href="#"
+            onclick="return clearLabel('package','com.example.android');">clear</a>
+  <p style="clear:both;margin:0">&nbsp;<em>or</em></p>
+  <label class="block" style="margin-top:5px" for="publisher">Publisher name:</label>
+  <input class="text" type="text" id="publisher" name="publisher"
+         value="Example, Inc."
+         default="Example, Inc."
+         onfocus="onInputFocus(this, 'Example, Inc.')"
+         onblur="onInputBlur(this, 'Example, Inc.')"
+         onkeyup="return onTextEntered(event, this.parentNode, this)"/>&nbsp;
+         <a id="publisher-clear" style="display:none" href="#"
+            onclick="return clearLabel('publisher','Example, Inc.');">clear</a>
+         <br/><br/>
+
+<div class="button-row">
+  <input type="radio" name="buttonStyle" value="get_it_on_play_logo_small" id="ns" checked="checked" />
+    <label for="ns"><img src="http://www.android.com/images/brand/get_it_on_play_logo_small.png"
+alt="Get it on Google Play (small)" /></label>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+  <input type="radio" name="buttonStyle" value="get_it_on_play_logo_large" id="nm" />
+    <label for="nm"><img src="http://www.android.com/images/brand/get_it_on_play_logo_large.png"
+alt="Get it on Google Play (large)" /></label>
+</div>
+
+<div class="button-row">
+  <input type="radio" name="buttonStyle" value="android_app_on_play_logo_small" id="ws" />
+    <label for="ws"><img src="http://www.android.com/images/brand/android_app_on_play_logo_small.png"
+alt="Android app on Google Play (small)" /></label>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+  <input type="radio" name="buttonStyle" value="android_app_on_play_logo_large" id="wm" />
+    <label for="wm"><img src="http://www.android.com/images/brand/android_app_on_play_logo_large.png"
+alt="Android app on Google Play (large)" /></label>
+</div>
+
+  <input type="button" onclick="return buildButton(this.parentNode)" value="Build my button"
+style="padding:5px" />
+  <br/>
+</form>
+
+<div id="preview" style="display:none">
+  <p>Copy and paste this HTML into your web site:</p>
+  <textarea id="snippet" cols="100" rows="5" onclick="this.select()"
+style="font-family:monospace;background-color:#efefef;padding:5px;display:none;margin-bottom:1em">
+  </textarea >
+
+<p>Try it out:</p>
+<div id="button-preview" style="margin-top:1em"></div>
+</div>
+
+
+
+
+
+
+<h3 id="UriSummary">Summary of URI formats</h3>
+
+<p>The table below provides a summary of the URIs currently supported by the Google Play (both on
+the web and in the Android application), as discussed in the previous sections.</p>
+
+<table>
+<tr>
+<th>For this result</th>
+<th>Use this URI in a web page link</th>
+<th>Or this URI in an <code><a href="../../reference/android/content/Intent.html#ACTION_VIEW">ACTION_VIEW</a></code> intent</th>
+</tr>
+
+<tr>
+<td>Display the details screen for a specific application</td>
+<td><code>http://play.google.com/store/apps/details?id=&lt;package_name&gt;</code>
+<td><code>market://details?id=&lt;package_name&gt;</code></td>
+</tr>
+
+<tr>
+<td>Search for applications using a general string query.</td>
+<td><code>http://play.google.com/store/search?q=&lt;query&gt;</code></td>
+<td><code>market://search?q=&lt;query&gt;</code></td>
+</tr>
+
+<tr>
+<td>Search for applications by publisher name</td>
+<td><nobr><code>http://play.google.com/store/search?q=pub:&lt;publisher_name&gt;</code></nobr></td>
+<td><nobr><code>market://search?q=pub:&lt;publisher_name&gt;</code></nobr></td>
+</tr>
+
+</table>
+
+    </div>
+
+    
+    
+    <a href="#top" style="float:right">&uarr; Go to top</a>
+    
+
+  </div> <!-- end jd-content -->
+
+<div id="footer">
+
+
+  <div id="copyright">
+    
+  Except as noted, this content is licensed under <a
+  href="http://www.apache.org/licenses/LICENSE-2.0">Apache 2.0</a>. 
+  For details and restrictions, see the <a href="../../license.html">
+  Content License</a>.
+  </div>
+  <div id="build_info">
+    
+  Android 4.0&nbsp;r1 - 16 Mar 2012 16:45
+
+  </div>
+
+  <div id="footerlinks">
+    
+  <p>
+    <a href="http://www.google.com/intl/en/policies/" target="_blank">Privacy &amp; Terms</a> -
+    <a href="http://www.android.com/branding.html" target="_blank">Brand Guidelines</a> -
+    <a
+href="http://code.google.com/p/android/issues/entry?template=Developer%20Documentation"
+target="_blank">Report Document Issues</a>
+  </p>
+  </div>
+
+</div> <!-- end footer -->
+
+</div><!-- end doc-content -->
+
+</div> <!-- end body-content --> 
+
+<script type="text/javascript">
+init(); /* initialize android-developer-docs.js */
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-5831155-1");
+pageTracker._trackPageview();
+</script>
+
+</body>
+</html>
+
+
+

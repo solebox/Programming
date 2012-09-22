@@ -1,0 +1,1930 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico" />
+<title>Setting Up for Licensing | Android Developers</title>
+<link href="../../../assets/android-developer-docs-devguide.css" rel="stylesheet" type="text/css" />
+<script src="../../../assets/search_autocomplete.js" type="text/javascript"></script>
+<script src="../../../assets/jquery-resizable.min.js" type="text/javascript"></script>
+<script src="../../../assets/android-developer-docs.js" type="text/javascript"></script>
+<script src="../../../assets/prettify.js" type="text/javascript"></script>
+<script type="text/javascript">
+  setToRoot("../../../");
+</script>
+<noscript>
+  <style type="text/css">
+    html,body{overflow:auto;}
+    #body-content{position:relative; top:0;}
+    #doc-content{overflow:visible;border-left:3px solid #666;}
+    #side-nav{padding:0;}
+    #side-nav .toggle-list ul {display:block;}
+    #resize-packages-nav{border-bottom:3px solid #666;}
+  </style>
+</noscript>
+</head>
+<body class="gc-documentation" itemscope itemtype="http://schema.org/Article">
+
+  <div id="header">
+      <div id="headerLeft">
+          <a href="../../../index.html" tabindex="-1"><img
+              src="../../../assets/images/bg_logo.png" alt="Android Developers" /></a>
+          <ul id="header-tabs" class="guide">
+    
+	<li id="home-link"><a href="../../../offline.html">
+	
+		<span class="en">Home</span>
+		<span style="display:none" class="de">Startseite</span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ホーム</span>
+		<span style="display:none" class="zh-CN">主页</span>
+		<span style="display:none" class="zh-TW">首頁</span>
+	
+	</a></li>
+	<li id="sdk-link"><a href="../../../sdk/index.html">
+		<span class="en">SDK</span>
+	</a></li>
+	<li id="guide-link"><a href="../../../guide/index.html" onClick="return loadLast('guide')">
+	
+		<span class="en">Dev Guide</span>
+		<span style="display:none" class="de">Handbuch</span>
+		<span style="display:none" class="es">Guía</span>
+		<span style="display:none" class="fr">Guide</span>
+		<span style="display:none" class="it">Guida</span>
+		<span style="display:none" class="ja">開発ガイド</span>
+		<span style="display:none" class="zh-CN">开发人员指南</span>
+		<span style="display:none" class="zh-TW">開發指南</span>
+	
+	</a></li>
+	<li id="reference-link"><a href="../../../reference/packages.html" onClick="return loadLast('reference')">
+	
+		<span class="en">Reference</span>
+		<span style="display:none" class="de">Referenz</span>
+		<span style="display:none" class="es">Referencia</span>
+		<span style="display:none" class="fr">Référence</span>
+		<span style="display:none" class="it">Riferimento</span>
+		<span style="display:none" class="ja">リファレンス</span>
+		<span style="display:none" class="zh-CN">参考</span>
+		<span style="display:none" class="zh-TW">參考資料</span>
+	
+	</a></li>
+	<li id="resources-link"><a href="../../../resources/index.html" onClick="return loadLast('resources')">
+	
+		<span class="en">Resources</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+    		<span style="display:none" class="ja"></span>
+		<span style="display:none" class="zh-CN"></span>
+		<span style="display:none" class="zh-TW"></span>
+	
+	</a></li>
+	<li id="videos-link"><a href="../../../videos/index.html" onClick="return loadLast('videos')">
+	
+		<span class="en">Videos</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ビデオ</span>
+		<span style="display:none" class="zh-CN"></span>
+		<span style="display:none" class="zh-TW"></span>
+	
+	</a></li>
+	<li><a href="http://android-developers.blogspot.com" onClick="return requestAppendHL(this.href)">
+	
+		<span class="en">Blog</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ブログ</span>
+		<span style="display:none" class="zh-CN">博客</span>
+		<span style="display:none" class="zh-TW">網誌</span>
+	
+	</a></li>
+
+
+     
+</ul>
+     
+      </div>
+      <div id="headerRight">
+          <div id="headerLinks">
+          &nbsp;&nbsp;
+          <a href="../../../design/index.html">Android Design</a>&nbsp;&nbsp;
+          <a href="http://www.android.com">Android.com</a>
+          </div>
+  <div id="search" >
+      <div id="searchForm">
+          <form accept-charset="utf-8" class="gsc-search-box" 
+                onsubmit="return submit_search()">
+            <table class="gsc-search-box" cellpadding="0" cellspacing="0"><tbody>
+                <tr>
+                  <td class="gsc-input">
+                    <input id="search_autocomplete" class="gsc-input" type="text" size="33" autocomplete="off"
+                      title="search developer docs" name="q"
+                      value="search developer docs"
+                      onFocus="search_focus_changed(this, true)"
+                      onBlur="search_focus_changed(this, false)"
+                      onkeydown="return search_changed(event, true, '../../../')"
+                      onkeyup="return search_changed(event, false, '../../../')" />
+                  <div id="search_filtered_div" class="no-display">
+                      <table id="search_filtered" cellspacing=0>
+                      </table>
+                  </div>
+                  </td>
+                  <td class="gsc-search-button">
+                    <input type="submit" value="Search" title="search" id="search-button" class="gsc-search-button" />
+                  </td>
+                  <td class="gsc-clear-button">
+                    <div title="clear results" class="gsc-clear-button">&nbsp;</div>
+                  </td>
+                </tr></tbody>
+              </table>
+          </form>
+      </div><!-- searchForm -->
+  </div><!-- search -->
+      </div><!-- headerRight -->
+      <script type="text/javascript">
+        <!--  
+        changeTabLang(getLangPref());
+        //-->
+      </script>
+  </div><!-- header -->
+
+  <div class="g-section g-tpl-240" id="body-content">
+    <div class="g-unit g-first" id="side-nav" itemscope itemtype="http://schema.org/SiteNavigationElement">
+      <div id="devdoc-nav">
+<ul>
+
+  <li>
+    <span class="heading">
+      <span class="en">Android Basics</span>
+      <span class="de" style="display:none">Einführung in Android</span>
+      <span class="es" style="display:none">Información básica sobre Android</span>
+      <span class="fr" style="display:none">Présentation d'Android</span>
+      <span class="it" style="display:none">Nozioni di base su Android</span>
+      <span class="ja" style="display:none">Android の基本</span>
+      <span class="zh-CN" style="display:none">Android 基础知识</span>
+      <span class="zh-TW" style="display:none">Android 簡介</span>
+    </span>
+    <ul>
+      <li><a href="../../../guide/basics/what-is-android.html">
+        <span class="en">What Is Android?</span>
+        <span class="de" style="display:none">Was ist Android?</span>
+        <span class="es" style="display:none">¿Qué es Android?</span>
+        <span class="fr" style="display:none">Qu'est-ce qu'Android&nbsp;?</span>
+        <span class="it" style="display:none">Che cos'è Android?</span>
+        <span class="ja" style="display:none">Android とは</span>
+        <span class="zh-CN" style="display:none">Android 是什么？</span>
+        <span class="zh-TW" style="display:none">什麼是 Android？</span>
+          </a></li>
+      <li><a href="../../../guide/topics/fundamentals.html">
+        <span class="en">Application Fundamentals</span>
+        <span class="de" style="display:none">Anwendungsgrundlagen</span>
+        <span class="es" style="display:none">Fundamentos de las aplicaciones</span>
+        <span class="fr" style="display:none">Principes de base des applications</span>
+        <span class="it" style="display:none">Concetti fondamentali sulle applicazioni</span>
+        <span class="ja" style="display:none">開発の基礎</span>
+        <span class="zh-CN" style="display:none">应用程序基础</span>
+        <span class="zh-TW" style="display:none">應用程式基本原理</span>
+      </a></li>
+
+  <!--  <li><a style="color:gray;">The Android SDK</a></li> -->
+  <!--  <li><a style="color:gray;">Walkthrough for Developers</a></li> -->
+      <!-- quick overview of what it's like to develop on Android -->
+    </ul>
+  </li>
+
+  <li>
+    <span class="heading">
+      <span class="en">Framework Topics</span>
+      <span class="de" style="display:none">Framework-Themen</span>
+      <span class="es" style="display:none">Temas sobre el framework</span>
+      <span class="fr" style="display:none">Thèmes relatifs au framework</span>
+      <span class="it" style="display:none">Argomenti relativi al framework</span>
+      <span class="ja" style="display:none">フレームワーク トピック</span>
+      <span class="zh-CN" style="display:none">框架主题</span>
+      <span class="zh-TW" style="display:none">架構主題</span>
+    </span>
+    <ul>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/fundamentals/activities.html">
+          <span class="en">Activities</span>
+        </a></div>
+        <ul>
+          <li><a href="../../../guide/topics/fundamentals/fragments.html">
+            <span class="en">Fragments</span>
+          </a></li>
+          <li><a href="../../../guide/topics/fundamentals/loaders.html">
+            <span class="en">Loaders</span>
+          </a></li>
+          <li><a href="../../../guide/topics/fundamentals/tasks-and-back-stack.html">
+            <span class="en">Tasks and Back Stack</span></a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/fundamentals/services.html">
+          <span class="en">Services</span>
+        </a></div>
+        <ul>
+          <li><a href="../../../guide/topics/fundamentals/bound-services.html">
+            <span class="en">Bound Services</span>
+          </a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+          <div><a href="../../../guide/topics/providers/content-providers.html">
+            <span class="en">Content Providers</span>
+          </a></div>
+          <ul>
+            <li>
+                <a href="../../../guide/topics/providers/content-provider-basics.html">
+                    <span class="en">Content Provider Basics</span>
+                </a>
+                <span class="new">new!</span>
+            </li>
+            <li>
+                <a href="../../../guide/topics/providers/content-provider-creating.html">
+                    <span class="en">Creating a Content Provider</span>
+                </a>
+                <span class="new">new!</span>
+            </li>
+            <li>
+                <a href="../../../guide/topics/providers/calendar-provider.html">
+                    <span class="en">Calendar Provider</span>
+                </a>
+                <span class="new">new!</span>
+            </li>
+          </ul>
+      </li>
+      <li><a href="../../../guide/topics/intents/intents-filters.html">
+            <span class="en">Intents and Intent Filters</span>
+          </a></li>
+      <li><a href="../../../guide/topics/fundamentals/processes-and-threads.html">
+            <span class="en">Processes and Threads</span>
+          </a></li>
+    </ul>
+
+
+    <ul>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/ui/index.html">
+            <span class="en">User Interface</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../guide/topics/ui/declaring-layout.html">
+               <span class="en">XML Layouts</span>
+              </a></li>
+          <li><a href="../../../guide/topics/ui/ui-events.html">
+                <span class="en">Input Events</span>
+              </a></li>
+          <li><a href="../../../guide/topics/ui/menus.html">
+               <span class="en">Menus</span>
+              </a> <span class="new">updated</span></li>
+          <li><a href="../../../guide/topics/ui/actionbar.html">
+               <span class="en">Action Bar</span>
+              </a></li>
+          <li><a href="../../../guide/topics/ui/dialogs.html">
+                <span class="en">Dialogs</span>
+              </a></li>
+          <li class="toggle-list">
+            <div><a href="../../../guide/topics/ui/notifiers/index.html">
+                <span class="en">Notifications</span>
+            </a></div>
+            <ul>
+              <li><a href="../../../guide/topics/ui/notifiers/toasts.html">
+                <span class="en">Toast Notifications</span>
+              </a></li>
+              <li><a href="../../../guide/topics/ui/notifiers/notifications.html">
+                <span class="en">Status Bar Notifications</span>
+              </a></li>
+            </ul>
+          </li>
+          <li><a href="../../../guide/topics/ui/drag-drop.html">
+                <span class="en">Drag and Drop</span>
+              </a></li>
+          <li><a href="../../../guide/topics/ui/themes.html">
+                <span class="en">Styles and Themes</span>
+              </a></li>
+          <li><a href="../../../guide/topics/ui/custom-components.html">
+                <span class="en">Custom Components</span>
+              </a></li>
+          <li><a href="../../../guide/topics/ui/binding.html">
+                <span class="en">Binding to Data with AdapterView</span>
+              </a></li>
+          <li><a href="../../../guide/topics/ui/layout-objects.html">
+                <span class="en">Common Layout Objects</span>
+              </a></li>
+          <li><a href="../../../guide/topics/ui/how-android-draws.html">
+                <span class="en">How Android Draws Views</span>
+              </a></li>
+        </ul>
+      </li><!-- end of User Interface -->
+
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/resources/index.html">
+               <span class="en">Application Resources</span>
+             </a></div>
+        <ul>
+          <li><a href="../../../guide/topics/resources/providing-resources.html">
+                <span class="en">Providing Resources</span>
+              </a></li>
+          <li><a href="../../../guide/topics/resources/accessing-resources.html">
+                <span class="en">Accessing Resources</span>
+              </a></li>
+          <li><a href="../../../guide/topics/resources/runtime-changes.html">
+                <span class="en">Handling Runtime Changes</span>
+              </a></li>
+          <li><a href="../../../guide/topics/resources/localization.html">
+                <span class="en">Localization</span>
+              </a></li>
+          <li class="toggle-list">
+            <div><a href="../../../guide/topics/resources/available-resources.html">
+              <span class="en">Resource Types</span>
+            </a></div>
+            <ul>
+              <li><a href="../../../guide/topics/resources/animation-resource.html">Animation</a></li>
+              <li><a href="../../../guide/topics/resources/color-list-resource.html">Color State List</a></li>
+              <li><a href="../../../guide/topics/resources/drawable-resource.html">Drawable</a></li>
+              <li><a href="../../../guide/topics/resources/layout-resource.html">Layout</a></li>
+              <li><a href="../../../guide/topics/resources/menu-resource.html">Menu</a></li>
+              <li><a href="../../../guide/topics/resources/string-resource.html">String</a></li>
+              <li><a href="../../../guide/topics/resources/style-resource.html">Style</a></li>
+              <li><a href="../../../guide/topics/resources/more-resources.html">More Types</a></li>
+            </ul>
+          </li><!-- end of resource types -->
+        </ul>
+      </li><!-- end of app resources -->
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/data/data-storage.html">
+            <span class="en">Data Storage</span>
+          </a></div>
+          <ul>
+            <li><a href="../../../guide/topics/data/backup.html">
+                <span class="en">Data Backup</span>
+              </a>
+            </li>
+          </ul>
+      </li>
+      <li><a href="../../../guide/topics/security/security.html">
+            <span class="en">Security and Permissions</span>
+          </a></li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/manifest/manifest-intro.html">
+          <span class="en">The AndroidManifest.xml File</span>
+        </a></div>
+        <ul>
+          <li><a href="../../../guide/topics/manifest/action-element.html">&lt;action&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/activity-element.html">&lt;activity&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/activity-alias-element.html">&lt;activity-alias&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/application-element.html">&lt;application&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/category-element.html">&lt;category&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/compatible-screens-element.html">&lt;compatible-screens&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/data-element.html">&lt;data&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/grant-uri-permission-element.html">&lt;grant-uri-permission&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/instrumentation-element.html">&lt;instrumentation&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/intent-filter-element.html">&lt;intent-filter&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/manifest-element.html">&lt;manifest&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/meta-data-element.html">&lt;meta-data&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/path-permission-element.html">&lt;path-permission&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/permission-element.html">&lt;permission&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/permission-group-element.html">&lt;permission-group&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/permission-tree-element.html">&lt;permission-tree&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/provider-element.html">&lt;provider&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/receiver-element.html">&lt;receiver&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/service-element.html">&lt;service&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/supports-gl-texture-element.html">&lt;supports-gl-texture&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/supports-screens-element.html">&lt;supports-screens&gt;</a></li><!-- ##api level 4## -->
+          <li><a href="../../../guide/topics/manifest/uses-configuration-element.html">&lt;uses-configuration&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/uses-feature-element.html">&lt;uses-feature&gt;</a></li> <!-- ##api level 4## -->
+          <li><a href="../../../guide/topics/manifest/uses-library-element.html">&lt;uses-library&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/uses-permission-element.html">&lt;uses-permission&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/uses-sdk-element.html">&lt;uses-sdk&gt;</a></li>
+        </ul>
+      </li><!-- end of the manifest file -->
+    </ul>
+
+    <ul>
+    <li class="toggle-list">
+        <div><a href="../../../guide/topics/graphics/index.html">
+            <span class="en">Graphics</span>
+          </a> <span class="new-child">new!</span></div>
+        <ul>
+          <li><a href="../../../guide/topics/graphics/2d-graphics.html">
+              <span class="en">Canvas and Drawables</span></a></li>
+          <li><a href="../../../guide/topics/graphics/hardware-accel.html">
+              <span class="en">Hardware Acceleration</span></a>
+            <span class="new">new!</span></li>
+          <li><a href="../../../guide/topics/graphics/opengl.html">
+              <span class="en">OpenGL</span>
+            </a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/graphics/animation.html">
+            <span class="en">Animation</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../guide/topics/graphics/prop-animation.html">
+              <span class="en">Property Animation</span></a></li>
+          <li><a href="../../../guide/topics/graphics/view-animation.html">
+              <span class="en">View Animation</span></a></li>
+          <li><a href="../../../guide/topics/graphics/drawable-animation.html">
+              <span class="en">Drawable Animation</span></a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/renderscript/index.html">
+          <span class="en">Renderscript</span></a>
+          <span class="new">updated</span>
+        </div>
+        <ul>
+          <li><a href="../../../guide/topics/renderscript/graphics.html">
+                <span class="en">Graphics</span>
+              </a>
+          </li>
+          <li><a href="../../../guide/topics/renderscript/compute.html">
+                <span class="en">Compute</span>
+              </a>
+          </li>
+          <li><a href="../../../guide/topics/renderscript/reference.html">
+                <span class="en">Runtime API Reference</span>
+              </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="toggle-list">
+          <div><a href="../../../guide/topics/media/index.html">
+            <span class="en">Multimedia and Camera</span>
+          </a></div>
+          <ul>
+            <li><a href="../../../guide/topics/media/mediaplayer.html">
+                  <span class="en">Media Playback</span></a>
+                </li>
+            <li><a href="../../../guide/topics/media/jetplayer.html">
+                  <span class="en">JetPlayer</span></a>
+                </li>
+            <li><a href="../../../guide/topics/media/camera.html">
+                  <span class="en">Camera</span></a>
+                  <span class="new">new!</span>
+                </li>
+            <li><a href="../../../guide/topics/media/audio-capture.html">
+                  <span class="en">Audio Capture</span></a>
+                </li>
+          </ul>
+      </li>
+      <li>
+        <a href="../../../guide/topics/clipboard/copy-paste.html">
+            <span class="en">Copy and Paste</span>
+        </a></li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/sensors/index.html">
+              <span class="en">Sensors</span>
+              </a> <span class="new">new!</span></div>
+        <ul>
+          <li><a href="../../../guide/topics/sensors/sensors_overview.html">
+              <span class="en">Sensors Overview</span>
+            </a></li>
+          <li><a href="../../../guide/topics/sensors/sensors_motion.html">
+              <span class="en">Motion Sensors</span>
+            </a></li>
+          <li><a href="../../../guide/topics/sensors/sensors_position.html">
+              <span class="en">Position Sensors</span>
+            </a></li>
+          <li><a href="../../../guide/topics/sensors/sensors_environment.html">
+              <span class="en">Environment Sensors</span>
+            </a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/location/index.html">
+               <span class="en">Location and Maps</span>
+             </a></div>
+        <ul>
+          <li><a href="../../../guide/topics/location/obtaining-user-location.html">
+                <span class="en">Obtaining User Location</span>
+              </a></li>
+        </ul>
+      </li>
+  <!--<li class="toggle-list">
+        <div><a style="color:gray;">Wireless Controls</a></div>
+          <ul>
+            <li><a style="color:gray;">Wi-Fi</a></li>
+          </ul>
+      </li> -->
+  <!--<li><a style="color:gray;">Localization</a></li>  -->
+      <li><a href="../../../guide/topics/appwidgets/index.html">
+            <span class="en">App Widgets</span></a>
+          </li>
+      <li><a href="../../../guide/topics/wireless/bluetooth.html">
+            <span class="en">Bluetooth</span></a>
+          </li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/nfc/index.html">
+          <span class="en">Near Field Communication</span></a> <span class="new">updated</span>
+        </div>
+        <ul>
+          <li><a href="../../../guide/topics/nfc/nfc.html">NFC Basics</a></li>
+          <li><a href="../../../guide/topics/nfc/advanced-nfc.html">Advanced NFC</a></li>
+        </ul>
+      </li>
+      <li><a href="../../../guide/topics/wireless/wifip2p.html">
+            <span class="en">Wi-Fi Direct</span></a> <span class="new">new!</span>
+          </li>
+      <li class="toggle-list">
+          <div><a href="../../../guide/topics/usb/index.html">
+            <span class="en">USB</span></a>
+          </div>
+            <ul>
+              <li><a href="../../../guide/topics/usb/accessory.html">Accessory</a></li>
+              <li><a href="../../../guide/topics/usb/host.html">Host</a></li>
+              <li><a href="../../../guide/topics/usb/adk.html">Open Accessory Dev Kit</a></li>
+            </ul>
+          </li>
+
+       <li><a href="../../../guide/topics/network/sip.html">
+            <span class="en">Session Initiation Protocol</span>
+          </a></li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/search/index.html">
+            <span class="en">Search</span>
+          </a></div>
+          <ul>
+            <li><a href="../../../guide/topics/search/search-dialog.html">Creating a Search Interface</a></li>
+            <li><a href="../../../guide/topics/search/adding-recent-query-suggestions.html">Adding Recent Query Suggestions</a></li>
+            <li><a href="../../../guide/topics/search/adding-custom-suggestions.html">Adding Custom Suggestions</a></li>
+            <li><a href="../../../guide/topics/search/searchable-config.html">Searchable Configuration</a></li>
+          </ul>
+      </li>
+      <li><a href="../../../guide/topics/admin/device-admin.html">
+            <span class="en">Device Administration</span></a>
+      </li>
+      <li class="toggle-list">
+           <div>
+                <a href="../../../guide/topics/testing/index.html">
+                   <span class="en">Testing</span>
+               </a>
+           </div>
+           <ul>
+              <li>
+                <a href="../../../guide/topics/testing/testing_android.html">
+                <span class="en">Testing Fundamentals</span></a>
+              </li>
+              <li>
+                <a href="../../../guide/topics/testing/activity_testing.html">
+                <span class="en">Activity Testing</span></a>
+              </li>
+              <li>
+                <a href="../../../guide/topics/testing/contentprovider_testing.html">
+                <span class="en">Content Provider Testing</span></a>
+              </li>
+              <li>
+                <a href="../../../guide/topics/testing/service_testing.html">
+                <span class="en">Service Testing</span></a>
+              </li>
+              <li>
+                <a href="../../../guide/topics/testing/what_to_test.html">
+                <span class="en">What To Test</span></a>
+              </li>
+           </ul>
+      </li>
+    </ul>
+  </li>
+
+  <li>
+    <h2>
+      <span class="en">Google Play Topics</span>
+    </h2>
+    <ul>
+      <li><a href="../../../guide/publishing/publishing.html">
+          <span class="en">Publishing on Google Play</span>
+          </a></li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/market/licensing/index.html">
+          <span class="en">Application Licensing</span></a>
+        </div>
+        <ul>
+          <li><a href="../../../guide/market/licensing/overview.html">
+              <span class="en">Licensing Overview</span></a>
+          </li>
+          <li><a href="../../../guide/market/licensing/setting-up.html">
+              <span class="en">Setting Up for Licensing</span></a>
+          </li>
+          <li><a href="../../../guide/market/licensing/adding-licensing.html">
+              <span class="en">Adding Licensing to Your App</span></a>
+          </li>
+          <li><a href="../../../guide/market/licensing/licensing-reference.html">
+              <span class="en">Licensing Reference</span></a>
+          </li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/market/billing/index.html">
+            <span class="en">In-app Billing</span></a>
+        </div>
+        <ul>
+          <li><a href="../../../guide/market/billing/billing_overview.html">
+              <span class="en">In-app Billing Overview</span></a>
+          </li>
+          <li><a href="../../../guide/market/billing/billing_integrate.html">
+              <span class="en">Implementing In-app Billing</span></a>
+          </li>
+          <li><a href="../../../guide/market/billing/billing_best_practices.html">
+              <span class="en">Security and Design</span></a>
+          </li>
+          <li><a href="../../../guide/market/billing/billing_testing.html">
+              <span class="en">Testing In-app Billing</span></a>
+          </li>
+          <li><a href="../../../guide/market/billing/billing_admin.html">
+              <span class="en">Administering In-app Billing</span></a>
+          </li>
+          <li><a href="../../../guide/market/billing/billing_reference.html">
+              <span class="en">In-app Billing Reference</span></a>
+          </li>
+        </ul>
+      </li>
+      <li><a href="../../../guide/appendix/market-filters.html">
+          <span class="en">Filters on Google Play</span></a>
+      </li>
+      <li><a href="../../../guide/market/publishing/multiple-apks.html">
+          <span class="en">Multiple APK Support</span></a>
+      </li>
+      <li><a href="../../../guide/market/expansion-files.html">
+          <span class="en">APK Expansion Files</span></a>
+          <span class="new">new!</span>
+      </li>
+    </ul>
+  </li>
+
+
+  <li>
+    <span class="heading">
+      <span class="en">Developing</span>
+      <span class="de" style="display:none">Entwicklung</span>
+      <span class="es" style="display:none">Desarrollo</span>
+      <span class="fr" style="display:none">Développement</span>
+      <span class="it" style="display:none">Sviluppo</span>
+      <span class="ja" style="display:none">開発</span>
+      <span class="zh-CN" style="display:none">开发</span>
+      <span class="zh-TW" style="display:none">開發</span>
+    </span>
+    <ul>
+  <!--<li><a href="">Developing for Android</a></li>
+      signing, upgrading, selecting a package name, select device profile, touch, trackball, dpad available, etc. -->
+      <li>
+        <a href="../../../guide/developing/index.html">
+        <span class="en">Introduction</span></a>
+      </li>
+
+      <li class="toggle-list">
+        <div>
+           <a href="../../../guide/developing/devices/index.html">
+                <span class="en">Managing Virtual Devices</span>
+            </a>
+        </div>
+        <ul>
+          <li>
+            <a href="../../../guide/developing/devices/managing-avds.html">
+              <span class="en">With AVD Manager</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../guide/developing/devices/managing-avds-cmdline.html">
+              <span class="en">From the Command Line</span>
+            </a>
+          </li>
+          <li>
+           <a href="../../../guide/developing/devices/emulator.html">
+                <span class="en">Using the Android Emulator</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="../../../guide/developing/device.html">
+          <span class="en">Using Hardware Devices</span>
+        </a>
+      </li>
+
+      <li class="toggle-list">
+        <div>
+          <a href="../../../guide/developing/projects/index.html">
+            <span class="en">Managing Projects</span>
+          </a>
+        </div>
+        <ul>
+          <li>
+            <a href="../../../guide/developing/projects/projects-eclipse.html">
+              <span class="en">From Eclipse with ADT</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../guide/developing/projects/projects-cmdline.html">
+                <span class="en">From the Command Line</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="toggle-list">
+        <div>
+          <a href="../../../guide/developing/building/index.html">
+            <span class="en">Building and Running</span>
+          </a>
+        </div>
+        <ul>
+          <li><a href="../../../guide/developing/building/building-eclipse.html">
+            <span class="en">From Eclipse with ADT</span>
+          </a></li>
+          <li><a href="../../../guide/developing/building/building-cmdline.html">
+            <span class="en">From the Command Line</span></a></li>
+        </ul>
+      </li>
+
+      <li class="toggle-list">
+        <div>
+          <a href="../../../guide/developing/debugging/index.html">
+            <span class="en">Debugging</span>
+          </a>
+        </div>
+        <ul>
+          <li>
+            <a href="../../../guide/developing/debugging/debugging-projects.html">
+                <span class="en">From Eclipse with ADT</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../guide/developing/debugging/debugging-projects-cmdline.html">
+                <span class="en">From Other IDEs</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../guide/developing/debugging/ddms.html">
+              <span class="en">Using DDMS</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../guide/developing/debugging/debugging-log.html">
+                <span class="en">Reading and Writing Logs</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../guide/developing/debugging/debugging-ui.html">
+                <span class="en">Debugging and Profiling UIs</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../guide/developing/debugging/debugging-tracing.html">
+                <span class="en">Profiling with Traceview and dmtracedump</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../guide/developing/debugging/debugging-devtools.html">
+                <span class="en">Using the Dev Tools App</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="toggle-list">
+           <div>
+                <a href="../../../guide/developing/testing/index.html">
+                   <span class="en">Testing</span>
+               </a>
+           </div>
+           <ul>
+              <li>
+                <a href="../../../guide/developing/testing/testing_eclipse.html">
+                  <span class="en">From Eclipse with ADT</span>
+                </a>
+              </li>
+
+              <li>
+                <a href="../../../guide/developing/testing/testing_otheride.html">
+                  <span class="en">From Other IDEs</span>
+                </a>
+              </li>
+           </ul>
+         </li>
+
+         <li class="toggle-list">
+        <div><a href="../../../guide/developing/tools/index.html">
+            <span class="en">Tools</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../guide/developing/tools/adb.html">adb</a></li>
+          <li><a href="../../../guide/developing/tools/adt.html">ADT</a></li>
+          <li><a href="../../../guide/developing/tools/android.html">android</a></li>
+          <li><a href="../../../guide/developing/tools/bmgr.html">bmgr</a>
+          <li><a href="../../../guide/developing/tools/dmtracedump.html">dmtracedump</a></li>
+          <li><a href="../../../guide/developing/tools/draw9patch.html">Draw
+          9-Patch</a></li>
+          <li><a href="../../../guide/developing/tools/emulator.html">Emulator</a></li>
+          <li><a href="../../../guide/developing/tools/etc1tool.html">etc1tool</a></li>
+          <li><a href="../../../guide/developing/tools/hierarchy-viewer.html">Hierarchy Viewer</a></li>
+          <li><a href="../../../guide/developing/tools/hprof-conv.html">hprof-conv</a></li>
+          <li><a href="../../../guide/developing/tools/layoutopt.html">layoutopt</a></li>
+          <li><a href="../../../guide/developing/tools/logcat.html">logcat</a></li>
+          <li><a href="../../../guide/developing/tools/mksdcard.html">mksdcard</a></li>
+          <li><a href="../../../guide/developing/tools/monkey.html">Monkey</a></li>
+          <li class="toggle-list">
+            <div><a href="../../../guide/developing/tools/monkeyrunner_concepts.html">
+              <span class="en">monkeyrunner</span>
+            </a></div>
+            <ul>
+              <li><a href="../../../guide/developing/tools/MonkeyDevice.html">
+                <span class="en">MonkeyDevice</span>
+                </a></li>
+              <li><a href="../../../guide/developing/tools/MonkeyImage.html">
+                <span class="en">MonkeyImage</span>
+                </a></li>
+              <li><a href="../../../guide/developing/tools/MonkeyRunner.html">
+                <span class="en">MonkeyRunner</span>
+                </a></li>
+            </ul>
+          </li>
+          <li><a href="../../../guide/developing/tools/proguard.html">ProGuard</a></li>
+          <li><a href="../../../guide/developing/tools/adb.html#sqlite">sqlite3</a></li>
+          <li><a href="../../../guide/developing/tools/traceview.html">Traceview</a></li>
+          <li><a href="../../../guide/developing/tools/zipalign.html">zipalign</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+
+  <li>
+    <span class="heading">
+      <span class="en">Publishing</span>
+      <span class="de" style="display:none">Veröffentlichung</span>
+      <span class="es" style="display:none">Publicación</span>
+      <span class="fr" style="display:none">Publication</span>
+      <span class="it" style="display:none">Pubblicazione</span>
+      <span class="ja" style="display:none">公開</span>
+      <span class="zh-CN" style="display:none">发布</span>
+      <span class="zh-TW" style="display:none">發佈</span>
+    </span>
+    <ul>
+      <li><a href="../../../guide/publishing/publishing_overview.html">
+            <span class="en">Publishing Overview</span>
+          </a></li>
+      <li><a href="../../../guide/publishing/preparing.html">
+            <span class="en">Preparing for Release</span>
+            <span class="de" style="display:none">Vorbereitung auf die Veröffentlichung</span>
+            <span class="es" style="display:none">Publicación de aplicaciones</span>
+            <span class="fr" style="display:none">Préparation à la publication</span>
+            <span class="it" style="display:none">Preparativi per la pubblicazione</span>
+            <span class="ja" style="display:none">公開の準備</span>
+            <span class="zh-CN" style="display:none">准备发布</span>
+            <span class="zh-TW" style="display:none">準備發佈</span>
+          </a></li>
+      <li><a href="../../../guide/publishing/app-signing.html">
+            <span class="en">Signing Your Applications</span>
+            <span class="de" style="display:none">Signieren Ihrer Anwendungen</span>
+            <span class="es" style="display:none">Firma de aplicaciones</span>
+            <span class="fr" style="display:none">Attribution de votre signature <br />à vos
+applications</span>
+            <span class="it" style="display:none">Firma delle applicazioni</span>
+            <span class="ja" style="display:none">アプリケーションへの署名</span>
+            <span class="zh-CN" style="display:none">应用程序签名</span>
+            <span class="zh-TW" style="display:none">簽署應用程式</span>
+          </a></li>
+      <li><a href="../../../guide/publishing/versioning.html">
+            <span class="en">Versioning Your Applications</span>
+            <span class="de" style="display:none">Versionsverwaltung für Ihre <br
+/>Anwendungen</span>
+            <span class="es" style="display:none">Versiones de las aplicaciones</span>
+            <span class="fr" style="display:none">Attribution d'une version à vos
+applications</span>
+            <span class="it" style="display:none">Controllo versioni delle applicazioni</span>
+            <span class="ja" style="display:none">アプリケーションのバージョニング</span>
+            <span class="zh-CN" style="display:none">应用程序版本控制</span>
+            <span class="zh-TW" style="display:none">應用程式版本設定</span>
+          </a></li>
+    </ul>
+  </li>
+
+  <li>
+    <span class="heading">
+      <span class="en">Best Practices</span>
+      <span class="de" style="display:none">Bewährte Verfahren</span>
+      <span class="es" style="display:none">Prácticas recomendadas</span>
+      <span class="fr" style="display:none">Meilleures pratiques</span>
+      <span class="it" style="display:none">Best practice</span>
+      <span class="ja" style="display:none">ベスト プラクティス</span>
+      <span class="zh-CN" style="display:none">最佳实践</span>
+      <span class="zh-TW" style="display:none">最佳實務</span>
+    </span>
+    <ul>
+      <li><a href="../../../guide/practices/compatibility.html">
+            <span class="en">Compatibility</span>
+          </a></li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/practices/screens_support.html">
+          <span class="en">Supporting Multiple Screens</span>
+        </a></div>
+        <ul>
+          <li><a href="../../../guide/practices/screens-distribution.html">
+            <span class="en">Distributing to Specific Screens</span>
+          </a></li>
+          <li><a href="../../../guide/practices/screen-compat-mode.html">
+            <span class="en">Screen Compatibility Mode</span>
+          </a></li>
+          <li><a href="../../../guide/practices/screens-support-1.5.html">
+            <span class="en">Strategies for Android 1.5</span>
+          </a></li>
+        </ul>
+      </li>
+      <li><a href="../../../guide/practices/tablets-and-handsets.html">
+            <span class="en">Supporting Tablets and Handsets</span>
+          </a> <span class="new">new!</span></li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/practices/ui_guidelines/index.html">
+               <span class="en">UI Guidelines</span>
+             </a></div>
+        <ul>
+          <li class="toggle-list">
+            <div><a href="../../../guide/practices/ui_guidelines/icon_design.html">
+                   <span class="en">Icon Design</span>
+                 </a></div>
+            <ul>
+              <li><a href="../../../guide/practices/ui_guidelines/icon_design_launcher.html">
+                    <span class="en">Launcher Icons</span>
+                  </a></li>
+              <li><a href="../../../guide/practices/ui_guidelines/icon_design_menu.html">
+                    <span class="en">Menu Icons</span>
+                  </a></li>
+              <li><a href="../../../guide/practices/ui_guidelines/icon_design_action_bar.html">
+                    <span class="en">Action Bar Icons</span>
+                  </a></li>
+              <li><a href="../../../guide/practices/ui_guidelines/icon_design_status_bar.html">
+                    <span class="en">Status Bar Icons</span>
+                  </a></li>
+              <li><a href="../../../guide/practices/ui_guidelines/icon_design_tab.html">
+                    <span class="en">Tab Icons</span>
+                  </a></li>
+              <li><a href="../../../guide/practices/ui_guidelines/icon_design_dialog.html">
+                    <span class="en">Dialog Icons</span>
+                  </a></li>
+              <li><a href="../../../guide/practices/ui_guidelines/icon_design_list.html">
+                    <span class="en">List View Icons</span>
+                  </a></li>
+            </ul>
+          </li>
+          <li><a href="../../../guide/practices/ui_guidelines/widget_design.html">
+                <span class="en">App Widget Design</span>
+              </a></li>
+          <li><a href="../../../guide/practices/ui_guidelines/activity_task_design.html">
+                <span class="en">Activity and Task Design</span>
+              </a></li>
+          <li><a href="../../../guide/practices/ui_guidelines/menu_design.html">
+                <span class="en">Menu Design</span>
+              </a></li>
+        </ul>
+      </li>
+      </ul>
+      <ul>
+      <li><a href="../../../guide/practices/design/accessibility.html">
+            <span class="en">Designing for Accessibility</span>
+          </a></li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/practices/design/performance.html">
+            <span class="en">Designing for Performance</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../guide/practices/design/jni.html">
+                <span class="en">JNI Tips</span>
+              </a></li>
+        </ul>
+      </li>
+      <li><a href="../../../guide/practices/design/responsiveness.html">
+            <span class="en">Designing for Responsiveness</span>
+          </a></li>
+      <li><a href="../../../guide/practices/design/seamlessness.html">
+            <span class="en">Designing for Seamlessness</span>
+          </a></li>
+      <li><a href="../../../guide/practices/security.html">
+            <span class="en">Designing for Security</span></a>
+            </li>
+    </ul>
+  </li>
+
+  <li>
+    <span class="heading">
+      <span class="en">Web Applications</span>
+    </span>
+    <ul>
+      <li><a href="../../../guide/webapps/index.html">
+            <span class="en">Web Apps Overview</span>
+          </a></li>
+      <li><a href="../../../guide/webapps/targeting.html">
+            <span class="en">Targeting Screens from Web Apps</span>
+          </a></li>
+      <li><a href="../../../guide/webapps/webview.html">
+            <span class="en">Building Web Apps in WebView</span>
+          </a></li>
+      <li><a href="../../../guide/webapps/debugging.html">
+            <span class="en">Debugging Web Apps</span>
+          </a></li>
+      <li><a href="../../../guide/webapps/best-practices.html">
+            <span class="en">Best Practices for Web Apps</span>
+          </a></li>
+    </ul>
+  </li>
+
+  <li>
+    <span class="heading">
+      <span class="en">Appendix</span>
+      <span class="de" style="display:none">Anhang</span>
+      <span class="es" style="display:none">Apéndice</span>
+      <span class="fr" style="display:none">Annexes</span>
+      <span class="it" style="display:none">Appendice</span>
+      <span class="ja" style="display:none">付録</span>
+      <span class="zh-CN" style="display:none">附录</span>
+      <span class="zh-TW" style="display:none">附錄</span>
+    </span>
+    <ul>
+      <li><a href="../../../guide/appendix/api-levels.html">
+            <span class="en">Android API Levels</span>
+          </a></li>
+      <li><a href="../../../guide/appendix/install-location.html">
+            <span class="en">App Install Location</span>
+          </a></li>
+      <li><a href="../../../guide/appendix/media-formats.html">
+            <span class="en">Supported Media Formats</span>
+          </a></li>
+      <li><a href="../../../guide/appendix/g-app-intents.html">
+            <span class="en">Intents List: Google Apps</span>
+          </a></li>
+      <li><a href="../../../guide/developing/tools/aidl.html">AIDL</a></li>
+      <li><a href="../../../guide/appendix/glossary.html">
+            <span class="en">Glossary</span>
+          </a></li>
+    </ul>
+  </li>
+
+</ul>
+
+<script type="text/javascript">
+<!--
+    buildToggleLists();
+    changeNavLang(getLangPref());
+//-->
+</script>
+
+      </div>
+    </div> <!-- end side-nav -->
+    <script>
+      addLoadEvent(function() {
+        scrollIntoView("devdoc-nav");
+        });
+    </script>
+
+
+
+
+<div class="g-unit" id="doc-content"><a name="top"></a>
+
+<div id="jd-header" class="guide-header">
+  <span class="crumb" itemprop="breadcrumb">
+    
+      <a href="index.html">Application Licensing</a>:
+    
+  </span>
+<h1 itemprop="name">Setting Up for Licensing</h1>
+</div>
+
+  
+  <div id="jd-content">
+ 
+    
+
+
+    <div class="jd-descr" itemprop="articleBody">
+    <div id="qv-wrapper">
+<div id="qv">
+  
+  <h2>In this document</h2>
+  <ol>
+  <li><a href="#account">Setting Up a Publisher Account</a></li>
+  <li><a href="#dev-setup">Setting Up the Development Environment</a>
+    <ol>
+      <li><a href="#runtime-setup">Setting up the runtime environment</a></li>
+      <li><a href="#download-lvl">Downloading the LVL</a></li>
+      <li><a href="#lvl-setup">Setting Up the Licensing Verification Library</a></li>
+      <li><a href="#add-library">Including the LVL library project sources in your
+application</a></li>
+    </ol>
+  </li>
+  <li><a href="#test-env">Setting Up the Testing Environment</a>
+    <ol>
+      <li><a href="#test-response">Setting test responses for license checks</a></li>
+      <li><a href="#test-acct-setup">Setting up test accounts</a></li>
+      <li><a href="#acct-signin">Signing in to an authorized account in the runtime
+environment</a></li>
+    </ol>
+  </li>
+</ol>
+</div>
+</div>
+
+<p>Before you start adding license verification to your application, you need to set up your Google
+Play publishing account, your development environment, and test accounts required to verify
+your implementation.</p>
+
+
+<h2 id="account">Setting Up a Publisher Account</h2>
+
+<p>If you don't already have a publisher account for Google Play, you need to register for one
+using your Google account and agree to the terms of service on the Google Play publisher site:</p>
+
+<p style="margin-left:2em;"><a
+href="http://play.google.com/apps/publish">http://play.google.com/apps/publish</a>
+</p>
+
+<p>For more information, see <a
+href="../../../guide/publishing/publishing.html">Publishing on Google Play</a>.</p>
+
+<p>If you already have a publisher account on Google Play, use your existing
+account to set up licensing.</p>
+
+<p>Using your publisher account on Google Play, you can:</p>
+
+<ul>
+<li>Obtain a public key for licensing</li>
+<li>Debug and test an application's licensing implementation, prior to
+publishing the application</li>
+<li>Publish the applications to which you have added licensing support</li>
+</ul>
+
+<h4>Administrative settings for licensing</h4>
+
+<p>You can manage several
+administrative controls for Google Play licensing on the publisher site. The controls are available
+in the Edit Profile page, in the "Licensing" panel, shown in figure 1. The controls
+let you: </p>
+
+<ul>
+<li>Set up multiple "test accounts," identified by email address. The licensing
+server allows users signed in to test accounts on a device or emulator to send
+license checks and receive static test responses.</li>
+<li>Obtain the account's public key for licensing. When you are implementing
+licensing in an application, you must copy the public key string into the
+application.</li>
+<li>Configure static test responses that the server sends, when it receives a
+license check for an application uploaded to the publisher account, from a user
+signed in to the publisher account or a test account.</li>
+</ul>
+
+
+<img src="../../../images/licensing_public_key.png" alt=""/>
+<p class="img-caption"><strong>Figure 1.</strong> The Licensing
+panel of your account's Edit Profile page lets you manage administrative
+settings for licensing.</p>
+
+<p>For more information about how to work with test accounts and static test
+responses, see <a href="#test-env">Setting Up a Testing Environment</a>, below.
+
+
+
+<h2 id="dev-setup">Setting Up the Development Environment</h2>
+
+<p>Setting up your environment for licensing involves these tasks:</p>
+
+<ol>
+<li><a href="#runtime-setup">Setting up the runtime environment</a> for development</li>
+<li><a href="#download-lvl">Downloading the LVL</a> into your SDK </li>
+<li><a href="#lvl-setup">Setting up the Licensing Verification Library</a></li>
+<li><a href="#add-library">Including the LVL library project in your application</a></li>
+</ol>
+
+<p>The sections below describe these tasks. When you are done with setup,
+you can begin <a href="../../../guide/market/licensing/adding-licensing.html">Adding
+Licensing to Your App</a>.</p>
+
+<p>To get started, you need to set up a proper runtime environment on which
+you can run, debug, and test your application's implementation of license
+checking and enforcement. </p>
+
+
+<h3 id="runtime-setup">Setting up the runtime environment</h3>
+
+<p>As described earlier, applications check licensing status not by contacting
+the licensing server directly, but by binding to a service provided by the
+Google Play application and initiating a license check request. The Google
+Play service then handles the direct communication with the licensing server
+and finally routes the response back to your application. To debug and test
+licensing in your application, you need to set up a runtime environment that
+includes the necessary Google Play service, so that your application is able
+to send license check requests to the licensing server. </p>
+
+<p>There are two types of runtime environment that you can use: </p>
+
+<ul>
+<li>An Android-powered device that includes the Google Play application, or</li>
+<li>An Android emulator running the Google APIs Add-on, API level 8 (release 2)
+or higher</li>
+</ul>
+
+<h4 id="runtime-device">Running on a device</h4>
+
+<p>To use an Android-powered device for
+debugging and testing licensing, the device must:</p>
+
+<ul>
+<li>Run a compatible version of Android 1.5 or later (API level
+3 or higher) platform, <em>and</em> </li>
+<li>Run a system image on which the Google Play client application
+is preinstalled. </li>
+</ul>
+
+<p>If Google Play is not preinstalled in the system image, your application won't
+be able to communicate with the Google Play licensing server. </p>
+
+<p>For general information about how to set up a device for use in developing
+Android applications, see <a
+href="../../../guide/developing/device.html">Using Hardware Devices</a>.</p>
+
+<h4 id="runtime-emulator">Running on an Android emulator</h4>
+
+<p>If you don't have a device available, you can use an Android emulator for debugging and testing
+licensing.</p>
+
+<p>Because the Android platforms provided in the Android SDK <em>do
+not</em> include Google Play, you need to download the Google APIs Add-On
+platform, API level 8 (or higher), from the SDK repository. After downloading
+the add-on, you need to create an AVD configuration that uses that system image.
+</p>
+
+<p>The Google APIs Add-On does not include the full Google Play client.
+However, it does provide: </p>
+
+<ul>
+<li>An Google Play background service that implements the
+<code>ILicensingService</code> remote interface, so that your application can
+send license checks over the network to the licensing server. </li>
+<li>A set of underlying account services that let you add an a Google account on
+the AVD and sign in using your publisher account or test account credentials.
+<p>Signing in using your publisher or test account enables you to debug and test
+your application without having publish it. For more information see <a
+href="#acct-signin">Signing in to an authorized account</a>, below.</p></li>
+</ul>
+
+<p>Several versions of the add-on are available through the SDK Manager, but only
+<strong>Google APIs Add-On, API 8 (release 2) or higher</strong> includes the necessary Google
+Play services.</p>
+
+<p>To set up an emulator for adding licensing to an application, follow
+these steps: </p>
+
+<ol>
+  <li>Launch the Android SDK Manager. </li>
+  <li>In the <strong>Available Packages</strong> panel, select and download the
+SDK component "Google APIs (Google Inc.) - API Level 8" (or higher) from the SDK
+repository.
+  <p>When the download is complete, use the Android SDK Manager to
+create a new AVD based on that component, described next.</p></li>
+  <li>In the <strong>Virtual
+Devices</strong> panel of the Android SDK Manager, click
+<strong>New</strong> and set the configuration details for the new AVD. </li>
+  <li>In the dialog that appears, assign a descriptive name to the AVD and then
+use the "Target" menu to choose the "Google APIs (Google Inc.) - API Level 8" as
+the system image to run on the new AVD. Set the other configuration details as
+needed and then click <strong>Create AVD</strong> to finish. The SDK tools
+create the new AVD configuration, which then appears in the list of available
+Android Virtual Devices.</li>
+</ol>
+
+<p>If you are not familiar with AVDs or how to use them, see <a
+href="../../../guide/developing/devices/index.html">Managing Virtual Devices</a>.</p>
+
+<h4 id="project-update">Updating your project configuration</h4>
+
+<p>After you set up a runtime environment that meets the requirements described
+above &mdash; either on an actual device or on an emulator &mdash; make sure to
+update your application project or build scripts as needed, so that your compiled
+<code>.apk</code> files that use licensing are deployed into that environment.
+In particular, if you are developing in Eclipse, make sure that you set up a
+Run/Debug Configuration that targets the appropriate device or AVD. </p>
+
+<p>You do not need to make any changes to your application's
+build configuration, provided that the project is already configured to compile
+against a standard Android 1.5 (API level 3) or higher library. For example:
+
+<ul>
+<li>If you have an existing application that is compiled against
+the Android 1.5 library, you do not need to make any changes to your
+build configuration to support licensing. The build target meets the minimum
+requirements for licensing, so you would continue building
+against the same version of the Android platform.</li>
+
+<li>Similarly, if you are building against Android 1.5 (API level 3) but
+are using an emulator running the Google APIs Add-On API 8 as the application's
+runtime environment, there is no need to change your application's build
+configuration. </li>
+</ul>
+
+<p>In general, adding licensing to an application should have no impact
+whatsoever on the application's build configuration.</p>
+
+
+<h3 id="download-lvl">Downloading the LVL</h3>
+
+<p>The License Verification Library (LVL) is a collection of helper classes that
+greatly simplify the work that you need to do to add licensing to your
+application. In all cases, we recommend that you download the LVL and use it as
+the basis for the licensing implementation in your application.</p>
+
+<p>The LVL is available as a downloadable component of the Android SDK. The
+component includes: </p>
+
+<ul>
+<li>The LVL sources, stored inside an Android library project. </li>
+<li>An example application called "sample" that depends on the LVL library
+project. The example illustrates how an application uses the library helper
+classes to check and enforce licensing.</li>
+</ul>
+
+<p>To download the LVL component into your development environment, use the
+Android SDK Manager. Launch the Android SDK Manager and then
+select the "Google Market Licensing" component, as shown in figure 2.
+Accept the terms and click <strong>Install Selected</strong> to begin the download. </p>
+
+<img src="../../../images/licensing_package.png" alt=""/>
+<p class="img-caption"><strong>Figure 2.</strong> The Licensing package contains the LVL and
+the LVL sample application.</p>
+
+<p>When the download is complete, the Android SDK Manager installs both
+the LVL library project and the example application into these directories: </p>
+
+<p style="margin-left:2em"><code>&lt;<em>sdk</em>&gt;/extras/google/market_licensing/library/</code>
+&nbsp;&nbsp;(the LVL library project)<br />
+<code>&lt;<em>sdk</em>&gt;/extras/google/market_licensing/sample/</code>&nbsp;&nbsp;(the example
+application)</p>
+
+<p>If you aren't familiar with how to download components into your SDK, see the
+<a href="../../../sdk/adding-components.html">Adding SDK Components</a>
+document. </p>
+
+
+<h3 id="lvl-setup">Setting Up the Licensing Verification Library</h3>
+
+<p>After downloading the LVL to your computer, you need to set it up in your
+development environment, either as an Android library project or by
+copying (or importing) the library sources directly into your existing
+application package. In general, using the LVL as a library project is recommended,
+since it lets you reuse your licensing code across multiple applications and
+maintain it more easily over time. Note that the LVL is not designed to be
+compiled separately and added to an application as a static .jar file. </p>
+
+<h4>Moving the library sources to a new location</h4>
+
+<p>Because you will be customizing the LVL sources to some extent, you should
+make sure to <em>move or copy</em> the library sources (the entire
+directory at <code>&lt;<em>sdk</em>&gt;/market_licensing/library/</code>)
+to a working directory outside of the SDK. You should then use the relocated
+sources as your working set. If you are using a source-code management
+system, add and track the sources that are in the working location rather
+than those in default location in the SDK. </p>
+
+<p>Moving the library sources is important is because, when you later update the
+Licensing package, the SDK installs the new files to the same location as
+the older files. Moving your working library files to a safe location ensures
+that your work won't be inadvertently overwritten should you download a new
+version of the LVL.</p>
+
+<h4>Creating the LVL as a library project</h4>
+
+<div class="sidebox-wrapper">
+<div class="sidebox">
+<h2>Working with library projects</h2>
+
+<p>The LVL is provided as an Android library project, which means that you can
+share its code and resources across multiple applications. </p>
+
+<p style="margin-top:.5em;">If you aren't familiar with library projects or how
+to use them, see <a href="../../../guide/developing/projects/index.html#LibraryProjects">
+Managing Projects</a>.
+</p>
+</div>
+</div>
+
+<p>The recommended way of using the LVL is setting it up as a new Android
+<em>library project</em>. A library project is a type of development project
+that holds shared Android source code and resources. Other Android application
+projects can reference the library project and, at build time, include its
+compiled sources in their <code>.apk</code> files. In the context of licensing,
+this means that you can do most of your licensing development once, in a library
+project, then include the library sources in your various application projects.
+In this way, you can easily maintain a uniform implementation of licensing
+across all of your projects and maintain it centrally. </p>
+
+<p>The LVL is provided as a configured library project &mdash; once you have
+downloaded it, you can start using it right away. </p>
+
+<p>If you are working in Eclipse with ADT, you need to add the LVL to your
+workspace as a new development project, in the same way as you would a new
+application project. </p>
+
+<ol>
+<li>Use the New Project Wizard to create a new
+project from existing sources. Select the LVL's <code>library</code> directory
+(the directory containing the library's AndroidManifest.xml file) as the project
+root.</li>
+<li>When you are creating the library project, you can select any application
+name, package, and set other fields as needed. </li>
+<li>For the library's build target, select Android 1.5 (API level 3) or higher.</li>
+</ol>
+
+<p> When created, the project is
+predefined as a library project in its <code>project.properties</code> file, so
+no further configuration is needed. </p>
+
+<p>For more information about how to create an application project or work with
+library projects in Eclipse, see <a
+href="../../../guide/developing/projects/projects-eclipse.html">Managing Projects from
+Eclipse with ADT</a>.</p>
+
+
+<h4>Copying the LVL sources to your application</h4>
+
+<p>As an alternative to adding the LVL as a library project, you can copy the
+library sources directly into your application. To do so, copy (or import) the
+LVL's <code>library/src/com</code> directory into your application's
+<code>src/</code> directory.</p>
+
+<p>If you add the LVL sources directly to your application, you can skip the
+next section and start working with the library, as described in <a
+href="../../../guide/market/licensing/adding-licensing.html">Adding
+Licensing to Your App</a>.</p>
+
+
+<h3 id="add-library">Including the LVL library project sources in your
+application</h3>
+
+<p>If you want to use the LVL sources as a library project, you need to add a
+reference to the LVL library project in your application project properties. This tells
+build tools to include the LVL library project sources in your application at
+compile time. The process for adding a reference to a library project depends
+on your development environment, as described below.</p>
+
+<p> If you are developing in Eclipse with ADT, you should already have added the
+library project to your workspace, as described in the previous section. If you
+haven't done that already, do it now before continuing. </p>
+
+<p>Next, open the application's project properties window, as shown below.
+Select the "Android" properties group and click <strong>Add</strong>, then
+choose the LVL library project (com_android_vending_licensing) and click
+<strong>OK</strong>. For more information, see
+<a href="../../../guide/developing/projects/projects-eclipse.html#SettingUpLibraryProject">
+Managing Projects from Eclipse with ADT</a></p>.
+
+
+<img src="../../../images/licensing_add_library.png" alt=""/>
+<p class="img-caption"><strong>Figure 3.</strong> If you are
+working in Eclipse with ADT, you can add the LVL library project to your
+application from the application's project properties.</p>
+
+
+<p>If you are developing using the SDK command-line tools, navigate to the
+directory containing your application project and open the
+<code>project.properties</code> file. Add a line to the file that specifies the
+<code>android.library.reference.&lt;n&gt;</code> key and the path to the
+library. For example: </p>
+
+<pre>android.library.reference.1=path/to/library_project</pre>
+
+<p>Alternatively, you can use this command to update the project
+properties, including the reference to the library project:</p>
+
+<pre class="no-pretty-print" style="color:black">android update lib-project
+--target <em>&lt;target_ID&gt;</em> \
+--path <em>path/to/my/app_project</em> \
+--library <em>path/to/my/library_project</em>
+</pre>
+
+<p>For more information about working with library projects,
+see <a href="../../../guide/developing/projects/projects-cmdline.html#SettingUpLibraryProject">
+Setting up a Library Project</a>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="test-env">Setting Up the Testing Environment</h2>
+
+<p>The Google Play publisher site provides configuration tools that let you
+and others test licensing on your application before it is published. As you are
+implementing licensing, you can make use of the publisher site tools to test
+your application's Policy and handling of different licensing responses and
+error conditions.</p>
+
+<p>The main components of the test environment for licensing include: </p>
+
+<ul>
+<li>A "Test response" configuration in your publisher account that lets you
+set the static licensing response returned, when the server processes a
+license check for an application uploaded to the publisher account, from a user
+signed in to the publisher account or a test account.</li>
+<li>An optional set of test accounts that will receive the static test
+response when they check the license of an application that you have uploaded
+(regardless whether the application is published or not).</li>
+<li>A runtime environment for the application that includes the Google Play
+application or Google APIs Add-On, on which the user is signed in to the
+publisher account or one of the test accounts.</li>
+</ul>
+
+<p>Setting up the test environment properly involves:</p>
+
+<ol>
+<li><a href="#test-response">Setting static test responses</a> that are returned by the licensing server.</li>
+<li><a href="#test-acct-setup">Setting up test accounts</a> as needed.</li>
+<li><a href="#acct-signin">Signing in</a> properly to an emulator or device, before initiating a license check test.</li>
+</ol>
+
+<p>The sections below provide more information.</p>
+
+
+<h3 id="test-response">Setting test responses for license checks</h3>
+
+<p>Google Play provides a configuration setting in your publisher account
+that lets you override the normal processing of a license check and return a
+specified static response code. The setting is for testing only and applies
+<em>only</em> to license checks for applications that you have uploaded, made by
+any user signed in to an emulator or device using the credentials of the
+publisher account or a registered test account. For other users, the server
+always processes license checks according to normal rules.  </p>
+
+<p>To set a test response for your account, sign in to your publisher account
+and click "Edit Profile". In the Edit Profile page, locate the Test Response
+menu in the Licensing panel, shown below. You can select from the full set of
+valid server response codes to control the response or condition you want to
+test in your application.</p>
+
+<p>In general, you should make sure to test your application's licensing
+implementation with every response code available in the Test Response menu.
+For a description of the codes, see <a
+href="../../../guide/market/licensing/licensing-reference.html#server-response-codes">Server
+Response Codes</a> in the <a
+href="../../../guide/market/licensing/licensing-reference.html">Licensing Reference</a>.</p>
+
+<img src="../../../images/licensing_test_response.png" alt=""/>
+<p class="img-caption"><strong>Figure 4.</strong> The Licensing
+panel of your account's Edit Profile page, showing the Test Accounts field and the
+Test Response menu.</p>
+
+<p>Note that the test response that you configure applies account-wide &mdash;
+that is, it applies not to a single application, but to <em>all</em>
+applications associated with the publisher account. If you are testing multiple
+applications at once, changing the test response will affect all of those
+applications on their next license check (if the user is signed in to
+the emulator or device using the publisher account or a test account).</p>
+
+<p>Before you can successfully receive a test response for a license check,
+you must sign in to the device or emulator on which the application
+is installed, and from which it is querying the server. Specifically, you must
+sign using either your publisher account or one of the test accounts that you
+have set up. For more information about test accounts, see the next section.</p>
+
+<p>See <a
+href="../../../guide/market/licensing/licensing-reference.html#server-response-codes">Server
+Response Codes</a> for a list of
+test responses available and their meanings. </p>
+
+
+<h3 id="test-acct-setup">Setting up test accounts</h3>
+
+<p>In some cases, you might want to let multiple teams of developers test
+licensing on applications that will ultimately be published through your
+publisher account, but without giving them access to your publisher account's
+sign-in credentials. To meet that need, the Google Play publisher site lets
+you set up one or more optional <em>test accounts</em> &mdash; accounts that are
+authorized to query the licensing server and receive static test responses from
+your publisher account.</p>
+
+<p>Test accounts are standard Google accounts that you register on your
+publisher account, such that they will receive the test response for
+applications that you have uploaded. Developers can then sign in to their
+devices or emulators using the test account credentials and initiate license
+checks from installed applications. When the licensing server receives a license
+check from a user of a test account, it returns the static test response
+configured for the publisher account.  </p>
+
+<p>Necessarily, there are limitations on the access and permissions given to
+users signed in through test accounts, including:</p>
+
+<ul>
+<li>Test account users can query the licensing server only for applications that
+are already uploaded to the publisher account. </li>
+<li>Test account users do not have permission to upload applications to your
+publisher account.</li>
+<li>Test account users do not have permission to set the publisher account's
+static test response.</li>
+</ul>
+
+<p>The table below summarizes the differences in capabilities, between the
+publisher account, a test account, and any other account.</p>
+
+<p class="table-caption" id="acct-types-table"><strong>Table 1.</strong>
+Differences in account types for testing licensing.</p>
+
+<table>
+<tr>
+<th>Account Type</th>
+<th>Can check license before upload?</th>
+<th>Can receive test response?</th>
+<th>Can set test response?</th>
+</tr>
+
+<tr>
+<td>Publisher account</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+
+<tr>
+<td>Test account</td>
+<td>No</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+
+<tr>
+<td>Other</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+</tr>
+</table>
+
+<h4 id="reg-test-acct">Registering test accounts on the publisher account</h4>
+
+<p>To get started, you need to register each test account in your publisher
+account. As shown in Figure 4, you
+register test accounts in the Licensing panel of your publisher account's Edit
+Profile page. Simply enter the accounts as a comma-delimited list and click
+<strong>Save</strong> to save your profile changes.</p>
+
+<p>You can use any Google account as a test account. If you want to own and
+control the test accounts, you can create the accounts yourself and distribute
+the credentials to your developers or testers.</p>
+
+<h4 id="test-app-upload">Handling application upload and distribution for test
+account users</h4>
+
+<p>As mentioned above, users of test accounts can only receive static test
+responses for applications that are uploaded to the publisher account. Since
+those users do not have permission to upload applications, as the publisher you
+will need to work with those users to collect apps for upload and distribute
+uploaded apps for testing. You can handle collection and distribution in any way
+that is convenient. </p>
+
+<p>Once an application is uploaded and becomes known to the licensing server,
+developers and testers can continue modify the application in their local
+development environment, without having to upload new versions. You only need to
+upload a new version if the local application increments the
+<code>versionCode</code> attribute in the manifest file. </p>
+
+<h4 id="test-key">Distributing your public key to test account users</h4>
+
+<p>The licensing server handles static test responses in the normal way,
+including signing the license response data, adding extras parameters, and so
+on. To support developers who are implementing licensing using test accounts,
+rather than the publisher account, you will need to distribute
+your public key to them. Developers without access to the publisher site do not
+have access to your public key, and without the key they won't be able to
+verify license responses. </p>
+
+<p>Note that if you decide to generate a new licensing key pair for your account
+for some reason, you need to notify all users of test accounts. For
+testers, you can embed the new key in the application package and distribute it
+to users. For developers, you will need to distribute the new key to them
+directly. </p>
+
+
+<h3 id="acct-signin">Signing in to an authorized account in the runtime
+environment</h3>
+
+<p>The licensing service is designed to determine whether a given user is
+licensed to use a given application &mdash; during a license check, the Google
+Play application gathers the user ID from the primary account on the system
+and sends it to the server, together with the package name of the application
+and other information. However, if there is no user information available, the
+license check cannot succeed, so the Google Play application terminates the
+request and returns an error to the application. </p>
+
+<p>During testing, to ensure that your application can successfully query the
+licensing server, you must make sure that you sign in to an account <em>on the
+device or emulator</em> using:</p>
+
+<ul>
+<li>The credentials of a publisher account, or</li>
+<li>The credentials of a test account that is registered with a publisher
+account</li>
+</ul>
+
+
+<div class="sidebox-wrapper">
+<div class="sidebox">
+<h2>Signing in to a Google account on an emulator</h2>
+
+<p>If you are testing licensing on an emulator, you need to sign in to a Google
+account on the emulator. If you do not see an option to create a new Google
+account, the problem might be that your AVD is running a standard Android system
+image, rather than the Google APIs Add-On, API 8 (release 2) or higher. </p>
+
+<p style="margin-top:.5em;">For more information, see <a
+href="#runtime-setup">Setting up the runtime environment</a>, above.</p>
+
+</div>
+</div>
+
+<p>Signing in using a publisher account offers the advantage of letting your
+applications receive static test responses even before the applications are
+uploaded to the publisher site.</p>
+
+<p>If you are part of a larger organization or are working with external groups
+on applications that will be published through your site, you will more likely
+want to distribute test accounts instead, then use those to sign in during
+testing. </p>
+
+<p>To sign in on a device or emulator, follow the steps below. The preferred
+approach is to sign in as the primary account &mdash; however, if there are
+other accounts already in use on the device or emulator, you can create an
+additional account and sign in to it using the publisher or test account
+credentials.  </p>
+
+<ol>
+<li>Open Settings &gt; Accounts &amp; sync</li>
+<li>Select <strong>Add Account</strong> and choose to add a "Google" account.
+</li>
+<li>Select <strong>Next</strong> and then <strong>Sign in</strong>.</li>
+<li>Enter the username and password of either the publisher account or a test
+account that is registered in the publisher account.</li>
+<li>Select <strong>Sign in</strong>. The system signs you in to the new
+account.</li>
+</ol>
+
+<p>Once you are signed in, you can begin testing licensing in your application
+(if you have completed the LVL integration steps above). When your application
+initiates a license check, it will receive a response containing the static test
+response configured on the publisher account. </p>
+
+<p>Note that, if you are using an emulator, you will need to sign in to the
+publisher account or test account each time you wipe data when restarting the
+emulator.</p>
+
+<p>Once you've completed the setup procedures, continue to <a
+href="../../../guide/market/licensing/adding-licensing.html">Adding Licensing to Your App</a>.</p>
+
+
+
+
+    </div>
+
+    
+    
+    <a href="#top" style="float:right">&uarr; Go to top</a>
+    
+      <p><a href="index.html">&larr; Back to Application Licensing</a></p>
+    
+
+  </div> <!-- end jd-content -->
+
+<div id="footer">
+
+
+  <div id="copyright">
+    
+  Except as noted, this content is licensed under <a
+  href="http://www.apache.org/licenses/LICENSE-2.0">Apache 2.0</a>. 
+  For details and restrictions, see the <a href="../../../license.html">
+  Content License</a>.
+  </div>
+  <div id="build_info">
+    
+  Android 4.0&nbsp;r1 - 16 Mar 2012 16:45
+
+  </div>
+
+  <div id="footerlinks">
+    
+  <p>
+    <a href="http://www.google.com/intl/en/policies/" target="_blank">Privacy &amp; Terms</a> -
+    <a href="http://www.android.com/branding.html" target="_blank">Brand Guidelines</a> -
+    <a
+href="http://code.google.com/p/android/issues/entry?template=Developer%20Documentation"
+target="_blank">Report Document Issues</a>
+  </p>
+  </div>
+
+</div> <!-- end footer -->
+
+</div><!-- end doc-content -->
+
+</div> <!-- end body-content --> 
+
+<script type="text/javascript">
+init(); /* initialize android-developer-docs.js */
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-5831155-1");
+pageTracker._trackPageview();
+</script>
+
+</body>
+</html>
+
+
+

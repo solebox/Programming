@@ -1,0 +1,1189 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico" />
+<title>Hello, Testing | Android Developers</title>
+<link href="../../../assets/android-developer-docs-devguide.css" rel="stylesheet" type="text/css" />
+<script src="../../../assets/search_autocomplete.js" type="text/javascript"></script>
+<script src="../../../assets/jquery-resizable.min.js" type="text/javascript"></script>
+<script src="../../../assets/android-developer-docs.js" type="text/javascript"></script>
+<script src="../../../assets/prettify.js" type="text/javascript"></script>
+<script type="text/javascript">
+  setToRoot("../../../");
+</script>
+<script src="../../../resources/resources-data.js" type="text/javascript"></script>
+<noscript>
+  <style type="text/css">
+    html,body{overflow:auto;}
+    #body-content{position:relative; top:0;}
+    #doc-content{overflow:visible;border-left:3px solid #666;}
+    #side-nav{padding:0;}
+    #side-nav .toggle-list ul {display:block;}
+    #resize-packages-nav{border-bottom:3px solid #666;}
+  </style>
+</noscript>
+</head>
+<body class="gc-documentation" itemscope itemtype="http://schema.org/Article">
+
+  <div id="header">
+      <div id="headerLeft">
+          <a href="../../../index.html" tabindex="-1"><img
+              src="../../../assets/images/bg_logo.png" alt="Android Developers" /></a>
+          <ul id="header-tabs" class="resources">
+    
+	<li id="home-link"><a href="../../../offline.html">
+	
+		<span class="en">Home</span>
+		<span style="display:none" class="de">Startseite</span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ホーム</span>
+		<span style="display:none" class="zh-CN">主页</span>
+		<span style="display:none" class="zh-TW">首頁</span>
+	
+	</a></li>
+	<li id="sdk-link"><a href="../../../sdk/index.html">
+		<span class="en">SDK</span>
+	</a></li>
+	<li id="guide-link"><a href="../../../guide/index.html" onClick="return loadLast('guide')">
+	
+		<span class="en">Dev Guide</span>
+		<span style="display:none" class="de">Handbuch</span>
+		<span style="display:none" class="es">Guía</span>
+		<span style="display:none" class="fr">Guide</span>
+		<span style="display:none" class="it">Guida</span>
+		<span style="display:none" class="ja">開発ガイド</span>
+		<span style="display:none" class="zh-CN">开发人员指南</span>
+		<span style="display:none" class="zh-TW">開發指南</span>
+	
+	</a></li>
+	<li id="reference-link"><a href="../../../reference/packages.html" onClick="return loadLast('reference')">
+	
+		<span class="en">Reference</span>
+		<span style="display:none" class="de">Referenz</span>
+		<span style="display:none" class="es">Referencia</span>
+		<span style="display:none" class="fr">Référence</span>
+		<span style="display:none" class="it">Riferimento</span>
+		<span style="display:none" class="ja">リファレンス</span>
+		<span style="display:none" class="zh-CN">参考</span>
+		<span style="display:none" class="zh-TW">參考資料</span>
+	
+	</a></li>
+	<li id="resources-link"><a href="../../../resources/index.html" onClick="return loadLast('resources')">
+	
+		<span class="en">Resources</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+    		<span style="display:none" class="ja"></span>
+		<span style="display:none" class="zh-CN"></span>
+		<span style="display:none" class="zh-TW"></span>
+	
+	</a></li>
+	<li id="videos-link"><a href="../../../videos/index.html" onClick="return loadLast('videos')">
+	
+		<span class="en">Videos</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ビデオ</span>
+		<span style="display:none" class="zh-CN"></span>
+		<span style="display:none" class="zh-TW"></span>
+	
+	</a></li>
+	<li><a href="http://android-developers.blogspot.com" onClick="return requestAppendHL(this.href)">
+	
+		<span class="en">Blog</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ブログ</span>
+		<span style="display:none" class="zh-CN">博客</span>
+		<span style="display:none" class="zh-TW">網誌</span>
+	
+	</a></li>
+
+
+     
+</ul>
+     
+      </div>
+      <div id="headerRight">
+          <div id="headerLinks">
+          &nbsp;&nbsp;
+          <a href="../../../design/index.html">Android Design</a>&nbsp;&nbsp;
+          <a href="http://www.android.com">Android.com</a>
+          </div>
+  <div id="search" >
+      <div id="searchForm">
+          <form accept-charset="utf-8" class="gsc-search-box" 
+                onsubmit="return submit_search()">
+            <table class="gsc-search-box" cellpadding="0" cellspacing="0"><tbody>
+                <tr>
+                  <td class="gsc-input">
+                    <input id="search_autocomplete" class="gsc-input" type="text" size="33" autocomplete="off"
+                      title="search developer docs" name="q"
+                      value="search developer docs"
+                      onFocus="search_focus_changed(this, true)"
+                      onBlur="search_focus_changed(this, false)"
+                      onkeydown="return search_changed(event, true, '../../../')"
+                      onkeyup="return search_changed(event, false, '../../../')" />
+                  <div id="search_filtered_div" class="no-display">
+                      <table id="search_filtered" cellspacing=0>
+                      </table>
+                  </div>
+                  </td>
+                  <td class="gsc-search-button">
+                    <input type="submit" value="Search" title="search" id="search-button" class="gsc-search-button" />
+                  </td>
+                  <td class="gsc-clear-button">
+                    <div title="clear results" class="gsc-clear-button">&nbsp;</div>
+                  </td>
+                </tr></tbody>
+              </table>
+          </form>
+      </div><!-- searchForm -->
+  </div><!-- search -->
+      </div><!-- headerRight -->
+      <script type="text/javascript">
+        <!--  
+        changeTabLang(getLangPref());
+        //-->
+      </script>
+  </div><!-- header -->
+
+  <div class="g-section g-tpl-200" id="body-content">
+    <div class="g-unit g-first" id="side-nav" itemscope itemtype="http://schema.org/SiteNavigationElement">
+      <div id="devdoc-nav"><ul>
+  <li>
+    <span class="heading">
+      <span class="en">Android Training</span>
+    </span>
+    <ul>
+      
+      <li><a href="../../../training/index.html">
+            <span class="en">Orientation</span>
+          </a>
+      </li>
+
+      <li class="toggle-list">
+        <div><a href="../../../training/multiscreen/index.html">
+            <span class="en">Designing for Multiple Screens</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../training/multiscreen/screensizes.html">
+            <span class="en">Supporting Different Screen Sizes</span>
+          </a>
+          </li>
+          <li><a href="../../../training/multiscreen/screendensities.html">
+            <span class="en">Supporting Different Screen Densities</span>
+          </a>
+          </li>
+          <li><a href="../../../training/multiscreen/adaptui.html">
+            <span class="en">Implementing Adaptive UI Flows</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+      
+      <li class="toggle-list">
+        <div><a href="../../../training/improving-layouts/index.html">
+            <span class="en">Improving Layout Performance</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../training/improving-layouts/optimizing-layout.html">
+            <span class="en">Optimizing Layout Hierarchies</span>
+          </a>
+          </li>
+          <li><a href="../../../training/improving-layouts/reusing-layouts.html">
+            <span class="en">Re-using Layouts with &lt;include/&gt;</span>
+          </a>
+          </li>
+          <li><a href="../../../training/improving-layouts/loading-ondemand.html">
+            <span class="en">Loading Views On Demand</span>
+          </a>
+          </li>
+          <li><a href="../../../training/improving-layouts/smooth-scrolling.html">
+            <span class="en">Making ListView Scrolling Smooth</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+      
+      <li class="toggle-list">
+        <div><a href="../../../training/managing-audio/index.html">
+            <span class="en">Managing Audio Playback</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../training/managing-audio/volume-playback.html">
+            <span class="en">Controlling Your App’s Volume and Playback</span>
+          </a>
+          </li>
+          <li><a href="../../../training/managing-audio/audio-focus.html">
+            <span class="en">Managing Audio Focus</span>
+          </a>
+          </li>
+          <li><a href="../../../training/managing-audio/audio-output.html">
+            <span class="en">Dealing with Audio Output Hardware</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+      
+      <li class="toggle-list">
+        <div><a href="../../../training/monitoring-device-state/index.html">
+            <span class="en">Optimizing Battery Life</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../training/monitoring-device-state/battery-monitoring.html">
+            <span class="en">Monitoring the Battery Level and Charging State</span>
+          </a>
+          </li>
+          <li><a href="../../../training/monitoring-device-state/docking-monitoring.html">
+            <span class="en">Determining and Monitoring the Docking State and Type</span>
+          </a>
+          </li>
+          <li><a href="../../../training/monitoring-device-state/connectivity-monitoring.html">
+            <span class="en">Determining and Monitoring the Connectivity Status</span>
+          </a>
+          </li>
+          <li><a href="../../../training/monitoring-device-state/manifest-receivers.html">
+            <span class="en">Manipulating Broadcast Receivers On Demand</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="toggle-list">
+        <div><a href="../../../training/search/index.html">
+            <span class="en">Adding Search Functionality</span>
+          </a> <span class="new">new!</span>
+        </div>
+        <ul>
+          <li><a href="../../../training/search/setup.html">
+            <span class="en">Setting up the Search Interface</span>
+          </a>
+          </li>
+          <li><a href="../../../training/search/search.html">
+            <span class="en">Storing and Searching for Data</span>
+          </a>
+          </li>
+          <li><a href="../../../training/search/backward-compat.html">
+            <span class="en">Remaining Backward Compatible</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="toggle-list">
+        <div><a href="../../../training/id-auth/index.html">
+            <span class="en">Remembering Users</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../training/id-auth/identify.html">
+            <span class="en">Remembering Your User</span>
+          </a>
+          </li>
+          <li><a href="../../../training/id-auth/authenticate.html">
+            <span class="en">Authenticating to OAuth2 Services</span>
+          </a>
+          </li>
+          <li><a href="../../../training/id-auth/custom_auth.html">
+            <span class="en">Creating a Custom Account Type</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="toggle-list">
+        <div><a href="../../../training/sharing/index.html">
+            <span class="en">Sharing Content</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../training/sharing/send.html">
+            <span class="en">Sending Content to Other Apps</span>
+          </a>
+          </li>
+          <li><a href="../../../training/sharing/receive.html">
+            <span class="en">Receiving Content from Other Apps</span>
+          </a>
+          </li>
+          <li><a href="../../../training/sharing/shareaction.html">
+            <span class="en">Adding an Easy Share Action</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+      
+      <li class="toggle-list">
+        <div><a href="../../../training/camera/index.html">
+            <span class="en">Capturing Photos</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../training/camera/photobasics.html">
+            <span class="en">Taking Photos Simply</span>
+          </a>
+          </li>
+          <li><a href="../../../training/camera/videobasics.html">
+            <span class="en">Recording Videos Simply</span>
+          </a>
+          </li>
+          <li><a href="../../../training/camera/cameradirect.html">
+            <span class="en">Controlling the Camera</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+      
+      <li class="toggle-list">
+        <div><a href="../../../training/multiple-apks/index.html">
+            <span class="en">Maintaining Multiple APKs</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../training/multiple-apks/api.html">
+            <span class="en">Creating Multiple APKs for Different API Levels</span>
+          </a>
+          </li>
+          <li><a href="../../../training/multiple-apks/screensize.html">
+            <span class="en">Creating Multiple APKs for Different Screen Sizes</span>
+          </a>
+          </li>
+          <li><a href="../../../training/multiple-apks/texture.html">
+            <span class="en">Creating Multiple APKs for Different GL Textures</span>
+          </a>
+          </li>
+          <li><a href="../../../training/multiple-apks/multiple.html">
+            <span class="en">Creating Multiple APKs with 2+ Dimensions</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+      
+      <li class="toggle-list">
+        <div><a href="../../../training/enterprise/index.html">
+            <span class="en">Developing for Enterprise</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../training/enterprise/device-management-policy.html">
+            <span class="en">Enhancing Security with Device Management Policies</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+      
+      <li class="toggle-list">
+        <div><a href="../../../training/monetization/index.html">
+            <span class="en">Monetizing Your App</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../training/monetization/ads-and-ux.html">
+            <span class="en">Advertising without Compromising User Experience</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+      
+      <li class="toggle-list">
+        <div><a href="../../../training/design-navigation/index.html">
+            <span class="en">Designing Effective Navigation</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../training/design-navigation/screen-planning.html">
+            <span class="en">Planning Screens and Their Relationships</span>
+          </a>
+          </li>
+          <li><a href="../../../training/design-navigation/multiple-sizes.html">
+            <span class="en">Planning for Multiple Touchscreen Sizes</span>
+          </a>
+          </li>
+          <li><a href="../../../training/design-navigation/descendant-lateral.html">
+            <span class="en">Providing Descendant and Lateral Navigation</span>
+          </a>
+          </li>
+          <li><a href="../../../training/design-navigation/ancestral-temporal.html">
+            <span class="en">Providing Ancestral and Temporal Navigation</span>
+          </a>
+          </li>
+          <li><a href="../../../training/design-navigation/wireframing.html">
+            <span class="en">Putting it All Together: Wireframing the Example App</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>    
+      
+      
+  <li>
+    <span class="heading">
+      <span class="en">Technical Resources</span>
+    </span>
+    <ul>
+      <li class="toggle-list">
+        <div><a href="../../../resources/browser.html?tag=sample">
+            <span class="en">Sample Code</span>
+            <span class="de" style="display:none">Beispielcode</span>
+            <span class="es" style="display:none">Código de ejemplo</span>
+            <span class="fr" style="display:none">Exemple de code</span>
+            <span class="it" style="display:none">Codice di esempio</span>
+            <span class="ja" style="display:none">サンプル コード</span>
+            <span class="zh-CN" style="display:none"></span>
+            <span class="zh-TW" style="display:none"></span>
+          </a></div>
+        <ul id="devdoc-nav-sample-list">
+          <li><a href="../../../resources/samples/get.html">
+                <span class="en">Getting the Samples</span>
+              </a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../../../resources/browser.html?tag=article">
+               <span class="en">Articles</span>
+             </a></div>
+        <ul id="devdoc-nav-article-list">
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../../../resources/browser.html?tag=tutorial">
+               <span class="en">Tutorials</span>
+               <span class="de" style="display:none">Lernprogramme</span>
+               <span class="es" style="display:none">Tutoriales</span>
+               <span class="fr" style="display:none">Didacticiels</span>
+               <span class="it" style="display:none">Esercitazioni</span>
+               <span class="ja" style="display:none">チュートリアル</span>
+               <span class="zh-CN" style="display:none"></span>
+               <span class="zh-TW" style="display:none"></span>
+             </a></div>
+        <ul id="devdoc-nav-tutorial-list">
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../../../resources/topics.html">
+               <span class="en">Topics</span>
+             </a></div>
+        <ul id="devdoc-nav-topic-list">
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <span class="heading">
+      <span class="en">Community</span>
+      <span style="display:none" class="de"></span>
+      <span style="display:none" class="es">Comunidad</span>
+      <span style="display:none" class="fr">Communauté</span>
+      <span style="display:none" class="it"></span>
+      <span style="display:none" class="ja">コミュニティ</span>
+      <span style="display:none" class="zh-CN">社区</span>
+      <span style="display:none" class="zh-TW">社群</span>
+    </span>
+    <ul>
+      <li><a href="../../../resources/community-groups.html">
+            <span class="en">Developer Forums</span>
+          </a></li>
+      <li><a href="../../../resources/community-more.html">
+            <span class="en">IRC, G+, Twitter</span>
+          </a></li>
+    </ul>
+  </li>
+
+
+  <li>
+    <span class="heading">
+      <span class="en">More</span>
+    </span>
+    <ul>
+      <li><a href="../../../resources/faq/commontasks.html">
+            <span class="en">Common Tasks </span>
+          </a></li>
+      <li><a href="../../../resources/faq/troubleshooting.html">
+            <span class="en">Troubleshooting Tips</span>
+          </a></li>
+      <li class="toggle-list">
+        <div><a href="../../../resources/faq/index.html">
+               <span class="en">FAQs</span>
+             </a></div>
+        <ul>
+        <li><a href="../../../resources/faq/framework.html">
+                <span class="en">App Framework FAQ</span>
+                </a></li>
+        <li><a href="../../../resources/faq/licensingandoss.html">
+                <span class="en">Licensing FAQ</span>
+                </a></li>
+        <li><a href="../../../resources/faq/security.html">
+                <span class="en">Security FAQ</span>
+                </a></li>
+        </ul>
+     </li>
+    </ul>
+  </li>
+</ul>
+
+<script type="text/javascript">
+<!--
+    buildToggleLists();
+    changeNavLang(getLangPref());
+//-->
+</script>
+
+      </div>
+    </div> <!-- end side-nav -->
+    <script>
+      addLoadEvent(function() {
+        scrollIntoView("devdoc-nav");
+        });
+    </script>
+
+
+
+
+<div class="g-unit" id="doc-content"><a name="top"></a>
+
+<div id="jd-header" class="guide-header">
+  <span class="crumb" itemprop="breadcrumb">
+    
+      <a href="../../browser.html?tag=tutorial">Tutorials</a>:
+    
+  </span>
+<h1 itemprop="name">Hello, Testing</h1>
+</div>
+
+  
+  <div id="jd-content">
+ 
+    
+
+
+    <div class="jd-descr" itemprop="articleBody">
+    <div id="qv-wrapper">
+  <div id="qv">
+  <h2>In this document</h2>
+  <ol>
+    <li>
+        <a href="#CreateTestProject">Creating the Test Project</a>
+    </li>
+    <li>
+        <a href="#CreateTestClass">Creating the Test Case Class</a>
+        <ol>
+            <li>
+                <a href="#CreateTestCaseClassFile">Adding the test case class file</a>
+            </li>
+            <li>
+                <a href="#CreateConstructor">Adding the test case constructor</a>
+            </li>
+            <li>
+                <a href="#CreateSetUp">Adding a setup method</a>
+            </li>
+            <li>
+                <a href="#CreatePreConditions">Adding a preconditions test</a>
+            </li>
+            <li>
+                <a href="#CreateText">Adding a unit test</a>
+            </li>
+            <li>
+                <a href="#CompleteTest">The finished test case class</a>
+            </li>
+        </ol>
+    </li>
+    <li>
+        <a href="#RunTest">Running the Tests and Seeing the Results</a>
+    </li>
+    <li>
+        <a href="#NextSteps">Next Steps</a>
+    </li>
+  </ol>
+<h2>Related Tutorials</h2>
+<ol>
+    <li>
+        <a href="../../../resources/tutorials/hello-world.html">Hello, World</a>
+    </li>
+    <li>
+        <a href="../../../resources/tutorials/testing/activity_test.html">Activity Testing</a>
+    </li>
+</ol>
+<h2>See Also</h2>
+<ol>
+    <li>
+        <a href="../../../guide/topics/testing/testing_android.html">Testing Android Applications</a>
+    </li>
+    <li>
+        <code><a href="../../../reference/android/test/ActivityInstrumentationTestCase2.html">ActivityInstrumentationTestCase2</a></code>
+    </li>
+    <li>
+        <code><a href="../../../reference/android/test/InstrumentationTestRunner.html">InstrumentationTestRunner</a></code>
+    </li>
+</ol>
+
+</div>
+</div>
+<p>
+    Android offers a powerful but easy-to-use testing framework that is well integrated with the SDK tools. Because writing
+    tests is an important part of any development effort, this tutorial introduces the basics of testing and helps you get started testing quickly.
+
+    To keep things simple, this tutorial builds on the <a href="../../../resources/tutorials/hello-world.html">Hello World</a> tutorial, which you may have already completed.
+    It guides you through the process of setting up a test project, adding a test, and running the test against the Hello World application, all from inside the Eclipse environment.
+    Of course, when you are done with this tutorial, you will want to create a test project for your own app and add various types of tests to it.
+</p>
+<p>
+    If you'd like to read an overview of the test and instrumentation framework and the core test case classes available, look at
+    the <a href="../../../guide/topics/testing/testing_android.html">Testing Android Applications</a> topic.
+    If you prefer a more advanced testing tutorial, try the
+    <a href="../../../resources/tutorials/testing/activity_test.html">Activity Testing</a> tutorial.
+</p>
+<h2 id="Prerequisites">Prerequisites</h2>
+    <p>
+        This tutorial and its code depend on the Hello World tutorial. If you haven't completed that tutorial already,
+        do so now. You will learn the fundamentals of Android application development, and you will
+        have an Android application that is ready to be tested. The tutorial guides you through the
+        setup of an Android test project using the ADT Plugin for Eclipse and other SDK tools.
+        You will need an SDK development platform that is version 1.5
+        (API level 3) or higher.
+    </p>
+    <p>
+        If you aren't developing in Eclipse with ADT or you would like to run tests directly from the
+        command line, please see the topic <a href="../../../guide/developing/testing/testing_otheride.html">Testing in Other IDEs</a>
+        for instructions.
+    </p>
+<h2 id="CreateTestProject">Creating the Test Project</h2>
+<p>
+    In the Hello World tutorial you created Android application project called
+    HelloAndroid. A test of an Android application is also an Android
+    application, and you create it within an Eclipse project. The Eclipse with ADT
+    <strong>New Android Test Project</strong> dialog creates a new test project and the
+    framework of a new test application at the same time.
+</p>
+<p>
+    To create the test project and test application framework in Eclipse with ADT, follow these steps
+</p>
+    <ol>
+        <li>
+            In Eclipse, select <strong>New</strong> &gt; <strong>Project</strong> &gt; <strong>Android</strong> &gt; <strong>Android Test Project</strong>.
+            <p>
+              <a href="../../../images/testing/hwtest_new_test_project_menu.png">
+                  <img alt="New Android Test Project menu" src="../../../images/testing/hwtest_new_test_project_menu.png" style="height:230px"/>
+              </a>
+            </p>
+            <p>
+              The New Android Test Project dialog appears.
+            </p>
+        </li>
+        <li>
+            Set the following values:
+            <ul>
+                <li>
+                    <em>Test Project Name:</em> &quot;HelloAndroidTest&quot;
+                </li>
+                <li>
+                    <em>Test Target:</em> Set &quot;An existing Android project&quot;, click Browse, and then
+                    select &quot;HelloAndroid&quot; from the list of projects.
+                </li>
+                <li>
+                    <em>Build Target:</em> Set a target whose platform is Android 1.5 or above.
+                </li>
+                <li>
+                    <em>Application name:</em> &quot;HelloAndroidTest&quot;
+                </li>
+                <li>
+                    <em>Package name:</em> &quot;<code>com.example.helloandroid.test</code>&quot;
+                </li>
+            </ul>
+            <p>
+                The dialog should now look like this:
+            </p>
+            <a href="../../../images/testing/hwtest_new_test_project_dialog_complete_callouts.png">
+                <img alt="New Android Test Project dialog with entries" src="../../../images/testing/hwtest_new_test_project_dialog_complete_callouts.png" style="height:230px"/>
+            </a>
+        </li>
+        <li>
+            Click Finish. The new project appears in the Package Explorer.
+        </li>
+    </ol>
+<h2 id="CreateTestClass">Creating the Test Case Class</h2>
+<p>
+    You now have a test project HelloAndroidTest, and the basic structure of a test application
+    also called HelloAndroidTest. The basic structure includes all the files and directories you
+    need to build and run a test application, <em>except for</em> the class that contains
+    your tests (the <strong>test case class</strong>).
+</p>
+<p>
+    The next step is to define the test case class. In this tutorial, you define a test case class
+    that extends one of Android's test case classes designed for Activities. The class contains
+    definitions for four methods:
+</p>
+    <ol>
+        <li>
+            <code>HelloAndroidTest</code>: This defines the constructor for the class. It is
+            required by the Android testing framework.
+        </li>
+        <li>
+            <code>setUp()</code>: This overrides the JUnit <code>setUp()</code> method. You use
+            it to initialize the environment before each test runs.
+        </li>
+        <li>
+            <code>testPreconditions()</code>: This defines a small test that ensures the Hello, Android
+            application starts up correctly.
+        </li>
+        <li>
+            <code>testText()</code>: This tests that what is displayed on the screen is the
+            same as what is contained in the application's string resources. It is an example of
+            a real unit test you would perform against an application's UI.
+        </li>
+    </ol>
+<p>
+    The following sections contain the code for the test case class and its methods.
+</p>
+
+<h3 id="CreateTestCaseClassFile">Adding the test case class file</h3>
+<p>
+  To add the Java file for the test case class, follow these steps
+</p>
+    <ol>
+        <li>
+            In Eclipse, open the HelloAndroidTest project if it is not already open.
+        </li>
+        <li>
+            Within HelloAndroidTest, expand the <code>src/</code> folder and
+            then find the package icon for <code>com.example.helloandroid.test</code>.
+            Right-click on the package icon and select <strong>New</strong> &gt; <strong>Class</strong>:
+            <p>
+              <a href="../../../images/testing/hwtest_create_test_class_menu_callouts.png">
+                  <img alt="Menu for creating a new class in the test application" src="../../../images/testing/hwtest_create_test_class_menu_callouts.png" style="height:230px"/>
+              </a>
+            </p>
+            <p>
+                The New Java Class dialog appears.
+            </p>
+        </li>
+        <li>
+            In the dialog, enter the following:
+            <ul>
+                <li>
+                    <em>Name:</em> &quot;HelloAndroidTest&quot;. This becomes the name of your test class.
+                </li>
+                <li>
+                    <em>Superclass:</em> &quot;<code>android.test.ActivityInstrumentationTestCase2&lt;HelloAndroid&gt;</code>&quot;.
+                    The superclass is parameterized by an Activity class name.
+                    <p>
+                        The dialog should now look like this:
+                    </p>
+                    <a href="../../../images/testing/hwtest_new_test_class_dialog_complete_callouts.png">
+                        <img alt="New Java Class dialog with entries" src="../../../images/testing/hwtest_new_test_class_dialog_complete_callouts.png" style="height:230px"/>
+                    </a>
+                </li>
+            </ul>
+            <p>
+                Do not change any of the other settings. Click Finish.
+            </p>
+        </li>
+        <li>
+            You now have a new file <code>HelloAndroidTest.java</code> in the project.
+            This file contains the class <code>HelloAndroidTest</code>,
+            which extends the Activity test case class
+            <code>ActivityInstrumentationTestCase2&lt;T&gt;</code>. You parameterize the
+            class with <code>HelloAndroid</code>, which is the class name of the activity under test.
+        </li>
+        <li>
+            Open <code>HelloAndroidTest.java</code>. It should look like this:
+<pre class="prettyprint">
+package com.example.helloandroid.test;
+
+import android.test.ActivityInstrumentationTestCase2;
+
+public class HelloAndroidTest extends ActivityInstrumentationTestCase2&lt;HelloAndroid&gt; {
+}
+</pre>
+        </li>
+        <li>
+            The test case class depends on the <code>HelloAndroid</code> class, which is not
+            yet imported. To import the class, add the following line just before the current
+            <code>import</code> statement:
+<pre class="prettyprint">
+import com.example.helloandroid.HelloAndroid;
+</pre>
+        </li>
+    </ol>
+<h3 id="CreateConstructor">Adding the test case constructor</h3>
+<p>
+    The test case class constructor is used by the Android testing framework when you run the test.
+    It calls the super constructor with parameters that tell the framework what Android application
+    should be tested.
+</p>
+<p>
+    Add the following constructor method immediately after the class definition:
+</p>
+<pre class="prettyprint">
+    public HelloAndroidTest() {
+      super("com.example.helloandroid", HelloAndroid.class);
+    }
+</pre>
+<p>
+    Save the file <code>HelloAndroidTest.java</code>.
+</p>
+<h3 id="CreateSetUp">Adding a setup method</h3>
+<p>
+    The <code>setUp()</code> method overrides the JUnit <code><a href="../../../reference/junit/framework/TestCase.html#setUp()">setUp()</a></code>
+    method, which the Android testing framework calls prior to running each test method. You use
+    <code>setUp()</code> to initialize variables and prepare the test environment. For this
+    test case, the <code>setUp()</code> method starts the Hello, Android application,
+    retrieves the text being displayed on the screen, and retrieves the text string in the
+    resource file.
+</p>
+<p>
+    First, add the following code immediately after the constructor method:
+</p>
+<pre class="prettyprint">
+    &#064;Override
+    protected void setUp() throws Exception {
+        super.setUp();
+        mActivity = this.getActivity();
+        mView = (TextView) mActivity.findViewById(com.example.helloandroid.R.id.textview);
+        resourceString = mActivity.getString(com.example.helloandroid.R.string.hello);
+    }
+</pre>
+<p>
+    For this code to work, you must also add some class members and another import statement. To
+    add the class members, add the following code immediately after the class definition:
+</p>
+<pre class="prettyprint">
+    private HelloAndroid mActivity;
+    private TextView mView;
+    private String resourceString;
+</pre>
+<p>
+    To add the import statement, add the following statement just after the import for
+    <code>android.test.ActivityInstrumentationTestCase2</code>:
+</p>
+<pre class="prettyprint">
+  import android.widget.TextView;
+</pre>
+<h3 id="CreatePreConditions">Adding a preconditions test</h3>
+<p>
+    A preconditions test checks the initial application conditions prior to executing other tests.
+    It's similar to <code>setUp()</code>, but with less overhead, since it only runs once.
+</p>
+<p>
+    Although a preconditions test can check for a variety of different conditions,
+    in this application it only needs to check whether the application under test is
+    initialized properly and the target TextView exists.
+    To do this, it calls the inherited
+    <code><a href="../../../reference/junit/framework/Assert.html#assertNotNull(java.lang.Object)">assertNotNull()</a></code>
+    method, passing a reference to the TextView.
+    The test succeeds only if the object reference is not null.
+</p>
+<pre class="prettyprint">
+    public void testPreconditions() {
+      assertNotNull(mView);
+    }
+</pre>
+<h3 id="CreateText">Adding a unit test</h3>
+<p>
+    Now add a simple unit test to the test case class.
+    The method <code>testText()</code> will call a
+    <code><a href="../../../reference/junit/framework/Assert.html">JUnit Assert</a></code>
+    method to check whether the target TextView is displaying the expected text.
+</p>
+<p>
+    For this example, the test expects that the TextView is
+    displaying the string resource that was originally declared for it in HelloAndroid's
+    <code>main.xml</code> file, referred to by the resource ID <code>hello</code>.
+    The call to
+    <code><a href="../../../reference/junit/framework/Assert.html#assertEquals(java.lang.String, java.lang.String)">assertEquals(String,String)</a></code>
+    compares the expected value, read directly from the <code>hello</code>string resource,
+    to the text displayed by the TextView, obtained from the
+    TextView's <code>getText()</code> method. The test succeeds only if the strings match.
+</p>
+<p>
+    To add this test, add the following code
+    immediately after the <code>testPreconditions()</code> method:
+</p>
+<pre class="prettyprint">
+    public void testText() {
+      assertEquals(resourceString,(String)mView.getText());
+    }
+</pre>
+<h3 id="CompleteTest">The finished test case class</h3>
+<p>
+    You have now finished writing the test. This is what the complete test case class
+    should look like:
+</p>
+<pre class="prettyprint">
+package com.example.helloandroid.test;
+
+import com.example.helloandroid.HelloAndroid;
+import android.test.ActivityInstrumentationTestCase2;
+import android.widget.TextView;
+
+public class HelloAndroidTest extends ActivityInstrumentationTestCase2&lt;HelloAndroid&gt; {
+    private HelloAndroid mActivity;  // the activity under test
+    private TextView mView;          // the activity's TextView (the only view)
+    private String resourceString;
+
+    public HelloAndroidTest() {
+      super("com.example.helloandroid", HelloAndroid.class);
+    }
+    &#064;Override
+    protected void setUp() throws Exception {
+        super.setUp();
+        mActivity = this.getActivity();
+        mView = (TextView) mActivity.findViewById(com.example.helloandroid.R.id.textview);
+        resourceString = mActivity.getString(com.example.helloandroid.R.string.hello);
+    }
+    public void testPreconditions() {
+      assertNotNull(mView);
+    }
+    public void testText() {
+      assertEquals(resourceString,(String)mView.getText());
+    }
+}
+</pre>
+<h2 id="RunTest">Running the Tests and Seeing the Results</h2>
+<p>
+    You can now run the tests you've created against the Hello, Android application. In Eclipse with
+    ADT, you run a test application as an <strong>Android JUnit test</strong> rather than a regular
+    Android application.
+</p>
+<p>
+    To run the test application as an Android JUnit test, in the Package Explorer right-click
+    the HelloAndroidTest project and select <strong>Run As</strong> &gt; <strong>Android JUnit Test</strong>
+</p>
+    <a href="../../../images/testing/hwtest_runas_menu_callouts.png">
+        <img alt="Menu to run Hello, World as an Android JUnit test"
+            src="../../../images/testing/hwtest_runas_menu_callouts.png" style="height:230px">
+    </a>
+<p>
+    The ADT plugin then launches the test application and the application
+    under test on a the target emulator or device. When both applications are running,
+    the testing framework runs the tests and reports the results in the JUnit view of Eclipse,
+    which appears by default as a tab next to the Package Explorer.
+</p>
+<p>
+    As shown below, the JUnit view shows test results in two separate panes:
+    an upper pane summarizes the tests that were run and a lower pane reports the failure traces
+    for the tests. In this case, the tests in this example have run successfully, so there is no
+    failure reported in the view:
+</p>
+    <a href="../../../images/testing/hwtest_junit_success.png">
+        <img src="../../../images/testing/hwtest_junit_success.png"
+            alt="JUnit test run success" style="height:230px"/>
+    </a>
+<p>
+    The upper pane summarizes the test:
+</p>
+    <ul>
+        <li>
+            &quot;Finished after <em>x</em> seconds&quot;: How long the test took to run.
+        </li>
+        <li>
+            &quot;Runs&quot;: The number of tests run.
+        </li>
+        <li>
+            &quot;Errors:&quot;: The number of program errors and exceptions encountered during
+            the test run.
+        </li>
+        <li>
+            &quot;Failures:&quot;: The number of assertion failures encountered during the
+            test run.
+        </li>
+        <li>
+            A progress bar. The progress bar extends from left to right as the tests run.
+            <p>
+              If all the tests succeed, the bar remains green.
+              If a test fails, the bar turns from green to red.
+            </p>
+        </li>
+        <li>
+            A test method summary. Below the bar, you see a line for each class in the
+            test application, labeled by its fully-qualified class name.
+            To look at the results for the individual methods in a test case class,
+            click the arrow at the left of the class to expand the line.
+            You see the name of each test method. To the right of the method name, you see the
+            time needed to run that method. You can look at the method's code by
+            double-clicking its name.
+        </li>
+     </ul>
+     <p>
+        The lower pane contains the failure trace. If all the tests are successful,
+        this pane is empty. If some tests fail, then if you select a failed test in the
+        upper pane, the lower view contains a stack trace for the test.
+     </p>
+<h2 id="NextSteps">Next Steps</h2>
+<p>
+    This simple example test application has shown you how to create a test project,
+    create a test class and test cases, and then run the tests against a target application.
+    Now that you are familiar with these fundamentals, here are some suggested next steps:
+</p>
+<p>
+    <strong>Learn more about testing on Android</strong>
+</p>
+<ul>
+    <li>
+        The
+      <a href="../../../guide/topics/testing/testing_android.html">Testing Android Applications</a>
+        document in the <em>Dev Guide</em> provides an overview of how testing on Android works.
+        If you are just getting started with Android testing, reading that document will
+        help you understand the tools available to you, so that you can develop effective
+        tests.
+    </li>
+</ul>
+<p>
+    <strong>Learn more about the testing classes available in Android</strong>
+</p>
+<ul>
+    <li>
+        For an overview of the types of testing classes you can use,
+        browse through the reference documentation for
+        <code><a href="../../../reference/android/test/ActivityInstrumentationTestCase2.html">ActivityInstrumentationTestCase2</a></code>,
+        <code><a href="../../../reference/android/test/ProviderTestCase2.html">ProviderTestCase2</a></code>,
+        <code><a href="../../../reference/android/test/ServiceTestCase.html">ServiceTestCase</a></code>, and
+        <code><a href="../../../reference/junit/framework/Assert.html">Assert</a></code>.
+    </li>
+</ul>
+<p>
+    <strong>Explore the Android instrumentation framework</strong>
+</p>
+<ul>
+    <li>
+        The <code><a href="../../../reference/android/test/InstrumentationTestRunner.html">InstrumentationTestRunner</a></code> class contains the code that Android uses
+        to run tests against an application. The <code><a href="../../../reference/android/test/InstrumentationTestCase.html">InstrumentationTestCase</a></code> class
+        is the base class for test case classes that use additional instrumentation features.
+    </li>
+</ul>
+<p>
+    <strong>Follow the Activity Testing tutorial</strong>
+</p>
+<ul>
+    <li>
+        The <a href="../../../resources/tutorials/testing/activity_test.html">Activity Testing</a>
+        tutorial is an excellent follow-up to this tutorial.
+        It guides you through a more complex testing scenario that you develop against a
+        more realistic application.
+    </li>
+</ul>
+
+    </div>
+
+    
+    
+    <a href="#top" style="float:right">&uarr; Go to top</a>
+    
+      <p><a href="../../browser.html?tag=tutorial">&larr; Back to Tutorials</a></p>
+    
+
+  </div> <!-- end jd-content -->
+
+<div id="footer">
+
+
+  <div id="copyright">
+    
+  Except as noted, this content is 
+  licensed under <a href="http://creativecommons.org/licenses/by/2.5/">
+  Creative Commons Attribution 2.5</a>. For details and 
+  restrictions, see the <a href="../../../license.html">Content 
+  License</a>.
+  </div>
+
+  <div id="footerlinks">
+    
+  <p>
+    <a href="http://www.google.com/intl/en/policies/" target="_blank">Privacy &amp; Terms</a> -
+    <a href="http://www.android.com/branding.html" target="_blank">Brand Guidelines</a> -
+    <a
+href="http://code.google.com/p/android/issues/entry?template=Developer%20Documentation"
+target="_blank">Report Document Issues</a>
+  </p>
+  </div>
+
+</div> <!-- end footer -->
+
+</div><!-- end doc-content -->
+
+</div> <!-- end body-content --> 
+
+<script type="text/javascript">
+init(); /* initialize android-developer-docs.js */
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-5831155-1");
+pageTracker._trackPageview();
+</script>
+
+</body>
+</html>
+
+
+

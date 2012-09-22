@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico" />
+<title>Providing Descendant and Lateral Navigation | Android Developers</title>
+<link href="../../assets/android-developer-docs-devguide.css" rel="stylesheet" type="text/css" />
+<script src="../../assets/search_autocomplete.js" type="text/javascript"></script>
+<script src="../../assets/jquery-resizable.min.js" type="text/javascript"></script>
+<script src="../../assets/android-developer-docs.js" type="text/javascript"></script>
+<script src="../../assets/prettify.js" type="text/javascript"></script>
+<script type="text/javascript">
+  setToRoot("../../");
+</script>
+<script src="../../resources/resources-data.js" type="text/javascript"></script>
+<noscript>
+  <style type="text/css">
+    html,body{overflow:auto;}
+    #body-content{position:relative; top:0;}
+    #doc-content{overflow:visible;border-left:3px solid #666;}
+    #side-nav{padding:0;}
+    #side-nav .toggle-list ul {display:block;}
+    #resize-packages-nav{border-bottom:3px solid #666;}
+  </style>
+</noscript>
+</head>
+<body class="gc-documentation" itemscope itemtype="http://schema.org/Article">
+
+  <div id="header">
+      <div id="headerLeft">
+          <a href="../../index.html" tabindex="-1"><img
+              src="../../assets/images/bg_logo.png" alt="Android Developers" /></a>
+          <ul id="header-tabs" class="resources">
+    
+	<li id="home-link"><a href="../../offline.html">
+	
+		<span class="en">Home</span>
+		<span style="display:none" class="de">Startseite</span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ホーム</span>
+		<span style="display:none" class="zh-CN">主页</span>
+		<span style="display:none" class="zh-TW">首頁</span>
+	
+	</a></li>
+	<li id="sdk-link"><a href="../../sdk/index.html">
+		<span class="en">SDK</span>
+	</a></li>
+	<li id="guide-link"><a href="../../guide/index.html" onClick="return loadLast('guide')">
+	
+		<span class="en">Dev Guide</span>
+		<span style="display:none" class="de">Handbuch</span>
+		<span style="display:none" class="es">Guía</span>
+		<span style="display:none" class="fr">Guide</span>
+		<span style="display:none" class="it">Guida</span>
+		<span style="display:none" class="ja">開発ガイド</span>
+		<span style="display:none" class="zh-CN">开发人员指南</span>
+		<span style="display:none" class="zh-TW">開發指南</span>
+	
+	</a></li>
+	<li id="reference-link"><a href="../../reference/packages.html" onClick="return loadLast('reference')">
+	
+		<span class="en">Reference</span>
+		<span style="display:none" class="de">Referenz</span>
+		<span style="display:none" class="es">Referencia</span>
+		<span style="display:none" class="fr">Référence</span>
+		<span style="display:none" class="it">Riferimento</span>
+		<span style="display:none" class="ja">リファレンス</span>
+		<span style="display:none" class="zh-CN">参考</span>
+		<span style="display:none" class="zh-TW">參考資料</span>
+	
+	</a></li>
+	<li id="resources-link"><a href="../../resources/index.html" onClick="return loadLast('resources')">
+	
+		<span class="en">Resources</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+    		<span style="display:none" class="ja"></span>
+		<span style="display:none" class="zh-CN"></span>
+		<span style="display:none" class="zh-TW"></span>
+	
+	</a></li>
+	<li id="videos-link"><a href="../../videos/index.html" onClick="return loadLast('videos')">
+	
+		<span class="en">Videos</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ビデオ</span>
+		<span style="display:none" class="zh-CN"></span>
+		<span style="display:none" class="zh-TW"></span>
+	
+	</a></li>
+	<li><a href="http://android-developers.blogspot.com" onClick="return requestAppendHL(this.href)">
+	
+		<span class="en">Blog</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ブログ</span>
+		<span style="display:none" class="zh-CN">博客</span>
+		<span style="display:none" class="zh-TW">網誌</span>
+	
+	</a></li>
+
+
+     
+</ul>
+     
+      </div>
+      <div id="headerRight">
+          <div id="headerLinks">
+          &nbsp;&nbsp;
+          <a href="../../design/index.html">Android Design</a>&nbsp;&nbsp;
+          <a href="http://www.android.com">Android.com</a>
+          </div>
+  <div id="search" >
+      <div id="searchForm">
+          <form accept-charset="utf-8" class="gsc-search-box" 
+                onsubmit="return submit_search()">
+            <table class="gsc-search-box" cellpadding="0" cellspacing="0"><tbody>
+                <tr>
+                  <td class="gsc-input">
+                    <input id="search_autocomplete" class="gsc-input" type="text" size="33" autocomplete="off"
+                      title="search developer docs" name="q"
+                      value="search developer docs"
+                      onFocus="search_focus_changed(this, true)"
+                      onBlur="search_focus_changed(this, false)"
+                      onkeydown="return search_changed(event, true, '../../')"
+                      onkeyup="return search_changed(event, false, '../../')" />
+                  <div id="search_filtered_div" class="no-display">
+                      <table id="search_filtered" cellspacing=0>
+                      </table>
+                  </div>
+                  </td>
+                  <td class="gsc-search-button">
+                    <input type="submit" value="Search" title="search" id="search-button" class="gsc-search-button" />
+                  </td>
+                  <td class="gsc-clear-button">
+                    <div title="clear results" class="gsc-clear-button">&nbsp;</div>
+                  </td>
+                </tr></tbody>
+              </table>
+          </form>
+      </div><!-- searchForm -->
+  </div><!-- search -->
+      </div><!-- headerRight -->
+      <script type="text/javascript">
+        <!--  
+        changeTabLang(getLangPref());
+        //-->
+      </script>
+  </div><!-- header -->
+
+  <div class="g-section g-tpl-200" id="body-content">
+    <div class="g-unit g-first" id="side-nav" itemscope itemtype="http://schema.org/SiteNavigationElement">
+      <div id="devdoc-nav"><ul>
+  <li>
+    <span class="heading">
+      <span class="en">Android Training</span>
+    </span>
+    <ul>
+      
+      <li><a href="../../training/index.html">
+            <span class="en">Orientation</span>
+          </a>
+      </li>
+
+      <li class="toggle-list">
+        <div><a href="../../training/multiscreen/index.html">
+            <span class="en">Designing for Multiple Screens</span>
+          </a></div>
+        <ul>
+          <li><a href="../../training/multiscreen/screensizes.html">
+            <span class="en">Supporting Different Screen Sizes</span>
+          </a>
+          </li>
+          <li><a href="../../training/multiscreen/screendensities.html">
+            <span class="en">Supporting Different Screen Densities</span>
+          </a>
+          </li>
+          <li><a href="../../training/multiscreen/adaptui.html">
+            <span class="en">Implementing Adaptive UI Flows</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+      
+      <li class="toggle-list">
+        <div><a href="../../training/improving-layouts/index.html">
+            <span class="en">Improving Layout Performance</span>
+          </a></div>
+        <ul>
+          <li><a href="../../training/improving-layouts/optimizing-layout.html">
+            <span class="en">Optimizing Layout Hierarchies</span>
+          </a>
+          </li>
+          <li><a href="../../training/improving-layouts/reusing-layouts.html">
+            <span class="en">Re-using Layouts with &lt;include/&gt;</span>
+          </a>
+          </li>
+          <li><a href="../../training/improving-layouts/loading-ondemand.html">
+            <span class="en">Loading Views On Demand</span>
+          </a>
+          </li>
+          <li><a href="../../training/improving-layouts/smooth-scrolling.html">
+            <span class="en">Making ListView Scrolling Smooth</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+      
+      <li class="toggle-list">
+        <div><a href="../../training/managing-audio/index.html">
+            <span class="en">Managing Audio Playback</span>
+          </a></div>
+        <ul>
+          <li><a href="../../training/managing-audio/volume-playback.html">
+            <span class="en">Controlling Your App’s Volume and Playback</span>
+          </a>
+          </li>
+          <li><a href="../../training/managing-audio/audio-focus.html">
+            <span class="en">Managing Audio Focus</span>
+          </a>
+          </li>
+          <li><a href="../../training/managing-audio/audio-output.html">
+            <span class="en">Dealing with Audio Output Hardware</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+      
+      <li class="toggle-list">
+        <div><a href="../../training/monitoring-device-state/index.html">
+            <span class="en">Optimizing Battery Life</span>
+          </a></div>
+        <ul>
+          <li><a href="../../training/monitoring-device-state/battery-monitoring.html">
+            <span class="en">Monitoring the Battery Level and Charging State</span>
+          </a>
+          </li>
+          <li><a href="../../training/monitoring-device-state/docking-monitoring.html">
+            <span class="en">Determining and Monitoring the Docking State and Type</span>
+          </a>
+          </li>
+          <li><a href="../../training/monitoring-device-state/connectivity-monitoring.html">
+            <span class="en">Determining and Monitoring the Connectivity Status</span>
+          </a>
+          </li>
+          <li><a href="../../training/monitoring-device-state/manifest-receivers.html">
+            <span class="en">Manipulating Broadcast Receivers On Demand</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="toggle-list">
+        <div><a href="../../training/search/index.html">
+            <span class="en">Adding Search Functionality</span>
+          </a> <span class="new">new!</span>
+        </div>
+        <ul>
+          <li><a href="../../training/search/setup.html">
+            <span class="en">Setting up the Search Interface</span>
+          </a>
+          </li>
+          <li><a href="../../training/search/search.html">
+            <span class="en">Storing and Searching for Data</span>
+          </a>
+          </li>
+          <li><a href="../../training/search/backward-compat.html">
+            <span class="en">Remaining Backward Compatible</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="toggle-list">
+        <div><a href="../../training/id-auth/index.html">
+            <span class="en">Remembering Users</span>
+          </a></div>
+        <ul>
+          <li><a href="../../training/id-auth/identify.html">
+            <span class="en">Remembering Your User</span>
+          </a>
+          </li>
+          <li><a href="../../training/id-auth/authenticate.html">
+            <span class="en">Authenticating to OAuth2 Services</span>
+          </a>
+          </li>
+          <li><a href="../../training/id-auth/custom_auth.html">
+            <span class="en">Creating a Custom Account Type</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="toggle-list">
+        <div><a href="../../training/sharing/index.html">
+            <span class="en">Sharing Content</span>
+          </a></div>
+        <ul>
+          <li><a href="../../training/sharing/send.html">
+            <span class="en">Sending Content to Other Apps</span>
+          </a>
+          </li>
+          <li><a href="../../training/sharing/receive.html">
+            <span class="en">Receiving Content from Other Apps</span>
+          </a>
+          </li>
+          <li><a href="../../training/sharing/shareaction.html">
+            <span class="en">Adding an Easy Share Action</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+      
+      <li class="toggle-list">
+        <div><a href="../../training/camera/index.html">
+            <span class="en">Capturing Photos</span>
+          </a></div>
+        <ul>
+          <li><a href="../../training/camera/photobasics.html">
+            <span class="en">Taking Photos Simply</span>
+          </a>
+          </li>
+          <li><a href="../../training/camera/videobasics.html">
+            <span class="en">Recording Videos Simply</span>
+          </a>
+          </li>
+          <li><a href="../../training/camera/cameradirect.html">
+            <span class="en">Controlling the Camera</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+      
+      <li class="toggle-list">
+        <div><a href="../../training/multiple-apks/index.html">
+            <span class="en">Maintaining Multiple APKs</span>
+          </a></div>
+        <ul>
+          <li><a href="../../training/multiple-apks/api.html">
+            <span class="en">Creating Multiple APKs for Different API Levels</span>
+          </a>
+          </li>
+          <li><a href="../../training/multiple-apks/screensize.html">
+            <span class="en">Creating Multiple APKs for Different Screen Sizes</span>
+          </a>
+          </li>
+          <li><a href="../../training/multiple-apks/texture.html">
+            <span class="en">Creating Multiple APKs for Different GL Textures</span>
+          </a>
+          </li>
+          <li><a href="../../training/multiple-apks/multiple.html">
+            <span class="en">Creating Multiple APKs with 2+ Dimensions</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+      
+      <li class="toggle-list">
+        <div><a href="../../training/enterprise/index.html">
+            <span class="en">Developing for Enterprise</span>
+          </a></div>
+        <ul>
+          <li><a href="../../training/enterprise/device-management-policy.html">
+            <span class="en">Enhancing Security with Device Management Policies</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+      
+      <li class="toggle-list">
+        <div><a href="../../training/monetization/index.html">
+            <span class="en">Monetizing Your App</span>
+          </a></div>
+        <ul>
+          <li><a href="../../training/monetization/ads-and-ux.html">
+            <span class="en">Advertising without Compromising User Experience</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+      
+      <li class="toggle-list">
+        <div><a href="../../training/design-navigation/index.html">
+            <span class="en">Designing Effective Navigation</span>
+          </a></div>
+        <ul>
+          <li><a href="../../training/design-navigation/screen-planning.html">
+            <span class="en">Planning Screens and Their Relationships</span>
+          </a>
+          </li>
+          <li><a href="../../training/design-navigation/multiple-sizes.html">
+            <span class="en">Planning for Multiple Touchscreen Sizes</span>
+          </a>
+          </li>
+          <li><a href="../../training/design-navigation/descendant-lateral.html">
+            <span class="en">Providing Descendant and Lateral Navigation</span>
+          </a>
+          </li>
+          <li><a href="../../training/design-navigation/ancestral-temporal.html">
+            <span class="en">Providing Ancestral and Temporal Navigation</span>
+          </a>
+          </li>
+          <li><a href="../../training/design-navigation/wireframing.html">
+            <span class="en">Putting it All Together: Wireframing the Example App</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>    
+      
+      
+  <li>
+    <span class="heading">
+      <span class="en">Technical Resources</span>
+    </span>
+    <ul>
+      <li class="toggle-list">
+        <div><a href="../../resources/browser.html?tag=sample">
+            <span class="en">Sample Code</span>
+            <span class="de" style="display:none">Beispielcode</span>
+            <span class="es" style="display:none">Código de ejemplo</span>
+            <span class="fr" style="display:none">Exemple de code</span>
+            <span class="it" style="display:none">Codice di esempio</span>
+            <span class="ja" style="display:none">サンプル コード</span>
+            <span class="zh-CN" style="display:none"></span>
+            <span class="zh-TW" style="display:none"></span>
+          </a></div>
+        <ul id="devdoc-nav-sample-list">
+          <li><a href="../../resources/samples/get.html">
+                <span class="en">Getting the Samples</span>
+              </a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../../resources/browser.html?tag=article">
+               <span class="en">Articles</span>
+             </a></div>
+        <ul id="devdoc-nav-article-list">
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../../resources/browser.html?tag=tutorial">
+               <span class="en">Tutorials</span>
+               <span class="de" style="display:none">Lernprogramme</span>
+               <span class="es" style="display:none">Tutoriales</span>
+               <span class="fr" style="display:none">Didacticiels</span>
+               <span class="it" style="display:none">Esercitazioni</span>
+               <span class="ja" style="display:none">チュートリアル</span>
+               <span class="zh-CN" style="display:none"></span>
+               <span class="zh-TW" style="display:none"></span>
+             </a></div>
+        <ul id="devdoc-nav-tutorial-list">
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../../resources/topics.html">
+               <span class="en">Topics</span>
+             </a></div>
+        <ul id="devdoc-nav-topic-list">
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <span class="heading">
+      <span class="en">Community</span>
+      <span style="display:none" class="de"></span>
+      <span style="display:none" class="es">Comunidad</span>
+      <span style="display:none" class="fr">Communauté</span>
+      <span style="display:none" class="it"></span>
+      <span style="display:none" class="ja">コミュニティ</span>
+      <span style="display:none" class="zh-CN">社区</span>
+      <span style="display:none" class="zh-TW">社群</span>
+    </span>
+    <ul>
+      <li><a href="../../resources/community-groups.html">
+            <span class="en">Developer Forums</span>
+          </a></li>
+      <li><a href="../../resources/community-more.html">
+            <span class="en">IRC, G+, Twitter</span>
+          </a></li>
+    </ul>
+  </li>
+
+
+  <li>
+    <span class="heading">
+      <span class="en">More</span>
+    </span>
+    <ul>
+      <li><a href="../../resources/faq/commontasks.html">
+            <span class="en">Common Tasks </span>
+          </a></li>
+      <li><a href="../../resources/faq/troubleshooting.html">
+            <span class="en">Troubleshooting Tips</span>
+          </a></li>
+      <li class="toggle-list">
+        <div><a href="../../resources/faq/index.html">
+               <span class="en">FAQs</span>
+             </a></div>
+        <ul>
+        <li><a href="../../resources/faq/framework.html">
+                <span class="en">App Framework FAQ</span>
+                </a></li>
+        <li><a href="../../resources/faq/licensingandoss.html">
+                <span class="en">Licensing FAQ</span>
+                </a></li>
+        <li><a href="../../resources/faq/security.html">
+                <span class="en">Security FAQ</span>
+                </a></li>
+        </ul>
+     </li>
+    </ul>
+  </li>
+</ul>
+
+<script type="text/javascript">
+<!--
+    buildToggleLists();
+    changeNavLang(getLangPref());
+//-->
+</script>
+
+      </div>
+    </div> <!-- end side-nav -->
+    <script>
+      addLoadEvent(function() {
+        scrollIntoView("devdoc-nav");
+        });
+    </script>
+
+
+
+
+<div class="g-unit" id="doc-content"><a name="top"></a>
+
+<div id="jd-header" class="guide-header">
+  <span class="crumb" itemprop="breadcrumb">
+    
+      <a href="index.html">Designing Effective Navigation</a>:
+    
+  </span>
+<h1 itemprop="name">Providing Descendant and Lateral Navigation</h1>
+</div>
+
+  
+  <div id="jd-content">
+ 
+    
+    <div class="training-nav-top">
+
+      
+        
+
+        <div class="training-nav-button-next">
+          <a href="ancestral-temporal.html">
+            Next lesson
+            <span style="font-size:1.2em">&rsaquo;</span>
+            <span class="training-nav-button-title">Providing Ancestral and Temporal Navigation</span>
+          </a>
+        </div>
+        
+
+      
+
+      
+      <div class="training-nav-button-previous">
+        <a href="multiple-sizes.html">
+          <span style="font-size:1.2em">&lsaquo;</span>
+          Previous lesson
+          <span class="training-nav-button-title">Planning for Multiple Touchscreen Sizes</span>
+        </a>
+      </div>
+
+      
+
+    </div><!-- end training-nav-top -->
+    
+
+
+    <div class="jd-descr" itemprop="articleBody">
+    <div id="tb-wrapper">
+<div id="tb">
+
+<h2>This lesson teaches you about:</h2>
+<ol>
+  <li><a href="#buttons">Buttons and Simple Targets</a></li>
+  <li><a href="#lists">Lists, Grids, Carousels, and Stacks</a></li>
+  <li><a href="#tabs">Tabs</a></li>
+  <li><a href="#paging">Horizontal Paging (Swipe Views)</a></li>
+</ol>
+
+<h2>You should also read</h2>
+<ul>
+  <li><a href="../../design/building-blocks/buttons.html">Android Design: Buttons</a></li>
+  <li><a href="../../design/building-blocks/lists.html">Android Design: Lists</a></li>
+  <li><a href="../../design/building-blocks/grid-lists.html">Android Design: Grid Lists</a></li>
+  <li><a href="../../design/building-blocks/tabs.html">Android Design: Tabs</a></li>
+  <li><a href="../../design/patterns/swipe-views.html">Android Design: Swipe Views</a></li>
+</ul>
+
+</div>
+</div>
+
+
+<p>One way of providing access to the full range of an application's screens is to expose hierarchical navigation. In this lesson we discuss <em>descendant navigation</em>, allowing users to descend 'down' a screen hierarchy into a child screen, and <em>lateral navigation</em>, allowing users to access sibling screens.</p>
+
+
+<img src="../../images/training/app-navigation-descendant-lateral-desc.png"
+  alt="Descendant and lateral navigation" id="figure-desc">
+
+<p class="img-caption"><strong>Figure 1.</strong> Descendant and lateral navigation.</p>
+
+
+<p>There are two types of sibling screens: collection-related and section-related screens. <em>Collection-related</em> screens represent individual items in the collection represented by the parent. <em>Section-related</em> screens represent different sections of information about the parent. For example, one section may show textual information about an object while another may provide a map of the object's geographic location. The number of section-related screens for a given parent is generally small.</p>
+
+
+<img src="../../images/training/app-navigation-descendant-lateral-children.png"
+  alt="Collection-related children and section-related children" id="figure-children">
+
+<p class="img-caption"><strong>Figure 2.</strong> Collection-related children and section-related children.</p>
+
+
+<p>Descendant and lateral navigation can be provided using lists, tabs, and other user interface patterns. <em>User interface patterns</em>, much like software design patterns, are generalized, common solutions to recurring interaction design problems. We explore a few common lateral navigation patterns in the sections below.</p>
+
+
+<h2 id="buttons">Buttons and Simple Targets</h2>
+
+<div class="design-announce">
+<p><strong>Button Design</strong></p>
+  <p>For design guidelines, read Android Design's <a
+  href="../../design/building-blocks/buttons.html">Buttons</a> guide.</p>
+</div>
+
+<p>For section-related screens, offering touchable and keyboard-focusable targets in the parent is generally the most straightforward and familiar kind of touch-based navigation interface. Examples of such targets include buttons, fixed-size list views, or text links, although the latter is not an ideal UI (user interface) element for touch-based navigation. Upon selecting one of these targets, the child screen is opened, replacing the current context (screen) entirely. Buttons and other simple targets are rarely used for representing items in a collection.</p>
+
+
+<img src="../../images/training/app-navigation-descendant-lateral-buttons.png"
+  alt="Example button-based navigation interface with relevant screen map excerpt. Also shows dashboard pattern discussed below." id="figure-buttons">
+
+<p class="img-caption"><strong>Figure 3.</strong> Example button-based navigation interface with relevant screen map excerpt. Also shows dashboard pattern discussed below.</p>
+
+
+<p>A common, button-based pattern for accessing different top-level application sections, is the dashboard pattern. A <em>dashboard</em> is a grid of large, iconic buttons that constitutes the entirety, or most of, the parent screen. The grid generally has either 2 or 3 rows and columns, depending on the number of top-level sections in the app. This pattern is a great way to present all the sections of the app in a visually rich way. The large touch targets also make this UI very easy to use. Dashboards are best used when each section is equally important, as determined by product decisions or better yet, real-world usage. However, this pattern doesn't visually work well on larger screens, and requires users to take an extra step to jump directly into the app's content.</p>
+
+<p>More sophisticated user interfaces can make use of a variety of other user interaction patterns to improve content immediacy and presentation uniqueness, all the while remaining intuitive.</p>
+
+
+<h2 id="lists">Lists, Grids, Carousels, and Stacks</h2>
+
+<div class="design-announce">
+<p><strong>List and Grid List Design</strong></p>
+  <p>For design guidelines, read Android Design's <a
+  href="../../design/building-blocks/lists.html">Lists</a> and <a
+  href="../../design/building-blocks/grid-lists.html">Grid Lists</a> guides.</p>
+</div>
+
+<p>For collection-related screens, and especially for textual information, vertically scrolling lists are often the most straightforward and familiar kind of interface. For more visual or media-rich content items such as photos or videos, vertically scrolling grids of items, horizontally scrolling lists (sometimes referred to as <em>carousels</em>), or stacks (sometimes referred to as <em>cards</em>) can be used instead. These UI elements are generally best used for presenting item collections or large sets of child screens (for example, a list of stories or a list of 10 or more news topics), rather than a small set of unrelated, sibling child screens.</p>
+
+
+<img src="../../images/training/app-navigation-descendant-lateral-lists.png"
+  alt="Example list-, grid-, and carousel-based navigation interfaces with relevant screen map excerpt" id="figure-lists">
+
+<p class="img-caption"><strong>Figure 4.</strong> Example list-, grid-, and carousel-based navigation interfaces with relevant screen map excerpt.</p>
+
+
+<p>There are several issues with this pattern. Deep, list-based navigation, known as <em>drill-down list navigation</em>, where lists lead to more lists which lead to even more lists, is often inefficient and cumbersome. The number of touches required to access a piece of content with this kind of navigation is generally very high, leading to a poor user experience&mdash;especially for users on-the-go.</p>
+
+<p>Using vertical lists can also lead to awkward user interactions and poor use of whitespace on larger screens, as list items generally span the entire width of the screen yet have a fixed height. One way to alleviate this is to provide additional information, such as text summaries, that fills the available horizontal space. Another way is to provide additional information in a separate horizontal pane adjacent to the list.</p>
+
+
+<h2 id="tabs">Tabs</h2>
+
+<div class="design-announce">
+<p><strong>Tab Design</strong></p>
+  <p>For design guidelines, read Android Design's <a
+  href="../../design/building-blocks/tabs.html">Tabs</a> guide.</p>
+</div>
+
+<p>Using tabs is a very popular solution for lateral navigation. This pattern allows grouping of sibling screens, in that the tab content container in the parent screen can embed child screens that otherwise would be entirely separate contexts. Tabs are most appropriate for small sets (4 or fewer) of section-related screens.</p>
+
+
+<img src="../../images/training/app-navigation-descendant-lateral-tabs.png"
+  alt="Example phone and tablet tab-based navigation interfaces with relevant screen map excerpt" id="figure-tabs">
+
+<p class="img-caption"><strong>Figure 5.</strong> Example phone and tablet tab-based navigation interfaces with relevant screen map excerpt.</p>
+
+
+<p>Several best practices apply when using tabs. Tabs should be persistent across immediate related
+screens. Only the designated content region should change when selecting a tab, and tab indicators
+should remain available at all times. Additionally, tab switches should not be treated as history.
+For example, if a user switches from a tab <em>A</em> to another tab <em>B</em>, pressing the
+<em>Back</em> button (more on that in the <a href="ancestral-temporal.html">next lesson</a>) should
+not re-select tab <em>A</em>. Tabs are usually laid out horizontally, although other presentations
+of tab navigation such as using a drop-down list in the Action Bar (<a
+href="../../design/patterns/actionbar.html">pattern docs</a> at Android Design) are sometimes
+appropriate. Lastly, and most importantly, <em>tabs should always run along the top of the
+screen</em>, and should not be aligned to the bottom of the screen.</p>
+
+<p>There are some obvious immediate benefits of tabs over simpler list- and button-based navigation:</p>
+
+<ul>
+  <li>Since there is a single, initially-selected tab, users have immediate access to that tab's content from the parent screen.</li>
+  <li>Users can navigate quickly between related screens, without needing to first revisit the parent. <p class="note"><strong>Note</strong>: when switching tabs, it is important to maintain this tab-switching immediacy; do not block access to tab indicators by showing modal dialogs while loading content.</p></li>
+</ul>
+
+<p>A common criticism is that space must be reserved for the tab indicators, detracting from the space available to tab contents. This consequence is usually acceptable, and the tradeoff commonly weighs in favor of using this pattern. You should also feel free to customize tab indicators, showing text and/or icons to make optimal use of vertical space. When adjusting indicator heights however, ensure that tab indicators are large enough for a human finger to touch without error.</p>
+
+
+<h2 id="paging">Horizontal Paging (Swipe Views)</h2>
+
+<div class="design-announce">
+<p><strong>Swipe Views Design</strong></p>
+  <p>For design guidelines, read Android Design's <a
+  href="../../design/patterns/swipe-views.html">Swipe Views</a> pattern guides.</p>
+</div>
+
+<p>Another popular lateral navigation pattern is horizontal paging, also referred to as swipe views. This pattern applies best to collection-related sibling screens, such as a list of categories (world, business, technology, and health stories). Like tabs, this pattern also allows grouping screens in that the parent presents the contents of child screens embedded within its own layout.</p>
+
+
+<img src="../../images/training/app-navigation-descendant-lateral-paging.png"
+  alt="Example horizontal paging navigation interface with relevant screen map excerpt" id="figure-paging">
+
+<p class="img-caption"><strong>Figure 6.</strong> Example horizontal paging navigation interface with relevant screen map excerpt.</p>
+
+
+<p>In a horizontal paging UI, a single child screen (referred to as a <em>page</em> here) is presented one at a time. Users are able to navigate to sibling screens by touching and dragging the screen horizontally in the direction of the desired adjacent page. This gestural interaction is often complemented by another UI element indicating the current page and available pages, to aid discoverability and provide more context to the user. This practice is especially necessary when using this pattern for lateral navigation of section-related sibling screens. Examples of such elements include tick marks, scrolling labels, and tabs.</p>
+
+
+<img src="../../images/training/app-navigation-descendant-lateral-paging-companion.png"
+  alt="Example paging companion UI elements" id="figure-paging-companion">
+
+<p class="img-caption"><strong>Figure 7.</strong> Example paging companion UI elements.</p>
+
+
+<p>It's also best to avoid this pattern when child screens contain horizontal panning surfaces (such as maps), as these conflicting interactions may deter your screen's usability.</p>
+
+<p>Additionally, for sibling-related screens, horizontal paging is most appropriate where there is some similarity in content type and when the number of siblings is relatively small. In these cases, this pattern can be used along with tabs above the content region to maximize the interface's intuitiveness. For collection-related screens, horizontal paging is most intuitive when there is a natural ordered relationship between screens, for example if each page represents consecutive calendar days. For infinite collections (again, calendar days), especially those with content in both directions, this paging mechanism can work quite well.</p>
+
+<p>In the next lesson, we discuss mechanisms for allowing users to navigate up our information hierarchy and back, to previously visited screens.</p>
+    </div>
+
+    
+    <div class="training-nav-bottom">
+      
+      <div class="training-nav-button-next">
+        <a href="ancestral-temporal.html">
+          Next lesson
+          <span style="font-size:1.2em">&rsaquo;</span>
+          <br/><span class="training-nav-button-title">Providing Ancestral and Temporal Navigation</span>
+        </a>
+      </div>
+      
+
+      
+      <div class="training-nav-button-previous">
+        <a href="multiple-sizes.html">
+          <span style="font-size:1.2em">&lsaquo;</span>
+          Previous lesson
+          <br/><span class="training-nav-button-title">Planning for Multiple Touchscreen Sizes</span>
+        </a>
+      </div>
+      
+    </div> <!-- end training-nav -->
+    
+    
+    <a href="#top" style="float:right">&uarr; Go to top</a>
+    
+      <p><a href="index.html">&larr; Back to Designing Effective Navigation</a></p>
+    
+
+  </div> <!-- end jd-content -->
+
+<div id="footer">
+
+
+  <div id="copyright">
+    
+  Except as noted, this content is 
+  licensed under <a href="http://creativecommons.org/licenses/by/2.5/">
+  Creative Commons Attribution 2.5</a>. For details and 
+  restrictions, see the <a href="../../license.html">Content 
+  License</a>.
+  </div>
+
+  <div id="footerlinks">
+    
+  <p>
+    <a href="http://www.google.com/intl/en/policies/" target="_blank">Privacy &amp; Terms</a> -
+    <a href="http://www.android.com/branding.html" target="_blank">Brand Guidelines</a> -
+    <a
+href="http://code.google.com/p/android/issues/entry?template=Developer%20Documentation"
+target="_blank">Report Document Issues</a>
+  </p>
+  </div>
+
+</div> <!-- end footer -->
+
+</div><!-- end doc-content -->
+
+</div> <!-- end body-content --> 
+
+<script type="text/javascript">
+init(); /* initialize android-developer-docs.js */
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-5831155-1");
+pageTracker._trackPageview();
+</script>
+
+</body>
+</html>
+
+
+

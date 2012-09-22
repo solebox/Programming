@@ -1,0 +1,2119 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico" />
+<title>&lt;activity&gt; | Android Developers</title>
+<link href="../../../assets/android-developer-docs-devguide.css" rel="stylesheet" type="text/css" />
+<script src="../../../assets/search_autocomplete.js" type="text/javascript"></script>
+<script src="../../../assets/jquery-resizable.min.js" type="text/javascript"></script>
+<script src="../../../assets/android-developer-docs.js" type="text/javascript"></script>
+<script src="../../../assets/prettify.js" type="text/javascript"></script>
+<script type="text/javascript">
+  setToRoot("../../../");
+</script>
+<noscript>
+  <style type="text/css">
+    html,body{overflow:auto;}
+    #body-content{position:relative; top:0;}
+    #doc-content{overflow:visible;border-left:3px solid #666;}
+    #side-nav{padding:0;}
+    #side-nav .toggle-list ul {display:block;}
+    #resize-packages-nav{border-bottom:3px solid #666;}
+  </style>
+</noscript>
+</head>
+<body class="gc-documentation" itemscope itemtype="http://schema.org/Article">
+
+  <div id="header">
+      <div id="headerLeft">
+          <a href="../../../index.html" tabindex="-1"><img
+              src="../../../assets/images/bg_logo.png" alt="Android Developers" /></a>
+          <ul id="header-tabs" class="guide">
+    
+	<li id="home-link"><a href="../../../offline.html">
+	
+		<span class="en">Home</span>
+		<span style="display:none" class="de">Startseite</span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ホーム</span>
+		<span style="display:none" class="zh-CN">主页</span>
+		<span style="display:none" class="zh-TW">首頁</span>
+	
+	</a></li>
+	<li id="sdk-link"><a href="../../../sdk/index.html">
+		<span class="en">SDK</span>
+	</a></li>
+	<li id="guide-link"><a href="../../../guide/index.html" onClick="return loadLast('guide')">
+	
+		<span class="en">Dev Guide</span>
+		<span style="display:none" class="de">Handbuch</span>
+		<span style="display:none" class="es">Guía</span>
+		<span style="display:none" class="fr">Guide</span>
+		<span style="display:none" class="it">Guida</span>
+		<span style="display:none" class="ja">開発ガイド</span>
+		<span style="display:none" class="zh-CN">开发人员指南</span>
+		<span style="display:none" class="zh-TW">開發指南</span>
+	
+	</a></li>
+	<li id="reference-link"><a href="../../../reference/packages.html" onClick="return loadLast('reference')">
+	
+		<span class="en">Reference</span>
+		<span style="display:none" class="de">Referenz</span>
+		<span style="display:none" class="es">Referencia</span>
+		<span style="display:none" class="fr">Référence</span>
+		<span style="display:none" class="it">Riferimento</span>
+		<span style="display:none" class="ja">リファレンス</span>
+		<span style="display:none" class="zh-CN">参考</span>
+		<span style="display:none" class="zh-TW">參考資料</span>
+	
+	</a></li>
+	<li id="resources-link"><a href="../../../resources/index.html" onClick="return loadLast('resources')">
+	
+		<span class="en">Resources</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+    		<span style="display:none" class="ja"></span>
+		<span style="display:none" class="zh-CN"></span>
+		<span style="display:none" class="zh-TW"></span>
+	
+	</a></li>
+	<li id="videos-link"><a href="../../../videos/index.html" onClick="return loadLast('videos')">
+	
+		<span class="en">Videos</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ビデオ</span>
+		<span style="display:none" class="zh-CN"></span>
+		<span style="display:none" class="zh-TW"></span>
+	
+	</a></li>
+	<li><a href="http://android-developers.blogspot.com" onClick="return requestAppendHL(this.href)">
+	
+		<span class="en">Blog</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ブログ</span>
+		<span style="display:none" class="zh-CN">博客</span>
+		<span style="display:none" class="zh-TW">網誌</span>
+	
+	</a></li>
+
+
+     
+</ul>
+     
+      </div>
+      <div id="headerRight">
+          <div id="headerLinks">
+          &nbsp;&nbsp;
+          <a href="../../../design/index.html">Android Design</a>&nbsp;&nbsp;
+          <a href="http://www.android.com">Android.com</a>
+          </div>
+  <div id="search" >
+      <div id="searchForm">
+          <form accept-charset="utf-8" class="gsc-search-box" 
+                onsubmit="return submit_search()">
+            <table class="gsc-search-box" cellpadding="0" cellspacing="0"><tbody>
+                <tr>
+                  <td class="gsc-input">
+                    <input id="search_autocomplete" class="gsc-input" type="text" size="33" autocomplete="off"
+                      title="search developer docs" name="q"
+                      value="search developer docs"
+                      onFocus="search_focus_changed(this, true)"
+                      onBlur="search_focus_changed(this, false)"
+                      onkeydown="return search_changed(event, true, '../../../')"
+                      onkeyup="return search_changed(event, false, '../../../')" />
+                  <div id="search_filtered_div" class="no-display">
+                      <table id="search_filtered" cellspacing=0>
+                      </table>
+                  </div>
+                  </td>
+                  <td class="gsc-search-button">
+                    <input type="submit" value="Search" title="search" id="search-button" class="gsc-search-button" />
+                  </td>
+                  <td class="gsc-clear-button">
+                    <div title="clear results" class="gsc-clear-button">&nbsp;</div>
+                  </td>
+                </tr></tbody>
+              </table>
+          </form>
+      </div><!-- searchForm -->
+  </div><!-- search -->
+      </div><!-- headerRight -->
+      <script type="text/javascript">
+        <!--  
+        changeTabLang(getLangPref());
+        //-->
+      </script>
+  </div><!-- header -->
+
+  <div class="g-section g-tpl-240" id="body-content">
+    <div class="g-unit g-first" id="side-nav" itemscope itemtype="http://schema.org/SiteNavigationElement">
+      <div id="devdoc-nav">
+<ul>
+
+  <li>
+    <span class="heading">
+      <span class="en">Android Basics</span>
+      <span class="de" style="display:none">Einführung in Android</span>
+      <span class="es" style="display:none">Información básica sobre Android</span>
+      <span class="fr" style="display:none">Présentation d'Android</span>
+      <span class="it" style="display:none">Nozioni di base su Android</span>
+      <span class="ja" style="display:none">Android の基本</span>
+      <span class="zh-CN" style="display:none">Android 基础知识</span>
+      <span class="zh-TW" style="display:none">Android 簡介</span>
+    </span>
+    <ul>
+      <li><a href="../../../guide/basics/what-is-android.html">
+        <span class="en">What Is Android?</span>
+        <span class="de" style="display:none">Was ist Android?</span>
+        <span class="es" style="display:none">¿Qué es Android?</span>
+        <span class="fr" style="display:none">Qu'est-ce qu'Android&nbsp;?</span>
+        <span class="it" style="display:none">Che cos'è Android?</span>
+        <span class="ja" style="display:none">Android とは</span>
+        <span class="zh-CN" style="display:none">Android 是什么？</span>
+        <span class="zh-TW" style="display:none">什麼是 Android？</span>
+          </a></li>
+      <li><a href="../../../guide/topics/fundamentals.html">
+        <span class="en">Application Fundamentals</span>
+        <span class="de" style="display:none">Anwendungsgrundlagen</span>
+        <span class="es" style="display:none">Fundamentos de las aplicaciones</span>
+        <span class="fr" style="display:none">Principes de base des applications</span>
+        <span class="it" style="display:none">Concetti fondamentali sulle applicazioni</span>
+        <span class="ja" style="display:none">開発の基礎</span>
+        <span class="zh-CN" style="display:none">应用程序基础</span>
+        <span class="zh-TW" style="display:none">應用程式基本原理</span>
+      </a></li>
+
+  <!--  <li><a style="color:gray;">The Android SDK</a></li> -->
+  <!--  <li><a style="color:gray;">Walkthrough for Developers</a></li> -->
+      <!-- quick overview of what it's like to develop on Android -->
+    </ul>
+  </li>
+
+  <li>
+    <span class="heading">
+      <span class="en">Framework Topics</span>
+      <span class="de" style="display:none">Framework-Themen</span>
+      <span class="es" style="display:none">Temas sobre el framework</span>
+      <span class="fr" style="display:none">Thèmes relatifs au framework</span>
+      <span class="it" style="display:none">Argomenti relativi al framework</span>
+      <span class="ja" style="display:none">フレームワーク トピック</span>
+      <span class="zh-CN" style="display:none">框架主题</span>
+      <span class="zh-TW" style="display:none">架構主題</span>
+    </span>
+    <ul>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/fundamentals/activities.html">
+          <span class="en">Activities</span>
+        </a></div>
+        <ul>
+          <li><a href="../../../guide/topics/fundamentals/fragments.html">
+            <span class="en">Fragments</span>
+          </a></li>
+          <li><a href="../../../guide/topics/fundamentals/loaders.html">
+            <span class="en">Loaders</span>
+          </a></li>
+          <li><a href="../../../guide/topics/fundamentals/tasks-and-back-stack.html">
+            <span class="en">Tasks and Back Stack</span></a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/fundamentals/services.html">
+          <span class="en">Services</span>
+        </a></div>
+        <ul>
+          <li><a href="../../../guide/topics/fundamentals/bound-services.html">
+            <span class="en">Bound Services</span>
+          </a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+          <div><a href="../../../guide/topics/providers/content-providers.html">
+            <span class="en">Content Providers</span>
+          </a></div>
+          <ul>
+            <li>
+                <a href="../../../guide/topics/providers/content-provider-basics.html">
+                    <span class="en">Content Provider Basics</span>
+                </a>
+                <span class="new">new!</span>
+            </li>
+            <li>
+                <a href="../../../guide/topics/providers/content-provider-creating.html">
+                    <span class="en">Creating a Content Provider</span>
+                </a>
+                <span class="new">new!</span>
+            </li>
+            <li>
+                <a href="../../../guide/topics/providers/calendar-provider.html">
+                    <span class="en">Calendar Provider</span>
+                </a>
+                <span class="new">new!</span>
+            </li>
+          </ul>
+      </li>
+      <li><a href="../../../guide/topics/intents/intents-filters.html">
+            <span class="en">Intents and Intent Filters</span>
+          </a></li>
+      <li><a href="../../../guide/topics/fundamentals/processes-and-threads.html">
+            <span class="en">Processes and Threads</span>
+          </a></li>
+    </ul>
+
+
+    <ul>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/ui/index.html">
+            <span class="en">User Interface</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../guide/topics/ui/declaring-layout.html">
+               <span class="en">XML Layouts</span>
+              </a></li>
+          <li><a href="../../../guide/topics/ui/ui-events.html">
+                <span class="en">Input Events</span>
+              </a></li>
+          <li><a href="../../../guide/topics/ui/menus.html">
+               <span class="en">Menus</span>
+              </a> <span class="new">updated</span></li>
+          <li><a href="../../../guide/topics/ui/actionbar.html">
+               <span class="en">Action Bar</span>
+              </a></li>
+          <li><a href="../../../guide/topics/ui/dialogs.html">
+                <span class="en">Dialogs</span>
+              </a></li>
+          <li class="toggle-list">
+            <div><a href="../../../guide/topics/ui/notifiers/index.html">
+                <span class="en">Notifications</span>
+            </a></div>
+            <ul>
+              <li><a href="../../../guide/topics/ui/notifiers/toasts.html">
+                <span class="en">Toast Notifications</span>
+              </a></li>
+              <li><a href="../../../guide/topics/ui/notifiers/notifications.html">
+                <span class="en">Status Bar Notifications</span>
+              </a></li>
+            </ul>
+          </li>
+          <li><a href="../../../guide/topics/ui/drag-drop.html">
+                <span class="en">Drag and Drop</span>
+              </a></li>
+          <li><a href="../../../guide/topics/ui/themes.html">
+                <span class="en">Styles and Themes</span>
+              </a></li>
+          <li><a href="../../../guide/topics/ui/custom-components.html">
+                <span class="en">Custom Components</span>
+              </a></li>
+          <li><a href="../../../guide/topics/ui/binding.html">
+                <span class="en">Binding to Data with AdapterView</span>
+              </a></li>
+          <li><a href="../../../guide/topics/ui/layout-objects.html">
+                <span class="en">Common Layout Objects</span>
+              </a></li>
+          <li><a href="../../../guide/topics/ui/how-android-draws.html">
+                <span class="en">How Android Draws Views</span>
+              </a></li>
+        </ul>
+      </li><!-- end of User Interface -->
+
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/resources/index.html">
+               <span class="en">Application Resources</span>
+             </a></div>
+        <ul>
+          <li><a href="../../../guide/topics/resources/providing-resources.html">
+                <span class="en">Providing Resources</span>
+              </a></li>
+          <li><a href="../../../guide/topics/resources/accessing-resources.html">
+                <span class="en">Accessing Resources</span>
+              </a></li>
+          <li><a href="../../../guide/topics/resources/runtime-changes.html">
+                <span class="en">Handling Runtime Changes</span>
+              </a></li>
+          <li><a href="../../../guide/topics/resources/localization.html">
+                <span class="en">Localization</span>
+              </a></li>
+          <li class="toggle-list">
+            <div><a href="../../../guide/topics/resources/available-resources.html">
+              <span class="en">Resource Types</span>
+            </a></div>
+            <ul>
+              <li><a href="../../../guide/topics/resources/animation-resource.html">Animation</a></li>
+              <li><a href="../../../guide/topics/resources/color-list-resource.html">Color State List</a></li>
+              <li><a href="../../../guide/topics/resources/drawable-resource.html">Drawable</a></li>
+              <li><a href="../../../guide/topics/resources/layout-resource.html">Layout</a></li>
+              <li><a href="../../../guide/topics/resources/menu-resource.html">Menu</a></li>
+              <li><a href="../../../guide/topics/resources/string-resource.html">String</a></li>
+              <li><a href="../../../guide/topics/resources/style-resource.html">Style</a></li>
+              <li><a href="../../../guide/topics/resources/more-resources.html">More Types</a></li>
+            </ul>
+          </li><!-- end of resource types -->
+        </ul>
+      </li><!-- end of app resources -->
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/data/data-storage.html">
+            <span class="en">Data Storage</span>
+          </a></div>
+          <ul>
+            <li><a href="../../../guide/topics/data/backup.html">
+                <span class="en">Data Backup</span>
+              </a>
+            </li>
+          </ul>
+      </li>
+      <li><a href="../../../guide/topics/security/security.html">
+            <span class="en">Security and Permissions</span>
+          </a></li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/manifest/manifest-intro.html">
+          <span class="en">The AndroidManifest.xml File</span>
+        </a></div>
+        <ul>
+          <li><a href="../../../guide/topics/manifest/action-element.html">&lt;action&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/activity-element.html">&lt;activity&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/activity-alias-element.html">&lt;activity-alias&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/application-element.html">&lt;application&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/category-element.html">&lt;category&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/compatible-screens-element.html">&lt;compatible-screens&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/data-element.html">&lt;data&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/grant-uri-permission-element.html">&lt;grant-uri-permission&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/instrumentation-element.html">&lt;instrumentation&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/intent-filter-element.html">&lt;intent-filter&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/manifest-element.html">&lt;manifest&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/meta-data-element.html">&lt;meta-data&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/path-permission-element.html">&lt;path-permission&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/permission-element.html">&lt;permission&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/permission-group-element.html">&lt;permission-group&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/permission-tree-element.html">&lt;permission-tree&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/provider-element.html">&lt;provider&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/receiver-element.html">&lt;receiver&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/service-element.html">&lt;service&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/supports-gl-texture-element.html">&lt;supports-gl-texture&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/supports-screens-element.html">&lt;supports-screens&gt;</a></li><!-- ##api level 4## -->
+          <li><a href="../../../guide/topics/manifest/uses-configuration-element.html">&lt;uses-configuration&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/uses-feature-element.html">&lt;uses-feature&gt;</a></li> <!-- ##api level 4## -->
+          <li><a href="../../../guide/topics/manifest/uses-library-element.html">&lt;uses-library&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/uses-permission-element.html">&lt;uses-permission&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/uses-sdk-element.html">&lt;uses-sdk&gt;</a></li>
+        </ul>
+      </li><!-- end of the manifest file -->
+    </ul>
+
+    <ul>
+    <li class="toggle-list">
+        <div><a href="../../../guide/topics/graphics/index.html">
+            <span class="en">Graphics</span>
+          </a> <span class="new-child">new!</span></div>
+        <ul>
+          <li><a href="../../../guide/topics/graphics/2d-graphics.html">
+              <span class="en">Canvas and Drawables</span></a></li>
+          <li><a href="../../../guide/topics/graphics/hardware-accel.html">
+              <span class="en">Hardware Acceleration</span></a>
+            <span class="new">new!</span></li>
+          <li><a href="../../../guide/topics/graphics/opengl.html">
+              <span class="en">OpenGL</span>
+            </a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/graphics/animation.html">
+            <span class="en">Animation</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../guide/topics/graphics/prop-animation.html">
+              <span class="en">Property Animation</span></a></li>
+          <li><a href="../../../guide/topics/graphics/view-animation.html">
+              <span class="en">View Animation</span></a></li>
+          <li><a href="../../../guide/topics/graphics/drawable-animation.html">
+              <span class="en">Drawable Animation</span></a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/renderscript/index.html">
+          <span class="en">Renderscript</span></a>
+          <span class="new">updated</span>
+        </div>
+        <ul>
+          <li><a href="../../../guide/topics/renderscript/graphics.html">
+                <span class="en">Graphics</span>
+              </a>
+          </li>
+          <li><a href="../../../guide/topics/renderscript/compute.html">
+                <span class="en">Compute</span>
+              </a>
+          </li>
+          <li><a href="../../../guide/topics/renderscript/reference.html">
+                <span class="en">Runtime API Reference</span>
+              </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="toggle-list">
+          <div><a href="../../../guide/topics/media/index.html">
+            <span class="en">Multimedia and Camera</span>
+          </a></div>
+          <ul>
+            <li><a href="../../../guide/topics/media/mediaplayer.html">
+                  <span class="en">Media Playback</span></a>
+                </li>
+            <li><a href="../../../guide/topics/media/jetplayer.html">
+                  <span class="en">JetPlayer</span></a>
+                </li>
+            <li><a href="../../../guide/topics/media/camera.html">
+                  <span class="en">Camera</span></a>
+                  <span class="new">new!</span>
+                </li>
+            <li><a href="../../../guide/topics/media/audio-capture.html">
+                  <span class="en">Audio Capture</span></a>
+                </li>
+          </ul>
+      </li>
+      <li>
+        <a href="../../../guide/topics/clipboard/copy-paste.html">
+            <span class="en">Copy and Paste</span>
+        </a></li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/sensors/index.html">
+              <span class="en">Sensors</span>
+              </a> <span class="new">new!</span></div>
+        <ul>
+          <li><a href="../../../guide/topics/sensors/sensors_overview.html">
+              <span class="en">Sensors Overview</span>
+            </a></li>
+          <li><a href="../../../guide/topics/sensors/sensors_motion.html">
+              <span class="en">Motion Sensors</span>
+            </a></li>
+          <li><a href="../../../guide/topics/sensors/sensors_position.html">
+              <span class="en">Position Sensors</span>
+            </a></li>
+          <li><a href="../../../guide/topics/sensors/sensors_environment.html">
+              <span class="en">Environment Sensors</span>
+            </a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/location/index.html">
+               <span class="en">Location and Maps</span>
+             </a></div>
+        <ul>
+          <li><a href="../../../guide/topics/location/obtaining-user-location.html">
+                <span class="en">Obtaining User Location</span>
+              </a></li>
+        </ul>
+      </li>
+  <!--<li class="toggle-list">
+        <div><a style="color:gray;">Wireless Controls</a></div>
+          <ul>
+            <li><a style="color:gray;">Wi-Fi</a></li>
+          </ul>
+      </li> -->
+  <!--<li><a style="color:gray;">Localization</a></li>  -->
+      <li><a href="../../../guide/topics/appwidgets/index.html">
+            <span class="en">App Widgets</span></a>
+          </li>
+      <li><a href="../../../guide/topics/wireless/bluetooth.html">
+            <span class="en">Bluetooth</span></a>
+          </li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/nfc/index.html">
+          <span class="en">Near Field Communication</span></a> <span class="new">updated</span>
+        </div>
+        <ul>
+          <li><a href="../../../guide/topics/nfc/nfc.html">NFC Basics</a></li>
+          <li><a href="../../../guide/topics/nfc/advanced-nfc.html">Advanced NFC</a></li>
+        </ul>
+      </li>
+      <li><a href="../../../guide/topics/wireless/wifip2p.html">
+            <span class="en">Wi-Fi Direct</span></a> <span class="new">new!</span>
+          </li>
+      <li class="toggle-list">
+          <div><a href="../../../guide/topics/usb/index.html">
+            <span class="en">USB</span></a>
+          </div>
+            <ul>
+              <li><a href="../../../guide/topics/usb/accessory.html">Accessory</a></li>
+              <li><a href="../../../guide/topics/usb/host.html">Host</a></li>
+              <li><a href="../../../guide/topics/usb/adk.html">Open Accessory Dev Kit</a></li>
+            </ul>
+          </li>
+
+       <li><a href="../../../guide/topics/network/sip.html">
+            <span class="en">Session Initiation Protocol</span>
+          </a></li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/search/index.html">
+            <span class="en">Search</span>
+          </a></div>
+          <ul>
+            <li><a href="../../../guide/topics/search/search-dialog.html">Creating a Search Interface</a></li>
+            <li><a href="../../../guide/topics/search/adding-recent-query-suggestions.html">Adding Recent Query Suggestions</a></li>
+            <li><a href="../../../guide/topics/search/adding-custom-suggestions.html">Adding Custom Suggestions</a></li>
+            <li><a href="../../../guide/topics/search/searchable-config.html">Searchable Configuration</a></li>
+          </ul>
+      </li>
+      <li><a href="../../../guide/topics/admin/device-admin.html">
+            <span class="en">Device Administration</span></a>
+      </li>
+      <li class="toggle-list">
+           <div>
+                <a href="../../../guide/topics/testing/index.html">
+                   <span class="en">Testing</span>
+               </a>
+           </div>
+           <ul>
+              <li>
+                <a href="../../../guide/topics/testing/testing_android.html">
+                <span class="en">Testing Fundamentals</span></a>
+              </li>
+              <li>
+                <a href="../../../guide/topics/testing/activity_testing.html">
+                <span class="en">Activity Testing</span></a>
+              </li>
+              <li>
+                <a href="../../../guide/topics/testing/contentprovider_testing.html">
+                <span class="en">Content Provider Testing</span></a>
+              </li>
+              <li>
+                <a href="../../../guide/topics/testing/service_testing.html">
+                <span class="en">Service Testing</span></a>
+              </li>
+              <li>
+                <a href="../../../guide/topics/testing/what_to_test.html">
+                <span class="en">What To Test</span></a>
+              </li>
+           </ul>
+      </li>
+    </ul>
+  </li>
+
+  <li>
+    <h2>
+      <span class="en">Google Play Topics</span>
+    </h2>
+    <ul>
+      <li><a href="../../../guide/publishing/publishing.html">
+          <span class="en">Publishing on Google Play</span>
+          </a></li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/market/licensing/index.html">
+          <span class="en">Application Licensing</span></a>
+        </div>
+        <ul>
+          <li><a href="../../../guide/market/licensing/overview.html">
+              <span class="en">Licensing Overview</span></a>
+          </li>
+          <li><a href="../../../guide/market/licensing/setting-up.html">
+              <span class="en">Setting Up for Licensing</span></a>
+          </li>
+          <li><a href="../../../guide/market/licensing/adding-licensing.html">
+              <span class="en">Adding Licensing to Your App</span></a>
+          </li>
+          <li><a href="../../../guide/market/licensing/licensing-reference.html">
+              <span class="en">Licensing Reference</span></a>
+          </li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/market/billing/index.html">
+            <span class="en">In-app Billing</span></a>
+        </div>
+        <ul>
+          <li><a href="../../../guide/market/billing/billing_overview.html">
+              <span class="en">In-app Billing Overview</span></a>
+          </li>
+          <li><a href="../../../guide/market/billing/billing_integrate.html">
+              <span class="en">Implementing In-app Billing</span></a>
+          </li>
+          <li><a href="../../../guide/market/billing/billing_best_practices.html">
+              <span class="en">Security and Design</span></a>
+          </li>
+          <li><a href="../../../guide/market/billing/billing_testing.html">
+              <span class="en">Testing In-app Billing</span></a>
+          </li>
+          <li><a href="../../../guide/market/billing/billing_admin.html">
+              <span class="en">Administering In-app Billing</span></a>
+          </li>
+          <li><a href="../../../guide/market/billing/billing_reference.html">
+              <span class="en">In-app Billing Reference</span></a>
+          </li>
+        </ul>
+      </li>
+      <li><a href="../../../guide/appendix/market-filters.html">
+          <span class="en">Filters on Google Play</span></a>
+      </li>
+      <li><a href="../../../guide/market/publishing/multiple-apks.html">
+          <span class="en">Multiple APK Support</span></a>
+      </li>
+      <li><a href="../../../guide/market/expansion-files.html">
+          <span class="en">APK Expansion Files</span></a>
+          <span class="new">new!</span>
+      </li>
+    </ul>
+  </li>
+
+
+  <li>
+    <span class="heading">
+      <span class="en">Developing</span>
+      <span class="de" style="display:none">Entwicklung</span>
+      <span class="es" style="display:none">Desarrollo</span>
+      <span class="fr" style="display:none">Développement</span>
+      <span class="it" style="display:none">Sviluppo</span>
+      <span class="ja" style="display:none">開発</span>
+      <span class="zh-CN" style="display:none">开发</span>
+      <span class="zh-TW" style="display:none">開發</span>
+    </span>
+    <ul>
+  <!--<li><a href="">Developing for Android</a></li>
+      signing, upgrading, selecting a package name, select device profile, touch, trackball, dpad available, etc. -->
+      <li>
+        <a href="../../../guide/developing/index.html">
+        <span class="en">Introduction</span></a>
+      </li>
+
+      <li class="toggle-list">
+        <div>
+           <a href="../../../guide/developing/devices/index.html">
+                <span class="en">Managing Virtual Devices</span>
+            </a>
+        </div>
+        <ul>
+          <li>
+            <a href="../../../guide/developing/devices/managing-avds.html">
+              <span class="en">With AVD Manager</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../guide/developing/devices/managing-avds-cmdline.html">
+              <span class="en">From the Command Line</span>
+            </a>
+          </li>
+          <li>
+           <a href="../../../guide/developing/devices/emulator.html">
+                <span class="en">Using the Android Emulator</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="../../../guide/developing/device.html">
+          <span class="en">Using Hardware Devices</span>
+        </a>
+      </li>
+
+      <li class="toggle-list">
+        <div>
+          <a href="../../../guide/developing/projects/index.html">
+            <span class="en">Managing Projects</span>
+          </a>
+        </div>
+        <ul>
+          <li>
+            <a href="../../../guide/developing/projects/projects-eclipse.html">
+              <span class="en">From Eclipse with ADT</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../guide/developing/projects/projects-cmdline.html">
+                <span class="en">From the Command Line</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="toggle-list">
+        <div>
+          <a href="../../../guide/developing/building/index.html">
+            <span class="en">Building and Running</span>
+          </a>
+        </div>
+        <ul>
+          <li><a href="../../../guide/developing/building/building-eclipse.html">
+            <span class="en">From Eclipse with ADT</span>
+          </a></li>
+          <li><a href="../../../guide/developing/building/building-cmdline.html">
+            <span class="en">From the Command Line</span></a></li>
+        </ul>
+      </li>
+
+      <li class="toggle-list">
+        <div>
+          <a href="../../../guide/developing/debugging/index.html">
+            <span class="en">Debugging</span>
+          </a>
+        </div>
+        <ul>
+          <li>
+            <a href="../../../guide/developing/debugging/debugging-projects.html">
+                <span class="en">From Eclipse with ADT</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../guide/developing/debugging/debugging-projects-cmdline.html">
+                <span class="en">From Other IDEs</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../guide/developing/debugging/ddms.html">
+              <span class="en">Using DDMS</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../guide/developing/debugging/debugging-log.html">
+                <span class="en">Reading and Writing Logs</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../guide/developing/debugging/debugging-ui.html">
+                <span class="en">Debugging and Profiling UIs</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../guide/developing/debugging/debugging-tracing.html">
+                <span class="en">Profiling with Traceview and dmtracedump</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../guide/developing/debugging/debugging-devtools.html">
+                <span class="en">Using the Dev Tools App</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="toggle-list">
+           <div>
+                <a href="../../../guide/developing/testing/index.html">
+                   <span class="en">Testing</span>
+               </a>
+           </div>
+           <ul>
+              <li>
+                <a href="../../../guide/developing/testing/testing_eclipse.html">
+                  <span class="en">From Eclipse with ADT</span>
+                </a>
+              </li>
+
+              <li>
+                <a href="../../../guide/developing/testing/testing_otheride.html">
+                  <span class="en">From Other IDEs</span>
+                </a>
+              </li>
+           </ul>
+         </li>
+
+         <li class="toggle-list">
+        <div><a href="../../../guide/developing/tools/index.html">
+            <span class="en">Tools</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../guide/developing/tools/adb.html">adb</a></li>
+          <li><a href="../../../guide/developing/tools/adt.html">ADT</a></li>
+          <li><a href="../../../guide/developing/tools/android.html">android</a></li>
+          <li><a href="../../../guide/developing/tools/bmgr.html">bmgr</a>
+          <li><a href="../../../guide/developing/tools/dmtracedump.html">dmtracedump</a></li>
+          <li><a href="../../../guide/developing/tools/draw9patch.html">Draw
+          9-Patch</a></li>
+          <li><a href="../../../guide/developing/tools/emulator.html">Emulator</a></li>
+          <li><a href="../../../guide/developing/tools/etc1tool.html">etc1tool</a></li>
+          <li><a href="../../../guide/developing/tools/hierarchy-viewer.html">Hierarchy Viewer</a></li>
+          <li><a href="../../../guide/developing/tools/hprof-conv.html">hprof-conv</a></li>
+          <li><a href="../../../guide/developing/tools/layoutopt.html">layoutopt</a></li>
+          <li><a href="../../../guide/developing/tools/logcat.html">logcat</a></li>
+          <li><a href="../../../guide/developing/tools/mksdcard.html">mksdcard</a></li>
+          <li><a href="../../../guide/developing/tools/monkey.html">Monkey</a></li>
+          <li class="toggle-list">
+            <div><a href="../../../guide/developing/tools/monkeyrunner_concepts.html">
+              <span class="en">monkeyrunner</span>
+            </a></div>
+            <ul>
+              <li><a href="../../../guide/developing/tools/MonkeyDevice.html">
+                <span class="en">MonkeyDevice</span>
+                </a></li>
+              <li><a href="../../../guide/developing/tools/MonkeyImage.html">
+                <span class="en">MonkeyImage</span>
+                </a></li>
+              <li><a href="../../../guide/developing/tools/MonkeyRunner.html">
+                <span class="en">MonkeyRunner</span>
+                </a></li>
+            </ul>
+          </li>
+          <li><a href="../../../guide/developing/tools/proguard.html">ProGuard</a></li>
+          <li><a href="../../../guide/developing/tools/adb.html#sqlite">sqlite3</a></li>
+          <li><a href="../../../guide/developing/tools/traceview.html">Traceview</a></li>
+          <li><a href="../../../guide/developing/tools/zipalign.html">zipalign</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+
+  <li>
+    <span class="heading">
+      <span class="en">Publishing</span>
+      <span class="de" style="display:none">Veröffentlichung</span>
+      <span class="es" style="display:none">Publicación</span>
+      <span class="fr" style="display:none">Publication</span>
+      <span class="it" style="display:none">Pubblicazione</span>
+      <span class="ja" style="display:none">公開</span>
+      <span class="zh-CN" style="display:none">发布</span>
+      <span class="zh-TW" style="display:none">發佈</span>
+    </span>
+    <ul>
+      <li><a href="../../../guide/publishing/publishing_overview.html">
+            <span class="en">Publishing Overview</span>
+          </a></li>
+      <li><a href="../../../guide/publishing/preparing.html">
+            <span class="en">Preparing for Release</span>
+            <span class="de" style="display:none">Vorbereitung auf die Veröffentlichung</span>
+            <span class="es" style="display:none">Publicación de aplicaciones</span>
+            <span class="fr" style="display:none">Préparation à la publication</span>
+            <span class="it" style="display:none">Preparativi per la pubblicazione</span>
+            <span class="ja" style="display:none">公開の準備</span>
+            <span class="zh-CN" style="display:none">准备发布</span>
+            <span class="zh-TW" style="display:none">準備發佈</span>
+          </a></li>
+      <li><a href="../../../guide/publishing/app-signing.html">
+            <span class="en">Signing Your Applications</span>
+            <span class="de" style="display:none">Signieren Ihrer Anwendungen</span>
+            <span class="es" style="display:none">Firma de aplicaciones</span>
+            <span class="fr" style="display:none">Attribution de votre signature <br />à vos
+applications</span>
+            <span class="it" style="display:none">Firma delle applicazioni</span>
+            <span class="ja" style="display:none">アプリケーションへの署名</span>
+            <span class="zh-CN" style="display:none">应用程序签名</span>
+            <span class="zh-TW" style="display:none">簽署應用程式</span>
+          </a></li>
+      <li><a href="../../../guide/publishing/versioning.html">
+            <span class="en">Versioning Your Applications</span>
+            <span class="de" style="display:none">Versionsverwaltung für Ihre <br
+/>Anwendungen</span>
+            <span class="es" style="display:none">Versiones de las aplicaciones</span>
+            <span class="fr" style="display:none">Attribution d'une version à vos
+applications</span>
+            <span class="it" style="display:none">Controllo versioni delle applicazioni</span>
+            <span class="ja" style="display:none">アプリケーションのバージョニング</span>
+            <span class="zh-CN" style="display:none">应用程序版本控制</span>
+            <span class="zh-TW" style="display:none">應用程式版本設定</span>
+          </a></li>
+    </ul>
+  </li>
+
+  <li>
+    <span class="heading">
+      <span class="en">Best Practices</span>
+      <span class="de" style="display:none">Bewährte Verfahren</span>
+      <span class="es" style="display:none">Prácticas recomendadas</span>
+      <span class="fr" style="display:none">Meilleures pratiques</span>
+      <span class="it" style="display:none">Best practice</span>
+      <span class="ja" style="display:none">ベスト プラクティス</span>
+      <span class="zh-CN" style="display:none">最佳实践</span>
+      <span class="zh-TW" style="display:none">最佳實務</span>
+    </span>
+    <ul>
+      <li><a href="../../../guide/practices/compatibility.html">
+            <span class="en">Compatibility</span>
+          </a></li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/practices/screens_support.html">
+          <span class="en">Supporting Multiple Screens</span>
+        </a></div>
+        <ul>
+          <li><a href="../../../guide/practices/screens-distribution.html">
+            <span class="en">Distributing to Specific Screens</span>
+          </a></li>
+          <li><a href="../../../guide/practices/screen-compat-mode.html">
+            <span class="en">Screen Compatibility Mode</span>
+          </a></li>
+          <li><a href="../../../guide/practices/screens-support-1.5.html">
+            <span class="en">Strategies for Android 1.5</span>
+          </a></li>
+        </ul>
+      </li>
+      <li><a href="../../../guide/practices/tablets-and-handsets.html">
+            <span class="en">Supporting Tablets and Handsets</span>
+          </a> <span class="new">new!</span></li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/practices/ui_guidelines/index.html">
+               <span class="en">UI Guidelines</span>
+             </a></div>
+        <ul>
+          <li class="toggle-list">
+            <div><a href="../../../guide/practices/ui_guidelines/icon_design.html">
+                   <span class="en">Icon Design</span>
+                 </a></div>
+            <ul>
+              <li><a href="../../../guide/practices/ui_guidelines/icon_design_launcher.html">
+                    <span class="en">Launcher Icons</span>
+                  </a></li>
+              <li><a href="../../../guide/practices/ui_guidelines/icon_design_menu.html">
+                    <span class="en">Menu Icons</span>
+                  </a></li>
+              <li><a href="../../../guide/practices/ui_guidelines/icon_design_action_bar.html">
+                    <span class="en">Action Bar Icons</span>
+                  </a></li>
+              <li><a href="../../../guide/practices/ui_guidelines/icon_design_status_bar.html">
+                    <span class="en">Status Bar Icons</span>
+                  </a></li>
+              <li><a href="../../../guide/practices/ui_guidelines/icon_design_tab.html">
+                    <span class="en">Tab Icons</span>
+                  </a></li>
+              <li><a href="../../../guide/practices/ui_guidelines/icon_design_dialog.html">
+                    <span class="en">Dialog Icons</span>
+                  </a></li>
+              <li><a href="../../../guide/practices/ui_guidelines/icon_design_list.html">
+                    <span class="en">List View Icons</span>
+                  </a></li>
+            </ul>
+          </li>
+          <li><a href="../../../guide/practices/ui_guidelines/widget_design.html">
+                <span class="en">App Widget Design</span>
+              </a></li>
+          <li><a href="../../../guide/practices/ui_guidelines/activity_task_design.html">
+                <span class="en">Activity and Task Design</span>
+              </a></li>
+          <li><a href="../../../guide/practices/ui_guidelines/menu_design.html">
+                <span class="en">Menu Design</span>
+              </a></li>
+        </ul>
+      </li>
+      </ul>
+      <ul>
+      <li><a href="../../../guide/practices/design/accessibility.html">
+            <span class="en">Designing for Accessibility</span>
+          </a></li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/practices/design/performance.html">
+            <span class="en">Designing for Performance</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../guide/practices/design/jni.html">
+                <span class="en">JNI Tips</span>
+              </a></li>
+        </ul>
+      </li>
+      <li><a href="../../../guide/practices/design/responsiveness.html">
+            <span class="en">Designing for Responsiveness</span>
+          </a></li>
+      <li><a href="../../../guide/practices/design/seamlessness.html">
+            <span class="en">Designing for Seamlessness</span>
+          </a></li>
+      <li><a href="../../../guide/practices/security.html">
+            <span class="en">Designing for Security</span></a>
+            </li>
+    </ul>
+  </li>
+
+  <li>
+    <span class="heading">
+      <span class="en">Web Applications</span>
+    </span>
+    <ul>
+      <li><a href="../../../guide/webapps/index.html">
+            <span class="en">Web Apps Overview</span>
+          </a></li>
+      <li><a href="../../../guide/webapps/targeting.html">
+            <span class="en">Targeting Screens from Web Apps</span>
+          </a></li>
+      <li><a href="../../../guide/webapps/webview.html">
+            <span class="en">Building Web Apps in WebView</span>
+          </a></li>
+      <li><a href="../../../guide/webapps/debugging.html">
+            <span class="en">Debugging Web Apps</span>
+          </a></li>
+      <li><a href="../../../guide/webapps/best-practices.html">
+            <span class="en">Best Practices for Web Apps</span>
+          </a></li>
+    </ul>
+  </li>
+
+  <li>
+    <span class="heading">
+      <span class="en">Appendix</span>
+      <span class="de" style="display:none">Anhang</span>
+      <span class="es" style="display:none">Apéndice</span>
+      <span class="fr" style="display:none">Annexes</span>
+      <span class="it" style="display:none">Appendice</span>
+      <span class="ja" style="display:none">付録</span>
+      <span class="zh-CN" style="display:none">附录</span>
+      <span class="zh-TW" style="display:none">附錄</span>
+    </span>
+    <ul>
+      <li><a href="../../../guide/appendix/api-levels.html">
+            <span class="en">Android API Levels</span>
+          </a></li>
+      <li><a href="../../../guide/appendix/install-location.html">
+            <span class="en">App Install Location</span>
+          </a></li>
+      <li><a href="../../../guide/appendix/media-formats.html">
+            <span class="en">Supported Media Formats</span>
+          </a></li>
+      <li><a href="../../../guide/appendix/g-app-intents.html">
+            <span class="en">Intents List: Google Apps</span>
+          </a></li>
+      <li><a href="../../../guide/developing/tools/aidl.html">AIDL</a></li>
+      <li><a href="../../../guide/appendix/glossary.html">
+            <span class="en">Glossary</span>
+          </a></li>
+    </ul>
+  </li>
+
+</ul>
+
+<script type="text/javascript">
+<!--
+    buildToggleLists();
+    changeNavLang(getLangPref());
+//-->
+</script>
+
+      </div>
+    </div> <!-- end side-nav -->
+    <script>
+      addLoadEvent(function() {
+        scrollIntoView("devdoc-nav");
+        });
+    </script>
+
+
+
+
+<div class="g-unit" id="doc-content"><a name="top"></a>
+
+<div id="jd-header" class="guide-header">
+  <span class="crumb" itemprop="breadcrumb">
+    
+      <a href="manifest-intro.html">The AndroidManifest.xml File</a>:
+    
+  </span>
+<h1 itemprop="name">&lt;activity&gt;</h1>
+</div>
+
+  
+  <div id="jd-content">
+ 
+    
+
+
+    <div class="jd-descr" itemprop="articleBody">
+    <dl class="xml">
+<dt>syntax:</dt>
+<dd><pre class="stx">&lt;activity android:<a href="#reparent">allowTaskReparenting</a>=["true" | "false"]
+          android:<a href="#always">alwaysRetainTaskState</a>=["true" | "false"]
+          android:<a href="#clear">clearTaskOnLaunch</a>=["true" | "false"]
+          android:<a href="#config">configChanges</a>=["mcc", "mnc", "locale",
+                                 "touchscreen", "keyboard", "keyboardHidden",
+                                 "navigation", "screenLayout", "fontScale", "uiMode",
+                                 "orientation", "screenSize", "smallestScreenSize"]
+          android:<a href="#enabled">enabled</a>=["true" | "false"]
+          android:<a href="#exclude">excludeFromRecents</a>=["true" | "false"]
+          android:<a href="#exported">exported</a>=["true" | "false"]
+          android:<a href="#finish">finishOnTaskLaunch</a>=["true" | "false"]
+          android:<a href="#hwaccel">hardwareAccelerated</a>=["true" | "false"]
+          android:<a href="#icon">icon</a>="<i>drawable resource</i>"
+          android:<a href="#label">label</a>="<i>string resource</i>"
+          android:<a href="#lmode">launchMode</a>=["multiple" | "singleTop" |
+                              "singleTask" | "singleInstance"]
+          android:<a href="#multi">multiprocess</a>=["true" | "false"]
+          android:<a href="#nm">name</a>="<i>string</i>"
+          android:<a href="#nohist">noHistory</a>=["true" | "false"]  <!-- ##api level 3## -->
+          android:<a href="#prmsn">permission</a>="<i>string</i>"
+          android:<a href="#proc">process</a>="<i>string</i>"
+          android:<a href="#screen">screenOrientation</a>=["unspecified" | "user" | "behind" |
+                                     "landscape" | "portrait" |
+                                     "reverseLandscape" | "reversePortrait" |
+                                     "sensorLandscape" | "sensorPortrait" |
+                                     "sensor" | "fullSensor" | "nosensor"]
+          android:<a href="#state">stateNotNeeded</a>=["true" | "false"]
+          android:<a href="#aff">taskAffinity</a>="<i>string</i>"
+          android:<a href="#theme">theme</a>="<i>resource or theme</i>"
+          android:<a href="#uioptions">uiOptions</a>=["none" | "splitActionBarWhenNarrow"]
+          android:<a href="#wsoft">windowSoftInputMode</a>=["stateUnspecified",
+                                       "stateUnchanged", "stateHidden",
+                                       "stateAlwaysHidden", "stateVisible",
+                                       "stateAlwaysVisible", "adjustUnspecified",
+                                       "adjustResize", "adjustPan"] &gt;   <!-- ##api level 3## -->
+    . . .
+&lt;/activity&gt;</pre></dd>
+
+<dt>contained in:</dt>
+<dd><code><a href="../../../guide/topics/manifest/application-element.html">&lt;application&gt;</a></code></dd>
+
+<dt>can contain:</dt>
+<dd><code><a href="../../../guide/topics/manifest/intent-filter-element.html">&lt;intent-filter&gt;</a></code>
+<br/><code><a href="../../../guide/topics/manifest/meta-data-element.html">&lt;meta-data&gt;</a></code></dd>
+
+<dt>description:</dt>
+<dd>Declares an activity (an <code><a href="../../../reference/android/app/Activity.html">Activity</a></code> subclass) that 
+implements part of the application's visual user interface.  All activities 
+must be represented by <code>&lt;activity&gt;</code> 
+elements in the manifest file.  Any that are not declared there will not be seen 
+by the system and will never be run.
+
+<dt>attributes:</dt>
+<dd><dl class="attr">
+<dt><a name="reparent"></a><code>android:allowTaskReparenting</code></dt>
+<dd>Whether or not the activity can move from the task that started it to 
+the task it has an affinity for when that task is next brought to the 
+front &mdash; "<code>true</code>" if it can move, and "<code>false</code>" if it 
+must remain with the task where it started.  
+
+<p>
+If this attribute is not set, the value set by the corresponding 
+<code><a href="../../../guide/topics/manifest/application-element.html#reparent">allowTaskReparenting</a></code>
+attribute of the <code><a href="../../../guide/topics/manifest/application-element.html">&lt;application&gt;</a></code> element 
+applies to the activity.  The default value is "<code>false</code>".
+</p>
+
+<p>
+Normally when an activity is started, it's associated with the task of 
+the activity that started it and it stays there for its entire lifetime.  
+You can use this attribute to force it to be re-parented to the task it 
+has an affinity for when its current task is no longer displayed.  
+Typically, it's used to cause the activities of an application to move 
+to the main task associated with that application.
+</p>
+
+<p>
+For example, if an e-mail message contains a link to a web page, clicking 
+the link brings up an activity that can display the page.  That activity 
+is defined by the browser application, but is launched as part of the e-mail 
+task.  If it's reparented to the browser task, it will be shown when the 
+browser next comes to the front, and will be absent when the e-mail task 
+again comes forward.
+</p>
+
+<p>
+The affinity of an activity is defined by the 
+<code><a href="#aff">taskAffinity</a></code> attribute.  The affinity 
+of a task is determined by reading the affinity of its root activity.
+Therefore, by definition, a root activity is always in a task with the
+same affinity.  Since activities with "<code>singleTask</code>" or 
+"<code>singleInstance</code>" launch modes can only be at the root of a task,
+re-parenting is limited to the "<code>standard</code>" and "<code>singleTop</code>" 
+modes.  (See also the <code><a href="#lmode">launchMode</a></code> 
+attribute.)
+</p></dd>
+
+<dt><a name="always"></a><code>android:alwaysRetainTaskState</code></dt>
+<dd>Whether or not the state of the task that the activity is in will always 
+be maintained by the system &mdash; "<code>true</code>" if it will be, and 
+"<code>false</code>" if the system is allowed to reset the task to its initial 
+state in certain situations.  The default value is "<code>false</code>".  This 
+attribute is meaningful only for the root activity of a task; it's ignored 
+for all other activities.
+
+<p>
+Normally, the system clears a task (removes all activities from the stack 
+above the root activity) in certain situations when the user re-selects that 
+task from the home screen.  Typically, this is done if the user hasn't visited 
+the task for a certain amount of time, such as 30 minutes.
+</p>
+
+<p>
+However, when this attribute is "<code>true</code>", users will always return 
+to the task in its last state, regardless of how they get there.  This is 
+useful, for example, in an application like the web browser where there is 
+a lot of state (such as multiple open tabs) that users would not like to lose.
+</p></dd>
+
+<dt><a name="clear"></a><code>android:clearTaskOnLaunch</code></dt>
+<dd>Whether or not all activities will be removed from the task, except for 
+the root activity, whenever it is re-launched from the home screen &mdash; 
+"<code>true</code>" if the task is always stripped down to its root activity, and 
+"<code>false</code>" if not.  The default value is "<code>false</code>".  This attribute 
+is meaningful only for activities that start a new task (the root activity); 
+it's ignored for all other activities in the task.
+
+<p>
+When the value is "<code>true</code>", every time users start the task again, they
+are brought to its root activity regardless of what they were last doing in
+the task and regardless of whether they used the <em>Back</em> or <em>Home</em> button to
+leave it. When the value is "<code>false</code>", the task may be cleared of activities in
+some situations (see the 
+<code><a href="#always">alwaysRetainTaskState</a></code> attribute), but not always.  
+</p>
+
+<p>
+Suppose, for example, that someone launches activity P from the home screen, 
+and from there goes to activity Q.  The user next presses <em>Home</em>, and then returns 
+to activity P.  Normally, the user would see activity Q, since that is what they 
+were last doing in P's task.  However, if P set this flag to "<code>true</code>", all 
+of the activities on top of it (Q in this case) were removed when the user pressed 
+<em>Home</em> and the task went to the background.  So the user sees only P when returning 
+to the task.
+</p>
+
+<p>
+If this attribute and <code><a href="#reparent">allowTaskReparenting</a></code> 
+are both "<code>true</code>", any activities that can be re-parented are moved to 
+the task they share an affinity with; the remaining activities are then dropped, 
+as described above.
+</p></dd>
+
+<dt><a name="config"></a><code>android:configChanges</code></dt>
+<dd>Lists configuration changes that the activity will handle itself.  When a configuration
+change occurs at runtime, the activity is shut down and restarted by default, but declaring a
+configuration with this attribute will prevent the activity from being restarted. Instead, the
+activity remains running and its <code><code><a href="../../../reference/android/app/Activity.html#onConfigurationChanged(android.content.res.Configuration)">onConfigurationChanged()</a></code></code> method is called.
+
+<p class="note"><strong>Note:</strong> Using this attribute should be
+avoided and used only as a last-resort. Please read <a
+href="../../../guide/topics/resources/runtime-changes.html">Handling Runtime Changes</a> for more
+information about how to properly handle a restart due to a configuration change.</p>
+
+<p>
+Any or all of the following strings are valid values for this attribute. Multiple values are
+separated by '<code>|</code>' &mdash; for example, "<code>locale|navigation|orientation</code>".
+</p>
+
+<table>
+<tr>
+   <th>Value</th>
+   <th>Description</th>
+</tr><tr>
+   <td>"<code>mcc</code>"</td>
+   <td>The IMSI mobile country code (MCC) has changed &mdash;
+       a SIM has been detected and updated the MCC.</td>
+</tr><tr>
+   <td>"<code>mnc</code>"</td>
+   <td>The IMSI mobile network code (MNC) has changed &mdash;
+       a SIM has been detected and updated the MNC.</td>
+</tr><tr>
+   <td>"<code>locale</code>"</td>
+   <td>The locale has changed &mdash; the user has selected a new
+       language that text should be displayed in.</td>
+</tr><tr>
+   <td>"<code>touchscreen</code>"</td>
+   <td>The touchscreen has changed.  (This should never normally happen.)</td>
+</tr><tr>
+   <td>"<code>keyboard</code>"</td>
+   <td>The keyboard type has changed &mdash; for example, the user has
+       plugged in an external keyboard.</td>
+</tr><tr>
+   <td>"<code>keyboardHidden</code>"</td>
+   <td>The keyboard accessibility has changed &mdash; for example, the
+       user has revealed the hardware keyboard.</td>
+</tr><tr>
+   <td>"<code>navigation</code>"</td>
+   <td>The navigation type (trackball/dpad) has changed.  (This should never normally happen.)</td>
+</tr><tr>
+   <td>"<code>screenLayout</code>"</td>
+   <td>The screen layout has changed &mdash; this might be caused by a
+             different display being activated.</td>
+ </tr><tr>
+  <td>"<code>fontScale</code>"</td>
+   <td>The font scaling factor has changed &mdash; the user has selected
+       a new global font size.</td>
+  </tr><tr>
+  <td>"<code>uiMode</code>"</td>
+   <td>The user interface mode has changed &mdash; this can be caused when the user places the
+device into a desk/car dock or when the the night mode changes. See <code><a href="../../../reference/android/app/UiModeManager.html">UiModeManager</a></code>. <em>Introduced in API Level 8</em>.</td>
+  </tr><tr>
+   <td>"<code>orientation</code>"</td>
+   <td>The screen orientation has changed &mdash; the user has rotated the device. 
+       <p class="note"><strong>Note:</strong> If your application targets API level 13 or higher (as
+declared by the <a href="../../../guide/topics/manifest/uses-sdk-element.html#min"><code>minSdkVersion</code></a> and <a href="../../../guide/topics/manifest/uses-sdk-element.html#target"><code>targetSdkVersion</code></a> attributes), then you should also declare the <code>"screenSize"</code>
+configuration, because it also changes when a device switches between portrait and landscape
+orientations.</p></td>
+ </tr><tr>
+   <td>"<code>screenSize</code>"</td>
+   <td>The current available screen size has changed. This represents a change in the currently
+available size, relative to the current aspect ratio, so will change when the user switches between
+landscape and portrait. However, if your application targets API level 12 or lower, then your
+activity always handles this configuration change itself (this configuration change does not restart
+your activity, even when running on an Android 3.2 or higher device).
+  <p><em>Added in API level 13.</em></p></td>
+ </tr><tr>
+   <td>"<code>smallestScreenSize</code>"</td>
+   <td>The physical screen size has changed. This represents a change in size regardless of
+orientation, so will only change when the actual physical screen size has changed such as switching
+to an external display. A change to this configuration corresponds to a change in the <a
+href="../../../guide/topics/resources/providing-resources.html#SmallestScreenWidthQualifier">
+smallestWidth configuration</a>. However, if your application targets API level 12 or lower, then
+your activity always handles this configuration change itself (this configuration change does not
+restart your activity, even when running on an Android 3.2 or higher device).
+  <p><em>Added in API level 13.</em></p></td>
+ </tr>
+</table>
+
+<p>
+All of these configuration changes can impact the resource values seen by the 
+application.  Therefore, when <code><code><a href="../../../reference/android/app/Activity.html#onConfigurationChanged(android.content.res.Configuration)">onConfigurationChanged()</a></code></code> is called, it will generally be necessary to again 
+retrieve all resources (including view layouts, drawables, and so on) to correctly 
+handle the change. 
+</p></dd>
+
+<dt><a name="enabled"></a><code>android:enabled</code></dt>
+<dd>Whether or not the activity can be instantiated by the system &mdash; 
+"<code>true</code>" if it can be, and "<code>false</code>" if not.  The default value 
+is "<code>true</code>".
+
+<p>
+The <code><a href="../../../guide/topics/manifest/application-element.html">&lt;application&gt;</a></code> element has its own 
+<code><a href="../../../guide/topics/manifest/application-element.html#enabled">enabled</a></code> 
+attribute that applies to all application components, including activities.  The 
+<code><a href="../../../guide/topics/manifest/application-element.html">&lt;application&gt;</a></code> 
+and <code>&lt;activity&gt;</code> attributes must both be "<code>true</code>" (as they both 
+are by default) for the system to be able to instantiate the activity.  If either 
+is "<code>false</code>", it cannot be instantiated.
+</p></dd>
+
+<dt><a name="exclude"></a><code>android:excludeFromRecents</code></dt>
+<dd>Whether or not the task initiated by this activity should be excluded from the list of recently
+used applications ("recent apps"). That is, when this activity is the root activity of a new task,
+this attribute determines whether the task should not appear in the list of recent apps. "<code>true</code>" if the task should be <em>excluded</em> from the list; "<code>false</code>" if it should be
+<em>included</em>. The default value is "<code>false</code>".
+</p></dd>
+
+<dt><a name="exported"></a><code>android:exported</code></dt>
+<dd>Whether or not the activity can be launched by components of other 
+applications &mdash; "<code>true</code>" if it can be, and "<code>false</code>" if not.  
+If "<code>false</code>", the activity can be launched only by components of the 
+same application or applications with the same user ID.  
+
+<p>
+The default value depends on whether the activity contains intent filters.  The 
+absence of any filters means that the activity can be invoked only by specifying 
+its exact class name.  This implies that the activity is intended only for 
+application-internal use (since others would not know the class name).  So in 
+this case, the default value is "<code>false</code>".
+On the other hand, the presence of at least one filter implies that the activity 
+is intended for external use, so the default value is "<code>true</code>".
+</p>
+
+<p>
+This attribute is not the only way to limit an activity's exposure to other
+applications.  You can also use a permission to limit the external entities that 
+can invoke the activity  (see the 
+<code><a href="../../../guide/topics/manifest/activity-element.html#prmsn">permission</a></code> 
+attribute).
+</p></dd>
+
+<dt><a name="finish"></a><code>android:finishOnTaskLaunch</code></dt>
+<dd>Whether or not an existing instance of the activity should be shut down 
+(finished) whenever the user again launches its task (chooses the task on the 
+home screen) &mdash; "<code>true</code>" if it should be shut down, and "<code>false</code>" 
+if not. The default value is "<code>false</code>".
+
+<p>
+If this attribute and 
+<code><a href="../../../guide/topics/manifest/activity-element.html#reparent">allowTaskReparenting</a></code> 
+are both "<code>true</code>", this attribute trumps the other.  The affinity of the 
+activity is ignored.  The activity is not re-parented, but destroyed.
+</p>
+
+<dt><a name="hwaccel"></a><code>android:hardwareAccelerated</code></dt>
+<dd>Whether or not hardware-accelerated rendering should be enabled for this
+Activity &mdash; "<code>true</code>" if it should be enabled, and "<code>false</code>" if
+not. The default value is "<code>false</code>".
+
+
+<p>Starting from Android 3.0, a hardware-accelerated OpenGL renderer is
+available to applications, to improve performance for many common 2D graphics
+operations. When the hardware-accelerated renderer is enabled, most operations
+in Canvas, Paint, Xfermode, ColorFilter, Shader, and Camera are accelerated.
+This results in smoother animations, smoother scrolling, and improved
+responsiveness overall, even for applications that do not explicitly make use
+the framework's OpenGL libraries. Because of the increased resources required to
+enable hardware acceleration, your app will consume more RAM.</p>
+
+<p>Note that not all of the OpenGL 2D operations are accelerated. If you enable
+the hardware-accelerated renderer, test your application to ensure that it can
+make use of the renderer without errors.</p>
+</dd>
+
+<dt><a name="icon"></a><code>android:icon</code></dt>
+<dd>An icon representing the activity. The icon is displayed to users when 
+a representation of the activity is required on-screen.  For example, icons 
+for activities that initiate tasks are displayed in the launcher window.  
+The icon is often accompanied by a label (see the <a href="#label"><code>android:label</code></a> attribute).
+</p>
+
+<p>
+This attribute must be set as a reference to a drawable resource containing 
+the image definition.  If it is not set, the icon specified for the application 
+as a whole is used instead (see the 
+<code><a href="../../../guide/topics/manifest/application-element.html">&lt;application&gt;</a></code> 
+element's <code><a href="../../../guide/topics/manifest/application-element.html#icon">icon</a></code> attribute).
+</p>
+
+<p>
+The activity's icon &mdash; whether set here or by the 
+<code><a href="../../../guide/topics/manifest/application-element.html">&lt;application&gt;</a></code> 
+element &mdash; is also the default icon for all the activity's intent filters (see the 
+<code><a href="../../../guide/topics/manifest/intent-filter-element.html">&lt;intent-filter&gt;</a></code> element's 
+<code><a href="../../../guide/topics/manifest/intent-filter-element.html#icon">icon</a></code> attribute). 
+</p></dd>
+
+<dt><a name="label"></a><code>android:label</code></dt>
+<dd>A user-readable label for the activity.  The label is displayed on-screen 
+when the activity must be represented to the user. It's often displayed along 
+with the activity icon.
+
+<p>
+If this attribute is not set, the label set for the application as a whole is 
+used instead (see the <code><a href="../../../guide/topics/manifest/application-element.html">&lt;application&gt;</a></code> element's 
+<code><a href="../../../guide/topics/manifest/application-element.html#label">label</a></code> attribute).
+</p>
+
+<p>
+The activity's label &mdash; whether set here or by the 
+<code><a href="../../../guide/topics/manifest/application-element.html">&lt;application&gt;</a></code> element &mdash; is also the 
+default label for all the activity's intent filters (see the 
+<code><a href="../../../guide/topics/manifest/intent-filter-element.html">&lt;intent-filter&gt;</a></code> element's 
+<code><a href="../../../guide/topics/manifest/intent-filter-element.html#label">label</a></code> attribute). 
+</p>
+
+<p>
+The label should be set as a reference to a string resource, so that
+it can be localized like other strings in the user interface.  
+However, as a convenience while you're developing the application, 
+it can also be set as a raw string.
+</p></dd>
+
+<dt><a name="lmode"></a><code>android:launchMode</code></dt>
+<dd>An instruction on how the activity should be launched.  There are four modes
+that work in conjunction with activity flags (<code>FLAG_ACTIVITY_*</code> constants) 
+in <code><a href="../../../reference/android/content/Intent.html">Intent</a></code> objects to determine what should happen when
+the activity is called upon to handle an intent. They are:</p>
+
+<p style="margin-left: 2em">"<code>standard</code>"
+<br>"<code>singleTop</code>"
+<br>"<code>singleTask</code>"
+<br>"<code>singleInstance</code>"</p>
+
+<p>
+The default mode is "<code>standard</code>".
+</p>
+
+<p>
+As shown in the table below, the modes fall into two main groups, with
+"<code>standard</code>" and "<code>singleTop</code>" activities on one side, and
+"<code>singleTask</code>" and "<code>singleInstance</code>" activities on the other.
+An activity with the "<code>standard</code>" or "<code>singleTop</code>" launch mode
+can be instantiated multiple times.  The instances can belong to any task
+and can be located anywhere in the activity stack.  Typically, they're
+launched into the task that called 
+<code><code><a href="../../../reference/android/content/Context.html#startActivity(android.content.Intent)">startActivity()</a></code></code>
+(unless the Intent object contains a
+<code><code><a href="../../../reference/android/content/Intent.html#FLAG_ACTIVITY_NEW_TASK">FLAG_ACTIVITY_NEW_TASK</a></code></code>
+instruction, in which case a different task is chosen &mdash; see the
+<a href="#aff">taskAffinity</a> attribute).
+</p>
+
+<p>
+In contrast, "<code>singleTask</code>" and "<code>singleInstance</code>" activities
+can only begin a task.  They are always at the root of the activity stack.
+Moreover, the device can hold only one instance of the activity at a time
+&mdash; only one such task.
+</p>
+
+<p>
+The "<code>standard</code>" and "<code>singleTop</code>" modes differ from each other 
+in just one respect:  Every time there's a new intent for a "<code>standard</code>"
+activity, a new instance of the class is created to respond to that intent.
+Each instance handles a single intent.
+Similarly, a new instance of a "<code>singleTop</code>" activity may also be
+created to handle a new intent.  However, if the target task already has an
+existing instance of the activity at the top of its stack, that instance
+will receive the new intent (in an
+<code><code><a href="../../../reference/android/app/Activity.html#onNewIntent(android.content.Intent)">onNewIntent()</a></code></code> call);
+a new instance is not created.
+In other circumstances &mdash; for example, if an existing instance of the
+"<code>singleTop</code>" activity is in the target task, but not at the top of
+the stack, or if it's at the top of a stack, but not in the target task
+&mdash; a new instance would be created and pushed on the stack.
+</p>
+
+<p>
+The "<code>singleTask</code>" and "<code>singleInstance</code>" modes also differ from
+each other in only one respect:  A "<code>singleTask</code>" activity allows other
+activities to be part of its task. It's always at the root of its task, but
+other activities (necessarily "<code>standard</code>" and "<code>singleTop</code>"
+activities) can be launched into that task.  A "<code>singleInstance</code>"
+activity, on the other hand, permits no other activities to be part of its task.
+It's the only activity in the task.  If it starts another activity, that
+activity is assigned to a different task &mdash; as if <code>FLAG_ACTIVITY_NEW_TASK</code> was in the intent.
+</p>
+
+<table>
+<tr>
+<th>Use Cases</th>
+<th>Launch Mode</th>
+<th>Multiple Instances?</th>
+<th>Comments</th>
+</tr>
+<tr>
+<td rowspan="2" style="width:20%;">Normal launches for most activities</td>
+<td>"<code>standard</code>"</td>
+<td>Yes</td>
+<td>Default. The system always creates a new instance of the activity in the
+target task and routes the intent to it.</td>
+</tr>
+<tr>
+<td>"<code>singleTop</code>"</td>
+<td>Conditionally</td>
+<td>If an instance of the activity already exists at the top of the target task,
+the system routes the intent to that instance through a call to its <code><a href="../../../reference/android/app/Activity.html#onNewIntent(android.content.Intent)">onNewIntent()</a></code> method, rather than creating a
+new instance of the activity.</td>
+</tr>
+<tr>
+<td rowspan="2">Specialized launches<br>
+<em>(not recommended for general use)</em></td>
+<td>"<code>singleTask</code>"</td>
+<td>No</td>
+<td>The system creates the activity at the root of a new task and routes the
+intent to it. However, if an instance of the activity already exists, the system
+routes the intent to existing instance through a call to its <code><a href="../../../reference/android/app/Activity.html#onNewIntent(android.content.Intent)">onNewIntent()</a></code> method, rather than creating a
+new one.</td>
+</tr>
+<tr>
+<td>"<code>singleInstance</code>"</td>
+<td>No</td>
+<td>Same as "<code>singleTask"</code>, except that the system doesn't launch any
+other activities into the task holding the instance. The activity is always the
+single and only member of its task.</td>
+</tr>
+</table>
+
+<p>As shown in the table above, <code>standard</code> is the default mode and is
+appropriate for most types of activities. <code>SingleTop</code> is also a
+common and useful launch mode for many types of activities. The other modes
+&mdash; <code>singleTask</code> and <code>singleInstance</code> &mdash; are
+<span style="color:red">not appropriate for most applications</span>,
+since they result in an interaction model that is likely to be unfamiliar to
+users and is very different from most other applications. 
+
+<p>Regardless of the launch mode that you choose, make sure to test the usability
+of the activity during launch and when navigating back to it from
+other activities and tasks using the <em>Back</em> button. </p>
+
+<p>For more information on launch modes and their interaction with Intent
+flags, see the 
+<a href="../../../guide/topics/fundamentals/tasks-and-back-stack.html">Tasks and Back Stack</a>
+document.
+</p>
+</dd>
+
+<dt><a name="multi"></a><code>android:multiprocess</code></dt>
+<dd>Whether an instance of the activity can be launched into the process of the component 
+that started it &mdash; "<code>true</code>" if it can be, and "<code>false</code>" if not.  
+The default value is "<code>false</code>".
+
+<p>
+Normally, a new instance of an activity is launched into the process of the 
+application that defined it, so all instances of the activity run in the same 
+process.  However, if this flag is set to "<code>true</code>", instances of the 
+activity can run in multiple processes, allowing the system to create instances 
+wherever they are used (provided permissions allow it), something that is almost 
+never necessary or desirable.
+</p></dd>
+
+<dt><a name="nm"></a><code>android:name</code></dt>
+<dd>The name of the class that implements the activity, a subclass of 
+<code><a href="../../../reference/android/app/Activity.html">Activity</a></code>.  The attribute value should be a fully qualified 
+class name (such as, "<code>com.example.project.ExtracurricularActivity</code>").  
+However, as a shorthand, if the first character of the name is a period 
+(for example, "<code>.ExtracurricularActivity</code>"), it is appended to the 
+package name specified in the 
+<code><a href="../../../guide/topics/manifest/manifest-element.html">&lt;manifest&gt;</a></code> 
+element.
+<p>Once you publish your application, you <a
+href="http://android-developers.blogspot.com/2011/06/things-that-cannot-change.html">should not
+change this name</a> (unless you've set <code><a
+href="#exported">android:exported</a>="false"</code>).</p>
+
+<p>
+There is no default.  The name must be specified.
+</p></dd>
+
+<!-- ##api level 3## -->
+<dt><a name="nohist"></a><code>android:noHistory</code></dt>
+<dd>Whether or not the activity should be removed from the activity stack and
+finished (its <code><code><a href="../../../reference/android/app/Activity.html#finish()">finish()</a></code></code> 
+method called) when the user navigates away from it and it's no longer 
+visible on screen &mdash; "<code>true</code>" if it should be finished, and 
+"<code>false</code>" if not.  The default value is "<code>false</code>".
+
+<p>
+A value of "<code>true</code>" means that the activity will not leave a
+historical trace.  It will not remain in the activity stack for the task,
+so the user will not be able to return to it.
+</p>
+
+<p>
+This attribute was introduced in API Level 3.
+</p>
+
+<dt><a name="prmsn"></a><code>android:permission</code></dt>
+<dd>The name of a permission that clients must have to launch the activity 
+or otherwise get it to respond to an intent.  If a caller of 
+<code><code><a href="../../../reference/android/content/Context.html#startActivity(android.content.Intent)">startActivity()</a></code></code> or
+<code><code><a href="../../../reference/android/app/Activity.html#startActivityForResult(android.content.Intent, int)">startActivityForResult()</a></code></code>
+has not been granted the specified permission, its intent will not be 
+delivered to the activity.
+
+<p>
+If this attribute is not set, the permission set by the 
+<code><a href="../../../guide/topics/manifest/application-element.html">&lt;application&gt;</a></code> 
+element's
+<code><a href="../../../guide/topics/manifest/application-element.html#prmsn">permission</a></code> 
+attribute applies to the activity.  If neither attribute is set, the activity is
+not protected by a permission.
+</p>
+
+<p>
+For more information on permissions, see the 
+<a href="../../../guide/topics/manifest/manifest-intro.html#sectperm">Permissions</a> 
+section in the introduction and another document, 
+<a href="../../../guide/topics/security/security.html">Security and
+Permissions</a>.
+</p></dd>
+
+<dt><a name="proc"></a><code>android:process</code></dt>
+<dd>The name of the process in which the activity should run. Normally, 
+all components of an application run in the default process created for the 
+application.  It has the same name as the application package. The <code><a href="../../../guide/topics/manifest/application-element.html">&lt;application&gt;</a></code> element's 
+<code><a href="../../../guide/topics/manifest/application-element.html#proc">process</a></code> 
+attribute can set a different default for all components.  But each component 
+can override the default, allowing you to spread your application across 
+multiple processes.
+
+<p>
+If the name assigned to this attribute begins with a colon (':'), a new 
+process, private to the application, is created when it's needed and 
+the activity runs in that process.
+If the process name begins with a lowercase character, the activity will run 
+in a global process of that name, provided that it has permission to do so.
+This allows components in different applications to share a process, reducing 
+resource usage.
+</p></dd>
+
+<dt><a name="screen"></a><code>android:screenOrientation</code></dt>
+<dd>The orientation of the activity's display on the device. 
+  
+<p>The value can be any one of the following strings:</p>
+
+<table>
+<tr>
+   <td>"<code>unspecified</code>"</td>
+   <td>The default value.  The system chooses the orientation.  The policy it
+       uses, and therefore the choices made in specific contexts, may differ 
+       from device to device.</td>
+</tr><tr>
+   <td>"<code>user</code>"</td>
+   <td>The user's current preferred orientation.</td>
+</tr><tr>
+   <td>"<code>behind</code>"</td>
+   <td>The same orientation as the activity that's immediately beneath it in 
+       the activity stack.</td>
+</tr><tr>
+   <td>"<code>landscape</code>"</td>
+   <td>Landscape orientation (the display is wider than it is tall).</td>
+</tr><tr>
+   <td>"<code>portrait</code>"</td>
+   <td>Portrait orientation (the display is taller than it is wide).</td>
+</tr><tr>
+   <td>"<code>reverseLandscape</code>"</td>
+   <td>Landscape orientation in the opposite direction from normal landscape.
+<em>Added in API level 9.</em></td>
+</tr><tr>
+   <td>"<code>reversePortrait</code>"</td>
+   <td>Portrait orientation in the opposite direction from normal portrait.
+<em>Added in API level 9.</em></td>
+</tr><tr>
+   <td>"<code>sensorLandscape</code>"</td>
+   <td>Landscape orientation, but can be either normal or reverse landscape based on the device
+sensor.
+<em>Added in API level 9.</em></td>
+</tr><tr>
+   <td>"<code>sensorPortrait</code>"</td>
+   <td>Portrait orientation, but can be either normal or reverse portrait based on the device
+sensor.
+<em>Added in API level 9.</em></td>
+</tr><tr>
+   <td>"<code>sensor</code>"</td>
+   <td>The orientation is determined by the device orientation sensor.  The orientation of the
+display depends on how the user is holding the device; it changes when the user rotates the
+device. Some devices, though, will not rotate to all four possible orientations, by default. To
+allow all four orientations, use <code>"fullSensor"</code>.</td>
+</tr><tr>
+   <td>"<code>fullSensor</code>"</td>
+   <td>The orientation is determined by the device orientation sensor for any of the 4 orientations.
+This is similar to <code>"sensor"</code> except this allows any of the 4 possible screen orientations,
+regardless of what the device will normally do (for example, some devices won't normally use reverse
+portrait or reverse landscape, but this enables those). <em>Added in API level 9.</em></td>
+</tr><tr>
+   <td>"<code>nosensor</code>"</td>
+   <td>The orientation is determined without reference to a physical orientation sensor.  The sensor
+is ignored, so the display will not rotate based on how the user moves the device.  Except for this
+distinction, the system chooses the orientation using the same policy as for the "<code>unspecified</code>" setting.</td>
+</tr>
+</table>
+
+<p class="note"><strong>Note:</strong> When you declare one of the landscape or portrait values,
+it is considered a hard requirement for the orientation in which the activity runs. As such,
+the value you declare enables filtering by services such as Google Play so your application is
+available only to devices that support the orientation required by your activities. For
+example, if you declare either <code>"landscape"</code>, <code>"reverseLandscape"</code>, or
+<code>"sensorLandscape"</code>, then your application will be available only to devices that support
+landscape orientation. However, you should also explicitly declare that
+your application requires either portrait or landscape orientation with the <a
+href="../../../guide/topics/manifest/uses-feature-element.html"><code>&lt;uses-feature&gt;</code></a>
+element. For example, <code>&lt;uses-feature
+android:name="android.hardware.screen.portrait"/></code>. This is purely a filtering behavior
+provided by Google Play (and other services that support it) and the platform itself does not
+control whether your app can be installed when a device supports only certain orientations.</p>
+
+</dd>
+
+<dt><a name="state"></a><code>android:stateNotNeeded</code></dt>
+<dd>Whether or not the activity can be killed and successfully restarted 
+without having saved its state &mdash; "<code>true</code>" if it can be restarted 
+without reference to its previous state, and "<code>false</code>" if its previous 
+state is required.  The default value is "<code>false</code>".
+
+<p>
+Normally, before an activity is temporarily shut down to save resources, its 
+<code><code><a href="../../../reference/android/app/Activity.html#onSaveInstanceState(android.os.Bundle)">onSaveInstanceState()</a></code></code> 
+method is called.  This method stores the current state of the activity in a 
+<code><a href="../../../reference/android/os/Bundle.html">Bundle</a></code> object, which is then passed to 
+<code><code><a href="../../../reference/android/app/Activity.html#onCreate(android.os.Bundle)">onCreate()</a></code></code> when the activity 
+is restarted.  If this attribute is set to "<code>true</code>", 
+<code>onSaveInstanceState()</code> may not be called and <code>onCreate()</code> will 
+be passed <code>null</code> instead of the Bundle &mdash; just as it was when the 
+activity started for the first time.
+</p>
+
+<p>
+A "<code>true</code>" setting ensures that the activity can be restarted in the 
+absence of retained state.  For example, the activity that displays the 
+home screen uses this setting to make sure that it does not get removed if it 
+crashes for some reason.
+</p></dd>
+
+<dt><a name="aff"></a><code>android:taskAffinity</code></dt>
+<dd>The task that the activity has an affinity for.  Activities with 
+the same affinity conceptually belong to the same task (to the same
+"application" from the user's perspective).  The affinity of a task 
+is determined by the affinity of its root activity. 
+
+<p>
+The affinity determines two things &mdash; the task that the activity is re-parented 
+to (see the <code><a href="../../../guide/topics/manifest/activity-element.html#reparent">allowTaskReparenting</a></code> 
+attribute) and the task that will house the activity when it is launched 
+with the <code><code><a href="../../../reference/android/content/Intent.html#FLAG_ACTIVITY_NEW_TASK">FLAG_ACTIVITY_NEW_TASK</a></code></code> 
+flag.
+</p>
+
+<p>
+By default, all activities in an application have the same affinity.  You
+can set this attribute to group them differently, and even place
+activities defined in different applications within the same task.  To 
+specify that the activity does not have an affinity for any task, set
+it to an empty string.
+
+<p>
+If this attribute is not set, the activity inherits the affinity set 
+for the application (see the 
+<code><a href="../../../guide/topics/manifest/application-element.html">&lt;application&gt;</a></code> 
+element's 
+<code><a href="../../../guide/topics/manifest/application-element.html#aff">taskAffinity</a></code>
+attribute).  The name of the default affinity for an application is 
+the package name set by the 
+<code><a href="../../../guide/topics/manifest/manifest-element.html">&lt;manifest&gt;</a></code> 
+element.
+</p>
+
+<dt><a name="theme"></a><code>android:theme</code></dt>
+<dd>A reference to a style resource defining an overall theme for the activity.  
+This automatically sets the activity's context to use this theme (see
+<code><code><a href="../../../reference/android/content/Context.html#setTheme(int)">setTheme()</a></code></code>, and may also 
+cause "starting" animations prior to the activity being launched (to better 
+match what the activity actually looks like).
+
+<p>
+If this attribute is not set, the activity inherits the theme set for the 
+application as a whole &mdash; from the 
+<code><a href="../../../guide/topics/manifest/application-element.html">&lt;application&gt;</a></code> 
+element's 
+<code><a href="../../../guide/topics/manifest/application-element.html#theme">theme</a></code> 
+attribute.  If that attribute is also not set, the default system theme is used. For more
+information, see the <a
+href="../../../guide/topics/ui/themes.html">Styles and Themes</a> developer guide.
+</p>
+<dd>
+
+<!-- ##api level 14## -->
+<dt><a name="uioptions"></a><code>android:uiOptions</code></dt>
+<dd>Extra options for an activity's UI.
+  <p>Must be one of the following values.</p>
+
+  <table>
+    <tr><th>Value</th><th>Description</th></tr>
+    <tr><td><code>"none"</code></td><td>No extra UI options. This is the default.</td></tr>
+    <tr><td><code>"splitActionBarWhenNarrow"</code></td><td>Add a bar at
+the bottom of the screen to display action items in the <code><a href="../../../reference/android/app/ActionBar.html">ActionBar</a></code>, when
+constrained for horizontal space (such as when in portrait mode on a handset). Instead of a small
+number of action items appearing in the action bar at the top of the screen, the action bar is
+split into the top navigation section and the bottom bar for action items. This ensures a reasonable
+amount of space is made available not only for the action items, but also for navigation and title
+elements at the top. Menu items are not split across the two bars; they always appear
+together.</td></tr>
+  </table>
+  <p>For more information about the action bar, see the <a
+href="../../../guide/topics/ui/actionbar.html">Action Bar</a> developer guide.</p>
+  <p>This attribute was added in API level 14.</p>
+</dd>
+
+
+<!-- ##api level 3## -->
+<dt><a name="wsoft"></a><code>android:windowSoftInputMode</code></dt>
+<dd>How the main window of the activity interacts with the window containing 
+the on-screen soft keyboard.  The setting for this attribute affects two 
+things: 
+
+<ul> 
+<li>The state of the soft keyboard &mdash; whether it is hidden or visible 
+&mdash; when the activity becomes the focus of user attention.</li>
+
+<li>The adjustment made to the activity's main window &mdash; whether it is 
+resized smaller to make room for the soft keyboard or whether its contents 
+pan to make the current focus visible when part of the window is covered by 
+the soft keyboard.</li>
+</ul>
+
+<p>
+The setting must be one of the values listed in the following table, or a 
+combination of one "<code>state...</code>" value plus one "<code>adjust...</code>" 
+value.  Setting multiple values in either group &mdash; multiple 
+"<code>state...</code>" values, for example &mdash; has undefined results.  
+Individual values are separated by a vertical bar (<code>|</code>).  For example:
+</p>
+
+<pre>&lt;activity android:windowSoftInputMode="stateVisible|adjustResize" . . . &gt;</pre>
+
+<p>
+Values set here (other than "<code>stateUnspecified</code>" and 
+"<code>adjustUnspecified</code>") override values set in the theme.
+</p>
+
+<table>
+<tr>
+   <th>Value</th>
+   <th>Description</th>
+</tr><tr>
+   <td>"<code>stateUnspecified</code>"</td>
+   <td>The state of the soft keyboard (whether it is hidden or visible) 
+       is not specified.  The system will choose an appropriate state or
+       rely on the setting in the theme.  
+
+       <p>
+       This is the default setting for the behavior of the soft keyboard.
+       </p></td>
+</tr></tr>
+   <td>"<code>stateUnchanged</code>"</td>
+   <td>The soft keyboard is kept in whatever state it was last in,
+       whether visible or hidden, when the activity comes to the fore.</td>
+</tr></tr>
+   <td>"<code>stateHidden</code>"</td>
+   <td>The soft keyboard is hidden when the user chooses the activity 
+       &mdash; that is, when the user affirmatively navigates forward to the 
+       activity, rather than backs into it because of leaving another activity.</td>
+</tr></tr>
+   <td>"<code>stateAlwaysHidden</code>"</td>
+   <td>The soft keyboard is always hidden when the activity's main window 
+       has input focus.</td>
+</tr></tr>
+   <td>"<code>stateVisible</code>"</td>
+   <td>The soft keyboard is visible when that's normally appropriate 
+       (when the user is navigating forward to the activity's main window).</td>
+</tr></tr>
+   <td>"<code>stateAlwaysVisible</code>"</td>
+   <td>The soft keyboard is made visible when the user chooses the 
+       activity &mdash; that is, when the user affirmatively navigates forward 
+       to the activity, rather than backs into it because of leaving another 
+       activity.</td>
+</tr></tr>
+   <td>"<code>adjustUnspecified</code>"</td>
+   <td>It is unspecified whether the activity's main window resizes 
+       to make room for the soft keyboard, or whether the contents 
+       of the window pan to make the currentfocus visible on-screen. 
+       The system will automatically select one of these modes depending
+       on whether the content of the window has any layout views that 
+       can scroll their contents.  If there is such a view, the window 
+       will be resized, on the assumption that scrolling can make all 
+       of the window's contents visible within a smaller area.
+
+       <p>
+       This is the default setting for the behavior of the main window.
+       </p></td>
+</tr></tr>
+   <td>"<code>adjustResize</code>"</td>
+   <td>The activity's main window is always resized to make room for 
+       the soft keyboard on screen.</td>
+</tr></tr>
+   <td>"<code>adjustPan</code>"</td>
+   <td>The activity's main window is not resized to make room for the soft
+       keyboard.  Rather, the contents of the window are automatically 
+       panned so that the current focus is never obscured by the keyboard
+       and users can always see what they are typing.  This is generally less 
+       desirable than resizing, because the user may need to close the soft
+       keyboard to get at and interact with obscured parts of the window.</td>
+</tr>
+</table>
+
+<p>
+This attribute was introduced in API Level 3.
+</p></dd>
+</dl></dd>
+
+<!-- ##api level indication## -->
+<dt>introduced in:</dt>
+<dd>API Level 1 for all attributes except for 
+<code><a href="#nohist">noHistory</a></code> and
+<code><a href="#wsoft">windowSoftInputMode</a></code>, which were added in API 
+Level 3.</dd>
+
+<dt>see also:</dt>
+<dd><code><a href="../../../guide/topics/manifest/application-element.html">&lt;application&gt;</a></code> 
+<br/><code><a href="../../../guide/topics/manifest/activity-alias-element.html">&lt;activity-alias&gt;</a></code></dd>
+</dl>
+
+    </div>
+
+    
+    
+    <a href="#top" style="float:right">&uarr; Go to top</a>
+    
+      <p><a href="manifest-intro.html">&larr; Back to The AndroidManifest.xml File</a></p>
+    
+
+  </div> <!-- end jd-content -->
+
+<div id="footer">
+
+
+  <div id="copyright">
+    
+  Except as noted, this content is licensed under <a
+  href="http://www.apache.org/licenses/LICENSE-2.0">Apache 2.0</a>. 
+  For details and restrictions, see the <a href="../../../license.html">
+  Content License</a>.
+  </div>
+  <div id="build_info">
+    
+  Android 4.0&nbsp;r1 - 16 Mar 2012 16:45
+
+  </div>
+
+  <div id="footerlinks">
+    
+  <p>
+    <a href="http://www.google.com/intl/en/policies/" target="_blank">Privacy &amp; Terms</a> -
+    <a href="http://www.android.com/branding.html" target="_blank">Brand Guidelines</a> -
+    <a
+href="http://code.google.com/p/android/issues/entry?template=Developer%20Documentation"
+target="_blank">Report Document Issues</a>
+  </p>
+  </div>
+
+</div> <!-- end footer -->
+
+</div><!-- end doc-content -->
+
+</div> <!-- end body-content --> 
+
+<script type="text/javascript">
+init(); /* initialize android-developer-docs.js */
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-5831155-1");
+pageTracker._trackPageview();
+</script>
+
+</body>
+</html>
+
+
+

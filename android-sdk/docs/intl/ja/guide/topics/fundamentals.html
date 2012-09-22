@@ -1,0 +1,2127 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico" />
+<title>開発の基礎 | Android Developers</title>
+<link href="../../../../assets/android-developer-docs-devguide.css" rel="stylesheet" type="text/css" />
+<script src="../../../../assets/search_autocomplete.js" type="text/javascript"></script>
+<script src="../../../../assets/jquery-resizable.min.js" type="text/javascript"></script>
+<script src="../../../../assets/android-developer-docs.js" type="text/javascript"></script>
+<script src="../../../../assets/prettify.js" type="text/javascript"></script>
+<script type="text/javascript">
+  setToRoot("../../../../");
+</script>
+<noscript>
+  <style type="text/css">
+    html,body{overflow:auto;}
+    #body-content{position:relative; top:0;}
+    #doc-content{overflow:visible;border-left:3px solid #666;}
+    #side-nav{padding:0;}
+    #side-nav .toggle-list ul {display:block;}
+    #resize-packages-nav{border-bottom:3px solid #666;}
+  </style>
+</noscript>
+</head>
+<body class="gc-documentation" itemscope itemtype="http://schema.org/Article">
+
+  <div id="header">
+      <div id="headerLeft">
+          <a href="../../../../index.html" tabindex="-1"><img
+              src="../../../../assets/images/bg_logo.png" alt="Android Developers" /></a>
+          <ul id="header-tabs" class="guide">
+    
+	<li id="home-link"><a href="../../../../offline.html">
+	
+		<span class="en">Home</span>
+		<span style="display:none" class="de">Startseite</span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ホーム</span>
+		<span style="display:none" class="zh-CN">主页</span>
+		<span style="display:none" class="zh-TW">首頁</span>
+	
+	</a></li>
+	<li id="sdk-link"><a href="../../../../sdk/index.html">
+		<span class="en">SDK</span>
+	</a></li>
+	<li id="guide-link"><a href="../../../../guide/index.html" onClick="return loadLast('guide')">
+	
+		<span class="en">Dev Guide</span>
+		<span style="display:none" class="de">Handbuch</span>
+		<span style="display:none" class="es">Guía</span>
+		<span style="display:none" class="fr">Guide</span>
+		<span style="display:none" class="it">Guida</span>
+		<span style="display:none" class="ja">開発ガイド</span>
+		<span style="display:none" class="zh-CN">开发人员指南</span>
+		<span style="display:none" class="zh-TW">開發指南</span>
+	
+	</a></li>
+	<li id="reference-link"><a href="../../../../reference/packages.html" onClick="return loadLast('reference')">
+	
+		<span class="en">Reference</span>
+		<span style="display:none" class="de">Referenz</span>
+		<span style="display:none" class="es">Referencia</span>
+		<span style="display:none" class="fr">Référence</span>
+		<span style="display:none" class="it">Riferimento</span>
+		<span style="display:none" class="ja">リファレンス</span>
+		<span style="display:none" class="zh-CN">参考</span>
+		<span style="display:none" class="zh-TW">參考資料</span>
+	
+	</a></li>
+	<li id="resources-link"><a href="../../../../resources/index.html" onClick="return loadLast('resources')">
+	
+		<span class="en">Resources</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+    		<span style="display:none" class="ja"></span>
+		<span style="display:none" class="zh-CN"></span>
+		<span style="display:none" class="zh-TW"></span>
+	
+	</a></li>
+	<li id="videos-link"><a href="../../../../videos/index.html" onClick="return loadLast('videos')">
+	
+		<span class="en">Videos</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ビデオ</span>
+		<span style="display:none" class="zh-CN"></span>
+		<span style="display:none" class="zh-TW"></span>
+	
+	</a></li>
+	<li><a href="http://android-developers.blogspot.com" onClick="return requestAppendHL(this.href)">
+	
+		<span class="en">Blog</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ブログ</span>
+		<span style="display:none" class="zh-CN">博客</span>
+		<span style="display:none" class="zh-TW">網誌</span>
+	
+	</a></li>
+
+
+     
+</ul>
+     
+      </div>
+      <div id="headerRight">
+          <div id="headerLinks">
+          &nbsp;&nbsp;
+          <a href="../../../../design/index.html">Android Design</a>&nbsp;&nbsp;
+          <a href="http://www.android.com">Android.com</a>
+          </div>
+  <div id="search" >
+      <div id="searchForm">
+          <form accept-charset="utf-8" class="gsc-search-box" 
+                onsubmit="return submit_search()">
+            <table class="gsc-search-box" cellpadding="0" cellspacing="0"><tbody>
+                <tr>
+                  <td class="gsc-input">
+                    <input id="search_autocomplete" class="gsc-input" type="text" size="33" autocomplete="off"
+                      title="search developer docs" name="q"
+                      value="search developer docs"
+                      onFocus="search_focus_changed(this, true)"
+                      onBlur="search_focus_changed(this, false)"
+                      onkeydown="return search_changed(event, true, '../../../../')"
+                      onkeyup="return search_changed(event, false, '../../../../')" />
+                  <div id="search_filtered_div" class="no-display">
+                      <table id="search_filtered" cellspacing=0>
+                      </table>
+                  </div>
+                  </td>
+                  <td class="gsc-search-button">
+                    <input type="submit" value="Search" title="search" id="search-button" class="gsc-search-button" />
+                  </td>
+                  <td class="gsc-clear-button">
+                    <div title="clear results" class="gsc-clear-button">&nbsp;</div>
+                  </td>
+                </tr></tbody>
+              </table>
+          </form>
+      </div><!-- searchForm -->
+  </div><!-- search -->
+      </div><!-- headerRight -->
+      <script type="text/javascript">
+        <!--  
+        changeTabLang(getLangPref());
+        //-->
+      </script>
+  </div><!-- header -->
+
+  <div class="g-section g-tpl-240" id="body-content">
+    <div class="g-unit g-first" id="side-nav" itemscope itemtype="http://schema.org/SiteNavigationElement">
+      <div id="devdoc-nav">
+<ul>
+
+  <li>
+    <span class="heading">
+      <span class="en">Android Basics</span>
+      <span class="de" style="display:none">Einführung in Android</span>
+      <span class="es" style="display:none">Información básica sobre Android</span>
+      <span class="fr" style="display:none">Présentation d'Android</span>
+      <span class="it" style="display:none">Nozioni di base su Android</span>
+      <span class="ja" style="display:none">Android の基本</span>
+      <span class="zh-CN" style="display:none">Android 基础知识</span>
+      <span class="zh-TW" style="display:none">Android 簡介</span>
+    </span>
+    <ul>
+      <li><a href="../../../../guide/basics/what-is-android.html">
+        <span class="en">What Is Android?</span>
+        <span class="de" style="display:none">Was ist Android?</span>
+        <span class="es" style="display:none">¿Qué es Android?</span>
+        <span class="fr" style="display:none">Qu'est-ce qu'Android&nbsp;?</span>
+        <span class="it" style="display:none">Che cos'è Android?</span>
+        <span class="ja" style="display:none">Android とは</span>
+        <span class="zh-CN" style="display:none">Android 是什么？</span>
+        <span class="zh-TW" style="display:none">什麼是 Android？</span>
+          </a></li>
+      <li><a href="../../../../guide/topics/fundamentals.html">
+        <span class="en">Application Fundamentals</span>
+        <span class="de" style="display:none">Anwendungsgrundlagen</span>
+        <span class="es" style="display:none">Fundamentos de las aplicaciones</span>
+        <span class="fr" style="display:none">Principes de base des applications</span>
+        <span class="it" style="display:none">Concetti fondamentali sulle applicazioni</span>
+        <span class="ja" style="display:none">開発の基礎</span>
+        <span class="zh-CN" style="display:none">应用程序基础</span>
+        <span class="zh-TW" style="display:none">應用程式基本原理</span>
+      </a></li>
+
+  <!--  <li><a style="color:gray;">The Android SDK</a></li> -->
+  <!--  <li><a style="color:gray;">Walkthrough for Developers</a></li> -->
+      <!-- quick overview of what it's like to develop on Android -->
+    </ul>
+  </li>
+
+  <li>
+    <span class="heading">
+      <span class="en">Framework Topics</span>
+      <span class="de" style="display:none">Framework-Themen</span>
+      <span class="es" style="display:none">Temas sobre el framework</span>
+      <span class="fr" style="display:none">Thèmes relatifs au framework</span>
+      <span class="it" style="display:none">Argomenti relativi al framework</span>
+      <span class="ja" style="display:none">フレームワーク トピック</span>
+      <span class="zh-CN" style="display:none">框架主题</span>
+      <span class="zh-TW" style="display:none">架構主題</span>
+    </span>
+    <ul>
+      <li class="toggle-list">
+        <div><a href="../../../../guide/topics/fundamentals/activities.html">
+          <span class="en">Activities</span>
+        </a></div>
+        <ul>
+          <li><a href="../../../../guide/topics/fundamentals/fragments.html">
+            <span class="en">Fragments</span>
+          </a></li>
+          <li><a href="../../../../guide/topics/fundamentals/loaders.html">
+            <span class="en">Loaders</span>
+          </a></li>
+          <li><a href="../../../../guide/topics/fundamentals/tasks-and-back-stack.html">
+            <span class="en">Tasks and Back Stack</span></a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../../../../guide/topics/fundamentals/services.html">
+          <span class="en">Services</span>
+        </a></div>
+        <ul>
+          <li><a href="../../../../guide/topics/fundamentals/bound-services.html">
+            <span class="en">Bound Services</span>
+          </a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+          <div><a href="../../../../guide/topics/providers/content-providers.html">
+            <span class="en">Content Providers</span>
+          </a></div>
+          <ul>
+            <li>
+                <a href="../../../../guide/topics/providers/content-provider-basics.html">
+                    <span class="en">Content Provider Basics</span>
+                </a>
+                <span class="new">new!</span>
+            </li>
+            <li>
+                <a href="../../../../guide/topics/providers/content-provider-creating.html">
+                    <span class="en">Creating a Content Provider</span>
+                </a>
+                <span class="new">new!</span>
+            </li>
+            <li>
+                <a href="../../../../guide/topics/providers/calendar-provider.html">
+                    <span class="en">Calendar Provider</span>
+                </a>
+                <span class="new">new!</span>
+            </li>
+          </ul>
+      </li>
+      <li><a href="../../../../guide/topics/intents/intents-filters.html">
+            <span class="en">Intents and Intent Filters</span>
+          </a></li>
+      <li><a href="../../../../guide/topics/fundamentals/processes-and-threads.html">
+            <span class="en">Processes and Threads</span>
+          </a></li>
+    </ul>
+
+
+    <ul>
+      <li class="toggle-list">
+        <div><a href="../../../../guide/topics/ui/index.html">
+            <span class="en">User Interface</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../../guide/topics/ui/declaring-layout.html">
+               <span class="en">XML Layouts</span>
+              </a></li>
+          <li><a href="../../../../guide/topics/ui/ui-events.html">
+                <span class="en">Input Events</span>
+              </a></li>
+          <li><a href="../../../../guide/topics/ui/menus.html">
+               <span class="en">Menus</span>
+              </a> <span class="new">updated</span></li>
+          <li><a href="../../../../guide/topics/ui/actionbar.html">
+               <span class="en">Action Bar</span>
+              </a></li>
+          <li><a href="../../../../guide/topics/ui/dialogs.html">
+                <span class="en">Dialogs</span>
+              </a></li>
+          <li class="toggle-list">
+            <div><a href="../../../../guide/topics/ui/notifiers/index.html">
+                <span class="en">Notifications</span>
+            </a></div>
+            <ul>
+              <li><a href="../../../../guide/topics/ui/notifiers/toasts.html">
+                <span class="en">Toast Notifications</span>
+              </a></li>
+              <li><a href="../../../../guide/topics/ui/notifiers/notifications.html">
+                <span class="en">Status Bar Notifications</span>
+              </a></li>
+            </ul>
+          </li>
+          <li><a href="../../../../guide/topics/ui/drag-drop.html">
+                <span class="en">Drag and Drop</span>
+              </a></li>
+          <li><a href="../../../../guide/topics/ui/themes.html">
+                <span class="en">Styles and Themes</span>
+              </a></li>
+          <li><a href="../../../../guide/topics/ui/custom-components.html">
+                <span class="en">Custom Components</span>
+              </a></li>
+          <li><a href="../../../../guide/topics/ui/binding.html">
+                <span class="en">Binding to Data with AdapterView</span>
+              </a></li>
+          <li><a href="../../../../guide/topics/ui/layout-objects.html">
+                <span class="en">Common Layout Objects</span>
+              </a></li>
+          <li><a href="../../../../guide/topics/ui/how-android-draws.html">
+                <span class="en">How Android Draws Views</span>
+              </a></li>
+        </ul>
+      </li><!-- end of User Interface -->
+
+      <li class="toggle-list">
+        <div><a href="../../../../guide/topics/resources/index.html">
+               <span class="en">Application Resources</span>
+             </a></div>
+        <ul>
+          <li><a href="../../../../guide/topics/resources/providing-resources.html">
+                <span class="en">Providing Resources</span>
+              </a></li>
+          <li><a href="../../../../guide/topics/resources/accessing-resources.html">
+                <span class="en">Accessing Resources</span>
+              </a></li>
+          <li><a href="../../../../guide/topics/resources/runtime-changes.html">
+                <span class="en">Handling Runtime Changes</span>
+              </a></li>
+          <li><a href="../../../../guide/topics/resources/localization.html">
+                <span class="en">Localization</span>
+              </a></li>
+          <li class="toggle-list">
+            <div><a href="../../../../guide/topics/resources/available-resources.html">
+              <span class="en">Resource Types</span>
+            </a></div>
+            <ul>
+              <li><a href="../../../../guide/topics/resources/animation-resource.html">Animation</a></li>
+              <li><a href="../../../../guide/topics/resources/color-list-resource.html">Color State List</a></li>
+              <li><a href="../../../../guide/topics/resources/drawable-resource.html">Drawable</a></li>
+              <li><a href="../../../../guide/topics/resources/layout-resource.html">Layout</a></li>
+              <li><a href="../../../../guide/topics/resources/menu-resource.html">Menu</a></li>
+              <li><a href="../../../../guide/topics/resources/string-resource.html">String</a></li>
+              <li><a href="../../../../guide/topics/resources/style-resource.html">Style</a></li>
+              <li><a href="../../../../guide/topics/resources/more-resources.html">More Types</a></li>
+            </ul>
+          </li><!-- end of resource types -->
+        </ul>
+      </li><!-- end of app resources -->
+      <li class="toggle-list">
+        <div><a href="../../../../guide/topics/data/data-storage.html">
+            <span class="en">Data Storage</span>
+          </a></div>
+          <ul>
+            <li><a href="../../../../guide/topics/data/backup.html">
+                <span class="en">Data Backup</span>
+              </a>
+            </li>
+          </ul>
+      </li>
+      <li><a href="../../../../guide/topics/security/security.html">
+            <span class="en">Security and Permissions</span>
+          </a></li>
+      <li class="toggle-list">
+        <div><a href="../../../../guide/topics/manifest/manifest-intro.html">
+          <span class="en">The AndroidManifest.xml File</span>
+        </a></div>
+        <ul>
+          <li><a href="../../../../guide/topics/manifest/action-element.html">&lt;action&gt;</a></li>
+          <li><a href="../../../../guide/topics/manifest/activity-element.html">&lt;activity&gt;</a></li>
+          <li><a href="../../../../guide/topics/manifest/activity-alias-element.html">&lt;activity-alias&gt;</a></li>
+          <li><a href="../../../../guide/topics/manifest/application-element.html">&lt;application&gt;</a></li>
+          <li><a href="../../../../guide/topics/manifest/category-element.html">&lt;category&gt;</a></li>
+          <li><a href="../../../../guide/topics/manifest/compatible-screens-element.html">&lt;compatible-screens&gt;</a></li>
+          <li><a href="../../../../guide/topics/manifest/data-element.html">&lt;data&gt;</a></li>
+          <li><a href="../../../../guide/topics/manifest/grant-uri-permission-element.html">&lt;grant-uri-permission&gt;</a></li>
+          <li><a href="../../../../guide/topics/manifest/instrumentation-element.html">&lt;instrumentation&gt;</a></li>
+          <li><a href="../../../../guide/topics/manifest/intent-filter-element.html">&lt;intent-filter&gt;</a></li>
+          <li><a href="../../../../guide/topics/manifest/manifest-element.html">&lt;manifest&gt;</a></li>
+          <li><a href="../../../../guide/topics/manifest/meta-data-element.html">&lt;meta-data&gt;</a></li>
+          <li><a href="../../../../guide/topics/manifest/path-permission-element.html">&lt;path-permission&gt;</a></li>
+          <li><a href="../../../../guide/topics/manifest/permission-element.html">&lt;permission&gt;</a></li>
+          <li><a href="../../../../guide/topics/manifest/permission-group-element.html">&lt;permission-group&gt;</a></li>
+          <li><a href="../../../../guide/topics/manifest/permission-tree-element.html">&lt;permission-tree&gt;</a></li>
+          <li><a href="../../../../guide/topics/manifest/provider-element.html">&lt;provider&gt;</a></li>
+          <li><a href="../../../../guide/topics/manifest/receiver-element.html">&lt;receiver&gt;</a></li>
+          <li><a href="../../../../guide/topics/manifest/service-element.html">&lt;service&gt;</a></li>
+          <li><a href="../../../../guide/topics/manifest/supports-gl-texture-element.html">&lt;supports-gl-texture&gt;</a></li>
+          <li><a href="../../../../guide/topics/manifest/supports-screens-element.html">&lt;supports-screens&gt;</a></li><!-- ##api level 4## -->
+          <li><a href="../../../../guide/topics/manifest/uses-configuration-element.html">&lt;uses-configuration&gt;</a></li>
+          <li><a href="../../../../guide/topics/manifest/uses-feature-element.html">&lt;uses-feature&gt;</a></li> <!-- ##api level 4## -->
+          <li><a href="../../../../guide/topics/manifest/uses-library-element.html">&lt;uses-library&gt;</a></li>
+          <li><a href="../../../../guide/topics/manifest/uses-permission-element.html">&lt;uses-permission&gt;</a></li>
+          <li><a href="../../../../guide/topics/manifest/uses-sdk-element.html">&lt;uses-sdk&gt;</a></li>
+        </ul>
+      </li><!-- end of the manifest file -->
+    </ul>
+
+    <ul>
+    <li class="toggle-list">
+        <div><a href="../../../../guide/topics/graphics/index.html">
+            <span class="en">Graphics</span>
+          </a> <span class="new-child">new!</span></div>
+        <ul>
+          <li><a href="../../../../guide/topics/graphics/2d-graphics.html">
+              <span class="en">Canvas and Drawables</span></a></li>
+          <li><a href="../../../../guide/topics/graphics/hardware-accel.html">
+              <span class="en">Hardware Acceleration</span></a>
+            <span class="new">new!</span></li>
+          <li><a href="../../../../guide/topics/graphics/opengl.html">
+              <span class="en">OpenGL</span>
+            </a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../../../../guide/topics/graphics/animation.html">
+            <span class="en">Animation</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../../guide/topics/graphics/prop-animation.html">
+              <span class="en">Property Animation</span></a></li>
+          <li><a href="../../../../guide/topics/graphics/view-animation.html">
+              <span class="en">View Animation</span></a></li>
+          <li><a href="../../../../guide/topics/graphics/drawable-animation.html">
+              <span class="en">Drawable Animation</span></a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../../../../guide/topics/renderscript/index.html">
+          <span class="en">Renderscript</span></a>
+          <span class="new">updated</span>
+        </div>
+        <ul>
+          <li><a href="../../../../guide/topics/renderscript/graphics.html">
+                <span class="en">Graphics</span>
+              </a>
+          </li>
+          <li><a href="../../../../guide/topics/renderscript/compute.html">
+                <span class="en">Compute</span>
+              </a>
+          </li>
+          <li><a href="../../../../guide/topics/renderscript/reference.html">
+                <span class="en">Runtime API Reference</span>
+              </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="toggle-list">
+          <div><a href="../../../../guide/topics/media/index.html">
+            <span class="en">Multimedia and Camera</span>
+          </a></div>
+          <ul>
+            <li><a href="../../../../guide/topics/media/mediaplayer.html">
+                  <span class="en">Media Playback</span></a>
+                </li>
+            <li><a href="../../../../guide/topics/media/jetplayer.html">
+                  <span class="en">JetPlayer</span></a>
+                </li>
+            <li><a href="../../../../guide/topics/media/camera.html">
+                  <span class="en">Camera</span></a>
+                  <span class="new">new!</span>
+                </li>
+            <li><a href="../../../../guide/topics/media/audio-capture.html">
+                  <span class="en">Audio Capture</span></a>
+                </li>
+          </ul>
+      </li>
+      <li>
+        <a href="../../../../guide/topics/clipboard/copy-paste.html">
+            <span class="en">Copy and Paste</span>
+        </a></li>
+      <li class="toggle-list">
+        <div><a href="../../../../guide/topics/sensors/index.html">
+              <span class="en">Sensors</span>
+              </a> <span class="new">new!</span></div>
+        <ul>
+          <li><a href="../../../../guide/topics/sensors/sensors_overview.html">
+              <span class="en">Sensors Overview</span>
+            </a></li>
+          <li><a href="../../../../guide/topics/sensors/sensors_motion.html">
+              <span class="en">Motion Sensors</span>
+            </a></li>
+          <li><a href="../../../../guide/topics/sensors/sensors_position.html">
+              <span class="en">Position Sensors</span>
+            </a></li>
+          <li><a href="../../../../guide/topics/sensors/sensors_environment.html">
+              <span class="en">Environment Sensors</span>
+            </a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../../../../guide/topics/location/index.html">
+               <span class="en">Location and Maps</span>
+             </a></div>
+        <ul>
+          <li><a href="../../../../guide/topics/location/obtaining-user-location.html">
+                <span class="en">Obtaining User Location</span>
+              </a></li>
+        </ul>
+      </li>
+  <!--<li class="toggle-list">
+        <div><a style="color:gray;">Wireless Controls</a></div>
+          <ul>
+            <li><a style="color:gray;">Wi-Fi</a></li>
+          </ul>
+      </li> -->
+  <!--<li><a style="color:gray;">Localization</a></li>  -->
+      <li><a href="../../../../guide/topics/appwidgets/index.html">
+            <span class="en">App Widgets</span></a>
+          </li>
+      <li><a href="../../../../guide/topics/wireless/bluetooth.html">
+            <span class="en">Bluetooth</span></a>
+          </li>
+      <li class="toggle-list">
+        <div><a href="../../../../guide/topics/nfc/index.html">
+          <span class="en">Near Field Communication</span></a> <span class="new">updated</span>
+        </div>
+        <ul>
+          <li><a href="../../../../guide/topics/nfc/nfc.html">NFC Basics</a></li>
+          <li><a href="../../../../guide/topics/nfc/advanced-nfc.html">Advanced NFC</a></li>
+        </ul>
+      </li>
+      <li><a href="../../../../guide/topics/wireless/wifip2p.html">
+            <span class="en">Wi-Fi Direct</span></a> <span class="new">new!</span>
+          </li>
+      <li class="toggle-list">
+          <div><a href="../../../../guide/topics/usb/index.html">
+            <span class="en">USB</span></a>
+          </div>
+            <ul>
+              <li><a href="../../../../guide/topics/usb/accessory.html">Accessory</a></li>
+              <li><a href="../../../../guide/topics/usb/host.html">Host</a></li>
+              <li><a href="../../../../guide/topics/usb/adk.html">Open Accessory Dev Kit</a></li>
+            </ul>
+          </li>
+
+       <li><a href="../../../../guide/topics/network/sip.html">
+            <span class="en">Session Initiation Protocol</span>
+          </a></li>
+      <li class="toggle-list">
+        <div><a href="../../../../guide/topics/search/index.html">
+            <span class="en">Search</span>
+          </a></div>
+          <ul>
+            <li><a href="../../../../guide/topics/search/search-dialog.html">Creating a Search Interface</a></li>
+            <li><a href="../../../../guide/topics/search/adding-recent-query-suggestions.html">Adding Recent Query Suggestions</a></li>
+            <li><a href="../../../../guide/topics/search/adding-custom-suggestions.html">Adding Custom Suggestions</a></li>
+            <li><a href="../../../../guide/topics/search/searchable-config.html">Searchable Configuration</a></li>
+          </ul>
+      </li>
+      <li><a href="../../../../guide/topics/admin/device-admin.html">
+            <span class="en">Device Administration</span></a>
+      </li>
+      <li class="toggle-list">
+           <div>
+                <a href="../../../../guide/topics/testing/index.html">
+                   <span class="en">Testing</span>
+               </a>
+           </div>
+           <ul>
+              <li>
+                <a href="../../../../guide/topics/testing/testing_android.html">
+                <span class="en">Testing Fundamentals</span></a>
+              </li>
+              <li>
+                <a href="../../../../guide/topics/testing/activity_testing.html">
+                <span class="en">Activity Testing</span></a>
+              </li>
+              <li>
+                <a href="../../../../guide/topics/testing/contentprovider_testing.html">
+                <span class="en">Content Provider Testing</span></a>
+              </li>
+              <li>
+                <a href="../../../../guide/topics/testing/service_testing.html">
+                <span class="en">Service Testing</span></a>
+              </li>
+              <li>
+                <a href="../../../../guide/topics/testing/what_to_test.html">
+                <span class="en">What To Test</span></a>
+              </li>
+           </ul>
+      </li>
+    </ul>
+  </li>
+
+  <li>
+    <h2>
+      <span class="en">Google Play Topics</span>
+    </h2>
+    <ul>
+      <li><a href="../../../../guide/publishing/publishing.html">
+          <span class="en">Publishing on Google Play</span>
+          </a></li>
+      <li class="toggle-list">
+        <div><a href="../../../../guide/market/licensing/index.html">
+          <span class="en">Application Licensing</span></a>
+        </div>
+        <ul>
+          <li><a href="../../../../guide/market/licensing/overview.html">
+              <span class="en">Licensing Overview</span></a>
+          </li>
+          <li><a href="../../../../guide/market/licensing/setting-up.html">
+              <span class="en">Setting Up for Licensing</span></a>
+          </li>
+          <li><a href="../../../../guide/market/licensing/adding-licensing.html">
+              <span class="en">Adding Licensing to Your App</span></a>
+          </li>
+          <li><a href="../../../../guide/market/licensing/licensing-reference.html">
+              <span class="en">Licensing Reference</span></a>
+          </li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../../../../guide/market/billing/index.html">
+            <span class="en">In-app Billing</span></a>
+        </div>
+        <ul>
+          <li><a href="../../../../guide/market/billing/billing_overview.html">
+              <span class="en">In-app Billing Overview</span></a>
+          </li>
+          <li><a href="../../../../guide/market/billing/billing_integrate.html">
+              <span class="en">Implementing In-app Billing</span></a>
+          </li>
+          <li><a href="../../../../guide/market/billing/billing_best_practices.html">
+              <span class="en">Security and Design</span></a>
+          </li>
+          <li><a href="../../../../guide/market/billing/billing_testing.html">
+              <span class="en">Testing In-app Billing</span></a>
+          </li>
+          <li><a href="../../../../guide/market/billing/billing_admin.html">
+              <span class="en">Administering In-app Billing</span></a>
+          </li>
+          <li><a href="../../../../guide/market/billing/billing_reference.html">
+              <span class="en">In-app Billing Reference</span></a>
+          </li>
+        </ul>
+      </li>
+      <li><a href="../../../../guide/appendix/market-filters.html">
+          <span class="en">Filters on Google Play</span></a>
+      </li>
+      <li><a href="../../../../guide/market/publishing/multiple-apks.html">
+          <span class="en">Multiple APK Support</span></a>
+      </li>
+      <li><a href="../../../../guide/market/expansion-files.html">
+          <span class="en">APK Expansion Files</span></a>
+          <span class="new">new!</span>
+      </li>
+    </ul>
+  </li>
+
+
+  <li>
+    <span class="heading">
+      <span class="en">Developing</span>
+      <span class="de" style="display:none">Entwicklung</span>
+      <span class="es" style="display:none">Desarrollo</span>
+      <span class="fr" style="display:none">Développement</span>
+      <span class="it" style="display:none">Sviluppo</span>
+      <span class="ja" style="display:none">開発</span>
+      <span class="zh-CN" style="display:none">开发</span>
+      <span class="zh-TW" style="display:none">開發</span>
+    </span>
+    <ul>
+  <!--<li><a href="">Developing for Android</a></li>
+      signing, upgrading, selecting a package name, select device profile, touch, trackball, dpad available, etc. -->
+      <li>
+        <a href="../../../../guide/developing/index.html">
+        <span class="en">Introduction</span></a>
+      </li>
+
+      <li class="toggle-list">
+        <div>
+           <a href="../../../../guide/developing/devices/index.html">
+                <span class="en">Managing Virtual Devices</span>
+            </a>
+        </div>
+        <ul>
+          <li>
+            <a href="../../../../guide/developing/devices/managing-avds.html">
+              <span class="en">With AVD Manager</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../../guide/developing/devices/managing-avds-cmdline.html">
+              <span class="en">From the Command Line</span>
+            </a>
+          </li>
+          <li>
+           <a href="../../../../guide/developing/devices/emulator.html">
+                <span class="en">Using the Android Emulator</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="../../../../guide/developing/device.html">
+          <span class="en">Using Hardware Devices</span>
+        </a>
+      </li>
+
+      <li class="toggle-list">
+        <div>
+          <a href="../../../../guide/developing/projects/index.html">
+            <span class="en">Managing Projects</span>
+          </a>
+        </div>
+        <ul>
+          <li>
+            <a href="../../../../guide/developing/projects/projects-eclipse.html">
+              <span class="en">From Eclipse with ADT</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../../guide/developing/projects/projects-cmdline.html">
+                <span class="en">From the Command Line</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="toggle-list">
+        <div>
+          <a href="../../../../guide/developing/building/index.html">
+            <span class="en">Building and Running</span>
+          </a>
+        </div>
+        <ul>
+          <li><a href="../../../../guide/developing/building/building-eclipse.html">
+            <span class="en">From Eclipse with ADT</span>
+          </a></li>
+          <li><a href="../../../../guide/developing/building/building-cmdline.html">
+            <span class="en">From the Command Line</span></a></li>
+        </ul>
+      </li>
+
+      <li class="toggle-list">
+        <div>
+          <a href="../../../../guide/developing/debugging/index.html">
+            <span class="en">Debugging</span>
+          </a>
+        </div>
+        <ul>
+          <li>
+            <a href="../../../../guide/developing/debugging/debugging-projects.html">
+                <span class="en">From Eclipse with ADT</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../../guide/developing/debugging/debugging-projects-cmdline.html">
+                <span class="en">From Other IDEs</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../../guide/developing/debugging/ddms.html">
+              <span class="en">Using DDMS</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../../guide/developing/debugging/debugging-log.html">
+                <span class="en">Reading and Writing Logs</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../../guide/developing/debugging/debugging-ui.html">
+                <span class="en">Debugging and Profiling UIs</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../../guide/developing/debugging/debugging-tracing.html">
+                <span class="en">Profiling with Traceview and dmtracedump</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../../guide/developing/debugging/debugging-devtools.html">
+                <span class="en">Using the Dev Tools App</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="toggle-list">
+           <div>
+                <a href="../../../../guide/developing/testing/index.html">
+                   <span class="en">Testing</span>
+               </a>
+           </div>
+           <ul>
+              <li>
+                <a href="../../../../guide/developing/testing/testing_eclipse.html">
+                  <span class="en">From Eclipse with ADT</span>
+                </a>
+              </li>
+
+              <li>
+                <a href="../../../../guide/developing/testing/testing_otheride.html">
+                  <span class="en">From Other IDEs</span>
+                </a>
+              </li>
+           </ul>
+         </li>
+
+         <li class="toggle-list">
+        <div><a href="../../../../guide/developing/tools/index.html">
+            <span class="en">Tools</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../../guide/developing/tools/adb.html">adb</a></li>
+          <li><a href="../../../../guide/developing/tools/adt.html">ADT</a></li>
+          <li><a href="../../../../guide/developing/tools/android.html">android</a></li>
+          <li><a href="../../../../guide/developing/tools/bmgr.html">bmgr</a>
+          <li><a href="../../../../guide/developing/tools/dmtracedump.html">dmtracedump</a></li>
+          <li><a href="../../../../guide/developing/tools/draw9patch.html">Draw
+          9-Patch</a></li>
+          <li><a href="../../../../guide/developing/tools/emulator.html">Emulator</a></li>
+          <li><a href="../../../../guide/developing/tools/etc1tool.html">etc1tool</a></li>
+          <li><a href="../../../../guide/developing/tools/hierarchy-viewer.html">Hierarchy Viewer</a></li>
+          <li><a href="../../../../guide/developing/tools/hprof-conv.html">hprof-conv</a></li>
+          <li><a href="../../../../guide/developing/tools/layoutopt.html">layoutopt</a></li>
+          <li><a href="../../../../guide/developing/tools/logcat.html">logcat</a></li>
+          <li><a href="../../../../guide/developing/tools/mksdcard.html">mksdcard</a></li>
+          <li><a href="../../../../guide/developing/tools/monkey.html">Monkey</a></li>
+          <li class="toggle-list">
+            <div><a href="../../../../guide/developing/tools/monkeyrunner_concepts.html">
+              <span class="en">monkeyrunner</span>
+            </a></div>
+            <ul>
+              <li><a href="../../../../guide/developing/tools/MonkeyDevice.html">
+                <span class="en">MonkeyDevice</span>
+                </a></li>
+              <li><a href="../../../../guide/developing/tools/MonkeyImage.html">
+                <span class="en">MonkeyImage</span>
+                </a></li>
+              <li><a href="../../../../guide/developing/tools/MonkeyRunner.html">
+                <span class="en">MonkeyRunner</span>
+                </a></li>
+            </ul>
+          </li>
+          <li><a href="../../../../guide/developing/tools/proguard.html">ProGuard</a></li>
+          <li><a href="../../../../guide/developing/tools/adb.html#sqlite">sqlite3</a></li>
+          <li><a href="../../../../guide/developing/tools/traceview.html">Traceview</a></li>
+          <li><a href="../../../../guide/developing/tools/zipalign.html">zipalign</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+
+  <li>
+    <span class="heading">
+      <span class="en">Publishing</span>
+      <span class="de" style="display:none">Veröffentlichung</span>
+      <span class="es" style="display:none">Publicación</span>
+      <span class="fr" style="display:none">Publication</span>
+      <span class="it" style="display:none">Pubblicazione</span>
+      <span class="ja" style="display:none">公開</span>
+      <span class="zh-CN" style="display:none">发布</span>
+      <span class="zh-TW" style="display:none">發佈</span>
+    </span>
+    <ul>
+      <li><a href="../../../../guide/publishing/publishing_overview.html">
+            <span class="en">Publishing Overview</span>
+          </a></li>
+      <li><a href="../../../../guide/publishing/preparing.html">
+            <span class="en">Preparing for Release</span>
+            <span class="de" style="display:none">Vorbereitung auf die Veröffentlichung</span>
+            <span class="es" style="display:none">Publicación de aplicaciones</span>
+            <span class="fr" style="display:none">Préparation à la publication</span>
+            <span class="it" style="display:none">Preparativi per la pubblicazione</span>
+            <span class="ja" style="display:none">公開の準備</span>
+            <span class="zh-CN" style="display:none">准备发布</span>
+            <span class="zh-TW" style="display:none">準備發佈</span>
+          </a></li>
+      <li><a href="../../../../guide/publishing/app-signing.html">
+            <span class="en">Signing Your Applications</span>
+            <span class="de" style="display:none">Signieren Ihrer Anwendungen</span>
+            <span class="es" style="display:none">Firma de aplicaciones</span>
+            <span class="fr" style="display:none">Attribution de votre signature <br />à vos
+applications</span>
+            <span class="it" style="display:none">Firma delle applicazioni</span>
+            <span class="ja" style="display:none">アプリケーションへの署名</span>
+            <span class="zh-CN" style="display:none">应用程序签名</span>
+            <span class="zh-TW" style="display:none">簽署應用程式</span>
+          </a></li>
+      <li><a href="../../../../guide/publishing/versioning.html">
+            <span class="en">Versioning Your Applications</span>
+            <span class="de" style="display:none">Versionsverwaltung für Ihre <br
+/>Anwendungen</span>
+            <span class="es" style="display:none">Versiones de las aplicaciones</span>
+            <span class="fr" style="display:none">Attribution d'une version à vos
+applications</span>
+            <span class="it" style="display:none">Controllo versioni delle applicazioni</span>
+            <span class="ja" style="display:none">アプリケーションのバージョニング</span>
+            <span class="zh-CN" style="display:none">应用程序版本控制</span>
+            <span class="zh-TW" style="display:none">應用程式版本設定</span>
+          </a></li>
+    </ul>
+  </li>
+
+  <li>
+    <span class="heading">
+      <span class="en">Best Practices</span>
+      <span class="de" style="display:none">Bewährte Verfahren</span>
+      <span class="es" style="display:none">Prácticas recomendadas</span>
+      <span class="fr" style="display:none">Meilleures pratiques</span>
+      <span class="it" style="display:none">Best practice</span>
+      <span class="ja" style="display:none">ベスト プラクティス</span>
+      <span class="zh-CN" style="display:none">最佳实践</span>
+      <span class="zh-TW" style="display:none">最佳實務</span>
+    </span>
+    <ul>
+      <li><a href="../../../../guide/practices/compatibility.html">
+            <span class="en">Compatibility</span>
+          </a></li>
+      <li class="toggle-list">
+        <div><a href="../../../../guide/practices/screens_support.html">
+          <span class="en">Supporting Multiple Screens</span>
+        </a></div>
+        <ul>
+          <li><a href="../../../../guide/practices/screens-distribution.html">
+            <span class="en">Distributing to Specific Screens</span>
+          </a></li>
+          <li><a href="../../../../guide/practices/screen-compat-mode.html">
+            <span class="en">Screen Compatibility Mode</span>
+          </a></li>
+          <li><a href="../../../../guide/practices/screens-support-1.5.html">
+            <span class="en">Strategies for Android 1.5</span>
+          </a></li>
+        </ul>
+      </li>
+      <li><a href="../../../../guide/practices/tablets-and-handsets.html">
+            <span class="en">Supporting Tablets and Handsets</span>
+          </a> <span class="new">new!</span></li>
+      <li class="toggle-list">
+        <div><a href="../../../../guide/practices/ui_guidelines/index.html">
+               <span class="en">UI Guidelines</span>
+             </a></div>
+        <ul>
+          <li class="toggle-list">
+            <div><a href="../../../../guide/practices/ui_guidelines/icon_design.html">
+                   <span class="en">Icon Design</span>
+                 </a></div>
+            <ul>
+              <li><a href="../../../../guide/practices/ui_guidelines/icon_design_launcher.html">
+                    <span class="en">Launcher Icons</span>
+                  </a></li>
+              <li><a href="../../../../guide/practices/ui_guidelines/icon_design_menu.html">
+                    <span class="en">Menu Icons</span>
+                  </a></li>
+              <li><a href="../../../../guide/practices/ui_guidelines/icon_design_action_bar.html">
+                    <span class="en">Action Bar Icons</span>
+                  </a></li>
+              <li><a href="../../../../guide/practices/ui_guidelines/icon_design_status_bar.html">
+                    <span class="en">Status Bar Icons</span>
+                  </a></li>
+              <li><a href="../../../../guide/practices/ui_guidelines/icon_design_tab.html">
+                    <span class="en">Tab Icons</span>
+                  </a></li>
+              <li><a href="../../../../guide/practices/ui_guidelines/icon_design_dialog.html">
+                    <span class="en">Dialog Icons</span>
+                  </a></li>
+              <li><a href="../../../../guide/practices/ui_guidelines/icon_design_list.html">
+                    <span class="en">List View Icons</span>
+                  </a></li>
+            </ul>
+          </li>
+          <li><a href="../../../../guide/practices/ui_guidelines/widget_design.html">
+                <span class="en">App Widget Design</span>
+              </a></li>
+          <li><a href="../../../../guide/practices/ui_guidelines/activity_task_design.html">
+                <span class="en">Activity and Task Design</span>
+              </a></li>
+          <li><a href="../../../../guide/practices/ui_guidelines/menu_design.html">
+                <span class="en">Menu Design</span>
+              </a></li>
+        </ul>
+      </li>
+      </ul>
+      <ul>
+      <li><a href="../../../../guide/practices/design/accessibility.html">
+            <span class="en">Designing for Accessibility</span>
+          </a></li>
+      <li class="toggle-list">
+        <div><a href="../../../../guide/practices/design/performance.html">
+            <span class="en">Designing for Performance</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../../guide/practices/design/jni.html">
+                <span class="en">JNI Tips</span>
+              </a></li>
+        </ul>
+      </li>
+      <li><a href="../../../../guide/practices/design/responsiveness.html">
+            <span class="en">Designing for Responsiveness</span>
+          </a></li>
+      <li><a href="../../../../guide/practices/design/seamlessness.html">
+            <span class="en">Designing for Seamlessness</span>
+          </a></li>
+      <li><a href="../../../../guide/practices/security.html">
+            <span class="en">Designing for Security</span></a>
+            </li>
+    </ul>
+  </li>
+
+  <li>
+    <span class="heading">
+      <span class="en">Web Applications</span>
+    </span>
+    <ul>
+      <li><a href="../../../../guide/webapps/index.html">
+            <span class="en">Web Apps Overview</span>
+          </a></li>
+      <li><a href="../../../../guide/webapps/targeting.html">
+            <span class="en">Targeting Screens from Web Apps</span>
+          </a></li>
+      <li><a href="../../../../guide/webapps/webview.html">
+            <span class="en">Building Web Apps in WebView</span>
+          </a></li>
+      <li><a href="../../../../guide/webapps/debugging.html">
+            <span class="en">Debugging Web Apps</span>
+          </a></li>
+      <li><a href="../../../../guide/webapps/best-practices.html">
+            <span class="en">Best Practices for Web Apps</span>
+          </a></li>
+    </ul>
+  </li>
+
+  <li>
+    <span class="heading">
+      <span class="en">Appendix</span>
+      <span class="de" style="display:none">Anhang</span>
+      <span class="es" style="display:none">Apéndice</span>
+      <span class="fr" style="display:none">Annexes</span>
+      <span class="it" style="display:none">Appendice</span>
+      <span class="ja" style="display:none">付録</span>
+      <span class="zh-CN" style="display:none">附录</span>
+      <span class="zh-TW" style="display:none">附錄</span>
+    </span>
+    <ul>
+      <li><a href="../../../../guide/appendix/api-levels.html">
+            <span class="en">Android API Levels</span>
+          </a></li>
+      <li><a href="../../../../guide/appendix/install-location.html">
+            <span class="en">App Install Location</span>
+          </a></li>
+      <li><a href="../../../../guide/appendix/media-formats.html">
+            <span class="en">Supported Media Formats</span>
+          </a></li>
+      <li><a href="../../../../guide/appendix/g-app-intents.html">
+            <span class="en">Intents List: Google Apps</span>
+          </a></li>
+      <li><a href="../../../../guide/developing/tools/aidl.html">AIDL</a></li>
+      <li><a href="../../../../guide/appendix/glossary.html">
+            <span class="en">Glossary</span>
+          </a></li>
+    </ul>
+  </li>
+
+</ul>
+
+<script type="text/javascript">
+<!--
+    buildToggleLists();
+    changeNavLang(getLangPref());
+//-->
+</script>
+
+      </div>
+    </div> <!-- end side-nav -->
+    <script>
+      addLoadEvent(function() {
+        scrollIntoView("devdoc-nav");
+        });
+    </script>
+
+
+
+
+<div class="g-unit" id="doc-content"><a name="top"></a>
+
+<div id="jd-header" class="guide-header">
+  <span class="crumb" itemprop="breadcrumb">
+    &nbsp;
+    
+  </span>
+<h1 itemprop="name">開発の基礎</h1>
+</div>
+
+  
+  <div id="jd-content">
+ 
+    
+
+
+    <div class="jd-descr" itemprop="articleBody">
+    <div id="qv-wrapper">
+<div id="qv">
+<h2>主なクラス</h2>
+<ol>
+<li><code><a href="../../../../reference/android/app/Activity.html">Activity</a></code></li>
+<li><code><a href="../../../../reference/android/app/Service.html">Service</a></code></li>
+<li><code><a href="../../../../reference/android/content/BroadcastReceiver.html">BroadcastReceiver</a></code></li>
+<li><code><a href="../../../../reference/android/content/ContentProvider.html">ContentProvider</a></code></li>
+<li><code><a href="../../../../reference/android/content/Intent.html">Intent</a></code></li>
+</ol>
+
+<h2>このドキュメントの内容</h2>
+<ol>
+<li><a href="#appcomp">アプリケーションのコンポーネント</a>
+  <ol>
+    <li><a href="#actcomp">コンポーネントのアクティブ化: インテント</a></li>
+    <li><a href="#endcomp">コンポーネントの終了</a></li>
+    <li><a href="#manfile">マニフェスト ファイル</a></li>
+    <li><a href="#ifilters">インテント フィルタ</a></li>
+  </ol></li>
+<li><a href="#acttask">アクティビティとタスク</a>
+  <ol>
+    <li><a href="#afftask">親和性と新しいタスク</a></li>
+    <li><a href="#lmodes">起動モード</a></li>
+    <li><a href="#clearstack">スタックのクリア</a></li>
+    <li><a href="#starttask">タスクの開始</a></li>
+  </ol></li>
+<li><a href="#procthread">プロセスとスレッド</a>
+  <ol>
+    <li><a href="#procs">プロセス</a></li>
+    <li><a href="#threads">スレッド</a></li>
+    <li><a href="#rpc">リモート プロシージャ コール</a></li>
+    <li><a href="#tsafe">スレッドセーフなメソッド</a></li>
+  </ol></li>
+<li><a href="#lcycles">コンポーネントのライフサイクル</a>
+  <ol>
+    <li><a href="#actlife">アクティビティのライフサイクル</a></li>
+    <li><a href="#servlife">サービスのライフサイクル</a></li>
+    <li><a href="#broadlife">ブロードキャスト レシーバのライフサイクル</a></li>
+    <li><a href="#proclife">プロセスとライフサイクル</a></li>
+  </ol></li>
+</ol>
+</div>
+</div>
+
+<p>
+Android アプリケーションはすべて Java プログラミング言語で記述します。コンパイル済みの Java コード（およびそのアプリケーションに必要なすべてのデータやリソース ファイル）は、<a href="../../../../guide/developing/tools/aapt.html"><code>aapt</code> ツール</a>を使用して Android パッケージにバンドルします。Android パッケージは、拡張子が <code>.apk</code> のアーカイブ ファイルです。<i></i>ユーザーは、このファイルをデバイスにダウンロードして利用します。つまり、Android パッケージは、アプリケーションをモバイル デバイスに配布およびインストールするための媒体として機能します。1 つの <code>.apk</code> ファイルに含まれているすべてのコードが、1 つのアプリケーションと見なされます。<i></i>
+</p>
+
+<p>
+各 Android アプリケーションは、以下に示すさまざまな方法で他のアプリケーションから隔離されています:
+</p>
+
+<ul>
+<li>すべてのアプリケーションは、デフォルトではそのアプリケーション個別の Linux プロセスで実行されます。Android は、アプリケーション コードの実行が必要になったときにプロセスを開始し、その必要がなくなって他のアプリケーションからシステム リソースを要求されたときにプロセスを終了します。</li>
+
+<li>プロセスごとに専用の Java 仮想マシン（VM）が割り当てられるため、アプリケーション コードは他のアプリケーションから隔離された状態で実行されます。</li>
+
+<li>デフォルトでは、アプリケーションごとに固有の Linux ユーザー ID が割り当てられます。権限が設定されているため、アプリケーションのファイルはそのユーザーからしか認識できず、そのアプリケーション自体からのみ利用できます。ただし、ファイルを他のアプリケーションにエクスポートすることは可能です。</li>
+</ul>
+
+<p>
+2 つのアプリケーションで同じユーザー ID を共有することもできます。その場合は、それぞれのアプリケーションのファイルを相互に認識できます。システム リソースを節約するため、同じ ID のアプリケーションで同じ VM を共有し、同じ Linux プロセスで実行することも可能です。
+</p>
+
+
+<h2 id="appcomp">アプリケーションのコンポーネント</h2>
+
+<p>
+Android の大きな特長の 1 つは、許可されていれば、あるアプリケーションから別のアプリケーションの要素を利用できる点です。たとえば、開発中のアプリケーションで画像の一覧をスクロール表示したい場合、他のアプリケーションで開発済みの適切なスクローラがあり、その利用が許可されていれば、独自に開発しなくてもそのスクローラを利用できます。アプリケーションに他のアプリケーションのコードを組み込んだり、リンクを設定したりする必要はありません。必要になった時点で、他のアプリケーションの一部分を開始するだけです。
+</p>
+
+<p>
+この仕組みが機能するには、アプリケーション プロセスの一部分を必要に応じて開始でき、その部分の Java オブジェクトをインスタンス化できなくてはなりません。そのため、Android アプリケーションには、他のシステムで動作するアプリケーションでよく使用されるような、アプリケーション全体にアクセスするための単一のエントリ ポイント（たとえば <code>main()</code> 関数）はありません。代わりに、システムが必要に応じてインスタンス化して実行できるコンポーネントで構成されます。<i></i>コンポーネントには以下の 4 つのタイプがあります:
+</p>
+
+<dl>
+
+<dt><b>アクティビティ</b></dt>
+<dd>アクティビティは、ユーザーが 1 つの操作を集中的に行うための視覚的なユーザー インターフェースを表します。<i></i>たとえば、ユーザーが選択できるメニュー アイテムの一覧を表示するアクティビティや、写真をキャプション付きで表示するアクティビティなどが考えられます。SMS アプリケーションなら、あるアクティビティでメッセージを送信する連絡先の一覧を表示し、別のアクティビティで選択した連絡先へのメッセージを入力し、その他のアクティビティで古いメッセージを参照したり設定を変更したりできます。これらのアクティビティを組み合わせて全体としてのユーザー インターフェースを形成しますが、それぞれのアクティビティは相互に独立しています。各アクティビティは、<code><a href="../../../../reference/android/app/Activity.html">Activity</a></code> 基本クラスのサブクラスとして実装されます。  
+
+<p>
+アプリケーションは、1 つのアクティビティで構成することも、上記のSMS アプリケーションのように複数のアクティビティで構成することもできます。どのようなアクティビティがいくつ必要になるかは、アプリケーションやその設計に応じて異なります。通常は、アクティビティのうちのいずれかを最初のアクティビティとして指定し、ユーザーがアプリケーションを起動したときに表示します。あるアクティビティから別のアクティビティに移動するには、現在のアクティビティから次のアクティビティを開始します。  
+</p>
+
+<p>
+各アクティビティには、それを表示するためのデフォルトのウィンドウが割り当てられます。通常はウィンドウを画面全体に表示しますが、画面より小さいウィンドウを他のウィンドウの前面に表示することもできます。アクティビティに、新たなウィンドウを追加することも可能です。たとえば、アクティビティの途中でユーザーの応答を要求するポップアップ ダイアログを表示したり、ユーザーが画面上の特定のアイテムを選択したときに別ウィンドウで重要な情報を表示したりできます。
+</p>
+
+<p>
+ウィンドウの視覚的なコンテンツは、ビュー（<code><a href="../../../../reference/android/view/View.html">View</a></code> 基本クラスの派生オブジェクト）の階層として提供されます。各ビューは、ウィンドウ内の特定の矩形領域を制御します。親ビューは、その子となるビューで構成され、それらの子ビューのレイアウトを決定します。リーフ ビュー（階層の最下位に位置するビュー）は、そのビューが制御する矩形領域に表示され、その領域でのユーザーのアクションに対して応答します。つまり、ビューはアクティビティとユーザーが対話する場所です。たとえば、ビューに小さな画像を表示し、ユーザーがその画像をタップしたら何らかのアクションを開始することもできます。Android には、ボタン、テキスト フィールド、スクロール バー、メニュー アイテム、チェックボックスなど、さまざまなビューがあらかじめ用意されています。
+</p>
+
+<p>
+ビューの階層は、<code><code><a href="../../../../reference/android/app/Activity.html#setContentView(android.view.View)">Activity.setContentView()</a></code></code> メソッドを使用してアクティビティのウィンドウ内に配置します。コンテンツ ビューは、階層のルートとなる View オブジェクトです<i></i>（ビューおよびその階層について詳しくは<a href="../../../../guide/topics/ui/index.html">User Interface</a> のドキュメントをご覧ください）。
+</p>
+
+<p><dt><b>サービス</b></dt>
+<dd>サービスは、視覚的なユーザー インターフェースを持たず、バックグラウンドにおいて明確な終了期限がなくで実行されます。<i></i>たとえば、ユーザーが他の操作をしている間 BGM を再生するサービス、ネットワーク経由でデータをフェッチするサービス、何かを計算してその結果をアクティビティに提供するサービスなどが考えられます。各サービスは、<code><a href="../../../../reference/android/app/Service.html">Service</a></code> 基本クラスの拡張です。
+
+<p>
+典型的な例としては、プレイリストの曲を再生するメディア プレーヤーが挙げられます。プレーヤー アプリケーションは、ユーザーが曲を選んで再生するための 1 つ以上のアクティビティで構成することが予想されますが、ユーザーはプレーヤーを離れて別の操作に移った後も曲を聞いていたいと考えられることから、曲の再生自体をアクティビティで処理するわけにはいきません。音楽の再生を続けるには、メディア プレーヤー アクティビティから、バックグラウンドで実行するサービスを開始します。音楽再生サービスは、それを開始したアクティビティが画面上に見えなくなった後もそのまま実行されます。
+</p>
+
+<p> 
+また、実行中のサービスに接続（バインド）することもできます（実行されていない場合はそのサービスを開始することも可能です）。接続中は、サービスが公開しているインターフェースを使ってサービスと対話できます。音楽再生サービスであれは、このインターフェースを使って一時停止、巻き戻し、停止、再生の再開などの操作を実行できるようにします。
+</p>
+
+<p>
+アクティビティや他のコンポーネントと同様に、サービスもアプリケーション プロセスのメイン スレッドで実行します。したがって、サービスによって他のコンポーネントやユーザー インターフェースの実行を妨げられることはなく、時間がかかるタスク（たとえば曲の再生）については、通常は別のスレッドを生成して処理します。詳しくは、<a href="#procthread">プロセスとスレッド</a>をご覧ください。
+</p></dd>
+
+<dt><b>ブロードキャスト レシーバ</b></dt>
+<dd>ブロードキャスト レシーバは、ブロードキャストの連絡を受信してそれに対処するだけのコンポーネントです。<i></i>ブロードキャストの多くが元々はシステム コードで、たとえばタイム ゾーンが変更されたこと、電池の残量が少なくなったこと、写真が撮影されたこと、ユーザーが言語設定を変更したことなどを連絡するために使用します。アプリケーションでも、たとえば何らかのデータがデバイスにダウンロードされて利用できるようになったことを、他のアプリケーションにブロードキャストで知らせることができます。
+
+<p>
+アプリケーションでは、重要と思われるすべての連絡に応答できるよう、ブロードキャスト レシーバをいくつでも設定できます。すべてのレシーバは、<code><a href="../../../../reference/android/content/BroadcastReceiver.html">BroadcastReceiver</a></code> 基本クラスの拡張です。
+</p>
+
+<p>
+ブロードキャスト レシーバがユーザー インターフェースを表示することはありません。ただし、受信した情報への応答としてアクティビティを開始したり、<code><a href="../../../../reference/android/app/NotificationManager.html">NotificationManager</a></code> を使用してユーザーにアラートを送信したりすることはあります。通知の際には、バックライトを点滅させる、バイブレーションを起動する、音を鳴らすなど、さまざまな方法でユーザーの注意を喚起できます。通常は、ステータス バーに永続アイコンを表示し、ユーザーがこれを開いてメッセージを取得できるようにします。 
+</p></dd>
+
+<dt><b>コンテンツ プロバイダ</b></dt>
+<dd>コンテンツ プロバイダは、アプリケーションのデータを他のアプリケーションでも利用できるようにします。<i></i>データは、ファイル システムや SQLite データベースなど、一般に利用できる方法で格納されていれば使用できます。コンテンツ プロバイダは、<code><a href="../../../../reference/android/content/ContentProvider.html">ContentProvider</a></code> 基本クラスの拡張です。プロバイダが制御する型のデータを、他のアプリケーションから取得および格納するための標準メソッド セットを実装しています。ただし、これらのメソッドをアプリケーションから直接呼び出すことはできません。代わりに、<code><a href="../../../../reference/android/content/ContentResolver.html">ContentResolver</a></code> オブジェクトのメソッドを呼び出します。ContentResolver は、すべてのプロバイダと通信でき、プロバイダと連携して関係のあるすべてのプロセス間通信を管理します。 
+
+<p>
+コンテンツ プロバイダの使用方法について詳しくは、<a href="../../../../guide/topics/providers/content-providers.html">Content Providers</a>のドキュメントをご覧ください。
+</p></dd>
+
+</dl>
+
+<p>
+Android では、特定のコンポーネントで処理すべきリクエストがあると、そのコンポーネントのアプリケーション プロセスが実行中かどうかを確認（必要に応じてプロセスを開始）し、そのコンポーネントの適切なインスタンスが利用可能かどうかを確認（必要に応じてインスタンスを作成）します。  
+</p>
+
+
+<h3 id="actcomp">コンポーネントのアクティブ化: インテント</h3> 
+
+<p>
+コンテンツ プロバイダは、ContentResolver からのリクエストの対象になるとアクティブ化されます。それ以外の 3 つのコンポーネント（アクティビティ、サービス、ブロードキャスト レシーバ）は、インテントと呼ばれる非同期メッセージによってアクティブ化されます。<i></i>インテントは、メッセージのコンテンツを保持する <code><a href="../../../../reference/android/content/Intent.html">Intent</a></code> オブジェクトです。アクティビティやサービスの場合の Intent オブジェクトの主な役割は、リクエストされているアクションを指名し、その対象となるデータの URI を指定することです。たとえば、ユーザーに画像を表示するためのリクエストや、ユーザーにテキストを編集させるリクエストをアクティビティに伝達できます。ブロードキャスト レシーバの場合は、Intent オブジェクトがこれから通知を行うアクションを指名します。たとえば、カメラのボタンが押されたことを、関係のあるブロードキャスト レシーバに通知できます。
+</p>
+
+<p>
+以下に示すように、コンポーネントのタイプごとに別々のアクティブ化メソッドが用意されています: 
+</p>
+
+<ul>
+
+<li>アクティビティを起動する（または何か新しい処理を実行させる）には、Intent オブジェクトを <code><code><a href="../../../../reference/android/content/Context.html#startActivity(android.content.Intent)">Context.startActivity()</a></code></code> または <code><code><a href="../../../../reference/android/app/Activity.html#startActivityForResult(android.content.Intent, int)">Activity.startActivityForResult()</a></code></code> に渡します。応答アクティビティで <code><code><a href="../../../../reference/android/app/Activity.html#getIntent()">getIntent()</a></code></code> メソッドを呼び出すと、最初にそのアクティビティが起動されたときのインテントの内容を確認できます。Android によってアクティビティの <code><code><a href="../../../../reference/android/app/Activity.html#onNewIntent(android.content.Intent)">onNewIntent()</a></code></code> メソッドが呼び出され、アクティビティが後続のインテントに渡されます。
+
+<p>
+多くの場合、アクティビティから次のアクティビティを開始します。開始するアクティビティから結果が返される場合は、<code>startActivity()</code> ではなく <code>startActivityForResult()</code> を呼び出します。たとえば、ユーザーに写真を選択させるアクティビティを開始する場合は、ユーザーによって選択された写真が返されるかもしれません。結果は、呼び出し側のアクティビティの <code><code><a href="../../../../reference/android/app/Activity.html#onActivityResult(int, int, android.content.Intent)">onActivityResult()</a></code></code> メソッドに渡した Intent オブジェクトで返されます。
+</p>
+</li>
+
+<li><p>サービスを開始する（または実行中のサービスに新しい指示を与える）には、<code><code><a href="../../../../reference/android/content/Context.html#startService(android.content.Intent)">Context.startService()</a></code></code> に Intent オブジェクトを渡します。Android により、サービスの <code><code><a href="../../../../reference/android/app/Service.html#onStart(android.content.Intent, int)">onStart()</a></code></code> メソッドが呼び出されて Intent オブジェクトが渡されます。</p>
+
+<p>
+同様に、インテントを <code><code><a href="../../../../reference/android/content/Context.html#bindService(android.content.Intent, android.content.ServiceConnection, int)">Context.bindService()</a></code></code> に渡すと、呼び出し側のコンポーネントと対象となるサービスの間の継続中の接続を確立できます。サービスは、<code><code><a href="../../../../reference/android/app/Service.html#onBind(android.content.Intent)">onBind()</a></code></code> 呼び出しで Intent オブジェクトを受け取ります（サービスがまだ開始されていない場合は、必要に応じて <code>bindService()</code> で開始できます）。たとえば、上で例に挙げた音楽再生サービスとの接続を確立するアクティビティを使用して、ユーザーが再生を操作するための手段（ユーザー インターフェース）を提供できます。アクティビティで <code>bindService()</code> を呼び出して接続を確立してから、サービスに定義されているメソッドを呼び出して再生を操作します。
+</p>
+
+<p>
+サービスのバインドについては、後ほど<a href="#rpc">リモート プロシージャ コール</a>のセクションで詳しく説明します。
+</p>
+</li>
+
+<li><p>アプリケーションでブロードキャストを開始するには、<code><code><a href="../../../../reference/android/content/Context.html#sendBroadcast(android.content.Intent)">Context.sendBroadcast()</a></code></code>、<code><code><a href="../../../../reference/android/content/Context.html#sendOrderedBroadcast(android.content.Intent, java.lang.String)">Context.sendOrderedBroadcast()</a></code></code>、<code><code><a href="../../../../reference/android/content/Context.html#sendStickyBroadcast(android.content.Intent)">Context.sendStickyBroadcast()</a></code></code> などのメソッドのいずれかのバリエーションに Intent オブジェクトを渡します。Android によって <code><code><a href="../../../../reference/android/content/BroadcastReceiver.html#onReceive(android.content.Context, android.content.Intent)">onReceive()</a></code></code> メソッドが呼び出され、関係のあるすべてのブロードキャスト レシーバにインテントが配信されます。</p></li>
+
+</ul>
+
+<p>
+インテント メッセージについて詳しくは、<a href="../../../../guide/topics/intents/intents-filters.html">Intents and Intent Filters</a> をご覧ください。
+</p>
+
+
+<h3 id="endcomp">コンポーネントの終了</h3>
+
+<p>
+コンテンツ プロバイダは、ContentResolver からのリクエストに応答している間のみアクティブになります。ブロードキャスト レシーバは、ブロードキャスト メッセージに応答している間のみアクティブになります。つまり、これらのコンポーネントを明示的に終了させる必要はありません。
+</p>
+
+<p>
+一方、アクティビティはユーザー インターフェースを提供します。長い時間をかけてユーザーと会話するためのものであり、待機状態の間も、会話が続いてきる限りはアクティブなままになっている可能性があります。同様に、サービスも長い間実行されたままになる可能性があります。Android には、アクティビティとサービスを以下のような規則的な方法で終了させるためのメソッドが用意されています:
+</p>
+
+<ul>
+<li>アクティビティを終了させるには、その <code><code><a href="../../../../reference/android/app/Activity.html#finish()">finish()</a></code></code> メソッドを呼び出します。あるアクティビティから <code>startActivityForResult()</code> で開始した別のアクティビティは、<code><code><a href="../../../../reference/android/app/Activity.html#finishActivity(int)">finishActivity()</a></code></code> を呼び出して終了させることができます。</li>
+
+<li>サービスは、その <code><code><a href="../../../../reference/android/app/Service.html#stopSelf()">stopSelf()</a></code></code> メソッドを呼び出すか、<code><code><a href="../../../../reference/android/content/Context.html#stopService(android.content.Intent)">Context.stopService()</a></code></code> を呼び出すことで停止できます。</li>
+</ul>
+
+<p>
+コンポーネントが、既に利用されていない場合や、Android がよりアクティブな他のコンポーネントにメモリを割り当てる必要がある場合は、システムがコンポーネントを終了させることもあります。このような状況およびその影響については、<a href="#lcycles">コンポーネントのライフサイクル</a>で詳しく説明します。
+</p>
+
+
+<h3 id="manfile">マニフェスト ファイル</h3>
+
+<p>
+アプリケーション コンポーネントを開始するには、Android がそのコンポーネントの存在を認識している必要があります。アプリケーションのコンポーネントは、マニフェスト ファイルで宣言します。このファイルは、アプリケーションのコード、ファイル、リソースなどとともに Android パッケージ（<code>.apk</code> ファイル）にバンドルされます。  
+</p>
+
+<p>
+マニフェストは構造化された XML ファイルで、どのアプリケーションでも常に AndroidManifest.xml という名前になります。アプリケーション コンポーネントの宣言以外にも、アプリケーションをリンクさせる必要のあるライブラリ（デフォルトの Android ライブラリを除く）の指定や、アプリケーションに付与されるべき権限の指定などにも使用します。
+</p>
+
+<p>
+しかし、マニフェストの最も重要な役割は、アプリケーションのコンポーネントに関する情報を Android に提供することです。たとえば、アクティビティを次のように宣言できます:
+</p>
+
+<pre>&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;manifest . . . &gt;
+    &lt;application . . . &gt;
+        &lt;activity android:name="com.example.project.FreneticActivity"
+                  android:icon="@drawable/small_pic.png"
+                  android:label="@string/freneticLabel" 
+                  . . .  &gt;
+        &lt;/activity&gt;
+        . . .
+    &lt;/application&gt;
+&lt;/manifest&gt;</pre>
+
+<p>
+<code><a href="../../../../guide/topics/manifest/activity-element.html">&lt;activity&gt;</a></code> 要素の <code>name</code> 属性は、そのアクティビティを実装する <code><a href="../../../../reference/android/app/Activity.html">Activity</a></code> サブクラスを指名します。<code>icon</code> および <code>label</code> 属性には、ユーザーに対して表示するアイコンやラベルが保持されているリソース ファイルを指定します。
+</p>
+
+<p>
+その他のコンポーネントも、サービスは <code><a href="../../../../guide/topics/manifest/service-element.html">&lt;service&gt;</a></code> 要素、ブロードキャスト レシーバは <code><a href="../../../../guide/topics/manifest/receiver-element.html">&lt;receiver&gt;</a></code> 要素、コンテンツ プロバイダは <code><a href="../../../../guide/topics/manifest/provider-element.html">&lt;provider&gt;</a></code> 要素を使用して同じような方法で宣言します。マニフェストに宣言されていないアクティビティ、サービス、およびコンテンツ プロバイダは、システムから認識できないため実行されることはありません。ただし、ブロードキャスト レシーバの場合は、マニフェストで宣言する方法と、コード内で <code><a href="../../../../reference/android/content/BroadcastReceiver.html">BroadcastReceiver</a></code> オブジェクトとして動的に作成し、<code><code><a href="../../../../reference/android/content/Context.html#registerReceiver(android.content.BroadcastReceiver, android.content.IntentFilter)">Context.registerReceiver()</a></code></code> を呼び出してシステムに登録する方法があります。
+</p>
+
+<p>
+マニフェスト ファイルの作成方法について詳しくは、<a href="../../../../guide/topics/manifest/manifest-intro.html">The AndroidManifest.xml File</a>をご覧ください。
+</p>
+
+
+<h3 id="ifilters">インテント フィルタ</h3>
+
+<p>
+Intent オブジェクトでは、対象とするコンポーネントを明示的に指名できます。明示的に指名されている場合、Android はマニフェスト ファイル内の宣言に基づいてコンポーネントを特定してアクティブにします。一方、明示的に指名されていない場合は、そのインテントに応答する上で最適なコンポーネントが選択されます。方法としては、Intent オブジェクトを、その対象となりうるコンポーネントのインテント フィルタと照合します。<i></i>コンポーネントのインテント フィルタは、そのコンポーネントで処理できるインテントの種類を示します。これもコンポーネントに関する重要な情報の 1 つなので、マニフェスト ファイルで宣言します。次に、上に示した例を拡張して 2 つのインテント フィルタを追加したアクティビティを示します:
+</p>
+
+<pre>&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;manifest . . . &gt;
+    &lt;application . . . &gt;
+        &lt;activity android:name="com.example.project.FreneticActivity"
+                  android:icon="@drawable/small_pic.png"
+                  android:label="@string/freneticLabel" 
+                  . . .  &gt;
+            &lt;intent-filter . . . &gt;
+                &lt;action android:name="android.intent.action.MAIN" /&gt;
+                &lt;category android:name="android.intent.category.LAUNCHER" /&gt;
+            &lt;/intent-filter&gt;
+            &lt;intent-filter . . . &gt;
+                &lt;action android:name="com.example.project.BOUNCE" /&gt;
+                &lt;data android:mimeType="image/jpeg" /&gt;
+                &lt;category android:name="android.intent.category.DEFAULT" /&gt;
+            &lt;/intent-filter&gt;
+        &lt;/activity&gt;
+        . . .
+    &lt;/application&gt;
+&lt;/manifest&gt;</pre>
+
+<p>
+この例の 1 つ目のフィルタは、アクション「<code>android.intent.action.MAIN</code>」とカテゴリ「<code>android.intent.category.LAUNCHER</code>」を組み合わせた一般的なフィルタです。このフィルタは、アプリケーション ランチャ（ユーザーがデバイス上で起動できるアプリケーションを一覧表示した画面）に、このアクティビティを表示する必要があることを示しています。つまり、このアクティビティはアプリケーションへのエントリ ポイントとして機能し、ユーザーがランチャでそのアプリケーションを選択したときに最初に表示されるということです。
+</p>
+
+<p>
+2 つ目のフィルタでは、アクティビティが特定のタイプのデータに対して実行できるアクションを宣言しています。
+</p>
+
+<p>
+コンポーネントにはインテント フィルタをいくつでも指定でき、それぞれのフィルタで別々の機能を宣言できます。フィルタが 1 つも指定されていないコンポーネントは、そのコンポーネントが対象として明示的に指名されているインテントでのみアクティブにできます。
+</p>
+
+<p>
+コード内で作成して登録したブロードキャスト レシーバの場合、インテント フィルタは <code><a href="../../../../reference/android/content/IntentFilter.html">IntentFilter</a></code> オブジェクトとして直接インスタンス化されます。それ以外の全てのフィルタは、マニフェストで設定します。
+</p>
+
+<p>
+インテント フィルタについて詳しくは、<a href="../../../../guide/topics/intents/intents-filters.html">Intents and Intent Filters</a> をご覧ください。
+</p>
+
+
+<h2 id="acttask">アクティビティとタスク</h2>
+
+<p>
+既に説明したように、あるアクティビティから別のアクティビティを開始することができます。これには、別のアプリケーションで定義されているアクティビティも含まれます。たとえば、ユーザーに特定の場所の地図を表示するとします。そのためのアクティビティは既に存在しているので、現在のアクティビティで必要な情報を Intent オブジェクトに格納して <code>startActivity()</code> に渡すだけで、マップ ビューアに地図を表示できます。ユーザーが [戻る] キーを押すと、画面に元のアクティビティが再表示されます。
+</p>
+
+<p>
+この場合、マップ ビューアは別のアプリケーションで定義されており、そのアプリケーションのプロセスで実行されていますが、ユーザーにとってはマップ ビューアが元のアプリケーションの一部であるかのように感じられます。Android では、両方のアクティビティを同じタスクに組み込むことで、このようなユーザー エクスペリエンスを実現できます。<i></i>簡単に言えば、ユーザーが 1 つの「アプリケーション」と感じるものがタスクです。関連するアクティビティをスタックにまとめたものがタスクです。スタック内のルート アクティビティは、タスクを開始するアクティビティです。通常であれば、ユーザーがアプリケーション ランチャで選択するアクティビティがこれに相当します。スタックの最上位にあるアクティビティは、ユーザーのアクションの焦点となっている実行中のアクティビティです。あるアクティビティから別のアクティビティを開始すると、そのアクティビティが新たにスタックにプッシュされて実行中のアクティビティになります。1 つ前のアクティビティはスタック内に残されています。ユーザーが [[]戻る] キーを押すと、現在のアクティビティがスタックからポップされ、1 つ前のアクティビティが実行中のアクティビティとして再開されます。  
+</p>
+
+<p>
+スタックはオブジェクトを保持します。したがって、同じ Activity サブクラスのインスタンス（たとえばマップ インスタンス）を複数開くと、それぞれのインスタンスが別々のエントリになります。スタック内のアクティビティは、プッシュまたはポップされるのみで再配置されることはありません。
+</p>
+
+<p>
+タスクはアクティビティのスタックであり、マニフェスト ファイル内のクラスや要素ではありません。したがって、アクティビティと無関係にタスクの値を設定することはできません。タスクの値は、ルート アクティビティでまとめて設定します。たとえば、次のセクションでは「タスクの親和性」について説明しますが、値はタスクのルート アクティビティの親和性のセットから読み込まれます。
+</p>
+
+<p>
+タスク内のアクティビティは、1 つのユニットとして一緒に移動します。タスク全体（アクティビティ スタック全体）をフォアグラウンドに移動したり、バックグラウンドに移動したりできます。たとえば、現在のタスクは 4 つのアクティビティからなるスタックで、現在のアクティビティの下にアクティビティが 3 つあるとします。ここで、ユーザーが [ホーム] キーを押してアプリケーション ランチャに移動し、新しいアプリケーション（実際には新しいタスク）を選択したとします。<i></i>すると、現在のタスクはバックグラウンドに移動し、新しいタスクのルート アクティビティが表示されます。しばらくして、ユーザーがホーム画面に戻り 1 つ前のアプリケーション（タスク）を選択すると、そのタスクがスタック内の 4 つのアクティビティとともにフォアグラウンドに移動します。ここでユーザーが [戻る] キーを押しても、中断したばかりのアプリケーション（1 つ前のタスクのルート アクティビティ）は表示されません。代わりに、スタックの最上位のアクティビティがポップされ、同じタスクの 1 つ前のアクティビティが表示されます。 
+</p>
+
+<p>
+アクティビティとタスクの動作としては、ここで説明した動作がデフォルトです。ただし、この動作のほとんどの要素は変更可能です。タスクとアクティビティの関連付けやタスク内でのアクティビティの動作は、アクティビティを開始した Intent オブジェクトのフラグ セットと、マニフェストに指定されているアクティビティの <code><a href="../../../../guide/topics/manifest/activity-element.html">&lt;activity&gt;</a></code> 要素の属性セットとの相互作用によって決まります。リクエスト側と応答側の両方が動作に影響を及ぼします。
+</p>
+
+<p>
+この点において、主に使用する Intent フラグは以下のとおりです:
+
+<p style="margin-left: 2em"><code>FLAG_ACTIVITY_NEW_TASK</code> <br/><code>FLAG_ACTIVITY_CLEAR_TOP</code> <br/><code>FLAG_ACTIVITY_RESET_TASK_IF_NEEDED</code> <br/><code>FLAG_ACTIVITY_SINGLE_TOP</code></p>
+
+<p>
+また、主に使用する <code>&lt;activity&gt;</code> 属性は以下のとおりです:
+  
+<p style="margin-left: 2em"><code>taskAffinity</code> <br/><code>launchMode</code> <br/><code>allowTaskReparenting</code> <br/><code>clearTaskOnLaunch</code> <br/><code>alwaysRetainTaskState</code> <br/><code>finishOnTaskLaunch</code></p>
+
+<p>
+以降のセクションでは、これらのフラグや属性の役割、相互作用の仕組み、使用する際の留意事項などについて説明します。
+</p>
+
+
+<h3 id="afftask">親和性と新しいタスク</h3>
+
+<p>
+デフォルトでは、アプリケーション内のすべてのアクティビティは相互に親和性があり、すべてのアクティビティができる限り同じタスクに属そうとします。<i></i>ただし、<code>&lt;activity&gt;</code> 要素の <code>taskAffinity</code> 属性を使用して、アクティビティごとに個別の親和性を設定することもできます。つまり、別々のアプリケーションで定義されているアクティビティで親和性を共有したり、同じアプリケーションで定義されているアクティビティに別々の親和性を割り当てたりできるということです。親和性が作用する状況は 2 つあります。1 つはアクティビティを起動する Intent オブジェクトに <code>FLAG_ACTIVITY_NEW_TASK</code> フラグが含まれている場合、もう 1 つはアクティビティの <code>allowTaskReparenting</code> 属性が "<code>true</code>" に設定されている場合です。 
+</p>
+
+<dl>
+<dt><code><code><a href="../../../../reference/android/content/Intent.html#FLAG_ACTIVITY_NEW_TASK">FLAG_ACTIVITY_NEW_TASK</a></code></code> フラグ</dt>
+<dd>既に説明したとおり、新しいアクティビティは、デフォルトでは <code>startActivity()</code> を呼び出したアクティビティのタスクの一部として起動します。つまり、呼び出し側のアクティビティと同じスタックにプッシュされるということです。しかし、<code>startActivity()</code> に渡された Intent オブジェクトに <code>FLAG_ACTIVITY_NEW_TASK</code> フラグが含まれている場合、システムはその新しいアクティビティを別のタスクに収容しようとします。フラグの名前からも判断できますが、ほとんどの場合は新しいタスクが開始されます。ただし常にそうなるとは限りません。既存のタスクに新しいアクティビティと同じ親和性が割り当てられている場合、そのアクティビティはそのタスクの一部として起動します。そうでない場合には、新しいタスクが開始されます。</dd>
+
+<dt><code><a 
+href="../../../../guide/topics/manifest/activity-element.html#reparent">allowTaskReparenting</a></code> 属性</dt>
+<dd><code>allowTaskReparenting</code> 属性が "<code>true</code>" に設定されているアクティビティは、そのアクティビティと親和性のあるタスクがフォアグラウンドに移ったときに、アクティビティを開始したタスクから親和性のあるタスクに移動できます。たとえば、旅行アプリケーションの一部として、選択された都市の天気予報を表示するアクティビティが定義されているとします。このアクティビティには、同じアプリケーション内の他のアクティビティと同じ親和性（デフォルトの親和性）が割り当てられていますが、その親の割り当てを変更することも可能です。あるアクティビティが天気予報アクティビティを開始すると、その時点では開始側のアクティビティと同じタスクに属した状態になります。しかし、次に旅行アプリケーションがフォアグラウンドに移ると、天気予報アクティビティの割り当てが変更され、旅行アプリケーションのタスクの一部として表示されます。</dd>
+</dl>
+
+<p>
+ユーザーから見て複数の「アプリケーション」が 1 つの <code>.apk</code> ファイルに含まれている場合は、それぞれのアプリケーションに関連付けられているアクティビティに別々の親和性を割り当てることをおすすめします。
+</p>
+
+
+<h3 id="lmodes">起動モード</h3>
+
+<p>
+<code><a href="../../../../guide/topics/manifest/activity-element.html#lmode">launchMode</a></code> 属性の <code>&lt;activity&gt;</code> 要素には、以下の 4 種類の起動モードを割り当てることができます:
+</p>
+
+<p style="margin-left: 2em">"<code>standard</code>"（デフォルト モード）<br>"<code>singleTop</code>"<br>"<code>singleTask</code>"<br>"<code>singleInstance</code>"</p>
+
+<p>
+これらのモードは、それぞれが以下の 4 つの点で異なります:
+</p>
+
+<ul>
+
+<li><b>インテントに応答するアクティビティをどのタスクに保持するか</b>。"<code>standard</code>" および "<code>singleTop</code>" モードの場合は、そのインテントを開始した（つまり <code><code><a href="../../../../reference/android/content/Context.html#startActivity(android.content.Intent)">startActivity()</a></code></code> を呼び出した）タスクに保持されます。ただし、Intent オブジェクトに <code><code><a href="../../../../reference/android/content/Intent.html#FLAG_ACTIVITY_NEW_TASK">FLAG_ACTIVITY_NEW_TASK</a></code></code> フラグが含まれている場合は、前のセクション<a href="#afftask">親和性と新しいタスク</a>で説明したとおり、別のタスクが選択されます。  
+
+<p>
+一方、"<code>singleTask</code>" および "<code>singleInstance</code>" モードの場合は、アクティビティが常にタスクのルート アクティビティになります。タスクは定義されており、他のタスクの一部として起動されることはありません。
+</p>  
+
+<li><p><b>アクティビティのインスタンスを複数生成できるか</b>。"<code>standard</code>" または "<code>singleTop</code>" アクティビティは複数回インスタンス化できます。それらのインスタンスを複数のタスクに割り当てることも、特定のタスクに同じアクティビティの複数のインスタンスを割り当てることも可能です。
+</p> 
+
+<p>
+一方、"<code>singleTask</code>" および "<code>singleInstance</code>" アクティビティのインスタンスは 1 つに制限されます。これらのアクティビティはタスクのルートに当たります。したがって、これらのタスクの複数のインスタンスがデバイス上に同時に存在することはないということになります。
+</p>    
+
+<li><p><b>インスタンスのタスクに他のアクティビティを含めることができるか</b>。"<code>singleInstance</code>" アクティビティは、そのタスク内の唯一のアクティビティとして単独で動作します。ここから別のアクティビティを開始した場合、そのアクティビティは起動モードに関係なく、あたかもインテントに <code>FLAG_ACTIVITY_NEW_TASK</code> フラグが含まれているかのように別のタスクで起動します。"<code>singleInstance</code>" モードと "<code>singleTask</code>" モードは、これ以外の点ではまったく同じです。</p>
+
+<p>
+他の 3 つのモードでは、タスクに複数のアクティビティを割り当てることができます。"<code>singleTask</code>" アクティビティは、常にタスクのルート アクティビティになりますが、同じタスクに割り当てることになる別のアクティビティを開始することができます。"<code>standard</code>" および "<code>singleTop</code>" アクティビティのインスタンスは、スタック内のどの位置にでも配置できます。  
+</p></li>
+
+<li><b>クラスの新しいインスタンスを起動して新しいインテントを処理するかどうか</b>。デフォルトの "<code>standard</code>" モードの場合は、新しいインテントに応答するときには必ず新しいインスタンスが作成されます。それぞれのインスタンスで処理するインテントは 1 つのみです。"<code>singleTop</code>" モードの場合は、クラスの既存のインスタンスが対象タスクのアクティビティ スタックの最上位にあれば、それを再利用して新しいインテントを処理します。スタックの最上位にない場合は再利用されません。代わりに、新しいインスタンスが作成されてスタックにプッシュされ、新しいインテントの処理に使用されます。
+
+<p>
+たとえば、タスクのアクティビティ スタックに、ルート アクティビティ A とアクティビティ B、C、D が含まれているとします。スタック内のアクティビティの順序は A-B-C-D で D が最上位です。ここに、アクティビティのタイプが D のインテントが届きます。D の起動モードがデフォルトの "<code>standard</code>" である場合は、そのクラスの新しいインスタンスが起動し、スタックは A-B-C-D-D となります。しかし、D の起動モードが "<code>singleTop</code>" であれば、スタックの最上位は D なので、新しいインテントは既存のインスタンスによって処理されるはずです。したがって、スタックは A-B-C-D のままとなります。  
+</p>
+
+<p>
+一方、届いたインテントのアクティビティ タイプが B だった場合は、B のモードが "<code>standard</code>" であっても "<code>singleTop</code>"であっても B の新しいインスタンスが起動します。これは B がスタックの最上位ではないためで、結果としてスタックは A-B-C-D-B となります。
+</p>
+
+<p>
+"<code>singleTask</code>" または "<code>singleInstance</code>" アクティビティの場合は、既に説明したとおり同時に複数のインスタンスが存在することはないため、インスタンスは常に新しいインテントを処理することになります。"<code>singleInstance</code>" アクティビティはスタック内の唯一のアクティビティであるため、常にスタックの最上位、つまりインテントを処理する位置にあります。一方、"<code>singleTask</code>" アクティビティは、スタック内の上位に他のアクティビティがある場合とない場合があります。上位にアクティビティがある場合、インテントを処理する位置にはないため、そのインテントはドロップされます（インテントがドロップされたとしても、そのインテントが届いたことによって、タスクがフォアグラウンドに移ったままの状態になります）。
+</p>
+</li>
+
+</ul>
+
+<p>
+既存のアクティビティで新しいインテントを処理することになった場合は、<code><code><a href="../../../../reference/android/app/Activity.html#onNewIntent(android.content.Intent)">onNewIntent()</a></code></code> の呼び出しによって Intent オブジェクトがアクティビティに渡されます（最初にアクティビティを開始したインテント オブジェクトは <code><code><a href="../../../../reference/android/app/Activity.html#getIntent()">getIntent()</a></code></code> を呼び出して取得できます）。
+</p>
+
+<p>
+なお、新しいインテントを処理するためにアクティビティの新しいインスタンスが作成された場合、ユーザーは [[]戻る] キーを押して 1 つ前の状態（1 つ前のアクティビティ）に戻ることができます。しかし、アクティビティの既存のインスタンスで新しいインテントを処理する場合は、[[]戻る] キーを押しても、新しいインテントが届く前にそのインスタンスで処理していた作業に戻ることはできません。
+</p>
+
+<p>
+起動モードについて詳しくは、<code><a href="../../../../guide/topics/manifest/activity-element.html">&lt;activity&gt;</a></code> 要素の説明をご覧ください。 
+</p>
+
+
+<h3 id="clearstack">スタックのクリア</h3>
+
+<p>
+ユーザーがタスクを長時間放置すると、タスクのルート アクティビティを除くすべてのアクティビティがクリアされます。ユーザーがタスクに戻ると、タスクは以前のように表示されますが、残っているのは最初のアクティビティだけです。つまり、一定の時間が経過していればユーザーは以前の作業を放棄していて、新しい作業をするためにそのタスクに戻ってきたと考えるわけです。
+</p>
+
+<p>
+これがデフォルトです。この動作を変更したい場合は、以下のアクティビティ属性を使用します:
+</p>
+
+<dl>
+<dt><code><a 
+href="../../../../guide/topics/manifest/activity-element.html#always">alwaysRetainTaskState</a></code> 属性</dt>
+<dd>タスクのルート アクティビティでこの属性を "<code>true</code>" に設定すると、上で説明したデフォルトの動作は発生しません。長時間経過しても、タスク内のすべてのアクティビティはそのまま残されます。</dd>
+
+<dt><code><a 
+href="../../../../guide/topics/manifest/activity-element.html#clear">clearTaskOnLaunch</a></code> 属性</dt>
+<dd>タスクのルート アクティビティでこの属性を "<code>true</code>" に設定した場合、ユーザーがいったんタスクを離れると、戻ったときにはルートを含むすべてのアクティビティがクリアされています。つまり、<code>alwaysRetainTaskState</code> の正反対の動作になります。ユーザーが一瞬でもタスクを離れると、最初の状態からやり直すことになります。</dd>
+
+<dt><code><a 
+href="../../../../guide/topics/manifest/activity-element.html#finish">finishOnTaskLaunch</a></code> 属性</dt>
+<dd>この属性は <code>clearTaskOnLaunch</code> に似ていますが、タスク全体ではなく単一のアクティビティに作用します。また、ルート アクティビティを含むどのアクティビティもクリアの対象となりえます。この属性が "<code>true</code>" に設定されたアクティビティは、現在のセッションの間のみタスクの一部を形成します。ユーザーがいったんそのタスクから離れてから、再度タスクに戻ると、このアクティビティはクリアされています</dd>
+</dl>
+
+<p>
+アクティビティをスタックから削除する方法は他にもあります。Intent オブジェクトに <code><code><a href="../../../../reference/android/content/Intent.html#FLAG_ACTIVITY_CLEAR_TOP">FLAG_ACTIVITY_CLEAR_TOP</a></code></code> フラグが含まれており、そのインテントを処理すべきタイプのアクティビティのインスタンスが対象タスクのスタック内に存在する場合は、そのインスタンスがスタックの最上位になってインテントに応答できるよう、それより上位のアクティビティはすべてクリアされます。指定されたアクティビティの起動モードが "<code>standard</code>" である場合は、そのアクティビティもスタックから削除され、新しいインスタンスが起動してインテントを処理します。起動モード "<code>standard</code>" では、新しいインテントを処理する際、常に新しいインスタンスが作成されるためです。
+</p>
+
+<p>
+<code>FLAG_ACTIVITY_CLEAR_TOP</code> は、ほとんどの場合 <code>FLAG_ACTIVITY_NEW_TASK</code> と組み合わせて使用します。これらのフラグを組み合わせると、別のタスクに既に存在しているアクティビティを探し、それをインテントに応答できる位置に配置できます。  
+</p>
+
+
+<h3 id="starttask">タスクの開始</h3>
+
+<p>
+アクティビティをタスクのエントリ ポイントとして設定するには、アクションとして "<code>android.intent.action.MAIN</code>"、カテゴリとして "<code>android.intent.category.LAUNCHER</code>" を指定したインテント フィルタをアクティビティに追加します（このタイプのフィルタの例については、<a href="#ifilters">インテント フィルタ</a>をご覧ください）。このタイプのフィルタを追加すると、アクティビティのアイコンとラベルがアプリケーション ランチャに表示されます。これにより、ユーザーがタスクを起動するための手段を提供できるだけでなく、起動後はいつでもそのタスクに戻れるようにすることができます。
+</p>
+
+<p>
+この 2 番目の機能、つまりユーザーがいったんタスクを離れても後で戻ることができるようにする点が重要です。この理由から、アクティビティに <code>MAIN</code> と <code>LAUNCHER</code> フィルタが指定されている場合は、必ずタスクが開始される起動モード（"<code>singleTask</code>" または "<code>singleInstance</code>"）を使用する必要があります。たとえば、このフィルタを指定しなかった場合を考えてみましょう。インテントが "<code>singleTask</code>" アクティビティを起動し、新しいタスクが開始され、ユーザーがしばらくの間このタスクで作業を行います。その後、ユーザーが [ホーム] キーを押したとします。ホーム画面が表示され、先ほどのタスクはバックグラウンドに移動します。しかし、このタスクはアプリケーション ランチャには表示されていないため、ユーザーがタスクに戻るための手段がありません。
+</p>
+
+<p>
+<code>FLAG_ACTIVITY_NEW_TASK</code> フラグにも、これと同じような難しさがあります。このフラグを指定したアクティビティでは、新しいタスクを開始した後にユーザーが [ホーム] キーを押してそのタスクを離れた場合に備え、タスクに戻るための手段を用意しておく必要があります。一部のエンティティ（たとえば通知マネージャ）は、アクティビティを常に外部タスクとして開始します。エンティティの一部として開始することはないため、<code>startActivity()</code> に渡すインテントには必ず <code>FLAG_ACTIVITY_NEW_TASK</code> を指定します。外部エンティティから呼び出すことのできるアクティビティでこのフラグが使用されている可能性がある場合は、開始されたタスクにユーザーが戻るための手段を別途提供するようにしてください。
+</p> 
+
+<p>
+ユーザーがアクティビティに戻ることができるようにしない場合は、<code>&lt;activity&gt;</code> 要素の <code>finishOnTaskLaunch</code> を "<code>true</code>" に設定します。詳しくは、<a href="#clearstack">スタックのクリア</a>をご覧ください。
+</p>
+
+
+<h2 id="procthread">プロセスとスレッド</h2>
+
+<p>
+Android では、最初のアプリケーション コンポーネントを実行する必要が生じると、そのための Linux プロセスを単一の実行スレッドで開始します。デフォルトでは、アプリケーションのすべてのコンポーネントがそのプロセスとスレッドで実行されます。
+</p>
+
+<p>
+ただし、コンポーネントが他のプロセスで実行されるようにしたり、特定のプロセスに使用する追加スレッドを生成したりすることも可能です。
+</p>
+
+
+<h3 id="procs">プロセス</h3>
+
+<p>
+コンポーネントを実行するプロセスは、マニフェスト ファイルで管理します。コンポーネントの各要素（<code>&lt;activity&gt;</code>、<code>&lt;service&gt;</code>、<code>&lt;receiver&gt;</code>、および <code>&lt;provider&gt;</code>）には <code>process</code> 属性があり、そのコンポーネントをどのプロセスで実行すべきかを指定できるようになっています。これらの属性の設定によって、それぞれのコンポーネントを専用のプロセスで実行したり、一部のコンポーネントだけでプロセスを共有したりできます。また、別々のアプリケーションのコンポーネントが、同じプロセスで実行されるように設定することもできます。この場合は、それらのアプリケーションが同じ Linux ユーザー ID を共有し、同じ認証機関によって署名されている必要があります。<code>&lt;application&gt;</code> 要素にも <code>process</code> 属性があり、すべてのコンポーネントに適用されるデフォルト値を設定できます。
+</p>
+
+<p>
+すべてのコンポーネントは指定されたプロセスのメイン スレッドでインスタンス化され、コンポーネントに対するシステム コールはそのスレッドからディスパッチされます。1 つのインスタンスに対して、複数のスレッドが作成されることはありません。したがって、システム コールに応答するメソッド（たとえば、後ほど<a href="#lcycles">コンポーネント ライフサイクル</a>で説明するライフサイクル通知や、ユーザーのアクションを報告する <code><code><a href="../../../../reference/android/view/View.html#onKeyDown(int, android.view.KeyEvent)">View.onKeyDown()</a></code></code> のようなメソッド）は、常にそのプロセスのメイン スレッドで実行されます。つまり、コンポーネントがシステムから呼び出されたときに、プロセス内の他のコンポーネントの実行を妨げないよう、実行に時間がかかる処理や他の妨げになることの多い処理（ネットワーク処理、ループ計算など）をできる限り避ける必要があるということです。時間がかかる処理には別のスレッドを生成できます。詳しくは、次の<a href="#threads">スレッド</a> セクションをご覧ください。
+</p>
+
+<p>
+状況によっては、Android がプロセスを終了させるべきと判断する場合があります。たとえば、メモリが不足してきた場合や、他のプロセスでユーザーにすばやく応答する必要がある場合です。プロセスが終了すると、そのプロセス内で実行されているアプリケーション コンポーネントは破棄されます。それらのコンポーネントで処理する作業がもう一度発生すると、そのためのプロセスが再び開始されます。
+</p>  
+
+<p>
+Android では、どのプロセスを終了させるかを判断するため、ユーザーにとっての相対的な重要度を重み付けして管理します。たとえば、アクティビティがまだ画面に表示されているプロセスを終了させるよりも、アクティビティが画面に表示されていないプロセスを終了させる方が合理的です。したがって、プロセスを終了させるかどうかは、そのプロセスで実行されているコンポーネントの状態に応じて判断されるということです。コンポーネントの状態については、後ほど<a href="#lcycles">コンポーネントのライフサイクル</a>で詳しく説明します。
+</p>
+
+
+<h3 id="threads">スレッド</h3>
+
+<p>
+アプリケーションを単一のプロセスに限定したとしても、バックグラウンドでの処理にスレッドが必要になることはよくあります。ユーザー インターフェースはユーザーのアクションに対して常にすばやく応答できなければならないため、アクティビティをホストするスレッドで、ネットワーク ダウンロードのような時間のかかる処理を一緒にホストしないようにする必要があります。すぐに完了しない可能性のあるすべての処理は、別のスレッドに割り当てるようにしてください。 
+</p>
+
+<p>
+スレッドは、標準の Java <code><a href="../../../../reference/java/lang/Thread.html">Thread</a></code> オブジェクトを使用してコード内で作成します。Android には、スレッドを管理するための便利なクラスが数多く用意されています。たとえば、スレッド内でメッセージ ループを実行するための <code><a href="../../../../reference/android/os/Looper.html">Looper</a></code>、メッセージを処理するための <code><a href="../../../../reference/android/os/Handler.html">Handler</a></code>、メッセージ ループでスレッドを設定するための <code><a href="../../../../reference/android/os/HandlerThread.html">HandlerThread</a></code> などがあります。
+</p>
+
+
+<h3 id="rpc">リモート プロシージャ コール</h3>
+
+<p>
+Androidは軽量な仕組みのリモート・プロシージャ・コール (RPC) を採用しています。RPC とは、メソッドをローカルで呼び出しますが、実行はリモート（別のプロセス）で行い、その結果を呼び出し側に返します。そのためには、メソッド呼び出しとそれに付随するデータをオペレーティングシステムが解釈できるレベルまで分解してから、それらをローカルのプロセスとアドレス空間からリモートのプロセスとアドレス空間に転送し、リモートで呼び出しを再構築する必要があります。戻り値は、反対方向に転送しなければなりません。Android にはこの処理を行うためのコードがすべて用意されているため、RPC インターフェースを定義して実装するだけで RPC を利用できます。
+</p>
+
+<p>
+RPC インターフェースに含めることができるのはメソッドのみです。すべてのメソッドは、戻り値がない場合でも同期的に実行されます（つまり、リモート メソッドが完了するまでローカル メソッドがブロックされます）。
+</p>
+
+<p>
+このメカニズムを簡単に説明すると次のようになります。まず、シンプルなインターフェース定義言語（IDL）を使用して、実装したい RPC インターフェースを宣言します。<code><a href="../../../../guide/developing/tools/aidl.html">aidl</a></code> ツールにより、RPC インターフェースの宣言から Java インターフェース定義が生成されます。この定義は、ローカルとリモートの両方のプロセスで使用する必要があります。定義には、次の図に示すように 2 つの内部クラスが含まれています:
+</p>
+
+<p style="margin-left: 2em">
+<img src="../../../../images/binder_rpc.png" alt="RPC のメカニズム"  />
+</p>
+
+<p>
+これらの内部クラスには、IDL で宣言したインターフェースのリモート プロシージャ コールを管理するために必要なコードがすべて含まれています。どちらの内部クラスも <code><a href="../../../../reference/android/os/IBinder.html">IBinder</a></code> インターフェースを実装します。一方の内部クラスは、ローカルのシステムで内部的に使用しますが、記述するコードでは無視しても構いません。もう一方の内部クラスはスタブと呼ばれ、<code><a href="../../../../reference/android/os/Binder.html">Binder</a></code> クラスを拡張します。スタブには、IPC（プロセス間通信）呼び出しを発生させるための内部コードに加え、IDL で宣言した RPC インターフェース内のメソッドの宣言が含まれます。これらのメソッドを実装するには、図に示すようにスタブをサブクラス化します。２つの内部クラスのうちの一方は、システムがローカルかつ内部的に使用するので、開発者が記述するコードでは無視してかまいません。... リモート側では、図のようにスタブをサブクラス化して、これらのメソッドを実装する必要があります。
+</p>
+
+<p>
+	通常、リモート プロセスはサービスで管理します。サービスなら、プロセスや他のプロセスへの接続に関する情報をシステムに伝えることができるからです。サービスには、<code>aidl</code> ツールで生成されたインターフェース ファイルと、RPC メソッドを実装するスタブ サブクラスの両方を持たせることになります。サービスのクライアントには、<code>aidl</code> ツールで生成されたインターフェース ファイルのみを持たせます。
+</p>
+
+<p>
+以下に、サービスとそのクライアントの間の接続がどのように設定されるかを示します:
+</p>
+
+<ul>
+<li>サービスのクライアント（ローカル側）には <code><code><a href="../../../../reference/android/content/ServiceConnection.html#onServiceConnected(android.content.ComponentName, android.os.IBinder)">onServiceConnected()</a></code></code> および<code><code><a href="../../../../reference/android/content/ServiceConnection.html#onServiceDisconnected(android.content.ComponentName)">onServiceDisconnected()</a></code></code> メソッドが実装されているため、リモート サービスとの接続が確立されたときや切断されたときには通知を受けることができます。通知があり次第、<code><code><a href="../../../../reference/android/content/Context.html#bindService(android.content.Intent, android.content.ServiceConnection, int)">bindService()</a></code></code> を呼び出して接続を設定します。
+</li>  
+
+<li> 
+サービスの <code><code><a href="../../../../reference/android/app/Service.html#onBind(android.content.Intent)">onBind()</a></code></code> メソッドは、受け取ったインテント（<code>bindService()</code> に渡されたインテント）に応じて、接続を承認または拒否するために実装します。接続が承認されると、接続を承認するのであれば、スタブ サブクラスのインスタンスを返します。
+</li>
+
+<li>サービスが接続を承認すると、Android がクライアントの <code>onServiceConnected()</code> メソッドを呼び出し、IBinder オブジェクト（サービスが管理するスタブ サブクラスのプロキシ）を渡します。クライアントは、このプロキシを介してリモートサービスを呼び出すことができます。  
+</li>
+</ul>
+
+<p>
+ここでは、説明を簡単にするため、RPC メカニズムの細かい点は省略しています。詳しくは、<a href="../../../../guide/developing/tools/aidl.html">Designing a Remote Interface Using AIDL</a>、および <code><a href="../../../../reference/android/os/IBinder.html">IBinder</a></code> クラスの説明をご覧ください。
+</p>  
+
+
+<h3 id="tsafe">スレッドセーフなメソッド</h3>
+
+<p>
+状況によっては実装したメソッドが複数のスレッドから呼び出されることもあるため、スレッドセーフな記述を心掛ける必要があります。
+</p>
+
+<p>
+前のセクションで説明した RPC のようにメソッドをリモートで呼び出すことができる場合は、このような状況が特に発生しやすくなります。IBinder オブジェクトに実装されているメソッドを IBinder と同じプロセスから呼び出すと、そのメソッドは呼び出し側のスレッドで実行されます。一方、別のプロセスからメソッドを呼び出した場合は、プロセスのメイン スレッドではなく、IBinder と同じプロセス内に保持されているスレッドのプールから選択されたスレッドで実行されます。たとえば、サービスの <code>onBind()</code> メソッドはそのサービスのプロセスのメイン スレッドから呼び出されるのに対し、<code>onBind()</code> から返されたオブジェクトに実装されているメソッド（たとえば RPC メソッドを実装するスタブ サブクラス）はプール内のスレッドから呼び出されます。サービスには複数のクライアントを割り当てることができるため、複数のプール スレッドを同じ IBinder に同時に割り当てることも可能です。したがって、IBinder メソッドはスレッドセーフになるように実装する必要があります。
+</p>  
+
+<p>
+同様に、コンテンツ プロバイダも別のプロセスからのデータ リクエストを受け取ることができます。ContentResolver および ContentProvider クラスはプロセス間通信の管理の詳細を隠蔽しますが、それらのリクエストに応答する ContentProvider メソッド（<code><code><a href="../../../../reference/android/content/ContentProvider.html#query(android.net.Uri, java.lang.String[], java.lang.String, java.lang.String[], java.lang.String)">query()</a></code></code>、<code><code><a href="../../../../reference/android/content/ContentProvider.html#insert(android.net.Uri, android.content.ContentValues)">insert()</a></code></code>、<code><code><a href="../../../../reference/android/content/ContentProvider.html#delete(android.net.Uri, java.lang.String, java.lang.String[])">delete()</a></code></code>、<code><code><a href="../../../../reference/android/content/ContentProvider.html#update(android.net.Uri, android.content.ContentValues, java.lang.String, java.lang.String[])">update()</a></code></code>、および <code><code><a href="../../../../reference/android/content/ContentProvider.html#getType(android.net.Uri)">getType()</a></code></code> メソッド）は、プロセスのメイン スレッドではなく、コンテンツ プロバイダのプロセス内のスレッドのプールから呼び出されます。これらのメソッドを同時に呼び出すことのできるメソッドの数に制限はありません。したがって、これらのメソッドもスレッドセーフになるように実装する必要があります。
+</p> 
+
+
+<h2 id="lcycles">コンポーネントのライフサイクル</h2>
+
+<p>
+アプリケーション コンポーネントにはライフサイクルがあります。ライフサイクルは、インテントへ応答することでのインスタンス化で始まり、そのインスタンスの破棄で終わります。この間、コンポーネントがアクティブなときとアクティブでないときがあり、アクティビティであればユーザーから見えるときと見えないときがあります。このセクションでは、アクティビティ、サービス、およびブロードキャスト レシーバのライフサイクルについて説明します。具体的には、それぞれがライフタイムの間に取ることのできる状態、状態の遷移を通知する方法、およびそれらの状態が、コンポーネントを実行しているプロセスが終了させられたり、インスタンスが破棄されたりする可能性への影響などについて説明します。
+</p> 
+
+
+<h3 id="actlife">アクティビティのライフサイクル</h3>
+
+<p>アクティビティは、基本的に以下の 3 つの状態を取ります:</p>
+
+<ul>
+<li> 状態がアクティブまたは実行中のアクティビティは、画面のフォアグラウンドに表示されている（つまり現在のタスクのアクティビティ スタックの最上位にある）アクティビティです。<em></em><em></em>これが、ユーザーのアクションの焦点となっているアクティビティです。</li>
+
+<li><p>状態が一時停止のアクティビティは、ユーザーのアクションの焦点から外れていますが、まだユーザーから見ることのできるアクティビティです。<em></em>つまり、それよりも前面に他のアクティビティが表示されていますが、そのアクティビティが透明か全画面表示でないかのどちらかで、一時停止しているアクティビティの一部が見えている状態です。一時停止しているアクティビティは、完全に動作しています（すべての状態やメンバー情報は保持されており、ウィンドウ マネージャにアタッチされたままになっています）。ただし、メモリが極端に不足した場合は、システムによって強制終了させられる可能性があります。</p></li>
+
+<li><p>状態が停止のアクティビティは、別のアクティビティに隠されて完全に見えなくなったアクティビティです。<em></em>すべての状態とメンバー情報はまだ保持しています。しかし、もうユーザーに対して表示されていないため、他でメモリが必要な場合は強制終了させられる可能性が高いアクティビティです。</p></li>
+</ul>
+
+<p>
+システムが一時停止または停止しているアクティビティをメモリから削除する場合は、アクティビティの <code><a href="../../../../reference/android/app/Activity.html#finish()">finish()</a></code> メソッドを呼び出して終了を要求するか、単純のそのプロセスを強制終了します。そのアクティビティをもう一度ユーザーに表示する際は、完全に再起動して以前の状態に復元する必要があります。
+</p>
+
+<p>
+アクティビティがある状態から別の状態に遷移すると、以下の protected メソッドに対する呼び出しによって変更が通知されます:
+</p>
+
+<p style="margin-left: 2em"><code>void onCreate(Bundle <i>savedInstanceState</i>)</code> <br/><code>void onStart()</code> <br/><code>void onRestart()</code> <br/><code>void onResume()</code> <br/><code>void onPause()</code> <br/><code>void onStop()</code> <br/><code>void onDestroy()</code></p>
+
+<p>
+これらのメソッドはすべて、状態が変化したときに適切な処理を行うためにオーバーライドできるフックです。オブジェクトが初めてインスタンス化されたときに初期設定を行うため、すべてのアクティビティには <code><code><a href="../../../../reference/android/app/Activity.html#onCreate(android.os.Bundle)">onCreate()</a></code></code> を実装する必要があります。多くのアクティビティには、データの変更をコミットするための <code><code><a href="../../../../reference/android/app/Activity.html#onPause()">onPause()</a></code></code> も実装します。これを実装しない場合は、何らかの方法でユーザーとの対話を停止できるようにしておく必要があります。
+</p>
+
+<div class="sidebox-wrapper">
+<div class="sidebox">
+<h2>スーパークラスの呼び出し</h2>
+<p>
+どのアクティビティ ライフサイクル メソッドの実装でも、必ず最初にスーパークラス バージョンを呼び出す必要があります。次に例を示します:
+</p>
+
+<pre>protected void onPause() {
+    super.onPause();
+    . . .
+}</pre>
+</div>
+</div> 
+
+
+<p>
+これら 7 つのメソッドを使用すると、アクティビティのライフサイクル全体を定義できます。これらを実装することで、ネストされた 3 つのループからなるアクティビティのライフサイクルを監視できます: 
+</p> 
+
+<ul>
+<li>アクティビティの<b>ライフタイム全体</b>は、<code><code><a href="../../../../reference/android/app/Activity.html#onCreate(android.os.Bundle)">onCreate()</a></code></code> が初めて呼び出されたときに始まり、最後に <code><code><a href="../../../../reference/android/app/Activity.html#onDestroy()">onDestroy()</a></code></code> が呼び出されたときに終了します。アクティビティは、<code>onCreate()</code> で「全体的」な状態のすべての初期設定を行い、<code>onDestroy()</code> 残っていたリソースをすべて解放します。たとえば、ネットワークからのデータのダウンロードをバックグラウンドで実行するスレッドは、<code>onCreate()</code> で作成され、<code>onDestroy()</code> で停止します。</li>
+
+<li><p>アクティビティの<b>可視ライフタイム</b>は、<code><code><a href="../../../../reference/android/app/Activity.html#onStart()">onStart()</a></code></code> の呼び出しで始まり、対応する <code><code><a href="../../../../reference/android/app/Activity.html#onStop()">onStop()</a></code></code> の呼び出しで終了します。このライフタイムの間は、ユーザーが画面上でそのアクティビティを見ることができます。ただし、アクティビティがフォアグラウンドにない場合や、ユーザーと対話していない場合もあります。これらの 2 つのメソッドの間は、ユーザーに対してアクティビティを表示するために必要なリソースを確保できます。たとえば、<code>onStart()</code> で <code><a href="../../../../reference/android/content/BroadcastReceiver.html">BroadcastReceiver</a></code> を登録して UI に影響する変化を監視し、表示しているアクティビティがユーザーから見えなくなったら <code>onStop()</code> で登録を解除できます。<code>onStart()</code> および <code>onStop()</code> メソッドは、アクティビティがユーザーから見え隠れするたびに繰り返し呼び出すことができます。</p></li>
+
+<li><p>アクティビティの<b>フォアグラウンド ライフタイム</b>は、<code><code><a href="../../../../reference/android/app/Activity.html#onResume()">onResume()</a></code></code> の呼び出しで始まり、対応する <code><code><a href="../../../../reference/android/app/Activity.html#onPause()">onPause()</a></code></code> の呼び出しで終了します。フォアグラウンド ランタイムの間は、このアクティビティが他のどのアクティビティよりも前面に表示され、ユーザーと対話しています。アクティビティは、一時停止状態と再開状態の間を頻繁に遷移します。たとえば、デバイスがスリープ状態になるときや新しいアクティビティを開始するときには <code>onPause()</code> が呼び出され、アクティビティの結果や新しいインテントが届いたときには <code>onResume()</code> が呼び出されます。したがって、これらのメソッドを記述する際は、できるだけ軽量化しておく必要があります。</p></li>
+</ul>
+
+<p>
+次の図に、これらのループとアクティビティの遷移経路を示します。色の付いた楕円は、アクティビティが取ることのできる主な状態です。長方形は、アクティビティが状態間を遷移するときに処理を実行するために実装できるコールバック メソッドを表します。
+<p>
+
+<p style="margin-left: 2em"><img src="../../../../images/activity_lifecycle.png"
+alt="Android のアクティビティ ライフサイクルの状態遷移図"  /></p>  
+  
+<p>
+次の表では、各メソッドについて詳しく説明し、ライフサイクル全体における位置付けを示します:
+</p>
+
+<table border="2" width="85%" frame="hsides" rules="rows">
+<colgroup align="left" span="3"></colgroup>
+<colgroup align="left"></colgroup>
+<colgroup align="center"></colgroup>
+<colgroup align="center"></colgroup>
+
+<thead>
+<tr><th colspan="3">メソッド</th> <th>説明</th> <th>強制終了</th> <th>次</th></tr>
+</thead>
+
+<tbody>
+<tr>
+  <td colspan="3" align="left"><code><code><a href="../../../../reference/android/app/Activity.html#onCreate(android.os.Bundle)">onCreate()</a></code></code></td>
+  <td>アクティビティが初めて作成されるときに呼び出されます。通常の静的な設定（ビューの作成、リストへのデータのバインドなど）は、すべてのこのメソッドで行う必要があります。このアクティビティの      以前の状態が保存されていた場合、このメソッドにはその状態を保持している Bundle オブジェクトが引数として（詳しくは、後述の<a href="#actstate">アクティビティの状態の保存</a>をご覧ください）。
+      <p>この後には、必ず <code>onStart()</code> が呼び出されます。</p></td>
+  <td align="center">不可</td>
+      <td align="center"><code>onStart()</code></td>
+</tr>
+
+<tr>
+   <td rowspan="5" style="border-left: none; border-right: none;">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+   <td colspan="2" align="left"><code><code><a href="../../../../reference/android/app/Activity.html#onRestart()">onRestart()</a></code></code></td>
+   <td>アクティビティが停止した後、それをもう一度開始する直前に呼び出されます。
+       <p>この後には、必ず <code>onStart()</code> が呼び出されます。</p></td>
+   <td align="center">不可</td>
+   <td align="center"><code>onStart()</code></td>
+</tr>
+
+<tr>
+   <td colspan="2" align="left"><code><code><a href="../../../../reference/android/app/Activity.html#onStart()">onStart()</a></code></code></td>
+   <td>アクティビティがユーザーから見えるようになる直前に呼び出されます。
+       <p>その後、アクティビティがフォアグラウンドに表示された場合は <code>onResume()</code> が、他のアクティビティの後ろに隠れた場合は <code>onStop()</code> が呼び出されます。</p></td>
+    <td align="center">不可</td>
+    <td align="center"><code>onResume()</code> <br/>または<br/><code>onStop()</code></td>
+</tr>
+
+<tr>
+   <td rowspan="2" style="border-left: none;">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+   <td align="left"><code><code><a href="../../../../reference/android/app/Activity.html#onResume()">onResume()</a></code></code></td>
+   <td>アクティビティがユーザーとの対話を開始する直前に呼び出されます。この時点で、アクティビティはアクティビティ スタックの最上位にあり、ユーザーからの入力はこのアクティビティに対して行われます。
+       <p>この後には、必ず <code>onPause()</code> が呼び出されます。</p></td>
+   <td align="center">不可</td>
+   <td align="center"><code>onPause()</code></td>
+</tr>
+
+<tr>
+   <td align="left"><code><code><a href="../../../../reference/android/app/Activity.html#onPause()">onPause()</a></code></code></td>
+   <td>システムが別のアクティビティを開始しようとしているときに呼び出されます。このメソッドは、保存されていない変更を永続データにコミットする場合や、アニメーションのように CPU を大量に消費する処理を停止する場合に使用するのが一般的です。このメソッドが終了するまでは次のアクティビティが開始されたないため、できる限り短時間で実行できるようにしておく必要があります。
+       <p>その後、アクティビティがフォアグラウンドに戻った場合は <code>onResume()</code> が、ユーザーから見えなくなった場合は <code>onStop()</code> が呼び出されます。</td>
+   <td align="center"><strong style="color:#800000">可能</strong></td>
+   <td align="center"><code>onResume()</code> <br/>または<br/><code>onStop()</code></td>
+</tr>
+
+<tr>
+   <td colspan="2" align="left"><code><code><a href="../../../../reference/android/app/Activity.html#onStop()">onStop()</a></code></code></td>
+   <td>アクティビティがユーザーから見えなくなったときに呼び出されます。見えなくなる状況としては、アクティビティが破棄された場合や、再開された別のアクティビティ（既存か新規かを問わず）によって隠された場合が考えられます。 
+       <p>その後、アクティビティがユーザーとの対話に戻った場合は <code>onRestart()</code> が、アクティビティが完全に終了する場合は <code>onDestroy()</code> が呼び出されます。</p></td>
+   <td align="center"><strong style="color:#800000">可能</strong></td>
+   <td align="center"><code>onRestart()</code> <br/>または<br/><code>onDestroy()</code></td>
+</tr>
+
+<tr>
+   <td colspan="3" align="left"><code><code><a href="../../../../reference/android/app/Activity.html#onDestroy()">onDestroy()</a></code></code></td>
+   <td>アクティビティが破棄される前に呼び出されます。これが、アクティビティが受け取る最後の呼び出しとなります。このメソッドが呼び出される状況としては、アクティビティが完了する場合（<code><code><a href="../../../../reference/android/app/Activity.html#finish()">finish()</a></code></code> が呼び出されたとき）や、システムが領域を確保するために一時的にそのアクティビティのインスタンスを破棄する場合が考えられます。これらの 2 つの状況は、<code><code><a href="../../../../reference/android/app/Activity.html#isFinishing()">isFinishing()</a></code></code> メソッドを使用して識別できます。</td>
+   <td align="center"><strong style="color:#800000">可能</strong></td>
+   <td align="center"><em>なし</em></td>
+</tr>
+</tbody>
+</table>
+
+<p>
+表の<b>強制終了</b>列に注目してください。この列は、メソッドが終了した後であれば、システムがアクティビティのコードの別の行を実行することなくいつでもアクティビティを実行しているプロセスを強制終了できるかどうかを示しています。<em></em><code>onPause()</code>、<code>onStop()</code>、および <code>onDestroy()</code> メソッドの 3 つは「可能」となっています。1 番目に挙げた <code>onPause()</code> だけは、プロセスが強制終了する前に必ず呼び出されます。<code>onStop()</code> と <code>onDestroy()</code> は、必ず呼び出されるとは限りません。したがって、永続データ（たとえばユーザーによる編集）をストレージに書き込む際は <code>onPause()</code> を使用する必要があります。
+</p>
+
+<p>
+<b>強制終了</b>列が「不可」になっているメソッドは、それらが呼び出された瞬間から、アクティビティを実行しているプロセスを保護して強制終了されないようにします。したがって、アクティビティが強制終了可能な状態にあるのは、たとえば <code>onPause()</code> が返されてから <code>onResume()</code> が呼び出されるまでの間ということです。その後は、もう一度 <code>onPause()</code> が返されるまで、強制終了できる状態には戻りません。
+</p>
+
+<p>
+後述の<a href="#proclife">プロセスとライフサイクル</a>のセクションで詳しく説明しますが、ここでの定義で技術的には「強制終了可能」でないアクティビティでも、システムによって強制終了させられる可能性はありますが、他に利用できるリソースがないなど、極端に急を要する場合に限られます。
+</p>
+
+
+<h4 id="actstate">アクティビティの状態の保存</h4>
+
+<p>
+メモリ不足を補うためにユーザーではなくシステムがアクティビティを終了させた場合には，ユーザがそのアクティビティに戻ったときに、以前の状態のままであることを期待するでしょう。
+</p>
+
+<p>
+アクティビティが強制終了させられる前の状態を保存しておきたい場合は、アクティビティに <code><code><a href="../../../../reference/android/app/Activity.html#onSaveInstanceState(android.os.Bundle)">onSaveInstanceState()</a></code></code> メソッドを実装します。このメソッドは、アクティビティが破棄されやすい状態になる前（つまり <code>onPause()</code> が呼び出される前）に呼び出されます。その際、アクティビティの動的な状態を名前/値ペアとして記録できる <code><a href="../../../../reference/android/os/Bundle.html">Bundle</a></code> オブジェクトが渡されます。アクティビティがもう一度開始されると、Bundle は <code>onCreate()</code> だけでなく、<code>onStart()</code> の後に呼び出される <code><code><a href="../../../../reference/android/app/Activity.html#onRestoreInstanceState(android.os.Bundle)">onRestoreInstanceState()</a></code></code> メソッドにも渡され、保存されている状態をそのどちらかまたは両方で復元できます。
+</p>
+
+<p>
+<code>onSaveInstanceState()</code> および <code>onRestoreInstanceState()</code> メソッドは、これまでに説明した <code>onPause()</code> などとは異なり、ライフサイクル メソッドではありません。これらのメソッドは、常に呼び出されるわけではありません。たとえば、<code>onSaveInstanceState()</code> は、システムによってアクティビティが破棄しやすい状態にされる前には呼び出されますが、ユーザーのアクション（たとえば [[]戻る] キー）によってインスタンスが実際に破棄されるときには呼び出されません。そのような場合は、ユーザーがそのアクティビティに戻ることを想定する必要はないため、状態を保存する理由がないのです。
+</p>
+
+<p>
+<code>onSaveInstanceState()</code> は常に呼び出されるとは限らないため、アクティビティの一時的な状態を記録する目的のみに使用し、永続データの格納には使用しないようにしてください。この目的には <code>onPause()</code> を使用します。
+</p>
+
+
+<h4 id="coordact">アクティビティの協調</h4>
+
+<p>
+あるアクティビティが別のアクティビティを開始すると、両方のアクティビティのライフサイクル状態が遷移します。一方が一時停止または停止し、もう一方が開始されます。場合によっては、これらの協調させる必要があります。
+</p>
+
+<p>
+ライフサイクルのコールバックの順序は明確に定義されており、特に 2 つのアクティビティが同じプロセス内に存在する場合は次のようになります:
+</p>
+
+<ol>
+<li>現在のアクティビティの <code>onPause()</code> メソッドが呼び出されます。</li>
+
+<li>続いて、開始されるアクティビティの <code>onCreate()</code>、<code>onStart()</code>、および <code>onResume()</code> メソッドが順番に呼び出されます。</li>
+
+<li>その後、開始されたアクティビティが画面上で見えなくなると、その <code>onStop()</code> メソッドが呼び出されます。</li>
+</ol>
+
+
+<h3 id="servlife">サービスのライフサイクル</h3>
+
+<p>
+サービスは、以下の 2 つの方法で使用できます:
+</p>
+
+<ul>
+<li>いったん開始したら、停止させられる（または自ら停止する）まで実行し続けることができます。このモードでは、<code><code><a href="../../../../reference/android/content/Context.html#startService(android.content.Intent)">Context.startService()</a></code></code> が呼び出されて開始し、<code><code><a href="../../../../reference/android/content/Context.html#stopService(android.content.Intent)">Context.stopService()</a></code></code> 呼び出されて停止します。サービス自体が <code><code><a href="../../../../reference/android/app/Service.html#stopSelf()">Service.stopSelf()</a></code></code> または <code><code><a href="../../../../reference/android/app/Service.html#stopSelfResult(int)">Service.stopSelfResult()</a></code></code> を呼び出して停止することもできます。サービスの開始時に <code>startService()</code> が何度呼び出されたとしても、<code>stopService()</code> を一度呼び出せばサービスは停止します。</li>
+
+<li><p>サービスで定義されているインターフェースをエクスポートし、これを介してプログラム的に操作できます。クライアントから Service オブジェクトへの接続を確立し、その接続を使用してサービスにアクセスします。接続は、<code><code><a href="../../../../reference/android/content/Context.html#bindService(android.content.Intent, android.content.ServiceConnection, int)">Context.bindService()</a></code></code> を呼び出して確立し、<code><code><a href="../../../../reference/android/content/Context.html#unbindService(android.content.ServiceConnection)">Context.unbindService()</a></code></code> でサービスを開始します。複数のクライアントが同じサービスにバインドすることも可能です。サービスがまだ開始されていなかった場合は，必要に応じて <code>bindService()</code> で開始できます。
+</p></li>
+</ul>
+
+<p>
+これら 2 つのモードは、完全に分離されているわけではありません。<code>startService()</code> で開始されたサービスにバインドすることも可能です。たとえば、再生する曲を指定した Intent オブジェクトで <code>startService()</code> を呼び出して音楽再生サービスを開始したとします。その後、たとえばユーザーがプレーヤーを操作したい場合や再生中の曲に関する情報を入手したい場合には、アクティビティから <code>bindService()</code> を呼び出してサービスとの接続を確立できます。このような場合、最後のバインドが閉じられるまでは、<code>stopService()</code> を呼び出してもサービスは停止しません。
+</p>
+
+<p>
+アクティビティと同様、サービスにもライフサイクル メソッドがあり、これらを実装することでサービスの状態の変化を監視できます。ただし、protected ではなく public で、以下の 3 つしかありません:
+</p>
+
+<p style="margin-left: 2em"><code>void onCreate()</code> <br/><code>void onStart(Intent <i>intent</i>)</code> <br/><code>void onDestroy()</code></p>
+
+<p>
+これらのメソッドを実装することで、ネストされた 2 つのループからなるサービスのライフサイクルを監視できます:
+</p>
+
+<ul>
+<li>サービスの<b>ライフタイム全体</b>は、<code><code><a href="../../../../reference/android/app/Service.html#onCreate()">onCreate()</a></code></code> が呼び出されたときに始まり、<code><code><a href="../../../../reference/android/app/Service.html#onDestroy()">onDestroy()</a></code></code> 終了したときに終わります。アクティビティと同じく、サービスも <code>onCreate()</code> で初期設定を行い、<code>onDestroy()</code> で残っていたリソースをすべて解放します。たとえば、音楽再生サービスであれば、<code>onCreate()</code> で音楽を再生するスレッドを作成し、<code>onDestroy()</code> でそのスレッドを停止できます。</li>
+
+<li><p>サービスの<b>アクティブ ライフタイム</b>は、<code><code><a href="../../../../reference/android/app/Service.html#onStart(android.content.Intent, int)">onStart()</a></code></code> を呼び出したときに始まります。このメソッドには、<code>startService()</code> に渡された Intent オブジェクトが渡されます。音楽再生サービスは、この Intent オブジェクトをみて曲を見つけ、その再生を開始します。</p>
+
+<p>
+サービスの停止に相当するコールバック、つまり <code>onStop()</code> メソッドはありません。
+</p></li>
+</ul>
+
+<p>
+<code>onCreate()</code> および <code>onDestroy()</code> メソッドは、サービスを <code><code><a href="../../../../reference/android/content/Context.html#startService(android.content.Intent)">Context.startService()</a></code></code> または <code><code><a href="../../../../reference/android/content/Context.html#bindService(android.content.Intent, android.content.ServiceConnection, int)">Context.bindService()</a></code></code> のどちらで開始したかに関係なく、すべてのサービスで呼び出されます。一方、<code>onStart()</code> は、サービスを <code>startService()</code> で開始した場合のみ呼び出されます。
+</p>
+
+<p>
+サービスが他からのバインドを許可している場合は、以下のコールバック メソッドを追加で実装できます:
+</p>
+
+<p style="margin-left: 2em"><code>IBinder onBind(Intent <i>intent</i>)</code> <br/><code>boolean onUnbind(Intent <i>intent</i>)</code> <br/><code>void onRebind(Intent <i>intent</i>)</code></p>
+
+<p>
+<code><code><a href="../../../../reference/android/app/Service.html#onBind(android.content.Intent)">onBind()</a></code></code> コールバックには <code>bindService()</code> に渡された Intent オブジェクトが渡され、<code><code><a href="../../../../reference/android/app/Service.html#onUnbind(android.content.Intent)">onUnbind()</a></code></code> には <code>unbindService()</code> 渡された Intent オブジェクトが渡されます。サービスがバインドを許可している場合は、クライアントがサービスと対話する通信チャネルを <code>onBind()</code> で返します。<code>onUnbind()</code> メソッドは、サービスに新しいクライアントが接続した場合に <code><code><a href="../../../../reference/android/app/Service.html#onRebind(android.content.Intent)">onRebind()</a></code></code> の呼び出しを要求できます。
+</p>
+
+<p>
+次の図に、サービスのコールバック メソッドを示します。なお、<code>startService()</code> で作成されたサービスと、<code>bindService()</code> で作成されたサービスを分けて記述していますが、作成された方法に関係なく，すべてのサービスはクライアントからのバインドを許可できます。したがって、どのサービスも <code>onBind()</code> および<code>onUnbind()</code> メソッドの呼び出しを受け取る可能性はあります。
+</p>
+
+<p style="margin-left: 2em"><img src="../../../../images/service_lifecycle.png"
+alt="サービス コールバックの状態遷移図"  /></p>
+
+
+<h3 id="broadlife">ブロードキャスト レシーバのライフサイクル</h3>
+
+<p>
+ブロードキャスト レシーバのコールバック メソッドは次の 1 つのみです:
+</p>
+
+<p style="margin-left: 2em"><code>void onReceive(Context <i>curContext</i>, Intent <i>broadcastMsg</i>)</code></p>
+
+<p>
+レシーバにブロードキャスト メッセージが届くと、<code><code><a href="../../../../reference/android/content/BroadcastReceiver.html#onReceive(android.content.Context, android.content.Intent)">onReceive()</a></code></code> メソッドが呼び出され、メッセージを保持する Intent オブジェクトが渡されます。ブロードキャスト レシーバは、このメソッドの実行中のみアクティブと見なされます。<code>onReceive()</code> 終了すると、ブロードキャスト レシーバはアクティブでなくなります。
+</p>
+
+<p>
+ブロードキャスト レシーバがアクティブになっているプロセスは、強制終了しないよう保護されます。一方、アクティブでないコンポーネントのみからなるプロセスは、それが消費しているメモリが他のプロセスで必要になった場合は、いつでも強制終了される可能性があります。
+</p>
+
+<p>
+この点は、ブロードキャスト メッセージへの応答に時間がかかるため、ユーザー インターフェースの他のコンポーネントを実行しているメイン スレッドとは別のスレッドで何らかの処理を行う必要がある場合に問題になります。<code>onReceive()</code> が新しいスレッドを生成して終了した場合、プロセス内に他にアクティブなアプリケーション コンポーネントがなければ、そのスレッドを含めたプロセス全体がアクティブでないと判断されて強制終了させられるおそれがあります。この問題を回避するには、<code>onReceive()</code> でサービスを開始し、そのサービスにジョブを実行させます。これにより、プロセス内にまだアクティブなコンポーネントがあると見なされます。
+</p>
+
+<p>
+次のセクションでは、プロセスが強制終了される可能性が高くなる状況についてさらに詳しく説明します。
+</p>
+
+
+<h3 id="proclife">プロセスとライフサイクル</h3>
+
+<p>Android は、プロセスをできるだけ長い間維持しようとします。しかし、最終的にメモリが不足したときには、古いプロセスを削除しなければならなくなります。Android では、どのプロセスを維持し、どのプロセスを強制終了させるかを判断するため、プロセス内で実行されているコンポーネントと各コンポーネントの状態に基づいて、各プロセスを「重要度の階層」の位置づけます。まず最も重要度の低いプロセスが削除され、次は 2 番目に重要度の低いプロセス、その次に 3 番目、というように判断されます。階層は 5 つのレベルで構成されます。以下では、重要度の高いものから順に説明します:
+</p>
+
+<ol>
+
+<li><b>フォアグラウンド プロセス</b>は、ユーザーがその時点で行っている作業に必要なプロセスです。以下のいずれかの条件を満たしているプロセスは、フォアグラウンド プロセスと見なされます:
+
+<ul>
+<li>ユーザーと対話中のアクティビティを実行している（Activity オブジェクトの <code><code><a href="../../../../reference/android/app/Activity.html#onResume()">onResume()</a></code></code> メソッドが呼び出されている）。</li>
+
+<li><p>ユーザーと対話中のアクティビティにバインドされているサービスを実行している。</p></li>
+
+<li><p>いずれかのライフサイクル コールバック（<code><code><a href="../../../../reference/android/app/Service.html#onCreate()">onCreate()</a></code></code>、<code><code><a href="../../../../reference/android/app/Service.html#onStart(android.content.Intent, int)">onStart()</a></code></code>、または <code><code><a href="../../../../reference/android/app/Service.html#onDestroy()">onDestroy()</a></code></code>）を実行している <code><a href="../../../../reference/android/app/Service.html">Service</a></code> オブジェクトを保持している。</p></li>
+
+<li><p><code><code><a href="../../../../reference/android/content/BroadcastReceiver.html#onReceive(android.content.Context, android.content.Intent)">onReceive()</a></code></code> メソッドを実行している <code><a href="../../../../reference/android/content/BroadcastReceiver.html">BroadcastReceiver</a></code> オブジェクトを保持している。</p></li>
+</ul>
+
+<p>
+同時に存在するフォアグラウンド プロセスは少数に限られています。フォアグラウンド プロセスは、メモリが極端に不足し、すべてのフォアグラウンド プロセスの実行を継続できない場合の最終手段として強制終了させられます。通常、その時点でデバイスはメモリ ページングの状態に達しており、ユーザー インターフェースを応答可能な状態に維持するためには、フォアグラウンド プロセスの一部を強制終了させなければならない状況に陥っています。
+</p></li>
+
+<li><p><b>可視プロセス</b>は、フォアグラウンド コンポーネントではないものの、ユーザーが見ている画面に影響を及ぼすことのできるプロセスです。以下のいずれかの条件を満たしているプロセスは、可視プロセスと見なされます:</p>
+
+<ul>
+<li>フォアグラウンドではないがユーザーから見ることができるアクティビティを実行している（その <code><code><a href="../../../../reference/android/app/Activity.html#onPause()">onPause()</a></code></code> メソッドが呼び出されている）。これは、たとえばフォアグラウンド アクティビティがダイアログで、その背後に直前のアクティビティが見えるような状況です。</li>
+
+<li><p>ユーザーから見ることのできるアクティビティにバインドされているサービスを実行している。</p></li>
+</ul>
+
+<p>
+可視プロセスは、非常に重要なプロセスと見なされ、すべてのフォアグラウンド プロセスの実行を維持するために必要でない限り、強制終了させられることはありません。
+</p></li>
+
+<li><p><b>サービス プロセス</b>は、<code><code><a href="../../../../reference/android/content/Context.html#startService(android.content.Intent)">startService()</a></code></code> メソッドで開始されたサービスを実行しているプロセスのうち、より重要度の高い 2 つのレベルのどちらにも該当しないプロセスです。サービス プロセスは、ユーザーに見えるものとの直接的な関係はありませんが、たとえばバックグラウンドでの MP3 の再生、ネットワークからのデータのダウンロードなど、ユーザーが気にかけている処理であることが一般的です。したがって、すべてのフォアグラウンド プロセスと可視プロセスに加え、これらのサービス プロセスの実行を維持するだけのメモリが確保できる限り、強制終了させられることはありません。  
+</p></li>
+
+<li><p><b>バックグラウンド プロセス</b>は、その時点でユーザーから見えないアクティビティを保持している（Activity オブジェクトの <code><code><a href="../../../../reference/android/app/Activity.html#onStop()">onStop()</a></code></code> メソッドが呼び出されている）プロセスです。これらのプロセスは、ユーザー エクスペリエンスに直接的には影響しておらず、フォアグラウンド、可視、サービス プロセスからメモリが要求された場合はいつでも強制終了する可能性があります。通常は数多くのバックグラウンド プロセスが実行されているため、それらを LRU（least recently used）リストに登録し、ユーザーが一番最近見たアクティビティのプロセスが最後に強制終了するような仕組みになっています。アクティビティにライフサイクル メソッドが正しく実装されており、現在の状態が正しく保存されていれば、プロセスを強制終了してもユーザー エクスペリエンスに悪影響が及ぶことはありません。 
+</p></li>
+
+<li><p><b>空のプロセス</b>は、アクティブなアプリケーション コンポーネントを保持していないプロセスです。このようなプロセスを維持しておく唯一の理由は、これをキャッシュとして使用し、次回コンポーネントを実行するときの起動時間を短くするためです。多くの場合、システムはこれらのプロセスを強制終了させて、プロセス キャッシュとその基礎となるカーネル キャッシュの間でシステム リソース全体のバランスを取ります。</p></li>
+
+</ol>
+
+<p>
+各プロセスは、その時点でアクティブなコンポーネントの重要度に基づいて、そのプロセスが取りうる最も高いレベルにランク付けされます。たとえば、あるプロセスがサービスと可視アクティビティをホストしている場合、そのプロセスはサービス プロセスではなく可視プロセスとしてランク付けされます。
+</p>
+
+<p>
+また、あるプロセスに他のプロセスが依存しているために、そのプロセスのランクが引き上げられる可能性もあります。他のプロセスから依存されているプロセスが、依存しているプロセスよりも低いレベルにランク付けされることはありません。たとえば、プロセス A 内のコンテンツ プロバイダにプロセス B 内のクライアントが依存している場合や、プロセス A 内のサービスがプロセス B 内のコンポーネントにバインドされている場合、プロセス A は常にプロセス B よりは重要度が高いと見なされます。
+</p> 
+
+<p>
+サービスを実行しているプロセスは、バックグラウンド アクティビティを実行しているプロセスよりも高くランク付けされます。したがって、時間のかかる処理を実行する場合、特にその処理がアクティビティよりも長く続くような場合は、単にスレッドを生成するのではなく、その処理用のサービスを開始することをおすすめします。たとえば、バックグラウンドで音楽を再生する場合や、カメラで撮影した写真を Web サイトにアップロードする場合などはこれに当たります。サービスを使用することで、アクティビティがどのような状況にあっても、処理の重要度として「サービス プロセス」レベル以上を維持できます。<a href="#broadlife">ブロードキャスト レシーバのライフサイクル</a>のセクションでも説明しましたが、ブロードキャスト レシーバにおいてもこれと同じ理由で、処理に時間がかかる場合はスレッドではなくサービスを使用することをおすすめします。
+</p>
+
+    </div>
+
+    
+    
+    <a href="#top" style="float:right">&uarr; Go to top</a>
+    
+
+  </div> <!-- end jd-content -->
+
+<div id="footer">
+
+
+  <div id="copyright">
+    
+  Except as noted, this content is licensed under <a
+  href="http://www.apache.org/licenses/LICENSE-2.0">Apache 2.0</a>. 
+  For details and restrictions, see the <a href="../../../../license.html">
+  Content License</a>.
+  </div>
+  <div id="build_info">
+    
+  Android 4.0&nbsp;r1 - 16 Mar 2012 16:45
+
+  </div>
+
+  <div id="footerlinks">
+    
+  <p>
+    <a href="http://www.google.com/intl/en/policies/" target="_blank">Privacy &amp; Terms</a> -
+    <a href="http://www.android.com/branding.html" target="_blank">Brand Guidelines</a> -
+    <a
+href="http://code.google.com/p/android/issues/entry?template=Developer%20Documentation"
+target="_blank">Report Document Issues</a>
+  </p>
+  </div>
+
+</div> <!-- end footer -->
+
+</div><!-- end doc-content -->
+
+</div> <!-- end body-content --> 
+
+<script type="text/javascript">
+init(); /* initialize android-developer-docs.js */
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-5831155-1");
+pageTracker._trackPageview();
+</script>
+
+</body>
+</html>
+
+
+

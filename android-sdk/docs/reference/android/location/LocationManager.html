@@ -1,0 +1,4547 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico" />
+<title>LocationManager - Android SDK | Android Developers</title>
+<link href="../../../assets/android-developer-docs.css" rel="stylesheet" type="text/css" />
+<script src="../../../assets/search_autocomplete.js" type="text/javascript"></script>
+<script src="../../../assets/jquery-resizable.min.js" type="text/javascript"></script>
+<script src="../../../assets/android-developer-docs.js" type="text/javascript"></script>
+<script src="../../../assets/prettify.js" type="text/javascript"></script>
+<script type="text/javascript">
+  setToRoot("../../../");
+</script>
+<script src="../../../assets/android-developer-reference.js" type="text/javascript"></script>
+<script src="../../../navtree_data.js" type="text/javascript"></script>
+<noscript>
+  <style type="text/css">
+    html,body{overflow:auto;}
+    #body-content{position:relative; top:0;}
+    #doc-content{overflow:visible;border-left:3px solid #666;}
+    #side-nav{padding:0;}
+    #side-nav .toggle-list ul {display:block;}
+    #resize-packages-nav{border-bottom:3px solid #666;}
+  </style>
+</noscript>
+</head>
+<body class="1" itemscope itemtype="http://schema.org/Article">
+
+  <div id="header">
+      <div id="headerLeft">
+          <a href="../../../index.html" tabindex="-1"><img
+              src="../../../assets/images/bg_logo.png" alt="Android Developers" /></a>
+          <ul id="header-tabs" class="reference">
+    
+	<li id="home-link"><a href="../../../offline.html">
+	
+		<span class="en">Home</span>
+		<span style="display:none" class="de">Startseite</span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ホーム</span>
+		<span style="display:none" class="zh-CN">主页</span>
+		<span style="display:none" class="zh-TW">首頁</span>
+	
+	</a></li>
+	<li id="sdk-link"><a href="../../../sdk/index.html">
+		<span class="en">SDK</span>
+	</a></li>
+	<li id="guide-link"><a href="../../../guide/index.html" onClick="return loadLast('guide')">
+	
+		<span class="en">Dev Guide</span>
+		<span style="display:none" class="de">Handbuch</span>
+		<span style="display:none" class="es">Guía</span>
+		<span style="display:none" class="fr">Guide</span>
+		<span style="display:none" class="it">Guida</span>
+		<span style="display:none" class="ja">開発ガイド</span>
+		<span style="display:none" class="zh-CN">开发人员指南</span>
+		<span style="display:none" class="zh-TW">開發指南</span>
+	
+	</a></li>
+	<li id="reference-link"><a href="../../../reference/packages.html" onClick="return loadLast('reference')">
+	
+		<span class="en">Reference</span>
+		<span style="display:none" class="de">Referenz</span>
+		<span style="display:none" class="es">Referencia</span>
+		<span style="display:none" class="fr">Référence</span>
+		<span style="display:none" class="it">Riferimento</span>
+		<span style="display:none" class="ja">リファレンス</span>
+		<span style="display:none" class="zh-CN">参考</span>
+		<span style="display:none" class="zh-TW">參考資料</span>
+	
+	</a></li>
+	<li id="resources-link"><a href="../../../resources/index.html" onClick="return loadLast('resources')">
+	
+		<span class="en">Resources</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+    		<span style="display:none" class="ja"></span>
+		<span style="display:none" class="zh-CN"></span>
+		<span style="display:none" class="zh-TW"></span>
+	
+	</a></li>
+	<li id="videos-link"><a href="../../../videos/index.html" onClick="return loadLast('videos')">
+	
+		<span class="en">Videos</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ビデオ</span>
+		<span style="display:none" class="zh-CN"></span>
+		<span style="display:none" class="zh-TW"></span>
+	
+	</a></li>
+	<li><a href="http://android-developers.blogspot.com" onClick="return requestAppendHL(this.href)">
+	
+		<span class="en">Blog</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ブログ</span>
+		<span style="display:none" class="zh-CN">博客</span>
+		<span style="display:none" class="zh-TW">網誌</span>
+	
+	</a></li>
+
+
+     
+</ul>
+     
+      </div>
+      <div id="headerRight">
+          <div id="headerLinks">
+          &nbsp;&nbsp;
+          <a href="../../../design/index.html">Android Design</a>&nbsp;&nbsp;
+          <a href="http://www.android.com">Android.com</a>
+          </div>
+  <div id="search" >
+      <div id="searchForm">
+          <form accept-charset="utf-8" class="gsc-search-box" 
+                onsubmit="return submit_search()">
+            <table class="gsc-search-box" cellpadding="0" cellspacing="0"><tbody>
+                <tr>
+                  <td class="gsc-input">
+                    <input id="search_autocomplete" class="gsc-input" type="text" size="33" autocomplete="off"
+                      title="search developer docs" name="q"
+                      value="search developer docs"
+                      onFocus="search_focus_changed(this, true)"
+                      onBlur="search_focus_changed(this, false)"
+                      onkeydown="return search_changed(event, true, '../../../')"
+                      onkeyup="return search_changed(event, false, '../../../')" />
+                  <div id="search_filtered_div" class="no-display">
+                      <table id="search_filtered" cellspacing=0>
+                      </table>
+                  </div>
+                  </td>
+                  <td class="gsc-search-button">
+                    <input type="submit" value="Search" title="search" id="search-button" class="gsc-search-button" />
+                  </td>
+                  <td class="gsc-clear-button">
+                    <div title="clear results" class="gsc-clear-button">&nbsp;</div>
+                  </td>
+                </tr></tbody>
+              </table>
+          </form>
+      </div><!-- searchForm -->
+  </div><!-- search -->
+    			  <div id="api-level-toggle">
+    			    <input type="checkbox" id="apiLevelCheckbox" onclick="toggleApiLevelSelector(this)" />
+    			    <label for="apiLevelCheckbox" class="disabled">Filter by API Level: </label>
+    			    <select id="apiLevelSelector">
+    			      <!-- option elements added by buildApiLevelSelector() -->
+    			    </select>
+    			  </div>
+    	 	    <script>
+              var SINCE_DATA = [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15' ];
+              buildApiLevelSelector();
+            </script>
+      </div><!-- headerRight -->
+      <script type="text/javascript">
+        <!--  
+        changeTabLang(getLangPref());
+        //-->
+      </script>
+  </div><!-- header -->
+
+  <div class="g-section g-tpl-240" id="body-content">
+    <div class="g-unit g-first" id="side-nav" itemscope itemtype="http://schema.org/SiteNavigationElement">
+      <div id="swapper">
+        <div id="nav-panels">
+          <div id="resize-packages-nav">
+            <div id="packages-nav">
+              <div id="index-links"><nobr>
+                <a href="../../../reference/packages.html"  >Package Index</a> | 
+                <a href="../../../reference/classes.html" >Class Index</a></nobr>
+              </div>
+              <ul>
+              	
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/package-summary.html">android</a></li>
+    <li class="api apilevel-4">
+  <a href="../../../reference/android/accessibilityservice/package-summary.html">android.accessibilityservice</a></li>
+    <li class="api apilevel-5">
+  <a href="../../../reference/android/accounts/package-summary.html">android.accounts</a></li>
+    <li class="api apilevel-11">
+  <a href="../../../reference/android/animation/package-summary.html">android.animation</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/app/package-summary.html">android.app</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../reference/android/app/admin/package-summary.html">android.app.admin</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../reference/android/app/backup/package-summary.html">android.app.backup</a></li>
+    <li class="api apilevel-3">
+  <a href="../../../reference/android/appwidget/package-summary.html">android.appwidget</a></li>
+    <li class="api apilevel-5">
+  <a href="../../../reference/android/bluetooth/package-summary.html">android.bluetooth</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/content/package-summary.html">android.content</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/content/pm/package-summary.html">android.content.pm</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/content/res/package-summary.html">android.content.res</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/database/package-summary.html">android.database</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/database/sqlite/package-summary.html">android.database.sqlite</a></li>
+    <li class="api apilevel-11">
+  <a href="../../../reference/android/drm/package-summary.html">android.drm</a></li>
+    <li class="api apilevel-4">
+  <a href="../../../reference/android/gesture/package-summary.html">android.gesture</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/graphics/package-summary.html">android.graphics</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/graphics/drawable/package-summary.html">android.graphics.drawable</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/graphics/drawable/shapes/package-summary.html">android.graphics.drawable.shapes</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/hardware/package-summary.html">android.hardware</a></li>
+    <li class="api apilevel-12">
+  <a href="../../../reference/android/hardware/usb/package-summary.html">android.hardware.usb</a></li>
+    <li class="api apilevel-3">
+  <a href="../../../reference/android/inputmethodservice/package-summary.html">android.inputmethodservice</a></li>
+    <li class="selected api apilevel-1">
+  <a href="../../../reference/android/location/package-summary.html">android.location</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/media/package-summary.html">android.media</a></li>
+    <li class="api apilevel-9">
+  <a href="../../../reference/android/media/audiofx/package-summary.html">android.media.audiofx</a></li>
+    <li class="api apilevel-14">
+  <a href="../../../reference/android/media/effect/package-summary.html">android.media.effect</a></li>
+    <li class="api apilevel-12">
+  <a href="../../../reference/android/mtp/package-summary.html">android.mtp</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/net/package-summary.html">android.net</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/net/http/package-summary.html">android.net.http</a></li>
+    <li class="api apilevel-12">
+  <a href="../../../reference/android/net/rtp/package-summary.html">android.net.rtp</a></li>
+    <li class="api apilevel-9">
+  <a href="../../../reference/android/net/sip/package-summary.html">android.net.sip</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/net/wifi/package-summary.html">android.net.wifi</a></li>
+    <li class="api apilevel-14">
+  <a href="../../../reference/android/net/wifi/p2p/package-summary.html">android.net.wifi.p2p</a></li>
+    <li class="api apilevel-9">
+  <a href="../../../reference/android/nfc/package-summary.html">android.nfc</a></li>
+    <li class="api apilevel-10">
+  <a href="../../../reference/android/nfc/tech/package-summary.html">android.nfc.tech</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/opengl/package-summary.html">android.opengl</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/os/package-summary.html">android.os</a></li>
+    <li class="api apilevel-9">
+  <a href="../../../reference/android/os/storage/package-summary.html">android.os.storage</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/preference/package-summary.html">android.preference</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/provider/package-summary.html">android.provider</a></li>
+    <li class="api apilevel-11">
+  <a href="../../../reference/android/renderscript/package-summary.html">android.renderscript</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/sax/package-summary.html">android.sax</a></li>
+    <li class="api apilevel-14">
+  <a href="../../../reference/android/security/package-summary.html">android.security</a></li>
+    <li class="api apilevel-14">
+  <a href="../../../reference/android/service/textservice/package-summary.html">android.service.textservice</a></li>
+    <li class="api apilevel-7">
+  <a href="../../../reference/android/service/wallpaper/package-summary.html">android.service.wallpaper</a></li>
+    <li class="api apilevel-3">
+  <a href="../../../reference/android/speech/package-summary.html">android.speech</a></li>
+    <li class="api apilevel-4">
+  <a href="../../../reference/android/speech/tts/package-summary.html">android.speech.tts</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v13/app/package-summary.html">android.support.v13.app</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v4/accessibilityservice/package-summary.html">android.support.v4.accessibilityservice</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v4/app/package-summary.html">android.support.v4.app</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v4/content/package-summary.html">android.support.v4.content</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v4/content/pm/package-summary.html">android.support.v4.content.pm</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v4/database/package-summary.html">android.support.v4.database</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v4/os/package-summary.html">android.support.v4.os</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v4/util/package-summary.html">android.support.v4.util</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v4/view/package-summary.html">android.support.v4.view</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v4/view/accessibility/package-summary.html">android.support.v4.view.accessibility</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v4/widget/package-summary.html">android.support.v4.widget</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/telephony/package-summary.html">android.telephony</a></li>
+    <li class="api apilevel-5">
+  <a href="../../../reference/android/telephony/cdma/package-summary.html">android.telephony.cdma</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/telephony/gsm/package-summary.html">android.telephony.gsm</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/test/package-summary.html">android.test</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/test/mock/package-summary.html">android.test.mock</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/test/suitebuilder/package-summary.html">android.test.suitebuilder</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/text/package-summary.html">android.text</a></li>
+    <li class="api apilevel-3">
+  <a href="../../../reference/android/text/format/package-summary.html">android.text.format</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/text/method/package-summary.html">android.text.method</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/text/style/package-summary.html">android.text.style</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/text/util/package-summary.html">android.text.util</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/util/package-summary.html">android.util</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/view/package-summary.html">android.view</a></li>
+    <li class="api apilevel-4">
+  <a href="../../../reference/android/view/accessibility/package-summary.html">android.view.accessibility</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/view/animation/package-summary.html">android.view.animation</a></li>
+    <li class="api apilevel-3">
+  <a href="../../../reference/android/view/inputmethod/package-summary.html">android.view.inputmethod</a></li>
+    <li class="api apilevel-14">
+  <a href="../../../reference/android/view/textservice/package-summary.html">android.view.textservice</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/webkit/package-summary.html">android.webkit</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/widget/package-summary.html">android.widget</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/dalvik/bytecode/package-summary.html">dalvik.bytecode</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/dalvik/system/package-summary.html">dalvik.system</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/awt/font/package-summary.html">java.awt.font</a></li>
+    <li class="api apilevel-3">
+  <a href="../../../reference/java/beans/package-summary.html">java.beans</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/io/package-summary.html">java.io</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/lang/package-summary.html">java.lang</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/lang/annotation/package-summary.html">java.lang.annotation</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/lang/ref/package-summary.html">java.lang.ref</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/lang/reflect/package-summary.html">java.lang.reflect</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/math/package-summary.html">java.math</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/net/package-summary.html">java.net</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/nio/package-summary.html">java.nio</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/nio/channels/package-summary.html">java.nio.channels</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/nio/channels/spi/package-summary.html">java.nio.channels.spi</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/nio/charset/package-summary.html">java.nio.charset</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/nio/charset/spi/package-summary.html">java.nio.charset.spi</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/security/package-summary.html">java.security</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/security/acl/package-summary.html">java.security.acl</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/security/cert/package-summary.html">java.security.cert</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/security/interfaces/package-summary.html">java.security.interfaces</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/security/spec/package-summary.html">java.security.spec</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/sql/package-summary.html">java.sql</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/text/package-summary.html">java.text</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/util/package-summary.html">java.util</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/util/concurrent/package-summary.html">java.util.concurrent</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/util/concurrent/atomic/package-summary.html">java.util.concurrent.atomic</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/util/concurrent/locks/package-summary.html">java.util.concurrent.locks</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/util/jar/package-summary.html">java.util.jar</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/util/logging/package-summary.html">java.util.logging</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/util/prefs/package-summary.html">java.util.prefs</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/util/regex/package-summary.html">java.util.regex</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/util/zip/package-summary.html">java.util.zip</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/javax/crypto/package-summary.html">javax.crypto</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/javax/crypto/interfaces/package-summary.html">javax.crypto.interfaces</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/javax/crypto/spec/package-summary.html">javax.crypto.spec</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/javax/microedition/khronos/egl/package-summary.html">javax.microedition.khronos.egl</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/javax/microedition/khronos/opengles/package-summary.html">javax.microedition.khronos.opengles</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/javax/net/package-summary.html">javax.net</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/javax/net/ssl/package-summary.html">javax.net.ssl</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/javax/security/auth/package-summary.html">javax.security.auth</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/javax/security/auth/callback/package-summary.html">javax.security.auth.callback</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/javax/security/auth/login/package-summary.html">javax.security.auth.login</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/javax/security/auth/x500/package-summary.html">javax.security.auth.x500</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/javax/security/cert/package-summary.html">javax.security.cert</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/javax/sql/package-summary.html">javax.sql</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/javax/xml/package-summary.html">javax.xml</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../reference/javax/xml/datatype/package-summary.html">javax.xml.datatype</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../reference/javax/xml/namespace/package-summary.html">javax.xml.namespace</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/javax/xml/parsers/package-summary.html">javax.xml.parsers</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../reference/javax/xml/transform/package-summary.html">javax.xml.transform</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../reference/javax/xml/transform/dom/package-summary.html">javax.xml.transform.dom</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../reference/javax/xml/transform/sax/package-summary.html">javax.xml.transform.sax</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../reference/javax/xml/transform/stream/package-summary.html">javax.xml.transform.stream</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../reference/javax/xml/validation/package-summary.html">javax.xml.validation</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../reference/javax/xml/xpath/package-summary.html">javax.xml.xpath</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/junit/framework/package-summary.html">junit.framework</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/junit/runner/package-summary.html">junit.runner</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/package-summary.html">org.apache.http</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/auth/package-summary.html">org.apache.http.auth</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/auth/params/package-summary.html">org.apache.http.auth.params</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/client/package-summary.html">org.apache.http.client</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/client/entity/package-summary.html">org.apache.http.client.entity</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/client/methods/package-summary.html">org.apache.http.client.methods</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/client/params/package-summary.html">org.apache.http.client.params</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/client/protocol/package-summary.html">org.apache.http.client.protocol</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/client/utils/package-summary.html">org.apache.http.client.utils</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/conn/package-summary.html">org.apache.http.conn</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/conn/params/package-summary.html">org.apache.http.conn.params</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/conn/routing/package-summary.html">org.apache.http.conn.routing</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/conn/scheme/package-summary.html">org.apache.http.conn.scheme</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/conn/ssl/package-summary.html">org.apache.http.conn.ssl</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/conn/util/package-summary.html">org.apache.http.conn.util</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/cookie/package-summary.html">org.apache.http.cookie</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/cookie/params/package-summary.html">org.apache.http.cookie.params</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/entity/package-summary.html">org.apache.http.entity</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/impl/package-summary.html">org.apache.http.impl</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/impl/auth/package-summary.html">org.apache.http.impl.auth</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/impl/client/package-summary.html">org.apache.http.impl.client</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/impl/conn/package-summary.html">org.apache.http.impl.conn</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/impl/conn/tsccm/package-summary.html">org.apache.http.impl.conn.tsccm</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/impl/cookie/package-summary.html">org.apache.http.impl.cookie</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/impl/entity/package-summary.html">org.apache.http.impl.entity</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/impl/io/package-summary.html">org.apache.http.impl.io</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/io/package-summary.html">org.apache.http.io</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/message/package-summary.html">org.apache.http.message</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/params/package-summary.html">org.apache.http.params</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/protocol/package-summary.html">org.apache.http.protocol</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/util/package-summary.html">org.apache.http.util</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/json/package-summary.html">org.json</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/w3c/dom/package-summary.html">org.w3c.dom</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../reference/org/w3c/dom/ls/package-summary.html">org.w3c.dom.ls</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/xml/sax/package-summary.html">org.xml.sax</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/xml/sax/ext/package-summary.html">org.xml.sax.ext</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/xml/sax/helpers/package-summary.html">org.xml.sax.helpers</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/xmlpull/v1/package-summary.html">org.xmlpull.v1</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/xmlpull/v1/sax2/package-summary.html">org.xmlpull.v1.sax2</a></li>
+              </ul><br/>
+            </div> <!-- end packages -->
+          </div> <!-- end resize-packages -->
+          <div id="classes-nav">
+            <ul>
+              
+    <li><h2>Interfaces</h2>
+      <ul>
+          <li class="api apilevel-3"><a href="../../../reference/android/location/GpsStatus.Listener.html">GpsStatus.Listener</a></li>
+          <li class="api apilevel-5"><a href="../../../reference/android/location/GpsStatus.NmeaListener.html">GpsStatus.NmeaListener</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/location/LocationListener.html">LocationListener</a></li>
+      </ul>
+    </li>
+              
+    <li><h2>Classes</h2>
+      <ul>
+          <li class="api apilevel-1"><a href="../../../reference/android/location/Address.html">Address</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/location/Criteria.html">Criteria</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/location/Geocoder.html">Geocoder</a></li>
+          <li class="api apilevel-3"><a href="../../../reference/android/location/GpsSatellite.html">GpsSatellite</a></li>
+          <li class="api apilevel-3"><a href="../../../reference/android/location/GpsStatus.html">GpsStatus</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/location/Location.html">Location</a></li>
+          <li class="selected api apilevel-1"><a href="../../../reference/android/location/LocationManager.html">LocationManager</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/location/LocationProvider.html">LocationProvider</a></li>
+      </ul>
+    </li>
+              
+              
+              
+            </ul><br/>
+          </div><!-- end classes -->
+        </div><!-- end nav-panels -->
+        <div id="nav-tree" style="display:none">
+          <div id="index-links"><nobr>
+            <a href="../../../reference/packages.html"  >Package Index</a> | 
+            <a href="../../../reference/classes.html" >Class Index</a></nobr>
+          </div>
+        </div><!-- end nav-tree -->
+      </div><!-- end swapper -->
+    </div> <!-- end side-nav -->
+    <script>
+      if (!isMobile) {
+        $("<a href='#' id='nav-swap' onclick='swapNav();return false;' style='font-size:10px;line-height:9px;margin-left:1em;text-decoration:none;'><span id='tree-link'>Use Tree Navigation</span><span id='panel-link' style='display:none'>Use Panel Navigation</span></a>").appendTo("#side-nav");
+        chooseDefaultNav();
+        if ($("#nav-tree").is(':visible')) {
+          init_default_navtree("../../../");
+        } else {
+          addLoadEvent(function() {
+            scrollIntoView("packages-nav");
+            scrollIntoView("classes-nav");
+          });
+        }
+        $("#swapper").css({borderBottom:"2px solid #aaa"});
+      } else {
+        swapNav(); // tree view should be used on mobile
+      }
+    </script>
+
+
+
+<div class="g-unit" id="doc-content">
+
+<div id="api-info-block">
+
+
+
+  
+   
+  
+  
+  
+  
+
+
+<div class="sum-details-links">
+
+Summary:
+
+
+
+
+
+  <a href="#constants">Constants</a>
+  
+
+
+
+
+
+
+
+  &#124; <a href="#pubmethods">Methods</a>
+  
+
+
+
+  &#124; <a href="#inhmethods">Inherited Methods</a>
+
+&#124; <a href="#" onclick="return toggleAllClassInherited()" id="toggleAllClassInherited">[Expand All]</a>
+
+</div><!-- end sum-details-links -->
+<div class="api-level">
+  
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+
+  
+  
+
+</div>
+</div><!-- end api-info-block -->
+
+
+<!-- ======== START OF CLASS DATA ======== -->
+
+<div id="jd-header">
+    public
+     
+     
+    
+    class
+<h1 itemprop="name">LocationManager</h1>
+
+
+
+  
+    extends <a href="../../../reference/java/lang/Object.html">Object</a><br/>
+  
+  
+  
+
+  
+  
+  
+
+
+</div><!-- end header -->
+
+<div id="naMessage"></div>
+
+<div id="jd-content" class="api apilevel-1">
+<table class="jd-inheritance-table">
+
+
+    <tr>
+         	
+        <td colspan="2" class="jd-inheritance-class-cell"><a href="../../../reference/java/lang/Object.html">java.lang.Object</a></td>
+    </tr>
+    
+
+    <tr>
+        
+            <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
+         	
+        <td colspan="1" class="jd-inheritance-class-cell">android.location.LocationManager</td>
+    </tr>
+    
+
+</table>
+
+
+
+
+
+
+
+<div class="jd-descr">
+
+
+<h2>Class Overview</h2>
+<p itemprop="articleBody">This class provides access to the system location services.  These
+ services allow applications to obtain periodic updates of the
+ device's geographical location, or to fire an application-specified
+ <code><a href="../../../reference/android/content/Intent.html">Intent</a></code> when the device enters the proximity of a given
+ geographical location.
+
+ <p>You do not
+ instantiate this class directly; instead, retrieve it through
+ <code><a href="../../../reference/android/content/Context.html#getSystemService(java.lang.String)">Context.getSystemService(Context.LOCATION_SERVICE)</a></code>.
+
+ <div class="special reference">
+ <h3>Developer Guides</h3>
+ <p>For more information about using location services, read the
+ <a href="../../../guide/topics/location/index.html">Location and Maps</a>
+ developer guide.</p>
+ </div>
+</p>
+
+
+
+
+
+</div><!-- jd-descr -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="jd-descr">
+
+
+<h2>Summary</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- =========== ENUM CONSTANT SUMMARY =========== -->
+<table id="constants" class="jd-sumtable"><tr><th colspan="12">Constants</th></tr>
+
+
+    
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/location/LocationManager.html#GPS_PROVIDER">GPS_PROVIDER</a></td>
+        <td class="jd-descrcol" width="100%">Name of the GPS location provider.</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-3" >
+        <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/location/LocationManager.html#KEY_LOCATION_CHANGED">KEY_LOCATION_CHANGED</a></td>
+        <td class="jd-descrcol" width="100%">Key used for a Bundle extra holding a Location value
+ when a location change is broadcast using a PendingIntent.</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-3" >
+        <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/location/LocationManager.html#KEY_PROVIDER_ENABLED">KEY_PROVIDER_ENABLED</a></td>
+        <td class="jd-descrcol" width="100%">Key used for a Bundle extra holding an Boolean status value
+ when a provider enabled/disabled event is broadcast using a PendingIntent.</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/location/LocationManager.html#KEY_PROXIMITY_ENTERING">KEY_PROXIMITY_ENTERING</a></td>
+        <td class="jd-descrcol" width="100%">Key used for the Bundle extra holding a boolean indicating whether
+ a proximity alert is entering (true) or exiting (false)..</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-3" >
+        <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/location/LocationManager.html#KEY_STATUS_CHANGED">KEY_STATUS_CHANGED</a></td>
+        <td class="jd-descrcol" width="100%">Key used for a Bundle extra holding an Integer status value
+ when a status change is broadcast using a PendingIntent.</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/location/LocationManager.html#NETWORK_PROVIDER">NETWORK_PROVIDER</a></td>
+        <td class="jd-descrcol" width="100%">Name of the network location provider.</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-8" >
+        <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/location/LocationManager.html#PASSIVE_PROVIDER">PASSIVE_PROVIDER</a></td>
+        <td class="jd-descrcol" width="100%">A special location provider for receiving locations without actually initiating
+ a location fix.</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-9" >
+        <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/location/LocationManager.html#PROVIDERS_CHANGED_ACTION">PROVIDERS_CHANGED_ACTION</a></td>
+        <td class="jd-descrcol" width="100%">Broadcast intent action when the configured location providers
+ change.</td>
+    </tr>
+    
+    
+
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ========== METHOD SUMMARY =========== -->
+<table id="pubmethods" class="jd-sumtable"><tr><th colspan="12">Public Methods</th></tr>
+
+
+
+	 
+    <tr class="alt-color api apilevel-3" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/location/LocationManager.html#addGpsStatusListener(android.location.GpsStatus.Listener)">addGpsStatusListener</a></span>(<a href="../../../reference/android/location/GpsStatus.Listener.html">GpsStatus.Listener</a> listener)</nobr>
+        
+        <div class="jd-descrdiv">Adds a GPS status listener.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-5" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/location/LocationManager.html#addNmeaListener(android.location.GpsStatus.NmeaListener)">addNmeaListener</a></span>(<a href="../../../reference/android/location/GpsStatus.NmeaListener.html">GpsStatus.NmeaListener</a> listener)</nobr>
+        
+        <div class="jd-descrdiv">Adds an NMEA listener.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/location/LocationManager.html#addProximityAlert(double, double, float, long, android.app.PendingIntent)">addProximityAlert</a></span>(double latitude, double longitude, float radius, long expiration, <a href="../../../reference/android/app/PendingIntent.html">PendingIntent</a> intent)</nobr>
+        
+        <div class="jd-descrdiv">Sets a proximity alert for the location given by the position
+ (latitude, longitude) and the given radius.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-3" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/location/LocationManager.html#addTestProvider(java.lang.String, boolean, boolean, boolean, boolean, boolean, boolean, boolean, int, int)">addTestProvider</a></span>(<a href="../../../reference/java/lang/String.html">String</a> name, boolean requiresNetwork, boolean requiresSatellite, boolean requiresCell, boolean hasMonetaryCost, boolean supportsAltitude, boolean supportsSpeed, boolean supportsBearing, int powerRequirement, int accuracy)</nobr>
+        
+        <div class="jd-descrdiv">Creates a mock location provider and adds it to the set of active providers.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-3" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/location/LocationManager.html#clearTestProviderEnabled(java.lang.String)">clearTestProviderEnabled</a></span>(<a href="../../../reference/java/lang/String.html">String</a> provider)</nobr>
+        
+        <div class="jd-descrdiv">Removes any mock enabled value associated with the given provider.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-3" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/location/LocationManager.html#clearTestProviderLocation(java.lang.String)">clearTestProviderLocation</a></span>(<a href="../../../reference/java/lang/String.html">String</a> provider)</nobr>
+        
+        <div class="jd-descrdiv">Removes any mock location associated with the given provider.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-3" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/location/LocationManager.html#clearTestProviderStatus(java.lang.String)">clearTestProviderStatus</a></span>(<a href="../../../reference/java/lang/String.html">String</a> provider)</nobr>
+        
+        <div class="jd-descrdiv">Removes any mock status values associated with the given provider.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../reference/java/util/List.html">List</a>&lt;<a href="../../../reference/java/lang/String.html">String</a>&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/location/LocationManager.html#getAllProviders()">getAllProviders</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Returns a list of the names of all known location providers.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../reference/java/lang/String.html">String</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/location/LocationManager.html#getBestProvider(android.location.Criteria, boolean)">getBestProvider</a></span>(<a href="../../../reference/android/location/Criteria.html">Criteria</a> criteria, boolean enabledOnly)</nobr>
+        
+        <div class="jd-descrdiv">Returns the name of the provider that best meets the given criteria.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-3" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../reference/android/location/GpsStatus.html">GpsStatus</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/location/LocationManager.html#getGpsStatus(android.location.GpsStatus)">getGpsStatus</a></span>(<a href="../../../reference/android/location/GpsStatus.html">GpsStatus</a> status)</nobr>
+        
+        <div class="jd-descrdiv">Retrieves information about the current status of the GPS engine.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../reference/android/location/Location.html">Location</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/location/LocationManager.html#getLastKnownLocation(java.lang.String)">getLastKnownLocation</a></span>(<a href="../../../reference/java/lang/String.html">String</a> provider)</nobr>
+        
+        <div class="jd-descrdiv">Returns a Location indicating the data from the last known
+ location fix obtained from the given provider.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../reference/android/location/LocationProvider.html">LocationProvider</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/location/LocationManager.html#getProvider(java.lang.String)">getProvider</a></span>(<a href="../../../reference/java/lang/String.html">String</a> name)</nobr>
+        
+        <div class="jd-descrdiv">Returns the information associated with the location provider of the
+ given name, or null if no provider exists by that name.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../reference/java/util/List.html">List</a>&lt;<a href="../../../reference/java/lang/String.html">String</a>&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/location/LocationManager.html#getProviders(boolean)">getProviders</a></span>(boolean enabledOnly)</nobr>
+        
+        <div class="jd-descrdiv">Returns a list of the names of location providers.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../reference/java/util/List.html">List</a>&lt;<a href="../../../reference/java/lang/String.html">String</a>&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/location/LocationManager.html#getProviders(android.location.Criteria, boolean)">getProviders</a></span>(<a href="../../../reference/android/location/Criteria.html">Criteria</a> criteria, boolean enabledOnly)</nobr>
+        
+        <div class="jd-descrdiv">Returns a list of the names of LocationProviders that satisfy the given
+ criteria, or null if none do.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/location/LocationManager.html#isProviderEnabled(java.lang.String)">isProviderEnabled</a></span>(<a href="../../../reference/java/lang/String.html">String</a> provider)</nobr>
+        
+        <div class="jd-descrdiv">Returns the current enabled/disabled status of the given provider.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-3" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/location/LocationManager.html#removeGpsStatusListener(android.location.GpsStatus.Listener)">removeGpsStatusListener</a></span>(<a href="../../../reference/android/location/GpsStatus.Listener.html">GpsStatus.Listener</a> listener)</nobr>
+        
+        <div class="jd-descrdiv">Removes a GPS status listener.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-5" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/location/LocationManager.html#removeNmeaListener(android.location.GpsStatus.NmeaListener)">removeNmeaListener</a></span>(<a href="../../../reference/android/location/GpsStatus.NmeaListener.html">GpsStatus.NmeaListener</a> listener)</nobr>
+        
+        <div class="jd-descrdiv">Removes an NMEA listener.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/location/LocationManager.html#removeProximityAlert(android.app.PendingIntent)">removeProximityAlert</a></span>(<a href="../../../reference/android/app/PendingIntent.html">PendingIntent</a> intent)</nobr>
+        
+        <div class="jd-descrdiv">Removes the proximity alert with the given PendingIntent.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-3" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/location/LocationManager.html#removeTestProvider(java.lang.String)">removeTestProvider</a></span>(<a href="../../../reference/java/lang/String.html">String</a> provider)</nobr>
+        
+        <div class="jd-descrdiv">Removes the mock location provider with the given name.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-3" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/location/LocationManager.html#removeUpdates(android.app.PendingIntent)">removeUpdates</a></span>(<a href="../../../reference/android/app/PendingIntent.html">PendingIntent</a> intent)</nobr>
+        
+        <div class="jd-descrdiv">Removes any current registration for location updates of the current activity
+ with the given PendingIntent.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/location/LocationManager.html#removeUpdates(android.location.LocationListener)">removeUpdates</a></span>(<a href="../../../reference/android/location/LocationListener.html">LocationListener</a> listener)</nobr>
+        
+        <div class="jd-descrdiv">Removes any current registration for location updates of the current activity
+ with the given LocationListener.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-9" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/location/LocationManager.html#requestLocationUpdates(long, float, android.location.Criteria, android.app.PendingIntent)">requestLocationUpdates</a></span>(long minTime, float minDistance, <a href="../../../reference/android/location/Criteria.html">Criteria</a> criteria, <a href="../../../reference/android/app/PendingIntent.html">PendingIntent</a> intent)</nobr>
+        
+        <div class="jd-descrdiv">Registers the current activity to be notified periodically based on
+ the specified criteria.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-9" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/location/LocationManager.html#requestLocationUpdates(long, float, android.location.Criteria, android.location.LocationListener, android.os.Looper)">requestLocationUpdates</a></span>(long minTime, float minDistance, <a href="../../../reference/android/location/Criteria.html">Criteria</a> criteria, <a href="../../../reference/android/location/LocationListener.html">LocationListener</a> listener, <a href="../../../reference/android/os/Looper.html">Looper</a> looper)</nobr>
+        
+        <div class="jd-descrdiv">Registers the current activity to be notified periodically based on
+ the specified criteria.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/location/LocationManager.html#requestLocationUpdates(java.lang.String, long, float, android.location.LocationListener)">requestLocationUpdates</a></span>(<a href="../../../reference/java/lang/String.html">String</a> provider, long minTime, float minDistance, <a href="../../../reference/android/location/LocationListener.html">LocationListener</a> listener)</nobr>
+        
+        <div class="jd-descrdiv">Registers the current activity to be notified periodically by
+ the named provider.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/location/LocationManager.html#requestLocationUpdates(java.lang.String, long, float, android.location.LocationListener, android.os.Looper)">requestLocationUpdates</a></span>(<a href="../../../reference/java/lang/String.html">String</a> provider, long minTime, float minDistance, <a href="../../../reference/android/location/LocationListener.html">LocationListener</a> listener, <a href="../../../reference/android/os/Looper.html">Looper</a> looper)</nobr>
+        
+        <div class="jd-descrdiv">Registers the current activity to be notified periodically by
+ the named provider.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-3" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/location/LocationManager.html#requestLocationUpdates(java.lang.String, long, float, android.app.PendingIntent)">requestLocationUpdates</a></span>(<a href="../../../reference/java/lang/String.html">String</a> provider, long minTime, float minDistance, <a href="../../../reference/android/app/PendingIntent.html">PendingIntent</a> intent)</nobr>
+        
+        <div class="jd-descrdiv">Registers the current activity to be notified periodically by
+ the named provider.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-9" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/location/LocationManager.html#requestSingleUpdate(java.lang.String, android.location.LocationListener, android.os.Looper)">requestSingleUpdate</a></span>(<a href="../../../reference/java/lang/String.html">String</a> provider, <a href="../../../reference/android/location/LocationListener.html">LocationListener</a> listener, <a href="../../../reference/android/os/Looper.html">Looper</a> looper)</nobr>
+        
+        <div class="jd-descrdiv">Requests a single location update from the named provider.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-9" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/location/LocationManager.html#requestSingleUpdate(android.location.Criteria, android.location.LocationListener, android.os.Looper)">requestSingleUpdate</a></span>(<a href="../../../reference/android/location/Criteria.html">Criteria</a> criteria, <a href="../../../reference/android/location/LocationListener.html">LocationListener</a> listener, <a href="../../../reference/android/os/Looper.html">Looper</a> looper)</nobr>
+        
+        <div class="jd-descrdiv">Requests a single location update based on the specified criteria.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-9" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/location/LocationManager.html#requestSingleUpdate(java.lang.String, android.app.PendingIntent)">requestSingleUpdate</a></span>(<a href="../../../reference/java/lang/String.html">String</a> provider, <a href="../../../reference/android/app/PendingIntent.html">PendingIntent</a> intent)</nobr>
+        
+        <div class="jd-descrdiv">Requests a single location update from the named provider.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-9" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/location/LocationManager.html#requestSingleUpdate(android.location.Criteria, android.app.PendingIntent)">requestSingleUpdate</a></span>(<a href="../../../reference/android/location/Criteria.html">Criteria</a> criteria, <a href="../../../reference/android/app/PendingIntent.html">PendingIntent</a> intent)</nobr>
+        
+        <div class="jd-descrdiv">Requests a single location update based on the specified criteria.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-3" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/location/LocationManager.html#sendExtraCommand(java.lang.String, java.lang.String, android.os.Bundle)">sendExtraCommand</a></span>(<a href="../../../reference/java/lang/String.html">String</a> provider, <a href="../../../reference/java/lang/String.html">String</a> command, <a href="../../../reference/android/os/Bundle.html">Bundle</a> extras)</nobr>
+        
+        <div class="jd-descrdiv">Sends additional commands to a location provider.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-3" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/location/LocationManager.html#setTestProviderEnabled(java.lang.String, boolean)">setTestProviderEnabled</a></span>(<a href="../../../reference/java/lang/String.html">String</a> provider, boolean enabled)</nobr>
+        
+        <div class="jd-descrdiv">Sets a mock enabled value for the given provider.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-3" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/location/LocationManager.html#setTestProviderLocation(java.lang.String, android.location.Location)">setTestProviderLocation</a></span>(<a href="../../../reference/java/lang/String.html">String</a> provider, <a href="../../../reference/android/location/Location.html">Location</a> loc)</nobr>
+        
+        <div class="jd-descrdiv">Sets a mock location for the given provider.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-3" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/location/LocationManager.html#setTestProviderStatus(java.lang.String, int, android.os.Bundle, long)">setTestProviderStatus</a></span>(<a href="../../../reference/java/lang/String.html">String</a> provider, int status, <a href="../../../reference/android/os/Bundle.html">Bundle</a> extras, long updateTime)</nobr>
+        
+        <div class="jd-descrdiv">Sets mock status values for the given provider.</div>
+  
+  </td></tr>
+
+
+
+</table>
+
+
+
+
+
+
+
+<!-- ========== METHOD SUMMARY =========== -->
+<table id="inhmethods" class="jd-sumtable"><tr><th>
+  <a href="#" class="toggle-all" onclick="return toggleAllInherited(this, null)">[Expand]</a>
+  <div style="clear:left;">Inherited Methods</div></th></tr>
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-java.lang.Object" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-java.lang.Object-trigger"
+          src="../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From class
+
+  <a href="../../../reference/java/lang/Object.html">java.lang.Object</a>
+
+<div id="inherited-methods-java.lang.Object">
+  <div id="inherited-methods-java.lang.Object-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-java.lang.Object-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../reference/java/lang/Object.html">Object</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/java/lang/Object.html#clone()">clone</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Creates and returns a copy of this <code>Object</code>.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/java/lang/Object.html#equals(java.lang.Object)">equals</a></span>(<a href="../../../reference/java/lang/Object.html">Object</a> o)</nobr>
+        
+        <div class="jd-descrdiv">Compares this instance with the specified object and indicates if they
+ are equal.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/java/lang/Object.html#finalize()">finalize</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Invoked when the garbage collector has detected that this instance is no longer reachable.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            <a href="../../../reference/java/lang/Class.html">Class</a>&lt;?&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/java/lang/Object.html#getClass()">getClass</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Returns the unique instance of <code><a href="../../../reference/java/lang/Class.html">Class</a></code> that represents this
+ object's class.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/java/lang/Object.html#hashCode()">hashCode</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Returns an integer hash code for this object.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/java/lang/Object.html#notify()">notify</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Causes a thread which is waiting on this object's monitor (by means of
+ calling one of the <code>wait()</code> methods) to be woken up.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/java/lang/Object.html#notifyAll()">notifyAll</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Causes all threads which are waiting on this object's monitor (by means
+ of calling one of the <code>wait()</code> methods) to be woken up.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../reference/java/lang/String.html">String</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/java/lang/Object.html#toString()">toString</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Returns a string containing a concise, human-readable description of this
+ object.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/java/lang/Object.html#wait()">wait</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/java/lang/Object.html#wait(long, int)">wait</a></span>(long millis, int nanos)</nobr>
+        
+        <div class="jd-descrdiv">Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
+ specified timeout expires.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/java/lang/Object.html#wait(long)">wait</a></span>(long millis)</nobr>
+        
+        <div class="jd-descrdiv">Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
+ specified timeout expires.</div>
+  
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+</table>
+
+
+</div><!-- jd-descr (summary) -->
+
+<!-- Details -->
+
+
+
+
+
+
+
+
+<!-- XML Attributes -->
+
+
+<!-- Enum Values -->
+
+
+<!-- Constants -->
+
+
+<!-- ========= ENUM CONSTANTS DETAIL ======== -->
+<h2>Constants</h2>
+
+
+
+
+<A NAME="GPS_PROVIDER"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../reference/java/lang/String.html">String</a>
+      </span>
+        GPS_PROVIDER
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Name of the GPS location provider. This provider determines location using
+ satellites. Depending on conditions, this provider may take a while to return
+ a location fix.
+
+ Requires the permission android.permission.ACCESS_FINE_LOCATION.
+
+ <p> The extras Bundle for the GPS location provider can contain the
+ following key/value pairs:
+
+ <ul>
+ <li> satellites - the number of satellites used to derive the fix
+ </ul>
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                "gps"
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="KEY_LOCATION_CHANGED"></A>
+
+<div class="jd-details api apilevel-3"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../reference/java/lang/String.html">String</a>
+      </span>
+        KEY_LOCATION_CHANGED
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level3">API Level 3</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Key used for a Bundle extra holding a Location value
+ when a location change is broadcast using a PendingIntent.
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                "location"
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="KEY_PROVIDER_ENABLED"></A>
+
+<div class="jd-details api apilevel-3"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../reference/java/lang/String.html">String</a>
+      </span>
+        KEY_PROVIDER_ENABLED
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level3">API Level 3</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Key used for a Bundle extra holding an Boolean status value
+ when a provider enabled/disabled event is broadcast using a PendingIntent.
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                "providerEnabled"
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="KEY_PROXIMITY_ENTERING"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../reference/java/lang/String.html">String</a>
+      </span>
+        KEY_PROXIMITY_ENTERING
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Key used for the Bundle extra holding a boolean indicating whether
+ a proximity alert is entering (true) or exiting (false)..
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                "entering"
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="KEY_STATUS_CHANGED"></A>
+
+<div class="jd-details api apilevel-3"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../reference/java/lang/String.html">String</a>
+      </span>
+        KEY_STATUS_CHANGED
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level3">API Level 3</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Key used for a Bundle extra holding an Integer status value
+ when a status change is broadcast using a PendingIntent.
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                "status"
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="NETWORK_PROVIDER"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../reference/java/lang/String.html">String</a>
+      </span>
+        NETWORK_PROVIDER
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Name of the network location provider.  This provider determines location based on
+ availability of cell tower and WiFi access points. Results are retrieved
+ by means of a network lookup.
+
+ Requires either of the permissions android.permission.ACCESS_COARSE_LOCATION
+ or android.permission.ACCESS_FINE_LOCATION.
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                "network"
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="PASSIVE_PROVIDER"></A>
+
+<div class="jd-details api apilevel-8"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../reference/java/lang/String.html">String</a>
+      </span>
+        PASSIVE_PROVIDER
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level8">API Level 8</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>A special location provider for receiving locations without actually initiating
+ a location fix. This provider can be used to passively receive location updates
+ when other applications or services request them without actually requesting
+ the locations yourself.  This provider will return locations generated by other
+ providers.  You can query the <code><a href="../../../reference/android/location/Location.html#getProvider()">getProvider()</a></code> method to determine
+ the origin of the location update.
+
+ Requires the permission android.permission.ACCESS_FINE_LOCATION, although if the GPS
+ is not enabled this provider might only return coarse fixes.
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                "passive"
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="PROVIDERS_CHANGED_ACTION"></A>
+
+<div class="jd-details api apilevel-9"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../reference/java/lang/String.html">String</a>
+      </span>
+        PROVIDERS_CHANGED_ACTION
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level9">API Level 9</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Broadcast intent action when the configured location providers
+ change.
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                "android.location.PROVIDERS_CHANGED"
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+
+<!-- Fields -->
+
+
+<!-- Public ctors -->
+
+
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<!-- Protected ctors -->
+
+
+
+<!-- ========= METHOD DETAIL ======== -->
+<!-- Public methdos -->
+
+<h2>Public Methods</h2>
+
+
+
+<A NAME="addGpsStatusListener(android.location.GpsStatus.Listener)"></A>
+
+<div class="jd-details api apilevel-3"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        boolean
+      </span>
+      <span class="sympad">addGpsStatusListener</span>
+      <span class="normal">(<a href="../../../reference/android/location/GpsStatus.Listener.html">GpsStatus.Listener</a> listener)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level3">API Level 3</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Adds a GPS status listener.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>listener</td>
+          <td>GPS status listener object to register</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>true if the listener was successfully added</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="../../../reference/java/lang/SecurityException.html">SecurityException</a></td>
+            <td>if the ACCESS_FINE_LOCATION permission is not present
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="addNmeaListener(android.location.GpsStatus.NmeaListener)"></A>
+
+<div class="jd-details api apilevel-5"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        boolean
+      </span>
+      <span class="sympad">addNmeaListener</span>
+      <span class="normal">(<a href="../../../reference/android/location/GpsStatus.NmeaListener.html">GpsStatus.NmeaListener</a> listener)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level5">API Level 5</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Adds an NMEA listener.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>listener</td>
+          <td>a {#link GpsStatus.NmeaListener} object to register</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>true if the listener was successfully added</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="../../../reference/java/lang/SecurityException.html">SecurityException</a></td>
+            <td>if the ACCESS_FINE_LOCATION permission is not present
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="addProximityAlert(double, double, float, long, android.app.PendingIntent)"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">addProximityAlert</span>
+      <span class="normal">(double latitude, double longitude, float radius, long expiration, <a href="../../../reference/android/app/PendingIntent.html">PendingIntent</a> intent)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets a proximity alert for the location given by the position
+ (latitude, longitude) and the given radius.  When the device
+ detects that it has entered or exited the area surrounding the
+ location, the given PendingIntent will be used to create an Intent
+ to be fired.
+
+ <p> The fired Intent will have a boolean extra added with key
+ <code><a href="../../../reference/android/location/LocationManager.html#KEY_PROXIMITY_ENTERING">KEY_PROXIMITY_ENTERING</a></code>. If the value is true, the device is
+ entering the proximity region; if false, it is exiting.
+
+ <p> Due to the approximate nature of position estimation, if the
+ device passes through the given area briefly, it is possible
+ that no Intent will be fired.  Similarly, an Intent could be
+ fired if the device passes very close to the given area but
+ does not actually enter it.
+
+ <p> After the number of milliseconds given by the expiration
+ parameter, the location manager will delete this proximity
+ alert and no longer monitor it.  A value of -1 indicates that
+ there should be no expiration time.
+
+ <p> In case the screen goes to sleep, checks for proximity alerts
+ happen only once every 4 minutes. This conserves battery life by
+ ensuring that the device isn't perpetually awake.
+
+ <p> Internally, this method uses both <code><a href="../../../reference/android/location/LocationManager.html#NETWORK_PROVIDER">NETWORK_PROVIDER</a></code>
+ and <code><a href="../../../reference/android/location/LocationManager.html#GPS_PROVIDER">GPS_PROVIDER</a></code>.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>latitude</td>
+          <td>the latitude of the central point of the
+ alert region</td>
+        </tr>
+        <tr>
+          <th>longitude</td>
+          <td>the longitude of the central point of the
+ alert region</td>
+        </tr>
+        <tr>
+          <th>radius</td>
+          <td>the radius of the central point of the
+ alert region, in meters</td>
+        </tr>
+        <tr>
+          <th>expiration</td>
+          <td>time for this proximity alert, in milliseconds,
+ or -1 to indicate no expiration</td>
+        </tr>
+        <tr>
+          <th>intent</td>
+          <td>a PendingIntent that will be used to generate an Intent to
+ fire when entry to or exit from the alert region is detected</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="../../../reference/java/lang/SecurityException.html">SecurityException</a></td>
+            <td>if no permission exists for the required
+ providers.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="addTestProvider(java.lang.String, boolean, boolean, boolean, boolean, boolean, boolean, boolean, int, int)"></A>
+
+<div class="jd-details api apilevel-3"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">addTestProvider</span>
+      <span class="normal">(<a href="../../../reference/java/lang/String.html">String</a> name, boolean requiresNetwork, boolean requiresSatellite, boolean requiresCell, boolean hasMonetaryCost, boolean supportsAltitude, boolean supportsSpeed, boolean supportsBearing, int powerRequirement, int accuracy)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level3">API Level 3</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Creates a mock location provider and adds it to the set of active providers.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>name</td>
+          <td>the provider name</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="../../../reference/java/lang/SecurityException.html">SecurityException</a></td>
+            <td>if the ACCESS_MOCK_LOCATION permission is not present
+ or the <code><a href="../../../reference/android/provider/Settings.Secure.html#ALLOW_MOCK_LOCATION">Settings.Secure.ALLOW_MOCK_LOCATION</a></code> system setting is not enabled</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../reference/java/lang/IllegalArgumentException.html">IllegalArgumentException</a></td>
+            <td>if a provider with the given name already exists
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="clearTestProviderEnabled(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-3"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">clearTestProviderEnabled</span>
+      <span class="normal">(<a href="../../../reference/java/lang/String.html">String</a> provider)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level3">API Level 3</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Removes any mock enabled value associated with the given provider.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>provider</td>
+          <td>the provider name</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="../../../reference/java/lang/SecurityException.html">SecurityException</a></td>
+            <td>if the ACCESS_MOCK_LOCATION permission is not present
+ or the <code><a href="../../../reference/android/provider/Settings.Secure.html#ALLOW_MOCK_LOCATION">Settings.Secure.ALLOW_MOCK_LOCATION</a></code>} system setting is not enabled</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../reference/java/lang/IllegalArgumentException.html">IllegalArgumentException</a></td>
+            <td>if no provider with the given name exists
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="clearTestProviderLocation(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-3"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">clearTestProviderLocation</span>
+      <span class="normal">(<a href="../../../reference/java/lang/String.html">String</a> provider)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level3">API Level 3</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Removes any mock location associated with the given provider.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>provider</td>
+          <td>the provider name</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="../../../reference/java/lang/SecurityException.html">SecurityException</a></td>
+            <td>if the ACCESS_MOCK_LOCATION permission is not present
+ or the <code><a href="../../../reference/android/provider/Settings.Secure.html#ALLOW_MOCK_LOCATION">Settings.Secure.ALLOW_MOCK_LOCATION</a></code>} system setting is not enabled</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../reference/java/lang/IllegalArgumentException.html">IllegalArgumentException</a></td>
+            <td>if no provider with the given name exists
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="clearTestProviderStatus(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-3"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">clearTestProviderStatus</span>
+      <span class="normal">(<a href="../../../reference/java/lang/String.html">String</a> provider)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level3">API Level 3</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Removes any mock status values associated with the given provider.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>provider</td>
+          <td>the provider name</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="../../../reference/java/lang/SecurityException.html">SecurityException</a></td>
+            <td>if the ACCESS_MOCK_LOCATION permission is not present
+ or the <code><a href="../../../reference/android/provider/Settings.Secure.html#ALLOW_MOCK_LOCATION">Settings.Secure.ALLOW_MOCK_LOCATION</a></code>} system setting is not enabled</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../reference/java/lang/IllegalArgumentException.html">IllegalArgumentException</a></td>
+            <td>if no provider with the given name exists
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getAllProviders()"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../reference/java/util/List.html">List</a>&lt;<a href="../../../reference/java/lang/String.html">String</a>&gt;
+      </span>
+      <span class="sympad">getAllProviders</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Returns a list of the names of all known location providers.  All
+ providers are returned, including ones that are not permitted to be
+ accessed by the calling activity or are currently disabled.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>list of Strings containing names of the providers
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getBestProvider(android.location.Criteria, boolean)"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../reference/java/lang/String.html">String</a>
+      </span>
+      <span class="sympad">getBestProvider</span>
+      <span class="normal">(<a href="../../../reference/android/location/Criteria.html">Criteria</a> criteria, boolean enabledOnly)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Returns the name of the provider that best meets the given criteria. Only providers
+ that are permitted to be accessed by the calling activity will be
+ returned.  If several providers meet the criteria, the one with the best
+ accuracy is returned.  If no provider meets the criteria,
+ the criteria are loosened in the following sequence:
+
+ <ul>
+ <li> power requirement
+ <li> accuracy
+ <li> bearing
+ <li> speed
+ <li> altitude
+ </ul>
+
+ <p> Note that the requirement on monetary cost is not removed
+ in this process.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>criteria</td>
+          <td>the criteria that need to be matched</td>
+        </tr>
+        <tr>
+          <th>enabledOnly</td>
+          <td>if true then only a provider that is currently enabled is returned</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>name of the provider that best matches the requirements
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getGpsStatus(android.location.GpsStatus)"></A>
+
+<div class="jd-details api apilevel-3"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../reference/android/location/GpsStatus.html">GpsStatus</a>
+      </span>
+      <span class="sympad">getGpsStatus</span>
+      <span class="normal">(<a href="../../../reference/android/location/GpsStatus.html">GpsStatus</a> status)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level3">API Level 3</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Retrieves information about the current status of the GPS engine.
+ This should only be called from the <code><a href="../../../reference/android/location/GpsStatus.Listener.html#onGpsStatusChanged(int)">onGpsStatusChanged(int)</a></code>
+ callback to ensure that the data is copied atomically.
+
+ The caller may either pass in a <code><a href="../../../reference/android/location/GpsStatus.html">GpsStatus</a></code> object to set with the latest
+ status information, or pass null to create a new <code><a href="../../../reference/android/location/GpsStatus.html">GpsStatus</a></code> object.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>status</td>
+          <td>object containing GPS status details, or null.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>status object containing updated GPS status.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getLastKnownLocation(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../reference/android/location/Location.html">Location</a>
+      </span>
+      <span class="sympad">getLastKnownLocation</span>
+      <span class="normal">(<a href="../../../reference/java/lang/String.html">String</a> provider)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Returns a Location indicating the data from the last known
+ location fix obtained from the given provider.  This can be done
+ without starting the provider.  Note that this location could
+ be out-of-date, for example if the device was turned off and
+ moved to another location.
+
+ <p> If the provider is currently disabled, null is returned.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>provider</td>
+          <td>the name of the provider</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the last known location for the provider, or null</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="../../../reference/java/lang/SecurityException.html">SecurityException</a></td>
+            <td>if no suitable permission is present for the provider.</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../reference/java/lang/IllegalArgumentException.html">IllegalArgumentException</a></td>
+            <td>if provider is null or doesn't exist
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getProvider(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../reference/android/location/LocationProvider.html">LocationProvider</a>
+      </span>
+      <span class="sympad">getProvider</span>
+      <span class="normal">(<a href="../../../reference/java/lang/String.html">String</a> name)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Returns the information associated with the location provider of the
+ given name, or null if no provider exists by that name.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>name</td>
+          <td>the provider name</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>a LocationProvider, or null</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="../../../reference/java/lang/IllegalArgumentException.html">IllegalArgumentException</a></td>
+            <td>if name is null</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../reference/java/lang/SecurityException.html">SecurityException</a></td>
+            <td>if the caller is not permitted to access the
+ given provider.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getProviders(boolean)"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../reference/java/util/List.html">List</a>&lt;<a href="../../../reference/java/lang/String.html">String</a>&gt;
+      </span>
+      <span class="sympad">getProviders</span>
+      <span class="normal">(boolean enabledOnly)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Returns a list of the names of location providers.  Only providers that
+ are permitted to be accessed by the calling activity will be returned.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>enabledOnly</td>
+          <td>if true then only the providers which are currently
+ enabled are returned.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>list of Strings containing names of the providers
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getProviders(android.location.Criteria, boolean)"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../reference/java/util/List.html">List</a>&lt;<a href="../../../reference/java/lang/String.html">String</a>&gt;
+      </span>
+      <span class="sympad">getProviders</span>
+      <span class="normal">(<a href="../../../reference/android/location/Criteria.html">Criteria</a> criteria, boolean enabledOnly)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Returns a list of the names of LocationProviders that satisfy the given
+ criteria, or null if none do.  Only providers that are permitted to be
+ accessed by the calling activity will be returned.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>criteria</td>
+          <td>the criteria that the returned providers must match</td>
+        </tr>
+        <tr>
+          <th>enabledOnly</td>
+          <td>if true then only the providers which are currently
+ enabled are returned.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>list of Strings containing names of the providers
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="isProviderEnabled(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        boolean
+      </span>
+      <span class="sympad">isProviderEnabled</span>
+      <span class="normal">(<a href="../../../reference/java/lang/String.html">String</a> provider)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Returns the current enabled/disabled status of the given provider. If the
+ user has enabled this provider in the Settings menu, true is returned
+ otherwise false is returned</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>provider</td>
+          <td>the name of the provider</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>true if the provider is enabled</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="../../../reference/java/lang/SecurityException.html">SecurityException</a></td>
+            <td>if no suitable permission is present for the provider.</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../reference/java/lang/IllegalArgumentException.html">IllegalArgumentException</a></td>
+            <td>if provider is null
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="removeGpsStatusListener(android.location.GpsStatus.Listener)"></A>
+
+<div class="jd-details api apilevel-3"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">removeGpsStatusListener</span>
+      <span class="normal">(<a href="../../../reference/android/location/GpsStatus.Listener.html">GpsStatus.Listener</a> listener)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level3">API Level 3</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Removes a GPS status listener.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>listener</td>
+          <td>GPS status listener object to remove
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="removeNmeaListener(android.location.GpsStatus.NmeaListener)"></A>
+
+<div class="jd-details api apilevel-5"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">removeNmeaListener</span>
+      <span class="normal">(<a href="../../../reference/android/location/GpsStatus.NmeaListener.html">GpsStatus.NmeaListener</a> listener)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level5">API Level 5</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Removes an NMEA listener.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>listener</td>
+          <td>a {#link GpsStatus.NmeaListener} object to remove
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="removeProximityAlert(android.app.PendingIntent)"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">removeProximityAlert</span>
+      <span class="normal">(<a href="../../../reference/android/app/PendingIntent.html">PendingIntent</a> intent)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Removes the proximity alert with the given PendingIntent.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>intent</td>
+          <td>the PendingIntent that no longer needs to be notified of
+ proximity alerts
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="removeTestProvider(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-3"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">removeTestProvider</span>
+      <span class="normal">(<a href="../../../reference/java/lang/String.html">String</a> provider)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level3">API Level 3</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Removes the mock location provider with the given name.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>provider</td>
+          <td>the provider name</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="../../../reference/java/lang/SecurityException.html">SecurityException</a></td>
+            <td>if the ACCESS_MOCK_LOCATION permission is not present
+ or the <code><a href="../../../reference/android/provider/Settings.Secure.html#ALLOW_MOCK_LOCATION">Settings.Secure.ALLOW_MOCK_LOCATION</a></code>} system setting is not enabled</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../reference/java/lang/IllegalArgumentException.html">IllegalArgumentException</a></td>
+            <td>if no provider with the given name exists
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="removeUpdates(android.app.PendingIntent)"></A>
+
+<div class="jd-details api apilevel-3"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">removeUpdates</span>
+      <span class="normal">(<a href="../../../reference/android/app/PendingIntent.html">PendingIntent</a> intent)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level3">API Level 3</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Removes any current registration for location updates of the current activity
+ with the given PendingIntent.  Following this call, updates will no longer
+ occur for this intent.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>intent</td>
+          <td>{#link PendingIntent} object that no longer needs location updates</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="../../../reference/java/lang/IllegalArgumentException.html">IllegalArgumentException</a></td>
+            <td>if intent is null
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="removeUpdates(android.location.LocationListener)"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">removeUpdates</span>
+      <span class="normal">(<a href="../../../reference/android/location/LocationListener.html">LocationListener</a> listener)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Removes any current registration for location updates of the current activity
+ with the given LocationListener.  Following this call, updates will no longer
+ occur for this listener.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>listener</td>
+          <td>{#link LocationListener} object that no longer needs location updates</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="../../../reference/java/lang/IllegalArgumentException.html">IllegalArgumentException</a></td>
+            <td>if listener is null
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="requestLocationUpdates(long, float, android.location.Criteria, android.app.PendingIntent)"></A>
+
+<div class="jd-details api apilevel-9"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">requestLocationUpdates</span>
+      <span class="normal">(long minTime, float minDistance, <a href="../../../reference/android/location/Criteria.html">Criteria</a> criteria, <a href="../../../reference/android/app/PendingIntent.html">PendingIntent</a> intent)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level9">API Level 9</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Registers the current activity to be notified periodically based on
+ the specified criteria.  Periodically, the supplied PendingIntent will
+ be broadcast with the current Location or with status updates.
+
+ <p> Location updates are sent with a key of KEY_LOCATION_CHANGED and a Location value.
+
+ <p> It may take a while to receive the most recent location. If
+ an immediate location is required, applications may use the
+ <code><a href="../../../reference/android/location/LocationManager.html#getLastKnownLocation(java.lang.String)">getLastKnownLocation(String)</a></code> method.
+
+ <p> The frequency of notification or new locations may be controlled using the
+ minTime and minDistance parameters. If minTime is greater than 0,
+ the LocationManager could potentially rest for minTime milliseconds
+ between location updates to conserve power. If minDistance is greater than 0,
+ a location will only be broadcast if the device moves by minDistance meters.
+ To obtain notifications as frequently as possible, set both parameters to 0.
+
+ <p> Background services should be careful about setting a sufficiently high
+ minTime so that the device doesn't consume too much power by keeping the
+ GPS or wireless radios on all the time. In particular, values under 60000ms
+ are not recommended.
+
+ <p> In case the provider is disabled by the user, updates will stop,
+ and an intent will be sent with an extra with key KEY_PROVIDER_ENABLED and a boolean value
+ of false.  If the provider is re-enabled, an intent will be sent with an
+ extra with key KEY_PROVIDER_ENABLED and a boolean value of true and location updates will
+ start again.
+
+ <p> If the provider's status changes, an intent will be sent with an extra with key
+ KEY_STATUS_CHANGED and an integer value indicating the new status.  Any extras associated
+ with the status update will be sent as well.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>minTime</td>
+          <td>the minimum time interval for notifications, in
+ milliseconds. This field is only used as a hint to conserve power, and actual
+ time between location updates may be greater or lesser than this value.</td>
+        </tr>
+        <tr>
+          <th>minDistance</td>
+          <td>the minimum distance interval for notifications,
+ in meters</td>
+        </tr>
+        <tr>
+          <th>criteria</td>
+          <td>contains parameters for the location manager to choose the
+ appropriate provider and parameters to compute the location</td>
+        </tr>
+        <tr>
+          <th>intent</td>
+          <td>a {#link PendingIntent} to be sent for each location update</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="../../../reference/java/lang/IllegalArgumentException.html">IllegalArgumentException</a></td>
+            <td>if provider is null or doesn't exist</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../reference/java/lang/IllegalArgumentException.html">IllegalArgumentException</a></td>
+            <td>if intent is null</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../reference/java/lang/SecurityException.html">SecurityException</a></td>
+            <td>if no suitable permission is present for the provider.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="requestLocationUpdates(long, float, android.location.Criteria, android.location.LocationListener, android.os.Looper)"></A>
+
+<div class="jd-details api apilevel-9"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">requestLocationUpdates</span>
+      <span class="normal">(long minTime, float minDistance, <a href="../../../reference/android/location/Criteria.html">Criteria</a> criteria, <a href="../../../reference/android/location/LocationListener.html">LocationListener</a> listener, <a href="../../../reference/android/os/Looper.html">Looper</a> looper)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level9">API Level 9</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Registers the current activity to be notified periodically based on
+ the specified criteria.  Periodically, the supplied LocationListener will
+ be called with the current Location or with status updates.
+
+ <p> It may take a while to receive the most recent location. If
+ an immediate location is required, applications may use the
+ <code><a href="../../../reference/android/location/LocationManager.html#getLastKnownLocation(java.lang.String)">getLastKnownLocation(String)</a></code> method.
+
+ <p> In case the provider is disabled by the user, updates will stop,
+ and the <code><a href="../../../reference/android/location/LocationListener.html#onProviderDisabled(java.lang.String)">onProviderDisabled(String)</a></code>
+ method will be called. As soon as the provider is enabled again,
+ the <code><a href="../../../reference/android/location/LocationListener.html#onProviderEnabled(java.lang.String)">onProviderEnabled(String)</a></code> method will
+ be called and location updates will start again.
+
+ <p> The frequency of notification may be controlled using the
+ minTime and minDistance parameters. If minTime is greater than 0,
+ the LocationManager could potentially rest for minTime milliseconds
+ between location updates to conserve power. If minDistance is greater than 0,
+ a location will only be broadcasted if the device moves by minDistance meters.
+ To obtain notifications as frequently as possible, set both parameters to 0.
+
+ <p> Background services should be careful about setting a sufficiently high
+ minTime so that the device doesn't consume too much power by keeping the
+ GPS or wireless radios on all the time. In particular, values under 60000ms
+ are not recommended.
+
+ <p> The supplied Looper is used to implement the callback mechanism.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>minTime</td>
+          <td>the minimum time interval for notifications, in
+ milliseconds. This field is only used as a hint to conserve power, and actual
+ time between location updates may be greater or lesser than this value.</td>
+        </tr>
+        <tr>
+          <th>minDistance</td>
+          <td>the minimum distance interval for notifications,
+ in meters</td>
+        </tr>
+        <tr>
+          <th>criteria</td>
+          <td>contains parameters for the location manager to choose the
+ appropriate provider and parameters to compute the location</td>
+        </tr>
+        <tr>
+          <th>listener</td>
+          <td>a {#link LocationListener} whose
+ <code><a href="../../../reference/android/location/LocationListener.html#onLocationChanged(android.location.Location)">onLocationChanged(Location)</a></code> method will be called for
+ each location update</td>
+        </tr>
+        <tr>
+          <th>looper</td>
+          <td>a Looper object whose message queue will be used to
+ implement the callback mechanism.
+ If looper is null then the callbacks will be called on the main thread.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="../../../reference/java/lang/IllegalArgumentException.html">IllegalArgumentException</a></td>
+            <td>if criteria is null</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../reference/java/lang/IllegalArgumentException.html">IllegalArgumentException</a></td>
+            <td>if listener is null</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../reference/java/lang/SecurityException.html">SecurityException</a></td>
+            <td>if no suitable permission is present to access
+ the location services.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="requestLocationUpdates(java.lang.String, long, float, android.location.LocationListener)"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">requestLocationUpdates</span>
+      <span class="normal">(<a href="../../../reference/java/lang/String.html">String</a> provider, long minTime, float minDistance, <a href="../../../reference/android/location/LocationListener.html">LocationListener</a> listener)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Registers the current activity to be notified periodically by
+ the named provider.  Periodically, the supplied LocationListener will
+ be called with the current Location or with status updates.
+
+ <p> It may take a while to receive the most recent location. If
+ an immediate location is required, applications may use the
+ <code><a href="../../../reference/android/location/LocationManager.html#getLastKnownLocation(java.lang.String)">getLastKnownLocation(String)</a></code> method.
+
+ <p> In case the provider is disabled by the user, updates will stop,
+ and the <code><a href="../../../reference/android/location/LocationListener.html#onProviderDisabled(java.lang.String)">onProviderDisabled(String)</a></code>
+ method will be called. As soon as the provider is enabled again,
+ the <code><a href="../../../reference/android/location/LocationListener.html#onProviderEnabled(java.lang.String)">onProviderEnabled(String)</a></code> method will
+ be called and location updates will start again.
+
+ <p> The frequency of notification may be controlled using the
+ minTime and minDistance parameters. If minTime is greater than 0,
+ the LocationManager could potentially rest for minTime milliseconds
+ between location updates to conserve power. If minDistance is greater than 0,
+ a location will only be broadcasted if the device moves by minDistance meters.
+ To obtain notifications as frequently as possible, set both parameters to 0.
+
+ <p> Background services should be careful about setting a sufficiently high
+ minTime so that the device doesn't consume too much power by keeping the
+ GPS or wireless radios on all the time. In particular, values under 60000ms
+ are not recommended.
+
+ <p> The calling thread must be a <code><a href="../../../reference/android/os/Looper.html">Looper</a></code> thread such as
+ the main thread of the calling Activity.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>provider</td>
+          <td>the name of the provider with which to register</td>
+        </tr>
+        <tr>
+          <th>minTime</td>
+          <td>the minimum time interval for notifications, in
+ milliseconds. This field is only used as a hint to conserve power, and actual
+ time between location updates may be greater or lesser than this value.</td>
+        </tr>
+        <tr>
+          <th>minDistance</td>
+          <td>the minimum distance interval for notifications,
+ in meters</td>
+        </tr>
+        <tr>
+          <th>listener</td>
+          <td>a {#link LocationListener} whose
+ <code><a href="../../../reference/android/location/LocationListener.html#onLocationChanged(android.location.Location)">onLocationChanged(Location)</a></code> method will be called for
+ each location update</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="../../../reference/java/lang/IllegalArgumentException.html">IllegalArgumentException</a></td>
+            <td>if provider or listener is null</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../reference/java/lang/RuntimeException.html">RuntimeException</a></td>
+            <td>if the calling thread has no Looper</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../reference/java/lang/SecurityException.html">SecurityException</a></td>
+            <td>if no suitable permission is present for the provider.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="requestLocationUpdates(java.lang.String, long, float, android.location.LocationListener, android.os.Looper)"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">requestLocationUpdates</span>
+      <span class="normal">(<a href="../../../reference/java/lang/String.html">String</a> provider, long minTime, float minDistance, <a href="../../../reference/android/location/LocationListener.html">LocationListener</a> listener, <a href="../../../reference/android/os/Looper.html">Looper</a> looper)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Registers the current activity to be notified periodically by
+ the named provider.  Periodically, the supplied LocationListener will
+ be called with the current Location or with status updates.
+
+ <p> It may take a while to receive the most recent location. If
+ an immediate location is required, applications may use the
+ <code><a href="../../../reference/android/location/LocationManager.html#getLastKnownLocation(java.lang.String)">getLastKnownLocation(String)</a></code> method.
+
+ <p> In case the provider is disabled by the user, updates will stop,
+ and the <code><a href="../../../reference/android/location/LocationListener.html#onProviderDisabled(java.lang.String)">onProviderDisabled(String)</a></code>
+ method will be called. As soon as the provider is enabled again,
+ the <code><a href="../../../reference/android/location/LocationListener.html#onProviderEnabled(java.lang.String)">onProviderEnabled(String)</a></code> method will
+ be called and location updates will start again.
+
+ <p> The frequency of notification may be controlled using the
+ minTime and minDistance parameters. If minTime is greater than 0,
+ the LocationManager could potentially rest for minTime milliseconds
+ between location updates to conserve power. If minDistance is greater than 0,
+ a location will only be broadcasted if the device moves by minDistance meters.
+ To obtain notifications as frequently as possible, set both parameters to 0.
+
+ <p> Background services should be careful about setting a sufficiently high
+ minTime so that the device doesn't consume too much power by keeping the
+ GPS or wireless radios on all the time. In particular, values under 60000ms
+ are not recommended.
+
+ <p> The supplied Looper is used to implement the callback mechanism.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>provider</td>
+          <td>the name of the provider with which to register</td>
+        </tr>
+        <tr>
+          <th>minTime</td>
+          <td>the minimum time interval for notifications, in
+ milliseconds. This field is only used as a hint to conserve power, and actual
+ time between location updates may be greater or lesser than this value.</td>
+        </tr>
+        <tr>
+          <th>minDistance</td>
+          <td>the minimum distance interval for notifications,
+ in meters</td>
+        </tr>
+        <tr>
+          <th>listener</td>
+          <td>a {#link LocationListener} whose
+ <code><a href="../../../reference/android/location/LocationListener.html#onLocationChanged(android.location.Location)">onLocationChanged(Location)</a></code> method will be called for
+ each location update</td>
+        </tr>
+        <tr>
+          <th>looper</td>
+          <td>a Looper object whose message queue will be used to
+ implement the callback mechanism.
+ If looper is null then the callbacks will be called on the main thread.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="../../../reference/java/lang/IllegalArgumentException.html">IllegalArgumentException</a></td>
+            <td>if provider is null or doesn't exist</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../reference/java/lang/IllegalArgumentException.html">IllegalArgumentException</a></td>
+            <td>if listener is null</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../reference/java/lang/SecurityException.html">SecurityException</a></td>
+            <td>if no suitable permission is present for the provider.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="requestLocationUpdates(java.lang.String, long, float, android.app.PendingIntent)"></A>
+
+<div class="jd-details api apilevel-3"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">requestLocationUpdates</span>
+      <span class="normal">(<a href="../../../reference/java/lang/String.html">String</a> provider, long minTime, float minDistance, <a href="../../../reference/android/app/PendingIntent.html">PendingIntent</a> intent)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level3">API Level 3</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Registers the current activity to be notified periodically by
+ the named provider.  Periodically, the supplied PendingIntent will
+ be broadcast with the current Location or with status updates.
+
+ <p> Location updates are sent with a key of KEY_LOCATION_CHANGED and a Location value.
+
+ <p> It may take a while to receive the most recent location. If
+ an immediate location is required, applications may use the
+ <code><a href="../../../reference/android/location/LocationManager.html#getLastKnownLocation(java.lang.String)">getLastKnownLocation(String)</a></code> method.
+
+ <p> The frequency of notification or new locations may be controlled using the
+ minTime and minDistance parameters. If minTime is greater than 0,
+ the LocationManager could potentially rest for minTime milliseconds
+ between location updates to conserve power. If minDistance is greater than 0,
+ a location will only be broadcast if the device moves by minDistance meters.
+ To obtain notifications as frequently as possible, set both parameters to 0.
+
+ <p> Background services should be careful about setting a sufficiently high
+ minTime so that the device doesn't consume too much power by keeping the
+ GPS or wireless radios on all the time. In particular, values under 60000ms
+ are not recommended.
+
+ <p> In case the provider is disabled by the user, updates will stop,
+ and an intent will be sent with an extra with key KEY_PROVIDER_ENABLED and a boolean value
+ of false.  If the provider is re-enabled, an intent will be sent with an
+ extra with key KEY_PROVIDER_ENABLED and a boolean value of true and location updates will
+ start again.
+
+ <p> If the provider's status changes, an intent will be sent with an extra with key
+ KEY_STATUS_CHANGED and an integer value indicating the new status.  Any extras associated
+ with the status update will be sent as well.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>provider</td>
+          <td>the name of the provider with which to register</td>
+        </tr>
+        <tr>
+          <th>minTime</td>
+          <td>the minimum time interval for notifications, in
+ milliseconds. This field is only used as a hint to conserve power, and actual
+ time between location updates may be greater or lesser than this value.</td>
+        </tr>
+        <tr>
+          <th>minDistance</td>
+          <td>the minimum distance interval for notifications,
+ in meters</td>
+        </tr>
+        <tr>
+          <th>intent</td>
+          <td>a {#link PendingIntent} to be sent for each location update</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="../../../reference/java/lang/IllegalArgumentException.html">IllegalArgumentException</a></td>
+            <td>if provider is null or doesn't exist</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../reference/java/lang/IllegalArgumentException.html">IllegalArgumentException</a></td>
+            <td>if intent is null</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../reference/java/lang/SecurityException.html">SecurityException</a></td>
+            <td>if no suitable permission is present for the provider.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="requestSingleUpdate(java.lang.String, android.location.LocationListener, android.os.Looper)"></A>
+
+<div class="jd-details api apilevel-9"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">requestSingleUpdate</span>
+      <span class="normal">(<a href="../../../reference/java/lang/String.html">String</a> provider, <a href="../../../reference/android/location/LocationListener.html">LocationListener</a> listener, <a href="../../../reference/android/os/Looper.html">Looper</a> looper)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level9">API Level 9</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Requests a single location update from the named provider.
+
+ <p> It may take a while to receive the most recent location. If
+ an immediate location is required, applications may use the
+ <code><a href="../../../reference/android/location/LocationManager.html#getLastKnownLocation(java.lang.String)">getLastKnownLocation(String)</a></code> method.
+
+ <p> In case the provider is disabled by the user, the update will not be received,
+ and the <code><a href="../../../reference/android/location/LocationListener.html#onProviderDisabled(java.lang.String)">onProviderDisabled(String)</a></code>
+ method will be called. As soon as the provider is enabled again,
+ the <code><a href="../../../reference/android/location/LocationListener.html#onProviderEnabled(java.lang.String)">onProviderEnabled(String)</a></code> method will
+ be called and location updates will start again.
+
+ <p> The supplied Looper is used to implement the callback mechanism.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>provider</td>
+          <td>the name of the provider with which to register</td>
+        </tr>
+        <tr>
+          <th>listener</td>
+          <td>a {#link LocationListener} whose
+ <code><a href="../../../reference/android/location/LocationListener.html#onLocationChanged(android.location.Location)">onLocationChanged(Location)</a></code> method will be called when
+ the location update is available</td>
+        </tr>
+        <tr>
+          <th>looper</td>
+          <td>a Looper object whose message queue will be used to
+ implement the callback mechanism.
+ If looper is null then the callbacks will be called on the main thread.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="../../../reference/java/lang/IllegalArgumentException.html">IllegalArgumentException</a></td>
+            <td>if provider is null or doesn't exist</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../reference/java/lang/IllegalArgumentException.html">IllegalArgumentException</a></td>
+            <td>if listener is null</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../reference/java/lang/SecurityException.html">SecurityException</a></td>
+            <td>if no suitable permission is present for the provider.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="requestSingleUpdate(android.location.Criteria, android.location.LocationListener, android.os.Looper)"></A>
+
+<div class="jd-details api apilevel-9"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">requestSingleUpdate</span>
+      <span class="normal">(<a href="../../../reference/android/location/Criteria.html">Criteria</a> criteria, <a href="../../../reference/android/location/LocationListener.html">LocationListener</a> listener, <a href="../../../reference/android/os/Looper.html">Looper</a> looper)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level9">API Level 9</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Requests a single location update based on the specified criteria.
+
+ <p> It may take a while to receive the most recent location. If
+ an immediate location is required, applications may use the
+ <code><a href="../../../reference/android/location/LocationManager.html#getLastKnownLocation(java.lang.String)">getLastKnownLocation(String)</a></code> method.
+
+ <p> In case the provider is disabled by the user, the update will not be received,
+ and the <code><a href="../../../reference/android/location/LocationListener.html#onProviderDisabled(java.lang.String)">onProviderDisabled(String)</a></code>
+ method will be called. As soon as the provider is enabled again,
+ the <code><a href="../../../reference/android/location/LocationListener.html#onProviderEnabled(java.lang.String)">onProviderEnabled(String)</a></code> method will
+ be called and location updates will start again.
+
+ <p> The supplied Looper is used to implement the callback mechanism.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>criteria</td>
+          <td>contains parameters for the location manager to choose the
+ appropriate provider and parameters to compute the location</td>
+        </tr>
+        <tr>
+          <th>listener</td>
+          <td>a {#link LocationListener} whose
+ <code><a href="../../../reference/android/location/LocationListener.html#onLocationChanged(android.location.Location)">onLocationChanged(Location)</a></code> method will be called when
+ the location update is available</td>
+        </tr>
+        <tr>
+          <th>looper</td>
+          <td>a Looper object whose message queue will be used to
+ implement the callback mechanism.
+ If looper is null then the callbacks will be called on the current thread.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="../../../reference/java/lang/IllegalArgumentException.html">IllegalArgumentException</a></td>
+            <td>if criteria is null</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../reference/java/lang/IllegalArgumentException.html">IllegalArgumentException</a></td>
+            <td>if listener is null</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../reference/java/lang/SecurityException.html">SecurityException</a></td>
+            <td>if no suitable permission is present to access
+ the location services.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="requestSingleUpdate(java.lang.String, android.app.PendingIntent)"></A>
+
+<div class="jd-details api apilevel-9"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">requestSingleUpdate</span>
+      <span class="normal">(<a href="../../../reference/java/lang/String.html">String</a> provider, <a href="../../../reference/android/app/PendingIntent.html">PendingIntent</a> intent)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level9">API Level 9</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Requests a single location update from the named provider.
+
+ <p> It may take a while to receive the most recent location. If
+ an immediate location is required, applications may use the
+ <code><a href="../../../reference/android/location/LocationManager.html#getLastKnownLocation(java.lang.String)">getLastKnownLocation(String)</a></code> method.
+
+ <p> Location updates are sent with a key of KEY_LOCATION_CHANGED and a Location value.
+
+ <p> In case the provider is disabled by the user, the update will not be received,
+ and the <code><a href="../../../reference/android/location/LocationListener.html#onProviderDisabled(java.lang.String)">onProviderDisabled(String)</a></code>
+ method will be called. As soon as the provider is enabled again,
+ the <code><a href="../../../reference/android/location/LocationListener.html#onProviderEnabled(java.lang.String)">onProviderEnabled(String)</a></code> method will
+ be called and location updates will start again.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>provider</td>
+          <td>the name of the provider with which to register</td>
+        </tr>
+        <tr>
+          <th>intent</td>
+          <td>a {#link PendingIntent} to be sent for the location update</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="../../../reference/java/lang/IllegalArgumentException.html">IllegalArgumentException</a></td>
+            <td>if provider is null or doesn't exist</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../reference/java/lang/IllegalArgumentException.html">IllegalArgumentException</a></td>
+            <td>if intent is null</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../reference/java/lang/SecurityException.html">SecurityException</a></td>
+            <td>if no suitable permission is present for the provider.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="requestSingleUpdate(android.location.Criteria, android.app.PendingIntent)"></A>
+
+<div class="jd-details api apilevel-9"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">requestSingleUpdate</span>
+      <span class="normal">(<a href="../../../reference/android/location/Criteria.html">Criteria</a> criteria, <a href="../../../reference/android/app/PendingIntent.html">PendingIntent</a> intent)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level9">API Level 9</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Requests a single location update based on the specified criteria.
+
+ <p> It may take a while to receive the most recent location. If
+ an immediate location is required, applications may use the
+ <code><a href="../../../reference/android/location/LocationManager.html#getLastKnownLocation(java.lang.String)">getLastKnownLocation(String)</a></code> method.
+
+ <p> Location updates are sent with a key of KEY_LOCATION_CHANGED and a Location value.
+
+ <p> In case the provider is disabled by the user, the update will not be received,
+ and the <code><a href="../../../reference/android/location/LocationListener.html#onProviderDisabled(java.lang.String)">onProviderDisabled(String)</a></code>
+ method will be called. As soon as the provider is enabled again,
+ the <code><a href="../../../reference/android/location/LocationListener.html#onProviderEnabled(java.lang.String)">onProviderEnabled(String)</a></code> method will
+ be called and location updates will start again.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>criteria</td>
+          <td>contains parameters for the location manager to choose the
+ appropriate provider and parameters to compute the location</td>
+        </tr>
+        <tr>
+          <th>intent</td>
+          <td>a {#link PendingIntent} to be sent for the location update</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="../../../reference/java/lang/IllegalArgumentException.html">IllegalArgumentException</a></td>
+            <td>if provider is null or doesn't exist</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../reference/java/lang/IllegalArgumentException.html">IllegalArgumentException</a></td>
+            <td>if intent is null</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../reference/java/lang/SecurityException.html">SecurityException</a></td>
+            <td>if no suitable permission is present for the provider.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="sendExtraCommand(java.lang.String, java.lang.String, android.os.Bundle)"></A>
+
+<div class="jd-details api apilevel-3"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        boolean
+      </span>
+      <span class="sympad">sendExtraCommand</span>
+      <span class="normal">(<a href="../../../reference/java/lang/String.html">String</a> provider, <a href="../../../reference/java/lang/String.html">String</a> command, <a href="../../../reference/android/os/Bundle.html">Bundle</a> extras)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level3">API Level 3</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sends additional commands to a location provider.
+ Can be used to support provider specific extensions to the Location Manager API</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>provider</td>
+          <td>name of the location provider.</td>
+        </tr>
+        <tr>
+          <th>command</td>
+          <td>name of the command to send to the provider.</td>
+        </tr>
+        <tr>
+          <th>extras</td>
+          <td>optional arguments for the command (or null).
+ The provider may optionally fill the extras Bundle with results from the command.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>true if the command succeeds.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setTestProviderEnabled(java.lang.String, boolean)"></A>
+
+<div class="jd-details api apilevel-3"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setTestProviderEnabled</span>
+      <span class="normal">(<a href="../../../reference/java/lang/String.html">String</a> provider, boolean enabled)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level3">API Level 3</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets a mock enabled value for the given provider.  This value will be used in place
+ of any actual value from the provider.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>provider</td>
+          <td>the provider name</td>
+        </tr>
+        <tr>
+          <th>enabled</td>
+          <td>the mock enabled value</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="../../../reference/java/lang/SecurityException.html">SecurityException</a></td>
+            <td>if the ACCESS_MOCK_LOCATION permission is not present
+ or the <code><a href="../../../reference/android/provider/Settings.Secure.html#ALLOW_MOCK_LOCATION">Settings.Secure.ALLOW_MOCK_LOCATION</a></code>} system setting is not enabled</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../reference/java/lang/IllegalArgumentException.html">IllegalArgumentException</a></td>
+            <td>if no provider with the given name exists
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setTestProviderLocation(java.lang.String, android.location.Location)"></A>
+
+<div class="jd-details api apilevel-3"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setTestProviderLocation</span>
+      <span class="normal">(<a href="../../../reference/java/lang/String.html">String</a> provider, <a href="../../../reference/android/location/Location.html">Location</a> loc)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level3">API Level 3</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets a mock location for the given provider.  This location will be used in place
+ of any actual location from the provider.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>provider</td>
+          <td>the provider name</td>
+        </tr>
+        <tr>
+          <th>loc</td>
+          <td>the mock location</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="../../../reference/java/lang/SecurityException.html">SecurityException</a></td>
+            <td>if the ACCESS_MOCK_LOCATION permission is not present
+ or the <code><a href="../../../reference/android/provider/Settings.Secure.html#ALLOW_MOCK_LOCATION">Settings.Secure.ALLOW_MOCK_LOCATION</a></code>} system setting is not enabled</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../reference/java/lang/IllegalArgumentException.html">IllegalArgumentException</a></td>
+            <td>if no provider with the given name exists
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setTestProviderStatus(java.lang.String, int, android.os.Bundle, long)"></A>
+
+<div class="jd-details api apilevel-3"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setTestProviderStatus</span>
+      <span class="normal">(<a href="../../../reference/java/lang/String.html">String</a> provider, int status, <a href="../../../reference/android/os/Bundle.html">Bundle</a> extras, long updateTime)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level3">API Level 3</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets mock status values for the given provider.  These values will be used in place
+ of any actual values from the provider.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>provider</td>
+          <td>the provider name</td>
+        </tr>
+        <tr>
+          <th>status</td>
+          <td>the mock status</td>
+        </tr>
+        <tr>
+          <th>extras</td>
+          <td>a Bundle containing mock extras</td>
+        </tr>
+        <tr>
+          <th>updateTime</td>
+          <td>the mock update time</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="../../../reference/java/lang/SecurityException.html">SecurityException</a></td>
+            <td>if the ACCESS_MOCK_LOCATION permission is not present
+ or the <code><a href="../../../reference/android/provider/Settings.Secure.html#ALLOW_MOCK_LOCATION">Settings.Secure.ALLOW_MOCK_LOCATION</a></code>} system setting is not enabled</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../reference/java/lang/IllegalArgumentException.html">IllegalArgumentException</a></td>
+            <td>if no provider with the given name exists
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+
+
+
+<!-- ========= METHOD DETAIL ======== -->
+
+
+
+<!-- ========= END OF CLASS DATA ========= -->
+<A NAME="navbar_top"></A>
+
+<div id="footer">
+
+
+  <div id="copyright">
+    
+  Except as noted, this content is licensed under <a
+  href="http://www.apache.org/licenses/LICENSE-2.0">Apache 2.0</a>. 
+  For details and restrictions, see the <a href="../../../license.html">
+  Content License</a>.
+  </div>
+  <div id="build_info">
+    
+  Android 4.0&nbsp;r1 - 16 Mar 2012 16:45
+
+  </div>
+
+  <div id="footerlinks">
+    
+  <p>
+    <a href="http://www.google.com/intl/en/policies/" target="_blank">Privacy &amp; Terms</a> -
+    <a href="http://www.android.com/branding.html" target="_blank">Brand Guidelines</a> -
+    <a
+href="http://code.google.com/p/android/issues/entry?template=Developer%20Documentation"
+target="_blank">Report Document Issues</a>
+  </p>
+  </div>
+
+</div> <!-- end footer -->
+
+</div> <!-- jd-content -->
+
+</div><!-- end doc-content -->
+
+</div> <!-- end body-content --> 
+
+<script type="text/javascript">
+init(); /* initialize android-developer-docs.js */
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-5831155-1");
+pageTracker._trackPageview();
+</script>
+
+</body>
+</html>

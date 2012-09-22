@@ -1,0 +1,1163 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico" />
+<title>org.xml.sax - Android SDK | Android Developers</title>
+<link href="../../../../assets/android-developer-docs.css" rel="stylesheet" type="text/css" />
+<script src="../../../../assets/search_autocomplete.js" type="text/javascript"></script>
+<script src="../../../../assets/jquery-resizable.min.js" type="text/javascript"></script>
+<script src="../../../../assets/android-developer-docs.js" type="text/javascript"></script>
+<script src="../../../../assets/prettify.js" type="text/javascript"></script>
+<script type="text/javascript">
+  setToRoot("../../../../");
+</script>
+<script src="../../../../assets/android-developer-reference.js" type="text/javascript"></script>
+<script src="../../../../navtree_data.js" type="text/javascript"></script>
+<noscript>
+  <style type="text/css">
+    html,body{overflow:auto;}
+    #body-content{position:relative; top:0;}
+    #doc-content{overflow:visible;border-left:3px solid #666;}
+    #side-nav{padding:0;}
+    #side-nav .toggle-list ul {display:block;}
+    #resize-packages-nav{border-bottom:3px solid #666;}
+  </style>
+</noscript>
+</head>
+<body class="1">
+
+  <div id="header">
+      <div id="headerLeft">
+          <a href="../../../../index.html" tabindex="-1"><img
+              src="../../../../assets/images/bg_logo.png" alt="Android Developers" /></a>
+          <ul id="header-tabs" class="reference">
+    
+	<li id="home-link"><a href="../../../../offline.html">
+	
+		<span class="en">Home</span>
+		<span style="display:none" class="de">Startseite</span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ホーム</span>
+		<span style="display:none" class="zh-CN">主页</span>
+		<span style="display:none" class="zh-TW">首頁</span>
+	
+	</a></li>
+	<li id="sdk-link"><a href="../../../../sdk/index.html">
+		<span class="en">SDK</span>
+	</a></li>
+	<li id="guide-link"><a href="../../../../guide/index.html" onClick="return loadLast('guide')">
+	
+		<span class="en">Dev Guide</span>
+		<span style="display:none" class="de">Handbuch</span>
+		<span style="display:none" class="es">Guía</span>
+		<span style="display:none" class="fr">Guide</span>
+		<span style="display:none" class="it">Guida</span>
+		<span style="display:none" class="ja">開発ガイド</span>
+		<span style="display:none" class="zh-CN">开发人员指南</span>
+		<span style="display:none" class="zh-TW">開發指南</span>
+	
+	</a></li>
+	<li id="reference-link"><a href="../../../../reference/packages.html" onClick="return loadLast('reference')">
+	
+		<span class="en">Reference</span>
+		<span style="display:none" class="de">Referenz</span>
+		<span style="display:none" class="es">Referencia</span>
+		<span style="display:none" class="fr">Référence</span>
+		<span style="display:none" class="it">Riferimento</span>
+		<span style="display:none" class="ja">リファレンス</span>
+		<span style="display:none" class="zh-CN">参考</span>
+		<span style="display:none" class="zh-TW">參考資料</span>
+	
+	</a></li>
+	<li id="resources-link"><a href="../../../../resources/index.html" onClick="return loadLast('resources')">
+	
+		<span class="en">Resources</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+    		<span style="display:none" class="ja"></span>
+		<span style="display:none" class="zh-CN"></span>
+		<span style="display:none" class="zh-TW"></span>
+	
+	</a></li>
+	<li id="videos-link"><a href="../../../../videos/index.html" onClick="return loadLast('videos')">
+	
+		<span class="en">Videos</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ビデオ</span>
+		<span style="display:none" class="zh-CN"></span>
+		<span style="display:none" class="zh-TW"></span>
+	
+	</a></li>
+	<li><a href="http://android-developers.blogspot.com" onClick="return requestAppendHL(this.href)">
+	
+		<span class="en">Blog</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ブログ</span>
+		<span style="display:none" class="zh-CN">博客</span>
+		<span style="display:none" class="zh-TW">網誌</span>
+	
+	</a></li>
+
+
+     
+</ul>
+     
+      </div>
+      <div id="headerRight">
+          <div id="headerLinks">
+          &nbsp;&nbsp;
+          <a href="../../../../design/index.html">Android Design</a>&nbsp;&nbsp;
+          <a href="http://www.android.com">Android.com</a>
+          </div>
+  <div id="search" >
+      <div id="searchForm">
+          <form accept-charset="utf-8" class="gsc-search-box" 
+                onsubmit="return submit_search()">
+            <table class="gsc-search-box" cellpadding="0" cellspacing="0"><tbody>
+                <tr>
+                  <td class="gsc-input">
+                    <input id="search_autocomplete" class="gsc-input" type="text" size="33" autocomplete="off"
+                      title="search developer docs" name="q"
+                      value="search developer docs"
+                      onFocus="search_focus_changed(this, true)"
+                      onBlur="search_focus_changed(this, false)"
+                      onkeydown="return search_changed(event, true, '../../../../')"
+                      onkeyup="return search_changed(event, false, '../../../../')" />
+                  <div id="search_filtered_div" class="no-display">
+                      <table id="search_filtered" cellspacing=0>
+                      </table>
+                  </div>
+                  </td>
+                  <td class="gsc-search-button">
+                    <input type="submit" value="Search" title="search" id="search-button" class="gsc-search-button" />
+                  </td>
+                  <td class="gsc-clear-button">
+                    <div title="clear results" class="gsc-clear-button">&nbsp;</div>
+                  </td>
+                </tr></tbody>
+              </table>
+          </form>
+      </div><!-- searchForm -->
+  </div><!-- search -->
+    			  <div id="api-level-toggle">
+    			    <input type="checkbox" id="apiLevelCheckbox" onclick="toggleApiLevelSelector(this)" />
+    			    <label for="apiLevelCheckbox" class="disabled">Filter by API Level: </label>
+    			    <select id="apiLevelSelector">
+    			      <!-- option elements added by buildApiLevelSelector() -->
+    			    </select>
+    			  </div>
+    	 	    <script>
+              var SINCE_DATA = [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15' ];
+              buildApiLevelSelector();
+            </script>
+      </div><!-- headerRight -->
+      <script type="text/javascript">
+        <!--  
+        changeTabLang(getLangPref());
+        //-->
+      </script>
+  </div><!-- header -->
+
+  <div class="g-section g-tpl-240" id="body-content">
+    <div class="g-unit g-first" id="side-nav" itemscope itemtype="http://schema.org/SiteNavigationElement">
+      <div id="swapper">
+        <div id="nav-panels">
+          <div id="resize-packages-nav">
+            <div id="packages-nav">
+              <div id="index-links"><nobr>
+                <a href="../../../../reference/packages.html"  >Package Index</a> | 
+                <a href="../../../../reference/classes.html" >Class Index</a></nobr>
+              </div>
+              <ul>
+              	
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/package-summary.html">android</a></li>
+    <li class="api apilevel-4">
+  <a href="../../../../reference/android/accessibilityservice/package-summary.html">android.accessibilityservice</a></li>
+    <li class="api apilevel-5">
+  <a href="../../../../reference/android/accounts/package-summary.html">android.accounts</a></li>
+    <li class="api apilevel-11">
+  <a href="../../../../reference/android/animation/package-summary.html">android.animation</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/app/package-summary.html">android.app</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../../reference/android/app/admin/package-summary.html">android.app.admin</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../../reference/android/app/backup/package-summary.html">android.app.backup</a></li>
+    <li class="api apilevel-3">
+  <a href="../../../../reference/android/appwidget/package-summary.html">android.appwidget</a></li>
+    <li class="api apilevel-5">
+  <a href="../../../../reference/android/bluetooth/package-summary.html">android.bluetooth</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/content/package-summary.html">android.content</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/content/pm/package-summary.html">android.content.pm</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/content/res/package-summary.html">android.content.res</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/database/package-summary.html">android.database</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/database/sqlite/package-summary.html">android.database.sqlite</a></li>
+    <li class="api apilevel-11">
+  <a href="../../../../reference/android/drm/package-summary.html">android.drm</a></li>
+    <li class="api apilevel-4">
+  <a href="../../../../reference/android/gesture/package-summary.html">android.gesture</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/graphics/package-summary.html">android.graphics</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/graphics/drawable/package-summary.html">android.graphics.drawable</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/graphics/drawable/shapes/package-summary.html">android.graphics.drawable.shapes</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/hardware/package-summary.html">android.hardware</a></li>
+    <li class="api apilevel-12">
+  <a href="../../../../reference/android/hardware/usb/package-summary.html">android.hardware.usb</a></li>
+    <li class="api apilevel-3">
+  <a href="../../../../reference/android/inputmethodservice/package-summary.html">android.inputmethodservice</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/location/package-summary.html">android.location</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/media/package-summary.html">android.media</a></li>
+    <li class="api apilevel-9">
+  <a href="../../../../reference/android/media/audiofx/package-summary.html">android.media.audiofx</a></li>
+    <li class="api apilevel-14">
+  <a href="../../../../reference/android/media/effect/package-summary.html">android.media.effect</a></li>
+    <li class="api apilevel-12">
+  <a href="../../../../reference/android/mtp/package-summary.html">android.mtp</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/net/package-summary.html">android.net</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/net/http/package-summary.html">android.net.http</a></li>
+    <li class="api apilevel-12">
+  <a href="../../../../reference/android/net/rtp/package-summary.html">android.net.rtp</a></li>
+    <li class="api apilevel-9">
+  <a href="../../../../reference/android/net/sip/package-summary.html">android.net.sip</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/net/wifi/package-summary.html">android.net.wifi</a></li>
+    <li class="api apilevel-14">
+  <a href="../../../../reference/android/net/wifi/p2p/package-summary.html">android.net.wifi.p2p</a></li>
+    <li class="api apilevel-9">
+  <a href="../../../../reference/android/nfc/package-summary.html">android.nfc</a></li>
+    <li class="api apilevel-10">
+  <a href="../../../../reference/android/nfc/tech/package-summary.html">android.nfc.tech</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/opengl/package-summary.html">android.opengl</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/os/package-summary.html">android.os</a></li>
+    <li class="api apilevel-9">
+  <a href="../../../../reference/android/os/storage/package-summary.html">android.os.storage</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/preference/package-summary.html">android.preference</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/provider/package-summary.html">android.provider</a></li>
+    <li class="api apilevel-11">
+  <a href="../../../../reference/android/renderscript/package-summary.html">android.renderscript</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/sax/package-summary.html">android.sax</a></li>
+    <li class="api apilevel-14">
+  <a href="../../../../reference/android/security/package-summary.html">android.security</a></li>
+    <li class="api apilevel-14">
+  <a href="../../../../reference/android/service/textservice/package-summary.html">android.service.textservice</a></li>
+    <li class="api apilevel-7">
+  <a href="../../../../reference/android/service/wallpaper/package-summary.html">android.service.wallpaper</a></li>
+    <li class="api apilevel-3">
+  <a href="../../../../reference/android/speech/package-summary.html">android.speech</a></li>
+    <li class="api apilevel-4">
+  <a href="../../../../reference/android/speech/tts/package-summary.html">android.speech.tts</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v13/app/package-summary.html">android.support.v13.app</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v4/accessibilityservice/package-summary.html">android.support.v4.accessibilityservice</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v4/app/package-summary.html">android.support.v4.app</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v4/content/package-summary.html">android.support.v4.content</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v4/content/pm/package-summary.html">android.support.v4.content.pm</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v4/database/package-summary.html">android.support.v4.database</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v4/os/package-summary.html">android.support.v4.os</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v4/util/package-summary.html">android.support.v4.util</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v4/view/package-summary.html">android.support.v4.view</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v4/view/accessibility/package-summary.html">android.support.v4.view.accessibility</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v4/widget/package-summary.html">android.support.v4.widget</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/telephony/package-summary.html">android.telephony</a></li>
+    <li class="api apilevel-5">
+  <a href="../../../../reference/android/telephony/cdma/package-summary.html">android.telephony.cdma</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/telephony/gsm/package-summary.html">android.telephony.gsm</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/test/package-summary.html">android.test</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/test/mock/package-summary.html">android.test.mock</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/test/suitebuilder/package-summary.html">android.test.suitebuilder</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/text/package-summary.html">android.text</a></li>
+    <li class="api apilevel-3">
+  <a href="../../../../reference/android/text/format/package-summary.html">android.text.format</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/text/method/package-summary.html">android.text.method</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/text/style/package-summary.html">android.text.style</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/text/util/package-summary.html">android.text.util</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/util/package-summary.html">android.util</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/view/package-summary.html">android.view</a></li>
+    <li class="api apilevel-4">
+  <a href="../../../../reference/android/view/accessibility/package-summary.html">android.view.accessibility</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/view/animation/package-summary.html">android.view.animation</a></li>
+    <li class="api apilevel-3">
+  <a href="../../../../reference/android/view/inputmethod/package-summary.html">android.view.inputmethod</a></li>
+    <li class="api apilevel-14">
+  <a href="../../../../reference/android/view/textservice/package-summary.html">android.view.textservice</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/webkit/package-summary.html">android.webkit</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/widget/package-summary.html">android.widget</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/dalvik/bytecode/package-summary.html">dalvik.bytecode</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/dalvik/system/package-summary.html">dalvik.system</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/awt/font/package-summary.html">java.awt.font</a></li>
+    <li class="api apilevel-3">
+  <a href="../../../../reference/java/beans/package-summary.html">java.beans</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/io/package-summary.html">java.io</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/lang/package-summary.html">java.lang</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/lang/annotation/package-summary.html">java.lang.annotation</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/lang/ref/package-summary.html">java.lang.ref</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/lang/reflect/package-summary.html">java.lang.reflect</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/math/package-summary.html">java.math</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/net/package-summary.html">java.net</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/nio/package-summary.html">java.nio</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/nio/channels/package-summary.html">java.nio.channels</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/nio/channels/spi/package-summary.html">java.nio.channels.spi</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/nio/charset/package-summary.html">java.nio.charset</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/nio/charset/spi/package-summary.html">java.nio.charset.spi</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/security/package-summary.html">java.security</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/security/acl/package-summary.html">java.security.acl</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/security/cert/package-summary.html">java.security.cert</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/security/interfaces/package-summary.html">java.security.interfaces</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/security/spec/package-summary.html">java.security.spec</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/sql/package-summary.html">java.sql</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/text/package-summary.html">java.text</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/util/package-summary.html">java.util</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/util/concurrent/package-summary.html">java.util.concurrent</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/util/concurrent/atomic/package-summary.html">java.util.concurrent.atomic</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/util/concurrent/locks/package-summary.html">java.util.concurrent.locks</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/util/jar/package-summary.html">java.util.jar</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/util/logging/package-summary.html">java.util.logging</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/util/prefs/package-summary.html">java.util.prefs</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/util/regex/package-summary.html">java.util.regex</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/util/zip/package-summary.html">java.util.zip</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/javax/crypto/package-summary.html">javax.crypto</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/javax/crypto/interfaces/package-summary.html">javax.crypto.interfaces</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/javax/crypto/spec/package-summary.html">javax.crypto.spec</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/javax/microedition/khronos/egl/package-summary.html">javax.microedition.khronos.egl</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/javax/microedition/khronos/opengles/package-summary.html">javax.microedition.khronos.opengles</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/javax/net/package-summary.html">javax.net</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/javax/net/ssl/package-summary.html">javax.net.ssl</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/javax/security/auth/package-summary.html">javax.security.auth</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/javax/security/auth/callback/package-summary.html">javax.security.auth.callback</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/javax/security/auth/login/package-summary.html">javax.security.auth.login</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/javax/security/auth/x500/package-summary.html">javax.security.auth.x500</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/javax/security/cert/package-summary.html">javax.security.cert</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/javax/sql/package-summary.html">javax.sql</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/javax/xml/package-summary.html">javax.xml</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../../reference/javax/xml/datatype/package-summary.html">javax.xml.datatype</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../../reference/javax/xml/namespace/package-summary.html">javax.xml.namespace</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/javax/xml/parsers/package-summary.html">javax.xml.parsers</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../../reference/javax/xml/transform/package-summary.html">javax.xml.transform</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../../reference/javax/xml/transform/dom/package-summary.html">javax.xml.transform.dom</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../../reference/javax/xml/transform/sax/package-summary.html">javax.xml.transform.sax</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../../reference/javax/xml/transform/stream/package-summary.html">javax.xml.transform.stream</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../../reference/javax/xml/validation/package-summary.html">javax.xml.validation</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../../reference/javax/xml/xpath/package-summary.html">javax.xml.xpath</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/junit/framework/package-summary.html">junit.framework</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/junit/runner/package-summary.html">junit.runner</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/apache/http/package-summary.html">org.apache.http</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/apache/http/auth/package-summary.html">org.apache.http.auth</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/apache/http/auth/params/package-summary.html">org.apache.http.auth.params</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/apache/http/client/package-summary.html">org.apache.http.client</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/apache/http/client/entity/package-summary.html">org.apache.http.client.entity</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/apache/http/client/methods/package-summary.html">org.apache.http.client.methods</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/apache/http/client/params/package-summary.html">org.apache.http.client.params</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/apache/http/client/protocol/package-summary.html">org.apache.http.client.protocol</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/apache/http/client/utils/package-summary.html">org.apache.http.client.utils</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/apache/http/conn/package-summary.html">org.apache.http.conn</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/apache/http/conn/params/package-summary.html">org.apache.http.conn.params</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/apache/http/conn/routing/package-summary.html">org.apache.http.conn.routing</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/apache/http/conn/scheme/package-summary.html">org.apache.http.conn.scheme</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/apache/http/conn/ssl/package-summary.html">org.apache.http.conn.ssl</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/apache/http/conn/util/package-summary.html">org.apache.http.conn.util</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/apache/http/cookie/package-summary.html">org.apache.http.cookie</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/apache/http/cookie/params/package-summary.html">org.apache.http.cookie.params</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/apache/http/entity/package-summary.html">org.apache.http.entity</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/apache/http/impl/package-summary.html">org.apache.http.impl</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/apache/http/impl/auth/package-summary.html">org.apache.http.impl.auth</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/apache/http/impl/client/package-summary.html">org.apache.http.impl.client</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/apache/http/impl/conn/package-summary.html">org.apache.http.impl.conn</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/apache/http/impl/conn/tsccm/package-summary.html">org.apache.http.impl.conn.tsccm</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/apache/http/impl/cookie/package-summary.html">org.apache.http.impl.cookie</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/apache/http/impl/entity/package-summary.html">org.apache.http.impl.entity</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/apache/http/impl/io/package-summary.html">org.apache.http.impl.io</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/apache/http/io/package-summary.html">org.apache.http.io</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/apache/http/message/package-summary.html">org.apache.http.message</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/apache/http/params/package-summary.html">org.apache.http.params</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/apache/http/protocol/package-summary.html">org.apache.http.protocol</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/apache/http/util/package-summary.html">org.apache.http.util</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/json/package-summary.html">org.json</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/w3c/dom/package-summary.html">org.w3c.dom</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../../reference/org/w3c/dom/ls/package-summary.html">org.w3c.dom.ls</a></li>
+    <li class="selected api apilevel-1">
+  <a href="../../../../reference/org/xml/sax/package-summary.html">org.xml.sax</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/xml/sax/ext/package-summary.html">org.xml.sax.ext</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/xml/sax/helpers/package-summary.html">org.xml.sax.helpers</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/xmlpull/v1/package-summary.html">org.xmlpull.v1</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/xmlpull/v1/sax2/package-summary.html">org.xmlpull.v1.sax2</a></li>
+              </ul><br/>
+            </div> <!-- end packages -->
+          </div> <!-- end resize-packages -->
+          <div id="classes-nav">
+            <ul>
+              
+    <li><h2>Interfaces</h2>
+      <ul>
+        <li class="api apilevel-1"><a href="../../../../reference/org/xml/sax/AttributeList.html">AttributeList</a></li>
+        <li class="api apilevel-1"><a href="../../../../reference/org/xml/sax/Attributes.html">Attributes</a></li>
+        <li class="api apilevel-1"><a href="../../../../reference/org/xml/sax/ContentHandler.html">ContentHandler</a></li>
+        <li class="api apilevel-1"><a href="../../../../reference/org/xml/sax/DocumentHandler.html">DocumentHandler</a></li>
+        <li class="api apilevel-1"><a href="../../../../reference/org/xml/sax/DTDHandler.html">DTDHandler</a></li>
+        <li class="api apilevel-1"><a href="../../../../reference/org/xml/sax/EntityResolver.html">EntityResolver</a></li>
+        <li class="api apilevel-1"><a href="../../../../reference/org/xml/sax/ErrorHandler.html">ErrorHandler</a></li>
+        <li class="api apilevel-1"><a href="../../../../reference/org/xml/sax/Locator.html">Locator</a></li>
+        <li class="api apilevel-1"><a href="../../../../reference/org/xml/sax/Parser.html">Parser</a></li>
+        <li class="api apilevel-1"><a href="../../../../reference/org/xml/sax/XMLFilter.html">XMLFilter</a></li>
+        <li class="api apilevel-1"><a href="../../../../reference/org/xml/sax/XMLReader.html">XMLReader</a></li>
+      </ul>
+    </li>
+              
+    <li><h2>Classes</h2>
+      <ul>
+        <li class="api apilevel-1"><a href="../../../../reference/org/xml/sax/HandlerBase.html">HandlerBase</a></li>
+        <li class="api apilevel-1"><a href="../../../../reference/org/xml/sax/InputSource.html">InputSource</a></li>
+      </ul>
+    </li>
+              
+              
+    <li><h2>Exceptions</h2>
+      <ul>
+        <li class="api apilevel-1"><a href="../../../../reference/org/xml/sax/SAXException.html">SAXException</a></li>
+        <li class="api apilevel-1"><a href="../../../../reference/org/xml/sax/SAXNotRecognizedException.html">SAXNotRecognizedException</a></li>
+        <li class="api apilevel-1"><a href="../../../../reference/org/xml/sax/SAXNotSupportedException.html">SAXNotSupportedException</a></li>
+        <li class="api apilevel-1"><a href="../../../../reference/org/xml/sax/SAXParseException.html">SAXParseException</a></li>
+      </ul>
+    </li>
+              
+            </ul><br/>
+          </div><!-- end classes -->
+        </div><!-- end nav-panels -->
+        <div id="nav-tree" style="display:none">
+          <div id="index-links"><nobr>
+            <a href="../../../../reference/packages.html"  >Package Index</a> | 
+            <a href="../../../../reference/classes.html" >Class Index</a></nobr>
+          </div>
+        </div><!-- end nav-tree -->
+      </div><!-- end swapper -->
+    </div> <!-- end side-nav -->
+    <script>
+      if (!isMobile) {
+        $("<a href='#' id='nav-swap' onclick='swapNav();return false;' style='font-size:10px;line-height:9px;margin-left:1em;text-decoration:none;'><span id='tree-link'>Use Tree Navigation</span><span id='panel-link' style='display:none'>Use Panel Navigation</span></a>").appendTo("#side-nav");
+        chooseDefaultNav();
+        if ($("#nav-tree").is(':visible')) {
+          init_default_navtree("../../../../");
+        } else {
+          addLoadEvent(function() {
+            scrollIntoView("packages-nav");
+            scrollIntoView("classes-nav");
+          });
+        }
+        $("#swapper").css({borderBottom:"2px solid #aaa"});
+      } else {
+        swapNav(); // tree view should be used on mobile
+      }
+    </script>
+
+
+
+<div class="g-unit" id="doc-content">
+
+<div id="api-info-block">
+<div class="api-level">
+  
+
+  Since: <a href="../../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+
+  
+  
+
+</div>
+</div>
+
+<div id="jd-header">
+  package
+  <h1>org.xml.sax</h1>
+</div><!-- end header -->
+
+<div id="naMessage"></div>
+
+<div id="jd-content" class="api apilevel-1">
+
+
+  <div class="jd-descr">
+    <p> This package provides the core SAX APIs.
+Some SAX1 APIs are deprecated to encourage integration of
+namespace-awareness into designs of new applications
+and into maintenance of existing infrastructure. </p>
+
+<p>See <a href='http://www.saxproject.org'>http://www.saxproject.org</a>
+for more information about SAX.</p>
+
+
+<h2> SAX2 Standard Feature Flags </h2>
+
+<p> One of the essential characteristics of SAX2 is that it added
+feature flags which can be used to examine and perhaps modify
+parser modes, in particular modes such as validation.
+Since features are identified by (absolute) URIs, anyone
+can define such features.   
+Currently defined standard feature URIs have the prefix
+<code>http://xml.org/sax/features/</code> before an identifier such as
+<code>validation</code>.  Turn features on or off using
+<em>setFeature</em>.  Those standard identifiers are: </p>
+
+
+<table border="1" cellpadding="3" cellspacing="0" width="100%">
+    <tr align="center" bgcolor="#ccccff">
+	<th>Feature ID</th>
+	<th>Access</th>
+	<th>Default</th>
+	<th>Description</th>
+	</tr>
+
+    <tr>
+	<td>external-general-entities</td>
+	<td><em>read/write</em></td>
+	<td><em>unspecified</em></td>
+	<td> Reports whether this parser processes external
+	    general entities; always true if validating.
+		</td>
+	</tr>
+
+    <tr>
+	<td>external-parameter-entities</td>
+	<td><em>read/write</em></td>
+	<td><em>unspecified</em></td>
+	<td> Reports whether this parser processes external
+	    parameter entities; always true if validating.
+		</td>
+	</tr>
+
+    <tr>
+	<td>is-standalone</td>
+	<td>(parsing) <em>read-only</em>, (not parsing) <em>none</em></td>
+	<td>not applicable</td>
+	<td> May be examined only during a parse, after the
+	    <em>startDocument()</em> callback has been completed; read-only.
+	    The value is true if the document specified standalone="yes" in 
+	    its XML declaration, and otherwise is false.
+		</td>
+	</tr>
+
+    <tr>
+	<td>lexical-handler/parameter-entities</td>
+	<td><em>read/write</em></td>
+	<td><em>unspecified</em></td>
+	<td> A value of "true" indicates that the LexicalHandler will report
+	    the beginning and end of parameter entities.
+		</td>
+	</tr>
+
+    <tr>
+	<td>namespaces</td>
+	<td><em>read/write</em></td>
+	<td>true</td>
+	<td> A value of "true" indicates namespace URIs and unprefixed local names
+	    for element and attribute names will be available.
+		</td>
+	</tr>
+
+    <tr>
+	<td>namespace-prefixes</td>
+	<td><em>read/write</em></td>
+	<td>false</td>
+	<td> A value of "true" indicates that XML qualified names (with prefixes) and
+	    attributes (including <em>xmlns*</em> attributes) will be available.
+		</td>
+	</tr>
+
+    <tr>
+	<td>resolve-dtd-uris</td>
+	<td><em>read/write</em></td>
+	<td><em>true</em></td>
+	<td> A value of "true" indicates that system IDs in declarations will
+	    be absolutized (relative to their base URIs) before reporting.
+	    (That is the default behavior for all SAX2 XML parsers.)
+	    A value of "false" indicates those IDs will not be absolutized;
+	    parsers will provide the base URI from
+	    <em>Locator.getSystemId()</em>.
+	    This applies to system IDs passed in <ul>
+		<li><em>DTDHandler.notationDecl()</em>,
+		<li><em>DTDHandler.unparsedEntityDecl()</em>, and
+		<li><em>DeclHandler.externalEntityDecl()</em>.
+	    </ul>
+	    It does not apply to <em>EntityResolver.resolveEntity()</em>,
+	    which is not used to report declarations, or to
+	    <em>LexicalHandler.startDTD()</em>, which already provides
+	    the non-absolutized URI.
+	    </td>
+	</tr>
+
+    <tr>
+	<td>string-interning</td>
+	<td><em>read/write</em></td>
+	<td><em>unspecified</em></td>
+	<td> Has a value of "true" if all XML names (for elements, prefixes,
+	    attributes, entities, notations, and local names),
+	    as well as Namespace URIs, will have been interned
+	    using <em>java.lang.String.intern</em>. This supports fast
+	    testing of equality/inequality against string constants,
+	    rather than forcing slower calls to <em>String.equals()</em>.
+	    </td>
+	</tr>
+
+    <tr>
+    <td>unicode-normalization-checking</td>
+    <td><em>read/write</em></td>
+    <td><em>false</em></td>
+    <td> Controls whether the parser reports Unicode normalization 
+        errors as described in section 2.13 and Appendix B of the 
+        XML 1.1 Recommendation. If true, Unicode normalization
+        errors are reported using the ErrorHandler.error() callback.
+        Such errors are not fatal in themselves (though, obviously,
+        other Unicode-related encoding errors may be).
+		</td>
+    </tr>
+    
+    <tr>
+	<td>use-attributes2</td>
+	<td><em>read-only</em></td>
+	<td>not applicable</td>
+	<td> Returns "true" if the <em>Attributes</em> objects passed by
+	    this parser in <em>ContentHandler.startElement()</em>
+	    implement the <a href="ext/Attributes2.html"
+	    ><em>org.xml.sax.ext.Attributes2</em></a> interface.
+	    That interface exposes additional DTD-related information,
+	    such as whether the attribute was specified in the
+	    source text rather than defaulted.
+		</td>
+	</tr>
+
+    <tr>
+	<td>use-locator2</td>
+	<td><em>read-only</em></td>
+	<td>not applicable</td>
+	<td> Returns "true" if the <em>Locator</em> objects passed by
+	    this parser in <em>ContentHandler.setDocumentLocator()</em>
+	    implement the <a href="ext/Locator2.html"
+	    ><em>org.xml.sax.ext.Locator2</em></a> interface.
+	    That interface exposes additional entity information,
+	    such as the character encoding and XML version used.
+		</td>
+	</tr>
+
+    <tr>
+	<td>use-entity-resolver2</td>
+	<td><em>read/write</em></td>
+	<td><em>true</em></td>
+	<td> Returns "true" if, when <em>setEntityResolver</em> is given
+	    an object implementing the <a href="ext/EntityResolver2.html"
+	    ><em>org.xml.sax.ext.EntityResolver2</em></a> interface,
+	    those new methods will be used.
+	    Returns "false" to indicate that those methods will not be used.
+		</td>
+	</tr>
+
+    <tr>
+	<td>validation</td>
+	<td><em>read/write</em></td>
+	<td><em>unspecified</em></td>
+	<td> Controls whether the parser is reporting all validity
+	    errors; if true, all external entities will be read.
+		</td>
+	</tr>
+
+    <tr>
+	<td>xmlns-uris</td>
+	<td><em>read/write</em></td>
+	<td><em>false</em></td>
+	<td> Controls whether, when the <em>namespace-prefixes</em> feature
+	    is set, the parser treats namespace declaration attributes as
+	    being in the <em>http://www.w3.org/2000/xmlns/</em> namespace.
+	    By default, SAX2 conforms to the original "Namespaces in XML"
+	    Recommendation, which explicitly states that such attributes are
+	    not in any namespace.
+	    Setting this optional flag to "true" makes the SAX2 events conform to
+	    a later backwards-incompatible revision of that recommendation,
+	    placing those attributes in a namespace.
+		</td>
+	</tr>
+
+    <tr>
+    <td>xml-1.1</td>
+    <td><em>read-only</em></td>
+    <td>not applicable</td>
+    <td> Returns "true" if the parser supports both XML 1.1 and XML 1.0.
+        Returns "false" if the parser supports only XML 1.0.
+		</td>
+    </tr>
+
+</table>
+
+<p> Support for the default values of the
+<em>namespaces</em> and <em>namespace-prefixes</em>
+properties is required.
+Support for any other feature flags is entirely optional.
+</p>
+
+<p> For default values not specified by SAX2,
+each XMLReader implementation specifies its default,
+or may choose not to expose the feature flag.
+Unless otherwise specified here,
+implementations may support changing current values
+of these standard feature flags, but not while parsing.
+</p>
+
+<h2> SAX2 Standard Handler and Property IDs </h2>
+
+<p> For parser interface characteristics that are described
+as objects, a separate namespace is defined.  The
+objects in this namespace are again identified by URI, and
+the standard property URIs have the prefix
+<code>http://xml.org/sax/properties/</code> before an identifier such as
+<code>lexical-handler</code> or
+<code>dom-node</code>.  Manage those properties using
+<em>setProperty()</em>.  Those identifiers are: </p>
+
+<table border="1" cellpadding="3" cellspacing="0" width="100%">
+    <tr align="center" bgcolor="#ccccff">
+	<th>Property ID</th>
+	<th>Description</th>
+	</tr>
+
+    <tr>
+	<td>declaration-handler</td>
+	<td> Used to see most DTD declarations except those treated
+	    as lexical ("document element name is ...") or which are
+	    mandatory for all SAX parsers (<em>DTDHandler</em>).
+	    The Object must implement <a href="ext/DeclHandler.html"
+	    ><em>org.xml.sax.ext.DeclHandler</em></a>.
+	    </td>
+	</tr>
+
+    <tr>
+        <td>document-xml-version</td>
+        <td> May be examined only during a parse, after the startDocument()
+            callback has been completed; read-only. This property is a 
+            literal string describing the actual XML version of the document, 
+            such as "1.0" or "1.1".
+            </td>
+        </tr>
+    
+    <tr>
+	<td>dom-node</td>
+	<td> For "DOM Walker" style parsers, which ignore their
+	    <em>parser.parse()</em> parameters, this is used to
+	    specify the DOM (sub)tree being walked by the parser.
+	    The Object must implement the
+	    <em>org.w3c.dom.Node</em> interface.
+	    </td>
+	</tr>
+
+    <tr>
+	<td>lexical-handler</td>
+	<td> Used to see some syntax events that are essential in some
+	    applications:  comments, CDATA delimiters, selected general
+	    entity inclusions, and the start and end of the DTD
+	    (and declaration of document element name).
+	    The Object must implement <a href="ext/LexicalHandler.html"
+	    ><em>org.xml.sax.ext.LexicalHandler</em></a>.
+	    </td>
+	</tr>
+
+    <tr>
+	<td>xml-string</td>
+	<td> Readable only during a parser callback, this exposes a <b>TBS</b>
+	    chunk of characters responsible for the current event. </td>
+	</tr>
+
+</table>
+
+<p> All of these standard properties are optional;
+XMLReader implementations need not support them.
+</p>
+
+
+  </div>
+
+
+
+
+
+  
+    <h2>Interfaces</h2>
+    <div class="jd-sumtable">
+    
+  <table class="jd-sumtable-expando">
+        <tr class="alt-color api apilevel-1" >
+              <td class="jd-linkcol"><a href="../../../../reference/org/xml/sax/AttributeList.html">AttributeList</a></td>
+              <td class="jd-descrcol" width="100%">
+      <em>
+  This interface is deprecated.
+      This interface has been replaced by the SAX2
+             <code><a href="../../../../reference/org/xml/sax/Attributes.html">Attributes</a></code>
+             interface, which includes Namespace support.</em>&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-1" >
+              <td class="jd-linkcol"><a href="../../../../reference/org/xml/sax/Attributes.html">Attributes</a></td>
+              <td class="jd-descrcol" width="100%">Interface for a list of XML attributes.&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-1" >
+              <td class="jd-linkcol"><a href="../../../../reference/org/xml/sax/ContentHandler.html">ContentHandler</a></td>
+              <td class="jd-descrcol" width="100%">Receive notification of the logical content of a document.&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-1" >
+              <td class="jd-linkcol"><a href="../../../../reference/org/xml/sax/DocumentHandler.html">DocumentHandler</a></td>
+              <td class="jd-descrcol" width="100%">
+      <em>
+  This interface is deprecated.
+      This interface has been replaced by the SAX2
+             <code><a href="../../../../reference/org/xml/sax/ContentHandler.html">ContentHandler</a></code>
+             interface, which includes Namespace support.</em>&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-1" >
+              <td class="jd-linkcol"><a href="../../../../reference/org/xml/sax/DTDHandler.html">DTDHandler</a></td>
+              <td class="jd-descrcol" width="100%">Receive notification of basic DTD-related events.&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-1" >
+              <td class="jd-linkcol"><a href="../../../../reference/org/xml/sax/EntityResolver.html">EntityResolver</a></td>
+              <td class="jd-descrcol" width="100%">Basic interface for resolving entities.&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-1" >
+              <td class="jd-linkcol"><a href="../../../../reference/org/xml/sax/ErrorHandler.html">ErrorHandler</a></td>
+              <td class="jd-descrcol" width="100%">Basic interface for SAX error handlers.&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-1" >
+              <td class="jd-linkcol"><a href="../../../../reference/org/xml/sax/Locator.html">Locator</a></td>
+              <td class="jd-descrcol" width="100%">Interface for associating a SAX event with a document location.&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-1" >
+              <td class="jd-linkcol"><a href="../../../../reference/org/xml/sax/Parser.html">Parser</a></td>
+              <td class="jd-descrcol" width="100%">
+      <em>
+  This interface is deprecated.
+      This interface has been replaced by the SAX2
+             <code><a href="../../../../reference/org/xml/sax/XMLReader.html">XMLReader</a></code>
+             interface, which includes Namespace support.</em>&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-1" >
+              <td class="jd-linkcol"><a href="../../../../reference/org/xml/sax/XMLFilter.html">XMLFilter</a></td>
+              <td class="jd-descrcol" width="100%">Interface for an XML filter.&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-1" >
+              <td class="jd-linkcol"><a href="../../../../reference/org/xml/sax/XMLReader.html">XMLReader</a></td>
+              <td class="jd-descrcol" width="100%">Interface for reading an XML document using callbacks.&nbsp;</td>
+          </tr>
+  </table>
+    </div>
+  
+
+
+  
+    <h2>Classes</h2>
+    <div class="jd-sumtable">
+    
+  <table class="jd-sumtable-expando">
+        <tr class="alt-color api apilevel-1" >
+              <td class="jd-linkcol"><a href="../../../../reference/org/xml/sax/HandlerBase.html">HandlerBase</a></td>
+              <td class="jd-descrcol" width="100%">
+      <em>
+  This class is deprecated.
+      This class works with the deprecated
+             <code><a href="../../../../reference/org/xml/sax/DocumentHandler.html">DocumentHandler</a></code>
+             interface.  It has been replaced by the SAX2
+             <code><a href="../../../../reference/org/xml/sax/helpers/DefaultHandler.html">DefaultHandler</a></code>
+             class.</em>&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-1" >
+              <td class="jd-linkcol"><a href="../../../../reference/org/xml/sax/InputSource.html">InputSource</a></td>
+              <td class="jd-descrcol" width="100%">A single input source for an XML entity.&nbsp;</td>
+          </tr>
+  </table>
+    </div>
+  
+
+
+  
+
+
+  
+    <h2>Exceptions</h2>
+    <div class="jd-sumtable">
+    
+  <table class="jd-sumtable-expando">
+        <tr class="alt-color api apilevel-1" >
+              <td class="jd-linkcol"><a href="../../../../reference/org/xml/sax/SAXException.html">SAXException</a></td>
+              <td class="jd-descrcol" width="100%">Encapsulate a general SAX error or warning.&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-1" >
+              <td class="jd-linkcol"><a href="../../../../reference/org/xml/sax/SAXNotRecognizedException.html">SAXNotRecognizedException</a></td>
+              <td class="jd-descrcol" width="100%">Exception class for an unrecognized identifier.&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-1" >
+              <td class="jd-linkcol"><a href="../../../../reference/org/xml/sax/SAXNotSupportedException.html">SAXNotSupportedException</a></td>
+              <td class="jd-descrcol" width="100%">Exception class for an unsupported operation.&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-1" >
+              <td class="jd-linkcol"><a href="../../../../reference/org/xml/sax/SAXParseException.html">SAXParseException</a></td>
+              <td class="jd-descrcol" width="100%">Encapsulate an XML parse error or warning.&nbsp;</td>
+          </tr>
+  </table>
+    </div>
+  
+
+
+  
+
+
+<div id="footer">
+
+
+  <div id="copyright">
+    
+  Except as noted, this content is licensed under <a
+  href="http://www.apache.org/licenses/LICENSE-2.0">Apache 2.0</a>. 
+  For details and restrictions, see the <a href="../../../../license.html">
+  Content License</a>.
+  </div>
+  <div id="build_info">
+    
+  Android 4.0&nbsp;r1 - 16 Mar 2012 16:45
+
+  </div>
+
+  <div id="footerlinks">
+    
+  <p>
+    <a href="http://www.google.com/intl/en/policies/" target="_blank">Privacy &amp; Terms</a> -
+    <a href="http://www.android.com/branding.html" target="_blank">Brand Guidelines</a> -
+    <a
+href="http://code.google.com/p/android/issues/entry?template=Developer%20Documentation"
+target="_blank">Report Document Issues</a>
+  </p>
+  </div>
+
+</div> <!-- end footer -->
+
+</div><!-- end jd-content -->
+</div><!-- doc-content -->
+
+</div> <!-- end body-content --> 
+
+<script type="text/javascript">
+init(); /* initialize android-developer-docs.js */
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-5831155-1");
+pageTracker._trackPageview();
+</script>
+
+</body>
+</html>

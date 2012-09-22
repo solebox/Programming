@@ -1,0 +1,1295 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<link rel="shortcut icon" type="image/x-icon" href="../../../../../../../../../favicon.ico" />
+<title>view - API Demos | Android Developers</title>
+<link href="../../../../../../../../../assets/android-developer-docs-devguide.css" rel="stylesheet" type="text/css" />
+<script src="../../../../../../../../../assets/search_autocomplete.js" type="text/javascript"></script>
+<script src="../../../../../../../../../assets/jquery-resizable.min.js" type="text/javascript"></script>
+<script src="../../../../../../../../../assets/android-developer-docs.js" type="text/javascript"></script>
+<script src="../../../../../../../../../assets/prettify.js" type="text/javascript"></script>
+<script type="text/javascript">
+  setToRoot("../../../../../../../../../");
+</script>
+<script src="../../../../../../../../../resources/resources-data.js" type="text/javascript"></script>
+<noscript>
+  <style type="text/css">
+    html,body{overflow:auto;}
+    #body-content{position:relative; top:0;}
+    #doc-content{overflow:visible;border-left:3px solid #666;}
+    #side-nav{padding:0;}
+    #side-nav .toggle-list ul {display:block;}
+    #resize-packages-nav{border-bottom:3px solid #666;}
+  </style>
+</noscript>
+</head>
+
+  <div id="header">
+      <div id="headerLeft">
+          <a href="../../../../../../../../../index.html" tabindex="-1"><img
+              src="../../../../../../../../../assets/images/bg_logo.png" alt="Android Developers" /></a>
+          <ul id="header-tabs" class="resources">
+    
+	<li id="home-link"><a href="../../../../../../../../../offline.html">
+	
+		<span class="en">Home</span>
+		<span style="display:none" class="de">Startseite</span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ホーム</span>
+		<span style="display:none" class="zh-CN">主页</span>
+		<span style="display:none" class="zh-TW">首頁</span>
+	
+	</a></li>
+	<li id="sdk-link"><a href="../../../../../../../../../sdk/index.html">
+		<span class="en">SDK</span>
+	</a></li>
+	<li id="guide-link"><a href="../../../../../../../../../guide/index.html" onClick="return loadLast('guide')">
+	
+		<span class="en">Dev Guide</span>
+		<span style="display:none" class="de">Handbuch</span>
+		<span style="display:none" class="es">Guía</span>
+		<span style="display:none" class="fr">Guide</span>
+		<span style="display:none" class="it">Guida</span>
+		<span style="display:none" class="ja">開発ガイド</span>
+		<span style="display:none" class="zh-CN">开发人员指南</span>
+		<span style="display:none" class="zh-TW">開發指南</span>
+	
+	</a></li>
+	<li id="reference-link"><a href="../../../../../../../../../reference/packages.html" onClick="return loadLast('reference')">
+	
+		<span class="en">Reference</span>
+		<span style="display:none" class="de">Referenz</span>
+		<span style="display:none" class="es">Referencia</span>
+		<span style="display:none" class="fr">Référence</span>
+		<span style="display:none" class="it">Riferimento</span>
+		<span style="display:none" class="ja">リファレンス</span>
+		<span style="display:none" class="zh-CN">参考</span>
+		<span style="display:none" class="zh-TW">參考資料</span>
+	
+	</a></li>
+	<li id="resources-link"><a href="../../../../../../../../../resources/index.html" onClick="return loadLast('resources')">
+	
+		<span class="en">Resources</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+    		<span style="display:none" class="ja"></span>
+		<span style="display:none" class="zh-CN"></span>
+		<span style="display:none" class="zh-TW"></span>
+	
+	</a></li>
+	<li id="videos-link"><a href="../../../../../../../../../videos/index.html" onClick="return loadLast('videos')">
+	
+		<span class="en">Videos</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ビデオ</span>
+		<span style="display:none" class="zh-CN"></span>
+		<span style="display:none" class="zh-TW"></span>
+	
+	</a></li>
+	<li><a href="http://android-developers.blogspot.com" onClick="return requestAppendHL(this.href)">
+	
+		<span class="en">Blog</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ブログ</span>
+		<span style="display:none" class="zh-CN">博客</span>
+		<span style="display:none" class="zh-TW">網誌</span>
+	
+	</a></li>
+
+
+     
+</ul>
+     
+      </div>
+      <div id="headerRight">
+          <div id="headerLinks">
+          &nbsp;&nbsp;
+          <a href="../../../../../../../../../design/index.html">Android Design</a>&nbsp;&nbsp;
+          <a href="http://www.android.com">Android.com</a>
+          </div>
+  <div id="search" >
+      <div id="searchForm">
+          <form accept-charset="utf-8" class="gsc-search-box" 
+                onsubmit="return submit_search()">
+            <table class="gsc-search-box" cellpadding="0" cellspacing="0"><tbody>
+                <tr>
+                  <td class="gsc-input">
+                    <input id="search_autocomplete" class="gsc-input" type="text" size="33" autocomplete="off"
+                      title="search developer docs" name="q"
+                      value="search developer docs"
+                      onFocus="search_focus_changed(this, true)"
+                      onBlur="search_focus_changed(this, false)"
+                      onkeydown="return search_changed(event, true, '../../../../../../../../../')"
+                      onkeyup="return search_changed(event, false, '../../../../../../../../../')" />
+                  <div id="search_filtered_div" class="no-display">
+                      <table id="search_filtered" cellspacing=0>
+                      </table>
+                  </div>
+                  </td>
+                  <td class="gsc-search-button">
+                    <input type="submit" value="Search" title="search" id="search-button" class="gsc-search-button" />
+                  </td>
+                  <td class="gsc-clear-button">
+                    <div title="clear results" class="gsc-clear-button">&nbsp;</div>
+                  </td>
+                </tr></tbody>
+              </table>
+          </form>
+      </div><!-- searchForm -->
+  </div><!-- search -->
+      </div><!-- headerRight -->
+      <script type="text/javascript">
+        <!--  
+        changeTabLang(getLangPref());
+        //-->
+      </script>
+  </div><!-- header -->
+
+  <div class="g-section g-tpl-200" id="body-content">
+    <div class="g-unit g-first" id="side-nav" itemscope itemtype="http://schema.org/SiteNavigationElement">
+      <div id="devdoc-nav"><ul>
+  <li>
+    <span class="heading">
+      <span class="en">Android Training</span>
+    </span>
+    <ul>
+      
+      <li><a href="../../../../../../../../../training/index.html">
+            <span class="en">Orientation</span>
+          </a>
+      </li>
+
+      <li class="toggle-list">
+        <div><a href="../../../../../../../../../training/multiscreen/index.html">
+            <span class="en">Designing for Multiple Screens</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../../../../../../../training/multiscreen/screensizes.html">
+            <span class="en">Supporting Different Screen Sizes</span>
+          </a>
+          </li>
+          <li><a href="../../../../../../../../../training/multiscreen/screendensities.html">
+            <span class="en">Supporting Different Screen Densities</span>
+          </a>
+          </li>
+          <li><a href="../../../../../../../../../training/multiscreen/adaptui.html">
+            <span class="en">Implementing Adaptive UI Flows</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+      
+      <li class="toggle-list">
+        <div><a href="../../../../../../../../../training/improving-layouts/index.html">
+            <span class="en">Improving Layout Performance</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../../../../../../../training/improving-layouts/optimizing-layout.html">
+            <span class="en">Optimizing Layout Hierarchies</span>
+          </a>
+          </li>
+          <li><a href="../../../../../../../../../training/improving-layouts/reusing-layouts.html">
+            <span class="en">Re-using Layouts with &lt;include/&gt;</span>
+          </a>
+          </li>
+          <li><a href="../../../../../../../../../training/improving-layouts/loading-ondemand.html">
+            <span class="en">Loading Views On Demand</span>
+          </a>
+          </li>
+          <li><a href="../../../../../../../../../training/improving-layouts/smooth-scrolling.html">
+            <span class="en">Making ListView Scrolling Smooth</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+      
+      <li class="toggle-list">
+        <div><a href="../../../../../../../../../training/managing-audio/index.html">
+            <span class="en">Managing Audio Playback</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../../../../../../../training/managing-audio/volume-playback.html">
+            <span class="en">Controlling Your App’s Volume and Playback</span>
+          </a>
+          </li>
+          <li><a href="../../../../../../../../../training/managing-audio/audio-focus.html">
+            <span class="en">Managing Audio Focus</span>
+          </a>
+          </li>
+          <li><a href="../../../../../../../../../training/managing-audio/audio-output.html">
+            <span class="en">Dealing with Audio Output Hardware</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+      
+      <li class="toggle-list">
+        <div><a href="../../../../../../../../../training/monitoring-device-state/index.html">
+            <span class="en">Optimizing Battery Life</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../../../../../../../training/monitoring-device-state/battery-monitoring.html">
+            <span class="en">Monitoring the Battery Level and Charging State</span>
+          </a>
+          </li>
+          <li><a href="../../../../../../../../../training/monitoring-device-state/docking-monitoring.html">
+            <span class="en">Determining and Monitoring the Docking State and Type</span>
+          </a>
+          </li>
+          <li><a href="../../../../../../../../../training/monitoring-device-state/connectivity-monitoring.html">
+            <span class="en">Determining and Monitoring the Connectivity Status</span>
+          </a>
+          </li>
+          <li><a href="../../../../../../../../../training/monitoring-device-state/manifest-receivers.html">
+            <span class="en">Manipulating Broadcast Receivers On Demand</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="toggle-list">
+        <div><a href="../../../../../../../../../training/search/index.html">
+            <span class="en">Adding Search Functionality</span>
+          </a> <span class="new">new!</span>
+        </div>
+        <ul>
+          <li><a href="../../../../../../../../../training/search/setup.html">
+            <span class="en">Setting up the Search Interface</span>
+          </a>
+          </li>
+          <li><a href="../../../../../../../../../training/search/search.html">
+            <span class="en">Storing and Searching for Data</span>
+          </a>
+          </li>
+          <li><a href="../../../../../../../../../training/search/backward-compat.html">
+            <span class="en">Remaining Backward Compatible</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="toggle-list">
+        <div><a href="../../../../../../../../../training/id-auth/index.html">
+            <span class="en">Remembering Users</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../../../../../../../training/id-auth/identify.html">
+            <span class="en">Remembering Your User</span>
+          </a>
+          </li>
+          <li><a href="../../../../../../../../../training/id-auth/authenticate.html">
+            <span class="en">Authenticating to OAuth2 Services</span>
+          </a>
+          </li>
+          <li><a href="../../../../../../../../../training/id-auth/custom_auth.html">
+            <span class="en">Creating a Custom Account Type</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="toggle-list">
+        <div><a href="../../../../../../../../../training/sharing/index.html">
+            <span class="en">Sharing Content</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../../../../../../../training/sharing/send.html">
+            <span class="en">Sending Content to Other Apps</span>
+          </a>
+          </li>
+          <li><a href="../../../../../../../../../training/sharing/receive.html">
+            <span class="en">Receiving Content from Other Apps</span>
+          </a>
+          </li>
+          <li><a href="../../../../../../../../../training/sharing/shareaction.html">
+            <span class="en">Adding an Easy Share Action</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+      
+      <li class="toggle-list">
+        <div><a href="../../../../../../../../../training/camera/index.html">
+            <span class="en">Capturing Photos</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../../../../../../../training/camera/photobasics.html">
+            <span class="en">Taking Photos Simply</span>
+          </a>
+          </li>
+          <li><a href="../../../../../../../../../training/camera/videobasics.html">
+            <span class="en">Recording Videos Simply</span>
+          </a>
+          </li>
+          <li><a href="../../../../../../../../../training/camera/cameradirect.html">
+            <span class="en">Controlling the Camera</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+      
+      <li class="toggle-list">
+        <div><a href="../../../../../../../../../training/multiple-apks/index.html">
+            <span class="en">Maintaining Multiple APKs</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../../../../../../../training/multiple-apks/api.html">
+            <span class="en">Creating Multiple APKs for Different API Levels</span>
+          </a>
+          </li>
+          <li><a href="../../../../../../../../../training/multiple-apks/screensize.html">
+            <span class="en">Creating Multiple APKs for Different Screen Sizes</span>
+          </a>
+          </li>
+          <li><a href="../../../../../../../../../training/multiple-apks/texture.html">
+            <span class="en">Creating Multiple APKs for Different GL Textures</span>
+          </a>
+          </li>
+          <li><a href="../../../../../../../../../training/multiple-apks/multiple.html">
+            <span class="en">Creating Multiple APKs with 2+ Dimensions</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+      
+      <li class="toggle-list">
+        <div><a href="../../../../../../../../../training/enterprise/index.html">
+            <span class="en">Developing for Enterprise</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../../../../../../../training/enterprise/device-management-policy.html">
+            <span class="en">Enhancing Security with Device Management Policies</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+      
+      <li class="toggle-list">
+        <div><a href="../../../../../../../../../training/monetization/index.html">
+            <span class="en">Monetizing Your App</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../../../../../../../training/monetization/ads-and-ux.html">
+            <span class="en">Advertising without Compromising User Experience</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+      
+      <li class="toggle-list">
+        <div><a href="../../../../../../../../../training/design-navigation/index.html">
+            <span class="en">Designing Effective Navigation</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../../../../../../../training/design-navigation/screen-planning.html">
+            <span class="en">Planning Screens and Their Relationships</span>
+          </a>
+          </li>
+          <li><a href="../../../../../../../../../training/design-navigation/multiple-sizes.html">
+            <span class="en">Planning for Multiple Touchscreen Sizes</span>
+          </a>
+          </li>
+          <li><a href="../../../../../../../../../training/design-navigation/descendant-lateral.html">
+            <span class="en">Providing Descendant and Lateral Navigation</span>
+          </a>
+          </li>
+          <li><a href="../../../../../../../../../training/design-navigation/ancestral-temporal.html">
+            <span class="en">Providing Ancestral and Temporal Navigation</span>
+          </a>
+          </li>
+          <li><a href="../../../../../../../../../training/design-navigation/wireframing.html">
+            <span class="en">Putting it All Together: Wireframing the Example App</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>    
+      
+      
+  <li>
+    <span class="heading">
+      <span class="en">Technical Resources</span>
+    </span>
+    <ul>
+      <li class="toggle-list">
+        <div><a href="../../../../../../../../../resources/browser.html?tag=sample">
+            <span class="en">Sample Code</span>
+            <span class="de" style="display:none">Beispielcode</span>
+            <span class="es" style="display:none">Código de ejemplo</span>
+            <span class="fr" style="display:none">Exemple de code</span>
+            <span class="it" style="display:none">Codice di esempio</span>
+            <span class="ja" style="display:none">サンプル コード</span>
+            <span class="zh-CN" style="display:none"></span>
+            <span class="zh-TW" style="display:none"></span>
+          </a></div>
+        <ul id="devdoc-nav-sample-list">
+          <li><a href="../../../../../../../../../resources/samples/get.html">
+                <span class="en">Getting the Samples</span>
+              </a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../../../../../../../../../resources/browser.html?tag=article">
+               <span class="en">Articles</span>
+             </a></div>
+        <ul id="devdoc-nav-article-list">
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../../../../../../../../../resources/browser.html?tag=tutorial">
+               <span class="en">Tutorials</span>
+               <span class="de" style="display:none">Lernprogramme</span>
+               <span class="es" style="display:none">Tutoriales</span>
+               <span class="fr" style="display:none">Didacticiels</span>
+               <span class="it" style="display:none">Esercitazioni</span>
+               <span class="ja" style="display:none">チュートリアル</span>
+               <span class="zh-CN" style="display:none"></span>
+               <span class="zh-TW" style="display:none"></span>
+             </a></div>
+        <ul id="devdoc-nav-tutorial-list">
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../../../../../../../../../resources/topics.html">
+               <span class="en">Topics</span>
+             </a></div>
+        <ul id="devdoc-nav-topic-list">
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <span class="heading">
+      <span class="en">Community</span>
+      <span style="display:none" class="de"></span>
+      <span style="display:none" class="es">Comunidad</span>
+      <span style="display:none" class="fr">Communauté</span>
+      <span style="display:none" class="it"></span>
+      <span style="display:none" class="ja">コミュニティ</span>
+      <span style="display:none" class="zh-CN">社区</span>
+      <span style="display:none" class="zh-TW">社群</span>
+    </span>
+    <ul>
+      <li><a href="../../../../../../../../../resources/community-groups.html">
+            <span class="en">Developer Forums</span>
+          </a></li>
+      <li><a href="../../../../../../../../../resources/community-more.html">
+            <span class="en">IRC, G+, Twitter</span>
+          </a></li>
+    </ul>
+  </li>
+
+
+  <li>
+    <span class="heading">
+      <span class="en">More</span>
+    </span>
+    <ul>
+      <li><a href="../../../../../../../../../resources/faq/commontasks.html">
+            <span class="en">Common Tasks </span>
+          </a></li>
+      <li><a href="../../../../../../../../../resources/faq/troubleshooting.html">
+            <span class="en">Troubleshooting Tips</span>
+          </a></li>
+      <li class="toggle-list">
+        <div><a href="../../../../../../../../../resources/faq/index.html">
+               <span class="en">FAQs</span>
+             </a></div>
+        <ul>
+        <li><a href="../../../../../../../../../resources/faq/framework.html">
+                <span class="en">App Framework FAQ</span>
+                </a></li>
+        <li><a href="../../../../../../../../../resources/faq/licensingandoss.html">
+                <span class="en">Licensing FAQ</span>
+                </a></li>
+        <li><a href="../../../../../../../../../resources/faq/security.html">
+                <span class="en">Security FAQ</span>
+                </a></li>
+        </ul>
+     </li>
+    </ul>
+  </li>
+</ul>
+
+<script type="text/javascript">
+<!--
+    buildToggleLists();
+    changeNavLang(getLangPref());
+//-->
+</script>
+
+      </div>
+    </div> <!-- end side-nav -->
+    <script>
+      addLoadEvent(function() {
+        scrollIntoView("devdoc-nav");
+        });
+    </script>
+
+
+
+<body class="gc-documentation">
+
+
+<a name="top"></a>
+<div class="g-unit" id="doc-content">
+ <div id="jd-header" class="guide-header">
+    <span class="crumb">
+      <a href="../../../../../../../../../resources/browser.html?tag=sample">Sample Code</a> >
+    </span>
+  <h1>view - API Demos</h1>
+ </div>
+
+<div id="jd-content">
+<p><a href="../index.html">&larr; Back</a></p>
+
+<h3>RelativeLayout</h3>
+<dl>
+  <dt><a href="RelativeLayout1.html">1. Vertical</a></dt>
+  <dd>Demonstrates a simple relative layout.</dd>
+
+  <dt><a href="RelativeLayout2.html">2. Simple Form</a></dt>
+  <dd>Demonstrates a more complex relative layout to create a form. </dd>
+</dl>
+
+<h3>LinearLayout</h3>
+<dl>
+  <dt><a href="LinearLayout1.html">1. Vertical</a></dt>
+  <dd>Demonstrates a simple LinearLayout, with child width set to WRAP_CONTENT. </dd>
+
+  <dt><a href="LinearLayout2.html">2. Vertical (Fill Screen)</a></dt>
+  <dd>Demonstrates a simple LinearLayout, with child width set to MATCH_PARENT.</dd>
+
+  <dt><a href="LinearLayout3.html">3. Vertical (Padded)</a></dt>
+  <dd>Demonstrates a LinearLayout where one of the elements can expand to fill any remaining screen space (weight=1). </dd>
+
+  <dt><a href="LinearLayout4.html">4. Horizontal</a></dt>
+  <dd>Demonstrates a horizontal LinearLayout, plus an expanding column. </dd>
+
+  <dt><a href="LinearLayout5.html">5. Simple Form</a></dt>
+  <dd>Demonstrates nested layouts to create a user form.</dd>
+
+  <dt><a href="LinearLayout6.html">6. Uniform Size</a></dt>
+  <dd>LinearLayout which uses a combination of wrap_content on itself and match_parent on its children to get every item to be the same width.</dd>
+
+  <dt><a href="LinearLayout7.html">7. Fill Parent</a></dt>
+  <dd>Demonstrates a horizontal linear layout with equally sized columns. Some columns force their height to match the parent.</dd>
+
+  <dt><a href="LinearLayout8.html">8. Gravity</a></dt>
+  <dd>Demonstrates a simple linear layout with menu options demonstrating horizontal and vertical gravity options.</dd>
+
+  <dt><a href="LinearLayout9.html">9. Layout Weight</a></dt>
+  <dd> Demonstrates how the layout_weight attribute can shrink an element too big to fit on screen.</dd>
+
+</dl>
+
+<h3>ScrollView</h3>
+<dl>
+  <dt><a href="ScrollView1.html">1. Short</a></dt>
+  <dd>Demonstrates scrolling screen with buttons altermating with a text view. </dd>
+
+  <dt><a href="ScrollView2.html">2. Long</a></dt>
+  <dd>Demonstrates a longer scrolling screen similar to ScrollView1. </dd>
+</dl>
+
+<h3>TableLayout</h3>
+<dl>
+  <dt><a href="TableLayout1.html">1. Basic</a></dt>
+  <dd>Demonstrates a basic TableLayout with identical children. </dd>
+
+  <dt><a href="TableLayout2.html">2. Empty Cells</a></dt>
+  <dd>Demonstrates a TableLayout with column-spanning rows and different child objects. </dd>
+
+  <dt><a href="TableLayout3.html">3. Long Content</a></dt>
+  <dd>Rows have different number of columns and content doesn't fit on screen: column 4 of row 2 shrinks all of the other columns </dd>
+
+  <dt><a href="TableLayout4.html">4. Stretchable</a></dt>
+  <dd>Demonstrates a TableLayout with a stretchable column. </dd>
+
+  <dt><a href="TableLayout5.html">5. Spanning and Stretchable</a></dt>
+  <dd>Demonstrates a complex TableLayout with spanning columns and stretchable columns to create a menu-like layout. </dd>
+
+  <dt><a href="TableLayout6.html">6. More Spanning and Stretchable</a></dt>
+  <dd>Similar to example 5, but with an additional &quot;checked&quot; column. </dd>
+
+  <dt><a href="TableLayout7.html">7. Column Collapse</a></dt>
+  <dd>Similar to example 6, but now with buttons on the bottom of the screen that enable you dynamically hide or show columns. </dd>
+
+  <dt><a href="TableLayout8.html">8. Toggle Stretch</a></dt>
+  <dd>Demonstrates toggling the &quot;stretch&quot; value on a column to fill the screen width. </dd>
+
+  <dt><a href="TableLayout9.html">9. Toggle Shrink</a></dt>
+  <dd>Demonstrates toggling the &quot;shrink&quot; value on a column to make an over-wide table shrink to fit the screen size. </dd>
+
+  <dt><a href="TableLayout10.html">10. Simple Form</a></dt>
+  <dd>Demonstrates using a table to design a user form. </dd>
+
+  <dt><a href="TableLayout11.html">11. Gravity</a></dt>
+  <dd>Demonstrates the use of advanced gravity attributes, such as <em>center_horizontal</em> and <em>right|bottom</em>                to align cell contents in a table. </dd>
+
+  <dt><a href="TableLayout12.html">12. Various Widths</a></dt>
+  <dd>Demonstrates the use of elements of various widths in a table. </dd>
+</dl>
+
+<h3>Baseline</h3>
+<p>Demonstrates the use of the <em>android:layout_alignBaseline</em> XML attribute in various page layouts.</p>
+<dl>
+  <dt><a href="Baseline1.html">1. Top</a></dt>
+  <dd>Demonstrates the default baseline alignment in a simple LinearLayout with items at the top of the screen. </dd>
+
+  <dt><a href="Baseline2.html">2. Bottom</a></dt>
+  <dd>Demonstrates the default baseline alignment in a simple LinearLayout with items at the bottom of the screen.</dd>
+
+  <dt><a href="Baseline3.html">3. Center</a></dt>
+  <dd>Demonstrates the default baseline alignment in a simple LinearLayout with items in the center of the screen.</dd>
+
+  <dt><a href="Baseline4.html">4. Everywhere</a></dt>
+  <dd>Demonstrates the default baseline alignment in a complex LinearLayout.</dd>
+
+  <dt><a href="Baseline6.html">6. Multi-line</a></dt>
+  <dd>Demonstrates a baseline alignment with a multiline field. </dd>
+
+  <dt><a href="Baseline7.html">7. Relative</a></dt>
+  <dd>Demonstrates baseline alignment in a RelativeLayout. </dd>
+
+  <dt><a href="BaselineNested1.html">BaselineNested1</a></dt>
+  <dd>Demonstrates baseline aligning specific elements in three parallel vertical LinearLayout objects.</dd>
+
+  <dt><a href="BaselineNested2.html">BaselineNested2</a></dt>
+  <dd>Demonstrates baseline aligning specific elements in three mixed vertical and horizontal LinearLayout objects.</dd>
+
+  <dt><a href="BaselineNested3.html">BaselineNested3</a></dt>
+  <dd>Demonstrates baseline alignment within nested LinearLayout objects. </dd>
+</dl>
+
+<h3>Radio Group</h3>
+<dl>
+  <dt><a href="RadioGroup1.html">Radio Group</a></dt>
+  <dd>Demonstrates using radio buttons and capturing the selected item. </dd>
+</dl>
+
+<h3>ScrollBars</h3>
+<dl>
+  <dt><a href="ScrollBar1.html">1. Basic</a></dt>
+  <dd>Demonstrates a scrollable LinearLayout object. </dd>
+
+  <dt><a href="ScrollBar2.html">2. Fancy</a></dt>
+  <dd>Demonstrates a scrollable LinearLayout object with a custom thumb slider image. </dd>
+</dl>
+
+<h3>Visibility</h3>
+<dl>
+  <dt><a href="Visibility1.html">Visibility</a></dt>
+  <dd>Demonstrates toggling the visibility of a View object between visible, invisible, and gone. </dd>
+</dl>
+
+<h3>Lists</h3>
+<dl>
+  <dt><a href="List1.html">1. Array</a></dt>
+  <dd> Demonstrates binding a ListAdapter to a string array as a data source, and displaying the elements on the screen. </dd>
+
+  <dt><a href="List2.html">2. Cursor (People)</a></dt>
+  <dd> Demonstrates binding results from a database query to a field in a template. </dd>
+
+  <dt><a href="List3.html">3. Cursor (Phones)</a></dt>
+  <dd> Demonstrates binding multiple columns from a database query to fields in a template. </dd>
+
+  <dt><a href="List4.html">4. ListAdapter</a></dt>
+  <dd> Demonstrates implementing a custom ListAdapter to return View objects laid out in a custom manner. </dd>
+
+  <dt><a href="List5.html">5. Separators</a></dt>
+  <dd> Demonstrates implementing a custom ListAdapter that includes separators between some items. </dd>
+
+  <dt><a href="List6.html">6. ListAdapter Collapsed</a></dt>
+  <dd>Demonstrates another custom list adapter with that returns expandible items. </dd>
+
+  <dt><a href="List7.html">7. Cursor (Phones)</a></dt>
+  <dd> Demonstrates a list adapter where data comes from a Cursor object. </dd>
+
+  <dt><a href="List8.html">8. Photos</a></dt>
+  <dd> Demonstrates a list activity that uses a custom ListAdapter, setting the view for an empty item, and also how to customize the layout of a ListActivity. </dd>
+
+  <dt><a href="List9.html">9. Array (Overlay)</a></dt>
+  <dd> </dd>
+
+  <dt><a href="List10.html">10. Single choice list</a></dt>
+  <dd> </dd>
+
+  <dt><a href="List11.html">11. Multiple choice list</a></dt>
+  <dd> </dd>
+
+  <dt><a href="List12.html">12. Transcript</a></dt>
+  <dd> </dd>
+
+  <dt><a href="List13.html">13. Slow Adapter</a></dt>
+  <dd> </dd>
+
+  <dt><a href="List14.html">14. Efficient Adapter</a></dt>
+  <dd> </dd>
+
+  <dt><a href="List15.html">15. Selection Mode</a></dt>
+  <dd> Demonstrates the use of selection Contextual Action mode to select multiple items in a list activity. </dd>
+
+  <dt><a href="List16.html">16. Border selection mode</a></dt>
+  <dd> Demonstrates a multi-select list activity that uses the <code>simple_selectable_list_item</code> border layout for selected items. </dd>
+</dl>
+
+
+
+<h3>Custom</h3>
+<dl>
+  <dt><a href="CustomView1.html">CustomView</a></dt>
+  <dd>Demonstrates implementing a custom view subclass. </dd>
+</dl>
+
+<h3>ImageButton</h3>
+<dl>
+  <dt><a href="ImageButton1.html">ImageButton</a></dt>
+  <dd>Demonstrates an ImageButton: a button with an arbitrary graphic on it. </dd>
+</dl>
+
+<h3>Date Widgets</h3>
+<dl>
+  <dt><a href="DateWidgets1.html">1. Dialog</a></dt>
+  <dd>Demonstrates the DatePickerDialog and TimePickerDialog picker dialogs.</dd>
+
+  <dt><a href="DateWidgets2.html">2. Inline</a></dt>
+  <dd>Demonstrates using a TimePicker directly in a layout without using a confirmation button or dialog.</dd>
+</dl>
+
+<h3>Gallery</h3>
+<dl>
+  <dt><a href="Gallery1.html">1. Icons</a></dt>
+  <dd> Demonstrates implementing a Gallery widget and extending GalleryAdapter to create a custom class to serve out source images to the widget. </dd>
+
+  <dt><a href="Gallery2.html">2. People</a></dt>
+  <dd>Demonstrates populating a Gallery with images from the contacts photos. </dd>
+</dl>
+
+<h3>Spinner</h3>
+<dl>
+  <dt><a href="Spinner1.html">Spinner</a></dt>
+  <dd> Demonstrates populating two Spinner widgets with values. </dd>
+</dl>
+
+<h3>Grid</h3>
+<dl>
+  <dt><a href="Grid1.html">1. Icon Grid</a></dt>
+  <dd> Demonstrates populating a GridView widget with a list of applications using a custom ListAdapter object.</dd>
+
+  <dt><a href="Grid2.html">2. Photo Grid</a></dt>
+  <dd> Demonstrates populating a GridView widget with images using a custom ListAdapter object. </dd>
+</dl>
+
+<h3>ImageSwitcher</h3>
+<dl>
+  <dt><a href="ImageSwitcher1.html">ImageSwitcher</a></dt>
+  <dd>Demonstrates using the ImageSwitcher widget with a custom Adapter.</dd>
+</dl>
+
+<h3>TextSwitcher</h3>
+<dl>
+  <dt><a href="TextSwitcher1.html">TextSwitcher</a></dt>
+  <dd>Demonstrates using the TextSwitcher widget. </dd>
+</dl>
+
+<h3>Animation</h3>
+<dl>
+  <dt><a href="Animation1.html">1. Shake</a></dt>
+  <dd>Demonstrates a simple tweened animation (android.view.animation.Animation). </dd>
+
+  <dt><a href="Animation2.html">2. Push</a></dt>
+  <dd>Demonstrates a variety of transformations (android.view.animation.Animation), including fading, motion, and rotation. </dd>
+</dl>
+
+<h3>Drag and Drop</h3>
+<dl>
+  <dt><a href="DragAndDropDemo.html">Drag and Drop Demo</a></dt>
+  <dd>Demonstrates how to perform drag and drop using an OnDragListener. (Uses the <a
+href="DraggableDot.html"><code>DraggableDot</code></a> class.) </dd>
+</dl>
+
+<h3>Controls</h3>
+<dl>
+  <dt><a href="Controls1.html">1. Light Theme</a></dt>
+  <dd>Demonstrates a variety of common form type widgets, such as check boxes and radio buttons using the light theme. </dd>
+</dl>
+<dl>
+  <dt><a href="Controls1.html">2. Dark Theme</a></dt>
+  <dd>Demonstrates a variety of common form type widgets, such as check boxes and radio buttons using the dark theme. </dd>
+</dl>
+<dl>
+  <dt><a href="Controls1.html">3. Holographic Light Theme</a></dt>
+  <dd>Demonstrates a variety of common form type widgets, such as check boxes and radio buttons using the light holographic theme. </dd>
+</dl>
+<dl>
+  <dt><a href="Controls1.html">4. Holographic Dark Theme</a></dt>
+  <dd>Demonstrates a variety of common form type widgets, such as check boxes and radio buttons using the dark holographic theme. </dd>
+</dl>
+<dl>
+  <dt><a href="Controls1.html">5. Custom Theme</a></dt>
+  <dd>Demonstrates a variety of common form type widgets, such as check boxes and radio buttons using a custom
+  theme based on the light theme. </dd>
+</dl>
+<dl>
+  <dt><a href="Controls1.html">6. Holo or Old Theme</a></dt>
+  <dd>Demonstrates a variety of common form type widgets, such as check boxes and radio buttons using a custom
+  theme that uses either the traditional or holo theme depending on the version of the platform. </dd>
+</dl>
+
+<h3>Auto Complete</h3>
+<dl>
+  <dt><a href="AutoComplete1.html">1. Screen Top</a></dt>
+  <dd>Demonstrates the use of AutoCompleteTextView, an autocomplete dropdown box below a text box, with data taken from an array. </dd>
+
+  <dt><a href="AutoComplete2.html">2. Screen Bottom</a></dt>
+  <dd>Demonstrates an autocomplete box above a text box.</dd>
+
+  <dt><a href="AutoComplete3.html">3. Scroll</a></dt>
+  <dd>Demonstrates an autocomplete text box in the midst of a vertical list. </dd>
+
+  <dt><a href="AutoComplete4.html">4. Contacts</a></dt>
+  <dd>Demonstrates an autocomplete text box that gets its content from a database query. </dd>
+
+  <dt><a href="AutoComplete5.html">5. Contacts with Hint</a></dt>
+  <dd>Demonstates an autocomplete text box that understands the * wildcard. </dd>
+</dl>
+
+<h3>Progress Bar</h3>
+<dl>
+  <dt><a href="ProgressBar1.html">1. Incremental</a></dt>
+  <dd>Demonstrates large and small rotating progress indicators that can be incremented or decremented in units. </dd>
+
+  <dt><a href="ProgressBar2.html">2. Smooth</a></dt>
+  <dd>Demonstrates large and small continuously rotating progress indicators used to indicate a generic &quot;busy&quot; message. </dd>
+
+  <dt><a href="ProgressBar3.html">3. Dialogs</a></dt>
+  <dd>Demonstrates a ProgressDialog, a popup dialog that hosts a progress bar. This example demonstrates both determinate and indeterminate progress indicators. </dd>
+
+  <dt><a href="ProgressBar4.html">4. In Title Bar</a></dt>
+  <dd>Demonstrates an Activity screen with a progress indicator loaded by setting the WindowPolicy's progress indicator feature. </dd>
+</dl>
+
+<h3>Focus</h3>
+<dl>
+  <dt><a href="Focus1.html">1. Vertical</a></dt>
+  <dd>Demonstrates how to block selection of a specific screen element. </dd>
+
+  <dt><a href="Focus2.html">2. Horizontal</a></dt>
+  <dd>Demonstrates how to change the order of which screen element is selected when the user presses arrow keys. </dd>
+
+  <dt><a href="Focus3.html">3. Circular</a></dt>
+  <dd>Another version of Focus2. </dd>
+</dl>
+
+  
+
+  
+      <h2>Files</h2>
+      <ul class="nolist">
+      
+        <li><a href="Animation1.html">Animation1.java</a></li>
+      
+        <li><a href="Animation2.html">Animation2.java</a></li>
+      
+        <li><a href="Animation3.html">Animation3.java</a></li>
+      
+        <li><a href="AutoComplete1.html">AutoComplete1.java</a></li>
+      
+        <li><a href="AutoComplete2.html">AutoComplete2.java</a></li>
+      
+        <li><a href="AutoComplete3.html">AutoComplete3.java</a></li>
+      
+        <li><a href="AutoComplete4.html">AutoComplete4.java</a></li>
+      
+        <li><a href="AutoComplete5.html">AutoComplete5.java</a></li>
+      
+        <li><a href="AutoComplete6.html">AutoComplete6.java</a></li>
+      
+        <li><a href="Baseline1.html">Baseline1.java</a></li>
+      
+        <li><a href="Baseline2.html">Baseline2.java</a></li>
+      
+        <li><a href="Baseline3.html">Baseline3.java</a></li>
+      
+        <li><a href="Baseline4.html">Baseline4.java</a></li>
+      
+        <li><a href="Baseline6.html">Baseline6.java</a></li>
+      
+        <li><a href="Baseline7.html">Baseline7.java</a></li>
+      
+        <li><a href="BaselineNested1.html">BaselineNested1.java</a></li>
+      
+        <li><a href="BaselineNested2.html">BaselineNested2.java</a></li>
+      
+        <li><a href="BaselineNested3.html">BaselineNested3.java</a></li>
+      
+        <li><a href="Buttons1.html">Buttons1.java</a></li>
+      
+        <li><a href="CheckableFrameLayout.html">CheckableFrameLayout.java</a></li>
+      
+        <li><a href="Cheeses.html">Cheeses.java</a></li>
+      
+        <li><a href="ChronometerDemo.html">ChronometerDemo.java</a></li>
+      
+        <li><a href="Controls1.html">Controls1.java</a></li>
+      
+        <li><a href="Controls2.html">Controls2.java</a></li>
+      
+        <li><a href="Controls3.html">Controls3.java</a></li>
+      
+        <li><a href="Controls4.html">Controls4.java</a></li>
+      
+        <li><a href="Controls5.html">Controls5.java</a></li>
+      
+        <li><a href="Controls6.html">Controls6.java</a></li>
+      
+        <li><a href="CustomView1.html">CustomView1.java</a></li>
+      
+        <li><a href="DateWidgets1.html">DateWidgets1.java</a></li>
+      
+        <li><a href="DateWidgets2.html">DateWidgets2.java</a></li>
+      
+        <li><a href="DragAndDropDemo.html">DragAndDropDemo.java</a></li>
+      
+        <li><a href="DraggableDot.html">DraggableDot.java</a></li>
+      
+        <li><a href="ExpandableList1.html">ExpandableList1.java</a></li>
+      
+        <li><a href="ExpandableList2.html">ExpandableList2.java</a></li>
+      
+        <li><a href="ExpandableList3.html">ExpandableList3.java</a></li>
+      
+        <li><a href="Focus1.html">Focus1.java</a></li>
+      
+        <li><a href="Focus2.html">Focus2.java</a></li>
+      
+        <li><a href="Focus3.html">Focus3.java</a></li>
+      
+        <li><a href="Focus5.html">Focus5.java</a></li>
+      
+        <li><a href="Gallery1.html">Gallery1.java</a></li>
+      
+        <li><a href="Gallery2.html">Gallery2.java</a></li>
+      
+        <li><a href="GameControllerInput.html">GameControllerInput.java</a></li>
+      
+        <li><a href="GameView.html">GameView.java</a></li>
+      
+        <li><a href="Grid1.html">Grid1.java</a></li>
+      
+        <li><a href="Grid2.html">Grid2.java</a></li>
+      
+        <li><a href="Grid3.html">Grid3.java</a></li>
+      
+        <li><a href="GridLayout0.html">GridLayout0.java</a></li>
+      
+        <li><a href="GridLayout1.html">GridLayout1.java</a></li>
+      
+        <li><a href="HorizontalScrollView1.html">HorizontalScrollView1.java</a></li>
+      
+        <li><a href="Hover.html">Hover.java</a></li>
+      
+        <li><a href="HoverInterceptorView.html">HoverInterceptorView.java</a></li>
+      
+        <li><a href="ImageButton1.html">ImageButton1.java</a></li>
+      
+        <li><a href="ImageSwitcher1.html">ImageSwitcher1.java</a></li>
+      
+        <li><a href="ImageView1.html">ImageView1.java</a></li>
+      
+        <li><a href="InternalSelectionFocus.html">InternalSelectionFocus.java</a></li>
+      
+        <li><a href="InternalSelectionScroll.html">InternalSelectionScroll.java</a></li>
+      
+        <li><a href="InternalSelectionView.html">InternalSelectionView.java</a></li>
+      
+        <li><a href="LabelView.html">LabelView.java</a></li>
+      
+        <li><a href="LayoutAnimation1.html">LayoutAnimation1.java</a></li>
+      
+        <li><a href="LayoutAnimation2.html">LayoutAnimation2.java</a></li>
+      
+        <li><a href="LayoutAnimation3.html">LayoutAnimation3.java</a></li>
+      
+        <li><a href="LayoutAnimation4.html">LayoutAnimation4.java</a></li>
+      
+        <li><a href="LayoutAnimation5.html">LayoutAnimation5.java</a></li>
+      
+        <li><a href="LayoutAnimation6.html">LayoutAnimation6.java</a></li>
+      
+        <li><a href="LayoutAnimation7.html">LayoutAnimation7.java</a></li>
+      
+        <li><a href="LinearLayout1.html">LinearLayout1.java</a></li>
+      
+        <li><a href="LinearLayout10.html">LinearLayout10.java</a></li>
+      
+        <li><a href="LinearLayout2.html">LinearLayout2.java</a></li>
+      
+        <li><a href="LinearLayout3.html">LinearLayout3.java</a></li>
+      
+        <li><a href="LinearLayout4.html">LinearLayout4.java</a></li>
+      
+        <li><a href="LinearLayout5.html">LinearLayout5.java</a></li>
+      
+        <li><a href="LinearLayout6.html">LinearLayout6.java</a></li>
+      
+        <li><a href="LinearLayout7.html">LinearLayout7.java</a></li>
+      
+        <li><a href="LinearLayout8.html">LinearLayout8.java</a></li>
+      
+        <li><a href="LinearLayout9.html">LinearLayout9.java</a></li>
+      
+        <li><a href="List1.html">List1.java</a></li>
+      
+        <li><a href="List10.html">List10.java</a></li>
+      
+        <li><a href="List11.html">List11.java</a></li>
+      
+        <li><a href="List12.html">List12.java</a></li>
+      
+        <li><a href="List13.html">List13.java</a></li>
+      
+        <li><a href="List14.html">List14.java</a></li>
+      
+        <li><a href="List15.html">List15.java</a></li>
+      
+        <li><a href="List16.html">List16.java</a></li>
+      
+        <li><a href="List17.html">List17.java</a></li>
+      
+        <li><a href="List2.html">List2.java</a></li>
+      
+        <li><a href="List3.html">List3.java</a></li>
+      
+        <li><a href="List4.html">List4.java</a></li>
+      
+        <li><a href="List5.html">List5.java</a></li>
+      
+        <li><a href="List6.html">List6.java</a></li>
+      
+        <li><a href="List7.html">List7.java</a></li>
+      
+        <li><a href="List8.html">List8.java</a></li>
+      
+        <li><a href="List9.html">List9.java</a></li>
+      
+        <li><a href="OverscanActivity.html">OverscanActivity.java</a></li>
+      
+        <li><a href="PopupMenu1.html">PopupMenu1.java</a></li>
+      
+        <li><a href="ProgressBar1.html">ProgressBar1.java</a></li>
+      
+        <li><a href="ProgressBar2.html">ProgressBar2.java</a></li>
+      
+        <li><a href="ProgressBar3.html">ProgressBar3.java</a></li>
+      
+        <li><a href="ProgressBar4.html">ProgressBar4.java</a></li>
+      
+        <li><a href="RadioGroup1.html">RadioGroup1.java</a></li>
+      
+        <li><a href="RatingBar1.html">RatingBar1.java</a></li>
+      
+        <li><a href="RelativeLayout1.html">RelativeLayout1.java</a></li>
+      
+        <li><a href="RelativeLayout2.html">RelativeLayout2.java</a></li>
+      
+        <li><a href="RotatingButton.html">RotatingButton.java</a></li>
+      
+        <li><a href="ScrollBar1.html">ScrollBar1.java</a></li>
+      
+        <li><a href="ScrollBar2.html">ScrollBar2.java</a></li>
+      
+        <li><a href="ScrollBar3.html">ScrollBar3.java</a></li>
+      
+        <li><a href="ScrollView1.html">ScrollView1.java</a></li>
+      
+        <li><a href="ScrollView2.html">ScrollView2.java</a></li>
+      
+        <li><a href="SearchViewActionBar.html">SearchViewActionBar.java</a></li>
+      
+        <li><a href="SearchViewAlwaysVisible.html">SearchViewAlwaysVisible.java</a></li>
+      
+        <li><a href="SearchViewFilterMode.html">SearchViewFilterMode.java</a></li>
+      
+        <li><a href="SecureView.html">SecureView.java</a></li>
+      
+        <li><a href="SecureViewOverlay.html">SecureViewOverlay.java</a></li>
+      
+        <li><a href="SeekBar1.html">SeekBar1.java</a></li>
+      
+        <li><a href="Spinner1.html">Spinner1.java</a></li>
+      
+        <li><a href="SplitTouchView.html">SplitTouchView.java</a></li>
+      
+        <li><a href="Switches.html">Switches.java</a></li>
+      
+        <li><a href="TableLayout1.html">TableLayout1.java</a></li>
+      
+        <li><a href="TableLayout10.html">TableLayout10.java</a></li>
+      
+        <li><a href="TableLayout11.html">TableLayout11.java</a></li>
+      
+        <li><a href="TableLayout12.html">TableLayout12.java</a></li>
+      
+        <li><a href="TableLayout2.html">TableLayout2.java</a></li>
+      
+        <li><a href="TableLayout3.html">TableLayout3.java</a></li>
+      
+        <li><a href="TableLayout4.html">TableLayout4.java</a></li>
+      
+        <li><a href="TableLayout5.html">TableLayout5.java</a></li>
+      
+        <li><a href="TableLayout6.html">TableLayout6.java</a></li>
+      
+        <li><a href="TableLayout7.html">TableLayout7.java</a></li>
+      
+        <li><a href="TableLayout8.html">TableLayout8.java</a></li>
+      
+        <li><a href="TableLayout9.html">TableLayout9.java</a></li>
+      
+        <li><a href="Tabs1.html">Tabs1.java</a></li>
+      
+        <li><a href="Tabs2.html">Tabs2.java</a></li>
+      
+        <li><a href="Tabs3.html">Tabs3.java</a></li>
+      
+        <li><a href="Tabs4.html">Tabs4.java</a></li>
+      
+        <li><a href="Tabs5.html">Tabs5.java</a></li>
+      
+        <li><a href="Tabs6.html">Tabs6.java</a></li>
+      
+        <li><a href="TextSwitcher1.html">TextSwitcher1.java</a></li>
+      
+        <li><a href="Visibility1.html">Visibility1.java</a></li>
+      
+        <li><a href="WebView1.html">WebView1.java</a></li>
+      
+      </ul>
+  
+
+</div><!-- end jd-content -->
+
+<div id="footer">
+
+
+  <div id="copyright">
+    
+  Except as noted, this content is 
+  licensed under <a href="http://creativecommons.org/licenses/by/2.5/">
+  Creative Commons Attribution 2.5</a>. For details and 
+  restrictions, see the <a href="../../../../../../../../../license.html">Content 
+  License</a>.
+  </div>
+
+  <div id="footerlinks">
+    
+  <p>
+    <a href="http://www.google.com/intl/en/policies/" target="_blank">Privacy &amp; Terms</a> -
+    <a href="http://www.android.com/branding.html" target="_blank">Brand Guidelines</a> -
+    <a
+href="http://code.google.com/p/android/issues/entry?template=Developer%20Documentation"
+target="_blank">Report Document Issues</a>
+  </p>
+  </div>
+
+</div> <!-- end footer -->
+
+
+</div><!-- end doc-content -->
+
+</div> <!-- end body-content --> 
+
+<script type="text/javascript">
+init(); /* initialize android-developer-docs.js */
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-5831155-1");
+pageTracker._trackPageview();
+</script>
+
+</body>
+</html>

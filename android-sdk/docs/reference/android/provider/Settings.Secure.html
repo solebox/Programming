@@ -1,0 +1,5668 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico" />
+<title>Settings.Secure - Android SDK | Android Developers</title>
+<link href="../../../assets/android-developer-docs.css" rel="stylesheet" type="text/css" />
+<script src="../../../assets/search_autocomplete.js" type="text/javascript"></script>
+<script src="../../../assets/jquery-resizable.min.js" type="text/javascript"></script>
+<script src="../../../assets/android-developer-docs.js" type="text/javascript"></script>
+<script src="../../../assets/prettify.js" type="text/javascript"></script>
+<script type="text/javascript">
+  setToRoot("../../../");
+</script>
+<script src="../../../assets/android-developer-reference.js" type="text/javascript"></script>
+<script src="../../../navtree_data.js" type="text/javascript"></script>
+<noscript>
+  <style type="text/css">
+    html,body{overflow:auto;}
+    #body-content{position:relative; top:0;}
+    #doc-content{overflow:visible;border-left:3px solid #666;}
+    #side-nav{padding:0;}
+    #side-nav .toggle-list ul {display:block;}
+    #resize-packages-nav{border-bottom:3px solid #666;}
+  </style>
+</noscript>
+</head>
+<body class="3" itemscope itemtype="http://schema.org/Article">
+
+  <div id="header">
+      <div id="headerLeft">
+          <a href="../../../index.html" tabindex="-1"><img
+              src="../../../assets/images/bg_logo.png" alt="Android Developers" /></a>
+          <ul id="header-tabs" class="reference">
+    
+	<li id="home-link"><a href="../../../offline.html">
+	
+		<span class="en">Home</span>
+		<span style="display:none" class="de">Startseite</span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ホーム</span>
+		<span style="display:none" class="zh-CN">主页</span>
+		<span style="display:none" class="zh-TW">首頁</span>
+	
+	</a></li>
+	<li id="sdk-link"><a href="../../../sdk/index.html">
+		<span class="en">SDK</span>
+	</a></li>
+	<li id="guide-link"><a href="../../../guide/index.html" onClick="return loadLast('guide')">
+	
+		<span class="en">Dev Guide</span>
+		<span style="display:none" class="de">Handbuch</span>
+		<span style="display:none" class="es">Guía</span>
+		<span style="display:none" class="fr">Guide</span>
+		<span style="display:none" class="it">Guida</span>
+		<span style="display:none" class="ja">開発ガイド</span>
+		<span style="display:none" class="zh-CN">开发人员指南</span>
+		<span style="display:none" class="zh-TW">開發指南</span>
+	
+	</a></li>
+	<li id="reference-link"><a href="../../../reference/packages.html" onClick="return loadLast('reference')">
+	
+		<span class="en">Reference</span>
+		<span style="display:none" class="de">Referenz</span>
+		<span style="display:none" class="es">Referencia</span>
+		<span style="display:none" class="fr">Référence</span>
+		<span style="display:none" class="it">Riferimento</span>
+		<span style="display:none" class="ja">リファレンス</span>
+		<span style="display:none" class="zh-CN">参考</span>
+		<span style="display:none" class="zh-TW">參考資料</span>
+	
+	</a></li>
+	<li id="resources-link"><a href="../../../resources/index.html" onClick="return loadLast('resources')">
+	
+		<span class="en">Resources</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+    		<span style="display:none" class="ja"></span>
+		<span style="display:none" class="zh-CN"></span>
+		<span style="display:none" class="zh-TW"></span>
+	
+	</a></li>
+	<li id="videos-link"><a href="../../../videos/index.html" onClick="return loadLast('videos')">
+	
+		<span class="en">Videos</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ビデオ</span>
+		<span style="display:none" class="zh-CN"></span>
+		<span style="display:none" class="zh-TW"></span>
+	
+	</a></li>
+	<li><a href="http://android-developers.blogspot.com" onClick="return requestAppendHL(this.href)">
+	
+		<span class="en">Blog</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ブログ</span>
+		<span style="display:none" class="zh-CN">博客</span>
+		<span style="display:none" class="zh-TW">網誌</span>
+	
+	</a></li>
+
+
+     
+</ul>
+     
+      </div>
+      <div id="headerRight">
+          <div id="headerLinks">
+          &nbsp;&nbsp;
+          <a href="../../../design/index.html">Android Design</a>&nbsp;&nbsp;
+          <a href="http://www.android.com">Android.com</a>
+          </div>
+  <div id="search" >
+      <div id="searchForm">
+          <form accept-charset="utf-8" class="gsc-search-box" 
+                onsubmit="return submit_search()">
+            <table class="gsc-search-box" cellpadding="0" cellspacing="0"><tbody>
+                <tr>
+                  <td class="gsc-input">
+                    <input id="search_autocomplete" class="gsc-input" type="text" size="33" autocomplete="off"
+                      title="search developer docs" name="q"
+                      value="search developer docs"
+                      onFocus="search_focus_changed(this, true)"
+                      onBlur="search_focus_changed(this, false)"
+                      onkeydown="return search_changed(event, true, '../../../')"
+                      onkeyup="return search_changed(event, false, '../../../')" />
+                  <div id="search_filtered_div" class="no-display">
+                      <table id="search_filtered" cellspacing=0>
+                      </table>
+                  </div>
+                  </td>
+                  <td class="gsc-search-button">
+                    <input type="submit" value="Search" title="search" id="search-button" class="gsc-search-button" />
+                  </td>
+                  <td class="gsc-clear-button">
+                    <div title="clear results" class="gsc-clear-button">&nbsp;</div>
+                  </td>
+                </tr></tbody>
+              </table>
+          </form>
+      </div><!-- searchForm -->
+  </div><!-- search -->
+    			  <div id="api-level-toggle">
+    			    <input type="checkbox" id="apiLevelCheckbox" onclick="toggleApiLevelSelector(this)" />
+    			    <label for="apiLevelCheckbox" class="disabled">Filter by API Level: </label>
+    			    <select id="apiLevelSelector">
+    			      <!-- option elements added by buildApiLevelSelector() -->
+    			    </select>
+    			  </div>
+    	 	    <script>
+              var SINCE_DATA = [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15' ];
+              buildApiLevelSelector();
+            </script>
+      </div><!-- headerRight -->
+      <script type="text/javascript">
+        <!--  
+        changeTabLang(getLangPref());
+        //-->
+      </script>
+  </div><!-- header -->
+
+  <div class="g-section g-tpl-240" id="body-content">
+    <div class="g-unit g-first" id="side-nav" itemscope itemtype="http://schema.org/SiteNavigationElement">
+      <div id="swapper">
+        <div id="nav-panels">
+          <div id="resize-packages-nav">
+            <div id="packages-nav">
+              <div id="index-links"><nobr>
+                <a href="../../../reference/packages.html"  >Package Index</a> | 
+                <a href="../../../reference/classes.html" >Class Index</a></nobr>
+              </div>
+              <ul>
+              	
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/package-summary.html">android</a></li>
+    <li class="api apilevel-4">
+  <a href="../../../reference/android/accessibilityservice/package-summary.html">android.accessibilityservice</a></li>
+    <li class="api apilevel-5">
+  <a href="../../../reference/android/accounts/package-summary.html">android.accounts</a></li>
+    <li class="api apilevel-11">
+  <a href="../../../reference/android/animation/package-summary.html">android.animation</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/app/package-summary.html">android.app</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../reference/android/app/admin/package-summary.html">android.app.admin</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../reference/android/app/backup/package-summary.html">android.app.backup</a></li>
+    <li class="api apilevel-3">
+  <a href="../../../reference/android/appwidget/package-summary.html">android.appwidget</a></li>
+    <li class="api apilevel-5">
+  <a href="../../../reference/android/bluetooth/package-summary.html">android.bluetooth</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/content/package-summary.html">android.content</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/content/pm/package-summary.html">android.content.pm</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/content/res/package-summary.html">android.content.res</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/database/package-summary.html">android.database</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/database/sqlite/package-summary.html">android.database.sqlite</a></li>
+    <li class="api apilevel-11">
+  <a href="../../../reference/android/drm/package-summary.html">android.drm</a></li>
+    <li class="api apilevel-4">
+  <a href="../../../reference/android/gesture/package-summary.html">android.gesture</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/graphics/package-summary.html">android.graphics</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/graphics/drawable/package-summary.html">android.graphics.drawable</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/graphics/drawable/shapes/package-summary.html">android.graphics.drawable.shapes</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/hardware/package-summary.html">android.hardware</a></li>
+    <li class="api apilevel-12">
+  <a href="../../../reference/android/hardware/usb/package-summary.html">android.hardware.usb</a></li>
+    <li class="api apilevel-3">
+  <a href="../../../reference/android/inputmethodservice/package-summary.html">android.inputmethodservice</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/location/package-summary.html">android.location</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/media/package-summary.html">android.media</a></li>
+    <li class="api apilevel-9">
+  <a href="../../../reference/android/media/audiofx/package-summary.html">android.media.audiofx</a></li>
+    <li class="api apilevel-14">
+  <a href="../../../reference/android/media/effect/package-summary.html">android.media.effect</a></li>
+    <li class="api apilevel-12">
+  <a href="../../../reference/android/mtp/package-summary.html">android.mtp</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/net/package-summary.html">android.net</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/net/http/package-summary.html">android.net.http</a></li>
+    <li class="api apilevel-12">
+  <a href="../../../reference/android/net/rtp/package-summary.html">android.net.rtp</a></li>
+    <li class="api apilevel-9">
+  <a href="../../../reference/android/net/sip/package-summary.html">android.net.sip</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/net/wifi/package-summary.html">android.net.wifi</a></li>
+    <li class="api apilevel-14">
+  <a href="../../../reference/android/net/wifi/p2p/package-summary.html">android.net.wifi.p2p</a></li>
+    <li class="api apilevel-9">
+  <a href="../../../reference/android/nfc/package-summary.html">android.nfc</a></li>
+    <li class="api apilevel-10">
+  <a href="../../../reference/android/nfc/tech/package-summary.html">android.nfc.tech</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/opengl/package-summary.html">android.opengl</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/os/package-summary.html">android.os</a></li>
+    <li class="api apilevel-9">
+  <a href="../../../reference/android/os/storage/package-summary.html">android.os.storage</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/preference/package-summary.html">android.preference</a></li>
+    <li class="selected api apilevel-1">
+  <a href="../../../reference/android/provider/package-summary.html">android.provider</a></li>
+    <li class="api apilevel-11">
+  <a href="../../../reference/android/renderscript/package-summary.html">android.renderscript</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/sax/package-summary.html">android.sax</a></li>
+    <li class="api apilevel-14">
+  <a href="../../../reference/android/security/package-summary.html">android.security</a></li>
+    <li class="api apilevel-14">
+  <a href="../../../reference/android/service/textservice/package-summary.html">android.service.textservice</a></li>
+    <li class="api apilevel-7">
+  <a href="../../../reference/android/service/wallpaper/package-summary.html">android.service.wallpaper</a></li>
+    <li class="api apilevel-3">
+  <a href="../../../reference/android/speech/package-summary.html">android.speech</a></li>
+    <li class="api apilevel-4">
+  <a href="../../../reference/android/speech/tts/package-summary.html">android.speech.tts</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v13/app/package-summary.html">android.support.v13.app</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v4/accessibilityservice/package-summary.html">android.support.v4.accessibilityservice</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v4/app/package-summary.html">android.support.v4.app</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v4/content/package-summary.html">android.support.v4.content</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v4/content/pm/package-summary.html">android.support.v4.content.pm</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v4/database/package-summary.html">android.support.v4.database</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v4/os/package-summary.html">android.support.v4.os</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v4/util/package-summary.html">android.support.v4.util</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v4/view/package-summary.html">android.support.v4.view</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v4/view/accessibility/package-summary.html">android.support.v4.view.accessibility</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v4/widget/package-summary.html">android.support.v4.widget</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/telephony/package-summary.html">android.telephony</a></li>
+    <li class="api apilevel-5">
+  <a href="../../../reference/android/telephony/cdma/package-summary.html">android.telephony.cdma</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/telephony/gsm/package-summary.html">android.telephony.gsm</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/test/package-summary.html">android.test</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/test/mock/package-summary.html">android.test.mock</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/test/suitebuilder/package-summary.html">android.test.suitebuilder</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/text/package-summary.html">android.text</a></li>
+    <li class="api apilevel-3">
+  <a href="../../../reference/android/text/format/package-summary.html">android.text.format</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/text/method/package-summary.html">android.text.method</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/text/style/package-summary.html">android.text.style</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/text/util/package-summary.html">android.text.util</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/util/package-summary.html">android.util</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/view/package-summary.html">android.view</a></li>
+    <li class="api apilevel-4">
+  <a href="../../../reference/android/view/accessibility/package-summary.html">android.view.accessibility</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/view/animation/package-summary.html">android.view.animation</a></li>
+    <li class="api apilevel-3">
+  <a href="../../../reference/android/view/inputmethod/package-summary.html">android.view.inputmethod</a></li>
+    <li class="api apilevel-14">
+  <a href="../../../reference/android/view/textservice/package-summary.html">android.view.textservice</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/webkit/package-summary.html">android.webkit</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/widget/package-summary.html">android.widget</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/dalvik/bytecode/package-summary.html">dalvik.bytecode</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/dalvik/system/package-summary.html">dalvik.system</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/awt/font/package-summary.html">java.awt.font</a></li>
+    <li class="api apilevel-3">
+  <a href="../../../reference/java/beans/package-summary.html">java.beans</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/io/package-summary.html">java.io</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/lang/package-summary.html">java.lang</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/lang/annotation/package-summary.html">java.lang.annotation</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/lang/ref/package-summary.html">java.lang.ref</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/lang/reflect/package-summary.html">java.lang.reflect</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/math/package-summary.html">java.math</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/net/package-summary.html">java.net</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/nio/package-summary.html">java.nio</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/nio/channels/package-summary.html">java.nio.channels</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/nio/channels/spi/package-summary.html">java.nio.channels.spi</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/nio/charset/package-summary.html">java.nio.charset</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/nio/charset/spi/package-summary.html">java.nio.charset.spi</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/security/package-summary.html">java.security</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/security/acl/package-summary.html">java.security.acl</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/security/cert/package-summary.html">java.security.cert</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/security/interfaces/package-summary.html">java.security.interfaces</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/security/spec/package-summary.html">java.security.spec</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/sql/package-summary.html">java.sql</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/text/package-summary.html">java.text</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/util/package-summary.html">java.util</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/util/concurrent/package-summary.html">java.util.concurrent</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/util/concurrent/atomic/package-summary.html">java.util.concurrent.atomic</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/util/concurrent/locks/package-summary.html">java.util.concurrent.locks</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/util/jar/package-summary.html">java.util.jar</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/util/logging/package-summary.html">java.util.logging</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/util/prefs/package-summary.html">java.util.prefs</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/util/regex/package-summary.html">java.util.regex</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/util/zip/package-summary.html">java.util.zip</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/javax/crypto/package-summary.html">javax.crypto</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/javax/crypto/interfaces/package-summary.html">javax.crypto.interfaces</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/javax/crypto/spec/package-summary.html">javax.crypto.spec</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/javax/microedition/khronos/egl/package-summary.html">javax.microedition.khronos.egl</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/javax/microedition/khronos/opengles/package-summary.html">javax.microedition.khronos.opengles</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/javax/net/package-summary.html">javax.net</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/javax/net/ssl/package-summary.html">javax.net.ssl</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/javax/security/auth/package-summary.html">javax.security.auth</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/javax/security/auth/callback/package-summary.html">javax.security.auth.callback</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/javax/security/auth/login/package-summary.html">javax.security.auth.login</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/javax/security/auth/x500/package-summary.html">javax.security.auth.x500</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/javax/security/cert/package-summary.html">javax.security.cert</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/javax/sql/package-summary.html">javax.sql</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/javax/xml/package-summary.html">javax.xml</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../reference/javax/xml/datatype/package-summary.html">javax.xml.datatype</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../reference/javax/xml/namespace/package-summary.html">javax.xml.namespace</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/javax/xml/parsers/package-summary.html">javax.xml.parsers</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../reference/javax/xml/transform/package-summary.html">javax.xml.transform</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../reference/javax/xml/transform/dom/package-summary.html">javax.xml.transform.dom</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../reference/javax/xml/transform/sax/package-summary.html">javax.xml.transform.sax</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../reference/javax/xml/transform/stream/package-summary.html">javax.xml.transform.stream</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../reference/javax/xml/validation/package-summary.html">javax.xml.validation</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../reference/javax/xml/xpath/package-summary.html">javax.xml.xpath</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/junit/framework/package-summary.html">junit.framework</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/junit/runner/package-summary.html">junit.runner</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/package-summary.html">org.apache.http</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/auth/package-summary.html">org.apache.http.auth</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/auth/params/package-summary.html">org.apache.http.auth.params</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/client/package-summary.html">org.apache.http.client</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/client/entity/package-summary.html">org.apache.http.client.entity</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/client/methods/package-summary.html">org.apache.http.client.methods</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/client/params/package-summary.html">org.apache.http.client.params</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/client/protocol/package-summary.html">org.apache.http.client.protocol</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/client/utils/package-summary.html">org.apache.http.client.utils</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/conn/package-summary.html">org.apache.http.conn</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/conn/params/package-summary.html">org.apache.http.conn.params</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/conn/routing/package-summary.html">org.apache.http.conn.routing</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/conn/scheme/package-summary.html">org.apache.http.conn.scheme</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/conn/ssl/package-summary.html">org.apache.http.conn.ssl</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/conn/util/package-summary.html">org.apache.http.conn.util</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/cookie/package-summary.html">org.apache.http.cookie</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/cookie/params/package-summary.html">org.apache.http.cookie.params</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/entity/package-summary.html">org.apache.http.entity</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/impl/package-summary.html">org.apache.http.impl</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/impl/auth/package-summary.html">org.apache.http.impl.auth</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/impl/client/package-summary.html">org.apache.http.impl.client</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/impl/conn/package-summary.html">org.apache.http.impl.conn</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/impl/conn/tsccm/package-summary.html">org.apache.http.impl.conn.tsccm</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/impl/cookie/package-summary.html">org.apache.http.impl.cookie</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/impl/entity/package-summary.html">org.apache.http.impl.entity</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/impl/io/package-summary.html">org.apache.http.impl.io</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/io/package-summary.html">org.apache.http.io</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/message/package-summary.html">org.apache.http.message</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/params/package-summary.html">org.apache.http.params</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/protocol/package-summary.html">org.apache.http.protocol</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/util/package-summary.html">org.apache.http.util</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/json/package-summary.html">org.json</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/w3c/dom/package-summary.html">org.w3c.dom</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../reference/org/w3c/dom/ls/package-summary.html">org.w3c.dom.ls</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/xml/sax/package-summary.html">org.xml.sax</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/xml/sax/ext/package-summary.html">org.xml.sax.ext</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/xml/sax/helpers/package-summary.html">org.xml.sax.helpers</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/xmlpull/v1/package-summary.html">org.xmlpull.v1</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/xmlpull/v1/sax2/package-summary.html">org.xmlpull.v1.sax2</a></li>
+              </ul><br/>
+            </div> <!-- end packages -->
+          </div> <!-- end resize-packages -->
+          <div id="classes-nav">
+            <ul>
+              
+    <li><h2>Interfaces</h2>
+      <ul>
+          <li class="api apilevel-1"><a href="../../../reference/android/provider/BaseColumns.html">BaseColumns</a></li>
+          <li class="api apilevel-14"><a href="../../../reference/android/provider/CalendarContract.AttendeesColumns.html">CalendarContract.AttendeesColumns</a></li>
+          <li class="api apilevel-14"><a href="../../../reference/android/provider/CalendarContract.CalendarAlertsColumns.html">CalendarContract.CalendarAlertsColumns</a></li>
+          <li class="api apilevel-14"><a href="../../../reference/android/provider/CalendarContract.CalendarCacheColumns.html">CalendarContract.CalendarCacheColumns</a></li>
+          <li class="api apilevel-14"><a href="../../../reference/android/provider/CalendarContract.CalendarColumns.html">CalendarContract.CalendarColumns</a></li>
+          <li class="api apilevel-14"><a href="../../../reference/android/provider/CalendarContract.CalendarSyncColumns.html">CalendarContract.CalendarSyncColumns</a></li>
+          <li class="api apilevel-15"><a href="../../../reference/android/provider/CalendarContract.ColorsColumns.html">CalendarContract.ColorsColumns</a></li>
+          <li class="api apilevel-14"><a href="../../../reference/android/provider/CalendarContract.EventDaysColumns.html">CalendarContract.EventDaysColumns</a></li>
+          <li class="api apilevel-14"><a href="../../../reference/android/provider/CalendarContract.EventsColumns.html">CalendarContract.EventsColumns</a></li>
+          <li class="api apilevel-14"><a href="../../../reference/android/provider/CalendarContract.ExtendedPropertiesColumns.html">CalendarContract.ExtendedPropertiesColumns</a></li>
+          <li class="api apilevel-14"><a href="../../../reference/android/provider/CalendarContract.RemindersColumns.html">CalendarContract.RemindersColumns</a></li>
+          <li class="api apilevel-14"><a href="../../../reference/android/provider/CalendarContract.SyncColumns.html">CalendarContract.SyncColumns</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/provider/Contacts.ContactMethodsColumns.html">Contacts.ContactMethodsColumns</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/provider/Contacts.ExtensionsColumns.html">Contacts.ExtensionsColumns</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/provider/Contacts.GroupsColumns.html">Contacts.GroupsColumns</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/provider/Contacts.OrganizationColumns.html">Contacts.OrganizationColumns</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/provider/Contacts.PeopleColumns.html">Contacts.PeopleColumns</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/provider/Contacts.PhonesColumns.html">Contacts.PhonesColumns</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/provider/Contacts.PhotosColumns.html">Contacts.PhotosColumns</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/provider/Contacts.PresenceColumns.html">Contacts.PresenceColumns</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/provider/Contacts.SettingsColumns.html">Contacts.SettingsColumns</a></li>
+          <li class="api apilevel-5"><a href="../../../reference/android/provider/ContactsContract.BaseSyncColumns.html">ContactsContract.BaseSyncColumns</a></li>
+          <li class="api apilevel-5"><a href="../../../reference/android/provider/ContactsContract.CommonDataKinds.BaseTypes.html">ContactsContract.CommonDataKinds.BaseTypes</a></li>
+          <li class="api apilevel-5"><a href="../../../reference/android/provider/ContactsContract.CommonDataKinds.CommonColumns.html">ContactsContract.CommonDataKinds.CommonColumns</a></li>
+          <li class="api apilevel-11"><a href="../../../reference/android/provider/ContactsContract.ContactNameColumns.html">ContactsContract.ContactNameColumns</a></li>
+          <li class="api apilevel-5"><a href="../../../reference/android/provider/ContactsContract.ContactOptionsColumns.html">ContactsContract.ContactOptionsColumns</a></li>
+          <li class="api apilevel-5"><a href="../../../reference/android/provider/ContactsContract.ContactsColumns.html">ContactsContract.ContactsColumns</a></li>
+          <li class="api apilevel-5"><a href="../../../reference/android/provider/ContactsContract.ContactStatusColumns.html">ContactsContract.ContactStatusColumns</a></li>
+          <li class="api apilevel-5"><a href="../../../reference/android/provider/ContactsContract.DataColumns.html">ContactsContract.DataColumns</a></li>
+          <li class="api apilevel-5"><a href="../../../reference/android/provider/ContactsContract.DataColumnsWithJoins.html">ContactsContract.DataColumnsWithJoins</a></li>
+          <li class="api apilevel-11"><a href="../../../reference/android/provider/ContactsContract.DisplayNameSources.html">ContactsContract.DisplayNameSources</a></li>
+          <li class="api apilevel-11"><a href="../../../reference/android/provider/ContactsContract.FullNameStyle.html">ContactsContract.FullNameStyle</a></li>
+          <li class="api apilevel-5"><a href="../../../reference/android/provider/ContactsContract.GroupsColumns.html">ContactsContract.GroupsColumns</a></li>
+          <li class="api apilevel-5"><a href="../../../reference/android/provider/ContactsContract.PhoneLookupColumns.html">ContactsContract.PhoneLookupColumns</a></li>
+          <li class="api apilevel-11"><a href="../../../reference/android/provider/ContactsContract.PhoneticNameStyle.html">ContactsContract.PhoneticNameStyle</a></li>
+          <li class="api apilevel-5"><a href="../../../reference/android/provider/ContactsContract.PresenceColumns.html">ContactsContract.PresenceColumns</a></li>
+          <li class="api apilevel-5"><a href="../../../reference/android/provider/ContactsContract.RawContactsColumns.html">ContactsContract.RawContactsColumns</a></li>
+          <li class="api apilevel-5"><a href="../../../reference/android/provider/ContactsContract.SettingsColumns.html">ContactsContract.SettingsColumns</a></li>
+          <li class="api apilevel-5"><a href="../../../reference/android/provider/ContactsContract.StatusColumns.html">ContactsContract.StatusColumns</a></li>
+          <li class="api apilevel-15"><a href="../../../reference/android/provider/ContactsContract.StreamItemPhotosColumns.html">ContactsContract.StreamItemPhotosColumns</a></li>
+          <li class="api apilevel-15"><a href="../../../reference/android/provider/ContactsContract.StreamItemsColumns.html">ContactsContract.StreamItemsColumns</a></li>
+          <li class="api apilevel-5"><a href="../../../reference/android/provider/ContactsContract.SyncColumns.html">ContactsContract.SyncColumns</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/provider/MediaStore.Audio.AlbumColumns.html">MediaStore.Audio.AlbumColumns</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/provider/MediaStore.Audio.ArtistColumns.html">MediaStore.Audio.ArtistColumns</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/provider/MediaStore.Audio.AudioColumns.html">MediaStore.Audio.AudioColumns</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/provider/MediaStore.Audio.GenresColumns.html">MediaStore.Audio.GenresColumns</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/provider/MediaStore.Audio.PlaylistsColumns.html">MediaStore.Audio.PlaylistsColumns</a></li>
+          <li class="api apilevel-11"><a href="../../../reference/android/provider/MediaStore.Files.FileColumns.html">MediaStore.Files.FileColumns</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/provider/MediaStore.Images.ImageColumns.html">MediaStore.Images.ImageColumns</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/provider/MediaStore.MediaColumns.html">MediaStore.MediaColumns</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/provider/MediaStore.Video.VideoColumns.html">MediaStore.Video.VideoColumns</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/provider/OpenableColumns.html">OpenableColumns</a></li>
+          <li class="api apilevel-5"><a href="../../../reference/android/provider/SyncStateContract.Columns.html">SyncStateContract.Columns</a></li>
+      </ul>
+    </li>
+              
+    <li><h2>Classes</h2>
+      <ul>
+          <li class="api apilevel-9"><a href="../../../reference/android/provider/AlarmClock.html">AlarmClock</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/provider/Browser.html">Browser</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/provider/Browser.BookmarkColumns.html">Browser.BookmarkColumns</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/provider/Browser.SearchColumns.html">Browser.SearchColumns</a></li>
+          <li class="api apilevel-14"><a href="../../../reference/android/provider/CalendarContract.html">CalendarContract</a></li>
+          <li class="api apilevel-14"><a href="../../../reference/android/provider/CalendarContract.Attendees.html">CalendarContract.Attendees</a></li>
+          <li class="api apilevel-14"><a href="../../../reference/android/provider/CalendarContract.CalendarAlerts.html">CalendarContract.CalendarAlerts</a></li>
+          <li class="api apilevel-14"><a href="../../../reference/android/provider/CalendarContract.CalendarCache.html">CalendarContract.CalendarCache</a></li>
+          <li class="api apilevel-14"><a href="../../../reference/android/provider/CalendarContract.CalendarEntity.html">CalendarContract.CalendarEntity</a></li>
+          <li class="api apilevel-14"><a href="../../../reference/android/provider/CalendarContract.Calendars.html">CalendarContract.Calendars</a></li>
+          <li class="api apilevel-15"><a href="../../../reference/android/provider/CalendarContract.Colors.html">CalendarContract.Colors</a></li>
+          <li class="api apilevel-14"><a href="../../../reference/android/provider/CalendarContract.EventDays.html">CalendarContract.EventDays</a></li>
+          <li class="api apilevel-14"><a href="../../../reference/android/provider/CalendarContract.Events.html">CalendarContract.Events</a></li>
+          <li class="api apilevel-14"><a href="../../../reference/android/provider/CalendarContract.EventsEntity.html">CalendarContract.EventsEntity</a></li>
+          <li class="api apilevel-14"><a href="../../../reference/android/provider/CalendarContract.ExtendedProperties.html">CalendarContract.ExtendedProperties</a></li>
+          <li class="api apilevel-14"><a href="../../../reference/android/provider/CalendarContract.Instances.html">CalendarContract.Instances</a></li>
+          <li class="api apilevel-14"><a href="../../../reference/android/provider/CalendarContract.Reminders.html">CalendarContract.Reminders</a></li>
+          <li class="api apilevel-14"><a href="../../../reference/android/provider/CalendarContract.SyncState.html">CalendarContract.SyncState</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/provider/CallLog.html">CallLog</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/provider/CallLog.Calls.html">CallLog.Calls</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/provider/Contacts.html">Contacts</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/provider/Contacts.ContactMethods.html">Contacts.ContactMethods</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/provider/Contacts.Extensions.html">Contacts.Extensions</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/provider/Contacts.GroupMembership.html">Contacts.GroupMembership</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/provider/Contacts.Groups.html">Contacts.Groups</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/provider/Contacts.Intents.html">Contacts.Intents</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/provider/Contacts.Intents.Insert.html">Contacts.Intents.Insert</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/provider/Contacts.Intents.UI.html">Contacts.Intents.UI</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/provider/Contacts.Organizations.html">Contacts.Organizations</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/provider/Contacts.People.html">Contacts.People</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/provider/Contacts.People.ContactMethods.html">Contacts.People.ContactMethods</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/provider/Contacts.People.Extensions.html">Contacts.People.Extensions</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/provider/Contacts.People.Phones.html">Contacts.People.Phones</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/provider/Contacts.Phones.html">Contacts.Phones</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/provider/Contacts.Photos.html">Contacts.Photos</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/provider/Contacts.Settings.html">Contacts.Settings</a></li>
+          <li class="api apilevel-5"><a href="../../../reference/android/provider/ContactsContract.html">ContactsContract</a></li>
+          <li class="api apilevel-5"><a href="../../../reference/android/provider/ContactsContract.AggregationExceptions.html">ContactsContract.AggregationExceptions</a></li>
+          <li class="api apilevel-5"><a href="../../../reference/android/provider/ContactsContract.CommonDataKinds.html">ContactsContract.CommonDataKinds</a></li>
+          <li class="api apilevel-5"><a href="../../../reference/android/provider/ContactsContract.CommonDataKinds.Email.html">ContactsContract.CommonDataKinds.Email</a></li>
+          <li class="api apilevel-5"><a href="../../../reference/android/provider/ContactsContract.CommonDataKinds.Event.html">ContactsContract.CommonDataKinds.Event</a></li>
+          <li class="api apilevel-5"><a href="../../../reference/android/provider/ContactsContract.CommonDataKinds.GroupMembership.html">ContactsContract.CommonDataKinds.GroupMembership</a></li>
+          <li class="api apilevel-14"><a href="../../../reference/android/provider/ContactsContract.CommonDataKinds.Identity.html">ContactsContract.CommonDataKinds.Identity</a></li>
+          <li class="api apilevel-5"><a href="../../../reference/android/provider/ContactsContract.CommonDataKinds.Im.html">ContactsContract.CommonDataKinds.Im</a></li>
+          <li class="api apilevel-5"><a href="../../../reference/android/provider/ContactsContract.CommonDataKinds.Nickname.html">ContactsContract.CommonDataKinds.Nickname</a></li>
+          <li class="api apilevel-5"><a href="../../../reference/android/provider/ContactsContract.CommonDataKinds.Note.html">ContactsContract.CommonDataKinds.Note</a></li>
+          <li class="api apilevel-5"><a href="../../../reference/android/provider/ContactsContract.CommonDataKinds.Organization.html">ContactsContract.CommonDataKinds.Organization</a></li>
+          <li class="api apilevel-5"><a href="../../../reference/android/provider/ContactsContract.CommonDataKinds.Phone.html">ContactsContract.CommonDataKinds.Phone</a></li>
+          <li class="api apilevel-5"><a href="../../../reference/android/provider/ContactsContract.CommonDataKinds.Photo.html">ContactsContract.CommonDataKinds.Photo</a></li>
+          <li class="api apilevel-5"><a href="../../../reference/android/provider/ContactsContract.CommonDataKinds.Relation.html">ContactsContract.CommonDataKinds.Relation</a></li>
+          <li class="api apilevel-9"><a href="../../../reference/android/provider/ContactsContract.CommonDataKinds.SipAddress.html">ContactsContract.CommonDataKinds.SipAddress</a></li>
+          <li class="api apilevel-5"><a href="../../../reference/android/provider/ContactsContract.CommonDataKinds.StructuredName.html">ContactsContract.CommonDataKinds.StructuredName</a></li>
+          <li class="api apilevel-5"><a href="../../../reference/android/provider/ContactsContract.CommonDataKinds.StructuredPostal.html">ContactsContract.CommonDataKinds.StructuredPostal</a></li>
+          <li class="api apilevel-5"><a href="../../../reference/android/provider/ContactsContract.CommonDataKinds.Website.html">ContactsContract.CommonDataKinds.Website</a></li>
+          <li class="api apilevel-5"><a href="../../../reference/android/provider/ContactsContract.Contacts.html">ContactsContract.Contacts</a></li>
+          <li class="api apilevel-5"><a href="../../../reference/android/provider/ContactsContract.Contacts.AggregationSuggestions.html">ContactsContract.Contacts.AggregationSuggestions</a></li>
+          <li class="api apilevel-5"><a href="../../../reference/android/provider/ContactsContract.Contacts.Data.html">ContactsContract.Contacts.Data</a></li>
+          <li class="api apilevel-11"><a href="../../../reference/android/provider/ContactsContract.Contacts.Entity.html">ContactsContract.Contacts.Entity</a></li>
+          <li class="api apilevel-5"><a href="../../../reference/android/provider/ContactsContract.Contacts.Photo.html">ContactsContract.Contacts.Photo</a></li>
+          <li class="api apilevel-15"><a href="../../../reference/android/provider/ContactsContract.Contacts.StreamItems.html">ContactsContract.Contacts.StreamItems</a></li>
+          <li class="api apilevel-5"><a href="../../../reference/android/provider/ContactsContract.Data.html">ContactsContract.Data</a></li>
+          <li class="api apilevel-14"><a href="../../../reference/android/provider/ContactsContract.DataUsageFeedback.html">ContactsContract.DataUsageFeedback</a></li>
+          <li class="api apilevel-11"><a href="../../../reference/android/provider/ContactsContract.Directory.html">ContactsContract.Directory</a></li>
+          <li class="api apilevel-14"><a href="../../../reference/android/provider/ContactsContract.DisplayPhoto.html">ContactsContract.DisplayPhoto</a></li>
+          <li class="api apilevel-5"><a href="../../../reference/android/provider/ContactsContract.Groups.html">ContactsContract.Groups</a></li>
+          <li class="api apilevel-5"><a href="../../../reference/android/provider/ContactsContract.Intents.html">ContactsContract.Intents</a></li>
+          <li class="api apilevel-5"><a href="../../../reference/android/provider/ContactsContract.Intents.Insert.html">ContactsContract.Intents.Insert</a></li>
+          <li class="api apilevel-5"><a href="../../../reference/android/provider/ContactsContract.PhoneLookup.html">ContactsContract.PhoneLookup</a></li>
+          <li class="api apilevel-5"><a href="../../../reference/android/provider/ContactsContract.Presence.html">ContactsContract.Presence</a></li>
+          <li class="api apilevel-14"><a href="../../../reference/android/provider/ContactsContract.Profile.html">ContactsContract.Profile</a></li>
+          <li class="api apilevel-14"><a href="../../../reference/android/provider/ContactsContract.ProfileSyncState.html">ContactsContract.ProfileSyncState</a></li>
+          <li class="api apilevel-5"><a href="../../../reference/android/provider/ContactsContract.QuickContact.html">ContactsContract.QuickContact</a></li>
+          <li class="api apilevel-5"><a href="../../../reference/android/provider/ContactsContract.RawContacts.html">ContactsContract.RawContacts</a></li>
+          <li class="api apilevel-5"><a href="../../../reference/android/provider/ContactsContract.RawContacts.Data.html">ContactsContract.RawContacts.Data</a></li>
+          <li class="api apilevel-14"><a href="../../../reference/android/provider/ContactsContract.RawContacts.DisplayPhoto.html">ContactsContract.RawContacts.DisplayPhoto</a></li>
+          <li class="api apilevel-5"><a href="../../../reference/android/provider/ContactsContract.RawContacts.Entity.html">ContactsContract.RawContacts.Entity</a></li>
+          <li class="api apilevel-15"><a href="../../../reference/android/provider/ContactsContract.RawContacts.StreamItems.html">ContactsContract.RawContacts.StreamItems</a></li>
+          <li class="api apilevel-5"><a href="../../../reference/android/provider/ContactsContract.RawContactsEntity.html">ContactsContract.RawContactsEntity</a></li>
+          <li class="api apilevel-5"><a href="../../../reference/android/provider/ContactsContract.Settings.html">ContactsContract.Settings</a></li>
+          <li class="api apilevel-5"><a href="../../../reference/android/provider/ContactsContract.StatusUpdates.html">ContactsContract.StatusUpdates</a></li>
+          <li class="api apilevel-15"><a href="../../../reference/android/provider/ContactsContract.StreamItemPhotos.html">ContactsContract.StreamItemPhotos</a></li>
+          <li class="api apilevel-15"><a href="../../../reference/android/provider/ContactsContract.StreamItems.html">ContactsContract.StreamItems</a></li>
+          <li class="api apilevel-15"><a href="../../../reference/android/provider/ContactsContract.StreamItems.StreamItemPhotos.html">ContactsContract.StreamItems.StreamItemPhotos</a></li>
+          <li class="api apilevel-5"><a href="../../../reference/android/provider/ContactsContract.SyncState.html">ContactsContract.SyncState</a></li>
+          <li class="api apilevel-3"><a href="../../../reference/android/provider/LiveFolders.html">LiveFolders</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/provider/MediaStore.html">MediaStore</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/provider/MediaStore.Audio.html">MediaStore.Audio</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/provider/MediaStore.Audio.Albums.html">MediaStore.Audio.Albums</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/provider/MediaStore.Audio.Artists.html">MediaStore.Audio.Artists</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/provider/MediaStore.Audio.Artists.Albums.html">MediaStore.Audio.Artists.Albums</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/provider/MediaStore.Audio.Genres.html">MediaStore.Audio.Genres</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/provider/MediaStore.Audio.Genres.Members.html">MediaStore.Audio.Genres.Members</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/provider/MediaStore.Audio.Media.html">MediaStore.Audio.Media</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/provider/MediaStore.Audio.Playlists.html">MediaStore.Audio.Playlists</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/provider/MediaStore.Audio.Playlists.Members.html">MediaStore.Audio.Playlists.Members</a></li>
+          <li class="api apilevel-11"><a href="../../../reference/android/provider/MediaStore.Files.html">MediaStore.Files</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/provider/MediaStore.Images.html">MediaStore.Images</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/provider/MediaStore.Images.Media.html">MediaStore.Images.Media</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/provider/MediaStore.Images.Thumbnails.html">MediaStore.Images.Thumbnails</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/provider/MediaStore.Video.html">MediaStore.Video</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/provider/MediaStore.Video.Media.html">MediaStore.Video.Media</a></li>
+          <li class="api apilevel-5"><a href="../../../reference/android/provider/MediaStore.Video.Thumbnails.html">MediaStore.Video.Thumbnails</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/provider/SearchRecentSuggestions.html">SearchRecentSuggestions</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/provider/Settings.html">Settings</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/provider/Settings.NameValueTable.html">Settings.NameValueTable</a></li>
+          <li class="selected api apilevel-3"><a href="../../../reference/android/provider/Settings.Secure.html">Settings.Secure</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/provider/Settings.System.html">Settings.System</a></li>
+          <li class="api apilevel-5"><a href="../../../reference/android/provider/SyncStateContract.html">SyncStateContract</a></li>
+          <li class="api apilevel-5"><a href="../../../reference/android/provider/SyncStateContract.Constants.html">SyncStateContract.Constants</a></li>
+          <li class="api apilevel-5"><a href="../../../reference/android/provider/SyncStateContract.Helpers.html">SyncStateContract.Helpers</a></li>
+          <li class="api apilevel-3"><a href="../../../reference/android/provider/UserDictionary.html">UserDictionary</a></li>
+          <li class="api apilevel-3"><a href="../../../reference/android/provider/UserDictionary.Words.html">UserDictionary.Words</a></li>
+          <li class="api apilevel-14"><a href="../../../reference/android/provider/VoicemailContract.html">VoicemailContract</a></li>
+          <li class="api apilevel-14"><a href="../../../reference/android/provider/VoicemailContract.Status.html">VoicemailContract.Status</a></li>
+          <li class="api apilevel-14"><a href="../../../reference/android/provider/VoicemailContract.Voicemails.html">VoicemailContract.Voicemails</a></li>
+      </ul>
+    </li>
+              
+              
+    <li><h2>Exceptions</h2>
+      <ul>
+          <li class="api apilevel-1"><a href="../../../reference/android/provider/Settings.SettingNotFoundException.html">Settings.SettingNotFoundException</a></li>
+      </ul>
+    </li>
+              
+            </ul><br/>
+          </div><!-- end classes -->
+        </div><!-- end nav-panels -->
+        <div id="nav-tree" style="display:none">
+          <div id="index-links"><nobr>
+            <a href="../../../reference/packages.html"  >Package Index</a> | 
+            <a href="../../../reference/classes.html" >Class Index</a></nobr>
+          </div>
+        </div><!-- end nav-tree -->
+      </div><!-- end swapper -->
+    </div> <!-- end side-nav -->
+    <script>
+      if (!isMobile) {
+        $("<a href='#' id='nav-swap' onclick='swapNav();return false;' style='font-size:10px;line-height:9px;margin-left:1em;text-decoration:none;'><span id='tree-link'>Use Tree Navigation</span><span id='panel-link' style='display:none'>Use Panel Navigation</span></a>").appendTo("#side-nav");
+        chooseDefaultNav();
+        if ($("#nav-tree").is(':visible')) {
+          init_default_navtree("../../../");
+        } else {
+          addLoadEvent(function() {
+            scrollIntoView("packages-nav");
+            scrollIntoView("classes-nav");
+          });
+        }
+        $("#swapper").css({borderBottom:"2px solid #aaa"});
+      } else {
+        swapNav(); // tree view should be used on mobile
+      }
+    </script>
+
+
+
+<div class="g-unit" id="doc-content">
+
+<div id="api-info-block">
+
+
+
+  
+   
+  
+  
+   
+  
+  
+  
+
+  
+   
+  
+  
+  
+  
+
+  
+  
+   
+  
+  
+  
+
+
+<div class="sum-details-links">
+
+Summary:
+
+
+
+
+
+  <a href="#constants">Constants</a>
+  
+
+
+  &#124; <a href="#inhconstants">Inherited Constants</a>
+  
+
+
+  &#124; <a href="#lfields">Fields</a>
+  
+
+
+
+  &#124; <a href="#pubctors">Ctors</a>
+  
+
+
+
+  &#124; <a href="#pubmethods">Methods</a>
+  
+
+
+
+  &#124; <a href="#inhmethods">Inherited Methods</a>
+
+&#124; <a href="#" onclick="return toggleAllClassInherited()" id="toggleAllClassInherited">[Expand All]</a>
+
+</div><!-- end sum-details-links -->
+<div class="api-level">
+  
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level3">API Level 3</a>
+
+
+  
+  
+
+</div>
+</div><!-- end api-info-block -->
+
+
+<!-- ======== START OF CLASS DATA ======== -->
+
+<div id="jd-header">
+    public
+    static 
+    final 
+    
+    class
+<h1 itemprop="name">Settings.Secure</h1>
+
+
+
+  
+  
+  
+
+  
+    extends <a href="../../../reference/android/provider/Settings.NameValueTable.html">Settings.NameValueTable</a><br/>
+  
+  
+  
+
+  
+  
+  
+
+
+</div><!-- end header -->
+
+<div id="naMessage"></div>
+
+<div id="jd-content" class="api apilevel-3">
+<table class="jd-inheritance-table">
+
+
+    <tr>
+         	
+        <td colspan="3" class="jd-inheritance-class-cell"><a href="../../../reference/java/lang/Object.html">java.lang.Object</a></td>
+    </tr>
+    
+
+    <tr>
+        
+            <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
+         	
+        <td colspan="2" class="jd-inheritance-class-cell"><a href="../../../reference/android/provider/Settings.NameValueTable.html">android.provider.Settings.NameValueTable</a></td>
+    </tr>
+    
+
+    <tr>
+        
+            <td class="jd-inheritance-space">&nbsp;</td>
+        
+            <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
+         	
+        <td colspan="1" class="jd-inheritance-class-cell">android.provider.Settings.Secure</td>
+    </tr>
+    
+
+</table>
+
+
+
+
+
+
+
+<div class="jd-descr">
+
+
+<h2>Class Overview</h2>
+<p itemprop="articleBody">Secure system settings, containing system preferences that applications
+ can read but are not allowed to write.  These are for preferences that
+ the user must explicitly modify through the system UI or specialized
+ APIs for those values, not modified directly by applications.
+</p>
+
+
+
+
+
+</div><!-- jd-descr -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="jd-descr">
+
+
+<h2>Summary</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- =========== ENUM CONSTANT SUMMARY =========== -->
+<table id="constants" class="jd-sumtable"><tr><th colspan="12">Constants</th></tr>
+
+
+    
+    <tr class="alt-color api apilevel-4" >
+        <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/provider/Settings.Secure.html#ACCESSIBILITY_ENABLED">ACCESSIBILITY_ENABLED</a></td>
+        <td class="jd-descrcol" width="100%">If accessibility is enabled.</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-15" >
+        <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/provider/Settings.Secure.html#ACCESSIBILITY_SPEAK_PASSWORD">ACCESSIBILITY_SPEAK_PASSWORD</a></td>
+        <td class="jd-descrcol" width="100%">Whether to speak passwords while in accessibility mode.</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-3" >
+        <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/provider/Settings.Secure.html#ADB_ENABLED">ADB_ENABLED</a></td>
+        <td class="jd-descrcol" width="100%">Whether ADB is enabled.</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-8" >
+        <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/provider/Settings.Secure.html#ALLOWED_GEOLOCATION_ORIGINS">ALLOWED_GEOLOCATION_ORIGINS</a></td>
+        <td class="jd-descrcol" width="100%">Origins for which browsers should allow geolocation by default.</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-3" >
+        <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/provider/Settings.Secure.html#ALLOW_MOCK_LOCATION">ALLOW_MOCK_LOCATION</a></td>
+        <td class="jd-descrcol" width="100%">Setting to allow mock locations and location provider status to be injected into the
+ LocationManager service for testing purposes during application development.</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-3" >
+        <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/provider/Settings.Secure.html#ANDROID_ID">ANDROID_ID</a></td>
+        <td class="jd-descrcol" width="100%">A 64-bit number (as a hex string) that is randomly
+ generated on the device's first boot and should remain
+ constant for the lifetime of the device.</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-3" >
+        <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/provider/Settings.Secure.html#BACKGROUND_DATA">BACKGROUND_DATA</a></td>
+        <td class="jd-descrcol" width="100%">Whether background data usage is allowed by the user.</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-3" >
+        <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/provider/Settings.Secure.html#BLUETOOTH_ON">BLUETOOTH_ON</a></td>
+        <td class="jd-descrcol" width="100%">Whether bluetooth is enabled/disabled
+ 0=disabled.</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-3" >
+        <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/provider/Settings.Secure.html#DATA_ROAMING">DATA_ROAMING</a></td>
+        <td class="jd-descrcol" width="100%">Whether or not data roaming is enabled.</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-3" >
+        <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/provider/Settings.Secure.html#DEFAULT_INPUT_METHOD">DEFAULT_INPUT_METHOD</a></td>
+        <td class="jd-descrcol" width="100%">Setting to record the input method used by default, holding the ID
+ of the desired method.</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-3" >
+        <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/provider/Settings.Secure.html#DEVICE_PROVISIONED">DEVICE_PROVISIONED</a></td>
+        <td class="jd-descrcol" width="100%">Whether the device has been provisioned (0 = false, 1 = true)
+</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-4" >
+        <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/provider/Settings.Secure.html#ENABLED_ACCESSIBILITY_SERVICES">ENABLED_ACCESSIBILITY_SERVICES</a></td>
+        <td class="jd-descrcol" width="100%">List of the enabled accessibility providers.</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-3" >
+        <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/provider/Settings.Secure.html#ENABLED_INPUT_METHODS">ENABLED_INPUT_METHODS</a></td>
+        <td class="jd-descrcol" width="100%">List of input methods that are currently enabled.</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-3" >
+        <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/provider/Settings.Secure.html#HTTP_PROXY">HTTP_PROXY</a></td>
+        <td class="jd-descrcol" width="100%">Host name and port for global http proxy.</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-11" >
+        <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/provider/Settings.Secure.html#INPUT_METHOD_SELECTOR_VISIBILITY">INPUT_METHOD_SELECTOR_VISIBILITY</a></td>
+        <td class="jd-descrcol" width="100%">Setting to record the visibility of input method selector
+</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-3" >
+        <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/provider/Settings.Secure.html#INSTALL_NON_MARKET_APPS">INSTALL_NON_MARKET_APPS</a></td>
+        <td class="jd-descrcol" width="100%">Whether the package installer should allow installation of apps downloaded from
+ sources other than Google Play.</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-3" >
+        <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/provider/Settings.Secure.html#LOCATION_PROVIDERS_ALLOWED">LOCATION_PROVIDERS_ALLOWED</a></td>
+        <td class="jd-descrcol" width="100%">Comma-separated list of location providers that activities may access.</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-8" >
+        <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/provider/Settings.Secure.html#LOCK_PATTERN_ENABLED">LOCK_PATTERN_ENABLED</a></td>
+        <td class="jd-descrcol" width="100%">Whether autolock is enabled (0 = false, 1 = true)
+</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-8" >
+        <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/provider/Settings.Secure.html#LOCK_PATTERN_TACTILE_FEEDBACK_ENABLED">LOCK_PATTERN_TACTILE_FEEDBACK_ENABLED</a></td>
+        <td class="jd-descrcol" width="100%">Whether lock pattern will vibrate as user enters (0 = false, 1 = true)
+</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-8" >
+        <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/provider/Settings.Secure.html#LOCK_PATTERN_VISIBLE">LOCK_PATTERN_VISIBLE</a></td>
+        <td class="jd-descrcol" width="100%">Whether lock pattern is visible as user enters (0 = false, 1 = true)
+</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-3" >
+        <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/provider/Settings.Secure.html#LOGGING_ID">LOGGING_ID</a></td>
+        <td class="jd-descrcol" width="100%">
+      <em>
+  This constant is deprecated.
+      This identifier is poorly initialized and has
+ many collisions.  It should not be used.
+</em></td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-3" >
+        <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/provider/Settings.Secure.html#NETWORK_PREFERENCE">NETWORK_PREFERENCE</a></td>
+        <td class="jd-descrcol" width="100%">User preference for which network(s) should be used.</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-3" >
+        <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/provider/Settings.Secure.html#PARENTAL_CONTROL_ENABLED">PARENTAL_CONTROL_ENABLED</a></td>
+        <td class="jd-descrcol" width="100%">No longer supported.</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-3" >
+        <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/provider/Settings.Secure.html#PARENTAL_CONTROL_LAST_UPDATE">PARENTAL_CONTROL_LAST_UPDATE</a></td>
+        <td class="jd-descrcol" width="100%">No longer supported.</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-3" >
+        <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/provider/Settings.Secure.html#PARENTAL_CONTROL_REDIRECT_URL">PARENTAL_CONTROL_REDIRECT_URL</a></td>
+        <td class="jd-descrcol" width="100%">No longer supported.</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-11" >
+        <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/provider/Settings.Secure.html#SELECTED_INPUT_METHOD_SUBTYPE">SELECTED_INPUT_METHOD_SUBTYPE</a></td>
+        <td class="jd-descrcol" width="100%">Setting to record the input method subtype used by default, holding the ID
+ of the desired method.</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-3" >
+        <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/provider/Settings.Secure.html#SETTINGS_CLASSNAME">SETTINGS_CLASSNAME</a></td>
+        <td class="jd-descrcol" width="100%">Settings classname to launch when Settings is clicked from All
+ Applications.</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-3" >
+        <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/provider/Settings.Secure.html#SYS_PROP_SETTING_VERSION">SYS_PROP_SETTING_VERSION</a></td>
+        <td class="jd-descrcol" width="100%"></td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-14" >
+        <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/provider/Settings.Secure.html#TOUCH_EXPLORATION_ENABLED">TOUCH_EXPLORATION_ENABLED</a></td>
+        <td class="jd-descrcol" width="100%">If touch exploration is enabled.</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-4" >
+        <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/provider/Settings.Secure.html#TTS_DEFAULT_COUNTRY">TTS_DEFAULT_COUNTRY</a></td>
+        <td class="jd-descrcol" width="100%">
+      <em>
+  This constant is deprecated.
+      this setting is no longer in use, as of the Ice Cream
+ Sandwich release. Apps should never need to read this setting directly,
+ instead can query the TextToSpeech framework classes for the default
+ locale. <code><a href="../../../reference/android/speech/tts/TextToSpeech.html#getLanguage()">getLanguage()</a></code>.
+</em></td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-4" >
+        <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/provider/Settings.Secure.html#TTS_DEFAULT_LANG">TTS_DEFAULT_LANG</a></td>
+        <td class="jd-descrcol" width="100%">
+      <em>
+  This constant is deprecated.
+      this setting is no longer in use, as of the Ice Cream
+ Sandwich release. Apps should never need to read this setting directly,
+ instead can query the TextToSpeech framework classes for the default
+ locale. <code><a href="../../../reference/android/speech/tts/TextToSpeech.html#getLanguage()">getLanguage()</a></code>.
+</em></td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-4" >
+        <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/provider/Settings.Secure.html#TTS_DEFAULT_PITCH">TTS_DEFAULT_PITCH</a></td>
+        <td class="jd-descrcol" width="100%">Default text-to-speech engine pitch.</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-4" >
+        <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/provider/Settings.Secure.html#TTS_DEFAULT_RATE">TTS_DEFAULT_RATE</a></td>
+        <td class="jd-descrcol" width="100%">Default text-to-speech engine speech rate.</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-4" >
+        <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/provider/Settings.Secure.html#TTS_DEFAULT_SYNTH">TTS_DEFAULT_SYNTH</a></td>
+        <td class="jd-descrcol" width="100%">Default text-to-speech engine.</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-4" >
+        <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/provider/Settings.Secure.html#TTS_DEFAULT_VARIANT">TTS_DEFAULT_VARIANT</a></td>
+        <td class="jd-descrcol" width="100%">
+      <em>
+  This constant is deprecated.
+      this setting is no longer in use, as of the Ice Cream
+ Sandwich release. Apps should never need to read this setting directly,
+ instead can query the TextToSpeech framework classes for the
+ locale that is in use <code><a href="../../../reference/android/speech/tts/TextToSpeech.html#getLanguage()">getLanguage()</a></code>.
+</em></td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-8" >
+        <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/provider/Settings.Secure.html#TTS_ENABLED_PLUGINS">TTS_ENABLED_PLUGINS</a></td>
+        <td class="jd-descrcol" width="100%">Space delimited list of plugin packages that are enabled.</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-4" >
+        <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/provider/Settings.Secure.html#TTS_USE_DEFAULTS">TTS_USE_DEFAULTS</a></td>
+        <td class="jd-descrcol" width="100%">
+      <em>
+  This constant is deprecated.
+      The value of this setting is no longer respected by
+ the framework text to speech APIs as of the Ice Cream Sandwich release.
+</em></td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-3" >
+        <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/provider/Settings.Secure.html#USB_MASS_STORAGE_ENABLED">USB_MASS_STORAGE_ENABLED</a></td>
+        <td class="jd-descrcol" width="100%">USB Mass Storage Enabled
+</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-3" >
+        <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/provider/Settings.Secure.html#USE_GOOGLE_MAIL">USE_GOOGLE_MAIL</a></td>
+        <td class="jd-descrcol" width="100%">If this setting is set (to anything), then all references
+ to Gmail on the device must change to Google Mail.</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-3" >
+        <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/provider/Settings.Secure.html#WIFI_MAX_DHCP_RETRY_COUNT">WIFI_MAX_DHCP_RETRY_COUNT</a></td>
+        <td class="jd-descrcol" width="100%">The maximum number of times we will retry a connection to an access
+ point for which we have failed in acquiring an IP address from DHCP.</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-3" >
+        <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/provider/Settings.Secure.html#WIFI_MOBILE_DATA_TRANSITION_WAKELOCK_TIMEOUT_MS">WIFI_MOBILE_DATA_TRANSITION_WAKELOCK_TIMEOUT_MS</a></td>
+        <td class="jd-descrcol" width="100%">Maximum amount of time in milliseconds to hold a wakelock while waiting for mobile
+ data connectivity to be established after a disconnect from Wi-Fi.</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-3" >
+        <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/provider/Settings.Secure.html#WIFI_NETWORKS_AVAILABLE_NOTIFICATION_ON">WIFI_NETWORKS_AVAILABLE_NOTIFICATION_ON</a></td>
+        <td class="jd-descrcol" width="100%">Whether to notify the user of open networks.</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-3" >
+        <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/provider/Settings.Secure.html#WIFI_NETWORKS_AVAILABLE_REPEAT_DELAY">WIFI_NETWORKS_AVAILABLE_REPEAT_DELAY</a></td>
+        <td class="jd-descrcol" width="100%">Delay (in seconds) before repeating the Wi-Fi networks available notification.</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-3" >
+        <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/provider/Settings.Secure.html#WIFI_NUM_OPEN_NETWORKS_KEPT">WIFI_NUM_OPEN_NETWORKS_KEPT</a></td>
+        <td class="jd-descrcol" width="100%">When the number of open networks exceeds this number, the
+ least-recently-used excess networks will be removed.</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-3" >
+        <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/provider/Settings.Secure.html#WIFI_ON">WIFI_ON</a></td>
+        <td class="jd-descrcol" width="100%">Whether the Wi-Fi should be on.</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-3" >
+        <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/provider/Settings.Secure.html#WIFI_WATCHDOG_ACCEPTABLE_PACKET_LOSS_PERCENTAGE">WIFI_WATCHDOG_ACCEPTABLE_PACKET_LOSS_PERCENTAGE</a></td>
+        <td class="jd-descrcol" width="100%">The acceptable packet loss percentage (range 0 - 100) before trying
+ another AP on the same network.</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-3" >
+        <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/provider/Settings.Secure.html#WIFI_WATCHDOG_AP_COUNT">WIFI_WATCHDOG_AP_COUNT</a></td>
+        <td class="jd-descrcol" width="100%">The number of access points required for a network in order for the
+ watchdog to monitor it.</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-3" >
+        <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/provider/Settings.Secure.html#WIFI_WATCHDOG_BACKGROUND_CHECK_DELAY_MS">WIFI_WATCHDOG_BACKGROUND_CHECK_DELAY_MS</a></td>
+        <td class="jd-descrcol" width="100%">The delay between background checks.</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-3" >
+        <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/provider/Settings.Secure.html#WIFI_WATCHDOG_BACKGROUND_CHECK_ENABLED">WIFI_WATCHDOG_BACKGROUND_CHECK_ENABLED</a></td>
+        <td class="jd-descrcol" width="100%">Whether the Wi-Fi watchdog is enabled for background checking even
+ after it thinks the user has connected to a good access point.</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-3" >
+        <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/provider/Settings.Secure.html#WIFI_WATCHDOG_BACKGROUND_CHECK_TIMEOUT_MS">WIFI_WATCHDOG_BACKGROUND_CHECK_TIMEOUT_MS</a></td>
+        <td class="jd-descrcol" width="100%">The timeout for a background ping
+</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-3" >
+        <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/provider/Settings.Secure.html#WIFI_WATCHDOG_INITIAL_IGNORED_PING_COUNT">WIFI_WATCHDOG_INITIAL_IGNORED_PING_COUNT</a></td>
+        <td class="jd-descrcol" width="100%">The number of initial pings to perform that *may* be ignored if they
+ fail.</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-3" >
+        <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/provider/Settings.Secure.html#WIFI_WATCHDOG_MAX_AP_CHECKS">WIFI_WATCHDOG_MAX_AP_CHECKS</a></td>
+        <td class="jd-descrcol" width="100%">The maximum number of access points (per network) to attempt to test.</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-3" >
+        <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/provider/Settings.Secure.html#WIFI_WATCHDOG_ON">WIFI_WATCHDOG_ON</a></td>
+        <td class="jd-descrcol" width="100%">Whether the Wi-Fi watchdog is enabled.</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-3" >
+        <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/provider/Settings.Secure.html#WIFI_WATCHDOG_PING_COUNT">WIFI_WATCHDOG_PING_COUNT</a></td>
+        <td class="jd-descrcol" width="100%">The number of pings to test if an access point is a good connection.</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-3" >
+        <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/provider/Settings.Secure.html#WIFI_WATCHDOG_PING_DELAY_MS">WIFI_WATCHDOG_PING_DELAY_MS</a></td>
+        <td class="jd-descrcol" width="100%">The delay between pings.</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-3" >
+        <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/provider/Settings.Secure.html#WIFI_WATCHDOG_PING_TIMEOUT_MS">WIFI_WATCHDOG_PING_TIMEOUT_MS</a></td>
+        <td class="jd-descrcol" width="100%">The timeout per ping.</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-3" >
+        <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/provider/Settings.Secure.html#WIFI_WATCHDOG_WATCH_LIST">WIFI_WATCHDOG_WATCH_LIST</a></td>
+        <td class="jd-descrcol" width="100%">A comma-separated list of SSIDs for which the Wi-Fi watchdog should be enabled.</td>
+    </tr>
+    
+    
+
+</table>
+
+
+
+
+
+<!-- =========== ENUM CONSTANT SUMMARY =========== -->
+<table id="inhconstants" class="jd-sumtable"><tr><th>
+  <a href="#" class="toggle-all" onclick="return toggleAllInherited(this, null)">[Expand]</a>
+  <div style="clear:left;">Inherited Constants</div></th></tr>
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-constants-android.provider.Settings.NameValueTable" class="jd-expando-trigger closed"
+          ><img id="inherited-constants-android.provider.Settings.NameValueTable-trigger"
+          src="../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>From class
+<a href="../../../reference/android/provider/Settings.NameValueTable.html">android.provider.Settings.NameValueTable</a>
+<div id="inherited-constants-android.provider.Settings.NameValueTable">
+  <div id="inherited-constants-android.provider.Settings.NameValueTable-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-constants-android.provider.Settings.NameValueTable-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+    
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/provider/Settings.NameValueTable.html#NAME">NAME</a></td>
+        <td class="jd-descrcol" width="100%"></td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/provider/Settings.NameValueTable.html#VALUE">VALUE</a></td>
+        <td class="jd-descrcol" width="100%"></td>
+    </tr>
+    
+    
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-constants-android.provider.BaseColumns" class="jd-expando-trigger closed"
+          ><img id="inherited-constants-android.provider.BaseColumns-trigger"
+          src="../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>From interface
+<a href="../../../reference/android/provider/BaseColumns.html">android.provider.BaseColumns</a>
+<div id="inherited-constants-android.provider.BaseColumns">
+  <div id="inherited-constants-android.provider.BaseColumns-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-constants-android.provider.BaseColumns-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+    
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/provider/BaseColumns.html#_COUNT">_COUNT</a></td>
+        <td class="jd-descrcol" width="100%">The count of rows in a directory.</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/provider/BaseColumns.html#_ID">_ID</a></td>
+        <td class="jd-descrcol" width="100%">The unique ID for a row.</td>
+    </tr>
+    
+    
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+</table>
+
+
+
+
+<!-- =========== FIELD SUMMARY =========== -->
+<table id="lfields" class="jd-sumtable"><tr><th colspan="12">Fields</th></tr>
+
+
+    
+      <tr class="alt-color api apilevel-3" >
+          <td class="jd-typecol"><nobr>
+          public
+          static
+          final
+          <a href="../../../reference/android/net/Uri.html">Uri</a></nobr></td>
+          <td class="jd-linkcol"><a href="../../../reference/android/provider/Settings.Secure.html#CONTENT_URI">CONTENT_URI</a></td>
+          <td class="jd-descrcol" width="100%">The content:// style URL for this table
+</td>
+      </tr>
+      
+    
+
+</table>
+
+
+
+
+
+
+
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+<table id="pubctors" class="jd-sumtable"><tr><th colspan="12">Public Constructors</th></tr>
+
+
+
+	 
+    <tr class="alt-color api apilevel-3" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            </nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/provider/Settings.Secure.html#Settings.Secure()">Settings.Secure</a></span>()</nobr>
+        
+  </td></tr>
+
+
+
+</table>
+
+
+
+
+
+
+<!-- ========== METHOD SUMMARY =========== -->
+<table id="pubmethods" class="jd-sumtable"><tr><th colspan="12">Public Methods</th></tr>
+
+
+
+	 
+    <tr class="alt-color api apilevel-3" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            static
+            
+            float</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/provider/Settings.Secure.html#getFloat(android.content.ContentResolver, java.lang.String, float)">getFloat</a></span>(<a href="../../../reference/android/content/ContentResolver.html">ContentResolver</a> cr, <a href="../../../reference/java/lang/String.html">String</a> name, float def)</nobr>
+        
+        <div class="jd-descrdiv">Convenience function for retrieving a single secure settings value
+ as a floating point number.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-3" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            static
+            
+            float</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/provider/Settings.Secure.html#getFloat(android.content.ContentResolver, java.lang.String)">getFloat</a></span>(<a href="../../../reference/android/content/ContentResolver.html">ContentResolver</a> cr, <a href="../../../reference/java/lang/String.html">String</a> name)</nobr>
+        
+        <div class="jd-descrdiv">Convenience function for retrieving a single secure settings value
+ as a float.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-3" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            static
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/provider/Settings.Secure.html#getInt(android.content.ContentResolver, java.lang.String)">getInt</a></span>(<a href="../../../reference/android/content/ContentResolver.html">ContentResolver</a> cr, <a href="../../../reference/java/lang/String.html">String</a> name)</nobr>
+        
+        <div class="jd-descrdiv">Convenience function for retrieving a single secure settings value
+ as an integer.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-3" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            static
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/provider/Settings.Secure.html#getInt(android.content.ContentResolver, java.lang.String, int)">getInt</a></span>(<a href="../../../reference/android/content/ContentResolver.html">ContentResolver</a> cr, <a href="../../../reference/java/lang/String.html">String</a> name, int def)</nobr>
+        
+        <div class="jd-descrdiv">Convenience function for retrieving a single secure settings value
+ as an integer.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-3" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            static
+            
+            long</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/provider/Settings.Secure.html#getLong(android.content.ContentResolver, java.lang.String, long)">getLong</a></span>(<a href="../../../reference/android/content/ContentResolver.html">ContentResolver</a> cr, <a href="../../../reference/java/lang/String.html">String</a> name, long def)</nobr>
+        
+        <div class="jd-descrdiv">Convenience function for retrieving a single secure settings value
+ as a <code>long</code>.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-3" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            static
+            
+            long</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/provider/Settings.Secure.html#getLong(android.content.ContentResolver, java.lang.String)">getLong</a></span>(<a href="../../../reference/android/content/ContentResolver.html">ContentResolver</a> cr, <a href="../../../reference/java/lang/String.html">String</a> name)</nobr>
+        
+        <div class="jd-descrdiv">Convenience function for retrieving a single secure settings value
+ as a <code>long</code>.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-3" >
+        <td class="jd-typecol"><nobr>
+            
+            synchronized
+            
+            static
+            
+            <a href="../../../reference/java/lang/String.html">String</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/provider/Settings.Secure.html#getString(android.content.ContentResolver, java.lang.String)">getString</a></span>(<a href="../../../reference/android/content/ContentResolver.html">ContentResolver</a> resolver, <a href="../../../reference/java/lang/String.html">String</a> name)</nobr>
+        
+        <div class="jd-descrdiv">Look up a name in the database.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-3" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            static
+            
+            <a href="../../../reference/android/net/Uri.html">Uri</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/provider/Settings.Secure.html#getUriFor(java.lang.String)">getUriFor</a></span>(<a href="../../../reference/java/lang/String.html">String</a> name)</nobr>
+        
+        <div class="jd-descrdiv">Construct the content URI for a particular name/value pair,
+ useful for monitoring changes with a ContentObserver.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-8" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            static
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/provider/Settings.Secure.html#isLocationProviderEnabled(android.content.ContentResolver, java.lang.String)">isLocationProviderEnabled</a></span>(<a href="../../../reference/android/content/ContentResolver.html">ContentResolver</a> cr, <a href="../../../reference/java/lang/String.html">String</a> provider)</nobr>
+        
+        <div class="jd-descrdiv">Helper method for determining if a location provider is enabled.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-3" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            static
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/provider/Settings.Secure.html#putFloat(android.content.ContentResolver, java.lang.String, float)">putFloat</a></span>(<a href="../../../reference/android/content/ContentResolver.html">ContentResolver</a> cr, <a href="../../../reference/java/lang/String.html">String</a> name, float value)</nobr>
+        
+        <div class="jd-descrdiv">Convenience function for updating a single settings value as a
+ floating point number.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-3" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            static
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/provider/Settings.Secure.html#putInt(android.content.ContentResolver, java.lang.String, int)">putInt</a></span>(<a href="../../../reference/android/content/ContentResolver.html">ContentResolver</a> cr, <a href="../../../reference/java/lang/String.html">String</a> name, int value)</nobr>
+        
+        <div class="jd-descrdiv">Convenience function for updating a single settings value as an
+ integer.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-3" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            static
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/provider/Settings.Secure.html#putLong(android.content.ContentResolver, java.lang.String, long)">putLong</a></span>(<a href="../../../reference/android/content/ContentResolver.html">ContentResolver</a> cr, <a href="../../../reference/java/lang/String.html">String</a> name, long value)</nobr>
+        
+        <div class="jd-descrdiv">Convenience function for updating a secure settings value as a long
+ integer.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-3" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            static
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/provider/Settings.Secure.html#putString(android.content.ContentResolver, java.lang.String, java.lang.String)">putString</a></span>(<a href="../../../reference/android/content/ContentResolver.html">ContentResolver</a> resolver, <a href="../../../reference/java/lang/String.html">String</a> name, <a href="../../../reference/java/lang/String.html">String</a> value)</nobr>
+        
+        <div class="jd-descrdiv">Store a name/value pair into the database.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-8" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            static
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/provider/Settings.Secure.html#setLocationProviderEnabled(android.content.ContentResolver, java.lang.String, boolean)">setLocationProviderEnabled</a></span>(<a href="../../../reference/android/content/ContentResolver.html">ContentResolver</a> cr, <a href="../../../reference/java/lang/String.html">String</a> provider, boolean enabled)</nobr>
+        
+        <div class="jd-descrdiv">Thread-safe method for enabling or disabling a single location provider.</div>
+  
+  </td></tr>
+
+
+
+</table>
+
+
+
+
+
+
+
+<!-- ========== METHOD SUMMARY =========== -->
+<table id="inhmethods" class="jd-sumtable"><tr><th>
+  <a href="#" class="toggle-all" onclick="return toggleAllInherited(this, null)">[Expand]</a>
+  <div style="clear:left;">Inherited Methods</div></th></tr>
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-android.provider.Settings.NameValueTable" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-android.provider.Settings.NameValueTable-trigger"
+          src="../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From class
+
+  <a href="../../../reference/android/provider/Settings.NameValueTable.html">android.provider.Settings.NameValueTable</a>
+
+<div id="inherited-methods-android.provider.Settings.NameValueTable">
+  <div id="inherited-methods-android.provider.Settings.NameValueTable-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-android.provider.Settings.NameValueTable-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            static
+            
+            <a href="../../../reference/android/net/Uri.html">Uri</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/provider/Settings.NameValueTable.html#getUriFor(android.net.Uri, java.lang.String)">getUriFor</a></span>(<a href="../../../reference/android/net/Uri.html">Uri</a> uri, <a href="../../../reference/java/lang/String.html">String</a> name)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            static
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/provider/Settings.NameValueTable.html#putString(android.content.ContentResolver, android.net.Uri, java.lang.String, java.lang.String)">putString</a></span>(<a href="../../../reference/android/content/ContentResolver.html">ContentResolver</a> resolver, <a href="../../../reference/android/net/Uri.html">Uri</a> uri, <a href="../../../reference/java/lang/String.html">String</a> name, <a href="../../../reference/java/lang/String.html">String</a> value)</nobr>
+        
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-java.lang.Object" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-java.lang.Object-trigger"
+          src="../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From class
+
+  <a href="../../../reference/java/lang/Object.html">java.lang.Object</a>
+
+<div id="inherited-methods-java.lang.Object">
+  <div id="inherited-methods-java.lang.Object-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-java.lang.Object-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../reference/java/lang/Object.html">Object</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/java/lang/Object.html#clone()">clone</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Creates and returns a copy of this <code>Object</code>.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/java/lang/Object.html#equals(java.lang.Object)">equals</a></span>(<a href="../../../reference/java/lang/Object.html">Object</a> o)</nobr>
+        
+        <div class="jd-descrdiv">Compares this instance with the specified object and indicates if they
+ are equal.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/java/lang/Object.html#finalize()">finalize</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Invoked when the garbage collector has detected that this instance is no longer reachable.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            <a href="../../../reference/java/lang/Class.html">Class</a>&lt;?&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/java/lang/Object.html#getClass()">getClass</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Returns the unique instance of <code><a href="../../../reference/java/lang/Class.html">Class</a></code> that represents this
+ object's class.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/java/lang/Object.html#hashCode()">hashCode</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Returns an integer hash code for this object.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/java/lang/Object.html#notify()">notify</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Causes a thread which is waiting on this object's monitor (by means of
+ calling one of the <code>wait()</code> methods) to be woken up.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/java/lang/Object.html#notifyAll()">notifyAll</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Causes all threads which are waiting on this object's monitor (by means
+ of calling one of the <code>wait()</code> methods) to be woken up.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../reference/java/lang/String.html">String</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/java/lang/Object.html#toString()">toString</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Returns a string containing a concise, human-readable description of this
+ object.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/java/lang/Object.html#wait()">wait</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/java/lang/Object.html#wait(long, int)">wait</a></span>(long millis, int nanos)</nobr>
+        
+        <div class="jd-descrdiv">Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
+ specified timeout expires.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/java/lang/Object.html#wait(long)">wait</a></span>(long millis)</nobr>
+        
+        <div class="jd-descrdiv">Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
+ specified timeout expires.</div>
+  
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+
+
+</table>
+
+
+</div><!-- jd-descr (summary) -->
+
+<!-- Details -->
+
+
+
+
+
+
+
+
+<!-- XML Attributes -->
+
+
+<!-- Enum Values -->
+
+
+<!-- Constants -->
+
+
+<!-- ========= ENUM CONSTANTS DETAIL ======== -->
+<h2>Constants</h2>
+
+
+
+
+<A NAME="ACCESSIBILITY_ENABLED"></A>
+
+<div class="jd-details api apilevel-4"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../reference/java/lang/String.html">String</a>
+      </span>
+        ACCESSIBILITY_ENABLED
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level4">API Level 4</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>If accessibility is enabled.
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                "accessibility_enabled"
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="ACCESSIBILITY_SPEAK_PASSWORD"></A>
+
+<div class="jd-details api apilevel-15"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../reference/java/lang/String.html">String</a>
+      </span>
+        ACCESSIBILITY_SPEAK_PASSWORD
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level15">API Level 15</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Whether to speak passwords while in accessibility mode.
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                "speak_password"
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="ADB_ENABLED"></A>
+
+<div class="jd-details api apilevel-3"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../reference/java/lang/String.html">String</a>
+      </span>
+        ADB_ENABLED
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level3">API Level 3</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Whether ADB is enabled.
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                "adb_enabled"
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="ALLOWED_GEOLOCATION_ORIGINS"></A>
+
+<div class="jd-details api apilevel-8"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../reference/java/lang/String.html">String</a>
+      </span>
+        ALLOWED_GEOLOCATION_ORIGINS
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level8">API Level 8</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Origins for which browsers should allow geolocation by default.
+ The value is a space-separated list of origins.
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                "allowed_geolocation_origins"
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="ALLOW_MOCK_LOCATION"></A>
+
+<div class="jd-details api apilevel-3"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../reference/java/lang/String.html">String</a>
+      </span>
+        ALLOW_MOCK_LOCATION
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level3">API Level 3</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Setting to allow mock locations and location provider status to be injected into the
+ LocationManager service for testing purposes during application development.  These
+ locations and status values  override actual location and status information generated
+ by network, gps, or other location providers.
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                "mock_location"
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="ANDROID_ID"></A>
+
+<div class="jd-details api apilevel-3"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../reference/java/lang/String.html">String</a>
+      </span>
+        ANDROID_ID
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level3">API Level 3</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>A 64-bit number (as a hex string) that is randomly
+ generated on the device's first boot and should remain
+ constant for the lifetime of the device.  (The value may
+ change if a factory reset is performed on the device.)
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                "android_id"
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="BACKGROUND_DATA"></A>
+
+<div class="jd-details api apilevel-3"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../reference/java/lang/String.html">String</a>
+      </span>
+        BACKGROUND_DATA
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level3">API Level 3</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Whether background data usage is allowed by the user. See
+ ConnectivityManager for more info.
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                "background_data"
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="BLUETOOTH_ON"></A>
+
+<div class="jd-details api apilevel-3"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../reference/java/lang/String.html">String</a>
+      </span>
+        BLUETOOTH_ON
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level3">API Level 3</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Whether bluetooth is enabled/disabled
+ 0=disabled. 1=enabled.
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                "bluetooth_on"
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="DATA_ROAMING"></A>
+
+<div class="jd-details api apilevel-3"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../reference/java/lang/String.html">String</a>
+      </span>
+        DATA_ROAMING
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level3">API Level 3</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Whether or not data roaming is enabled. (0 = false, 1 = true)
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                "data_roaming"
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="DEFAULT_INPUT_METHOD"></A>
+
+<div class="jd-details api apilevel-3"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../reference/java/lang/String.html">String</a>
+      </span>
+        DEFAULT_INPUT_METHOD
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level3">API Level 3</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Setting to record the input method used by default, holding the ID
+ of the desired method.
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                "default_input_method"
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="DEVICE_PROVISIONED"></A>
+
+<div class="jd-details api apilevel-3"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../reference/java/lang/String.html">String</a>
+      </span>
+        DEVICE_PROVISIONED
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level3">API Level 3</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Whether the device has been provisioned (0 = false, 1 = true)
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                "device_provisioned"
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="ENABLED_ACCESSIBILITY_SERVICES"></A>
+
+<div class="jd-details api apilevel-4"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../reference/java/lang/String.html">String</a>
+      </span>
+        ENABLED_ACCESSIBILITY_SERVICES
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level4">API Level 4</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>List of the enabled accessibility providers.
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                "enabled_accessibility_services"
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="ENABLED_INPUT_METHODS"></A>
+
+<div class="jd-details api apilevel-3"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../reference/java/lang/String.html">String</a>
+      </span>
+        ENABLED_INPUT_METHODS
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level3">API Level 3</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>List of input methods that are currently enabled.  This is a string
+ containing the IDs of all enabled input methods, each ID separated
+ by ':'.
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                "enabled_input_methods"
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="HTTP_PROXY"></A>
+
+<div class="jd-details api apilevel-3"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../reference/java/lang/String.html">String</a>
+      </span>
+        HTTP_PROXY
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level3">API Level 3</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Host name and port for global http proxy.  Uses ':' seperator for between host and port
+ TODO - deprecate in favor of global_http_proxy_host, etc
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                "http_proxy"
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="INPUT_METHOD_SELECTOR_VISIBILITY"></A>
+
+<div class="jd-details api apilevel-11"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../reference/java/lang/String.html">String</a>
+      </span>
+        INPUT_METHOD_SELECTOR_VISIBILITY
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level11">API Level 11</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Setting to record the visibility of input method selector
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                "input_method_selector_visibility"
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="INSTALL_NON_MARKET_APPS"></A>
+
+<div class="jd-details api apilevel-3"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../reference/java/lang/String.html">String</a>
+      </span>
+        INSTALL_NON_MARKET_APPS
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level3">API Level 3</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Whether the package installer should allow installation of apps downloaded from
+ sources other than Google Play.
+
+ 1 = allow installing from other sources
+ 0 = only allow installing from Google Play
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                "install_non_market_apps"
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="LOCATION_PROVIDERS_ALLOWED"></A>
+
+<div class="jd-details api apilevel-3"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../reference/java/lang/String.html">String</a>
+      </span>
+        LOCATION_PROVIDERS_ALLOWED
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level3">API Level 3</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Comma-separated list of location providers that activities may access.
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                "location_providers_allowed"
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="LOCK_PATTERN_ENABLED"></A>
+
+<div class="jd-details api apilevel-8"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../reference/java/lang/String.html">String</a>
+      </span>
+        LOCK_PATTERN_ENABLED
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level8">API Level 8</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Whether autolock is enabled (0 = false, 1 = true)
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                "lock_pattern_autolock"
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="LOCK_PATTERN_TACTILE_FEEDBACK_ENABLED"></A>
+
+<div class="jd-details api apilevel-8"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../reference/java/lang/String.html">String</a>
+      </span>
+        LOCK_PATTERN_TACTILE_FEEDBACK_ENABLED
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level8">API Level 8</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Whether lock pattern will vibrate as user enters (0 = false, 1 = true)
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                "lock_pattern_tactile_feedback_enabled"
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="LOCK_PATTERN_VISIBLE"></A>
+
+<div class="jd-details api apilevel-8"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../reference/java/lang/String.html">String</a>
+      </span>
+        LOCK_PATTERN_VISIBLE
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level8">API Level 8</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Whether lock pattern is visible as user enters (0 = false, 1 = true)
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                "lock_pattern_visible_pattern"
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="LOGGING_ID"></A>
+
+<div class="jd-details api apilevel-3"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../reference/java/lang/String.html">String</a>
+      </span>
+        LOGGING_ID
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level3">API Level 3</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      <p>
+  <p class="caution">
+      <strong>
+  This constant is deprecated.</strong><br/> This identifier is poorly initialized and has
+ many collisions.  It should not be used.
+
+  </p>
+  <div class="jd-tagdata jd-tagdescr"><p>The Logging ID (a unique 64-bit value) as a hex string.
+ Used as a pseudonymous identifier for logging.</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                "logging_id"
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="NETWORK_PREFERENCE"></A>
+
+<div class="jd-details api apilevel-3"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../reference/java/lang/String.html">String</a>
+      </span>
+        NETWORK_PREFERENCE
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level3">API Level 3</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>User preference for which network(s) should be used. Only the
+ connectivity service should touch this.
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                "network_preference"
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="PARENTAL_CONTROL_ENABLED"></A>
+
+<div class="jd-details api apilevel-3"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../reference/java/lang/String.html">String</a>
+      </span>
+        PARENTAL_CONTROL_ENABLED
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level3">API Level 3</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>No longer supported.
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                "parental_control_enabled"
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="PARENTAL_CONTROL_LAST_UPDATE"></A>
+
+<div class="jd-details api apilevel-3"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../reference/java/lang/String.html">String</a>
+      </span>
+        PARENTAL_CONTROL_LAST_UPDATE
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level3">API Level 3</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>No longer supported.
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                "parental_control_last_update"
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="PARENTAL_CONTROL_REDIRECT_URL"></A>
+
+<div class="jd-details api apilevel-3"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../reference/java/lang/String.html">String</a>
+      </span>
+        PARENTAL_CONTROL_REDIRECT_URL
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level3">API Level 3</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>No longer supported.
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                "parental_control_redirect_url"
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="SELECTED_INPUT_METHOD_SUBTYPE"></A>
+
+<div class="jd-details api apilevel-11"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../reference/java/lang/String.html">String</a>
+      </span>
+        SELECTED_INPUT_METHOD_SUBTYPE
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level11">API Level 11</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Setting to record the input method subtype used by default, holding the ID
+ of the desired method.
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                "selected_input_method_subtype"
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="SETTINGS_CLASSNAME"></A>
+
+<div class="jd-details api apilevel-3"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../reference/java/lang/String.html">String</a>
+      </span>
+        SETTINGS_CLASSNAME
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level3">API Level 3</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Settings classname to launch when Settings is clicked from All
+ Applications.  Needed because of user testing between the old
+ and new Settings apps.
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                "settings_classname"
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="SYS_PROP_SETTING_VERSION"></A>
+
+<div class="jd-details api apilevel-3"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../reference/java/lang/String.html">String</a>
+      </span>
+        SYS_PROP_SETTING_VERSION
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level3">API Level 3</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                "sys.settings_secure_version"
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="TOUCH_EXPLORATION_ENABLED"></A>
+
+<div class="jd-details api apilevel-14"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../reference/java/lang/String.html">String</a>
+      </span>
+        TOUCH_EXPLORATION_ENABLED
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level14">API Level 14</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>If touch exploration is enabled.
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                "touch_exploration_enabled"
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="TTS_DEFAULT_COUNTRY"></A>
+
+<div class="jd-details api apilevel-4"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../reference/java/lang/String.html">String</a>
+      </span>
+        TTS_DEFAULT_COUNTRY
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level4">API Level 4</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      <p>
+  <p class="caution">
+      <strong>
+  This constant is deprecated.</strong><br/> this setting is no longer in use, as of the Ice Cream
+ Sandwich release. Apps should never need to read this setting directly,
+ instead can query the TextToSpeech framework classes for the default
+ locale. <code><a href="../../../reference/android/speech/tts/TextToSpeech.html#getLanguage()">getLanguage()</a></code>.
+
+  </p>
+  <div class="jd-tagdata jd-tagdescr"><p>Default text-to-speech country.</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                "tts_default_country"
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="TTS_DEFAULT_LANG"></A>
+
+<div class="jd-details api apilevel-4"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../reference/java/lang/String.html">String</a>
+      </span>
+        TTS_DEFAULT_LANG
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level4">API Level 4</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      <p>
+  <p class="caution">
+      <strong>
+  This constant is deprecated.</strong><br/> this setting is no longer in use, as of the Ice Cream
+ Sandwich release. Apps should never need to read this setting directly,
+ instead can query the TextToSpeech framework classes for the default
+ locale. <code><a href="../../../reference/android/speech/tts/TextToSpeech.html#getLanguage()">getLanguage()</a></code>.
+
+  </p>
+  <div class="jd-tagdata jd-tagdescr"><p>Default text-to-speech language.</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                "tts_default_lang"
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="TTS_DEFAULT_PITCH"></A>
+
+<div class="jd-details api apilevel-4"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../reference/java/lang/String.html">String</a>
+      </span>
+        TTS_DEFAULT_PITCH
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level4">API Level 4</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Default text-to-speech engine pitch. 100 = 1x
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                "tts_default_pitch"
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="TTS_DEFAULT_RATE"></A>
+
+<div class="jd-details api apilevel-4"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../reference/java/lang/String.html">String</a>
+      </span>
+        TTS_DEFAULT_RATE
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level4">API Level 4</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Default text-to-speech engine speech rate. 100 = 1x
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                "tts_default_rate"
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="TTS_DEFAULT_SYNTH"></A>
+
+<div class="jd-details api apilevel-4"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../reference/java/lang/String.html">String</a>
+      </span>
+        TTS_DEFAULT_SYNTH
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level4">API Level 4</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Default text-to-speech engine.
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                "tts_default_synth"
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="TTS_DEFAULT_VARIANT"></A>
+
+<div class="jd-details api apilevel-4"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../reference/java/lang/String.html">String</a>
+      </span>
+        TTS_DEFAULT_VARIANT
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level4">API Level 4</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      <p>
+  <p class="caution">
+      <strong>
+  This constant is deprecated.</strong><br/> this setting is no longer in use, as of the Ice Cream
+ Sandwich release. Apps should never need to read this setting directly,
+ instead can query the TextToSpeech framework classes for the
+ locale that is in use <code><a href="../../../reference/android/speech/tts/TextToSpeech.html#getLanguage()">getLanguage()</a></code>.
+
+  </p>
+  <div class="jd-tagdata jd-tagdescr"><p>Default text-to-speech locale variant.</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                "tts_default_variant"
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="TTS_ENABLED_PLUGINS"></A>
+
+<div class="jd-details api apilevel-8"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../reference/java/lang/String.html">String</a>
+      </span>
+        TTS_ENABLED_PLUGINS
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level8">API Level 8</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Space delimited list of plugin packages that are enabled.
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                "tts_enabled_plugins"
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="TTS_USE_DEFAULTS"></A>
+
+<div class="jd-details api apilevel-4"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../reference/java/lang/String.html">String</a>
+      </span>
+        TTS_USE_DEFAULTS
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level4">API Level 4</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      <p>
+  <p class="caution">
+      <strong>
+  This constant is deprecated.</strong><br/> The value of this setting is no longer respected by
+ the framework text to speech APIs as of the Ice Cream Sandwich release.
+
+  </p>
+  <div class="jd-tagdata jd-tagdescr"><p>Setting to always use the default text-to-speech settings regardless
+ of the application settings.
+ 1 = override application settings,
+ 0 = use application settings (if specified).</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                "tts_use_defaults"
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="USB_MASS_STORAGE_ENABLED"></A>
+
+<div class="jd-details api apilevel-3"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../reference/java/lang/String.html">String</a>
+      </span>
+        USB_MASS_STORAGE_ENABLED
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level3">API Level 3</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>USB Mass Storage Enabled
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                "usb_mass_storage_enabled"
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="USE_GOOGLE_MAIL"></A>
+
+<div class="jd-details api apilevel-3"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../reference/java/lang/String.html">String</a>
+      </span>
+        USE_GOOGLE_MAIL
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level3">API Level 3</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>If this setting is set (to anything), then all references
+ to Gmail on the device must change to Google Mail.
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                "use_google_mail"
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="WIFI_MAX_DHCP_RETRY_COUNT"></A>
+
+<div class="jd-details api apilevel-3"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../reference/java/lang/String.html">String</a>
+      </span>
+        WIFI_MAX_DHCP_RETRY_COUNT
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level3">API Level 3</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>The maximum number of times we will retry a connection to an access
+ point for which we have failed in acquiring an IP address from DHCP.
+ A value of N means that we will make N+1 connection attempts in all.
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                "wifi_max_dhcp_retry_count"
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="WIFI_MOBILE_DATA_TRANSITION_WAKELOCK_TIMEOUT_MS"></A>
+
+<div class="jd-details api apilevel-3"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../reference/java/lang/String.html">String</a>
+      </span>
+        WIFI_MOBILE_DATA_TRANSITION_WAKELOCK_TIMEOUT_MS
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level3">API Level 3</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Maximum amount of time in milliseconds to hold a wakelock while waiting for mobile
+ data connectivity to be established after a disconnect from Wi-Fi.
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                "wifi_mobile_data_transition_wakelock_timeout_ms"
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="WIFI_NETWORKS_AVAILABLE_NOTIFICATION_ON"></A>
+
+<div class="jd-details api apilevel-3"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../reference/java/lang/String.html">String</a>
+      </span>
+        WIFI_NETWORKS_AVAILABLE_NOTIFICATION_ON
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level3">API Level 3</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Whether to notify the user of open networks.
+ <p>
+ If not connected and the scan results have an open network, we will
+ put this notification up. If we attempt to connect to a network or
+ the open network(s) disappear, we remove the notification. When we
+ show the notification, we will not show it again for
+ <code><a href="../../../reference/android/provider/Settings.Secure.html#WIFI_NETWORKS_AVAILABLE_REPEAT_DELAY">WIFI_NETWORKS_AVAILABLE_REPEAT_DELAY</a></code> time.
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                "wifi_networks_available_notification_on"
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="WIFI_NETWORKS_AVAILABLE_REPEAT_DELAY"></A>
+
+<div class="jd-details api apilevel-3"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../reference/java/lang/String.html">String</a>
+      </span>
+        WIFI_NETWORKS_AVAILABLE_REPEAT_DELAY
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level3">API Level 3</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Delay (in seconds) before repeating the Wi-Fi networks available notification.
+ Connecting to a network will reset the timer.
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                "wifi_networks_available_repeat_delay"
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="WIFI_NUM_OPEN_NETWORKS_KEPT"></A>
+
+<div class="jd-details api apilevel-3"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../reference/java/lang/String.html">String</a>
+      </span>
+        WIFI_NUM_OPEN_NETWORKS_KEPT
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level3">API Level 3</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>When the number of open networks exceeds this number, the
+ least-recently-used excess networks will be removed.
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                "wifi_num_open_networks_kept"
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="WIFI_ON"></A>
+
+<div class="jd-details api apilevel-3"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../reference/java/lang/String.html">String</a>
+      </span>
+        WIFI_ON
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level3">API Level 3</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Whether the Wi-Fi should be on.  Only the Wi-Fi service should touch this.
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                "wifi_on"
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="WIFI_WATCHDOG_ACCEPTABLE_PACKET_LOSS_PERCENTAGE"></A>
+
+<div class="jd-details api apilevel-3"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../reference/java/lang/String.html">String</a>
+      </span>
+        WIFI_WATCHDOG_ACCEPTABLE_PACKET_LOSS_PERCENTAGE
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level3">API Level 3</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>The acceptable packet loss percentage (range 0 - 100) before trying
+ another AP on the same network.
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                "wifi_watchdog_acceptable_packet_loss_percentage"
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="WIFI_WATCHDOG_AP_COUNT"></A>
+
+<div class="jd-details api apilevel-3"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../reference/java/lang/String.html">String</a>
+      </span>
+        WIFI_WATCHDOG_AP_COUNT
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level3">API Level 3</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>The number of access points required for a network in order for the
+ watchdog to monitor it.
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                "wifi_watchdog_ap_count"
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="WIFI_WATCHDOG_BACKGROUND_CHECK_DELAY_MS"></A>
+
+<div class="jd-details api apilevel-3"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../reference/java/lang/String.html">String</a>
+      </span>
+        WIFI_WATCHDOG_BACKGROUND_CHECK_DELAY_MS
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level3">API Level 3</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>The delay between background checks.
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                "wifi_watchdog_background_check_delay_ms"
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="WIFI_WATCHDOG_BACKGROUND_CHECK_ENABLED"></A>
+
+<div class="jd-details api apilevel-3"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../reference/java/lang/String.html">String</a>
+      </span>
+        WIFI_WATCHDOG_BACKGROUND_CHECK_ENABLED
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level3">API Level 3</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Whether the Wi-Fi watchdog is enabled for background checking even
+ after it thinks the user has connected to a good access point.
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                "wifi_watchdog_background_check_enabled"
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="WIFI_WATCHDOG_BACKGROUND_CHECK_TIMEOUT_MS"></A>
+
+<div class="jd-details api apilevel-3"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../reference/java/lang/String.html">String</a>
+      </span>
+        WIFI_WATCHDOG_BACKGROUND_CHECK_TIMEOUT_MS
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level3">API Level 3</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>The timeout for a background ping
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                "wifi_watchdog_background_check_timeout_ms"
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="WIFI_WATCHDOG_INITIAL_IGNORED_PING_COUNT"></A>
+
+<div class="jd-details api apilevel-3"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../reference/java/lang/String.html">String</a>
+      </span>
+        WIFI_WATCHDOG_INITIAL_IGNORED_PING_COUNT
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level3">API Level 3</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>The number of initial pings to perform that *may* be ignored if they
+ fail. Again, if these fail, they will *not* be used in packet loss
+ calculation. For example, one network always seemed to time out for
+ the first couple pings, so this is set to 3 by default.
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                "wifi_watchdog_initial_ignored_ping_count"
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="WIFI_WATCHDOG_MAX_AP_CHECKS"></A>
+
+<div class="jd-details api apilevel-3"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../reference/java/lang/String.html">String</a>
+      </span>
+        WIFI_WATCHDOG_MAX_AP_CHECKS
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level3">API Level 3</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>The maximum number of access points (per network) to attempt to test.
+ If this number is reached, the watchdog will no longer monitor the
+ initial connection state for the network. This is a safeguard for
+ networks containing multiple APs whose DNS does not respond to pings.
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                "wifi_watchdog_max_ap_checks"
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="WIFI_WATCHDOG_ON"></A>
+
+<div class="jd-details api apilevel-3"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../reference/java/lang/String.html">String</a>
+      </span>
+        WIFI_WATCHDOG_ON
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level3">API Level 3</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Whether the Wi-Fi watchdog is enabled.
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                "wifi_watchdog_on"
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="WIFI_WATCHDOG_PING_COUNT"></A>
+
+<div class="jd-details api apilevel-3"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../reference/java/lang/String.html">String</a>
+      </span>
+        WIFI_WATCHDOG_PING_COUNT
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level3">API Level 3</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>The number of pings to test if an access point is a good connection.
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                "wifi_watchdog_ping_count"
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="WIFI_WATCHDOG_PING_DELAY_MS"></A>
+
+<div class="jd-details api apilevel-3"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../reference/java/lang/String.html">String</a>
+      </span>
+        WIFI_WATCHDOG_PING_DELAY_MS
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level3">API Level 3</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>The delay between pings.
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                "wifi_watchdog_ping_delay_ms"
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="WIFI_WATCHDOG_PING_TIMEOUT_MS"></A>
+
+<div class="jd-details api apilevel-3"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../reference/java/lang/String.html">String</a>
+      </span>
+        WIFI_WATCHDOG_PING_TIMEOUT_MS
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level3">API Level 3</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>The timeout per ping.
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                "wifi_watchdog_ping_timeout_ms"
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="WIFI_WATCHDOG_WATCH_LIST"></A>
+
+<div class="jd-details api apilevel-3"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../reference/java/lang/String.html">String</a>
+      </span>
+        WIFI_WATCHDOG_WATCH_LIST
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level3">API Level 3</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>A comma-separated list of SSIDs for which the Wi-Fi watchdog should be enabled.
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                "wifi_watchdog_watch_list"
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+
+<!-- Fields -->
+
+
+<!-- ========= FIELD DETAIL ======== -->
+<h2>Fields</h2>
+
+
+
+
+<A NAME="CONTENT_URI"></A>
+
+<div class="jd-details api apilevel-3"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../reference/android/net/Uri.html">Uri</a>
+      </span>
+        CONTENT_URI
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level3">API Level 3</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>The content:// style URL for this table
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+
+<!-- Public ctors -->
+
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<h2>Public Constructors</h2>
+
+
+
+<A NAME="Settings.Secure()"></A>
+
+<div class="jd-details api apilevel-3"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        
+      </span>
+      <span class="sympad">Settings.Secure</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level3">API Level 3</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+
+
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<!-- Protected ctors -->
+
+
+
+<!-- ========= METHOD DETAIL ======== -->
+<!-- Public methdos -->
+
+<h2>Public Methods</h2>
+
+
+
+<A NAME="getFloat(android.content.ContentResolver, java.lang.String, float)"></A>
+
+<div class="jd-details api apilevel-3"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        float
+      </span>
+      <span class="sympad">getFloat</span>
+      <span class="normal">(<a href="../../../reference/android/content/ContentResolver.html">ContentResolver</a> cr, <a href="../../../reference/java/lang/String.html">String</a> name, float def)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level3">API Level 3</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Convenience function for retrieving a single secure settings value
+ as a floating point number.  Note that internally setting values are
+ always stored as strings; this function converts the string to an
+ float for you. The default value will be returned if the setting
+ is not defined or not a valid float.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>cr</td>
+          <td>The ContentResolver to access.</td>
+        </tr>
+        <tr>
+          <th>name</td>
+          <td>The name of the setting to retrieve.</td>
+        </tr>
+        <tr>
+          <th>def</td>
+          <td>Value to return if the setting is not defined.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>The setting's current value, or 'def' if it is not defined
+ or not a valid float.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getFloat(android.content.ContentResolver, java.lang.String)"></A>
+
+<div class="jd-details api apilevel-3"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        float
+      </span>
+      <span class="sympad">getFloat</span>
+      <span class="normal">(<a href="../../../reference/android/content/ContentResolver.html">ContentResolver</a> cr, <a href="../../../reference/java/lang/String.html">String</a> name)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level3">API Level 3</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Convenience function for retrieving a single secure settings value
+ as a float.  Note that internally setting values are always
+ stored as strings; this function converts the string to a float
+ for you.
+ <p>
+ This version does not take a default value.  If the setting has not
+ been set, or the string value is not a number,
+ it throws <code><a href="../../../reference/android/provider/Settings.SettingNotFoundException.html">Settings.SettingNotFoundException</a></code>.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>cr</td>
+          <td>The ContentResolver to access.</td>
+        </tr>
+        <tr>
+          <th>name</td>
+          <td>The name of the setting to retrieve.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>The setting's current value.
+</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="../../../reference/android/provider/Settings.SettingNotFoundException.html">Settings.SettingNotFoundException</a></td>
+            <td>Thrown if a setting by the given
+ name can't be found or the setting value is not a float.</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getInt(android.content.ContentResolver, java.lang.String)"></A>
+
+<div class="jd-details api apilevel-3"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        int
+      </span>
+      <span class="sympad">getInt</span>
+      <span class="normal">(<a href="../../../reference/android/content/ContentResolver.html">ContentResolver</a> cr, <a href="../../../reference/java/lang/String.html">String</a> name)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level3">API Level 3</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Convenience function for retrieving a single secure settings value
+ as an integer.  Note that internally setting values are always
+ stored as strings; this function converts the string to an integer
+ for you.
+ <p>
+ This version does not take a default value.  If the setting has not
+ been set, or the string value is not a number,
+ it throws <code><a href="../../../reference/android/provider/Settings.SettingNotFoundException.html">Settings.SettingNotFoundException</a></code>.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>cr</td>
+          <td>The ContentResolver to access.</td>
+        </tr>
+        <tr>
+          <th>name</td>
+          <td>The name of the setting to retrieve.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>The setting's current value.
+</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="../../../reference/android/provider/Settings.SettingNotFoundException.html">Settings.SettingNotFoundException</a></td>
+            <td>Thrown if a setting by the given
+ name can't be found or the setting value is not an integer.</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getInt(android.content.ContentResolver, java.lang.String, int)"></A>
+
+<div class="jd-details api apilevel-3"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        int
+      </span>
+      <span class="sympad">getInt</span>
+      <span class="normal">(<a href="../../../reference/android/content/ContentResolver.html">ContentResolver</a> cr, <a href="../../../reference/java/lang/String.html">String</a> name, int def)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level3">API Level 3</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Convenience function for retrieving a single secure settings value
+ as an integer.  Note that internally setting values are always
+ stored as strings; this function converts the string to an integer
+ for you.  The default value will be returned if the setting is
+ not defined or not an integer.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>cr</td>
+          <td>The ContentResolver to access.</td>
+        </tr>
+        <tr>
+          <th>name</td>
+          <td>The name of the setting to retrieve.</td>
+        </tr>
+        <tr>
+          <th>def</td>
+          <td>Value to return if the setting is not defined.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>The setting's current value, or 'def' if it is not defined
+ or not a valid integer.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getLong(android.content.ContentResolver, java.lang.String, long)"></A>
+
+<div class="jd-details api apilevel-3"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        long
+      </span>
+      <span class="sympad">getLong</span>
+      <span class="normal">(<a href="../../../reference/android/content/ContentResolver.html">ContentResolver</a> cr, <a href="../../../reference/java/lang/String.html">String</a> name, long def)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level3">API Level 3</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Convenience function for retrieving a single secure settings value
+ as a <code>long</code>.  Note that internally setting values are always
+ stored as strings; this function converts the string to a <code>long</code>
+ for you.  The default value will be returned if the setting is
+ not defined or not a <code>long</code>.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>cr</td>
+          <td>The ContentResolver to access.</td>
+        </tr>
+        <tr>
+          <th>name</td>
+          <td>The name of the setting to retrieve.</td>
+        </tr>
+        <tr>
+          <th>def</td>
+          <td>Value to return if the setting is not defined.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>The setting's current value, or 'def' if it is not defined
+ or not a valid <code>long</code>.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getLong(android.content.ContentResolver, java.lang.String)"></A>
+
+<div class="jd-details api apilevel-3"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        long
+      </span>
+      <span class="sympad">getLong</span>
+      <span class="normal">(<a href="../../../reference/android/content/ContentResolver.html">ContentResolver</a> cr, <a href="../../../reference/java/lang/String.html">String</a> name)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level3">API Level 3</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Convenience function for retrieving a single secure settings value
+ as a <code>long</code>.  Note that internally setting values are always
+ stored as strings; this function converts the string to a <code>long</code>
+ for you.
+ <p>
+ This version does not take a default value.  If the setting has not
+ been set, or the string value is not a number,
+ it throws <code><a href="../../../reference/android/provider/Settings.SettingNotFoundException.html">Settings.SettingNotFoundException</a></code>.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>cr</td>
+          <td>The ContentResolver to access.</td>
+        </tr>
+        <tr>
+          <th>name</td>
+          <td>The name of the setting to retrieve.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>The setting's current value.</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="../../../reference/android/provider/Settings.SettingNotFoundException.html">Settings.SettingNotFoundException</a></td>
+            <td>Thrown if a setting by the given
+ name can't be found or the setting value is not an integer.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getString(android.content.ContentResolver, java.lang.String)"></A>
+
+<div class="jd-details api apilevel-3"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+        synchronized 
+        <a href="../../../reference/java/lang/String.html">String</a>
+      </span>
+      <span class="sympad">getString</span>
+      <span class="normal">(<a href="../../../reference/android/content/ContentResolver.html">ContentResolver</a> resolver, <a href="../../../reference/java/lang/String.html">String</a> name)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level3">API Level 3</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Look up a name in the database.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>resolver</td>
+          <td>to access the database with</td>
+        </tr>
+        <tr>
+          <th>name</td>
+          <td>to look up in the table</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the corresponding value, or null if not present
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getUriFor(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-3"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        <a href="../../../reference/android/net/Uri.html">Uri</a>
+      </span>
+      <span class="sympad">getUriFor</span>
+      <span class="normal">(<a href="../../../reference/java/lang/String.html">String</a> name)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level3">API Level 3</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Construct the content URI for a particular name/value pair,
+ useful for monitoring changes with a ContentObserver.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>name</td>
+          <td>to look up in the table</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the corresponding content URI, or null if not present
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="isLocationProviderEnabled(android.content.ContentResolver, java.lang.String)"></A>
+
+<div class="jd-details api apilevel-8"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+         
+         
+        boolean
+      </span>
+      <span class="sympad">isLocationProviderEnabled</span>
+      <span class="normal">(<a href="../../../reference/android/content/ContentResolver.html">ContentResolver</a> cr, <a href="../../../reference/java/lang/String.html">String</a> provider)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level8">API Level 8</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Helper method for determining if a location provider is enabled.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>cr</td>
+          <td>the content resolver to use</td>
+        </tr>
+        <tr>
+          <th>provider</td>
+          <td>the location provider to query</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>true if the provider is enabled
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="putFloat(android.content.ContentResolver, java.lang.String, float)"></A>
+
+<div class="jd-details api apilevel-3"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        boolean
+      </span>
+      <span class="sympad">putFloat</span>
+      <span class="normal">(<a href="../../../reference/android/content/ContentResolver.html">ContentResolver</a> cr, <a href="../../../reference/java/lang/String.html">String</a> name, float value)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level3">API Level 3</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Convenience function for updating a single settings value as a
+ floating point number. This will either create a new entry in the
+ table if the given name does not exist, or modify the value of the
+ existing row with that name.  Note that internally setting values
+ are always stored as strings, so this function converts the given
+ value to a string before storing it.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>cr</td>
+          <td>The ContentResolver to access.</td>
+        </tr>
+        <tr>
+          <th>name</td>
+          <td>The name of the setting to modify.</td>
+        </tr>
+        <tr>
+          <th>value</td>
+          <td>The new value for the setting.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>true if the value was set, false on database errors
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="putInt(android.content.ContentResolver, java.lang.String, int)"></A>
+
+<div class="jd-details api apilevel-3"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        boolean
+      </span>
+      <span class="sympad">putInt</span>
+      <span class="normal">(<a href="../../../reference/android/content/ContentResolver.html">ContentResolver</a> cr, <a href="../../../reference/java/lang/String.html">String</a> name, int value)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level3">API Level 3</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Convenience function for updating a single settings value as an
+ integer. This will either create a new entry in the table if the
+ given name does not exist, or modify the value of the existing row
+ with that name.  Note that internally setting values are always
+ stored as strings, so this function converts the given value to a
+ string before storing it.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>cr</td>
+          <td>The ContentResolver to access.</td>
+        </tr>
+        <tr>
+          <th>name</td>
+          <td>The name of the setting to modify.</td>
+        </tr>
+        <tr>
+          <th>value</td>
+          <td>The new value for the setting.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>true if the value was set, false on database errors
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="putLong(android.content.ContentResolver, java.lang.String, long)"></A>
+
+<div class="jd-details api apilevel-3"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        boolean
+      </span>
+      <span class="sympad">putLong</span>
+      <span class="normal">(<a href="../../../reference/android/content/ContentResolver.html">ContentResolver</a> cr, <a href="../../../reference/java/lang/String.html">String</a> name, long value)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level3">API Level 3</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Convenience function for updating a secure settings value as a long
+ integer. This will either create a new entry in the table if the
+ given name does not exist, or modify the value of the existing row
+ with that name.  Note that internally setting values are always
+ stored as strings, so this function converts the given value to a
+ string before storing it.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>cr</td>
+          <td>The ContentResolver to access.</td>
+        </tr>
+        <tr>
+          <th>name</td>
+          <td>The name of the setting to modify.</td>
+        </tr>
+        <tr>
+          <th>value</td>
+          <td>The new value for the setting.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>true if the value was set, false on database errors
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="putString(android.content.ContentResolver, java.lang.String, java.lang.String)"></A>
+
+<div class="jd-details api apilevel-3"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        boolean
+      </span>
+      <span class="sympad">putString</span>
+      <span class="normal">(<a href="../../../reference/android/content/ContentResolver.html">ContentResolver</a> resolver, <a href="../../../reference/java/lang/String.html">String</a> name, <a href="../../../reference/java/lang/String.html">String</a> value)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level3">API Level 3</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Store a name/value pair into the database.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>resolver</td>
+          <td>to access the database with</td>
+        </tr>
+        <tr>
+          <th>name</td>
+          <td>to store</td>
+        </tr>
+        <tr>
+          <th>value</td>
+          <td>to associate with the name</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>true if the value was set, false on database errors
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setLocationProviderEnabled(android.content.ContentResolver, java.lang.String, boolean)"></A>
+
+<div class="jd-details api apilevel-8"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+         
+         
+        void
+      </span>
+      <span class="sympad">setLocationProviderEnabled</span>
+      <span class="normal">(<a href="../../../reference/android/content/ContentResolver.html">ContentResolver</a> cr, <a href="../../../reference/java/lang/String.html">String</a> provider, boolean enabled)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level8">API Level 8</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Thread-safe method for enabling or disabling a single location provider.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>cr</td>
+          <td>the content resolver to use</td>
+        </tr>
+        <tr>
+          <th>provider</td>
+          <td>the location provider to enable or disable</td>
+        </tr>
+        <tr>
+          <th>enabled</td>
+          <td>true if the provider should be enabled
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+
+
+
+<!-- ========= METHOD DETAIL ======== -->
+
+
+
+<!-- ========= END OF CLASS DATA ========= -->
+<A NAME="navbar_top"></A>
+
+<div id="footer">
+
+
+  <div id="copyright">
+    
+  Except as noted, this content is licensed under <a
+  href="http://www.apache.org/licenses/LICENSE-2.0">Apache 2.0</a>. 
+  For details and restrictions, see the <a href="../../../license.html">
+  Content License</a>.
+  </div>
+  <div id="build_info">
+    
+  Android 4.0&nbsp;r1 - 16 Mar 2012 16:45
+
+  </div>
+
+  <div id="footerlinks">
+    
+  <p>
+    <a href="http://www.google.com/intl/en/policies/" target="_blank">Privacy &amp; Terms</a> -
+    <a href="http://www.android.com/branding.html" target="_blank">Brand Guidelines</a> -
+    <a
+href="http://code.google.com/p/android/issues/entry?template=Developer%20Documentation"
+target="_blank">Report Document Issues</a>
+  </p>
+  </div>
+
+</div> <!-- end footer -->
+
+</div> <!-- jd-content -->
+
+</div><!-- end doc-content -->
+
+</div> <!-- end body-content --> 
+
+<script type="text/javascript">
+init(); /* initialize android-developer-docs.js */
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-5831155-1");
+pageTracker._trackPageview();
+</script>
+
+</body>
+</html>

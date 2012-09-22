@@ -1,0 +1,2147 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico" />
+<title>MotionEvent.PointerCoords - Android SDK | Android Developers</title>
+<link href="../../../assets/android-developer-docs.css" rel="stylesheet" type="text/css" />
+<script src="../../../assets/search_autocomplete.js" type="text/javascript"></script>
+<script src="../../../assets/jquery-resizable.min.js" type="text/javascript"></script>
+<script src="../../../assets/android-developer-docs.js" type="text/javascript"></script>
+<script src="../../../assets/prettify.js" type="text/javascript"></script>
+<script type="text/javascript">
+  setToRoot("../../../");
+</script>
+<script src="../../../assets/android-developer-reference.js" type="text/javascript"></script>
+<script src="../../../navtree_data.js" type="text/javascript"></script>
+<noscript>
+  <style type="text/css">
+    html,body{overflow:auto;}
+    #body-content{position:relative; top:0;}
+    #doc-content{overflow:visible;border-left:3px solid #666;}
+    #side-nav{padding:0;}
+    #side-nav .toggle-list ul {display:block;}
+    #resize-packages-nav{border-bottom:3px solid #666;}
+  </style>
+</noscript>
+</head>
+<body class="9" itemscope itemtype="http://schema.org/Article">
+
+  <div id="header">
+      <div id="headerLeft">
+          <a href="../../../index.html" tabindex="-1"><img
+              src="../../../assets/images/bg_logo.png" alt="Android Developers" /></a>
+          <ul id="header-tabs" class="reference">
+    
+	<li id="home-link"><a href="../../../offline.html">
+	
+		<span class="en">Home</span>
+		<span style="display:none" class="de">Startseite</span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ホーム</span>
+		<span style="display:none" class="zh-CN">主页</span>
+		<span style="display:none" class="zh-TW">首頁</span>
+	
+	</a></li>
+	<li id="sdk-link"><a href="../../../sdk/index.html">
+		<span class="en">SDK</span>
+	</a></li>
+	<li id="guide-link"><a href="../../../guide/index.html" onClick="return loadLast('guide')">
+	
+		<span class="en">Dev Guide</span>
+		<span style="display:none" class="de">Handbuch</span>
+		<span style="display:none" class="es">Guía</span>
+		<span style="display:none" class="fr">Guide</span>
+		<span style="display:none" class="it">Guida</span>
+		<span style="display:none" class="ja">開発ガイド</span>
+		<span style="display:none" class="zh-CN">开发人员指南</span>
+		<span style="display:none" class="zh-TW">開發指南</span>
+	
+	</a></li>
+	<li id="reference-link"><a href="../../../reference/packages.html" onClick="return loadLast('reference')">
+	
+		<span class="en">Reference</span>
+		<span style="display:none" class="de">Referenz</span>
+		<span style="display:none" class="es">Referencia</span>
+		<span style="display:none" class="fr">Référence</span>
+		<span style="display:none" class="it">Riferimento</span>
+		<span style="display:none" class="ja">リファレンス</span>
+		<span style="display:none" class="zh-CN">参考</span>
+		<span style="display:none" class="zh-TW">參考資料</span>
+	
+	</a></li>
+	<li id="resources-link"><a href="../../../resources/index.html" onClick="return loadLast('resources')">
+	
+		<span class="en">Resources</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+    		<span style="display:none" class="ja"></span>
+		<span style="display:none" class="zh-CN"></span>
+		<span style="display:none" class="zh-TW"></span>
+	
+	</a></li>
+	<li id="videos-link"><a href="../../../videos/index.html" onClick="return loadLast('videos')">
+	
+		<span class="en">Videos</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ビデオ</span>
+		<span style="display:none" class="zh-CN"></span>
+		<span style="display:none" class="zh-TW"></span>
+	
+	</a></li>
+	<li><a href="http://android-developers.blogspot.com" onClick="return requestAppendHL(this.href)">
+	
+		<span class="en">Blog</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ブログ</span>
+		<span style="display:none" class="zh-CN">博客</span>
+		<span style="display:none" class="zh-TW">網誌</span>
+	
+	</a></li>
+
+
+     
+</ul>
+     
+      </div>
+      <div id="headerRight">
+          <div id="headerLinks">
+          &nbsp;&nbsp;
+          <a href="../../../design/index.html">Android Design</a>&nbsp;&nbsp;
+          <a href="http://www.android.com">Android.com</a>
+          </div>
+  <div id="search" >
+      <div id="searchForm">
+          <form accept-charset="utf-8" class="gsc-search-box" 
+                onsubmit="return submit_search()">
+            <table class="gsc-search-box" cellpadding="0" cellspacing="0"><tbody>
+                <tr>
+                  <td class="gsc-input">
+                    <input id="search_autocomplete" class="gsc-input" type="text" size="33" autocomplete="off"
+                      title="search developer docs" name="q"
+                      value="search developer docs"
+                      onFocus="search_focus_changed(this, true)"
+                      onBlur="search_focus_changed(this, false)"
+                      onkeydown="return search_changed(event, true, '../../../')"
+                      onkeyup="return search_changed(event, false, '../../../')" />
+                  <div id="search_filtered_div" class="no-display">
+                      <table id="search_filtered" cellspacing=0>
+                      </table>
+                  </div>
+                  </td>
+                  <td class="gsc-search-button">
+                    <input type="submit" value="Search" title="search" id="search-button" class="gsc-search-button" />
+                  </td>
+                  <td class="gsc-clear-button">
+                    <div title="clear results" class="gsc-clear-button">&nbsp;</div>
+                  </td>
+                </tr></tbody>
+              </table>
+          </form>
+      </div><!-- searchForm -->
+  </div><!-- search -->
+    			  <div id="api-level-toggle">
+    			    <input type="checkbox" id="apiLevelCheckbox" onclick="toggleApiLevelSelector(this)" />
+    			    <label for="apiLevelCheckbox" class="disabled">Filter by API Level: </label>
+    			    <select id="apiLevelSelector">
+    			      <!-- option elements added by buildApiLevelSelector() -->
+    			    </select>
+    			  </div>
+    	 	    <script>
+              var SINCE_DATA = [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15' ];
+              buildApiLevelSelector();
+            </script>
+      </div><!-- headerRight -->
+      <script type="text/javascript">
+        <!--  
+        changeTabLang(getLangPref());
+        //-->
+      </script>
+  </div><!-- header -->
+
+  <div class="g-section g-tpl-240" id="body-content">
+    <div class="g-unit g-first" id="side-nav" itemscope itemtype="http://schema.org/SiteNavigationElement">
+      <div id="swapper">
+        <div id="nav-panels">
+          <div id="resize-packages-nav">
+            <div id="packages-nav">
+              <div id="index-links"><nobr>
+                <a href="../../../reference/packages.html"  >Package Index</a> | 
+                <a href="../../../reference/classes.html" >Class Index</a></nobr>
+              </div>
+              <ul>
+              	
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/package-summary.html">android</a></li>
+    <li class="api apilevel-4">
+  <a href="../../../reference/android/accessibilityservice/package-summary.html">android.accessibilityservice</a></li>
+    <li class="api apilevel-5">
+  <a href="../../../reference/android/accounts/package-summary.html">android.accounts</a></li>
+    <li class="api apilevel-11">
+  <a href="../../../reference/android/animation/package-summary.html">android.animation</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/app/package-summary.html">android.app</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../reference/android/app/admin/package-summary.html">android.app.admin</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../reference/android/app/backup/package-summary.html">android.app.backup</a></li>
+    <li class="api apilevel-3">
+  <a href="../../../reference/android/appwidget/package-summary.html">android.appwidget</a></li>
+    <li class="api apilevel-5">
+  <a href="../../../reference/android/bluetooth/package-summary.html">android.bluetooth</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/content/package-summary.html">android.content</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/content/pm/package-summary.html">android.content.pm</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/content/res/package-summary.html">android.content.res</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/database/package-summary.html">android.database</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/database/sqlite/package-summary.html">android.database.sqlite</a></li>
+    <li class="api apilevel-11">
+  <a href="../../../reference/android/drm/package-summary.html">android.drm</a></li>
+    <li class="api apilevel-4">
+  <a href="../../../reference/android/gesture/package-summary.html">android.gesture</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/graphics/package-summary.html">android.graphics</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/graphics/drawable/package-summary.html">android.graphics.drawable</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/graphics/drawable/shapes/package-summary.html">android.graphics.drawable.shapes</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/hardware/package-summary.html">android.hardware</a></li>
+    <li class="api apilevel-12">
+  <a href="../../../reference/android/hardware/usb/package-summary.html">android.hardware.usb</a></li>
+    <li class="api apilevel-3">
+  <a href="../../../reference/android/inputmethodservice/package-summary.html">android.inputmethodservice</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/location/package-summary.html">android.location</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/media/package-summary.html">android.media</a></li>
+    <li class="api apilevel-9">
+  <a href="../../../reference/android/media/audiofx/package-summary.html">android.media.audiofx</a></li>
+    <li class="api apilevel-14">
+  <a href="../../../reference/android/media/effect/package-summary.html">android.media.effect</a></li>
+    <li class="api apilevel-12">
+  <a href="../../../reference/android/mtp/package-summary.html">android.mtp</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/net/package-summary.html">android.net</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/net/http/package-summary.html">android.net.http</a></li>
+    <li class="api apilevel-12">
+  <a href="../../../reference/android/net/rtp/package-summary.html">android.net.rtp</a></li>
+    <li class="api apilevel-9">
+  <a href="../../../reference/android/net/sip/package-summary.html">android.net.sip</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/net/wifi/package-summary.html">android.net.wifi</a></li>
+    <li class="api apilevel-14">
+  <a href="../../../reference/android/net/wifi/p2p/package-summary.html">android.net.wifi.p2p</a></li>
+    <li class="api apilevel-9">
+  <a href="../../../reference/android/nfc/package-summary.html">android.nfc</a></li>
+    <li class="api apilevel-10">
+  <a href="../../../reference/android/nfc/tech/package-summary.html">android.nfc.tech</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/opengl/package-summary.html">android.opengl</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/os/package-summary.html">android.os</a></li>
+    <li class="api apilevel-9">
+  <a href="../../../reference/android/os/storage/package-summary.html">android.os.storage</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/preference/package-summary.html">android.preference</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/provider/package-summary.html">android.provider</a></li>
+    <li class="api apilevel-11">
+  <a href="../../../reference/android/renderscript/package-summary.html">android.renderscript</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/sax/package-summary.html">android.sax</a></li>
+    <li class="api apilevel-14">
+  <a href="../../../reference/android/security/package-summary.html">android.security</a></li>
+    <li class="api apilevel-14">
+  <a href="../../../reference/android/service/textservice/package-summary.html">android.service.textservice</a></li>
+    <li class="api apilevel-7">
+  <a href="../../../reference/android/service/wallpaper/package-summary.html">android.service.wallpaper</a></li>
+    <li class="api apilevel-3">
+  <a href="../../../reference/android/speech/package-summary.html">android.speech</a></li>
+    <li class="api apilevel-4">
+  <a href="../../../reference/android/speech/tts/package-summary.html">android.speech.tts</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v13/app/package-summary.html">android.support.v13.app</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v4/accessibilityservice/package-summary.html">android.support.v4.accessibilityservice</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v4/app/package-summary.html">android.support.v4.app</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v4/content/package-summary.html">android.support.v4.content</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v4/content/pm/package-summary.html">android.support.v4.content.pm</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v4/database/package-summary.html">android.support.v4.database</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v4/os/package-summary.html">android.support.v4.os</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v4/util/package-summary.html">android.support.v4.util</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v4/view/package-summary.html">android.support.v4.view</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v4/view/accessibility/package-summary.html">android.support.v4.view.accessibility</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v4/widget/package-summary.html">android.support.v4.widget</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/telephony/package-summary.html">android.telephony</a></li>
+    <li class="api apilevel-5">
+  <a href="../../../reference/android/telephony/cdma/package-summary.html">android.telephony.cdma</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/telephony/gsm/package-summary.html">android.telephony.gsm</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/test/package-summary.html">android.test</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/test/mock/package-summary.html">android.test.mock</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/test/suitebuilder/package-summary.html">android.test.suitebuilder</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/text/package-summary.html">android.text</a></li>
+    <li class="api apilevel-3">
+  <a href="../../../reference/android/text/format/package-summary.html">android.text.format</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/text/method/package-summary.html">android.text.method</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/text/style/package-summary.html">android.text.style</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/text/util/package-summary.html">android.text.util</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/util/package-summary.html">android.util</a></li>
+    <li class="selected api apilevel-1">
+  <a href="../../../reference/android/view/package-summary.html">android.view</a></li>
+    <li class="api apilevel-4">
+  <a href="../../../reference/android/view/accessibility/package-summary.html">android.view.accessibility</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/view/animation/package-summary.html">android.view.animation</a></li>
+    <li class="api apilevel-3">
+  <a href="../../../reference/android/view/inputmethod/package-summary.html">android.view.inputmethod</a></li>
+    <li class="api apilevel-14">
+  <a href="../../../reference/android/view/textservice/package-summary.html">android.view.textservice</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/webkit/package-summary.html">android.webkit</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/widget/package-summary.html">android.widget</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/dalvik/bytecode/package-summary.html">dalvik.bytecode</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/dalvik/system/package-summary.html">dalvik.system</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/awt/font/package-summary.html">java.awt.font</a></li>
+    <li class="api apilevel-3">
+  <a href="../../../reference/java/beans/package-summary.html">java.beans</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/io/package-summary.html">java.io</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/lang/package-summary.html">java.lang</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/lang/annotation/package-summary.html">java.lang.annotation</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/lang/ref/package-summary.html">java.lang.ref</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/lang/reflect/package-summary.html">java.lang.reflect</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/math/package-summary.html">java.math</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/net/package-summary.html">java.net</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/nio/package-summary.html">java.nio</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/nio/channels/package-summary.html">java.nio.channels</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/nio/channels/spi/package-summary.html">java.nio.channels.spi</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/nio/charset/package-summary.html">java.nio.charset</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/nio/charset/spi/package-summary.html">java.nio.charset.spi</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/security/package-summary.html">java.security</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/security/acl/package-summary.html">java.security.acl</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/security/cert/package-summary.html">java.security.cert</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/security/interfaces/package-summary.html">java.security.interfaces</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/security/spec/package-summary.html">java.security.spec</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/sql/package-summary.html">java.sql</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/text/package-summary.html">java.text</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/util/package-summary.html">java.util</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/util/concurrent/package-summary.html">java.util.concurrent</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/util/concurrent/atomic/package-summary.html">java.util.concurrent.atomic</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/util/concurrent/locks/package-summary.html">java.util.concurrent.locks</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/util/jar/package-summary.html">java.util.jar</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/util/logging/package-summary.html">java.util.logging</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/util/prefs/package-summary.html">java.util.prefs</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/util/regex/package-summary.html">java.util.regex</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/util/zip/package-summary.html">java.util.zip</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/javax/crypto/package-summary.html">javax.crypto</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/javax/crypto/interfaces/package-summary.html">javax.crypto.interfaces</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/javax/crypto/spec/package-summary.html">javax.crypto.spec</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/javax/microedition/khronos/egl/package-summary.html">javax.microedition.khronos.egl</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/javax/microedition/khronos/opengles/package-summary.html">javax.microedition.khronos.opengles</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/javax/net/package-summary.html">javax.net</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/javax/net/ssl/package-summary.html">javax.net.ssl</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/javax/security/auth/package-summary.html">javax.security.auth</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/javax/security/auth/callback/package-summary.html">javax.security.auth.callback</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/javax/security/auth/login/package-summary.html">javax.security.auth.login</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/javax/security/auth/x500/package-summary.html">javax.security.auth.x500</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/javax/security/cert/package-summary.html">javax.security.cert</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/javax/sql/package-summary.html">javax.sql</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/javax/xml/package-summary.html">javax.xml</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../reference/javax/xml/datatype/package-summary.html">javax.xml.datatype</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../reference/javax/xml/namespace/package-summary.html">javax.xml.namespace</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/javax/xml/parsers/package-summary.html">javax.xml.parsers</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../reference/javax/xml/transform/package-summary.html">javax.xml.transform</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../reference/javax/xml/transform/dom/package-summary.html">javax.xml.transform.dom</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../reference/javax/xml/transform/sax/package-summary.html">javax.xml.transform.sax</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../reference/javax/xml/transform/stream/package-summary.html">javax.xml.transform.stream</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../reference/javax/xml/validation/package-summary.html">javax.xml.validation</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../reference/javax/xml/xpath/package-summary.html">javax.xml.xpath</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/junit/framework/package-summary.html">junit.framework</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/junit/runner/package-summary.html">junit.runner</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/package-summary.html">org.apache.http</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/auth/package-summary.html">org.apache.http.auth</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/auth/params/package-summary.html">org.apache.http.auth.params</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/client/package-summary.html">org.apache.http.client</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/client/entity/package-summary.html">org.apache.http.client.entity</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/client/methods/package-summary.html">org.apache.http.client.methods</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/client/params/package-summary.html">org.apache.http.client.params</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/client/protocol/package-summary.html">org.apache.http.client.protocol</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/client/utils/package-summary.html">org.apache.http.client.utils</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/conn/package-summary.html">org.apache.http.conn</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/conn/params/package-summary.html">org.apache.http.conn.params</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/conn/routing/package-summary.html">org.apache.http.conn.routing</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/conn/scheme/package-summary.html">org.apache.http.conn.scheme</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/conn/ssl/package-summary.html">org.apache.http.conn.ssl</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/conn/util/package-summary.html">org.apache.http.conn.util</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/cookie/package-summary.html">org.apache.http.cookie</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/cookie/params/package-summary.html">org.apache.http.cookie.params</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/entity/package-summary.html">org.apache.http.entity</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/impl/package-summary.html">org.apache.http.impl</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/impl/auth/package-summary.html">org.apache.http.impl.auth</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/impl/client/package-summary.html">org.apache.http.impl.client</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/impl/conn/package-summary.html">org.apache.http.impl.conn</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/impl/conn/tsccm/package-summary.html">org.apache.http.impl.conn.tsccm</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/impl/cookie/package-summary.html">org.apache.http.impl.cookie</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/impl/entity/package-summary.html">org.apache.http.impl.entity</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/impl/io/package-summary.html">org.apache.http.impl.io</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/io/package-summary.html">org.apache.http.io</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/message/package-summary.html">org.apache.http.message</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/params/package-summary.html">org.apache.http.params</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/protocol/package-summary.html">org.apache.http.protocol</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/util/package-summary.html">org.apache.http.util</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/json/package-summary.html">org.json</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/w3c/dom/package-summary.html">org.w3c.dom</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../reference/org/w3c/dom/ls/package-summary.html">org.w3c.dom.ls</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/xml/sax/package-summary.html">org.xml.sax</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/xml/sax/ext/package-summary.html">org.xml.sax.ext</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/xml/sax/helpers/package-summary.html">org.xml.sax.helpers</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/xmlpull/v1/package-summary.html">org.xmlpull.v1</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/xmlpull/v1/sax2/package-summary.html">org.xmlpull.v1.sax2</a></li>
+              </ul><br/>
+            </div> <!-- end packages -->
+          </div> <!-- end resize-packages -->
+          <div id="classes-nav">
+            <ul>
+              
+    <li><h2>Interfaces</h2>
+      <ul>
+          <li class="api apilevel-11"><a href="../../../reference/android/view/ActionMode.Callback.html">ActionMode.Callback</a></li>
+          <li class="api apilevel-14"><a href="../../../reference/android/view/CollapsibleActionView.html">CollapsibleActionView</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/view/ContextMenu.html">ContextMenu</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/view/ContextMenu.ContextMenuInfo.html">ContextMenu.ContextMenuInfo</a></li>
+          <li class="api apilevel-3"><a href="../../../reference/android/view/GestureDetector.OnDoubleTapListener.html">GestureDetector.OnDoubleTapListener</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/view/GestureDetector.OnGestureListener.html">GestureDetector.OnGestureListener</a></li>
+          <li class="api apilevel-9"><a href="../../../reference/android/view/InputQueue.Callback.html">InputQueue.Callback</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/view/KeyEvent.Callback.html">KeyEvent.Callback</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/view/LayoutInflater.Factory.html">LayoutInflater.Factory</a></li>
+          <li class="api apilevel-11"><a href="../../../reference/android/view/LayoutInflater.Factory2.html">LayoutInflater.Factory2</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/view/LayoutInflater.Filter.html">LayoutInflater.Filter</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/view/Menu.html">Menu</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/view/MenuItem.html">MenuItem</a></li>
+          <li class="api apilevel-14"><a href="../../../reference/android/view/MenuItem.OnActionExpandListener.html">MenuItem.OnActionExpandListener</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/view/MenuItem.OnMenuItemClickListener.html">MenuItem.OnMenuItemClickListener</a></li>
+          <li class="api apilevel-8"><a href="../../../reference/android/view/ScaleGestureDetector.OnScaleGestureListener.html">ScaleGestureDetector.OnScaleGestureListener</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/view/SubMenu.html">SubMenu</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/view/SurfaceHolder.html">SurfaceHolder</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/view/SurfaceHolder.Callback.html">SurfaceHolder.Callback</a></li>
+          <li class="api apilevel-9"><a href="../../../reference/android/view/SurfaceHolder.Callback2.html">SurfaceHolder.Callback2</a></li>
+          <li class="api apilevel-14"><a href="../../../reference/android/view/TextureView.SurfaceTextureListener.html">TextureView.SurfaceTextureListener</a></li>
+          <li class="api apilevel-12"><a href="../../../reference/android/view/View.OnAttachStateChangeListener.html">View.OnAttachStateChangeListener</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/view/View.OnClickListener.html">View.OnClickListener</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/view/View.OnCreateContextMenuListener.html">View.OnCreateContextMenuListener</a></li>
+          <li class="api apilevel-11"><a href="../../../reference/android/view/View.OnDragListener.html">View.OnDragListener</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/view/View.OnFocusChangeListener.html">View.OnFocusChangeListener</a></li>
+          <li class="api apilevel-12"><a href="../../../reference/android/view/View.OnGenericMotionListener.html">View.OnGenericMotionListener</a></li>
+          <li class="api apilevel-14"><a href="../../../reference/android/view/View.OnHoverListener.html">View.OnHoverListener</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/view/View.OnKeyListener.html">View.OnKeyListener</a></li>
+          <li class="api apilevel-11"><a href="../../../reference/android/view/View.OnLayoutChangeListener.html">View.OnLayoutChangeListener</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/view/View.OnLongClickListener.html">View.OnLongClickListener</a></li>
+          <li class="api apilevel-11"><a href="../../../reference/android/view/View.OnSystemUiVisibilityChangeListener.html">View.OnSystemUiVisibilityChangeListener</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/view/View.OnTouchListener.html">View.OnTouchListener</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/view/ViewGroup.OnHierarchyChangeListener.html">ViewGroup.OnHierarchyChangeListener</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/view/ViewManager.html">ViewManager</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/view/ViewParent.html">ViewParent</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/view/ViewStub.OnInflateListener.html">ViewStub.OnInflateListener</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/view/ViewTreeObserver.OnGlobalFocusChangeListener.html">ViewTreeObserver.OnGlobalFocusChangeListener</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/view/ViewTreeObserver.OnGlobalLayoutListener.html">ViewTreeObserver.OnGlobalLayoutListener</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/view/ViewTreeObserver.OnPreDrawListener.html">ViewTreeObserver.OnPreDrawListener</a></li>
+          <li class="api apilevel-3"><a href="../../../reference/android/view/ViewTreeObserver.OnScrollChangedListener.html">ViewTreeObserver.OnScrollChangedListener</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/view/ViewTreeObserver.OnTouchModeChangeListener.html">ViewTreeObserver.OnTouchModeChangeListener</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/view/Window.Callback.html">Window.Callback</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/view/WindowManager.html">WindowManager</a></li>
+      </ul>
+    </li>
+              
+    <li><h2>Classes</h2>
+      <ul>
+          <li class="api apilevel-1"><a href="../../../reference/android/view/AbsSavedState.html">AbsSavedState</a></li>
+          <li class="api apilevel-11"><a href="../../../reference/android/view/ActionMode.html">ActionMode</a></li>
+          <li class="api apilevel-14"><a href="../../../reference/android/view/ActionProvider.html">ActionProvider</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/view/ContextThemeWrapper.html">ContextThemeWrapper</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/view/Display.html">Display</a></li>
+          <li class="api apilevel-11"><a href="../../../reference/android/view/DragEvent.html">DragEvent</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/view/FocusFinder.html">FocusFinder</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/view/GestureDetector.html">GestureDetector</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/view/GestureDetector.SimpleOnGestureListener.html">GestureDetector.SimpleOnGestureListener</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/view/Gravity.html">Gravity</a></li>
+          <li class="api apilevel-3"><a href="../../../reference/android/view/HapticFeedbackConstants.html">HapticFeedbackConstants</a></li>
+          <li class="api apilevel-9"><a href="../../../reference/android/view/InputDevice.html">InputDevice</a></li>
+          <li class="api apilevel-9"><a href="../../../reference/android/view/InputDevice.MotionRange.html">InputDevice.MotionRange</a></li>
+          <li class="api apilevel-9"><a href="../../../reference/android/view/InputEvent.html">InputEvent</a></li>
+          <li class="api apilevel-9"><a href="../../../reference/android/view/InputQueue.html">InputQueue</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/view/KeyCharacterMap.html">KeyCharacterMap</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/view/KeyCharacterMap.KeyData.html">KeyCharacterMap.KeyData</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/view/KeyEvent.html">KeyEvent</a></li>
+          <li class="api apilevel-5"><a href="../../../reference/android/view/KeyEvent.DispatcherState.html">KeyEvent.DispatcherState</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/view/LayoutInflater.html">LayoutInflater</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/view/MenuInflater.html">MenuInflater</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/view/MotionEvent.html">MotionEvent</a></li>
+          <li class="selected api apilevel-9"><a href="../../../reference/android/view/MotionEvent.PointerCoords.html">MotionEvent.PointerCoords</a></li>
+          <li class="api apilevel-14"><a href="../../../reference/android/view/MotionEvent.PointerProperties.html">MotionEvent.PointerProperties</a></li>
+          <li class="api apilevel-3"><a href="../../../reference/android/view/OrientationEventListener.html">OrientationEventListener</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/view/OrientationListener.html">OrientationListener</a></li>
+          <li class="api apilevel-8"><a href="../../../reference/android/view/ScaleGestureDetector.html">ScaleGestureDetector</a></li>
+          <li class="api apilevel-8"><a href="../../../reference/android/view/ScaleGestureDetector.SimpleOnScaleGestureListener.html">ScaleGestureDetector.SimpleOnScaleGestureListener</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/view/SoundEffectConstants.html">SoundEffectConstants</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/view/Surface.html">Surface</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/view/SurfaceView.html">SurfaceView</a></li>
+          <li class="api apilevel-14"><a href="../../../reference/android/view/TextureView.html">TextureView</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/view/TouchDelegate.html">TouchDelegate</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/view/VelocityTracker.html">VelocityTracker</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/view/View.html">View</a></li>
+          <li class="api apilevel-14"><a href="../../../reference/android/view/View.AccessibilityDelegate.html">View.AccessibilityDelegate</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/view/View.BaseSavedState.html">View.BaseSavedState</a></li>
+          <li class="api apilevel-11"><a href="../../../reference/android/view/View.DragShadowBuilder.html">View.DragShadowBuilder</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/view/View.MeasureSpec.html">View.MeasureSpec</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/view/ViewConfiguration.html">ViewConfiguration</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/view/ViewDebug.html">ViewDebug</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/view/ViewGroup.html">ViewGroup</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/view/ViewGroup.LayoutParams.html">ViewGroup.LayoutParams</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/view/ViewGroup.MarginLayoutParams.html">ViewGroup.MarginLayoutParams</a></li>
+          <li class="api apilevel-12"><a href="../../../reference/android/view/ViewPropertyAnimator.html">ViewPropertyAnimator</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/view/ViewStub.html">ViewStub</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/view/ViewTreeObserver.html">ViewTreeObserver</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/view/Window.html">Window</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/view/WindowManager.LayoutParams.html">WindowManager.LayoutParams</a></li>
+      </ul>
+    </li>
+              
+    <li><h2>Enums</h2>
+      <ul>
+          <li class="api apilevel-1"><a href="../../../reference/android/view/ViewDebug.HierarchyTraceType.html">ViewDebug.HierarchyTraceType</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/view/ViewDebug.RecyclerTraceType.html">ViewDebug.RecyclerTraceType</a></li>
+      </ul>
+    </li>
+              
+    <li><h2>Exceptions</h2>
+      <ul>
+          <li class="api apilevel-1"><a href="../../../reference/android/view/InflateException.html">InflateException</a></li>
+          <li class="api apilevel-11"><a href="../../../reference/android/view/KeyCharacterMap.UnavailableException.html">KeyCharacterMap.UnavailableException</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/view/Surface.OutOfResourcesException.html">Surface.OutOfResourcesException</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/view/SurfaceHolder.BadSurfaceTypeException.html">SurfaceHolder.BadSurfaceTypeException</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/view/WindowManager.BadTokenException.html">WindowManager.BadTokenException</a></li>
+      </ul>
+    </li>
+              
+            </ul><br/>
+          </div><!-- end classes -->
+        </div><!-- end nav-panels -->
+        <div id="nav-tree" style="display:none">
+          <div id="index-links"><nobr>
+            <a href="../../../reference/packages.html"  >Package Index</a> | 
+            <a href="../../../reference/classes.html" >Class Index</a></nobr>
+          </div>
+        </div><!-- end nav-tree -->
+      </div><!-- end swapper -->
+    </div> <!-- end side-nav -->
+    <script>
+      if (!isMobile) {
+        $("<a href='#' id='nav-swap' onclick='swapNav();return false;' style='font-size:10px;line-height:9px;margin-left:1em;text-decoration:none;'><span id='tree-link'>Use Tree Navigation</span><span id='panel-link' style='display:none'>Use Panel Navigation</span></a>").appendTo("#side-nav");
+        chooseDefaultNav();
+        if ($("#nav-tree").is(':visible')) {
+          init_default_navtree("../../../");
+        } else {
+          addLoadEvent(function() {
+            scrollIntoView("packages-nav");
+            scrollIntoView("classes-nav");
+          });
+        }
+        $("#swapper").css({borderBottom:"2px solid #aaa"});
+      } else {
+        swapNav(); // tree view should be used on mobile
+      }
+    </script>
+
+
+
+<div class="g-unit" id="doc-content">
+
+<div id="api-info-block">
+
+
+
+  
+   
+  
+  
+  
+  
+
+
+<div class="sum-details-links">
+
+Summary:
+
+
+
+
+
+
+
+  <a href="#lfields">Fields</a>
+  
+
+
+
+  &#124; <a href="#pubctors">Ctors</a>
+  
+
+
+
+  &#124; <a href="#pubmethods">Methods</a>
+  
+
+
+
+  &#124; <a href="#inhmethods">Inherited Methods</a>
+
+&#124; <a href="#" onclick="return toggleAllClassInherited()" id="toggleAllClassInherited">[Expand All]</a>
+
+</div><!-- end sum-details-links -->
+<div class="api-level">
+  
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level9">API Level 9</a>
+
+
+  
+  
+
+</div>
+</div><!-- end api-info-block -->
+
+
+<!-- ======== START OF CLASS DATA ======== -->
+
+<div id="jd-header">
+    public
+    static 
+    final 
+    
+    class
+<h1 itemprop="name">MotionEvent.PointerCoords</h1>
+
+
+
+  
+    extends <a href="../../../reference/java/lang/Object.html">Object</a><br/>
+  
+  
+  
+
+  
+  
+  
+
+
+</div><!-- end header -->
+
+<div id="naMessage"></div>
+
+<div id="jd-content" class="api apilevel-9">
+<table class="jd-inheritance-table">
+
+
+    <tr>
+         	
+        <td colspan="2" class="jd-inheritance-class-cell"><a href="../../../reference/java/lang/Object.html">java.lang.Object</a></td>
+    </tr>
+    
+
+    <tr>
+        
+            <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
+         	
+        <td colspan="1" class="jd-inheritance-class-cell">android.view.MotionEvent.PointerCoords</td>
+    </tr>
+    
+
+</table>
+
+
+
+
+
+
+
+<div class="jd-descr">
+
+
+<h2>Class Overview</h2>
+<p itemprop="articleBody">Transfer object for pointer coordinates.
+ 
+ Objects of this type can be used to specify the pointer coordinates when
+ creating new <code><a href="../../../reference/android/view/MotionEvent.html">MotionEvent</a></code> objects and to query pointer coordinates
+ in bulk.
+ 
+ Refer to <code><a href="../../../reference/android/view/InputDevice.html">InputDevice</a></code> for information about how different kinds of
+ input devices and sources represent pointer coordinates.
+</p>
+
+
+
+
+
+</div><!-- jd-descr -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="jd-descr">
+
+
+<h2>Summary</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- =========== FIELD SUMMARY =========== -->
+<table id="lfields" class="jd-sumtable"><tr><th colspan="12">Fields</th></tr>
+
+
+    
+      <tr class="alt-color api apilevel-9" >
+          <td class="jd-typecol"><nobr>
+          public
+          
+          
+          float</nobr></td>
+          <td class="jd-linkcol"><a href="../../../reference/android/view/MotionEvent.PointerCoords.html#orientation">orientation</a></td>
+          <td class="jd-descrcol" width="100%">The orientation of the touch area and tool area in radians clockwise from vertical.</td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-9" >
+          <td class="jd-typecol"><nobr>
+          public
+          
+          
+          float</nobr></td>
+          <td class="jd-linkcol"><a href="../../../reference/android/view/MotionEvent.PointerCoords.html#pressure">pressure</a></td>
+          <td class="jd-descrcol" width="100%">A normalized value that describes the pressure applied to the device
+ by a finger or other tool.</td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-9" >
+          <td class="jd-typecol"><nobr>
+          public
+          
+          
+          float</nobr></td>
+          <td class="jd-linkcol"><a href="../../../reference/android/view/MotionEvent.PointerCoords.html#size">size</a></td>
+          <td class="jd-descrcol" width="100%">A normalized value that describes the approximate size of the pointer touch area
+ in relation to the maximum detectable size of the device.</td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-9" >
+          <td class="jd-typecol"><nobr>
+          public
+          
+          
+          float</nobr></td>
+          <td class="jd-linkcol"><a href="../../../reference/android/view/MotionEvent.PointerCoords.html#toolMajor">toolMajor</a></td>
+          <td class="jd-descrcol" width="100%">The length of the major axis of an ellipse that describes the size of
+ the approaching tool.</td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-9" >
+          <td class="jd-typecol"><nobr>
+          public
+          
+          
+          float</nobr></td>
+          <td class="jd-linkcol"><a href="../../../reference/android/view/MotionEvent.PointerCoords.html#toolMinor">toolMinor</a></td>
+          <td class="jd-descrcol" width="100%">The length of the minor axis of an ellipse that describes the size of
+ the approaching tool.</td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-9" >
+          <td class="jd-typecol"><nobr>
+          public
+          
+          
+          float</nobr></td>
+          <td class="jd-linkcol"><a href="../../../reference/android/view/MotionEvent.PointerCoords.html#touchMajor">touchMajor</a></td>
+          <td class="jd-descrcol" width="100%">The length of the major axis of an ellipse that describes the touch area at
+ the point of contact.</td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-9" >
+          <td class="jd-typecol"><nobr>
+          public
+          
+          
+          float</nobr></td>
+          <td class="jd-linkcol"><a href="../../../reference/android/view/MotionEvent.PointerCoords.html#touchMinor">touchMinor</a></td>
+          <td class="jd-descrcol" width="100%">The length of the minor axis of an ellipse that describes the touch area at
+ the point of contact.</td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-9" >
+          <td class="jd-typecol"><nobr>
+          public
+          
+          
+          float</nobr></td>
+          <td class="jd-linkcol"><a href="../../../reference/android/view/MotionEvent.PointerCoords.html#x">x</a></td>
+          <td class="jd-descrcol" width="100%">The X component of the pointer movement.</td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-9" >
+          <td class="jd-typecol"><nobr>
+          public
+          
+          
+          float</nobr></td>
+          <td class="jd-linkcol"><a href="../../../reference/android/view/MotionEvent.PointerCoords.html#y">y</a></td>
+          <td class="jd-descrcol" width="100%">The Y component of the pointer movement.</td>
+      </tr>
+      
+    
+
+</table>
+
+
+
+
+
+
+
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+<table id="pubctors" class="jd-sumtable"><tr><th colspan="12">Public Constructors</th></tr>
+
+
+
+	 
+    <tr class="alt-color api apilevel-9" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            </nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/view/MotionEvent.PointerCoords.html#MotionEvent.PointerCoords()">MotionEvent.PointerCoords</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Creates a pointer coords object with all axes initialized to zero.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-12" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            </nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/view/MotionEvent.PointerCoords.html#MotionEvent.PointerCoords(android.view.MotionEvent.PointerCoords)">MotionEvent.PointerCoords</a></span>(<a href="../../../reference/android/view/MotionEvent.PointerCoords.html">MotionEvent.PointerCoords</a> other)</nobr>
+        
+        <div class="jd-descrdiv">Creates a pointer coords object as a copy of the
+ contents of another pointer coords object.</div>
+  
+  </td></tr>
+
+
+
+</table>
+
+
+
+
+
+
+<!-- ========== METHOD SUMMARY =========== -->
+<table id="pubmethods" class="jd-sumtable"><tr><th colspan="12">Public Methods</th></tr>
+
+
+
+	 
+    <tr class="alt-color api apilevel-12" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/view/MotionEvent.PointerCoords.html#clear()">clear</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Clears the contents of this object.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-12" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/view/MotionEvent.PointerCoords.html#copyFrom(android.view.MotionEvent.PointerCoords)">copyFrom</a></span>(<a href="../../../reference/android/view/MotionEvent.PointerCoords.html">MotionEvent.PointerCoords</a> other)</nobr>
+        
+        <div class="jd-descrdiv">Copies the contents of another pointer coords object.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-12" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            float</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/view/MotionEvent.PointerCoords.html#getAxisValue(int)">getAxisValue</a></span>(int axis)</nobr>
+        
+        <div class="jd-descrdiv">Gets the value associated with the specified axis.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-12" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/view/MotionEvent.PointerCoords.html#setAxisValue(int, float)">setAxisValue</a></span>(int axis, float value)</nobr>
+        
+        <div class="jd-descrdiv">Sets the value associated with the specified axis.</div>
+  
+  </td></tr>
+
+
+
+</table>
+
+
+
+
+
+
+
+<!-- ========== METHOD SUMMARY =========== -->
+<table id="inhmethods" class="jd-sumtable"><tr><th>
+  <a href="#" class="toggle-all" onclick="return toggleAllInherited(this, null)">[Expand]</a>
+  <div style="clear:left;">Inherited Methods</div></th></tr>
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-java.lang.Object" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-java.lang.Object-trigger"
+          src="../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From class
+
+  <a href="../../../reference/java/lang/Object.html">java.lang.Object</a>
+
+<div id="inherited-methods-java.lang.Object">
+  <div id="inherited-methods-java.lang.Object-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-java.lang.Object-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../reference/java/lang/Object.html">Object</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/java/lang/Object.html#clone()">clone</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Creates and returns a copy of this <code>Object</code>.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/java/lang/Object.html#equals(java.lang.Object)">equals</a></span>(<a href="../../../reference/java/lang/Object.html">Object</a> o)</nobr>
+        
+        <div class="jd-descrdiv">Compares this instance with the specified object and indicates if they
+ are equal.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/java/lang/Object.html#finalize()">finalize</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Invoked when the garbage collector has detected that this instance is no longer reachable.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            <a href="../../../reference/java/lang/Class.html">Class</a>&lt;?&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/java/lang/Object.html#getClass()">getClass</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Returns the unique instance of <code><a href="../../../reference/java/lang/Class.html">Class</a></code> that represents this
+ object's class.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/java/lang/Object.html#hashCode()">hashCode</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Returns an integer hash code for this object.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/java/lang/Object.html#notify()">notify</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Causes a thread which is waiting on this object's monitor (by means of
+ calling one of the <code>wait()</code> methods) to be woken up.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/java/lang/Object.html#notifyAll()">notifyAll</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Causes all threads which are waiting on this object's monitor (by means
+ of calling one of the <code>wait()</code> methods) to be woken up.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../reference/java/lang/String.html">String</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/java/lang/Object.html#toString()">toString</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Returns a string containing a concise, human-readable description of this
+ object.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/java/lang/Object.html#wait()">wait</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/java/lang/Object.html#wait(long, int)">wait</a></span>(long millis, int nanos)</nobr>
+        
+        <div class="jd-descrdiv">Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
+ specified timeout expires.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/java/lang/Object.html#wait(long)">wait</a></span>(long millis)</nobr>
+        
+        <div class="jd-descrdiv">Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
+ specified timeout expires.</div>
+  
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+</table>
+
+
+</div><!-- jd-descr (summary) -->
+
+<!-- Details -->
+
+
+
+
+
+
+
+
+<!-- XML Attributes -->
+
+
+<!-- Enum Values -->
+
+
+<!-- Constants -->
+
+
+<!-- Fields -->
+
+
+<!-- ========= FIELD DETAIL ======== -->
+<h2>Fields</h2>
+
+
+
+
+<A NAME="orientation"></A>
+
+<div class="jd-details api apilevel-9"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        float
+      </span>
+        orientation
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level9">API Level 9</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>The orientation of the touch area and tool area in radians clockwise from vertical.
+ An angle of 0 radians indicates that the major axis of contact is oriented
+ upwards, is perfectly circular or is of unknown orientation.  A positive angle
+ indicates that the major axis of contact is oriented to the right.  A negative angle
+ indicates that the major axis of contact is oriented to the left.
+ The full range is from -PI/2 radians (finger pointing fully left) to PI/2 radians
+ (finger pointing fully right).</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">See Also</h5>
+      <ul class="nolist"><li><code><a href="../../../reference/android/view/MotionEvent.html#AXIS_ORIENTATION">AXIS_ORIENTATION</a></code></li>
+      </ul>
+  </div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="pressure"></A>
+
+<div class="jd-details api apilevel-9"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        float
+      </span>
+        pressure
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level9">API Level 9</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>A normalized value that describes the pressure applied to the device
+ by a finger or other tool.
+ The pressure generally ranges from 0 (no pressure at all) to 1 (normal pressure),
+ although values higher than 1 may be generated depending on the calibration of
+ the input device.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">See Also</h5>
+      <ul class="nolist"><li><code><a href="../../../reference/android/view/MotionEvent.html#AXIS_PRESSURE">AXIS_PRESSURE</a></code></li>
+      </ul>
+  </div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="size"></A>
+
+<div class="jd-details api apilevel-9"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        float
+      </span>
+        size
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level9">API Level 9</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>A normalized value that describes the approximate size of the pointer touch area
+ in relation to the maximum detectable size of the device.
+ It represents some approximation of the area of the screen being
+ pressed; the actual value in pixels corresponding to the
+ touch is normalized with the device specific range of values
+ and scaled to a value between 0 and 1. The value of size can be used to
+ determine fat touch events.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">See Also</h5>
+      <ul class="nolist"><li><code><a href="../../../reference/android/view/MotionEvent.html#AXIS_SIZE">AXIS_SIZE</a></code></li>
+      </ul>
+  </div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="toolMajor"></A>
+
+<div class="jd-details api apilevel-9"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        float
+      </span>
+        toolMajor
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level9">API Level 9</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>The length of the major axis of an ellipse that describes the size of
+ the approaching tool.
+ The tool area represents the estimated size of the finger or pen that is
+ touching the device independent of its actual touch area at the point of contact.
+ If the device is a touch screen, the length is reported in pixels, otherwise it is
+ reported in device-specific units.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">See Also</h5>
+      <ul class="nolist"><li><code><a href="../../../reference/android/view/MotionEvent.html#AXIS_TOOL_MAJOR">AXIS_TOOL_MAJOR</a></code></li>
+      </ul>
+  </div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="toolMinor"></A>
+
+<div class="jd-details api apilevel-9"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        float
+      </span>
+        toolMinor
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level9">API Level 9</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>The length of the minor axis of an ellipse that describes the size of
+ the approaching tool.
+ The tool area represents the estimated size of the finger or pen that is
+ touching the device independent of its actual touch area at the point of contact.
+ If the device is a touch screen, the length is reported in pixels, otherwise it is
+ reported in device-specific units.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">See Also</h5>
+      <ul class="nolist"><li><code><a href="../../../reference/android/view/MotionEvent.html#AXIS_TOOL_MINOR">AXIS_TOOL_MINOR</a></code></li>
+      </ul>
+  </div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="touchMajor"></A>
+
+<div class="jd-details api apilevel-9"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        float
+      </span>
+        touchMajor
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level9">API Level 9</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>The length of the major axis of an ellipse that describes the touch area at
+ the point of contact.
+ If the device is a touch screen, the length is reported in pixels, otherwise it is
+ reported in device-specific units.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">See Also</h5>
+      <ul class="nolist"><li><code><a href="../../../reference/android/view/MotionEvent.html#AXIS_TOUCH_MAJOR">AXIS_TOUCH_MAJOR</a></code></li>
+      </ul>
+  </div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="touchMinor"></A>
+
+<div class="jd-details api apilevel-9"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        float
+      </span>
+        touchMinor
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level9">API Level 9</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>The length of the minor axis of an ellipse that describes the touch area at
+ the point of contact.
+ If the device is a touch screen, the length is reported in pixels, otherwise it is
+ reported in device-specific units.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">See Also</h5>
+      <ul class="nolist"><li><code><a href="../../../reference/android/view/MotionEvent.html#AXIS_TOUCH_MINOR">AXIS_TOUCH_MINOR</a></code></li>
+      </ul>
+  </div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="x"></A>
+
+<div class="jd-details api apilevel-9"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        float
+      </span>
+        x
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level9">API Level 9</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>The X component of the pointer movement.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">See Also</h5>
+      <ul class="nolist"><li><code><a href="../../../reference/android/view/MotionEvent.html#AXIS_X">AXIS_X</a></code></li>
+      </ul>
+  </div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="y"></A>
+
+<div class="jd-details api apilevel-9"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        float
+      </span>
+        y
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level9">API Level 9</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>The Y component of the pointer movement.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">See Also</h5>
+      <ul class="nolist"><li><code><a href="../../../reference/android/view/MotionEvent.html#AXIS_Y">AXIS_Y</a></code></li>
+      </ul>
+  </div>
+
+    
+    </div>
+</div>
+
+
+
+
+<!-- Public ctors -->
+
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<h2>Public Constructors</h2>
+
+
+
+<A NAME="MotionEvent.PointerCoords()"></A>
+
+<div class="jd-details api apilevel-9"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        
+      </span>
+      <span class="sympad">MotionEvent.PointerCoords</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level9">API Level 9</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Creates a pointer coords object with all axes initialized to zero.
+</p></div>
+
+    </div>
+</div>
+
+
+<A NAME="MotionEvent.PointerCoords(android.view.MotionEvent.PointerCoords)"></A>
+
+<div class="jd-details api apilevel-12"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        
+      </span>
+      <span class="sympad">MotionEvent.PointerCoords</span>
+      <span class="normal">(<a href="../../../reference/android/view/MotionEvent.PointerCoords.html">MotionEvent.PointerCoords</a> other)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level12">API Level 12</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Creates a pointer coords object as a copy of the
+ contents of another pointer coords object.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>other</td>
+          <td>The pointer coords object to copy.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+
+
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<!-- Protected ctors -->
+
+
+
+<!-- ========= METHOD DETAIL ======== -->
+<!-- Public methdos -->
+
+<h2>Public Methods</h2>
+
+
+
+<A NAME="clear()"></A>
+
+<div class="jd-details api apilevel-12"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">clear</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level12">API Level 12</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Clears the contents of this object.
+ Resets all axes to zero.
+</p></div>
+
+    </div>
+</div>
+
+
+<A NAME="copyFrom(android.view.MotionEvent.PointerCoords)"></A>
+
+<div class="jd-details api apilevel-12"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">copyFrom</span>
+      <span class="normal">(<a href="../../../reference/android/view/MotionEvent.PointerCoords.html">MotionEvent.PointerCoords</a> other)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level12">API Level 12</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Copies the contents of another pointer coords object.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>other</td>
+          <td>The pointer coords object to copy.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getAxisValue(int)"></A>
+
+<div class="jd-details api apilevel-12"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        float
+      </span>
+      <span class="sympad">getAxisValue</span>
+      <span class="normal">(int axis)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level12">API Level 12</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Gets the value associated with the specified axis.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>axis</td>
+          <td>The axis identifier for the axis value to retrieve.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>The value associated with the axis, or 0 if none.</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">See Also</h5>
+      <ul class="nolist"><li><code><a href="../../../reference/android/view/MotionEvent.html#AXIS_X">AXIS_X</a></code></li><li><code><a href="../../../reference/android/view/MotionEvent.html#AXIS_Y">AXIS_Y</a></code></li>
+      </ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setAxisValue(int, float)"></A>
+
+<div class="jd-details api apilevel-12"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setAxisValue</span>
+      <span class="normal">(int axis, float value)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level12">API Level 12</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the value associated with the specified axis.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>axis</td>
+          <td>The axis identifier for the axis value to assign.</td>
+        </tr>
+        <tr>
+          <th>value</td>
+          <td>The value to set.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">See Also</h5>
+      <ul class="nolist"><li><code><a href="../../../reference/android/view/MotionEvent.html#AXIS_X">AXIS_X</a></code></li><li><code><a href="../../../reference/android/view/MotionEvent.html#AXIS_Y">AXIS_Y</a></code></li>
+      </ul>
+  </div>
+
+    </div>
+</div>
+
+
+
+
+
+<!-- ========= METHOD DETAIL ======== -->
+
+
+
+<!-- ========= END OF CLASS DATA ========= -->
+<A NAME="navbar_top"></A>
+
+<div id="footer">
+
+
+  <div id="copyright">
+    
+  Except as noted, this content is licensed under <a
+  href="http://www.apache.org/licenses/LICENSE-2.0">Apache 2.0</a>. 
+  For details and restrictions, see the <a href="../../../license.html">
+  Content License</a>.
+  </div>
+  <div id="build_info">
+    
+  Android 4.0&nbsp;r1 - 16 Mar 2012 16:45
+
+  </div>
+
+  <div id="footerlinks">
+    
+  <p>
+    <a href="http://www.google.com/intl/en/policies/" target="_blank">Privacy &amp; Terms</a> -
+    <a href="http://www.android.com/branding.html" target="_blank">Brand Guidelines</a> -
+    <a
+href="http://code.google.com/p/android/issues/entry?template=Developer%20Documentation"
+target="_blank">Report Document Issues</a>
+  </p>
+  </div>
+
+</div> <!-- end footer -->
+
+</div> <!-- jd-content -->
+
+</div><!-- end doc-content -->
+
+</div> <!-- end body-content --> 
+
+<script type="text/javascript">
+init(); /* initialize android-developer-docs.js */
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-5831155-1");
+pageTracker._trackPageview();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1187 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico" />
+<title>Creating Multiple APKs with 2+ Dimensions | Android Developers</title>
+<link href="../../assets/android-developer-docs-devguide.css" rel="stylesheet" type="text/css" />
+<script src="../../assets/search_autocomplete.js" type="text/javascript"></script>
+<script src="../../assets/jquery-resizable.min.js" type="text/javascript"></script>
+<script src="../../assets/android-developer-docs.js" type="text/javascript"></script>
+<script src="../../assets/prettify.js" type="text/javascript"></script>
+<script type="text/javascript">
+  setToRoot("../../");
+</script>
+<script src="../../resources/resources-data.js" type="text/javascript"></script>
+<noscript>
+  <style type="text/css">
+    html,body{overflow:auto;}
+    #body-content{position:relative; top:0;}
+    #doc-content{overflow:visible;border-left:3px solid #666;}
+    #side-nav{padding:0;}
+    #side-nav .toggle-list ul {display:block;}
+    #resize-packages-nav{border-bottom:3px solid #666;}
+  </style>
+</noscript>
+</head>
+<body class="gc-documentation" itemscope itemtype="http://schema.org/Article">
+
+  <div id="header">
+      <div id="headerLeft">
+          <a href="../../index.html" tabindex="-1"><img
+              src="../../assets/images/bg_logo.png" alt="Android Developers" /></a>
+          <ul id="header-tabs" class="resources">
+    
+	<li id="home-link"><a href="../../offline.html">
+	
+		<span class="en">Home</span>
+		<span style="display:none" class="de">Startseite</span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ホーム</span>
+		<span style="display:none" class="zh-CN">主页</span>
+		<span style="display:none" class="zh-TW">首頁</span>
+	
+	</a></li>
+	<li id="sdk-link"><a href="../../sdk/index.html">
+		<span class="en">SDK</span>
+	</a></li>
+	<li id="guide-link"><a href="../../guide/index.html" onClick="return loadLast('guide')">
+	
+		<span class="en">Dev Guide</span>
+		<span style="display:none" class="de">Handbuch</span>
+		<span style="display:none" class="es">Guía</span>
+		<span style="display:none" class="fr">Guide</span>
+		<span style="display:none" class="it">Guida</span>
+		<span style="display:none" class="ja">開発ガイド</span>
+		<span style="display:none" class="zh-CN">开发人员指南</span>
+		<span style="display:none" class="zh-TW">開發指南</span>
+	
+	</a></li>
+	<li id="reference-link"><a href="../../reference/packages.html" onClick="return loadLast('reference')">
+	
+		<span class="en">Reference</span>
+		<span style="display:none" class="de">Referenz</span>
+		<span style="display:none" class="es">Referencia</span>
+		<span style="display:none" class="fr">Référence</span>
+		<span style="display:none" class="it">Riferimento</span>
+		<span style="display:none" class="ja">リファレンス</span>
+		<span style="display:none" class="zh-CN">参考</span>
+		<span style="display:none" class="zh-TW">參考資料</span>
+	
+	</a></li>
+	<li id="resources-link"><a href="../../resources/index.html" onClick="return loadLast('resources')">
+	
+		<span class="en">Resources</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+    		<span style="display:none" class="ja"></span>
+		<span style="display:none" class="zh-CN"></span>
+		<span style="display:none" class="zh-TW"></span>
+	
+	</a></li>
+	<li id="videos-link"><a href="../../videos/index.html" onClick="return loadLast('videos')">
+	
+		<span class="en">Videos</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ビデオ</span>
+		<span style="display:none" class="zh-CN"></span>
+		<span style="display:none" class="zh-TW"></span>
+	
+	</a></li>
+	<li><a href="http://android-developers.blogspot.com" onClick="return requestAppendHL(this.href)">
+	
+		<span class="en">Blog</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ブログ</span>
+		<span style="display:none" class="zh-CN">博客</span>
+		<span style="display:none" class="zh-TW">網誌</span>
+	
+	</a></li>
+
+
+     
+</ul>
+     
+      </div>
+      <div id="headerRight">
+          <div id="headerLinks">
+          &nbsp;&nbsp;
+          <a href="../../design/index.html">Android Design</a>&nbsp;&nbsp;
+          <a href="http://www.android.com">Android.com</a>
+          </div>
+  <div id="search" >
+      <div id="searchForm">
+          <form accept-charset="utf-8" class="gsc-search-box" 
+                onsubmit="return submit_search()">
+            <table class="gsc-search-box" cellpadding="0" cellspacing="0"><tbody>
+                <tr>
+                  <td class="gsc-input">
+                    <input id="search_autocomplete" class="gsc-input" type="text" size="33" autocomplete="off"
+                      title="search developer docs" name="q"
+                      value="search developer docs"
+                      onFocus="search_focus_changed(this, true)"
+                      onBlur="search_focus_changed(this, false)"
+                      onkeydown="return search_changed(event, true, '../../')"
+                      onkeyup="return search_changed(event, false, '../../')" />
+                  <div id="search_filtered_div" class="no-display">
+                      <table id="search_filtered" cellspacing=0>
+                      </table>
+                  </div>
+                  </td>
+                  <td class="gsc-search-button">
+                    <input type="submit" value="Search" title="search" id="search-button" class="gsc-search-button" />
+                  </td>
+                  <td class="gsc-clear-button">
+                    <div title="clear results" class="gsc-clear-button">&nbsp;</div>
+                  </td>
+                </tr></tbody>
+              </table>
+          </form>
+      </div><!-- searchForm -->
+  </div><!-- search -->
+      </div><!-- headerRight -->
+      <script type="text/javascript">
+        <!--  
+        changeTabLang(getLangPref());
+        //-->
+      </script>
+  </div><!-- header -->
+
+  <div class="g-section g-tpl-200" id="body-content">
+    <div class="g-unit g-first" id="side-nav" itemscope itemtype="http://schema.org/SiteNavigationElement">
+      <div id="devdoc-nav"><ul>
+  <li>
+    <span class="heading">
+      <span class="en">Android Training</span>
+    </span>
+    <ul>
+      
+      <li><a href="../../training/index.html">
+            <span class="en">Orientation</span>
+          </a>
+      </li>
+
+      <li class="toggle-list">
+        <div><a href="../../training/multiscreen/index.html">
+            <span class="en">Designing for Multiple Screens</span>
+          </a></div>
+        <ul>
+          <li><a href="../../training/multiscreen/screensizes.html">
+            <span class="en">Supporting Different Screen Sizes</span>
+          </a>
+          </li>
+          <li><a href="../../training/multiscreen/screendensities.html">
+            <span class="en">Supporting Different Screen Densities</span>
+          </a>
+          </li>
+          <li><a href="../../training/multiscreen/adaptui.html">
+            <span class="en">Implementing Adaptive UI Flows</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+      
+      <li class="toggle-list">
+        <div><a href="../../training/improving-layouts/index.html">
+            <span class="en">Improving Layout Performance</span>
+          </a></div>
+        <ul>
+          <li><a href="../../training/improving-layouts/optimizing-layout.html">
+            <span class="en">Optimizing Layout Hierarchies</span>
+          </a>
+          </li>
+          <li><a href="../../training/improving-layouts/reusing-layouts.html">
+            <span class="en">Re-using Layouts with &lt;include/&gt;</span>
+          </a>
+          </li>
+          <li><a href="../../training/improving-layouts/loading-ondemand.html">
+            <span class="en">Loading Views On Demand</span>
+          </a>
+          </li>
+          <li><a href="../../training/improving-layouts/smooth-scrolling.html">
+            <span class="en">Making ListView Scrolling Smooth</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+      
+      <li class="toggle-list">
+        <div><a href="../../training/managing-audio/index.html">
+            <span class="en">Managing Audio Playback</span>
+          </a></div>
+        <ul>
+          <li><a href="../../training/managing-audio/volume-playback.html">
+            <span class="en">Controlling Your App’s Volume and Playback</span>
+          </a>
+          </li>
+          <li><a href="../../training/managing-audio/audio-focus.html">
+            <span class="en">Managing Audio Focus</span>
+          </a>
+          </li>
+          <li><a href="../../training/managing-audio/audio-output.html">
+            <span class="en">Dealing with Audio Output Hardware</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+      
+      <li class="toggle-list">
+        <div><a href="../../training/monitoring-device-state/index.html">
+            <span class="en">Optimizing Battery Life</span>
+          </a></div>
+        <ul>
+          <li><a href="../../training/monitoring-device-state/battery-monitoring.html">
+            <span class="en">Monitoring the Battery Level and Charging State</span>
+          </a>
+          </li>
+          <li><a href="../../training/monitoring-device-state/docking-monitoring.html">
+            <span class="en">Determining and Monitoring the Docking State and Type</span>
+          </a>
+          </li>
+          <li><a href="../../training/monitoring-device-state/connectivity-monitoring.html">
+            <span class="en">Determining and Monitoring the Connectivity Status</span>
+          </a>
+          </li>
+          <li><a href="../../training/monitoring-device-state/manifest-receivers.html">
+            <span class="en">Manipulating Broadcast Receivers On Demand</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="toggle-list">
+        <div><a href="../../training/search/index.html">
+            <span class="en">Adding Search Functionality</span>
+          </a> <span class="new">new!</span>
+        </div>
+        <ul>
+          <li><a href="../../training/search/setup.html">
+            <span class="en">Setting up the Search Interface</span>
+          </a>
+          </li>
+          <li><a href="../../training/search/search.html">
+            <span class="en">Storing and Searching for Data</span>
+          </a>
+          </li>
+          <li><a href="../../training/search/backward-compat.html">
+            <span class="en">Remaining Backward Compatible</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="toggle-list">
+        <div><a href="../../training/id-auth/index.html">
+            <span class="en">Remembering Users</span>
+          </a></div>
+        <ul>
+          <li><a href="../../training/id-auth/identify.html">
+            <span class="en">Remembering Your User</span>
+          </a>
+          </li>
+          <li><a href="../../training/id-auth/authenticate.html">
+            <span class="en">Authenticating to OAuth2 Services</span>
+          </a>
+          </li>
+          <li><a href="../../training/id-auth/custom_auth.html">
+            <span class="en">Creating a Custom Account Type</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="toggle-list">
+        <div><a href="../../training/sharing/index.html">
+            <span class="en">Sharing Content</span>
+          </a></div>
+        <ul>
+          <li><a href="../../training/sharing/send.html">
+            <span class="en">Sending Content to Other Apps</span>
+          </a>
+          </li>
+          <li><a href="../../training/sharing/receive.html">
+            <span class="en">Receiving Content from Other Apps</span>
+          </a>
+          </li>
+          <li><a href="../../training/sharing/shareaction.html">
+            <span class="en">Adding an Easy Share Action</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+      
+      <li class="toggle-list">
+        <div><a href="../../training/camera/index.html">
+            <span class="en">Capturing Photos</span>
+          </a></div>
+        <ul>
+          <li><a href="../../training/camera/photobasics.html">
+            <span class="en">Taking Photos Simply</span>
+          </a>
+          </li>
+          <li><a href="../../training/camera/videobasics.html">
+            <span class="en">Recording Videos Simply</span>
+          </a>
+          </li>
+          <li><a href="../../training/camera/cameradirect.html">
+            <span class="en">Controlling the Camera</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+      
+      <li class="toggle-list">
+        <div><a href="../../training/multiple-apks/index.html">
+            <span class="en">Maintaining Multiple APKs</span>
+          </a></div>
+        <ul>
+          <li><a href="../../training/multiple-apks/api.html">
+            <span class="en">Creating Multiple APKs for Different API Levels</span>
+          </a>
+          </li>
+          <li><a href="../../training/multiple-apks/screensize.html">
+            <span class="en">Creating Multiple APKs for Different Screen Sizes</span>
+          </a>
+          </li>
+          <li><a href="../../training/multiple-apks/texture.html">
+            <span class="en">Creating Multiple APKs for Different GL Textures</span>
+          </a>
+          </li>
+          <li><a href="../../training/multiple-apks/multiple.html">
+            <span class="en">Creating Multiple APKs with 2+ Dimensions</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+      
+      <li class="toggle-list">
+        <div><a href="../../training/enterprise/index.html">
+            <span class="en">Developing for Enterprise</span>
+          </a></div>
+        <ul>
+          <li><a href="../../training/enterprise/device-management-policy.html">
+            <span class="en">Enhancing Security with Device Management Policies</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+      
+      <li class="toggle-list">
+        <div><a href="../../training/monetization/index.html">
+            <span class="en">Monetizing Your App</span>
+          </a></div>
+        <ul>
+          <li><a href="../../training/monetization/ads-and-ux.html">
+            <span class="en">Advertising without Compromising User Experience</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+      
+      <li class="toggle-list">
+        <div><a href="../../training/design-navigation/index.html">
+            <span class="en">Designing Effective Navigation</span>
+          </a></div>
+        <ul>
+          <li><a href="../../training/design-navigation/screen-planning.html">
+            <span class="en">Planning Screens and Their Relationships</span>
+          </a>
+          </li>
+          <li><a href="../../training/design-navigation/multiple-sizes.html">
+            <span class="en">Planning for Multiple Touchscreen Sizes</span>
+          </a>
+          </li>
+          <li><a href="../../training/design-navigation/descendant-lateral.html">
+            <span class="en">Providing Descendant and Lateral Navigation</span>
+          </a>
+          </li>
+          <li><a href="../../training/design-navigation/ancestral-temporal.html">
+            <span class="en">Providing Ancestral and Temporal Navigation</span>
+          </a>
+          </li>
+          <li><a href="../../training/design-navigation/wireframing.html">
+            <span class="en">Putting it All Together: Wireframing the Example App</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>    
+      
+      
+  <li>
+    <span class="heading">
+      <span class="en">Technical Resources</span>
+    </span>
+    <ul>
+      <li class="toggle-list">
+        <div><a href="../../resources/browser.html?tag=sample">
+            <span class="en">Sample Code</span>
+            <span class="de" style="display:none">Beispielcode</span>
+            <span class="es" style="display:none">Código de ejemplo</span>
+            <span class="fr" style="display:none">Exemple de code</span>
+            <span class="it" style="display:none">Codice di esempio</span>
+            <span class="ja" style="display:none">サンプル コード</span>
+            <span class="zh-CN" style="display:none"></span>
+            <span class="zh-TW" style="display:none"></span>
+          </a></div>
+        <ul id="devdoc-nav-sample-list">
+          <li><a href="../../resources/samples/get.html">
+                <span class="en">Getting the Samples</span>
+              </a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../../resources/browser.html?tag=article">
+               <span class="en">Articles</span>
+             </a></div>
+        <ul id="devdoc-nav-article-list">
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../../resources/browser.html?tag=tutorial">
+               <span class="en">Tutorials</span>
+               <span class="de" style="display:none">Lernprogramme</span>
+               <span class="es" style="display:none">Tutoriales</span>
+               <span class="fr" style="display:none">Didacticiels</span>
+               <span class="it" style="display:none">Esercitazioni</span>
+               <span class="ja" style="display:none">チュートリアル</span>
+               <span class="zh-CN" style="display:none"></span>
+               <span class="zh-TW" style="display:none"></span>
+             </a></div>
+        <ul id="devdoc-nav-tutorial-list">
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../../resources/topics.html">
+               <span class="en">Topics</span>
+             </a></div>
+        <ul id="devdoc-nav-topic-list">
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <span class="heading">
+      <span class="en">Community</span>
+      <span style="display:none" class="de"></span>
+      <span style="display:none" class="es">Comunidad</span>
+      <span style="display:none" class="fr">Communauté</span>
+      <span style="display:none" class="it"></span>
+      <span style="display:none" class="ja">コミュニティ</span>
+      <span style="display:none" class="zh-CN">社区</span>
+      <span style="display:none" class="zh-TW">社群</span>
+    </span>
+    <ul>
+      <li><a href="../../resources/community-groups.html">
+            <span class="en">Developer Forums</span>
+          </a></li>
+      <li><a href="../../resources/community-more.html">
+            <span class="en">IRC, G+, Twitter</span>
+          </a></li>
+    </ul>
+  </li>
+
+
+  <li>
+    <span class="heading">
+      <span class="en">More</span>
+    </span>
+    <ul>
+      <li><a href="../../resources/faq/commontasks.html">
+            <span class="en">Common Tasks </span>
+          </a></li>
+      <li><a href="../../resources/faq/troubleshooting.html">
+            <span class="en">Troubleshooting Tips</span>
+          </a></li>
+      <li class="toggle-list">
+        <div><a href="../../resources/faq/index.html">
+               <span class="en">FAQs</span>
+             </a></div>
+        <ul>
+        <li><a href="../../resources/faq/framework.html">
+                <span class="en">App Framework FAQ</span>
+                </a></li>
+        <li><a href="../../resources/faq/licensingandoss.html">
+                <span class="en">Licensing FAQ</span>
+                </a></li>
+        <li><a href="../../resources/faq/security.html">
+                <span class="en">Security FAQ</span>
+                </a></li>
+        </ul>
+     </li>
+    </ul>
+  </li>
+</ul>
+
+<script type="text/javascript">
+<!--
+    buildToggleLists();
+    changeNavLang(getLangPref());
+//-->
+</script>
+
+      </div>
+    </div> <!-- end side-nav -->
+    <script>
+      addLoadEvent(function() {
+        scrollIntoView("devdoc-nav");
+        });
+    </script>
+
+
+
+
+<div class="g-unit" id="doc-content"><a name="top"></a>
+
+<div id="jd-header" class="guide-header">
+  <span class="crumb" itemprop="breadcrumb">
+    
+      <a href="index.html">Maintaining Multiple APKs</a>:
+    
+  </span>
+<h1 itemprop="name">Creating Multiple APKs with 2+ Dimensions</h1>
+</div>
+
+  
+  <div id="jd-content">
+ 
+    
+    <div class="training-nav-top">
+
+      
+
+      
+      <div class="training-nav-button-previous">
+        <a href="texture.html">
+          <span style="font-size:1.2em">&lsaquo;</span>
+          Previous lesson
+          <span class="training-nav-button-title">Creating Multiple APKs for Different GL Textures</span>
+        </a>
+      </div>
+
+      
+
+    </div><!-- end training-nav-top -->
+    
+
+
+    <div class="jd-descr" itemprop="articleBody">
+    <style>
+.blueCell { background-color: #9fc5e8;}
+.greenCell { background-color: #b6d7a8;}
+.redCell { background-color: #ea9999;}
+.purpleCell { background-color: #b4a7d6;}
+.blackCell { background-color: #000000;}
+</style>
+
+<div id="tb-wrapper">
+<div id="tb">
+
+<!-- table of contents -->
+<h2>This lesson teaches you to</h2>
+<ol>
+  <li><a href="#Confirm">Confirm You Need Multiple APKs</a></li>
+  <li><a href="#ChartReqs">Chart Your Requirements</a></li>
+  <li><a href="#CreateLibrary">Put All Common Code and Resources in a Library Project.</a></li>
+  <li><a href="#CreateAPKs">Create New APK Projects</a></li>
+  <li><a href="#AdjustManifests">Adjust the Manifests</a></li>
+  <li><a href="#PreLaunch">Go Over Pre-launch Checklist</a></li>
+</ol>
+
+<!-- other docs (NOT javadocs) -->
+<h2>You should also read</h2>
+<ul>
+  <li><a href="http://developer.android.com/guide/market/publishing/multiple-apks.html">Multiple APK
+Support</a></li>
+</ul>
+
+</div>
+</div>
+
+<p>When developing your Android application to take advantage of multiple APKs on Google Play,
+it’s important to adopt some good practices from the get-go, and prevent unnecessary headaches
+further into the development process.  This lesson shows you how to create multiple APKs of your
+app, each covering a different class of screen size.  You will also gain some tools necessary to
+make maintaining a multiple APK codebase as painless as possible.</p>
+
+
+<h2 id="Confirm">Confirm You Need Multiple APKs</h2>
+
+<p>When trying to create an application that works across the huge range of available Android
+devices, naturally you want your application look its best on each individual device.  You want to
+take advantage of the space of large screens but still work on small ones, to use new Android API
+features or visual textures available on cutting edge devices but not abandon older ones.  It may
+seem at the outset as though multiple APK support is the best solution, but this often isn’t the
+case.  The <a href="../../guide/market/publishing/multiple-apks.html#ApiLevelOptions">Using
+Single APK Instead</a> section of the multiple APK guide includes some useful information on how to
+accomplish all of this with a single APK, including use of our <a
+href="http://android-developers.blogspot.com/2011/03/fragments-for-all.html">support library</a>,
+and links to resources throughout the Android Developer guide.</p>
+
+<p>If you can manage it, confining your application to a single APK has several advantages,
+including:</p>
+
+<ul>
+<li>Publishing and Testing are easier</li>
+<li>There’s only one codebase to maintain</li>
+<li>Your application can adapt to device configuration changes</li>
+<li>App restore across devices just works</li>
+<li>You don’t have to worry about market preference, behavior from "upgrades" from one APK to the
+next, or which APK goes with which class of devices</li>
+</ul>
+
+<p>The rest of this lesson assumes that you’ve researched the topic, studiously absorbed the
+material in the resources linked, and determined that multiple APKs are the right path for your
+application.</p>
+
+
+<h2 id="ChartReqs">Chart Your Requirements</h2>
+
+<p>Start off by creating a simple chart to quickly determine how many APKs you need, and what screen
+size(s) each APK covers.  Fortunately, it’s easy to chart out your requirements quickly, easily, and
+have an easy reference for later.  Let’s say you want to split your APKs across two dimensions, API
+and screen size.  Create a table with a row and column for each possible pair of values, and color
+in some "blobs", each color representing one APK.</p>
+
+<table cellpadding="10" cellspacing="0" border="1">
+  <tbody>
+    <tr>
+      <td></td>
+      <td>3</td>
+      <td>4</td>
+      <td>5</td>
+      <td>6</td>
+      <td>7</td>
+      <td>8</td>
+      <td>9</td>
+      <td>10</td>
+      <td>11</td>
+      <td>12</td>
+      <td>+</td>
+    </tr>
+    <tr>
+      <td>small</td>
+      <td class="blueCell"></td>
+      <td class="blueCell"></td>
+      <td class="blueCell"></td>
+      <td class="blueCell"></td>
+      <td class="blueCell"></td>
+      <td class="blueCell"></td>
+      <td class="blueCell"></td>
+      <td class="blueCell"></td>
+      <td class="purpleCell"></td>
+      <td class="purpleCell"></td>
+      <td class="purpleCell"></td>
+    </tr>
+    <tr>
+      <td>normal</td>
+      <td class="blueCell"></td>
+      <td class="blueCell"></td>
+      <td class="blueCell"></td>
+      <td class="blueCell"></td>
+      <td class="blueCell"></td>
+      <td class="blueCell"></td>
+      <td class="blueCell"></td>
+      <td class="blueCell"></td>
+      <td class="purpleCell"></td>
+      <td class="purpleCell"></td>
+      <td class="purpleCell"></td>
+    </tr>
+    <tr>
+      <td>large</td>
+      <td class="greenCell"></td>
+      <td class="greenCell"></td>
+      <td class="greenCell"></td>
+      <td class="greenCell"></td>
+      <td class="greenCell"></td>
+      <td class="greenCell"></td>
+      <td class="greenCell"></td>
+      <td class="greenCell"></td>
+      <td class="purpleCell"></td>
+      <td class="purpleCell"></td>
+      <td class="purpleCell"></td>
+    </tr>
+    <tr>
+      <td>xlarge</td>
+      <td class="redCell"></td>
+      <td class="redCell"></td>
+      <td class="redCell"></td>
+      <td class="redCell"></td>
+      <td class="redCell"></td>
+      <td class="redCell"></td>
+      <td class="redCell"></td>
+      <td class="redCell"></td>
+      <td class="purpleCell"></td>
+      <td class="purpleCell"></td>
+      <td class="purpleCell"></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>
+Above is an example with four APKs. Blue is for all small/normal screen devices, Green is for large
+screen devices, and Red is for xlarge screen devices, all with an API range of 3-10.  Purple is a
+special case, as it’s for all screen sizes, but only for API 11 and up.  More importantly, just by
+glancing at this chart, you immediately know which APK covers any given API/screen-size combo.  To
+boot, you also have swanky codenames for each one, since "Have we tested red on the ?" is a lot
+easier to ask your cubie than "Have we tested  the 3-to-10 xlarge APK against the Xoom?"  Print this
+chart out and hand it to every person working on your codebase.  Life just got a lot easier.</p>
+
+<h2 id="CreateLibrary">Put All Common Code and Resources in a Library Project.</h2>
+
+<p>Whether you’re modifying an existing Android application or starting one from scratch, this is
+the first thing that you should do to the codebase, and by the far the most important.  Everything
+that goes into the library project only needs to be updated once (think language-localized strings,
+color themes, bugs fixed in shared code), which improves your development time and reduces the
+likelihood of mistakes that could have been easily avoided.</p>
+
+<p class="note"><strong>Note:</strong>  While the implementation details of how to create and
+include library projects are beyond the scope of this lesson, you can get up to speed quickly on
+their creation at the following links:</p>
+<ul>
+<li><a
+href="../../guide/developing/projects/projects-eclipse.html#SettingUpLibraryProject">Setting up
+a library project (Eclipse)</a></li>
+<li><a
+href="../../guide/developing/projects/projects-cmdline.html#SettingUpLibraryProject">Setting up
+a library project (Command line)</a></li>
+</ul>
+
+<p>If you’re converting an existing application to use multiple APK support,
+scour your codebase for every localized string file, list of values, theme
+colors, menu icons and layout that isn’t going to change across APKs, and put
+it all in the library project.  Code that isn’t going to change much should
+also go in the library project.  You’ll likely find yourself extending these
+classes to add a method or two from APK to APK.</p>
+
+<p>If, on the other hand, you’re creating the application from scratch, try as
+much as possible to write code in the library project <em>first</em>, then only move it down to an
+individual APK if necessary.  This is much easier to manage in the long run than adding it to one,
+then another, then another, then months later trying to figure out whether this blob can be moved up
+to the library section without screwing anything up.</p>
+
+<h2 id="CreateAPKs">Create New APK Projects</h2>
+<p>There should be a separate Android project for each APK you’re going to release.  For easy
+organization, place the library project and all related APK projects under the same parent folder. 
+Also remember that each APK needs to have the same package name, although they don’t necessarily
+need to share the package name with the library.  If you were to have 3 APKs following the scheme
+described earlier, your root directory might look like this:</p>
+
+<pre class="no-pretty-print classic">
+alexlucas:~/code/multi-apks-root$ ls
+foo-blue
+foo-green
+foo-lib
+foo-purple
+foo-red
+</pre>
+
+<p>Once the projects are created, add the library project as a reference to each APK project.  If
+possible, define your starting Activity in the library project, and extend that Activity in your APK
+project.  Having a starting activity defined in the library project gives you a chance to put all
+your application initialization in one place, so that each individual APK doesn’t have to
+re-implement "universal" tasks like initializing Analytics, running licensing checks, and any other
+initialization procedures that don’t change much from APK to APK.</p>
+
+
+<h2 id="AdjustManifests">Adjust the Manifests</h2>
+<p>When a user downloads an application which uses multiple APKs through Google Play, the correct
+APK to use is chosen using two simple rules:
+
+<ul>
+<li>The manifest has to show that particular APK is eligible</li>
+<li>Of the eligible APKs, highest version number wins.</li>
+</ul>
+
+<p>By way of example, let’s take the set of multiple APKs described earlier, and assume that each
+APK has been set to support all screen sizes larger than its "target" screen size.  Let’s look at
+the sample chart from earlier:</p>
+
+<table cellpadding="10" cellspacing="0" border="1">
+  <tbody>
+    <tr>
+      <td></td>
+      <td>3</td>
+      <td>4</td>
+      <td>5</td>
+      <td>6</td>
+      <td>7</td>
+      <td>8</td>
+      <td>9</td>
+      <td>10</td>
+      <td>11</td>
+      <td>12</td>
+      <td>+</td>
+    </tr>
+    <tr>
+      <td>small</td>
+      <td class="blueCell"></td>
+      <td class="blueCell"></td>
+      <td class="blueCell"></td>
+      <td class="blueCell"></td>
+      <td class="blueCell"></td>
+      <td class="blueCell"></td>
+      <td class="blueCell"></td>
+      <td class="blueCell"></td>
+      <td class="purpleCell"></td>
+      <td class="purpleCell"></td>
+      <td class="purpleCell"></td>
+    </tr>
+    <tr>
+      <td>normal</td>
+      <td class="blueCell"></td>
+      <td class="blueCell"></td>
+      <td class="blueCell"></td>
+      <td class="blueCell"></td>
+      <td class="blueCell"></td>
+      <td class="blueCell"></td>
+      <td class="blueCell"></td>
+      <td class="blueCell"></td>
+      <td class="purpleCell"></td>
+      <td class="purpleCell"></td>
+      <td class="purpleCell"></td>
+    </tr>
+    <tr>
+      <td>large</td>
+      <td class="greenCell"></td>
+      <td class="greenCell"></td>
+      <td class="greenCell"></td>
+      <td class="greenCell"></td>
+      <td class="greenCell"></td>
+      <td class="greenCell"></td>
+      <td class="greenCell"></td>
+      <td class="greenCell"></td>
+      <td class="purpleCell"></td>
+      <td class="purpleCell"></td>
+      <td class="purpleCell"></td>
+    </tr>
+    <tr>
+      <td>xlarge</td>
+      <td class="redCell"></td>
+      <td class="redCell"></td>
+      <td class="redCell"></td>
+      <td class="redCell"></td>
+      <td class="redCell"></td>
+      <td class="redCell"></td>
+      <td class="redCell"></td>
+      <td class="redCell"></td>
+      <td class="purpleCell"></td>
+      <td class="purpleCell"></td>
+      <td class="purpleCell"></td>
+    </tr>
+  </tbody>
+</table>
+<p>Since it’s okay for coverage to overlap, we can describe the area covered by each APK like
+so:</p>
+<ul>
+<li>Blue covers all screens, minSDK 3.</li>
+<li>Green covers Large screens and higher, minSDK 3.</li>
+<li>Red covers XLarge screens (generally tablets), minSDK of 9.</li>
+<li>Purple covers all screens, minSDK of 11.</li>
+</ul>
+<p>Note that there’s a <em>lot</em> of overlap in those rules.  For instance, an
+XLarge device with API 11 can conceivably run any one of the 4 APKs specified.
+However, by using the "highest version number wins" rule, we can set an order of
+preference as follows:</p>
+<p>
+Purple &#8805; Red &#8805; Green &#8805; Blue
+</p><p>
+Why allow all the overlap?  Let’s pretend that the Purple APK has some requirement on it that the
+other two don’t.  The <a href="../../guide/appendix/market-filters.html">Filters on Google Play</a> page
+of the Android Developer guide has a whole list of possible culprits.  For the sake of example,
+let’s assume that Purple requires a front-facing camera.  In fact, the entire point of Purple is to
+use entertaining things with the front-facing camera!  But, it turns out, not all API 11+ devices
+even HAVE front-facing cameras!  The horror!</p>
+
+<p>Fortunately, if a user is browsing Google Play from one such device, Google Play will look at the
+manifest, see that Purple lists the front-facing camera as a requirement, and quietly ignore it,
+having determined that Purple and that device are not a match made in digital heaven.  It will then
+see that Red is not only compatible with xlarge devices, but also doesn’t care whether or not
+there’s a front-facing camera!  The app can still be downloaded from Google Play by the user,
+because despite the whole front-camera mishap, there was still an APK that supported that particular
+API level.</p>
+
+<p>  In order to keep all your APKs on separate "tracks", it’s important to have a good version code
+scheme.  The recommended one can be found on the <a
+href="../../guide/market/publishing/multiple-apks.html#VersionCodes">Version Codes</a> area of
+our developer guide.  It’s worth reading the whole section, but the basic gist is for this set of
+APKs, we’d use two digits to represent the minSDK, two to represent the min/max screen size, and 3
+to represent the build number.  That way, when the device upgraded to a new version of Android,
+(say, from 10 to 11), any APKs that are now eligible and preferred over the currently installed one
+would be seen by the device as an "upgrade".  The version number scheme, when applied to the example
+set of APKs, might look like:</p>
+
+<p>Blue: 0304001, 0304002, 0304003...<br />
+Green: 0334001, 0334002, 0334003<br />
+Red: 0344001, 0344002, 0344003...<br />
+Purple: 1104001, 1104002, 1104003...<br />
+</p>
+
+<p>  Putting this all together, your Android Manifests would likely look something like the
+following:</p>
+<p>Blue:</p>
+<pre>
+&lt;manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    android:versionCode="0304001" android:versionName="1.0" package="com.example.foo"&gt;
+    &lt;uses-sdk android:minSdkVersion="3" /&gt;
+    &lt;supports-screens android:smallScreens="true"
+        android:normalScreens="true"
+        android:largeScreens="true"
+        android:xlargeScreens="true" /&gt;
+    ...
+</pre>
+
+<p>Green:</p>
+<pre>
+&lt;manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    android:versionCode="0334001" android:versionName="1.0" package="com.example.foo"&gt;
+    &lt;uses-sdk android:minSdkVersion="3" /&gt;
+    &lt;supports-screens android:smallScreens="false"
+        android:normalScreens="false"
+        android:largeScreens="true"
+        android:xlargeScreens="true" /&gt;
+    ...
+</pre>
+
+<p>Red:</p>
+<pre>
+&lt;manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    android:versionCode="0344001" android:versionName="1.0" package="com.example.foo"&gt;
+    &lt;uses-sdk android:minSdkVersion="3" /&gt;
+    &lt;supports-screens android:smallScreens="false"
+        android:normalScreens="false"
+        android:largeScreens="false"
+        android:xlargeScreens="true" /&gt;
+    ...
+</pre>
+
+<p>Purple:</p>
+<pre>
+&lt;manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    android:versionCode="1104001" android:versionName="1.0" package="com.example.foo"&gt;
+    &lt;uses-sdk android:minSdkVersion="11" /&gt;
+    &lt;supports-screens android:smallScreens="true"
+        android:normalScreens="true"
+        android:largeScreens="true"
+        android:xlargeScreens="true" /&gt;
+    ...
+</pre>
+
+<p>
+Note that technically, multiple APK’s will work with either the supports-screens tag, or the
+compatible-screens tag.  Supports-screens is generally preferred, and it’s generally a really bad
+idea to use both-  It makes things needlessly complicated, and increases the opportunity for errors.
+ Also note that instead of taking advantage of the default values (small and normal are always true
+by default), the manifests explicitly set the value for each screen size.  This can save you
+headaches down the line - By way of example, a manifest with a target SDK of &lt; 9 will have xlarge
+automatically set to false, since that size didn’t exist yet.  So be explicit!
+</p>
+
+<h2 id="PreLaunch">Go Over Pre-launch Checklist</h2>
+<p>  Before uploading to Google Play, double-check the following items.  Remember that these are
+specifically relevant to multiple APKs, and in no way represent a complete checklist for all
+applications being uploaded to Google Play.</p>
+<ul>
+<li>All APKs must have the same package name.</li>
+<li>All APKs must be signed with the same certificate.</li>
+<li>If the APKs overlap in platform version, the one with the higher minSdkVersion must have a
+higher version code.</li>
+<li>Every screen size you want your APK to support, set to true in the manifest.  Every screen size
+you want it to avoid, set to false.</li>
+<li>Double check your manifest filters for conflicting information (an APK that only supports
+cupcake on XLARGE screens isn’t going to be seen by anybody)</li>
+<li>Each APK's manifest must be unique across at least one of supported screen, OpenGL texture, or
+platform version.</li>
+<li>Try to test each APK on at least one device.  Barring that, you have one of the most
+customizable device emulators in the business sitting on your development machine.  Go nuts!</li>
+</ul>
+
+<p>It’s also worth inspecting the compiled APK before pushing to market, to make sure there aren’t
+any surprises that could hide your application on Google Play.  This is actually quite simple using the
+"aapt" tool.  Aapt (the Android Asset Packaging Tool) is part of the build process for creating and
+packaging your Android applications, and is also a very handy tool for inspecting them. </p>
+
+<pre class="no-pretty-print classic">
+&gt;aapt dump badging
+package: name='com.example.hello' versionCode='1' versionName='1.0'
+sdkVersion:'11'
+uses-permission:'android.permission.SEND_SMS'
+application-label:'Hello'
+application-icon-120:'res/drawable-ldpi/icon.png'
+application-icon-160:'res/drawable-mdpi/icon.png'
+application-icon-240:'res/drawable-hdpi/icon.png'
+application: label='Hello' icon='res/drawable-mdpi/icon.png'
+launchable-activity: name='com.example.hello.HelloActivity'  label='Hello' icon=''
+uses-feature:'android.hardware.telephony'
+uses-feature:'android.hardware.touchscreen'
+main
+supports-screens: 'xlarge'
+supports-any-density: 'true'
+locales: '--_--'
+densities: '120' '160' '240'
+</pre>
+
+<p>When you examine aapt output, be sure to check that you don’t have conflicting values for
+supports-screens and compatible-screens, and that you don’t have unintended "uses-feature" values
+that were added as a result of permissions you set in the manifest. In the example above, the APK
+will be invisible to most, if not all devices.</p>
+<p>Why?  By adding the required permission SEND_SMS, the feature requirement of android.hardware.telephony was implicitly added.  Since most (if not all) xlarge devices are tablets without telephony hardware in them, Google Play will filter out this APK in these cases, until future devices come along which are both large enough to report as xlarge screen size, and possess telephony hardware.
+</p>
+<p>Fortunately this is easily fixed by adding the following to your manifest:<p>
+<pre>
+&lt;uses-feature android:name="android.hardware.telephony" android:required="false" /&gt;
+</pre>
+<p>The <code>android.hardware.touchscreen</code> requirement is also implicitly added. If you want your APK to be visible on TVs which are non-touchscreen devices you should add the following to your manifest:</p>
+<pre>
+&lt;uses-feature android:name="android.hardware.touchscreen" android:required="false" /&gt;
+</pre>
+
+<p>Once you’ve completed the pre-launch checklist, upload your APKs to Google Play.  It may take a bit for the application to show up when browsing Google Play, but when it does, perform one last check.  Download the application onto any test devices you may have to make sure that the APKs are targeting the intended devices. Congratulations, you’re done!</p>
+
+    </div>
+
+    
+    <div class="training-nav-bottom">
+      
+
+      
+      <div class="training-nav-button-previous">
+        <a href="texture.html">
+          <span style="font-size:1.2em">&lsaquo;</span>
+          Previous lesson
+          <br/><span class="training-nav-button-title">Creating Multiple APKs for Different GL Textures</span>
+        </a>
+      </div>
+      
+    </div> <!-- end training-nav -->
+    
+    
+    <a href="#top" style="float:right">&uarr; Go to top</a>
+    
+      <p><a href="index.html">&larr; Back to Maintaining Multiple APKs</a></p>
+    
+
+  </div> <!-- end jd-content -->
+
+<div id="footer">
+
+
+  <div id="copyright">
+    
+  Except as noted, this content is 
+  licensed under <a href="http://creativecommons.org/licenses/by/2.5/">
+  Creative Commons Attribution 2.5</a>. For details and 
+  restrictions, see the <a href="../../license.html">Content 
+  License</a>.
+  </div>
+
+  <div id="footerlinks">
+    
+  <p>
+    <a href="http://www.google.com/intl/en/policies/" target="_blank">Privacy &amp; Terms</a> -
+    <a href="http://www.android.com/branding.html" target="_blank">Brand Guidelines</a> -
+    <a
+href="http://code.google.com/p/android/issues/entry?template=Developer%20Documentation"
+target="_blank">Report Document Issues</a>
+  </p>
+  </div>
+
+</div> <!-- end footer -->
+
+</div><!-- end doc-content -->
+
+</div> <!-- end body-content --> 
+
+<script type="text/javascript">
+init(); /* initialize android-developer-docs.js */
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-5831155-1");
+pageTracker._trackPageview();
+</script>
+
+</body>
+</html>
+
+
+

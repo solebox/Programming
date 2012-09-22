@@ -1,0 +1,1809 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico" />
+<title>Notepad Exercise 1 | Android Developers</title>
+<link href="../../../assets/android-developer-docs-devguide.css" rel="stylesheet" type="text/css" />
+<script src="../../../assets/search_autocomplete.js" type="text/javascript"></script>
+<script src="../../../assets/jquery-resizable.min.js" type="text/javascript"></script>
+<script src="../../../assets/android-developer-docs.js" type="text/javascript"></script>
+<script src="../../../assets/prettify.js" type="text/javascript"></script>
+<script type="text/javascript">
+  setToRoot("../../../");
+</script>
+<noscript>
+  <style type="text/css">
+    html,body{overflow:auto;}
+    #body-content{position:relative; top:0;}
+    #doc-content{overflow:visible;border-left:3px solid #666;}
+    #side-nav{padding:0;}
+    #side-nav .toggle-list ul {display:block;}
+    #resize-packages-nav{border-bottom:3px solid #666;}
+  </style>
+</noscript>
+</head>
+<body class="gc-documentation" itemscope itemtype="http://schema.org/Article">
+
+  <div id="header">
+      <div id="headerLeft">
+          <a href="../../../index.html" tabindex="-1"><img
+              src="../../../assets/images/bg_logo.png" alt="Android Developers" /></a>
+          <ul id="header-tabs" class="guide">
+    
+	<li id="home-link"><a href="../../../offline.html">
+	
+		<span class="en">Home</span>
+		<span style="display:none" class="de">Startseite</span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ホーム</span>
+		<span style="display:none" class="zh-CN">主页</span>
+		<span style="display:none" class="zh-TW">首頁</span>
+	
+	</a></li>
+	<li id="sdk-link"><a href="../../../sdk/index.html">
+		<span class="en">SDK</span>
+	</a></li>
+	<li id="guide-link"><a href="../../../guide/index.html" onClick="return loadLast('guide')">
+	
+		<span class="en">Dev Guide</span>
+		<span style="display:none" class="de">Handbuch</span>
+		<span style="display:none" class="es">Guía</span>
+		<span style="display:none" class="fr">Guide</span>
+		<span style="display:none" class="it">Guida</span>
+		<span style="display:none" class="ja">開発ガイド</span>
+		<span style="display:none" class="zh-CN">开发人员指南</span>
+		<span style="display:none" class="zh-TW">開發指南</span>
+	
+	</a></li>
+	<li id="reference-link"><a href="../../../reference/packages.html" onClick="return loadLast('reference')">
+	
+		<span class="en">Reference</span>
+		<span style="display:none" class="de">Referenz</span>
+		<span style="display:none" class="es">Referencia</span>
+		<span style="display:none" class="fr">Référence</span>
+		<span style="display:none" class="it">Riferimento</span>
+		<span style="display:none" class="ja">リファレンス</span>
+		<span style="display:none" class="zh-CN">参考</span>
+		<span style="display:none" class="zh-TW">參考資料</span>
+	
+	</a></li>
+	<li id="resources-link"><a href="../../../resources/index.html" onClick="return loadLast('resources')">
+	
+		<span class="en">Resources</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+    		<span style="display:none" class="ja"></span>
+		<span style="display:none" class="zh-CN"></span>
+		<span style="display:none" class="zh-TW"></span>
+	
+	</a></li>
+	<li id="videos-link"><a href="../../../videos/index.html" onClick="return loadLast('videos')">
+	
+		<span class="en">Videos</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ビデオ</span>
+		<span style="display:none" class="zh-CN"></span>
+		<span style="display:none" class="zh-TW"></span>
+	
+	</a></li>
+	<li><a href="http://android-developers.blogspot.com" onClick="return requestAppendHL(this.href)">
+	
+		<span class="en">Blog</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ブログ</span>
+		<span style="display:none" class="zh-CN">博客</span>
+		<span style="display:none" class="zh-TW">網誌</span>
+	
+	</a></li>
+
+
+     
+</ul>
+     
+      </div>
+      <div id="headerRight">
+          <div id="headerLinks">
+          &nbsp;&nbsp;
+          <a href="../../../design/index.html">Android Design</a>&nbsp;&nbsp;
+          <a href="http://www.android.com">Android.com</a>
+          </div>
+  <div id="search" >
+      <div id="searchForm">
+          <form accept-charset="utf-8" class="gsc-search-box" 
+                onsubmit="return submit_search()">
+            <table class="gsc-search-box" cellpadding="0" cellspacing="0"><tbody>
+                <tr>
+                  <td class="gsc-input">
+                    <input id="search_autocomplete" class="gsc-input" type="text" size="33" autocomplete="off"
+                      title="search developer docs" name="q"
+                      value="search developer docs"
+                      onFocus="search_focus_changed(this, true)"
+                      onBlur="search_focus_changed(this, false)"
+                      onkeydown="return search_changed(event, true, '../../../')"
+                      onkeyup="return search_changed(event, false, '../../../')" />
+                  <div id="search_filtered_div" class="no-display">
+                      <table id="search_filtered" cellspacing=0>
+                      </table>
+                  </div>
+                  </td>
+                  <td class="gsc-search-button">
+                    <input type="submit" value="Search" title="search" id="search-button" class="gsc-search-button" />
+                  </td>
+                  <td class="gsc-clear-button">
+                    <div title="clear results" class="gsc-clear-button">&nbsp;</div>
+                  </td>
+                </tr></tbody>
+              </table>
+          </form>
+      </div><!-- searchForm -->
+  </div><!-- search -->
+      </div><!-- headerRight -->
+      <script type="text/javascript">
+        <!--  
+        changeTabLang(getLangPref());
+        //-->
+      </script>
+  </div><!-- header -->
+
+  <div class="g-section g-tpl-240" id="body-content">
+    <div class="g-unit g-first" id="side-nav" itemscope itemtype="http://schema.org/SiteNavigationElement">
+      <div id="devdoc-nav">
+<ul>
+
+  <li>
+    <span class="heading">
+      <span class="en">Android Basics</span>
+      <span class="de" style="display:none">Einführung in Android</span>
+      <span class="es" style="display:none">Información básica sobre Android</span>
+      <span class="fr" style="display:none">Présentation d'Android</span>
+      <span class="it" style="display:none">Nozioni di base su Android</span>
+      <span class="ja" style="display:none">Android の基本</span>
+      <span class="zh-CN" style="display:none">Android 基础知识</span>
+      <span class="zh-TW" style="display:none">Android 簡介</span>
+    </span>
+    <ul>
+      <li><a href="../../../guide/basics/what-is-android.html">
+        <span class="en">What Is Android?</span>
+        <span class="de" style="display:none">Was ist Android?</span>
+        <span class="es" style="display:none">¿Qué es Android?</span>
+        <span class="fr" style="display:none">Qu'est-ce qu'Android&nbsp;?</span>
+        <span class="it" style="display:none">Che cos'è Android?</span>
+        <span class="ja" style="display:none">Android とは</span>
+        <span class="zh-CN" style="display:none">Android 是什么？</span>
+        <span class="zh-TW" style="display:none">什麼是 Android？</span>
+          </a></li>
+      <li><a href="../../../guide/topics/fundamentals.html">
+        <span class="en">Application Fundamentals</span>
+        <span class="de" style="display:none">Anwendungsgrundlagen</span>
+        <span class="es" style="display:none">Fundamentos de las aplicaciones</span>
+        <span class="fr" style="display:none">Principes de base des applications</span>
+        <span class="it" style="display:none">Concetti fondamentali sulle applicazioni</span>
+        <span class="ja" style="display:none">開発の基礎</span>
+        <span class="zh-CN" style="display:none">应用程序基础</span>
+        <span class="zh-TW" style="display:none">應用程式基本原理</span>
+      </a></li>
+
+  <!--  <li><a style="color:gray;">The Android SDK</a></li> -->
+  <!--  <li><a style="color:gray;">Walkthrough for Developers</a></li> -->
+      <!-- quick overview of what it's like to develop on Android -->
+    </ul>
+  </li>
+
+  <li>
+    <span class="heading">
+      <span class="en">Framework Topics</span>
+      <span class="de" style="display:none">Framework-Themen</span>
+      <span class="es" style="display:none">Temas sobre el framework</span>
+      <span class="fr" style="display:none">Thèmes relatifs au framework</span>
+      <span class="it" style="display:none">Argomenti relativi al framework</span>
+      <span class="ja" style="display:none">フレームワーク トピック</span>
+      <span class="zh-CN" style="display:none">框架主题</span>
+      <span class="zh-TW" style="display:none">架構主題</span>
+    </span>
+    <ul>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/fundamentals/activities.html">
+          <span class="en">Activities</span>
+        </a></div>
+        <ul>
+          <li><a href="../../../guide/topics/fundamentals/fragments.html">
+            <span class="en">Fragments</span>
+          </a></li>
+          <li><a href="../../../guide/topics/fundamentals/loaders.html">
+            <span class="en">Loaders</span>
+          </a></li>
+          <li><a href="../../../guide/topics/fundamentals/tasks-and-back-stack.html">
+            <span class="en">Tasks and Back Stack</span></a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/fundamentals/services.html">
+          <span class="en">Services</span>
+        </a></div>
+        <ul>
+          <li><a href="../../../guide/topics/fundamentals/bound-services.html">
+            <span class="en">Bound Services</span>
+          </a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+          <div><a href="../../../guide/topics/providers/content-providers.html">
+            <span class="en">Content Providers</span>
+          </a></div>
+          <ul>
+            <li>
+                <a href="../../../guide/topics/providers/content-provider-basics.html">
+                    <span class="en">Content Provider Basics</span>
+                </a>
+                <span class="new">new!</span>
+            </li>
+            <li>
+                <a href="../../../guide/topics/providers/content-provider-creating.html">
+                    <span class="en">Creating a Content Provider</span>
+                </a>
+                <span class="new">new!</span>
+            </li>
+            <li>
+                <a href="../../../guide/topics/providers/calendar-provider.html">
+                    <span class="en">Calendar Provider</span>
+                </a>
+                <span class="new">new!</span>
+            </li>
+          </ul>
+      </li>
+      <li><a href="../../../guide/topics/intents/intents-filters.html">
+            <span class="en">Intents and Intent Filters</span>
+          </a></li>
+      <li><a href="../../../guide/topics/fundamentals/processes-and-threads.html">
+            <span class="en">Processes and Threads</span>
+          </a></li>
+    </ul>
+
+
+    <ul>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/ui/index.html">
+            <span class="en">User Interface</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../guide/topics/ui/declaring-layout.html">
+               <span class="en">XML Layouts</span>
+              </a></li>
+          <li><a href="../../../guide/topics/ui/ui-events.html">
+                <span class="en">Input Events</span>
+              </a></li>
+          <li><a href="../../../guide/topics/ui/menus.html">
+               <span class="en">Menus</span>
+              </a> <span class="new">updated</span></li>
+          <li><a href="../../../guide/topics/ui/actionbar.html">
+               <span class="en">Action Bar</span>
+              </a></li>
+          <li><a href="../../../guide/topics/ui/dialogs.html">
+                <span class="en">Dialogs</span>
+              </a></li>
+          <li class="toggle-list">
+            <div><a href="../../../guide/topics/ui/notifiers/index.html">
+                <span class="en">Notifications</span>
+            </a></div>
+            <ul>
+              <li><a href="../../../guide/topics/ui/notifiers/toasts.html">
+                <span class="en">Toast Notifications</span>
+              </a></li>
+              <li><a href="../../../guide/topics/ui/notifiers/notifications.html">
+                <span class="en">Status Bar Notifications</span>
+              </a></li>
+            </ul>
+          </li>
+          <li><a href="../../../guide/topics/ui/drag-drop.html">
+                <span class="en">Drag and Drop</span>
+              </a></li>
+          <li><a href="../../../guide/topics/ui/themes.html">
+                <span class="en">Styles and Themes</span>
+              </a></li>
+          <li><a href="../../../guide/topics/ui/custom-components.html">
+                <span class="en">Custom Components</span>
+              </a></li>
+          <li><a href="../../../guide/topics/ui/binding.html">
+                <span class="en">Binding to Data with AdapterView</span>
+              </a></li>
+          <li><a href="../../../guide/topics/ui/layout-objects.html">
+                <span class="en">Common Layout Objects</span>
+              </a></li>
+          <li><a href="../../../guide/topics/ui/how-android-draws.html">
+                <span class="en">How Android Draws Views</span>
+              </a></li>
+        </ul>
+      </li><!-- end of User Interface -->
+
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/resources/index.html">
+               <span class="en">Application Resources</span>
+             </a></div>
+        <ul>
+          <li><a href="../../../guide/topics/resources/providing-resources.html">
+                <span class="en">Providing Resources</span>
+              </a></li>
+          <li><a href="../../../guide/topics/resources/accessing-resources.html">
+                <span class="en">Accessing Resources</span>
+              </a></li>
+          <li><a href="../../../guide/topics/resources/runtime-changes.html">
+                <span class="en">Handling Runtime Changes</span>
+              </a></li>
+          <li><a href="../../../guide/topics/resources/localization.html">
+                <span class="en">Localization</span>
+              </a></li>
+          <li class="toggle-list">
+            <div><a href="../../../guide/topics/resources/available-resources.html">
+              <span class="en">Resource Types</span>
+            </a></div>
+            <ul>
+              <li><a href="../../../guide/topics/resources/animation-resource.html">Animation</a></li>
+              <li><a href="../../../guide/topics/resources/color-list-resource.html">Color State List</a></li>
+              <li><a href="../../../guide/topics/resources/drawable-resource.html">Drawable</a></li>
+              <li><a href="../../../guide/topics/resources/layout-resource.html">Layout</a></li>
+              <li><a href="../../../guide/topics/resources/menu-resource.html">Menu</a></li>
+              <li><a href="../../../guide/topics/resources/string-resource.html">String</a></li>
+              <li><a href="../../../guide/topics/resources/style-resource.html">Style</a></li>
+              <li><a href="../../../guide/topics/resources/more-resources.html">More Types</a></li>
+            </ul>
+          </li><!-- end of resource types -->
+        </ul>
+      </li><!-- end of app resources -->
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/data/data-storage.html">
+            <span class="en">Data Storage</span>
+          </a></div>
+          <ul>
+            <li><a href="../../../guide/topics/data/backup.html">
+                <span class="en">Data Backup</span>
+              </a>
+            </li>
+          </ul>
+      </li>
+      <li><a href="../../../guide/topics/security/security.html">
+            <span class="en">Security and Permissions</span>
+          </a></li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/manifest/manifest-intro.html">
+          <span class="en">The AndroidManifest.xml File</span>
+        </a></div>
+        <ul>
+          <li><a href="../../../guide/topics/manifest/action-element.html">&lt;action&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/activity-element.html">&lt;activity&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/activity-alias-element.html">&lt;activity-alias&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/application-element.html">&lt;application&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/category-element.html">&lt;category&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/compatible-screens-element.html">&lt;compatible-screens&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/data-element.html">&lt;data&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/grant-uri-permission-element.html">&lt;grant-uri-permission&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/instrumentation-element.html">&lt;instrumentation&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/intent-filter-element.html">&lt;intent-filter&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/manifest-element.html">&lt;manifest&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/meta-data-element.html">&lt;meta-data&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/path-permission-element.html">&lt;path-permission&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/permission-element.html">&lt;permission&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/permission-group-element.html">&lt;permission-group&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/permission-tree-element.html">&lt;permission-tree&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/provider-element.html">&lt;provider&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/receiver-element.html">&lt;receiver&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/service-element.html">&lt;service&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/supports-gl-texture-element.html">&lt;supports-gl-texture&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/supports-screens-element.html">&lt;supports-screens&gt;</a></li><!-- ##api level 4## -->
+          <li><a href="../../../guide/topics/manifest/uses-configuration-element.html">&lt;uses-configuration&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/uses-feature-element.html">&lt;uses-feature&gt;</a></li> <!-- ##api level 4## -->
+          <li><a href="../../../guide/topics/manifest/uses-library-element.html">&lt;uses-library&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/uses-permission-element.html">&lt;uses-permission&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/uses-sdk-element.html">&lt;uses-sdk&gt;</a></li>
+        </ul>
+      </li><!-- end of the manifest file -->
+    </ul>
+
+    <ul>
+    <li class="toggle-list">
+        <div><a href="../../../guide/topics/graphics/index.html">
+            <span class="en">Graphics</span>
+          </a> <span class="new-child">new!</span></div>
+        <ul>
+          <li><a href="../../../guide/topics/graphics/2d-graphics.html">
+              <span class="en">Canvas and Drawables</span></a></li>
+          <li><a href="../../../guide/topics/graphics/hardware-accel.html">
+              <span class="en">Hardware Acceleration</span></a>
+            <span class="new">new!</span></li>
+          <li><a href="../../../guide/topics/graphics/opengl.html">
+              <span class="en">OpenGL</span>
+            </a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/graphics/animation.html">
+            <span class="en">Animation</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../guide/topics/graphics/prop-animation.html">
+              <span class="en">Property Animation</span></a></li>
+          <li><a href="../../../guide/topics/graphics/view-animation.html">
+              <span class="en">View Animation</span></a></li>
+          <li><a href="../../../guide/topics/graphics/drawable-animation.html">
+              <span class="en">Drawable Animation</span></a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/renderscript/index.html">
+          <span class="en">Renderscript</span></a>
+          <span class="new">updated</span>
+        </div>
+        <ul>
+          <li><a href="../../../guide/topics/renderscript/graphics.html">
+                <span class="en">Graphics</span>
+              </a>
+          </li>
+          <li><a href="../../../guide/topics/renderscript/compute.html">
+                <span class="en">Compute</span>
+              </a>
+          </li>
+          <li><a href="../../../guide/topics/renderscript/reference.html">
+                <span class="en">Runtime API Reference</span>
+              </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="toggle-list">
+          <div><a href="../../../guide/topics/media/index.html">
+            <span class="en">Multimedia and Camera</span>
+          </a></div>
+          <ul>
+            <li><a href="../../../guide/topics/media/mediaplayer.html">
+                  <span class="en">Media Playback</span></a>
+                </li>
+            <li><a href="../../../guide/topics/media/jetplayer.html">
+                  <span class="en">JetPlayer</span></a>
+                </li>
+            <li><a href="../../../guide/topics/media/camera.html">
+                  <span class="en">Camera</span></a>
+                  <span class="new">new!</span>
+                </li>
+            <li><a href="../../../guide/topics/media/audio-capture.html">
+                  <span class="en">Audio Capture</span></a>
+                </li>
+          </ul>
+      </li>
+      <li>
+        <a href="../../../guide/topics/clipboard/copy-paste.html">
+            <span class="en">Copy and Paste</span>
+        </a></li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/sensors/index.html">
+              <span class="en">Sensors</span>
+              </a> <span class="new">new!</span></div>
+        <ul>
+          <li><a href="../../../guide/topics/sensors/sensors_overview.html">
+              <span class="en">Sensors Overview</span>
+            </a></li>
+          <li><a href="../../../guide/topics/sensors/sensors_motion.html">
+              <span class="en">Motion Sensors</span>
+            </a></li>
+          <li><a href="../../../guide/topics/sensors/sensors_position.html">
+              <span class="en">Position Sensors</span>
+            </a></li>
+          <li><a href="../../../guide/topics/sensors/sensors_environment.html">
+              <span class="en">Environment Sensors</span>
+            </a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/location/index.html">
+               <span class="en">Location and Maps</span>
+             </a></div>
+        <ul>
+          <li><a href="../../../guide/topics/location/obtaining-user-location.html">
+                <span class="en">Obtaining User Location</span>
+              </a></li>
+        </ul>
+      </li>
+  <!--<li class="toggle-list">
+        <div><a style="color:gray;">Wireless Controls</a></div>
+          <ul>
+            <li><a style="color:gray;">Wi-Fi</a></li>
+          </ul>
+      </li> -->
+  <!--<li><a style="color:gray;">Localization</a></li>  -->
+      <li><a href="../../../guide/topics/appwidgets/index.html">
+            <span class="en">App Widgets</span></a>
+          </li>
+      <li><a href="../../../guide/topics/wireless/bluetooth.html">
+            <span class="en">Bluetooth</span></a>
+          </li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/nfc/index.html">
+          <span class="en">Near Field Communication</span></a> <span class="new">updated</span>
+        </div>
+        <ul>
+          <li><a href="../../../guide/topics/nfc/nfc.html">NFC Basics</a></li>
+          <li><a href="../../../guide/topics/nfc/advanced-nfc.html">Advanced NFC</a></li>
+        </ul>
+      </li>
+      <li><a href="../../../guide/topics/wireless/wifip2p.html">
+            <span class="en">Wi-Fi Direct</span></a> <span class="new">new!</span>
+          </li>
+      <li class="toggle-list">
+          <div><a href="../../../guide/topics/usb/index.html">
+            <span class="en">USB</span></a>
+          </div>
+            <ul>
+              <li><a href="../../../guide/topics/usb/accessory.html">Accessory</a></li>
+              <li><a href="../../../guide/topics/usb/host.html">Host</a></li>
+              <li><a href="../../../guide/topics/usb/adk.html">Open Accessory Dev Kit</a></li>
+            </ul>
+          </li>
+
+       <li><a href="../../../guide/topics/network/sip.html">
+            <span class="en">Session Initiation Protocol</span>
+          </a></li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/search/index.html">
+            <span class="en">Search</span>
+          </a></div>
+          <ul>
+            <li><a href="../../../guide/topics/search/search-dialog.html">Creating a Search Interface</a></li>
+            <li><a href="../../../guide/topics/search/adding-recent-query-suggestions.html">Adding Recent Query Suggestions</a></li>
+            <li><a href="../../../guide/topics/search/adding-custom-suggestions.html">Adding Custom Suggestions</a></li>
+            <li><a href="../../../guide/topics/search/searchable-config.html">Searchable Configuration</a></li>
+          </ul>
+      </li>
+      <li><a href="../../../guide/topics/admin/device-admin.html">
+            <span class="en">Device Administration</span></a>
+      </li>
+      <li class="toggle-list">
+           <div>
+                <a href="../../../guide/topics/testing/index.html">
+                   <span class="en">Testing</span>
+               </a>
+           </div>
+           <ul>
+              <li>
+                <a href="../../../guide/topics/testing/testing_android.html">
+                <span class="en">Testing Fundamentals</span></a>
+              </li>
+              <li>
+                <a href="../../../guide/topics/testing/activity_testing.html">
+                <span class="en">Activity Testing</span></a>
+              </li>
+              <li>
+                <a href="../../../guide/topics/testing/contentprovider_testing.html">
+                <span class="en">Content Provider Testing</span></a>
+              </li>
+              <li>
+                <a href="../../../guide/topics/testing/service_testing.html">
+                <span class="en">Service Testing</span></a>
+              </li>
+              <li>
+                <a href="../../../guide/topics/testing/what_to_test.html">
+                <span class="en">What To Test</span></a>
+              </li>
+           </ul>
+      </li>
+    </ul>
+  </li>
+
+  <li>
+    <h2>
+      <span class="en">Google Play Topics</span>
+    </h2>
+    <ul>
+      <li><a href="../../../guide/publishing/publishing.html">
+          <span class="en">Publishing on Google Play</span>
+          </a></li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/market/licensing/index.html">
+          <span class="en">Application Licensing</span></a>
+        </div>
+        <ul>
+          <li><a href="../../../guide/market/licensing/overview.html">
+              <span class="en">Licensing Overview</span></a>
+          </li>
+          <li><a href="../../../guide/market/licensing/setting-up.html">
+              <span class="en">Setting Up for Licensing</span></a>
+          </li>
+          <li><a href="../../../guide/market/licensing/adding-licensing.html">
+              <span class="en">Adding Licensing to Your App</span></a>
+          </li>
+          <li><a href="../../../guide/market/licensing/licensing-reference.html">
+              <span class="en">Licensing Reference</span></a>
+          </li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/market/billing/index.html">
+            <span class="en">In-app Billing</span></a>
+        </div>
+        <ul>
+          <li><a href="../../../guide/market/billing/billing_overview.html">
+              <span class="en">In-app Billing Overview</span></a>
+          </li>
+          <li><a href="../../../guide/market/billing/billing_integrate.html">
+              <span class="en">Implementing In-app Billing</span></a>
+          </li>
+          <li><a href="../../../guide/market/billing/billing_best_practices.html">
+              <span class="en">Security and Design</span></a>
+          </li>
+          <li><a href="../../../guide/market/billing/billing_testing.html">
+              <span class="en">Testing In-app Billing</span></a>
+          </li>
+          <li><a href="../../../guide/market/billing/billing_admin.html">
+              <span class="en">Administering In-app Billing</span></a>
+          </li>
+          <li><a href="../../../guide/market/billing/billing_reference.html">
+              <span class="en">In-app Billing Reference</span></a>
+          </li>
+        </ul>
+      </li>
+      <li><a href="../../../guide/appendix/market-filters.html">
+          <span class="en">Filters on Google Play</span></a>
+      </li>
+      <li><a href="../../../guide/market/publishing/multiple-apks.html">
+          <span class="en">Multiple APK Support</span></a>
+      </li>
+      <li><a href="../../../guide/market/expansion-files.html">
+          <span class="en">APK Expansion Files</span></a>
+          <span class="new">new!</span>
+      </li>
+    </ul>
+  </li>
+
+
+  <li>
+    <span class="heading">
+      <span class="en">Developing</span>
+      <span class="de" style="display:none">Entwicklung</span>
+      <span class="es" style="display:none">Desarrollo</span>
+      <span class="fr" style="display:none">Développement</span>
+      <span class="it" style="display:none">Sviluppo</span>
+      <span class="ja" style="display:none">開発</span>
+      <span class="zh-CN" style="display:none">开发</span>
+      <span class="zh-TW" style="display:none">開發</span>
+    </span>
+    <ul>
+  <!--<li><a href="">Developing for Android</a></li>
+      signing, upgrading, selecting a package name, select device profile, touch, trackball, dpad available, etc. -->
+      <li>
+        <a href="../../../guide/developing/index.html">
+        <span class="en">Introduction</span></a>
+      </li>
+
+      <li class="toggle-list">
+        <div>
+           <a href="../../../guide/developing/devices/index.html">
+                <span class="en">Managing Virtual Devices</span>
+            </a>
+        </div>
+        <ul>
+          <li>
+            <a href="../../../guide/developing/devices/managing-avds.html">
+              <span class="en">With AVD Manager</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../guide/developing/devices/managing-avds-cmdline.html">
+              <span class="en">From the Command Line</span>
+            </a>
+          </li>
+          <li>
+           <a href="../../../guide/developing/devices/emulator.html">
+                <span class="en">Using the Android Emulator</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="../../../guide/developing/device.html">
+          <span class="en">Using Hardware Devices</span>
+        </a>
+      </li>
+
+      <li class="toggle-list">
+        <div>
+          <a href="../../../guide/developing/projects/index.html">
+            <span class="en">Managing Projects</span>
+          </a>
+        </div>
+        <ul>
+          <li>
+            <a href="../../../guide/developing/projects/projects-eclipse.html">
+              <span class="en">From Eclipse with ADT</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../guide/developing/projects/projects-cmdline.html">
+                <span class="en">From the Command Line</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="toggle-list">
+        <div>
+          <a href="../../../guide/developing/building/index.html">
+            <span class="en">Building and Running</span>
+          </a>
+        </div>
+        <ul>
+          <li><a href="../../../guide/developing/building/building-eclipse.html">
+            <span class="en">From Eclipse with ADT</span>
+          </a></li>
+          <li><a href="../../../guide/developing/building/building-cmdline.html">
+            <span class="en">From the Command Line</span></a></li>
+        </ul>
+      </li>
+
+      <li class="toggle-list">
+        <div>
+          <a href="../../../guide/developing/debugging/index.html">
+            <span class="en">Debugging</span>
+          </a>
+        </div>
+        <ul>
+          <li>
+            <a href="../../../guide/developing/debugging/debugging-projects.html">
+                <span class="en">From Eclipse with ADT</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../guide/developing/debugging/debugging-projects-cmdline.html">
+                <span class="en">From Other IDEs</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../guide/developing/debugging/ddms.html">
+              <span class="en">Using DDMS</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../guide/developing/debugging/debugging-log.html">
+                <span class="en">Reading and Writing Logs</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../guide/developing/debugging/debugging-ui.html">
+                <span class="en">Debugging and Profiling UIs</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../guide/developing/debugging/debugging-tracing.html">
+                <span class="en">Profiling with Traceview and dmtracedump</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../guide/developing/debugging/debugging-devtools.html">
+                <span class="en">Using the Dev Tools App</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="toggle-list">
+           <div>
+                <a href="../../../guide/developing/testing/index.html">
+                   <span class="en">Testing</span>
+               </a>
+           </div>
+           <ul>
+              <li>
+                <a href="../../../guide/developing/testing/testing_eclipse.html">
+                  <span class="en">From Eclipse with ADT</span>
+                </a>
+              </li>
+
+              <li>
+                <a href="../../../guide/developing/testing/testing_otheride.html">
+                  <span class="en">From Other IDEs</span>
+                </a>
+              </li>
+           </ul>
+         </li>
+
+         <li class="toggle-list">
+        <div><a href="../../../guide/developing/tools/index.html">
+            <span class="en">Tools</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../guide/developing/tools/adb.html">adb</a></li>
+          <li><a href="../../../guide/developing/tools/adt.html">ADT</a></li>
+          <li><a href="../../../guide/developing/tools/android.html">android</a></li>
+          <li><a href="../../../guide/developing/tools/bmgr.html">bmgr</a>
+          <li><a href="../../../guide/developing/tools/dmtracedump.html">dmtracedump</a></li>
+          <li><a href="../../../guide/developing/tools/draw9patch.html">Draw
+          9-Patch</a></li>
+          <li><a href="../../../guide/developing/tools/emulator.html">Emulator</a></li>
+          <li><a href="../../../guide/developing/tools/etc1tool.html">etc1tool</a></li>
+          <li><a href="../../../guide/developing/tools/hierarchy-viewer.html">Hierarchy Viewer</a></li>
+          <li><a href="../../../guide/developing/tools/hprof-conv.html">hprof-conv</a></li>
+          <li><a href="../../../guide/developing/tools/layoutopt.html">layoutopt</a></li>
+          <li><a href="../../../guide/developing/tools/logcat.html">logcat</a></li>
+          <li><a href="../../../guide/developing/tools/mksdcard.html">mksdcard</a></li>
+          <li><a href="../../../guide/developing/tools/monkey.html">Monkey</a></li>
+          <li class="toggle-list">
+            <div><a href="../../../guide/developing/tools/monkeyrunner_concepts.html">
+              <span class="en">monkeyrunner</span>
+            </a></div>
+            <ul>
+              <li><a href="../../../guide/developing/tools/MonkeyDevice.html">
+                <span class="en">MonkeyDevice</span>
+                </a></li>
+              <li><a href="../../../guide/developing/tools/MonkeyImage.html">
+                <span class="en">MonkeyImage</span>
+                </a></li>
+              <li><a href="../../../guide/developing/tools/MonkeyRunner.html">
+                <span class="en">MonkeyRunner</span>
+                </a></li>
+            </ul>
+          </li>
+          <li><a href="../../../guide/developing/tools/proguard.html">ProGuard</a></li>
+          <li><a href="../../../guide/developing/tools/adb.html#sqlite">sqlite3</a></li>
+          <li><a href="../../../guide/developing/tools/traceview.html">Traceview</a></li>
+          <li><a href="../../../guide/developing/tools/zipalign.html">zipalign</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+
+  <li>
+    <span class="heading">
+      <span class="en">Publishing</span>
+      <span class="de" style="display:none">Veröffentlichung</span>
+      <span class="es" style="display:none">Publicación</span>
+      <span class="fr" style="display:none">Publication</span>
+      <span class="it" style="display:none">Pubblicazione</span>
+      <span class="ja" style="display:none">公開</span>
+      <span class="zh-CN" style="display:none">发布</span>
+      <span class="zh-TW" style="display:none">發佈</span>
+    </span>
+    <ul>
+      <li><a href="../../../guide/publishing/publishing_overview.html">
+            <span class="en">Publishing Overview</span>
+          </a></li>
+      <li><a href="../../../guide/publishing/preparing.html">
+            <span class="en">Preparing for Release</span>
+            <span class="de" style="display:none">Vorbereitung auf die Veröffentlichung</span>
+            <span class="es" style="display:none">Publicación de aplicaciones</span>
+            <span class="fr" style="display:none">Préparation à la publication</span>
+            <span class="it" style="display:none">Preparativi per la pubblicazione</span>
+            <span class="ja" style="display:none">公開の準備</span>
+            <span class="zh-CN" style="display:none">准备发布</span>
+            <span class="zh-TW" style="display:none">準備發佈</span>
+          </a></li>
+      <li><a href="../../../guide/publishing/app-signing.html">
+            <span class="en">Signing Your Applications</span>
+            <span class="de" style="display:none">Signieren Ihrer Anwendungen</span>
+            <span class="es" style="display:none">Firma de aplicaciones</span>
+            <span class="fr" style="display:none">Attribution de votre signature <br />à vos
+applications</span>
+            <span class="it" style="display:none">Firma delle applicazioni</span>
+            <span class="ja" style="display:none">アプリケーションへの署名</span>
+            <span class="zh-CN" style="display:none">应用程序签名</span>
+            <span class="zh-TW" style="display:none">簽署應用程式</span>
+          </a></li>
+      <li><a href="../../../guide/publishing/versioning.html">
+            <span class="en">Versioning Your Applications</span>
+            <span class="de" style="display:none">Versionsverwaltung für Ihre <br
+/>Anwendungen</span>
+            <span class="es" style="display:none">Versiones de las aplicaciones</span>
+            <span class="fr" style="display:none">Attribution d'une version à vos
+applications</span>
+            <span class="it" style="display:none">Controllo versioni delle applicazioni</span>
+            <span class="ja" style="display:none">アプリケーションのバージョニング</span>
+            <span class="zh-CN" style="display:none">应用程序版本控制</span>
+            <span class="zh-TW" style="display:none">應用程式版本設定</span>
+          </a></li>
+    </ul>
+  </li>
+
+  <li>
+    <span class="heading">
+      <span class="en">Best Practices</span>
+      <span class="de" style="display:none">Bewährte Verfahren</span>
+      <span class="es" style="display:none">Prácticas recomendadas</span>
+      <span class="fr" style="display:none">Meilleures pratiques</span>
+      <span class="it" style="display:none">Best practice</span>
+      <span class="ja" style="display:none">ベスト プラクティス</span>
+      <span class="zh-CN" style="display:none">最佳实践</span>
+      <span class="zh-TW" style="display:none">最佳實務</span>
+    </span>
+    <ul>
+      <li><a href="../../../guide/practices/compatibility.html">
+            <span class="en">Compatibility</span>
+          </a></li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/practices/screens_support.html">
+          <span class="en">Supporting Multiple Screens</span>
+        </a></div>
+        <ul>
+          <li><a href="../../../guide/practices/screens-distribution.html">
+            <span class="en">Distributing to Specific Screens</span>
+          </a></li>
+          <li><a href="../../../guide/practices/screen-compat-mode.html">
+            <span class="en">Screen Compatibility Mode</span>
+          </a></li>
+          <li><a href="../../../guide/practices/screens-support-1.5.html">
+            <span class="en">Strategies for Android 1.5</span>
+          </a></li>
+        </ul>
+      </li>
+      <li><a href="../../../guide/practices/tablets-and-handsets.html">
+            <span class="en">Supporting Tablets and Handsets</span>
+          </a> <span class="new">new!</span></li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/practices/ui_guidelines/index.html">
+               <span class="en">UI Guidelines</span>
+             </a></div>
+        <ul>
+          <li class="toggle-list">
+            <div><a href="../../../guide/practices/ui_guidelines/icon_design.html">
+                   <span class="en">Icon Design</span>
+                 </a></div>
+            <ul>
+              <li><a href="../../../guide/practices/ui_guidelines/icon_design_launcher.html">
+                    <span class="en">Launcher Icons</span>
+                  </a></li>
+              <li><a href="../../../guide/practices/ui_guidelines/icon_design_menu.html">
+                    <span class="en">Menu Icons</span>
+                  </a></li>
+              <li><a href="../../../guide/practices/ui_guidelines/icon_design_action_bar.html">
+                    <span class="en">Action Bar Icons</span>
+                  </a></li>
+              <li><a href="../../../guide/practices/ui_guidelines/icon_design_status_bar.html">
+                    <span class="en">Status Bar Icons</span>
+                  </a></li>
+              <li><a href="../../../guide/practices/ui_guidelines/icon_design_tab.html">
+                    <span class="en">Tab Icons</span>
+                  </a></li>
+              <li><a href="../../../guide/practices/ui_guidelines/icon_design_dialog.html">
+                    <span class="en">Dialog Icons</span>
+                  </a></li>
+              <li><a href="../../../guide/practices/ui_guidelines/icon_design_list.html">
+                    <span class="en">List View Icons</span>
+                  </a></li>
+            </ul>
+          </li>
+          <li><a href="../../../guide/practices/ui_guidelines/widget_design.html">
+                <span class="en">App Widget Design</span>
+              </a></li>
+          <li><a href="../../../guide/practices/ui_guidelines/activity_task_design.html">
+                <span class="en">Activity and Task Design</span>
+              </a></li>
+          <li><a href="../../../guide/practices/ui_guidelines/menu_design.html">
+                <span class="en">Menu Design</span>
+              </a></li>
+        </ul>
+      </li>
+      </ul>
+      <ul>
+      <li><a href="../../../guide/practices/design/accessibility.html">
+            <span class="en">Designing for Accessibility</span>
+          </a></li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/practices/design/performance.html">
+            <span class="en">Designing for Performance</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../guide/practices/design/jni.html">
+                <span class="en">JNI Tips</span>
+              </a></li>
+        </ul>
+      </li>
+      <li><a href="../../../guide/practices/design/responsiveness.html">
+            <span class="en">Designing for Responsiveness</span>
+          </a></li>
+      <li><a href="../../../guide/practices/design/seamlessness.html">
+            <span class="en">Designing for Seamlessness</span>
+          </a></li>
+      <li><a href="../../../guide/practices/security.html">
+            <span class="en">Designing for Security</span></a>
+            </li>
+    </ul>
+  </li>
+
+  <li>
+    <span class="heading">
+      <span class="en">Web Applications</span>
+    </span>
+    <ul>
+      <li><a href="../../../guide/webapps/index.html">
+            <span class="en">Web Apps Overview</span>
+          </a></li>
+      <li><a href="../../../guide/webapps/targeting.html">
+            <span class="en">Targeting Screens from Web Apps</span>
+          </a></li>
+      <li><a href="../../../guide/webapps/webview.html">
+            <span class="en">Building Web Apps in WebView</span>
+          </a></li>
+      <li><a href="../../../guide/webapps/debugging.html">
+            <span class="en">Debugging Web Apps</span>
+          </a></li>
+      <li><a href="../../../guide/webapps/best-practices.html">
+            <span class="en">Best Practices for Web Apps</span>
+          </a></li>
+    </ul>
+  </li>
+
+  <li>
+    <span class="heading">
+      <span class="en">Appendix</span>
+      <span class="de" style="display:none">Anhang</span>
+      <span class="es" style="display:none">Apéndice</span>
+      <span class="fr" style="display:none">Annexes</span>
+      <span class="it" style="display:none">Appendice</span>
+      <span class="ja" style="display:none">付録</span>
+      <span class="zh-CN" style="display:none">附录</span>
+      <span class="zh-TW" style="display:none">附錄</span>
+    </span>
+    <ul>
+      <li><a href="../../../guide/appendix/api-levels.html">
+            <span class="en">Android API Levels</span>
+          </a></li>
+      <li><a href="../../../guide/appendix/install-location.html">
+            <span class="en">App Install Location</span>
+          </a></li>
+      <li><a href="../../../guide/appendix/media-formats.html">
+            <span class="en">Supported Media Formats</span>
+          </a></li>
+      <li><a href="../../../guide/appendix/g-app-intents.html">
+            <span class="en">Intents List: Google Apps</span>
+          </a></li>
+      <li><a href="../../../guide/developing/tools/aidl.html">AIDL</a></li>
+      <li><a href="../../../guide/appendix/glossary.html">
+            <span class="en">Glossary</span>
+          </a></li>
+    </ul>
+  </li>
+
+</ul>
+
+<script type="text/javascript">
+<!--
+    buildToggleLists();
+    changeNavLang(getLangPref());
+//-->
+</script>
+
+      </div>
+    </div> <!-- end side-nav -->
+    <script>
+      addLoadEvent(function() {
+        scrollIntoView("devdoc-nav");
+        });
+    </script>
+
+
+
+
+<div class="g-unit" id="doc-content"><a name="top"></a>
+
+<div id="jd-header" class="guide-header">
+  <span class="crumb" itemprop="breadcrumb">
+    
+      <a href="index.html">Notepad Tutorial</a>:
+    
+  </span>
+<h1 itemprop="name">Notepad Exercise 1</h1>
+</div>
+
+  
+  <div id="jd-content">
+ 
+    
+
+
+    <div class="jd-descr" itemprop="articleBody">
+    <p><em>In this exercise, you will construct a simple notes list that lets the
+user add new notes but not edit them. The exercise demonstrates:</em></p>
+<ul>
+<li><em>The basics of <code>ListActivities</code> and creating and handling menu
+options. </em></li>
+<li><em>How to use a SQLite database to store the notes.</em></li>
+<li><em>How to bind data from a database cursor into a ListView using a
+SimpleCursorAdapter.</em></li>
+<li><em>The basics of screen layouts, including how to lay out a list view, how
+you can add items to the activity menu, and how the activity handles those menu
+selections. </em></li>
+</ul>
+
+<div style="float:right;white-space:nowrap">
+<span style="color:#BBB;">
+	[<a href="notepad-ex1.html" style="color:#BBB;">Exercise 1</a>]</span>
+	[<a href="notepad-ex2.html">Exercise 2</a>]
+	[<a href="notepad-ex3.html">Exercise 3</a>]
+	[<a href="notepad-extra-credit.html">Extra Credit</a>]
+</div>
+
+
+
+<h2>Step 1</h2>
+
+	<p>Open up the <code>Notepadv1</code> project in Eclipse.</p>
+    
+    <p><code>Notepadv1</code> is a project that is provided as a starting point. It
+    takes care of some of the boilerplate work that you have already seen if you
+    followed the <a href="../../../resources/tutorials/hello-world.html">Hello,
+    World</a> tutorial.</p>
+    
+  <ol>
+    <li>
+      Start a new Android Project by clicking <strong>File</strong> > 
+      <strong>New</strong> > <strong>Android Project</strong>.</li>
+    <li>
+      In the New Android Project dialog, select <strong>Create project from existing source</strong>.</li>
+    <li>
+      Click <strong>Browse</strong> and navigate to where you copied the <code>NotepadCodeLab</code> 
+      (downloaded during <a href="../../../resources/tutorials/notepad/index.html#preparing">setup</a>) 
+      and select <code>Notepadv1</code>.</li>
+    <li>
+      The Project Name and other properties should be automatically filled for you. 
+      You must select the Build Target&mdash;we recommend selecting a target with the 
+      lowest platform version available. Also add an integer to the Min SDK Version field 
+      that matches the API Level of the selected Build Target.</li>
+    <li>
+      Click <strong>Finish</strong>. The <code>Notepadv1</code> project should open and be 
+      visible in your Eclipse package explorer.</li>
+  </ol>
+  
+    <p>If you see an error about <code>AndroidManifest.xml</code>, or some
+      problems related to an Android zip file, right click on the project and
+      select <strong>Android Tools</strong> > <strong>Fix Project Properties</strong>.
+      (The project is looking in the wrong location for the library file,
+      this will fix it for you.)</p>
+
+  <h2>Step 2</h2>
+
+  <div class="sidebox-wrapper">
+  <div class="sidebox">
+    <h2>Accessing and modifying data</h2>
+    <p>For this
+    exercise, we are using a SQLite database to store our data. This is useful
+    if only <em>your</em> application will need to access or modify the data. If you wish for
+    other activities to access or modify the data, you have to expose the data using a 
+    <code><a href="../../../reference/android/content/ContentProvider.html">ContentProvider</a></code>.</p>
+    <p>If you are interested, you can find out more about
+    <a href="../../../guide/topics/providers/content-providers.html">content providers</a> or the
+whole
+    subject of <a href="../../../guide/topics/data/data-storage.html">Data Storage</a>.
+    The NotePad sample in the <code>samples/</code> folder of the SDK also has an example of how
+    to create a ContentProvider.</p>
+  </div>
+  </div>
+
+    <p>Take a look at the <code>NotesDbAdapter</code> class &mdash; this class is provided to
+    encapsulate data access to a SQLite database that will hold our notes data
+    and allow us to update it.</p>
+    <p>At the top of the class are some constant definitions that will be used in the application
+    to look up data from the proper field names in the database. There is also a database creation
+    string defined, which is used to create a new database schema if one doesn't exist already.</p>
+    <p>Our database will have the name <code>data</code>, and have a single table called 
+    <code>notes</code>, which in turn has three fields: <code>_id</code>, <code>title</code> and 
+    <code>body</code>. The <code>_id</code> is named with an underscore convention used in a number of
+    places inside the Android SDK and helps keep a track of state. The <code>_id</code>
+    usually has to be specified when querying or updating the database (in the column projections
+    and so on). The other two fields are simple text fields that will store data.
+    </p>
+    <p>The constructor for <code>NotesDbAdapter</code> takes a Context, which allows it to communicate with aspects
+    of the Android operating system. This is quite common for classes that need to touch the
+    Android system in some way. The Activity class implements the Context class, so usually you will just pass
+    <code>this</code> from your Activity, when needing a Context.</p>
+    <p>The <code>open()</code> method calls up an instance of DatabaseHelper, which is our local
+    implementation of the SQLiteOpenHelper class. It calls <code>getWritableDatabase()</code>, 
+    which handles creating/opening a database for us.</p>
+    <p><code>close()</code> just closes the database, releasing resources related to the 
+    connection.</p>
+    <p><code>createNote()</code> takes strings for the title and body of a new note,
+    then creates that note in the database. Assuming the new note is created successfully, the
+    method also returns the row <code>_id</code> value for the newly created note.</p>
+    <p><code>deleteNote()</code> takes a <var>rowId</var> for a particular note, and deletes that note from
+    the database.</p>
+
+    <p><code>fetchAllNotes()</code> issues a query to return a <code><a href="../../../reference/android/database/Cursor.html">Cursor</a></code> over all notes in the
+    database. The <code>query()</code> call is worth examination and understanding. The first field is the 
+    name of the database table to query (in this case <code>DATABASE_TABLE</code> is "notes").
+    The next is the list of columns we want returned, in this case we want the <code>_id</code>, 
+    <code>title</code> and <code>body</code> columns so these are specified in the String array.
+    The remaining fields are, in order: <code>selection</code>, 
+    <code>selectionArgs</code>, <code>groupBy</code>, <code>having</code> and <code>orderBy</code>.
+    Having these all <code>null</code> means we want all data, need no grouping, and will take the default
+    order. See <code><a href="../../../reference/android/database/sqlite/SQLiteDatabase.html">SQLiteDatabase</a></code> for more details.</p>
+    <p class="note"><b>Note:</b> A Cursor is returned rather than a collection of rows. This allows
+    Android to use resources efficiently -- instead of putting lots of data straight into memory
+    the cursor will retrieve and release data as it is needed, which is much more efficient for
+    tables with lots of rows.</p>
+
+    <p><code>fetchNote()</code> is similar to <code>fetchAllNotes()</code> but just gets one note
+    with the <var>rowId</var> we specify. It uses a slightly different version of the 
+    <code><a href="../../../reference/android/database/sqlite/SQLiteDatabase.html">SQLiteDatabase</a></code> <code>query()</code> method. 
+    The first parameter (set <em>true</em>) indicates that we are interested
+    in one distinct result. The <var>selection</var> parameter (the fourth parameter) has been specified to search
+    only for the row "where _id =" the <var>rowId</var> we passed in. So we are returned a Cursor on
+    the one row.</p>
+    <p>And finally, <code>updateNote()</code> takes a <var>rowId</var>, <var>title</var> and <var>body</var>, and uses a
+    <code><a href="../../../reference/android/content/ContentValues.html">ContentValues</a></code> instance to update the note of the given
+    <var>rowId</var>.</p>
+   
+<h2 style="clear:right;">Step 3</h2>
+
+	<div class="sidebox-wrapper">
+  <div class="sidebox">
+    <h2>Layouts and activities</h2>
+      <p>Most Activity classes will have a layout associated with them. The layout
+    will be the "face" of the Activity to the user. In this case our layout will
+    take over the whole screen and provide a list of notes.</p>
+    <p>Full screen layouts are not the only option for an Activity however. You
+    might also want to use a <a
+href="../../../resources/faq/commontasks.html#floatingorfull">floating 
+    layout</a> (for example, a <a
+href="../../../resources/faq/commontasks.html#dialogsandalerts">dialog
+    or alert</a>), 
+    or perhaps you don't need a layout at all (the Activity will be invisible 
+    to the user unless you specify some kind of layout for it to use).</p>
+  </div>
+  </div>
+    
+    <p>Open the <code>notepad_list.xml</code> file in <code>res/layout</code>
+and 
+    take a look at it. (You may have to
+    hit the <em>xml</em> tab, at the bottom, in order to view the XML markup.)</p>
+     
+    <p>This is a mostly-empty layout definition file. Here are some
+    things you should know about a layout file:</p>
+
+   
+  <ul>
+    <li>
+      All Android layout files must start with the XML header line:
+      <code>&lt;?xml version="1.0" encoding="utf-8"?&gt;</code>.    </li>
+    <li>
+      The next definition will often (but not always) be a layout
+      definition of some kind, in this case a <code>LinearLayout</code>.    </li>
+    <li>
+      The XML namespace of Android should always be defined in
+      the top level component or layout in the XML so that <code>android:</code> tags can
+      be used through the rest of the file:
+      <p><code>xmlns:android="http://schemas.android.com/apk/res/android"</code></p>
+    </li>
+  </ul>
+
+  <h2 style="clear:right;">Step 4</h2>
+    <p>We need to create the layout to hold our list. Add code inside
+    of the <code>LinearLayout</code> element so the whole file looks like this: </p>
+    <pre>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    android:layout_width=&quot;wrap_content&quot;
+    android:layout_height=&quot;wrap_content&quot;&gt;
+
+  &lt;ListView android:id=&quot;@android:id/list&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;/&gt;
+  &lt;TextView android:id=&quot;@android:id/empty&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:text=&quot;@string/no_notes&quot;/&gt;
+
+&lt;/LinearLayout&gt;
+</pre>
+  <ul>
+    <li>
+      The <strong>&#64;</strong> symbol in the id strings of the <code>ListView</code> and 
+      <code>TextView</code> tags means 
+      that the XML parser should parse and expand the rest of
+      the id string and use an ID resource.</li>
+    <li>
+      The <code>ListView</code> and <code>TextView</code> can be
+      thought as two alternative views, only one of which will be displayed at once.
+      ListView will be used when there are notes to be shown, while the TextView
+      (which has a default value of "No Notes Yet!" defined as a string
+      resource in <code>res/values/strings.xml</code>) will be displayed if there 
+      aren't any notes to display.</li>
+    <li>The <code>list</code> and <code>empty</code> IDs are
+      provided for us by the Android platform, so, we must 
+      prefix the <code>id</code> with <code>android:</code> (e.g., <code>@android:id/list</code>).</li>
+    <li>The View with the <code>empty</code> id is used 
+      automatically when the <code><a href="../../../reference/android/widget/ListAdapter.html">ListAdapter</a></code> has no data for the ListView. The 
+      ListAdapter knows to look for this name by default. Alternatively, you could change the      
+      default empty view by using <code><a href="../../../reference/android/widget/AdapterView.html#setEmptyView(android.view.View)">setEmptyView(View)</a></code>
+      on the ListView.
+      <p>
+      More broadly, the <code>android.R</code> class is a set of predefined 
+      resources provided for you by the platform, while your project's 
+      <code>R</code> class is the set of resources your project has defined.
+      Resources found in the <code>android.R</code> resource class can be
+      used in the XML files by using the <code>android:</code> name space prefix      
+      (as we see here).</p>
+    </li>
+  </ul>
+
+  <h2 style="clear:right;">Step 5</h2>
+
+	<div class="sidebox-wrapper">
+  <div class="sidebox">
+    <h2>Resources and the R class</h2>
+    <p>The folders under res/ in the Eclipse project are for resources.
+     There is a <a href="../../../resources/faq/commontasks.html#filelist">specific structure</a>
+to the
+     folders and files under res/.</p>
+    <p>Resources defined in these folders and files will have
+    corresponding entries in the R class allowing them to be easily accessed
+    and used from your application. The R class is automatically generated using the contents
+    of the res/ folder by the eclipse plugin (or by aapt if you use the command line tools).
+    Furthermore, they will be bundled and deployed for you as part of the application.</p>
+    </p>
+  </div>
+  </div>
+
+    <p>To make the list of notes in the ListView, we also need to define a View for each row:</p>
+  <ol>
+    <li>
+      Create a new file under <code>res/layout</code> called 
+      <code>notes_row.xml</code>.    </li>
+    <li>
+      Add the following contents (note: again the XML header is used, and the
+      first node defines the Android XML namespace)<br>
+      <pre style="overflow:auto">
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;TextView android:id=&quot;&#64;+id/text1&quot;
+    xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    android:layout_width=&quot;wrap_content&quot;
+    android:layout_height=&quot;wrap_content&quot;/&gt;</pre>
+    <p>
+      This is the View that will be used for each notes title row &mdash; it has only
+      one text field in it.    </p>
+    <p>In this case we create a new id called <code>text1</code>. The
+      <strong>+</strong> after the <strong>@</strong> in the id string indicates that the id should
+      be automatically created as a resource if it does not already exist, so we are defining
+      <code>text1</code> on the fly and then using it.</p>
+    </li>
+    <li>Save the file.</li>
+  </ol>
+      <p>Open the <code>R.java</code> class in the
+      project and look at it, you should see new definitions for
+      <code>notes_row</code> and <code>text1</code> (our new definitions)
+      meaning we can now gain access to these from the our code. </p>
+
+  <h2 style="clear:right;">Step 6</h2>
+<p>Next, open the <code>Notepadv1</code> class in the source. In the following steps, we are going to
+    alter this class to become a list adapter and display our notes, and also
+    allow us to add new notes.</p>
+
+<p><code>Notepadv1</code> will inherit from a subclass
+    of <code>Activity</code> called a <code>ListActivity</code>, 
+    which has extra functionality to accommodate the kinds of 
+    things you might want to do with a list, for
+    example: displaying an arbitrary number of list items in rows on the screen,
+    moving through the list items, and allowing them to be selected.</p>
+
+<p>Take a look through the existing code in <code>Notepadv1</code> class.
+    There is a currently an unused private field called <code>mNoteNumber</code> that
+    we will use to create numbered note titles.</p>
+    <p>There are also three override methods defined:
+    <code>onCreate</code>, <code>onCreateOptionsMenu</code> and
+    <code>onOptionsItemSelected</code>; we need to fill these
+    out:</p>
+    <ul>
+      <li><code>onCreate()</code> is called when the activity is
+      started &mdash; it is a little like the "main" method for an Activity. We use
+      this to set up resources and state for the activity when it is
+      running.</li>
+     <li><code>onCreateOptionsMenu()</code> is used to populate the
+      menu for the Activity. This is shown when the user hits the menu button,
+and
+      has a list of options they can select (like "Create
+      Note"). </li>
+     <li><code>onOptionsItemSelected()</code> is the other half of the
+      menu equation, it is used to handle events generated from the menu (e.g.,
+      when the user selects the "Create Note" item).
+      </li>
+    </ul>
+    
+  <h2>Step 7</h2>
+    <p>Change the inheritance of <code>Notepadv1</code> from
+<code>Activity</code>
+    to <code>ListActivity</code>:</p> 
+    <pre>public class Notepadv1 extends ListActivity</pre>
+    <p>Note: you will have to import <code>ListActivity</code> into the
+Notepadv1
+    class using Eclipse, <strong>ctrl-shift-O</strong> on Windows or Linux, or
+    <strong>cmd-shift-O</strong> on the Mac (organize imports) will do this for you
+    after you've written the above change.</p>
+
+  <h2>Step 8</h2>
+    <p>Fill out the body of the <code>onCreate()</code> method.</p>
+    <p>Here we will set the title for the Activity (shown at the top of the
+    screen), use the <code>notepad_list</code> layout we created in XML, 
+    set up the <code>NotesDbAdapter</code> instance that will
+    access notes data, and populate the list with the available note
+    titles:</p>
+    <ol>
+    <li>
+      In the <code>onCreate</code> method, call <code>super.onCreate()</code> with the 
+      <code>savedInstanceState</code> parameter that's passed in.</li>
+    <li>
+      Call <code>setContentView()</code> and pass <code>R.layout.notepad_list</code>.</li>
+    <li>
+      At the top of the class, create a new private class field called <code>mDbHelper</code> of class
+      <code>NotesDbAdapter</code>.
+    </li>
+    <li>
+      Back in the <code>onCreate</code> method, construct a new
+<code>NotesDbAdapter</code>
+      instance and assign it to the <code>mDbHelper</code> field (pass
+      <code>this</code> into the constructor for <code>DBHelper</code>)
+    </li>
+    <li>
+      Call the <code>open()</code> method on <code>mDbHelper</code> to open (or create) the
+      database.
+    </li>
+    <li>
+      Finally, call a new method <code>fillData()</code>, which will get the data and
+      populate the ListView using the helper &mdash; we haven't defined this method yet.    </li>
+  </ol>
+    <p>
+      <code>onCreate()</code> should now look like this:</p>
+      <pre>
+    &#64;Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.notepad_list);
+        mDbHelper = new NotesDbAdapter(this);
+        mDbHelper.open();
+        fillData();
+    }</pre>
+      <p>And be sure you have the <code>mDbHelper</code> field definition (right
+      under the mNoteNumber definition): </p>
+      <pre>    private NotesDbAdapter mDbHelper;</pre>
+
+  <h2>Step 9</h2>
+
+  <div class="sidebox-wrapper">
+  <div class="sidebox">
+    <h2>More about menus</h2>
+    <p>The notepad application we are constructing only scratches the
+     surface with <a href="../../../resources/faq/commontasks.html#addmenuitems">menus</a>. </p>
+    <p>You can also <a href="../../../resources/faq/commontasks.html#menukeyshortcuts">add
+shortcut keys for menu items</a>, <a
+href="../../../resources/faq/commontasks.html#menukeyshortcuts">create
+submenus</a> and even <a href="../../../resources/faq/commontasks.html#addingtoothermenus">add
+menu items to other applications!</a>. </p>
+  </div>
+  </div>
+
+<p>Fill out the body of the <code>onCreateOptionsMenu()</code> method.</p>
+
+<p>We will now create the "Add Item" button that can be accessed by pressing the menu
+button on the device. We'll specify that it occupy the first position in the menu.</p>
+
+  <ol>
+    <li>
+      In <code>strings.xml</code> resource (under <code>res/values</code>), add
+      a new string named "menu_insert" with its value set to <code>Add Item</code>:
+     <pre>&lt;string name="menu_insert"&gt;Add Item&lt;/string&gt;</pre>
+      <p>Then save the file and return to <code>Notepadv1</code>.</p>
+    </li>
+    <li>Create a menu position constant at the top of the  class:
+      <pre>public static final int INSERT_ID = Menu.FIRST;</pre>
+    </li>
+    <li>In the <code>onCreateOptionsMenu()</code> method, change the 
+    <code>super</code> call so we capture the boolean return as <code>result</code>. We'll return this value at the end.</li>
+    <li>Then add the menu item with <code>menu.add()</code>.</li>
+  </ol>
+  <p>The whole method should now look like this: 
+      <pre>
+    &#64;Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        boolean result = super.onCreateOptionsMenu(menu);
+        menu.add(0, INSERT_ID, 0, R.string.menu_insert);
+        return result;
+    }</pre>
+  <p>The arguments passed to <code>add()</code> indicate: a group identifier for this menu (none,
+  in this case), a unique ID (defined above), the order of the item (zero indicates no preference),
+  and the resource of the string to use for the item.</p>
+
+<h2 style="clear:right;">Step 10</h2>
+    <p>Fill out the body of the <code>onOptionsItemSelected()</code> method:</p>
+    <p>This is going
+    to handle our new "Add Note" menu item.  When this is selected, the
+    <code>onOptionsItemSelected()</code> method will be called with the
+    <code>item.getId()</code> set to <code>INSERT_ID</code> (the constant we
+    used to identify the menu item). We can detect this, and take the
+    appropriate actions:</p>
+  <ol>
+    <li>
+      The <code>super.onOptionsItemSelected(item)</code> method call goes at the
+      end of this method &mdash; we want to catch our events first!    </li>
+    <li>
+      Write a switch statement on <code>item.getItemId()</code>.   
+      <p>In the case of <var>INSERT_ID</var>, call a new method, <code>createNote()</code>,
+      and return true, because we have handled this event and do not want to
+      propagate it through the system.</p>
+    </li>
+    <li>Return the result of the superclass' <code>onOptionsItemSelected()</code>
+    method at the end.</li>
+   </ol>
+    <p>
+      The whole <code>onOptionsItemSelect()</code> method should now look like
+      this:</p>
+      <pre>
+    &#64;Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+        case INSERT_ID:
+            createNote();
+            return true;
+        }
+       
+        return super.onOptionsItemSelected(item);
+    }</pre>
+
+<h2>Step 11</h2>
+    <p>Add a new <code>createNote()</code> method:</p>
+    <p>In this first version of
+    our application, <code>createNote()</code> is not going to be very useful.
+We will simply
+    create a new note with a title assigned to it based on a counter ("Note 1",
+    "Note 2"...) and with an empty body. At present we have no way of editing
+    the contents of a note, so for now we will have to be content making one
+    with some default values:</p>
+  <ol>
+    <li>Construct the name using "Note" and the counter we defined in the class: <code>
+      String noteName = "Note " + mNoteNumber++</code></li>
+    <li>
+      Call <code>mDbHelper.createNote()</code> using <code>noteName</code> as the
+      title and <code>""</code> for the body 
+    </li>
+    <li>
+      Call <code>fillData()</code> to populate the list of notes (inefficient but
+      simple) &mdash; we'll create this method next.</li>
+  </ol>
+    <p>
+      The whole <code>createNote()</code> method should look like this: </p>
+      <pre>
+    private void createNote() {
+        String noteName = &quot;Note &quot; + mNoteNumber++;
+        mDbHelper.createNote(noteName, &quot;&quot;);
+        fillData();
+    }</pre>
+
+
+<h2>Step 12</h2>
+  <div class="sidebox-wrapper">
+  <div class="sidebox">
+    <h2>List adapters</h2>
+    <p>Our example uses a <code><a href="../../../reference/android/widget/SimpleCursorAdapter.html">SimpleCursorAdapter</a></code> to bind a database <code><a href="../../../reference/android/database/Cursor.html">Cursor</a></code>
+     into a ListView, and this is a common way to use a <code><a href="../../../reference/android/widget/ListAdapter.html">ListAdapter</a></code>. Other options exist like <code><a href="../../../reference/android/widget/ArrayAdapter.html">ArrayAdapter</a></code> which 
+     can be used to take a List or Array of in-memory data and bind it in to
+     a list as well.</p>
+  </div>
+  </div>
+  
+  <p>Define the <code>fillData()</code> method:</p>
+   <p>This
+    method uses <code>SimpleCursorAdapter,</code> which takes a database <code>Cursor</code> 
+    and binds it to fields provided in the layout. These fields define the row elements of our list 
+    (in this case we use the <code>text1</code> field in our
+    <code>notes_row.xml</code> layout), so this allows us to easily populate the list with
+    entries from our database.</p>
+    <p>To do this we have to provide a mapping from the <code>title</code> field in the returned Cursor, to
+    our <code>text1</code> TextView, which is done by defining two arrays: the first a string array
+    with the list of columns to map <em>from</em> (just "title" in this case, from the constant 
+    <code>NotesDbAdapter.KEY_TITLE</code>) and, the second, an int array
+    containing references to the views that we'll bind the data <em>into</em> 
+    (the <code>R.id.text1</code> TextView).</p>
+    <p>This is a bigger chunk of code, so let's first take a look at it:</p>
+
+    <pre>
+    private void fillData() {
+        // Get all of the notes from the database and create the item list
+        Cursor c = mDbHelper.fetchAllNotes();
+        startManagingCursor(c);
+
+        String[] from = new String[] { NotesDbAdapter.KEY_TITLE };
+        int[] to = new int[] { R.id.text1 };
+        
+        // Now create an array adapter and set it to display using our row
+        SimpleCursorAdapter notes =
+            new SimpleCursorAdapter(this, R.layout.notes_row, c, from, to);
+        setListAdapter(notes);
+    }</pre>
+    
+  <p>Here's what we've done:</p>
+  <ol>
+    <li>
+      After obtaining the Cursor from <code>mDbHelper.fetchAllNotes()</code>, we 
+      use an Activity method called
+      <code>startManagingCursor()</code> that allows Android to take care of the
+      Cursor lifecycle instead of us needing to worry about it. (We will cover the implications
+      of the lifecycle in exercise 3, but for now just know that this allows Android to do some
+      of our resource management work for us.)</li>
+    <li>
+      Then we create a string array in which we declare the column(s) we want 
+      (just the title, in this case), and an int array that defines the View(s)
+      to which we'd like to bind the columns (these should be in order, respective to 
+      the string array, but here we only have one for each).</li>
+    <li>
+      Next is the SimpleCursorAdapter instantiation. 
+      Like many classes in Android, the SimpleCursorAdapter needs a Context in order to do its
+      work, so we pass in <code>this</code> for the context (since subclasses of Activity 
+      implement Context). We pass the <code>notes_row</code> View we created as the receptacle
+      for the data, the Cursor we just created, and then our arrays.</li>
+   </ol>
+    <p>
+      In the future, remember that the mapping between the <strong>from</strong> columns and <strong>to</strong> resources
+      is done using the respective ordering of the two arrays. If we had more columns we wanted
+      to bind, and more Views to bind them in to, we would specify them in order, for example we
+      might use <code>{ NotesDbAdapter.KEY_TITLE, NotesDbAdapter.KEY_BODY }</code> and
+      <code>{ R.id.text1, R.id.text2 }</code> to bind two fields into the row (and we would also need
+      to define text2 in the notes_row.xml, for the body text). This is how you can bind multiple fields
+      into a single row (and get a custom row layout as well).</p>
+    <p>
+      If you get compiler errors about classes not being found, ctrl-shift-O or
+      (cmd-shift-O on the mac) to organize imports. 
+    </p>
+    
+<h2 style="clear:right;">Step 13</h2>
+    <p>Run it!
+  <ol>
+    <li>
+      Right click on the <code>Notepadv1</code> project.</li>
+    <li>
+      From the popup menu, select <strong>Run As</strong> &gt; 
+      <strong>Android Application</strong>.</li>
+    <li>
+      If you see a dialog come up, select Android Launcher as the way of running
+      the application (you can also use the link near the top of the dialog to
+      set this as your default for the workspace; this is recommended as it will
+      stop the plugin from asking you this every time).</li>
+    <li>Add new notes by hitting the menu button and selecting <em>Add
+    Item</em> from the menu.</li>
+  </ol>
+
+<h2 style="clear:right;">Solution and Next Steps</h2>
+    <p>You can see the solution to this class in <code>Notepadv1Solution</code>
+from
+the zip file to compare with your own.</p>
+
+<p>Once you are ready, move on to <a href="notepad-ex2.html">Tutorial
+Exercise 2</a> to add the ability to create, edit and delete notes.</p>
+
+
+    </div>
+
+    
+    
+    <a href="#top" style="float:right">&uarr; Go to top</a>
+    
+      <p><a href="index.html">&larr; Back to Notepad Tutorial</a></p>
+    
+
+  </div> <!-- end jd-content -->
+
+<div id="footer">
+
+
+  <div id="copyright">
+    
+  Except as noted, this content is licensed under <a
+  href="http://www.apache.org/licenses/LICENSE-2.0">Apache 2.0</a>. 
+  For details and restrictions, see the <a href="../../../license.html">
+  Content License</a>.
+  </div>
+  <div id="build_info">
+    
+  Android 4.0&nbsp;r1 - 16 Mar 2012 16:45
+
+  </div>
+
+  <div id="footerlinks">
+    
+  <p>
+    <a href="http://www.google.com/intl/en/policies/" target="_blank">Privacy &amp; Terms</a> -
+    <a href="http://www.android.com/branding.html" target="_blank">Brand Guidelines</a> -
+    <a
+href="http://code.google.com/p/android/issues/entry?template=Developer%20Documentation"
+target="_blank">Report Document Issues</a>
+  </p>
+  </div>
+
+</div> <!-- end footer -->
+
+</div><!-- end doc-content -->
+
+</div> <!-- end body-content --> 
+
+<script type="text/javascript">
+init(); /* initialize android-developer-docs.js */
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-5831155-1");
+pageTracker._trackPageview();
+</script>
+
+</body>
+</html>
+
+
+

@@ -1,0 +1,5216 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico" />
+<title>MediaPlayer - Android SDK | Android Developers</title>
+<link href="../../../assets/android-developer-docs.css" rel="stylesheet" type="text/css" />
+<script src="../../../assets/search_autocomplete.js" type="text/javascript"></script>
+<script src="../../../assets/jquery-resizable.min.js" type="text/javascript"></script>
+<script src="../../../assets/android-developer-docs.js" type="text/javascript"></script>
+<script src="../../../assets/prettify.js" type="text/javascript"></script>
+<script type="text/javascript">
+  setToRoot("../../../");
+</script>
+<script src="../../../assets/android-developer-reference.js" type="text/javascript"></script>
+<script src="../../../navtree_data.js" type="text/javascript"></script>
+<noscript>
+  <style type="text/css">
+    html,body{overflow:auto;}
+    #body-content{position:relative; top:0;}
+    #doc-content{overflow:visible;border-left:3px solid #666;}
+    #side-nav{padding:0;}
+    #side-nav .toggle-list ul {display:block;}
+    #resize-packages-nav{border-bottom:3px solid #666;}
+  </style>
+</noscript>
+</head>
+<body class="1" itemscope itemtype="http://schema.org/Article">
+
+  <div id="header">
+      <div id="headerLeft">
+          <a href="../../../index.html" tabindex="-1"><img
+              src="../../../assets/images/bg_logo.png" alt="Android Developers" /></a>
+          <ul id="header-tabs" class="reference">
+    
+	<li id="home-link"><a href="../../../offline.html">
+	
+		<span class="en">Home</span>
+		<span style="display:none" class="de">Startseite</span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ホーム</span>
+		<span style="display:none" class="zh-CN">主页</span>
+		<span style="display:none" class="zh-TW">首頁</span>
+	
+	</a></li>
+	<li id="sdk-link"><a href="../../../sdk/index.html">
+		<span class="en">SDK</span>
+	</a></li>
+	<li id="guide-link"><a href="../../../guide/index.html" onClick="return loadLast('guide')">
+	
+		<span class="en">Dev Guide</span>
+		<span style="display:none" class="de">Handbuch</span>
+		<span style="display:none" class="es">Guía</span>
+		<span style="display:none" class="fr">Guide</span>
+		<span style="display:none" class="it">Guida</span>
+		<span style="display:none" class="ja">開発ガイド</span>
+		<span style="display:none" class="zh-CN">开发人员指南</span>
+		<span style="display:none" class="zh-TW">開發指南</span>
+	
+	</a></li>
+	<li id="reference-link"><a href="../../../reference/packages.html" onClick="return loadLast('reference')">
+	
+		<span class="en">Reference</span>
+		<span style="display:none" class="de">Referenz</span>
+		<span style="display:none" class="es">Referencia</span>
+		<span style="display:none" class="fr">Référence</span>
+		<span style="display:none" class="it">Riferimento</span>
+		<span style="display:none" class="ja">リファレンス</span>
+		<span style="display:none" class="zh-CN">参考</span>
+		<span style="display:none" class="zh-TW">參考資料</span>
+	
+	</a></li>
+	<li id="resources-link"><a href="../../../resources/index.html" onClick="return loadLast('resources')">
+	
+		<span class="en">Resources</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+    		<span style="display:none" class="ja"></span>
+		<span style="display:none" class="zh-CN"></span>
+		<span style="display:none" class="zh-TW"></span>
+	
+	</a></li>
+	<li id="videos-link"><a href="../../../videos/index.html" onClick="return loadLast('videos')">
+	
+		<span class="en">Videos</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ビデオ</span>
+		<span style="display:none" class="zh-CN"></span>
+		<span style="display:none" class="zh-TW"></span>
+	
+	</a></li>
+	<li><a href="http://android-developers.blogspot.com" onClick="return requestAppendHL(this.href)">
+	
+		<span class="en">Blog</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ブログ</span>
+		<span style="display:none" class="zh-CN">博客</span>
+		<span style="display:none" class="zh-TW">網誌</span>
+	
+	</a></li>
+
+
+     
+</ul>
+     
+      </div>
+      <div id="headerRight">
+          <div id="headerLinks">
+          &nbsp;&nbsp;
+          <a href="../../../design/index.html">Android Design</a>&nbsp;&nbsp;
+          <a href="http://www.android.com">Android.com</a>
+          </div>
+  <div id="search" >
+      <div id="searchForm">
+          <form accept-charset="utf-8" class="gsc-search-box" 
+                onsubmit="return submit_search()">
+            <table class="gsc-search-box" cellpadding="0" cellspacing="0"><tbody>
+                <tr>
+                  <td class="gsc-input">
+                    <input id="search_autocomplete" class="gsc-input" type="text" size="33" autocomplete="off"
+                      title="search developer docs" name="q"
+                      value="search developer docs"
+                      onFocus="search_focus_changed(this, true)"
+                      onBlur="search_focus_changed(this, false)"
+                      onkeydown="return search_changed(event, true, '../../../')"
+                      onkeyup="return search_changed(event, false, '../../../')" />
+                  <div id="search_filtered_div" class="no-display">
+                      <table id="search_filtered" cellspacing=0>
+                      </table>
+                  </div>
+                  </td>
+                  <td class="gsc-search-button">
+                    <input type="submit" value="Search" title="search" id="search-button" class="gsc-search-button" />
+                  </td>
+                  <td class="gsc-clear-button">
+                    <div title="clear results" class="gsc-clear-button">&nbsp;</div>
+                  </td>
+                </tr></tbody>
+              </table>
+          </form>
+      </div><!-- searchForm -->
+  </div><!-- search -->
+    			  <div id="api-level-toggle">
+    			    <input type="checkbox" id="apiLevelCheckbox" onclick="toggleApiLevelSelector(this)" />
+    			    <label for="apiLevelCheckbox" class="disabled">Filter by API Level: </label>
+    			    <select id="apiLevelSelector">
+    			      <!-- option elements added by buildApiLevelSelector() -->
+    			    </select>
+    			  </div>
+    	 	    <script>
+              var SINCE_DATA = [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15' ];
+              buildApiLevelSelector();
+            </script>
+      </div><!-- headerRight -->
+      <script type="text/javascript">
+        <!--  
+        changeTabLang(getLangPref());
+        //-->
+      </script>
+  </div><!-- header -->
+
+  <div class="g-section g-tpl-240" id="body-content">
+    <div class="g-unit g-first" id="side-nav" itemscope itemtype="http://schema.org/SiteNavigationElement">
+      <div id="swapper">
+        <div id="nav-panels">
+          <div id="resize-packages-nav">
+            <div id="packages-nav">
+              <div id="index-links"><nobr>
+                <a href="../../../reference/packages.html"  >Package Index</a> | 
+                <a href="../../../reference/classes.html" >Class Index</a></nobr>
+              </div>
+              <ul>
+              	
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/package-summary.html">android</a></li>
+    <li class="api apilevel-4">
+  <a href="../../../reference/android/accessibilityservice/package-summary.html">android.accessibilityservice</a></li>
+    <li class="api apilevel-5">
+  <a href="../../../reference/android/accounts/package-summary.html">android.accounts</a></li>
+    <li class="api apilevel-11">
+  <a href="../../../reference/android/animation/package-summary.html">android.animation</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/app/package-summary.html">android.app</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../reference/android/app/admin/package-summary.html">android.app.admin</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../reference/android/app/backup/package-summary.html">android.app.backup</a></li>
+    <li class="api apilevel-3">
+  <a href="../../../reference/android/appwidget/package-summary.html">android.appwidget</a></li>
+    <li class="api apilevel-5">
+  <a href="../../../reference/android/bluetooth/package-summary.html">android.bluetooth</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/content/package-summary.html">android.content</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/content/pm/package-summary.html">android.content.pm</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/content/res/package-summary.html">android.content.res</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/database/package-summary.html">android.database</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/database/sqlite/package-summary.html">android.database.sqlite</a></li>
+    <li class="api apilevel-11">
+  <a href="../../../reference/android/drm/package-summary.html">android.drm</a></li>
+    <li class="api apilevel-4">
+  <a href="../../../reference/android/gesture/package-summary.html">android.gesture</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/graphics/package-summary.html">android.graphics</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/graphics/drawable/package-summary.html">android.graphics.drawable</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/graphics/drawable/shapes/package-summary.html">android.graphics.drawable.shapes</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/hardware/package-summary.html">android.hardware</a></li>
+    <li class="api apilevel-12">
+  <a href="../../../reference/android/hardware/usb/package-summary.html">android.hardware.usb</a></li>
+    <li class="api apilevel-3">
+  <a href="../../../reference/android/inputmethodservice/package-summary.html">android.inputmethodservice</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/location/package-summary.html">android.location</a></li>
+    <li class="selected api apilevel-1">
+  <a href="../../../reference/android/media/package-summary.html">android.media</a></li>
+    <li class="api apilevel-9">
+  <a href="../../../reference/android/media/audiofx/package-summary.html">android.media.audiofx</a></li>
+    <li class="api apilevel-14">
+  <a href="../../../reference/android/media/effect/package-summary.html">android.media.effect</a></li>
+    <li class="api apilevel-12">
+  <a href="../../../reference/android/mtp/package-summary.html">android.mtp</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/net/package-summary.html">android.net</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/net/http/package-summary.html">android.net.http</a></li>
+    <li class="api apilevel-12">
+  <a href="../../../reference/android/net/rtp/package-summary.html">android.net.rtp</a></li>
+    <li class="api apilevel-9">
+  <a href="../../../reference/android/net/sip/package-summary.html">android.net.sip</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/net/wifi/package-summary.html">android.net.wifi</a></li>
+    <li class="api apilevel-14">
+  <a href="../../../reference/android/net/wifi/p2p/package-summary.html">android.net.wifi.p2p</a></li>
+    <li class="api apilevel-9">
+  <a href="../../../reference/android/nfc/package-summary.html">android.nfc</a></li>
+    <li class="api apilevel-10">
+  <a href="../../../reference/android/nfc/tech/package-summary.html">android.nfc.tech</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/opengl/package-summary.html">android.opengl</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/os/package-summary.html">android.os</a></li>
+    <li class="api apilevel-9">
+  <a href="../../../reference/android/os/storage/package-summary.html">android.os.storage</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/preference/package-summary.html">android.preference</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/provider/package-summary.html">android.provider</a></li>
+    <li class="api apilevel-11">
+  <a href="../../../reference/android/renderscript/package-summary.html">android.renderscript</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/sax/package-summary.html">android.sax</a></li>
+    <li class="api apilevel-14">
+  <a href="../../../reference/android/security/package-summary.html">android.security</a></li>
+    <li class="api apilevel-14">
+  <a href="../../../reference/android/service/textservice/package-summary.html">android.service.textservice</a></li>
+    <li class="api apilevel-7">
+  <a href="../../../reference/android/service/wallpaper/package-summary.html">android.service.wallpaper</a></li>
+    <li class="api apilevel-3">
+  <a href="../../../reference/android/speech/package-summary.html">android.speech</a></li>
+    <li class="api apilevel-4">
+  <a href="../../../reference/android/speech/tts/package-summary.html">android.speech.tts</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v13/app/package-summary.html">android.support.v13.app</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v4/accessibilityservice/package-summary.html">android.support.v4.accessibilityservice</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v4/app/package-summary.html">android.support.v4.app</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v4/content/package-summary.html">android.support.v4.content</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v4/content/pm/package-summary.html">android.support.v4.content.pm</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v4/database/package-summary.html">android.support.v4.database</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v4/os/package-summary.html">android.support.v4.os</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v4/util/package-summary.html">android.support.v4.util</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v4/view/package-summary.html">android.support.v4.view</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v4/view/accessibility/package-summary.html">android.support.v4.view.accessibility</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v4/widget/package-summary.html">android.support.v4.widget</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/telephony/package-summary.html">android.telephony</a></li>
+    <li class="api apilevel-5">
+  <a href="../../../reference/android/telephony/cdma/package-summary.html">android.telephony.cdma</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/telephony/gsm/package-summary.html">android.telephony.gsm</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/test/package-summary.html">android.test</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/test/mock/package-summary.html">android.test.mock</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/test/suitebuilder/package-summary.html">android.test.suitebuilder</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/text/package-summary.html">android.text</a></li>
+    <li class="api apilevel-3">
+  <a href="../../../reference/android/text/format/package-summary.html">android.text.format</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/text/method/package-summary.html">android.text.method</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/text/style/package-summary.html">android.text.style</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/text/util/package-summary.html">android.text.util</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/util/package-summary.html">android.util</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/view/package-summary.html">android.view</a></li>
+    <li class="api apilevel-4">
+  <a href="../../../reference/android/view/accessibility/package-summary.html">android.view.accessibility</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/view/animation/package-summary.html">android.view.animation</a></li>
+    <li class="api apilevel-3">
+  <a href="../../../reference/android/view/inputmethod/package-summary.html">android.view.inputmethod</a></li>
+    <li class="api apilevel-14">
+  <a href="../../../reference/android/view/textservice/package-summary.html">android.view.textservice</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/webkit/package-summary.html">android.webkit</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/widget/package-summary.html">android.widget</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/dalvik/bytecode/package-summary.html">dalvik.bytecode</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/dalvik/system/package-summary.html">dalvik.system</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/awt/font/package-summary.html">java.awt.font</a></li>
+    <li class="api apilevel-3">
+  <a href="../../../reference/java/beans/package-summary.html">java.beans</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/io/package-summary.html">java.io</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/lang/package-summary.html">java.lang</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/lang/annotation/package-summary.html">java.lang.annotation</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/lang/ref/package-summary.html">java.lang.ref</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/lang/reflect/package-summary.html">java.lang.reflect</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/math/package-summary.html">java.math</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/net/package-summary.html">java.net</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/nio/package-summary.html">java.nio</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/nio/channels/package-summary.html">java.nio.channels</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/nio/channels/spi/package-summary.html">java.nio.channels.spi</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/nio/charset/package-summary.html">java.nio.charset</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/nio/charset/spi/package-summary.html">java.nio.charset.spi</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/security/package-summary.html">java.security</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/security/acl/package-summary.html">java.security.acl</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/security/cert/package-summary.html">java.security.cert</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/security/interfaces/package-summary.html">java.security.interfaces</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/security/spec/package-summary.html">java.security.spec</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/sql/package-summary.html">java.sql</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/text/package-summary.html">java.text</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/util/package-summary.html">java.util</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/util/concurrent/package-summary.html">java.util.concurrent</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/util/concurrent/atomic/package-summary.html">java.util.concurrent.atomic</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/util/concurrent/locks/package-summary.html">java.util.concurrent.locks</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/util/jar/package-summary.html">java.util.jar</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/util/logging/package-summary.html">java.util.logging</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/util/prefs/package-summary.html">java.util.prefs</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/util/regex/package-summary.html">java.util.regex</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/util/zip/package-summary.html">java.util.zip</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/javax/crypto/package-summary.html">javax.crypto</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/javax/crypto/interfaces/package-summary.html">javax.crypto.interfaces</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/javax/crypto/spec/package-summary.html">javax.crypto.spec</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/javax/microedition/khronos/egl/package-summary.html">javax.microedition.khronos.egl</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/javax/microedition/khronos/opengles/package-summary.html">javax.microedition.khronos.opengles</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/javax/net/package-summary.html">javax.net</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/javax/net/ssl/package-summary.html">javax.net.ssl</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/javax/security/auth/package-summary.html">javax.security.auth</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/javax/security/auth/callback/package-summary.html">javax.security.auth.callback</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/javax/security/auth/login/package-summary.html">javax.security.auth.login</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/javax/security/auth/x500/package-summary.html">javax.security.auth.x500</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/javax/security/cert/package-summary.html">javax.security.cert</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/javax/sql/package-summary.html">javax.sql</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/javax/xml/package-summary.html">javax.xml</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../reference/javax/xml/datatype/package-summary.html">javax.xml.datatype</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../reference/javax/xml/namespace/package-summary.html">javax.xml.namespace</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/javax/xml/parsers/package-summary.html">javax.xml.parsers</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../reference/javax/xml/transform/package-summary.html">javax.xml.transform</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../reference/javax/xml/transform/dom/package-summary.html">javax.xml.transform.dom</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../reference/javax/xml/transform/sax/package-summary.html">javax.xml.transform.sax</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../reference/javax/xml/transform/stream/package-summary.html">javax.xml.transform.stream</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../reference/javax/xml/validation/package-summary.html">javax.xml.validation</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../reference/javax/xml/xpath/package-summary.html">javax.xml.xpath</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/junit/framework/package-summary.html">junit.framework</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/junit/runner/package-summary.html">junit.runner</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/package-summary.html">org.apache.http</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/auth/package-summary.html">org.apache.http.auth</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/auth/params/package-summary.html">org.apache.http.auth.params</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/client/package-summary.html">org.apache.http.client</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/client/entity/package-summary.html">org.apache.http.client.entity</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/client/methods/package-summary.html">org.apache.http.client.methods</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/client/params/package-summary.html">org.apache.http.client.params</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/client/protocol/package-summary.html">org.apache.http.client.protocol</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/client/utils/package-summary.html">org.apache.http.client.utils</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/conn/package-summary.html">org.apache.http.conn</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/conn/params/package-summary.html">org.apache.http.conn.params</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/conn/routing/package-summary.html">org.apache.http.conn.routing</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/conn/scheme/package-summary.html">org.apache.http.conn.scheme</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/conn/ssl/package-summary.html">org.apache.http.conn.ssl</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/conn/util/package-summary.html">org.apache.http.conn.util</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/cookie/package-summary.html">org.apache.http.cookie</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/cookie/params/package-summary.html">org.apache.http.cookie.params</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/entity/package-summary.html">org.apache.http.entity</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/impl/package-summary.html">org.apache.http.impl</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/impl/auth/package-summary.html">org.apache.http.impl.auth</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/impl/client/package-summary.html">org.apache.http.impl.client</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/impl/conn/package-summary.html">org.apache.http.impl.conn</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/impl/conn/tsccm/package-summary.html">org.apache.http.impl.conn.tsccm</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/impl/cookie/package-summary.html">org.apache.http.impl.cookie</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/impl/entity/package-summary.html">org.apache.http.impl.entity</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/impl/io/package-summary.html">org.apache.http.impl.io</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/io/package-summary.html">org.apache.http.io</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/message/package-summary.html">org.apache.http.message</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/params/package-summary.html">org.apache.http.params</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/protocol/package-summary.html">org.apache.http.protocol</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/util/package-summary.html">org.apache.http.util</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/json/package-summary.html">org.json</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/w3c/dom/package-summary.html">org.w3c.dom</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../reference/org/w3c/dom/ls/package-summary.html">org.w3c.dom.ls</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/xml/sax/package-summary.html">org.xml.sax</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/xml/sax/ext/package-summary.html">org.xml.sax.ext</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/xml/sax/helpers/package-summary.html">org.xml.sax.helpers</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/xmlpull/v1/package-summary.html">org.xmlpull.v1</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/xmlpull/v1/sax2/package-summary.html">org.xmlpull.v1.sax2</a></li>
+              </ul><br/>
+            </div> <!-- end packages -->
+          </div> <!-- end resize-packages -->
+          <div id="classes-nav">
+            <ul>
+              
+    <li><h2>Interfaces</h2>
+      <ul>
+          <li class="api apilevel-8"><a href="../../../reference/android/media/AudioManager.OnAudioFocusChangeListener.html">AudioManager.OnAudioFocusChangeListener</a></li>
+          <li class="api apilevel-3"><a href="../../../reference/android/media/AudioRecord.OnRecordPositionUpdateListener.html">AudioRecord.OnRecordPositionUpdateListener</a></li>
+          <li class="api apilevel-3"><a href="../../../reference/android/media/AudioTrack.OnPlaybackPositionUpdateListener.html">AudioTrack.OnPlaybackPositionUpdateListener</a></li>
+          <li class="api apilevel-3"><a href="../../../reference/android/media/JetPlayer.OnJetEventListener.html">JetPlayer.OnJetEventListener</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/media/MediaPlayer.OnBufferingUpdateListener.html">MediaPlayer.OnBufferingUpdateListener</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/media/MediaPlayer.OnCompletionListener.html">MediaPlayer.OnCompletionListener</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/media/MediaPlayer.OnErrorListener.html">MediaPlayer.OnErrorListener</a></li>
+          <li class="api apilevel-3"><a href="../../../reference/android/media/MediaPlayer.OnInfoListener.html">MediaPlayer.OnInfoListener</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/media/MediaPlayer.OnPreparedListener.html">MediaPlayer.OnPreparedListener</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/media/MediaPlayer.OnSeekCompleteListener.html">MediaPlayer.OnSeekCompleteListener</a></li>
+          <li class="api apilevel-3"><a href="../../../reference/android/media/MediaPlayer.OnVideoSizeChangedListener.html">MediaPlayer.OnVideoSizeChangedListener</a></li>
+          <li class="api apilevel-3"><a href="../../../reference/android/media/MediaRecorder.OnErrorListener.html">MediaRecorder.OnErrorListener</a></li>
+          <li class="api apilevel-3"><a href="../../../reference/android/media/MediaRecorder.OnInfoListener.html">MediaRecorder.OnInfoListener</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/media/MediaScannerConnection.MediaScannerConnectionClient.html">MediaScannerConnection.MediaScannerConnectionClient</a></li>
+          <li class="api apilevel-8"><a href="../../../reference/android/media/MediaScannerConnection.OnScanCompletedListener.html">MediaScannerConnection.OnScanCompletedListener</a></li>
+          <li class="api apilevel-8"><a href="../../../reference/android/media/SoundPool.OnLoadCompleteListener.html">SoundPool.OnLoadCompleteListener</a></li>
+      </ul>
+    </li>
+              
+    <li><h2>Classes</h2>
+      <ul>
+          <li class="api apilevel-1"><a href="../../../reference/android/media/AsyncPlayer.html">AsyncPlayer</a></li>
+          <li class="api apilevel-3"><a href="../../../reference/android/media/AudioFormat.html">AudioFormat</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/media/AudioManager.html">AudioManager</a></li>
+          <li class="api apilevel-3"><a href="../../../reference/android/media/AudioRecord.html">AudioRecord</a></li>
+          <li class="api apilevel-3"><a href="../../../reference/android/media/AudioTrack.html">AudioTrack</a></li>
+          <li class="api apilevel-8"><a href="../../../reference/android/media/CamcorderProfile.html">CamcorderProfile</a></li>
+          <li class="api apilevel-8"><a href="../../../reference/android/media/CameraProfile.html">CameraProfile</a></li>
+          <li class="api apilevel-5"><a href="../../../reference/android/media/ExifInterface.html">ExifInterface</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/media/FaceDetector.html">FaceDetector</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/media/FaceDetector.Face.html">FaceDetector.Face</a></li>
+          <li class="api apilevel-3"><a href="../../../reference/android/media/JetPlayer.html">JetPlayer</a></li>
+          <li class="api apilevel-10"><a href="../../../reference/android/media/MediaMetadataRetriever.html">MediaMetadataRetriever</a></li>
+          <li class="selected api apilevel-1"><a href="../../../reference/android/media/MediaPlayer.html">MediaPlayer</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/media/MediaRecorder.html">MediaRecorder</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/media/MediaRecorder.AudioEncoder.html">MediaRecorder.AudioEncoder</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/media/MediaRecorder.AudioSource.html">MediaRecorder.AudioSource</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/media/MediaRecorder.OutputFormat.html">MediaRecorder.OutputFormat</a></li>
+          <li class="api apilevel-3"><a href="../../../reference/android/media/MediaRecorder.VideoEncoder.html">MediaRecorder.VideoEncoder</a></li>
+          <li class="api apilevel-3"><a href="../../../reference/android/media/MediaRecorder.VideoSource.html">MediaRecorder.VideoSource</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/media/MediaScannerConnection.html">MediaScannerConnection</a></li>
+          <li class="api apilevel-14"><a href="../../../reference/android/media/RemoteControlClient.html">RemoteControlClient</a></li>
+          <li class="api apilevel-14"><a href="../../../reference/android/media/RemoteControlClient.MetadataEditor.html">RemoteControlClient.MetadataEditor</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/media/Ringtone.html">Ringtone</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/media/RingtoneManager.html">RingtoneManager</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/media/SoundPool.html">SoundPool</a></li>
+          <li class="api apilevel-8"><a href="../../../reference/android/media/ThumbnailUtils.html">ThumbnailUtils</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/media/ToneGenerator.html">ToneGenerator</a></li>
+      </ul>
+    </li>
+              
+              
+              
+            </ul><br/>
+          </div><!-- end classes -->
+        </div><!-- end nav-panels -->
+        <div id="nav-tree" style="display:none">
+          <div id="index-links"><nobr>
+            <a href="../../../reference/packages.html"  >Package Index</a> | 
+            <a href="../../../reference/classes.html" >Class Index</a></nobr>
+          </div>
+        </div><!-- end nav-tree -->
+      </div><!-- end swapper -->
+    </div> <!-- end side-nav -->
+    <script>
+      if (!isMobile) {
+        $("<a href='#' id='nav-swap' onclick='swapNav();return false;' style='font-size:10px;line-height:9px;margin-left:1em;text-decoration:none;'><span id='tree-link'>Use Tree Navigation</span><span id='panel-link' style='display:none'>Use Panel Navigation</span></a>").appendTo("#side-nav");
+        chooseDefaultNav();
+        if ($("#nav-tree").is(':visible')) {
+          init_default_navtree("../../../");
+        } else {
+          addLoadEvent(function() {
+            scrollIntoView("packages-nav");
+            scrollIntoView("classes-nav");
+          });
+        }
+        $("#swapper").css({borderBottom:"2px solid #aaa"});
+      } else {
+        swapNav(); // tree view should be used on mobile
+      }
+    </script>
+
+
+
+<div class="g-unit" id="doc-content">
+
+<div id="api-info-block">
+
+
+
+  
+   
+  
+  
+  
+  
+
+
+<div class="sum-details-links">
+
+Summary:
+
+  <a href="#nestedclasses">Nested Classes</a>
+  
+
+
+
+
+
+  &#124; <a href="#constants">Constants</a>
+  
+
+
+
+
+
+  &#124; <a href="#pubctors">Ctors</a>
+  
+
+
+
+  &#124; <a href="#pubmethods">Methods</a>
+  
+
+
+  &#124; <a href="#promethods">Protected Methods</a>
+  
+
+
+  &#124; <a href="#inhmethods">Inherited Methods</a>
+
+&#124; <a href="#" onclick="return toggleAllClassInherited()" id="toggleAllClassInherited">[Expand All]</a>
+
+</div><!-- end sum-details-links -->
+<div class="api-level">
+  
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+
+  
+  
+
+</div>
+</div><!-- end api-info-block -->
+
+
+<!-- ======== START OF CLASS DATA ======== -->
+
+<div id="jd-header">
+    public
+     
+     
+    
+    class
+<h1 itemprop="name">MediaPlayer</h1>
+
+
+
+  
+    extends <a href="../../../reference/java/lang/Object.html">Object</a><br/>
+  
+  
+  
+
+  
+  
+  
+
+
+</div><!-- end header -->
+
+<div id="naMessage"></div>
+
+<div id="jd-content" class="api apilevel-1">
+<table class="jd-inheritance-table">
+
+
+    <tr>
+         	
+        <td colspan="2" class="jd-inheritance-class-cell"><a href="../../../reference/java/lang/Object.html">java.lang.Object</a></td>
+    </tr>
+    
+
+    <tr>
+        
+            <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
+         	
+        <td colspan="1" class="jd-inheritance-class-cell">android.media.MediaPlayer</td>
+    </tr>
+    
+
+</table>
+
+
+
+
+
+
+
+<div class="jd-descr">
+
+
+<h2>Class Overview</h2>
+<p itemprop="articleBody">MediaPlayer class can be used to control playback
+ of audio/video files and streams. An example on how to use the methods in
+ this class can be found in <code><a href="../../../reference/android/widget/VideoView.html">VideoView</a></code>.
+
+ <p>Topics covered here are:
+ <ol>
+ <li><a href="#StateDiagram">State Diagram</a>
+ <li><a href="#Valid_and_Invalid_States">Valid and Invalid States</a>
+ <li><a href="#Permissions">Permissions</a>
+ <li><a href="#Callbacks">Register informational and error callbacks</a>
+ </ol>
+
+ <div class="special reference">
+ <h3>Developer Guides</h3>
+ <p>For more information about how to use MediaPlayer, read the
+ <a href="../../../guide/topics/media/mediaplayer.html">Media Playback</a> developer guide.</p>
+ </div>
+
+ <a name="StateDiagram"></a>
+ <h3>State Diagram</h3>
+
+ <p>Playback control of audio/video files and streams is managed as a state
+ machine. The following diagram shows the life cycle and the states of a
+ MediaPlayer object driven by the supported playback control operations.
+ The ovals represent the states a MediaPlayer object may reside
+ in. The arcs represent the playback control operations that drive the object
+ state transition. There are two types of arcs. The arcs with a single arrow
+ head represent synchronous method calls, while those with
+ a double arrow head represent asynchronous method calls.</p>
+
+ <p><img src="../../../images/mediaplayer_state_diagram.gif"
+         alt="MediaPlayer State diagram"
+         border="0" /></p>
+
+ <p>From this state diagram, one can see that a MediaPlayer object has the
+    following states:</p>
+ <ul>
+     <li>When a MediaPlayer object is just created using <code>new</code> or
+         after <code><a href="../../../reference/android/media/MediaPlayer.html#reset()">reset()</a></code> is called, it is in the <em>Idle</em> state; and after
+         <code><a href="../../../reference/android/media/MediaPlayer.html#release()">release()</a></code> is called, it is in the <em>End</em> state. Between these
+         two states is the life cycle of the MediaPlayer object.
+         <ul>
+         <li>There is a subtle but important difference between a newly constructed
+         MediaPlayer object and the MediaPlayer object after <code><a href="../../../reference/android/media/MediaPlayer.html#reset()">reset()</a></code>
+         is called. It is a programming error to invoke methods such
+         as <code><a href="../../../reference/android/media/MediaPlayer.html#getCurrentPosition()">getCurrentPosition()</a></code>,
+         <code><a href="../../../reference/android/media/MediaPlayer.html#getDuration()">getDuration()</a></code>, <code><a href="../../../reference/android/media/MediaPlayer.html#getVideoHeight()">getVideoHeight()</a></code>,
+         <code><a href="../../../reference/android/media/MediaPlayer.html#getVideoWidth()">getVideoWidth()</a></code>, <code><a href="../../../reference/android/media/MediaPlayer.html#setAudioStreamType(int)">setAudioStreamType(int)</a></code>,
+         <code><a href="../../../reference/android/media/MediaPlayer.html#setLooping(boolean)">setLooping(boolean)</a></code>,
+         <code><a href="../../../reference/android/media/MediaPlayer.html#setVolume(float, float)">setVolume(float, float)</a></code>, <code><a href="../../../reference/android/media/MediaPlayer.html#pause()">pause()</a></code>, <code><a href="../../../reference/android/media/MediaPlayer.html#start()">start()</a></code>,
+         <code><a href="../../../reference/android/media/MediaPlayer.html#stop()">stop()</a></code>, <code><a href="../../../reference/android/media/MediaPlayer.html#seekTo(int)">seekTo(int)</a></code>, <code><a href="../../../reference/android/media/MediaPlayer.html#prepare()">prepare()</a></code> or
+         <code><a href="../../../reference/android/media/MediaPlayer.html#prepareAsync()">prepareAsync()</a></code> in the <em>Idle</em> state for both cases. If any of these
+         methods is called right after a MediaPlayer object is constructed,
+         the user supplied callback method OnErrorListener.onError() won't be
+         called by the internal player engine and the object state remains
+         unchanged; but if these methods are called right after <code><a href="../../../reference/android/media/MediaPlayer.html#reset()">reset()</a></code>,
+         the user supplied callback method OnErrorListener.onError() will be
+         invoked by the internal player engine and the object will be
+         transfered to the <em>Error</em> state. </li>
+         <li>It is also recommended that once
+         a MediaPlayer object is no longer being used, call <code><a href="../../../reference/android/media/MediaPlayer.html#release()">release()</a></code> immediately
+         so that resources used by the internal player engine associated with the
+         MediaPlayer object can be released immediately. Resource may include
+         singleton resources such as hardware acceleration components and
+         failure to call <code><a href="../../../reference/android/media/MediaPlayer.html#release()">release()</a></code> may cause subsequent instances of
+         MediaPlayer objects to fallback to software implementations or fail
+         altogether. Once the MediaPlayer
+         object is in the <em>End</em> state, it can no longer be used and
+         there is no way to bring it back to any other state. </li>
+         <li>Furthermore,
+         the MediaPlayer objects created using <code>new</code> is in the
+         <em>Idle</em> state, while those created with one
+         of the overloaded convenient <code>create</code> methods are <em>NOT</em>
+         in the <em>Idle</em> state. In fact, the objects are in the <em>Prepared</em>
+         state if the creation using <code>create</code> method is successful.
+         </li>
+         </ul>
+         </li>
+     <li>In general, some playback control operation may fail due to various
+         reasons, such as unsupported audio/video format, poorly interleaved
+         audio/video, resolution too high, streaming timeout, and the like.
+         Thus, error reporting and recovery is an important concern under
+         these circumstances. Sometimes, due to programming errors, invoking a playback
+         control operation in an invalid state may also occur. Under all these
+         error conditions, the internal player engine invokes a user supplied
+         OnErrorListener.onError() method if an OnErrorListener has been
+         registered beforehand via
+         <code><a href="../../../reference/android/media/MediaPlayer.html#setOnErrorListener(android.media.MediaPlayer.OnErrorListener)">setOnErrorListener(android.media.MediaPlayer.OnErrorListener)</a></code>.
+         <ul>
+         <li>It is important to note that once an error occurs, the
+         MediaPlayer object enters the <em>Error</em> state (except as noted
+         above), even if an error listener has not been registered by the application.</li>
+         <li>In order to reuse a MediaPlayer object that is in the <em>
+         Error</em> state and recover from the error,
+         <code><a href="../../../reference/android/media/MediaPlayer.html#reset()">reset()</a></code> can be called to restore the object to its <em>Idle</em>
+         state.</li>
+         <li>It is good programming practice to have your application
+         register a OnErrorListener to look out for error notifications from
+         the internal player engine.</li>
+         <li>IllegalStateException is
+         thrown to prevent programming errors such as calling <code><a href="../../../reference/android/media/MediaPlayer.html#prepare()">prepare()</a></code>,
+         <code><a href="../../../reference/android/media/MediaPlayer.html#prepareAsync()">prepareAsync()</a></code>, or one of the overloaded <code>setDataSource
+         </code> methods in an invalid state. </li>
+         </ul>
+         </li>
+     <li>Calling
+         <code><a href="../../../reference/android/media/MediaPlayer.html#setDataSource(java.io.FileDescriptor)">setDataSource(FileDescriptor)</a></code>, or
+         <code><a href="../../../reference/android/media/MediaPlayer.html#setDataSource(java.lang.String)">setDataSource(String)</a></code>, or
+         <code><a href="../../../reference/android/media/MediaPlayer.html#setDataSource(android.content.Context, android.net.Uri)">setDataSource(Context, Uri)</a></code>, or
+         <code><a href="../../../reference/android/media/MediaPlayer.html#setDataSource(java.io.FileDescriptor, long, long)">setDataSource(FileDescriptor, long, long)</a></code> transfers a
+         MediaPlayer object in the <em>Idle</em> state to the
+         <em>Initialized</em> state.
+         <ul>
+         <li>An IllegalStateException is thrown if
+         setDataSource() is called in any other state.</li>
+         <li>It is good programming
+         practice to always look out for <code>IllegalArgumentException</code>
+         and <code>IOException</code> that may be thrown from the overloaded
+         <code>setDataSource</code> methods.</li>
+         </ul>
+         </li>
+     <li>A MediaPlayer object must first enter the <em>Prepared</em> state
+         before playback can be started.
+         <ul>
+         <li>There are two ways (synchronous vs.
+         asynchronous) that the <em>Prepared</em> state can be reached:
+         either a call to <code><a href="../../../reference/android/media/MediaPlayer.html#prepare()">prepare()</a></code> (synchronous) which
+         transfers the object to the <em>Prepared</em> state once the method call
+         returns, or a call to <code><a href="../../../reference/android/media/MediaPlayer.html#prepareAsync()">prepareAsync()</a></code> (asynchronous) which
+         first transfers the object to the <em>Preparing</em> state after the
+         call returns (which occurs almost right way) while the internal
+         player engine continues working on the rest of preparation work
+         until the preparation work completes. When the preparation completes or when <code><a href="../../../reference/android/media/MediaPlayer.html#prepare()">prepare()</a></code> call returns,
+         the internal player engine then calls a user supplied callback method,
+         onPrepared() of the OnPreparedListener interface, if an
+         OnPreparedListener is registered beforehand via <code><a href="../../../reference/android/media/MediaPlayer.html#setOnPreparedListener(android.media.MediaPlayer.OnPreparedListener)">setOnPreparedListener(android.media.MediaPlayer.OnPreparedListener)</a></code>.</li>
+         <li>It is important to note that
+         the <em>Preparing</em> state is a transient state, and the behavior
+         of calling any method with side effect while a MediaPlayer object is
+         in the <em>Preparing</em> state is undefined.</li>
+         <li>An IllegalStateException is
+         thrown if <code><a href="../../../reference/android/media/MediaPlayer.html#prepare()">prepare()</a></code> or <code><a href="../../../reference/android/media/MediaPlayer.html#prepareAsync()">prepareAsync()</a></code> is called in
+         any other state.</li>
+         <li>While in the <em>Prepared</em> state, properties
+         such as audio/sound volume, screenOnWhilePlaying, looping can be
+         adjusted by invoking the corresponding set methods.</li>
+         </ul>
+         </li>
+     <li>To start the playback, <code><a href="../../../reference/android/media/MediaPlayer.html#start()">start()</a></code> must be called. After
+         <code><a href="../../../reference/android/media/MediaPlayer.html#start()">start()</a></code> returns successfully, the MediaPlayer object is in the
+         <em>Started</em> state. <code><a href="../../../reference/android/media/MediaPlayer.html#isPlaying()">isPlaying()</a></code> can be called to test
+         whether the MediaPlayer object is in the <em>Started</em> state.
+         <ul>
+         <li>While in the <em>Started</em> state, the internal player engine calls
+         a user supplied OnBufferingUpdateListener.onBufferingUpdate() callback
+         method if a OnBufferingUpdateListener has been registered beforehand
+         via <code><a href="../../../reference/android/media/MediaPlayer.html#setOnBufferingUpdateListener(android.media.MediaPlayer.OnBufferingUpdateListener)">setOnBufferingUpdateListener(OnBufferingUpdateListener)</a></code>.
+         This callback allows applications to keep track of the buffering status
+         while streaming audio/video.</li>
+         <li>Calling <code><a href="../../../reference/android/media/MediaPlayer.html#start()">start()</a></code> has not effect
+         on a MediaPlayer object that is already in the <em>Started</em> state.</li>
+         </ul>
+         </li>
+     <li>Playback can be paused and stopped, and the current playback position
+         can be adjusted. Playback can be paused via <code><a href="../../../reference/android/media/MediaPlayer.html#pause()">pause()</a></code>. When the call to
+         <code><a href="../../../reference/android/media/MediaPlayer.html#pause()">pause()</a></code> returns, the MediaPlayer object enters the
+         <em>Paused</em> state. Note that the transition from the <em>Started</em>
+         state to the <em>Paused</em> state and vice versa happens
+         asynchronously in the player engine. It may take some time before
+         the state is updated in calls to <code><a href="../../../reference/android/media/MediaPlayer.html#isPlaying()">isPlaying()</a></code>, and it can be
+         a number of seconds in the case of streamed content.
+         <ul>
+         <li>Calling <code><a href="../../../reference/android/media/MediaPlayer.html#start()">start()</a></code> to resume playback for a paused
+         MediaPlayer object, and the resumed playback
+         position is the same as where it was paused. When the call to
+         <code><a href="../../../reference/android/media/MediaPlayer.html#start()">start()</a></code> returns, the paused MediaPlayer object goes back to
+         the <em>Started</em> state.</li>
+         <li>Calling <code><a href="../../../reference/android/media/MediaPlayer.html#pause()">pause()</a></code> has no effect on
+         a MediaPlayer object that is already in the <em>Paused</em> state.</li>
+         </ul>
+         </li>
+     <li>Calling  <code><a href="../../../reference/android/media/MediaPlayer.html#stop()">stop()</a></code> stops playback and causes a
+         MediaPlayer in the <em>Started</em>, <em>Paused</em>, <em>Prepared
+         </em> or <em>PlaybackCompleted</em> state to enter the
+         <em>Stopped</em> state.
+         <ul>
+         <li>Once in the <em>Stopped</em> state, playback cannot be started
+         until <code><a href="../../../reference/android/media/MediaPlayer.html#prepare()">prepare()</a></code> or <code><a href="../../../reference/android/media/MediaPlayer.html#prepareAsync()">prepareAsync()</a></code> are called to set
+         the MediaPlayer object to the <em>Prepared</em> state again.</li>
+         <li>Calling <code><a href="../../../reference/android/media/MediaPlayer.html#stop()">stop()</a></code> has no effect on a MediaPlayer
+         object that is already in the <em>Stopped</em> state.</li>
+         </ul>
+         </li>
+     <li>The playback position can be adjusted with a call to
+         <code><a href="../../../reference/android/media/MediaPlayer.html#seekTo(int)">seekTo(int)</a></code>.
+         <ul>
+         <li>Although the asynchronuous <code><a href="../../../reference/android/media/MediaPlayer.html#seekTo(int)">seekTo(int)</a></code>
+         call returns right way, the actual seek operation may take a while to
+         finish, especially for audio/video being streamed. When the actual
+         seek operation completes, the internal player engine calls a user
+         supplied OnSeekComplete.onSeekComplete() if an OnSeekCompleteListener
+         has been registered beforehand via
+         <code><a href="../../../reference/android/media/MediaPlayer.html#setOnSeekCompleteListener(android.media.MediaPlayer.OnSeekCompleteListener)">setOnSeekCompleteListener(OnSeekCompleteListener)</a></code>.</li>
+         <li>Please
+         note that <code><a href="../../../reference/android/media/MediaPlayer.html#seekTo(int)">seekTo(int)</a></code> can also be called in the other states,
+         such as <em>Prepared</em>, <em>Paused</em> and <em>PlaybackCompleted
+         </em> state.</li>
+         <li>Furthermore, the actual current playback position
+         can be retrieved with a call to <code><a href="../../../reference/android/media/MediaPlayer.html#getCurrentPosition()">getCurrentPosition()</a></code>, which
+         is helpful for applications such as a Music player that need to keep
+         track of the playback progress.</li>
+         </ul>
+         </li>
+     <li>When the playback reaches the end of stream, the playback completes.
+         <ul>
+         <li>If the looping mode was being set to <var>true</var>with
+         <code><a href="../../../reference/android/media/MediaPlayer.html#setLooping(boolean)">setLooping(boolean)</a></code>, the MediaPlayer object shall remain in
+         the <em>Started</em> state.</li>
+         <li>If the looping mode was set to <var>false
+         </var>, the player engine calls a user supplied callback method,
+         OnCompletion.onCompletion(), if a OnCompletionListener is registered
+         beforehand via <code><a href="../../../reference/android/media/MediaPlayer.html#setOnCompletionListener(android.media.MediaPlayer.OnCompletionListener)">setOnCompletionListener(OnCompletionListener)</a></code>.
+         The invoke of the callback signals that the object is now in the <em>
+         PlaybackCompleted</em> state.</li>
+         <li>While in the <em>PlaybackCompleted</em>
+         state, calling <code><a href="../../../reference/android/media/MediaPlayer.html#start()">start()</a></code> can restart the playback from the
+         beginning of the audio/video source.</li>
+ </ul>
+
+
+ <a name="Valid_and_Invalid_States"></a>
+ <h3>Valid and invalid states</h3>
+
+ <table border="0" cellspacing="0" cellpadding="0">
+ <tr><td>Method Name </p></td>
+     <td>Valid Sates </p></td>
+     <td>Invalid States </p></td>
+     <td>Comments </p></td></tr>
+ <tr><td>attachAuxEffect </p></td>
+     <td>{Initialized, Prepared, Started, Paused, Stopped, PlaybackCompleted} </p></td>
+     <td>{Idle, Error} </p></td>
+     <td>This method must be called after setDataSource.
+     Calling it does not change the object state. </p></td></tr>
+ <tr><td>getAudioSessionId </p></td>
+     <td>any </p></td>
+     <td>{} </p></td>
+     <td>This method can be called in any state and calling it does not change
+         the object state. </p></td></tr>
+ <tr><td>getCurrentPosition </p></td>
+     <td>{Idle, Initialized, Prepared, Started, Paused, Stopped,
+         PlaybackCompleted} </p></td>
+     <td>{Error}</p></td>
+     <td>Successful invoke of this method in a valid state does not change the
+         state. Calling this method in an invalid state transfers the object
+         to the <em>Error</em> state. </p></td></tr>
+ <tr><td>getDuration </p></td>
+     <td>{Prepared, Started, Paused, Stopped, PlaybackCompleted} </p></td>
+     <td>{Idle, Initialized, Error} </p></td>
+     <td>Successful invoke of this method in a valid state does not change the
+         state. Calling this method in an invalid state transfers the object
+         to the <em>Error</em> state. </p></td></tr>
+ <tr><td>getVideoHeight </p></td>
+     <td>{Idle, Initialized, Prepared, Started, Paused, Stopped,
+         PlaybackCompleted}</p></td>
+     <td>{Error}</p></td>
+     <td>Successful invoke of this method in a valid state does not change the
+         state. Calling this method in an invalid state transfers the object
+         to the <em>Error</em> state.  </p></td></tr>
+ <tr><td>getVideoWidth </p></td>
+     <td>{Idle, Initialized, Prepared, Started, Paused, Stopped,
+         PlaybackCompleted}</p></td>
+     <td>{Error}</p></td>
+     <td>Successful invoke of this method in a valid state does not change
+         the state. Calling this method in an invalid state transfers the
+         object to the <em>Error</em> state. </p></td></tr>
+ <tr><td>isPlaying </p></td>
+     <td>{Idle, Initialized, Prepared, Started, Paused, Stopped,
+          PlaybackCompleted}</p></td>
+     <td>{Error}</p></td>
+     <td>Successful invoke of this method in a valid state does not change
+         the state. Calling this method in an invalid state transfers the
+         object to the <em>Error</em> state. </p></td></tr>
+ <tr><td>pause </p></td>
+     <td>{Started, Paused}</p></td>
+     <td>{Idle, Initialized, Prepared, Stopped, PlaybackCompleted, Error}</p></td>
+     <td>Successful invoke of this method in a valid state transfers the
+         object to the <em>Paused</em> state. Calling this method in an
+         invalid state transfers the object to the <em>Error</em> state.</p></td></tr>
+ <tr><td>prepare </p></td>
+     <td>{Initialized, Stopped} </p></td>
+     <td>{Idle, Prepared, Started, Paused, PlaybackCompleted, Error} </p></td>
+     <td>Successful invoke of this method in a valid state transfers the
+         object to the <em>Prepared</em> state. Calling this method in an
+         invalid state throws an IllegalStateException.</p></td></tr>
+ <tr><td>prepareAsync </p></td>
+     <td>{Initialized, Stopped} </p></td>
+     <td>{Idle, Prepared, Started, Paused, PlaybackCompleted, Error} </p></td>
+     <td>Successful invoke of this method in a valid state transfers the
+         object to the <em>Preparing</em> state. Calling this method in an
+         invalid state throws an IllegalStateException.</p></td></tr>
+ <tr><td>release </p></td>
+     <td>any </p></td>
+     <td>{} </p></td>
+     <td>After <code><a href="../../../reference/android/media/MediaPlayer.html#release()">release()</a></code>, the object is no longer available. </p></td></tr>
+ <tr><td>reset </p></td>
+     <td>{Idle, Initialized, Prepared, Started, Paused, Stopped,
+         PlaybackCompleted, Error}</p></td>
+     <td>{}</p></td>
+     <td>After <code><a href="../../../reference/android/media/MediaPlayer.html#reset()">reset()</a></code>, the object is like being just created.</p></td></tr>
+ <tr><td>seekTo </p></td>
+     <td>{Prepared, Started, Paused, PlaybackCompleted} </p></td>
+     <td>{Idle, Initialized, Stopped, Error}</p></td>
+     <td>Successful invoke of this method in a valid state does not change
+         the state. Calling this method in an invalid state transfers the
+         object to the <em>Error</em> state. </p></td></tr>
+ <tr><td>setAudioSessionId </p></td>
+     <td>{Idle} </p></td>
+     <td>{Initialized, Prepared, Started, Paused, Stopped, PlaybackCompleted,
+          Error} </p></td>
+     <td>This method must be called in idle state as the audio session ID must be known before
+         calling setDataSource. Calling it does not change the object state. </p></td></tr>
+ <tr><td>setAudioStreamType </p></td>
+     <td>{Idle, Initialized, Stopped, Prepared, Started, Paused,
+          PlaybackCompleted}</p></td>
+     <td>{Error}</p></td>
+     <td>Successful invoke of this method does not change the state. In order for the
+         target audio stream type to become effective, this method must be called before
+         prepare() or prepareAsync().</p></td></tr>
+ <tr><td>setAuxEffectSendLevel </p></td>
+     <td>any</p></td>
+     <td>{} </p></td>
+     <td>Calling this method does not change the object state. </p></td></tr>
+ <tr><td>setDataSource </p></td>
+     <td>{Idle} </p></td>
+     <td>{Initialized, Prepared, Started, Paused, Stopped, PlaybackCompleted,
+          Error} </p></td>
+     <td>Successful invoke of this method in a valid state transfers the
+         object to the <em>Initialized</em> state. Calling this method in an
+         invalid state throws an IllegalStateException.</p></td></tr>
+ <tr><td>setDisplay </p></td>
+     <td>any </p></td>
+     <td>{} </p></td>
+     <td>This method can be called in any state and calling it does not change
+         the object state. </p></td></tr>
+ <tr><td>setSurface </p></td>
+     <td>any </p></td>
+     <td>{} </p></td>
+     <td>This method can be called in any state and calling it does not change
+         the object state. </p></td></tr>
+ <tr><td>setLooping </p></td>
+     <td>{Idle, Initialized, Stopped, Prepared, Started, Paused,
+         PlaybackCompleted}</p></td>
+     <td>{Error}</p></td>
+     <td>Successful invoke of this method in a valid state does not change
+         the state. Calling this method in an
+         invalid state transfers the object to the <em>Error</em> state.</p></td></tr>
+ <tr><td>isLooping </p></td>
+     <td>any </p></td>
+     <td>{} </p></td>
+     <td>This method can be called in any state and calling it does not change
+         the object state. </p></td></tr>
+ <tr><td>setOnBufferingUpdateListener </p></td>
+     <td>any </p></td>
+     <td>{} </p></td>
+     <td>This method can be called in any state and calling it does not change
+         the object state. </p></td></tr>
+ <tr><td>setOnCompletionListener </p></td>
+     <td>any </p></td>
+     <td>{} </p></td>
+     <td>This method can be called in any state and calling it does not change
+         the object state. </p></td></tr>
+ <tr><td>setOnErrorListener </p></td>
+     <td>any </p></td>
+     <td>{} </p></td>
+     <td>This method can be called in any state and calling it does not change
+         the object state. </p></td></tr>
+ <tr><td>setOnPreparedListener </p></td>
+     <td>any </p></td>
+     <td>{} </p></td>
+     <td>This method can be called in any state and calling it does not change
+         the object state. </p></td></tr>
+ <tr><td>setOnSeekCompleteListener </p></td>
+     <td>any </p></td>
+     <td>{} </p></td>
+     <td>This method can be called in any state and calling it does not change
+         the object state. </p></td></tr>
+ <tr><td>setScreenOnWhilePlaying</></td>
+     <td>any </p></td>
+     <td>{} </p></td>
+     <td>This method can be called in any state and calling it does not change
+         the object state.  </p></td></tr>
+ <tr><td>setVolume </p></td>
+     <td>{Idle, Initialized, Stopped, Prepared, Started, Paused,
+          PlaybackCompleted}</p></td>
+     <td>{Error}</p></td>
+     <td>Successful invoke of this method does not change the state.
+ <tr><td>setWakeMode </p></td>
+     <td>any </p></td>
+     <td>{} </p></td>
+     <td>This method can be called in any state and calling it does not change
+         the object state.</p></td></tr>
+ <tr><td>start </p></td>
+     <td>{Prepared, Started, Paused, PlaybackCompleted}</p></td>
+     <td>{Idle, Initialized, Stopped, Error}</p></td>
+     <td>Successful invoke of this method in a valid state transfers the
+         object to the <em>Started</em> state. Calling this method in an
+         invalid state transfers the object to the <em>Error</em> state.</p></td></tr>
+ <tr><td>stop </p></td>
+     <td>{Prepared, Started, Stopped, Paused, PlaybackCompleted}</p></td>
+     <td>{Idle, Initialized, Error}</p></td>
+     <td>Successful invoke of this method in a valid state transfers the
+         object to the <em>Stopped</em> state. Calling this method in an
+         invalid state transfers the object to the <em>Error</em> state.</p></td></tr>
+
+ </table>
+
+ <a name="Permissions"></a>
+ <h3>Permissions</h3>
+ <p>One may need to declare a corresponding WAKE_LOCK permission <code><a href="../../../reference/android/R.styleable.html#AndroidManifestUsesPermission">&lt;uses-permission&gt;</a></code>
+ element.
+
+ <p>This class requires the <code><a href="../../../reference/android/Manifest.permission.html#INTERNET">INTERNET</a></code> permission
+ when used with network-based content.
+
+ <a name="Callbacks"></a>
+ <h3>Callbacks</h3>
+ <p>Applications may want to register for informational and error
+ events in order to be informed of some internal state update and
+ possible runtime errors during playback or streaming. Registration for
+ these events is done by properly setting the appropriate listeners (via calls
+ to
+ <code><a href="../../../reference/android/media/MediaPlayer.html#setOnPreparedListener(android.media.MediaPlayer.OnPreparedListener)">setOnPreparedListener(OnPreparedListener)</a></code>setOnPreparedListener,
+ <code><a href="../../../reference/android/media/MediaPlayer.html#setOnVideoSizeChangedListener(android.media.MediaPlayer.OnVideoSizeChangedListener)">setOnVideoSizeChangedListener(OnVideoSizeChangedListener)</a></code>setOnVideoSizeChangedListener,
+ <code><a href="../../../reference/android/media/MediaPlayer.html#setOnSeekCompleteListener(android.media.MediaPlayer.OnSeekCompleteListener)">setOnSeekCompleteListener(OnSeekCompleteListener)</a></code>setOnSeekCompleteListener,
+ <code><a href="../../../reference/android/media/MediaPlayer.html#setOnCompletionListener(android.media.MediaPlayer.OnCompletionListener)">setOnCompletionListener(OnCompletionListener)</a></code>setOnCompletionListener,
+ <code><a href="../../../reference/android/media/MediaPlayer.html#setOnBufferingUpdateListener(android.media.MediaPlayer.OnBufferingUpdateListener)">setOnBufferingUpdateListener(OnBufferingUpdateListener)</a></code>setOnBufferingUpdateListener,
+ <code><a href="../../../reference/android/media/MediaPlayer.html#setOnInfoListener(android.media.MediaPlayer.OnInfoListener)">setOnInfoListener(OnInfoListener)</a></code>setOnInfoListener,
+ <code><a href="../../../reference/android/media/MediaPlayer.html#setOnErrorListener(android.media.MediaPlayer.OnErrorListener)">setOnErrorListener(OnErrorListener)</a></code>setOnErrorListener, etc).
+ In order to receive the respective callback
+ associated with these listeners, applications are required to create
+ MediaPlayer objects on a thread with its own Looper running (main UI
+ thread by default has a Looper running).
+
+</p>
+
+
+
+
+
+</div><!-- jd-descr -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="jd-descr">
+
+
+<h2>Summary</h2>
+
+
+
+<!-- ======== NESTED CLASS SUMMARY ======== -->
+<table id="nestedclasses" class="jd-sumtable"><tr><th colspan="12">Nested Classes</th></tr>
+
+
+  
+    <tr class="alt-color api apilevel-1" >
+      <td class="jd-typecol"><nobr>
+        
+         
+         
+        
+        interface</nobr></td>
+      <td class="jd-linkcol"><a href="../../../reference/android/media/MediaPlayer.OnBufferingUpdateListener.html">MediaPlayer.OnBufferingUpdateListener</a></td>
+      <td class="jd-descrcol" width="100%">Interface definition of a callback to be invoked indicating buffering
+ status of a media resource being streamed over the network.&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-1" >
+      <td class="jd-typecol"><nobr>
+        
+         
+         
+        
+        interface</nobr></td>
+      <td class="jd-linkcol"><a href="../../../reference/android/media/MediaPlayer.OnCompletionListener.html">MediaPlayer.OnCompletionListener</a></td>
+      <td class="jd-descrcol" width="100%">Interface definition for a callback to be invoked when playback of
+ a media source has completed.&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-1" >
+      <td class="jd-typecol"><nobr>
+        
+         
+         
+        
+        interface</nobr></td>
+      <td class="jd-linkcol"><a href="../../../reference/android/media/MediaPlayer.OnErrorListener.html">MediaPlayer.OnErrorListener</a></td>
+      <td class="jd-descrcol" width="100%">Interface definition of a callback to be invoked when there
+ has been an error during an asynchronous operation (other errors
+ will throw exceptions at method call time).&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-3" >
+      <td class="jd-typecol"><nobr>
+        
+         
+         
+        
+        interface</nobr></td>
+      <td class="jd-linkcol"><a href="../../../reference/android/media/MediaPlayer.OnInfoListener.html">MediaPlayer.OnInfoListener</a></td>
+      <td class="jd-descrcol" width="100%">Interface definition of a callback to be invoked to communicate some
+ info and/or warning about the media or its playback.&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-1" >
+      <td class="jd-typecol"><nobr>
+        
+         
+         
+        
+        interface</nobr></td>
+      <td class="jd-linkcol"><a href="../../../reference/android/media/MediaPlayer.OnPreparedListener.html">MediaPlayer.OnPreparedListener</a></td>
+      <td class="jd-descrcol" width="100%">Interface definition for a callback to be invoked when the media
+ source is ready for playback.&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-1" >
+      <td class="jd-typecol"><nobr>
+        
+         
+         
+        
+        interface</nobr></td>
+      <td class="jd-linkcol"><a href="../../../reference/android/media/MediaPlayer.OnSeekCompleteListener.html">MediaPlayer.OnSeekCompleteListener</a></td>
+      <td class="jd-descrcol" width="100%">Interface definition of a callback to be invoked indicating
+ the completion of a seek operation.&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-3" >
+      <td class="jd-typecol"><nobr>
+        
+         
+         
+        
+        interface</nobr></td>
+      <td class="jd-linkcol"><a href="../../../reference/android/media/MediaPlayer.OnVideoSizeChangedListener.html">MediaPlayer.OnVideoSizeChangedListener</a></td>
+      <td class="jd-descrcol" width="100%">Interface definition of a callback to be invoked when the
+ video size is first known or updated
+&nbsp;</td>
+    </tr>
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- =========== ENUM CONSTANT SUMMARY =========== -->
+<table id="constants" class="jd-sumtable"><tr><th colspan="12">Constants</th></tr>
+
+
+    
+    <tr class="alt-color api apilevel-3" >
+        <td class="jd-typecol">int</td>
+        <td class="jd-linkcol"><a href="../../../reference/android/media/MediaPlayer.html#MEDIA_ERROR_NOT_VALID_FOR_PROGRESSIVE_PLAYBACK">MEDIA_ERROR_NOT_VALID_FOR_PROGRESSIVE_PLAYBACK</a></td>
+        <td class="jd-descrcol" width="100%">The video is streamed and its container is not valid for progressive
+ playback i.e the video's index (e.g moov atom) is not at the start of the
+ file.</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol">int</td>
+        <td class="jd-linkcol"><a href="../../../reference/android/media/MediaPlayer.html#MEDIA_ERROR_SERVER_DIED">MEDIA_ERROR_SERVER_DIED</a></td>
+        <td class="jd-descrcol" width="100%">Media server died.</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol">int</td>
+        <td class="jd-linkcol"><a href="../../../reference/android/media/MediaPlayer.html#MEDIA_ERROR_UNKNOWN">MEDIA_ERROR_UNKNOWN</a></td>
+        <td class="jd-descrcol" width="100%">Unspecified media player error.</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-3" >
+        <td class="jd-typecol">int</td>
+        <td class="jd-linkcol"><a href="../../../reference/android/media/MediaPlayer.html#MEDIA_INFO_BAD_INTERLEAVING">MEDIA_INFO_BAD_INTERLEAVING</a></td>
+        <td class="jd-descrcol" width="100%">Bad interleaving means that a media has been improperly interleaved or
+ not interleaved at all, e.g has all the video samples first then all the
+ audio ones.</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-9" >
+        <td class="jd-typecol">int</td>
+        <td class="jd-linkcol"><a href="../../../reference/android/media/MediaPlayer.html#MEDIA_INFO_BUFFERING_END">MEDIA_INFO_BUFFERING_END</a></td>
+        <td class="jd-descrcol" width="100%">MediaPlayer is resuming playback after filling buffers.</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-9" >
+        <td class="jd-typecol">int</td>
+        <td class="jd-linkcol"><a href="../../../reference/android/media/MediaPlayer.html#MEDIA_INFO_BUFFERING_START">MEDIA_INFO_BUFFERING_START</a></td>
+        <td class="jd-descrcol" width="100%">MediaPlayer is temporarily pausing playback internally in order to
+ buffer more data.</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-5" >
+        <td class="jd-typecol">int</td>
+        <td class="jd-linkcol"><a href="../../../reference/android/media/MediaPlayer.html#MEDIA_INFO_METADATA_UPDATE">MEDIA_INFO_METADATA_UPDATE</a></td>
+        <td class="jd-descrcol" width="100%">A new set of metadata is available.</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-3" >
+        <td class="jd-typecol">int</td>
+        <td class="jd-linkcol"><a href="../../../reference/android/media/MediaPlayer.html#MEDIA_INFO_NOT_SEEKABLE">MEDIA_INFO_NOT_SEEKABLE</a></td>
+        <td class="jd-descrcol" width="100%">The media cannot be seeked (e.g live stream)</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-3" >
+        <td class="jd-typecol">int</td>
+        <td class="jd-linkcol"><a href="../../../reference/android/media/MediaPlayer.html#MEDIA_INFO_UNKNOWN">MEDIA_INFO_UNKNOWN</a></td>
+        <td class="jd-descrcol" width="100%">Unspecified media player info.</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-3" >
+        <td class="jd-typecol">int</td>
+        <td class="jd-linkcol"><a href="../../../reference/android/media/MediaPlayer.html#MEDIA_INFO_VIDEO_TRACK_LAGGING">MEDIA_INFO_VIDEO_TRACK_LAGGING</a></td>
+        <td class="jd-descrcol" width="100%">The video is too complex for the decoder: it can't decode frames fast
+  enough.</td>
+    </tr>
+    
+    
+
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+<table id="pubctors" class="jd-sumtable"><tr><th colspan="12">Public Constructors</th></tr>
+
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            </nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/media/MediaPlayer.html#MediaPlayer()">MediaPlayer</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Default constructor.</div>
+  
+  </td></tr>
+
+
+
+</table>
+
+
+
+
+
+
+<!-- ========== METHOD SUMMARY =========== -->
+<table id="pubmethods" class="jd-sumtable"><tr><th colspan="12">Public Methods</th></tr>
+
+
+
+	 
+    <tr class="alt-color api apilevel-9" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/media/MediaPlayer.html#attachAuxEffect(int)">attachAuxEffect</a></span>(int effectId)</nobr>
+        
+        <div class="jd-descrdiv">Attaches an auxiliary effect to the player.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            static
+            
+            <a href="../../../reference/android/media/MediaPlayer.html">MediaPlayer</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/media/MediaPlayer.html#create(android.content.Context, android.net.Uri, android.view.SurfaceHolder)">create</a></span>(<a href="../../../reference/android/content/Context.html">Context</a> context, <a href="../../../reference/android/net/Uri.html">Uri</a> uri, <a href="../../../reference/android/view/SurfaceHolder.html">SurfaceHolder</a> holder)</nobr>
+        
+        <div class="jd-descrdiv">Convenience method to create a MediaPlayer for a given Uri.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            static
+            
+            <a href="../../../reference/android/media/MediaPlayer.html">MediaPlayer</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/media/MediaPlayer.html#create(android.content.Context, int)">create</a></span>(<a href="../../../reference/android/content/Context.html">Context</a> context, int resid)</nobr>
+        
+        <div class="jd-descrdiv">Convenience method to create a MediaPlayer for a given resource id.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            static
+            
+            <a href="../../../reference/android/media/MediaPlayer.html">MediaPlayer</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/media/MediaPlayer.html#create(android.content.Context, android.net.Uri)">create</a></span>(<a href="../../../reference/android/content/Context.html">Context</a> context, <a href="../../../reference/android/net/Uri.html">Uri</a> uri)</nobr>
+        
+        <div class="jd-descrdiv">Convenience method to create a MediaPlayer for a given Uri.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-9" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/media/MediaPlayer.html#getAudioSessionId()">getAudioSessionId</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Returns the audio session ID.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/media/MediaPlayer.html#getCurrentPosition()">getCurrentPosition</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Gets the current playback position.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/media/MediaPlayer.html#getDuration()">getDuration</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Gets the duration of the file.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/media/MediaPlayer.html#getVideoHeight()">getVideoHeight</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Returns the height of the video.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/media/MediaPlayer.html#getVideoWidth()">getVideoWidth</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Returns the width of the video.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-3" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/media/MediaPlayer.html#isLooping()">isLooping</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Checks whether the MediaPlayer is looping or non-looping.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/media/MediaPlayer.html#isPlaying()">isPlaying</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Checks whether the MediaPlayer is playing.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/media/MediaPlayer.html#pause()">pause</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Pauses playback.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/media/MediaPlayer.html#prepare()">prepare</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Prepares the player for playback, synchronously.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/media/MediaPlayer.html#prepareAsync()">prepareAsync</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Prepares the player for playback, asynchronously.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/media/MediaPlayer.html#release()">release</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Releases resources associated with this MediaPlayer object.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/media/MediaPlayer.html#reset()">reset</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Resets the MediaPlayer to its uninitialized state.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/media/MediaPlayer.html#seekTo(int)">seekTo</a></span>(int msec)</nobr>
+        
+        <div class="jd-descrdiv">Seeks to specified time position.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-9" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/media/MediaPlayer.html#setAudioSessionId(int)">setAudioSessionId</a></span>(int sessionId)</nobr>
+        
+        <div class="jd-descrdiv">Sets the audio session ID.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/media/MediaPlayer.html#setAudioStreamType(int)">setAudioStreamType</a></span>(int streamtype)</nobr>
+        
+        <div class="jd-descrdiv">Sets the audio stream type for this MediaPlayer.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-9" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/media/MediaPlayer.html#setAuxEffectSendLevel(float)">setAuxEffectSendLevel</a></span>(float level)</nobr>
+        
+        <div class="jd-descrdiv">Sets the send level of the player to the attached auxiliary effect
+ .</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/media/MediaPlayer.html#setDataSource(java.lang.String)">setDataSource</a></span>(<a href="../../../reference/java/lang/String.html">String</a> path)</nobr>
+        
+        <div class="jd-descrdiv">Sets the data source (file-path or http/rtsp URL) to use.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/media/MediaPlayer.html#setDataSource(java.io.FileDescriptor, long, long)">setDataSource</a></span>(<a href="../../../reference/java/io/FileDescriptor.html">FileDescriptor</a> fd, long offset, long length)</nobr>
+        
+        <div class="jd-descrdiv">Sets the data source (FileDescriptor) to use.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/media/MediaPlayer.html#setDataSource(java.io.FileDescriptor)">setDataSource</a></span>(<a href="../../../reference/java/io/FileDescriptor.html">FileDescriptor</a> fd)</nobr>
+        
+        <div class="jd-descrdiv">Sets the data source (FileDescriptor) to use.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-14" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/media/MediaPlayer.html#setDataSource(android.content.Context, android.net.Uri, java.util.Map<java.lang.String, java.lang.String>)">setDataSource</a></span>(<a href="../../../reference/android/content/Context.html">Context</a> context, <a href="../../../reference/android/net/Uri.html">Uri</a> uri, <a href="../../../reference/java/util/Map.html">Map</a>&lt;<a href="../../../reference/java/lang/String.html">String</a>,&nbsp;<a href="../../../reference/java/lang/String.html">String</a>&gt; headers)</nobr>
+        
+        <div class="jd-descrdiv">Sets the data source as a content Uri.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/media/MediaPlayer.html#setDataSource(android.content.Context, android.net.Uri)">setDataSource</a></span>(<a href="../../../reference/android/content/Context.html">Context</a> context, <a href="../../../reference/android/net/Uri.html">Uri</a> uri)</nobr>
+        
+        <div class="jd-descrdiv">Sets the data source as a content Uri.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/media/MediaPlayer.html#setDisplay(android.view.SurfaceHolder)">setDisplay</a></span>(<a href="../../../reference/android/view/SurfaceHolder.html">SurfaceHolder</a> sh)</nobr>
+        
+        <div class="jd-descrdiv">Sets the <code><a href="../../../reference/android/view/SurfaceHolder.html">SurfaceHolder</a></code> to use for displaying the video
+ portion of the media.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/media/MediaPlayer.html#setLooping(boolean)">setLooping</a></span>(boolean looping)</nobr>
+        
+        <div class="jd-descrdiv">Sets the player to be looping or non-looping.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/media/MediaPlayer.html#setOnBufferingUpdateListener(android.media.MediaPlayer.OnBufferingUpdateListener)">setOnBufferingUpdateListener</a></span>(<a href="../../../reference/android/media/MediaPlayer.OnBufferingUpdateListener.html">MediaPlayer.OnBufferingUpdateListener</a> listener)</nobr>
+        
+        <div class="jd-descrdiv">Register a callback to be invoked when the status of a network
+ stream's buffer has changed.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/media/MediaPlayer.html#setOnCompletionListener(android.media.MediaPlayer.OnCompletionListener)">setOnCompletionListener</a></span>(<a href="../../../reference/android/media/MediaPlayer.OnCompletionListener.html">MediaPlayer.OnCompletionListener</a> listener)</nobr>
+        
+        <div class="jd-descrdiv">Register a callback to be invoked when the end of a media source
+ has been reached during playback.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/media/MediaPlayer.html#setOnErrorListener(android.media.MediaPlayer.OnErrorListener)">setOnErrorListener</a></span>(<a href="../../../reference/android/media/MediaPlayer.OnErrorListener.html">MediaPlayer.OnErrorListener</a> listener)</nobr>
+        
+        <div class="jd-descrdiv">Register a callback to be invoked when an error has happened
+ during an asynchronous operation.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-3" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/media/MediaPlayer.html#setOnInfoListener(android.media.MediaPlayer.OnInfoListener)">setOnInfoListener</a></span>(<a href="../../../reference/android/media/MediaPlayer.OnInfoListener.html">MediaPlayer.OnInfoListener</a> listener)</nobr>
+        
+        <div class="jd-descrdiv">Register a callback to be invoked when an info/warning is available.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/media/MediaPlayer.html#setOnPreparedListener(android.media.MediaPlayer.OnPreparedListener)">setOnPreparedListener</a></span>(<a href="../../../reference/android/media/MediaPlayer.OnPreparedListener.html">MediaPlayer.OnPreparedListener</a> listener)</nobr>
+        
+        <div class="jd-descrdiv">Register a callback to be invoked when the media source is ready
+ for playback.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/media/MediaPlayer.html#setOnSeekCompleteListener(android.media.MediaPlayer.OnSeekCompleteListener)">setOnSeekCompleteListener</a></span>(<a href="../../../reference/android/media/MediaPlayer.OnSeekCompleteListener.html">MediaPlayer.OnSeekCompleteListener</a> listener)</nobr>
+        
+        <div class="jd-descrdiv">Register a callback to be invoked when a seek operation has been
+ completed.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-3" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/media/MediaPlayer.html#setOnVideoSizeChangedListener(android.media.MediaPlayer.OnVideoSizeChangedListener)">setOnVideoSizeChangedListener</a></span>(<a href="../../../reference/android/media/MediaPlayer.OnVideoSizeChangedListener.html">MediaPlayer.OnVideoSizeChangedListener</a> listener)</nobr>
+        
+        <div class="jd-descrdiv">Register a callback to be invoked when the video size is
+ known or updated.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/media/MediaPlayer.html#setScreenOnWhilePlaying(boolean)">setScreenOnWhilePlaying</a></span>(boolean screenOn)</nobr>
+        
+        <div class="jd-descrdiv">Control whether we should use the attached SurfaceHolder to keep the
+ screen on while video playback is occurring.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-14" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/media/MediaPlayer.html#setSurface(android.view.Surface)">setSurface</a></span>(<a href="../../../reference/android/view/Surface.html">Surface</a> surface)</nobr>
+        
+        <div class="jd-descrdiv">Sets the <code><a href="../../../reference/android/view/Surface.html">Surface</a></code> to be used as the sink for the video portion of
+ the media.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/media/MediaPlayer.html#setVolume(float, float)">setVolume</a></span>(float leftVolume, float rightVolume)</nobr>
+        
+        <div class="jd-descrdiv">Sets the volume on this player.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/media/MediaPlayer.html#setWakeMode(android.content.Context, int)">setWakeMode</a></span>(<a href="../../../reference/android/content/Context.html">Context</a> context, int mode)</nobr>
+        
+        <div class="jd-descrdiv">Set the low-level power management behavior for this MediaPlayer.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/media/MediaPlayer.html#start()">start</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Starts or resumes playback.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/media/MediaPlayer.html#stop()">stop</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Stops playback after playback has been stopped or paused.</div>
+  
+  </td></tr>
+
+
+
+</table>
+
+
+
+
+<!-- ========== METHOD SUMMARY =========== -->
+<table id="promethods" class="jd-sumtable"><tr><th colspan="12">Protected Methods</th></tr>
+
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/media/MediaPlayer.html#finalize()">finalize</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Invoked when the garbage collector has detected that this instance is no longer reachable.</div>
+  
+  </td></tr>
+
+
+
+</table>
+
+
+
+
+
+<!-- ========== METHOD SUMMARY =========== -->
+<table id="inhmethods" class="jd-sumtable"><tr><th>
+  <a href="#" class="toggle-all" onclick="return toggleAllInherited(this, null)">[Expand]</a>
+  <div style="clear:left;">Inherited Methods</div></th></tr>
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-java.lang.Object" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-java.lang.Object-trigger"
+          src="../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From class
+
+  <a href="../../../reference/java/lang/Object.html">java.lang.Object</a>
+
+<div id="inherited-methods-java.lang.Object">
+  <div id="inherited-methods-java.lang.Object-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-java.lang.Object-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../reference/java/lang/Object.html">Object</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/java/lang/Object.html#clone()">clone</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Creates and returns a copy of this <code>Object</code>.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/java/lang/Object.html#equals(java.lang.Object)">equals</a></span>(<a href="../../../reference/java/lang/Object.html">Object</a> o)</nobr>
+        
+        <div class="jd-descrdiv">Compares this instance with the specified object and indicates if they
+ are equal.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/java/lang/Object.html#finalize()">finalize</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Invoked when the garbage collector has detected that this instance is no longer reachable.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            <a href="../../../reference/java/lang/Class.html">Class</a>&lt;?&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/java/lang/Object.html#getClass()">getClass</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Returns the unique instance of <code><a href="../../../reference/java/lang/Class.html">Class</a></code> that represents this
+ object's class.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/java/lang/Object.html#hashCode()">hashCode</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Returns an integer hash code for this object.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/java/lang/Object.html#notify()">notify</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Causes a thread which is waiting on this object's monitor (by means of
+ calling one of the <code>wait()</code> methods) to be woken up.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/java/lang/Object.html#notifyAll()">notifyAll</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Causes all threads which are waiting on this object's monitor (by means
+ of calling one of the <code>wait()</code> methods) to be woken up.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../reference/java/lang/String.html">String</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/java/lang/Object.html#toString()">toString</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Returns a string containing a concise, human-readable description of this
+ object.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/java/lang/Object.html#wait()">wait</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/java/lang/Object.html#wait(long, int)">wait</a></span>(long millis, int nanos)</nobr>
+        
+        <div class="jd-descrdiv">Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
+ specified timeout expires.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/java/lang/Object.html#wait(long)">wait</a></span>(long millis)</nobr>
+        
+        <div class="jd-descrdiv">Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
+ specified timeout expires.</div>
+  
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+</table>
+
+
+</div><!-- jd-descr (summary) -->
+
+<!-- Details -->
+
+
+
+
+
+
+
+
+<!-- XML Attributes -->
+
+
+<!-- Enum Values -->
+
+
+<!-- Constants -->
+
+
+<!-- ========= ENUM CONSTANTS DETAIL ======== -->
+<h2>Constants</h2>
+
+
+
+
+<A NAME="MEDIA_ERROR_NOT_VALID_FOR_PROGRESSIVE_PLAYBACK"></A>
+
+<div class="jd-details api apilevel-3"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        int
+      </span>
+        MEDIA_ERROR_NOT_VALID_FOR_PROGRESSIVE_PLAYBACK
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level3">API Level 3</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>The video is streamed and its container is not valid for progressive
+ playback i.e the video's index (e.g moov atom) is not at the start of the
+ file.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">See Also</h5>
+      <ul class="nolist"><li><code><a href="../../../reference/android/media/MediaPlayer.OnErrorListener.html">MediaPlayer.OnErrorListener</a></code></li>
+      </ul>
+  </div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                200
+                (0x000000c8)
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="MEDIA_ERROR_SERVER_DIED"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        int
+      </span>
+        MEDIA_ERROR_SERVER_DIED
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Media server died. In this case, the application must release the
+ MediaPlayer object and instantiate a new one.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">See Also</h5>
+      <ul class="nolist"><li><code><a href="../../../reference/android/media/MediaPlayer.OnErrorListener.html">MediaPlayer.OnErrorListener</a></code></li>
+      </ul>
+  </div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                100
+                (0x00000064)
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="MEDIA_ERROR_UNKNOWN"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        int
+      </span>
+        MEDIA_ERROR_UNKNOWN
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Unspecified media player error.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">See Also</h5>
+      <ul class="nolist"><li><code><a href="../../../reference/android/media/MediaPlayer.OnErrorListener.html">MediaPlayer.OnErrorListener</a></code></li>
+      </ul>
+  </div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                1
+                (0x00000001)
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="MEDIA_INFO_BAD_INTERLEAVING"></A>
+
+<div class="jd-details api apilevel-3"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        int
+      </span>
+        MEDIA_INFO_BAD_INTERLEAVING
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level3">API Level 3</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Bad interleaving means that a media has been improperly interleaved or
+ not interleaved at all, e.g has all the video samples first then all the
+ audio ones. Video is playing but a lot of disk seeks may be happening.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">See Also</h5>
+      <ul class="nolist"><li><code><a href="../../../reference/android/media/MediaPlayer.OnInfoListener.html">MediaPlayer.OnInfoListener</a></code></li>
+      </ul>
+  </div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                800
+                (0x00000320)
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="MEDIA_INFO_BUFFERING_END"></A>
+
+<div class="jd-details api apilevel-9"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        int
+      </span>
+        MEDIA_INFO_BUFFERING_END
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level9">API Level 9</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>MediaPlayer is resuming playback after filling buffers.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">See Also</h5>
+      <ul class="nolist"><li><code><a href="../../../reference/android/media/MediaPlayer.OnInfoListener.html">MediaPlayer.OnInfoListener</a></code></li>
+      </ul>
+  </div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                702
+                (0x000002be)
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="MEDIA_INFO_BUFFERING_START"></A>
+
+<div class="jd-details api apilevel-9"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        int
+      </span>
+        MEDIA_INFO_BUFFERING_START
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level9">API Level 9</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>MediaPlayer is temporarily pausing playback internally in order to
+ buffer more data.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">See Also</h5>
+      <ul class="nolist"><li><code><a href="../../../reference/android/media/MediaPlayer.OnInfoListener.html">MediaPlayer.OnInfoListener</a></code></li>
+      </ul>
+  </div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                701
+                (0x000002bd)
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="MEDIA_INFO_METADATA_UPDATE"></A>
+
+<div class="jd-details api apilevel-5"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        int
+      </span>
+        MEDIA_INFO_METADATA_UPDATE
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level5">API Level 5</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>A new set of metadata is available.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">See Also</h5>
+      <ul class="nolist"><li><code><a href="../../../reference/android/media/MediaPlayer.OnInfoListener.html">MediaPlayer.OnInfoListener</a></code></li>
+      </ul>
+  </div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                802
+                (0x00000322)
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="MEDIA_INFO_NOT_SEEKABLE"></A>
+
+<div class="jd-details api apilevel-3"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        int
+      </span>
+        MEDIA_INFO_NOT_SEEKABLE
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level3">API Level 3</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>The media cannot be seeked (e.g live stream)</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">See Also</h5>
+      <ul class="nolist"><li><code><a href="../../../reference/android/media/MediaPlayer.OnInfoListener.html">MediaPlayer.OnInfoListener</a></code></li>
+      </ul>
+  </div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                801
+                (0x00000321)
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="MEDIA_INFO_UNKNOWN"></A>
+
+<div class="jd-details api apilevel-3"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        int
+      </span>
+        MEDIA_INFO_UNKNOWN
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level3">API Level 3</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Unspecified media player info.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">See Also</h5>
+      <ul class="nolist"><li><code><a href="../../../reference/android/media/MediaPlayer.OnInfoListener.html">MediaPlayer.OnInfoListener</a></code></li>
+      </ul>
+  </div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                1
+                (0x00000001)
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="MEDIA_INFO_VIDEO_TRACK_LAGGING"></A>
+
+<div class="jd-details api apilevel-3"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        int
+      </span>
+        MEDIA_INFO_VIDEO_TRACK_LAGGING
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level3">API Level 3</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>The video is too complex for the decoder: it can't decode frames fast
+  enough. Possibly only the audio plays fine at this stage.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">See Also</h5>
+      <ul class="nolist"><li><code><a href="../../../reference/android/media/MediaPlayer.OnInfoListener.html">MediaPlayer.OnInfoListener</a></code></li>
+      </ul>
+  </div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                700
+                (0x000002bc)
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+
+<!-- Fields -->
+
+
+<!-- Public ctors -->
+
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<h2>Public Constructors</h2>
+
+
+
+<A NAME="MediaPlayer()"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        
+      </span>
+      <span class="sympad">MediaPlayer</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Default constructor. Consider using one of the create() methods for
+ synchronously instantiating a MediaPlayer from a Uri or resource.
+ <p>When done with the MediaPlayer, you should call  <code><a href="../../../reference/android/media/MediaPlayer.html#release()">release()</a></code>,
+ to free the resources. If not released, too many MediaPlayer instances may
+ result in an exception.</p>
+</p></div>
+
+    </div>
+</div>
+
+
+
+
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<!-- Protected ctors -->
+
+
+
+<!-- ========= METHOD DETAIL ======== -->
+<!-- Public methdos -->
+
+<h2>Public Methods</h2>
+
+
+
+<A NAME="attachAuxEffect(int)"></A>
+
+<div class="jd-details api apilevel-9"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">attachAuxEffect</span>
+      <span class="normal">(int effectId)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level9">API Level 9</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Attaches an auxiliary effect to the player. A typical auxiliary effect is a reverberation
+ effect which can be applied on any sound source that directs a certain amount of its
+ energy to this effect. This amount is defined by setAuxEffectSendLevel().
+ .
+ <p>After creating an auxiliary effect (e.g.
+ <code><a href="../../../reference/android/media/audiofx/EnvironmentalReverb.html">EnvironmentalReverb</a></code>), retrieve its ID with
+ <code><a href="../../../reference/android/media/audiofx/AudioEffect.html#getId()">getId()</a></code> and use it when calling this method
+ to attach the player to the effect.
+ <p>To detach the effect from the player, call this method with a null effect id.
+ <p>This method must be called after one of the overloaded <code> setDataSource </code>
+ methods.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>effectId</td>
+          <td>system wide unique id of the effect to attach
+</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">See Also</h5>
+      <ul class="nolist"><li><code><a href="../../../reference/android/media/MediaPlayer.html#setAuxEffectSendLevel(float)">setAuxEffectSendLevel(float)</a></code></li>
+      </ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="create(android.content.Context, android.net.Uri, android.view.SurfaceHolder)"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        <a href="../../../reference/android/media/MediaPlayer.html">MediaPlayer</a>
+      </span>
+      <span class="sympad">create</span>
+      <span class="normal">(<a href="../../../reference/android/content/Context.html">Context</a> context, <a href="../../../reference/android/net/Uri.html">Uri</a> uri, <a href="../../../reference/android/view/SurfaceHolder.html">SurfaceHolder</a> holder)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Convenience method to create a MediaPlayer for a given Uri.
+ On success, <code><a href="../../../reference/android/media/MediaPlayer.html#prepare()">prepare()</a></code> will already have been called and must not be called again.
+ <p>When done with the MediaPlayer, you should call  <code><a href="../../../reference/android/media/MediaPlayer.html#release()">release()</a></code>,
+ to free the resources. If not released, too many MediaPlayer instances will
+ result in an exception.</p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>context</td>
+          <td>the Context to use</td>
+        </tr>
+        <tr>
+          <th>uri</td>
+          <td>the Uri from which to get the datasource</td>
+        </tr>
+        <tr>
+          <th>holder</td>
+          <td>the SurfaceHolder to use for displaying the video</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>a MediaPlayer object, or null if creation failed
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="create(android.content.Context, int)"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        <a href="../../../reference/android/media/MediaPlayer.html">MediaPlayer</a>
+      </span>
+      <span class="sympad">create</span>
+      <span class="normal">(<a href="../../../reference/android/content/Context.html">Context</a> context, int resid)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Convenience method to create a MediaPlayer for a given resource id.
+ On success, <code><a href="../../../reference/android/media/MediaPlayer.html#prepare()">prepare()</a></code> will already have been called and must not be called again.
+ <p>When done with the MediaPlayer, you should call  <code><a href="../../../reference/android/media/MediaPlayer.html#release()">release()</a></code>,
+ to free the resources. If not released, too many MediaPlayer instances will
+ result in an exception.</p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>context</td>
+          <td>the Context to use</td>
+        </tr>
+        <tr>
+          <th>resid</td>
+          <td>the raw resource id (<var>R.raw.&lt;something></var>) for
+              the resource to use as the datasource</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>a MediaPlayer object, or null if creation failed
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="create(android.content.Context, android.net.Uri)"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        <a href="../../../reference/android/media/MediaPlayer.html">MediaPlayer</a>
+      </span>
+      <span class="sympad">create</span>
+      <span class="normal">(<a href="../../../reference/android/content/Context.html">Context</a> context, <a href="../../../reference/android/net/Uri.html">Uri</a> uri)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Convenience method to create a MediaPlayer for a given Uri.
+ On success, <code><a href="../../../reference/android/media/MediaPlayer.html#prepare()">prepare()</a></code> will already have been called and must not be called again.
+ <p>When done with the MediaPlayer, you should call  <code><a href="../../../reference/android/media/MediaPlayer.html#release()">release()</a></code>,
+ to free the resources. If not released, too many MediaPlayer instances will
+ result in an exception.</p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>context</td>
+          <td>the Context to use</td>
+        </tr>
+        <tr>
+          <th>uri</td>
+          <td>the Uri from which to get the datasource</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>a MediaPlayer object, or null if creation failed
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getAudioSessionId()"></A>
+
+<div class="jd-details api apilevel-9"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        int
+      </span>
+      <span class="sympad">getAudioSessionId</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level9">API Level 9</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Returns the audio session ID.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the audio session ID. 
+ Note that the audio session ID is 0 only if a problem occured when the MediaPlayer was contructed.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getCurrentPosition()"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        int
+      </span>
+      <span class="sympad">getCurrentPosition</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Gets the current playback position.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the current position in milliseconds
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getDuration()"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        int
+      </span>
+      <span class="sympad">getDuration</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Gets the duration of the file.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the duration in milliseconds
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getVideoHeight()"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        int
+      </span>
+      <span class="sympad">getVideoHeight</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Returns the height of the video.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the height of the video, or 0 if there is no video,
+ no display surface was set, or the height has not been determined
+ yet. The OnVideoSizeChangedListener can be registered via
+ <code><a href="../../../reference/android/media/MediaPlayer.html#setOnVideoSizeChangedListener(android.media.MediaPlayer.OnVideoSizeChangedListener)">setOnVideoSizeChangedListener(OnVideoSizeChangedListener)</a></code>
+ to provide a notification when the height is available.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getVideoWidth()"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        int
+      </span>
+      <span class="sympad">getVideoWidth</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Returns the width of the video.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the width of the video, or 0 if there is no video,
+ no display surface was set, or the width has not been determined
+ yet. The OnVideoSizeChangedListener can be registered via
+ <code><a href="../../../reference/android/media/MediaPlayer.html#setOnVideoSizeChangedListener(android.media.MediaPlayer.OnVideoSizeChangedListener)">setOnVideoSizeChangedListener(OnVideoSizeChangedListener)</a></code>
+ to provide a notification when the width is available.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="isLooping()"></A>
+
+<div class="jd-details api apilevel-3"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        boolean
+      </span>
+      <span class="sympad">isLooping</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level3">API Level 3</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Checks whether the MediaPlayer is looping or non-looping.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>true if the MediaPlayer is currently looping, false otherwise
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="isPlaying()"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        boolean
+      </span>
+      <span class="sympad">isPlaying</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Checks whether the MediaPlayer is playing.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>true if currently playing, false otherwise
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="pause()"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">pause</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Pauses playback. Call start() to resume.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="../../../reference/java/lang/IllegalStateException.html">IllegalStateException</a></td>
+            <td>if the internal player engine has not been
+ initialized.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="prepare()"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">prepare</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Prepares the player for playback, synchronously.
+
+ After setting the datasource and the display surface, you need to either
+ call prepare() or prepareAsync(). For files, it is OK to call prepare(),
+ which blocks until MediaPlayer is ready for playback.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="../../../reference/java/lang/IllegalStateException.html">IllegalStateException</a></td>
+            <td>if it is called in an invalid state
+</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../reference/java/io/IOException.html">IOException</a></td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="prepareAsync()"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">prepareAsync</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Prepares the player for playback, asynchronously.
+
+ After setting the datasource and the display surface, you need to either
+ call prepare() or prepareAsync(). For streams, you should call prepareAsync(),
+ which returns immediately, rather than blocking until enough data has been
+ buffered.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="../../../reference/java/lang/IllegalStateException.html">IllegalStateException</a></td>
+            <td>if it is called in an invalid state
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="release()"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">release</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Releases resources associated with this MediaPlayer object.
+ It is considered good practice to call this method when you're
+ done using the MediaPlayer. In particular, whenever an Activity
+ of an application is paused (its onPause() method is called),
+ or stopped (its onStop() method is called), this method should be
+ invoked to release the MediaPlayer object, unless the application
+ has a special need to keep the object around. In addition to
+ unnecessary resources (such as memory and instances of codecs)
+ being held, failure to call this method immediately if a
+ MediaPlayer object is no longer needed may also lead to
+ continuous battery consumption for mobile devices, and playback
+ failure for other applications if no multiple instances of the
+ same codec are supported on a device. Even if multiple instances
+ of the same codec are supported, some performance degradation
+ may be expected when unnecessary multiple instances are used
+ at the same time.
+</p></div>
+
+    </div>
+</div>
+
+
+<A NAME="reset()"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">reset</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Resets the MediaPlayer to its uninitialized state. After calling
+ this method, you will have to initialize it again by setting the
+ data source and calling prepare().
+</p></div>
+
+    </div>
+</div>
+
+
+<A NAME="seekTo(int)"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">seekTo</span>
+      <span class="normal">(int msec)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Seeks to specified time position.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>msec</td>
+          <td>the offset in milliseconds from the start to seek to</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="../../../reference/java/lang/IllegalStateException.html">IllegalStateException</a></td>
+            <td>if the internal player engine has not been
+ initialized
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setAudioSessionId(int)"></A>
+
+<div class="jd-details api apilevel-9"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setAudioSessionId</span>
+      <span class="normal">(int sessionId)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level9">API Level 9</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the audio session ID.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>sessionId</td>
+          <td>the audio session ID.
+ The audio session ID is a system wide unique identifier for the audio stream played by
+ this MediaPlayer instance.
+ The primary use of the audio session ID  is to associate audio effects to a particular
+ instance of MediaPlayer: if an audio session ID is provided when creating an audio effect,
+ this effect will be applied only to the audio content of media players within the same
+ audio session and not to the output mix.
+ When created, a MediaPlayer instance automatically generates its own audio session ID.
+ However, it is possible to force this player to be part of an already existing audio session
+ by calling this method.
+ This method must be called before one of the overloaded <code> setDataSource </code> methods.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="../../../reference/java/lang/IllegalStateException.html">IllegalStateException</a></td>
+            <td>if it is called in an invalid state
+</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../reference/java/lang/IllegalArgumentException.html">IllegalArgumentException</a></td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setAudioStreamType(int)"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setAudioStreamType</span>
+      <span class="normal">(int streamtype)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the audio stream type for this MediaPlayer. See <code><a href="../../../reference/android/media/AudioManager.html">AudioManager</a></code>
+ for a list of stream types. Must call this method before prepare() or
+ prepareAsync() in order for the target stream type to become effective
+ thereafter.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>streamtype</td>
+          <td>the audio stream type</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">See Also</h5>
+      <ul class="nolist"><li><code><a href="../../../reference/android/media/AudioManager.html">AudioManager</a></code></li>
+      </ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setAuxEffectSendLevel(float)"></A>
+
+<div class="jd-details api apilevel-9"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setAuxEffectSendLevel</span>
+      <span class="normal">(float level)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level9">API Level 9</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the send level of the player to the attached auxiliary effect
+ . The level value range is 0 to 1.0.
+ <p>By default the send level is 0, so even if an effect is attached to the player
+ this method must be called for the effect to be applied.
+ <p>Note that the passed level value is a raw scalar. UI controls should be scaled
+ logarithmically: the gain applied by audio framework ranges from -72dB to 0dB,
+ so an appropriate conversion from linear UI input x to level is:
+ x == 0 -> level = 0
+ 0 < x <= R -> level = 10^(72*(x-R)/20/R)</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>level</td>
+          <td>send level scalar
+</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">See Also</h5>
+      <ul class="nolist"><li><code><a href="../../../reference/android/media/MediaPlayer.html#attachAuxEffect(int)">attachAuxEffect(int)</a></code></li>
+      </ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setDataSource(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setDataSource</span>
+      <span class="normal">(<a href="../../../reference/java/lang/String.html">String</a> path)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the data source (file-path or http/rtsp URL) to use.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>path</td>
+          <td>the path of the file, or the http/rtsp URL of the stream you want to play</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="../../../reference/java/lang/IllegalStateException.html">IllegalStateException</a></td>
+            <td>if it is called in an invalid state
+</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../reference/java/io/IOException.html">IOException</a></td>
+            <td></td>
+        </tr>  
+        <tr>
+            <th><a href="../../../reference/java/lang/IllegalArgumentException.html">IllegalArgumentException</a></td>
+            <td></td>
+        </tr>  
+        <tr>
+            <th><a href="../../../reference/java/lang/SecurityException.html">SecurityException</a></td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setDataSource(java.io.FileDescriptor, long, long)"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setDataSource</span>
+      <span class="normal">(<a href="../../../reference/java/io/FileDescriptor.html">FileDescriptor</a> fd, long offset, long length)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the data source (FileDescriptor) to use.  The FileDescriptor must be
+ seekable (N.B. a LocalSocket is not seekable). It is the caller's responsibility
+ to close the file descriptor. It is safe to do so as soon as this call returns.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>fd</td>
+          <td>the FileDescriptor for the file you want to play</td>
+        </tr>
+        <tr>
+          <th>offset</td>
+          <td>the offset into the file where the data to be played starts, in bytes</td>
+        </tr>
+        <tr>
+          <th>length</td>
+          <td>the length in bytes of the data to be played</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="../../../reference/java/lang/IllegalStateException.html">IllegalStateException</a></td>
+            <td>if it is called in an invalid state
+</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../reference/java/io/IOException.html">IOException</a></td>
+            <td></td>
+        </tr>  
+        <tr>
+            <th><a href="../../../reference/java/lang/IllegalArgumentException.html">IllegalArgumentException</a></td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setDataSource(java.io.FileDescriptor)"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setDataSource</span>
+      <span class="normal">(<a href="../../../reference/java/io/FileDescriptor.html">FileDescriptor</a> fd)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the data source (FileDescriptor) to use. It is the caller's responsibility
+ to close the file descriptor. It is safe to do so as soon as this call returns.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>fd</td>
+          <td>the FileDescriptor for the file you want to play</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="../../../reference/java/lang/IllegalStateException.html">IllegalStateException</a></td>
+            <td>if it is called in an invalid state
+</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../reference/java/io/IOException.html">IOException</a></td>
+            <td></td>
+        </tr>  
+        <tr>
+            <th><a href="../../../reference/java/lang/IllegalArgumentException.html">IllegalArgumentException</a></td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setDataSource(android.content.Context, android.net.Uri, java.util.Map<java.lang.String, java.lang.String>)"></A>
+
+<div class="jd-details api apilevel-14"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setDataSource</span>
+      <span class="normal">(<a href="../../../reference/android/content/Context.html">Context</a> context, <a href="../../../reference/android/net/Uri.html">Uri</a> uri, <a href="../../../reference/java/util/Map.html">Map</a>&lt;<a href="../../../reference/java/lang/String.html">String</a>,&nbsp;<a href="../../../reference/java/lang/String.html">String</a>&gt; headers)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level14">API Level 14</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the data source as a content Uri.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>context</td>
+          <td>the Context to use when resolving the Uri</td>
+        </tr>
+        <tr>
+          <th>uri</td>
+          <td>the Content URI of the data you want to play</td>
+        </tr>
+        <tr>
+          <th>headers</td>
+          <td>the headers to be sent together with the request for the data</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="../../../reference/java/lang/IllegalStateException.html">IllegalStateException</a></td>
+            <td>if it is called in an invalid state
+</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../reference/java/io/IOException.html">IOException</a></td>
+            <td></td>
+        </tr>  
+        <tr>
+            <th><a href="../../../reference/java/lang/IllegalArgumentException.html">IllegalArgumentException</a></td>
+            <td></td>
+        </tr>  
+        <tr>
+            <th><a href="../../../reference/java/lang/SecurityException.html">SecurityException</a></td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setDataSource(android.content.Context, android.net.Uri)"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setDataSource</span>
+      <span class="normal">(<a href="../../../reference/android/content/Context.html">Context</a> context, <a href="../../../reference/android/net/Uri.html">Uri</a> uri)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the data source as a content Uri.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>context</td>
+          <td>the Context to use when resolving the Uri</td>
+        </tr>
+        <tr>
+          <th>uri</td>
+          <td>the Content URI of the data you want to play</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="../../../reference/java/lang/IllegalStateException.html">IllegalStateException</a></td>
+            <td>if it is called in an invalid state
+</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../reference/java/io/IOException.html">IOException</a></td>
+            <td></td>
+        </tr>  
+        <tr>
+            <th><a href="../../../reference/java/lang/IllegalArgumentException.html">IllegalArgumentException</a></td>
+            <td></td>
+        </tr>  
+        <tr>
+            <th><a href="../../../reference/java/lang/SecurityException.html">SecurityException</a></td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setDisplay(android.view.SurfaceHolder)"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setDisplay</span>
+      <span class="normal">(<a href="../../../reference/android/view/SurfaceHolder.html">SurfaceHolder</a> sh)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the <code><a href="../../../reference/android/view/SurfaceHolder.html">SurfaceHolder</a></code> to use for displaying the video
+ portion of the media.
+
+ Either a surface holder or surface must be set if a display or video sink
+ is needed.  Not calling this method or <code><a href="../../../reference/android/media/MediaPlayer.html#setSurface(android.view.Surface)">setSurface(Surface)</a></code>
+ when playing back a video will result in only the audio track being played.
+ A null surface holder or surface will result in only the audio track being
+ played.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>sh</td>
+          <td>the SurfaceHolder to use for video display
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setLooping(boolean)"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setLooping</span>
+      <span class="normal">(boolean looping)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the player to be looping or non-looping.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>looping</td>
+          <td>whether to loop or not
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setOnBufferingUpdateListener(android.media.MediaPlayer.OnBufferingUpdateListener)"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setOnBufferingUpdateListener</span>
+      <span class="normal">(<a href="../../../reference/android/media/MediaPlayer.OnBufferingUpdateListener.html">MediaPlayer.OnBufferingUpdateListener</a> listener)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Register a callback to be invoked when the status of a network
+ stream's buffer has changed.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>listener</td>
+          <td>the callback that will be run.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setOnCompletionListener(android.media.MediaPlayer.OnCompletionListener)"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setOnCompletionListener</span>
+      <span class="normal">(<a href="../../../reference/android/media/MediaPlayer.OnCompletionListener.html">MediaPlayer.OnCompletionListener</a> listener)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Register a callback to be invoked when the end of a media source
+ has been reached during playback.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>listener</td>
+          <td>the callback that will be run
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setOnErrorListener(android.media.MediaPlayer.OnErrorListener)"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setOnErrorListener</span>
+      <span class="normal">(<a href="../../../reference/android/media/MediaPlayer.OnErrorListener.html">MediaPlayer.OnErrorListener</a> listener)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Register a callback to be invoked when an error has happened
+ during an asynchronous operation.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>listener</td>
+          <td>the callback that will be run
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setOnInfoListener(android.media.MediaPlayer.OnInfoListener)"></A>
+
+<div class="jd-details api apilevel-3"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setOnInfoListener</span>
+      <span class="normal">(<a href="../../../reference/android/media/MediaPlayer.OnInfoListener.html">MediaPlayer.OnInfoListener</a> listener)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level3">API Level 3</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Register a callback to be invoked when an info/warning is available.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>listener</td>
+          <td>the callback that will be run
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setOnPreparedListener(android.media.MediaPlayer.OnPreparedListener)"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setOnPreparedListener</span>
+      <span class="normal">(<a href="../../../reference/android/media/MediaPlayer.OnPreparedListener.html">MediaPlayer.OnPreparedListener</a> listener)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Register a callback to be invoked when the media source is ready
+ for playback.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>listener</td>
+          <td>the callback that will be run
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setOnSeekCompleteListener(android.media.MediaPlayer.OnSeekCompleteListener)"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setOnSeekCompleteListener</span>
+      <span class="normal">(<a href="../../../reference/android/media/MediaPlayer.OnSeekCompleteListener.html">MediaPlayer.OnSeekCompleteListener</a> listener)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Register a callback to be invoked when a seek operation has been
+ completed.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>listener</td>
+          <td>the callback that will be run
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setOnVideoSizeChangedListener(android.media.MediaPlayer.OnVideoSizeChangedListener)"></A>
+
+<div class="jd-details api apilevel-3"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setOnVideoSizeChangedListener</span>
+      <span class="normal">(<a href="../../../reference/android/media/MediaPlayer.OnVideoSizeChangedListener.html">MediaPlayer.OnVideoSizeChangedListener</a> listener)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level3">API Level 3</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Register a callback to be invoked when the video size is
+ known or updated.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>listener</td>
+          <td>the callback that will be run
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setScreenOnWhilePlaying(boolean)"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setScreenOnWhilePlaying</span>
+      <span class="normal">(boolean screenOn)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Control whether we should use the attached SurfaceHolder to keep the
+ screen on while video playback is occurring.  This is the preferred
+ method over <code><a href="../../../reference/android/media/MediaPlayer.html#setWakeMode(android.content.Context, int)">setWakeMode(Context, int)</a></code> where possible, since it doesn't
+ require that the application have permission for low-level wake lock
+ access.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>screenOn</td>
+          <td>Supply true to keep the screen on, false to allow it
+ to turn off.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setSurface(android.view.Surface)"></A>
+
+<div class="jd-details api apilevel-14"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setSurface</span>
+      <span class="normal">(<a href="../../../reference/android/view/Surface.html">Surface</a> surface)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level14">API Level 14</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the <code><a href="../../../reference/android/view/Surface.html">Surface</a></code> to be used as the sink for the video portion of
+ the media. This is similar to <code><a href="../../../reference/android/media/MediaPlayer.html#setDisplay(android.view.SurfaceHolder)">setDisplay(SurfaceHolder)</a></code>, but
+ does not support <code><a href="../../../reference/android/media/MediaPlayer.html#setScreenOnWhilePlaying(boolean)">setScreenOnWhilePlaying(boolean)</a></code>.  Setting a
+ Surface will un-set any Surface or SurfaceHolder that was previously set.
+ A null surface will result in only the audio track being played.
+
+ If the Surface sends frames to a <code><a href="../../../reference/android/graphics/SurfaceTexture.html">SurfaceTexture</a></code>, the timestamps
+ returned from <code><a href="../../../reference/android/graphics/SurfaceTexture.html#getTimestamp()">getTimestamp()</a></code> will have an
+ unspecified zero point.  These timestamps cannot be directly compared
+ between different media sources, different instances of the same media
+ source, or multiple runs of the same program.  The timestamp is normally
+ monotonically increasing and is unaffected by time-of-day adjustments,
+ but it is reset when the position is set.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>surface</td>
+          <td>The <code><a href="../../../reference/android/view/Surface.html">Surface</a></code> to be used for the video portion of
+ the media.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setVolume(float, float)"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setVolume</span>
+      <span class="normal">(float leftVolume, float rightVolume)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the volume on this player.
+ This API is recommended for balancing the output of audio streams
+ within an application. Unless you are writing an application to
+ control user settings, this API should be used in preference to
+ <code><a href="../../../reference/android/media/AudioManager.html#setStreamVolume(int, int, int)">setStreamVolume(int, int, int)</a></code> which sets the volume of ALL streams of
+ a particular type. Note that the passed volume values are raw scalars.
+ UI controls should be scaled logarithmically.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>leftVolume</td>
+          <td>left volume scalar</td>
+        </tr>
+        <tr>
+          <th>rightVolume</td>
+          <td>right volume scalar
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setWakeMode(android.content.Context, int)"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setWakeMode</span>
+      <span class="normal">(<a href="../../../reference/android/content/Context.html">Context</a> context, int mode)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Set the low-level power management behavior for this MediaPlayer.  This
+ can be used when the MediaPlayer is not playing through a SurfaceHolder
+ set with <code><a href="../../../reference/android/media/MediaPlayer.html#setDisplay(android.view.SurfaceHolder)">setDisplay(SurfaceHolder)</a></code> and thus can use the
+ high-level <code><a href="../../../reference/android/media/MediaPlayer.html#setScreenOnWhilePlaying(boolean)">setScreenOnWhilePlaying(boolean)</a></code> feature.
+
+ <p>This function has the MediaPlayer access the low-level power manager
+ service to control the device's power usage while playing is occurring.
+ The parameter is a combination of <code><a href="../../../reference/android/os/PowerManager.html">PowerManager</a></code> wake flags.
+ Use of this method requires <code><a href="../../../reference/android/Manifest.permission.html#WAKE_LOCK">WAKE_LOCK</a></code>
+ permission.
+ By default, no attempt is made to keep the device awake during playback.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>context</td>
+          <td>the Context to use</td>
+        </tr>
+        <tr>
+          <th>mode</td>
+          <td>the power/wake mode to set</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">See Also</h5>
+      <ul class="nolist"><li><code><a href="../../../reference/android/os/PowerManager.html">PowerManager</a></code></li>
+      </ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="start()"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">start</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Starts or resumes playback. If playback had previously been paused,
+ playback will continue from where it was paused. If playback had
+ been stopped, or never started before, playback will start at the
+ beginning.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="../../../reference/java/lang/IllegalStateException.html">IllegalStateException</a></td>
+            <td>if it is called in an invalid state
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="stop()"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">stop</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Stops playback after playback has been stopped or paused.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="../../../reference/java/lang/IllegalStateException.html">IllegalStateException</a></td>
+            <td>if the internal player engine has not been
+ initialized.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+
+
+
+<!-- ========= METHOD DETAIL ======== -->
+
+<h2>Protected Methods</h2>
+
+
+
+<A NAME="finalize()"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        protected 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">finalize</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Invoked when the garbage collector has detected that this instance is no longer reachable.
+ The default implementation does nothing, but this method can be overridden to free resources.
+
+ <p>Note that objects that override <code>finalize</code> are significantly more expensive than
+ objects that don't. Finalizers may be run a long time after the object is no longer
+ reachable, depending on memory pressure, so it's a bad idea to rely on them for cleanup.
+ Note also that finalizers are run on a single VM-wide finalizer thread,
+ so doing blocking work in a finalizer is a bad idea. A finalizer is usually only necessary
+ for a class that has a native peer and needs to call a native method to destroy that peer.
+ Even then, it's better to provide an explicit <code>close</code> method (and implement
+ <code><a href="../../../reference/java/io/Closeable.html">Closeable</a></code>), and insist that callers manually dispose of instances. This
+ works well for something like files, but less well for something like a <code>BigInteger</code>
+ where typical calling code would have to deal with lots of temporaries. Unfortunately,
+ code that creates lots of temporaries is the worst kind of code from the point of view of
+ the single finalizer thread.
+
+ <p>If you <i>must</i> use finalizers, consider at least providing your own
+ <code><a href="../../../reference/java/lang/ref/ReferenceQueue.html">ReferenceQueue</a></code> and having your own thread process that queue.
+
+ <p>Unlike constructors, finalizers are not automatically chained. You are responsible for
+ calling <code>super.finalize()</code> yourself.
+
+ <p>Uncaught exceptions thrown by finalizers are ignored and do not terminate the finalizer
+ thread.
+
+ See <i>Effective Java</i> Item 7, "Avoid finalizers" for more.
+</p></div>
+
+    </div>
+</div>
+
+
+
+
+
+<!-- ========= END OF CLASS DATA ========= -->
+<A NAME="navbar_top"></A>
+
+<div id="footer">
+
+
+  <div id="copyright">
+    
+  Except as noted, this content is licensed under <a
+  href="http://www.apache.org/licenses/LICENSE-2.0">Apache 2.0</a>. 
+  For details and restrictions, see the <a href="../../../license.html">
+  Content License</a>.
+  </div>
+  <div id="build_info">
+    
+  Android 4.0&nbsp;r1 - 16 Mar 2012 16:45
+
+  </div>
+
+  <div id="footerlinks">
+    
+  <p>
+    <a href="http://www.google.com/intl/en/policies/" target="_blank">Privacy &amp; Terms</a> -
+    <a href="http://www.android.com/branding.html" target="_blank">Brand Guidelines</a> -
+    <a
+href="http://code.google.com/p/android/issues/entry?template=Developer%20Documentation"
+target="_blank">Report Document Issues</a>
+  </p>
+  </div>
+
+</div> <!-- end footer -->
+
+</div> <!-- jd-content -->
+
+</div><!-- end doc-content -->
+
+</div> <!-- end body-content --> 
+
+<script type="text/javascript">
+init(); /* initialize android-developer-docs.js */
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-5831155-1");
+pageTracker._trackPageview();
+</script>
+
+</body>
+</html>

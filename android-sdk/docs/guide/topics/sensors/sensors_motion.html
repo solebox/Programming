@@ -1,0 +1,1681 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico" />
+<title>Motion Sensors | Android Developers</title>
+<link href="../../../assets/android-developer-docs-devguide.css" rel="stylesheet" type="text/css" />
+<script src="../../../assets/search_autocomplete.js" type="text/javascript"></script>
+<script src="../../../assets/jquery-resizable.min.js" type="text/javascript"></script>
+<script src="../../../assets/android-developer-docs.js" type="text/javascript"></script>
+<script src="../../../assets/prettify.js" type="text/javascript"></script>
+<script type="text/javascript">
+  setToRoot("../../../");
+</script>
+<noscript>
+  <style type="text/css">
+    html,body{overflow:auto;}
+    #body-content{position:relative; top:0;}
+    #doc-content{overflow:visible;border-left:3px solid #666;}
+    #side-nav{padding:0;}
+    #side-nav .toggle-list ul {display:block;}
+    #resize-packages-nav{border-bottom:3px solid #666;}
+  </style>
+</noscript>
+</head>
+<body class="gc-documentation" itemscope itemtype="http://schema.org/Article">
+
+  <div id="header">
+      <div id="headerLeft">
+          <a href="../../../index.html" tabindex="-1"><img
+              src="../../../assets/images/bg_logo.png" alt="Android Developers" /></a>
+          <ul id="header-tabs" class="guide">
+    
+	<li id="home-link"><a href="../../../offline.html">
+	
+		<span class="en">Home</span>
+		<span style="display:none" class="de">Startseite</span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ホーム</span>
+		<span style="display:none" class="zh-CN">主页</span>
+		<span style="display:none" class="zh-TW">首頁</span>
+	
+	</a></li>
+	<li id="sdk-link"><a href="../../../sdk/index.html">
+		<span class="en">SDK</span>
+	</a></li>
+	<li id="guide-link"><a href="../../../guide/index.html" onClick="return loadLast('guide')">
+	
+		<span class="en">Dev Guide</span>
+		<span style="display:none" class="de">Handbuch</span>
+		<span style="display:none" class="es">Guía</span>
+		<span style="display:none" class="fr">Guide</span>
+		<span style="display:none" class="it">Guida</span>
+		<span style="display:none" class="ja">開発ガイド</span>
+		<span style="display:none" class="zh-CN">开发人员指南</span>
+		<span style="display:none" class="zh-TW">開發指南</span>
+	
+	</a></li>
+	<li id="reference-link"><a href="../../../reference/packages.html" onClick="return loadLast('reference')">
+	
+		<span class="en">Reference</span>
+		<span style="display:none" class="de">Referenz</span>
+		<span style="display:none" class="es">Referencia</span>
+		<span style="display:none" class="fr">Référence</span>
+		<span style="display:none" class="it">Riferimento</span>
+		<span style="display:none" class="ja">リファレンス</span>
+		<span style="display:none" class="zh-CN">参考</span>
+		<span style="display:none" class="zh-TW">參考資料</span>
+	
+	</a></li>
+	<li id="resources-link"><a href="../../../resources/index.html" onClick="return loadLast('resources')">
+	
+		<span class="en">Resources</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+    		<span style="display:none" class="ja"></span>
+		<span style="display:none" class="zh-CN"></span>
+		<span style="display:none" class="zh-TW"></span>
+	
+	</a></li>
+	<li id="videos-link"><a href="../../../videos/index.html" onClick="return loadLast('videos')">
+	
+		<span class="en">Videos</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ビデオ</span>
+		<span style="display:none" class="zh-CN"></span>
+		<span style="display:none" class="zh-TW"></span>
+	
+	</a></li>
+	<li><a href="http://android-developers.blogspot.com" onClick="return requestAppendHL(this.href)">
+	
+		<span class="en">Blog</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ブログ</span>
+		<span style="display:none" class="zh-CN">博客</span>
+		<span style="display:none" class="zh-TW">網誌</span>
+	
+	</a></li>
+
+
+     
+</ul>
+     
+      </div>
+      <div id="headerRight">
+          <div id="headerLinks">
+          &nbsp;&nbsp;
+          <a href="../../../design/index.html">Android Design</a>&nbsp;&nbsp;
+          <a href="http://www.android.com">Android.com</a>
+          </div>
+  <div id="search" >
+      <div id="searchForm">
+          <form accept-charset="utf-8" class="gsc-search-box" 
+                onsubmit="return submit_search()">
+            <table class="gsc-search-box" cellpadding="0" cellspacing="0"><tbody>
+                <tr>
+                  <td class="gsc-input">
+                    <input id="search_autocomplete" class="gsc-input" type="text" size="33" autocomplete="off"
+                      title="search developer docs" name="q"
+                      value="search developer docs"
+                      onFocus="search_focus_changed(this, true)"
+                      onBlur="search_focus_changed(this, false)"
+                      onkeydown="return search_changed(event, true, '../../../')"
+                      onkeyup="return search_changed(event, false, '../../../')" />
+                  <div id="search_filtered_div" class="no-display">
+                      <table id="search_filtered" cellspacing=0>
+                      </table>
+                  </div>
+                  </td>
+                  <td class="gsc-search-button">
+                    <input type="submit" value="Search" title="search" id="search-button" class="gsc-search-button" />
+                  </td>
+                  <td class="gsc-clear-button">
+                    <div title="clear results" class="gsc-clear-button">&nbsp;</div>
+                  </td>
+                </tr></tbody>
+              </table>
+          </form>
+      </div><!-- searchForm -->
+  </div><!-- search -->
+      </div><!-- headerRight -->
+      <script type="text/javascript">
+        <!--  
+        changeTabLang(getLangPref());
+        //-->
+      </script>
+  </div><!-- header -->
+
+  <div class="g-section g-tpl-240" id="body-content">
+    <div class="g-unit g-first" id="side-nav" itemscope itemtype="http://schema.org/SiteNavigationElement">
+      <div id="devdoc-nav">
+<ul>
+
+  <li>
+    <span class="heading">
+      <span class="en">Android Basics</span>
+      <span class="de" style="display:none">Einführung in Android</span>
+      <span class="es" style="display:none">Información básica sobre Android</span>
+      <span class="fr" style="display:none">Présentation d'Android</span>
+      <span class="it" style="display:none">Nozioni di base su Android</span>
+      <span class="ja" style="display:none">Android の基本</span>
+      <span class="zh-CN" style="display:none">Android 基础知识</span>
+      <span class="zh-TW" style="display:none">Android 簡介</span>
+    </span>
+    <ul>
+      <li><a href="../../../guide/basics/what-is-android.html">
+        <span class="en">What Is Android?</span>
+        <span class="de" style="display:none">Was ist Android?</span>
+        <span class="es" style="display:none">¿Qué es Android?</span>
+        <span class="fr" style="display:none">Qu'est-ce qu'Android&nbsp;?</span>
+        <span class="it" style="display:none">Che cos'è Android?</span>
+        <span class="ja" style="display:none">Android とは</span>
+        <span class="zh-CN" style="display:none">Android 是什么？</span>
+        <span class="zh-TW" style="display:none">什麼是 Android？</span>
+          </a></li>
+      <li><a href="../../../guide/topics/fundamentals.html">
+        <span class="en">Application Fundamentals</span>
+        <span class="de" style="display:none">Anwendungsgrundlagen</span>
+        <span class="es" style="display:none">Fundamentos de las aplicaciones</span>
+        <span class="fr" style="display:none">Principes de base des applications</span>
+        <span class="it" style="display:none">Concetti fondamentali sulle applicazioni</span>
+        <span class="ja" style="display:none">開発の基礎</span>
+        <span class="zh-CN" style="display:none">应用程序基础</span>
+        <span class="zh-TW" style="display:none">應用程式基本原理</span>
+      </a></li>
+
+  <!--  <li><a style="color:gray;">The Android SDK</a></li> -->
+  <!--  <li><a style="color:gray;">Walkthrough for Developers</a></li> -->
+      <!-- quick overview of what it's like to develop on Android -->
+    </ul>
+  </li>
+
+  <li>
+    <span class="heading">
+      <span class="en">Framework Topics</span>
+      <span class="de" style="display:none">Framework-Themen</span>
+      <span class="es" style="display:none">Temas sobre el framework</span>
+      <span class="fr" style="display:none">Thèmes relatifs au framework</span>
+      <span class="it" style="display:none">Argomenti relativi al framework</span>
+      <span class="ja" style="display:none">フレームワーク トピック</span>
+      <span class="zh-CN" style="display:none">框架主题</span>
+      <span class="zh-TW" style="display:none">架構主題</span>
+    </span>
+    <ul>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/fundamentals/activities.html">
+          <span class="en">Activities</span>
+        </a></div>
+        <ul>
+          <li><a href="../../../guide/topics/fundamentals/fragments.html">
+            <span class="en">Fragments</span>
+          </a></li>
+          <li><a href="../../../guide/topics/fundamentals/loaders.html">
+            <span class="en">Loaders</span>
+          </a></li>
+          <li><a href="../../../guide/topics/fundamentals/tasks-and-back-stack.html">
+            <span class="en">Tasks and Back Stack</span></a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/fundamentals/services.html">
+          <span class="en">Services</span>
+        </a></div>
+        <ul>
+          <li><a href="../../../guide/topics/fundamentals/bound-services.html">
+            <span class="en">Bound Services</span>
+          </a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+          <div><a href="../../../guide/topics/providers/content-providers.html">
+            <span class="en">Content Providers</span>
+          </a></div>
+          <ul>
+            <li>
+                <a href="../../../guide/topics/providers/content-provider-basics.html">
+                    <span class="en">Content Provider Basics</span>
+                </a>
+                <span class="new">new!</span>
+            </li>
+            <li>
+                <a href="../../../guide/topics/providers/content-provider-creating.html">
+                    <span class="en">Creating a Content Provider</span>
+                </a>
+                <span class="new">new!</span>
+            </li>
+            <li>
+                <a href="../../../guide/topics/providers/calendar-provider.html">
+                    <span class="en">Calendar Provider</span>
+                </a>
+                <span class="new">new!</span>
+            </li>
+          </ul>
+      </li>
+      <li><a href="../../../guide/topics/intents/intents-filters.html">
+            <span class="en">Intents and Intent Filters</span>
+          </a></li>
+      <li><a href="../../../guide/topics/fundamentals/processes-and-threads.html">
+            <span class="en">Processes and Threads</span>
+          </a></li>
+    </ul>
+
+
+    <ul>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/ui/index.html">
+            <span class="en">User Interface</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../guide/topics/ui/declaring-layout.html">
+               <span class="en">XML Layouts</span>
+              </a></li>
+          <li><a href="../../../guide/topics/ui/ui-events.html">
+                <span class="en">Input Events</span>
+              </a></li>
+          <li><a href="../../../guide/topics/ui/menus.html">
+               <span class="en">Menus</span>
+              </a> <span class="new">updated</span></li>
+          <li><a href="../../../guide/topics/ui/actionbar.html">
+               <span class="en">Action Bar</span>
+              </a></li>
+          <li><a href="../../../guide/topics/ui/dialogs.html">
+                <span class="en">Dialogs</span>
+              </a></li>
+          <li class="toggle-list">
+            <div><a href="../../../guide/topics/ui/notifiers/index.html">
+                <span class="en">Notifications</span>
+            </a></div>
+            <ul>
+              <li><a href="../../../guide/topics/ui/notifiers/toasts.html">
+                <span class="en">Toast Notifications</span>
+              </a></li>
+              <li><a href="../../../guide/topics/ui/notifiers/notifications.html">
+                <span class="en">Status Bar Notifications</span>
+              </a></li>
+            </ul>
+          </li>
+          <li><a href="../../../guide/topics/ui/drag-drop.html">
+                <span class="en">Drag and Drop</span>
+              </a></li>
+          <li><a href="../../../guide/topics/ui/themes.html">
+                <span class="en">Styles and Themes</span>
+              </a></li>
+          <li><a href="../../../guide/topics/ui/custom-components.html">
+                <span class="en">Custom Components</span>
+              </a></li>
+          <li><a href="../../../guide/topics/ui/binding.html">
+                <span class="en">Binding to Data with AdapterView</span>
+              </a></li>
+          <li><a href="../../../guide/topics/ui/layout-objects.html">
+                <span class="en">Common Layout Objects</span>
+              </a></li>
+          <li><a href="../../../guide/topics/ui/how-android-draws.html">
+                <span class="en">How Android Draws Views</span>
+              </a></li>
+        </ul>
+      </li><!-- end of User Interface -->
+
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/resources/index.html">
+               <span class="en">Application Resources</span>
+             </a></div>
+        <ul>
+          <li><a href="../../../guide/topics/resources/providing-resources.html">
+                <span class="en">Providing Resources</span>
+              </a></li>
+          <li><a href="../../../guide/topics/resources/accessing-resources.html">
+                <span class="en">Accessing Resources</span>
+              </a></li>
+          <li><a href="../../../guide/topics/resources/runtime-changes.html">
+                <span class="en">Handling Runtime Changes</span>
+              </a></li>
+          <li><a href="../../../guide/topics/resources/localization.html">
+                <span class="en">Localization</span>
+              </a></li>
+          <li class="toggle-list">
+            <div><a href="../../../guide/topics/resources/available-resources.html">
+              <span class="en">Resource Types</span>
+            </a></div>
+            <ul>
+              <li><a href="../../../guide/topics/resources/animation-resource.html">Animation</a></li>
+              <li><a href="../../../guide/topics/resources/color-list-resource.html">Color State List</a></li>
+              <li><a href="../../../guide/topics/resources/drawable-resource.html">Drawable</a></li>
+              <li><a href="../../../guide/topics/resources/layout-resource.html">Layout</a></li>
+              <li><a href="../../../guide/topics/resources/menu-resource.html">Menu</a></li>
+              <li><a href="../../../guide/topics/resources/string-resource.html">String</a></li>
+              <li><a href="../../../guide/topics/resources/style-resource.html">Style</a></li>
+              <li><a href="../../../guide/topics/resources/more-resources.html">More Types</a></li>
+            </ul>
+          </li><!-- end of resource types -->
+        </ul>
+      </li><!-- end of app resources -->
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/data/data-storage.html">
+            <span class="en">Data Storage</span>
+          </a></div>
+          <ul>
+            <li><a href="../../../guide/topics/data/backup.html">
+                <span class="en">Data Backup</span>
+              </a>
+            </li>
+          </ul>
+      </li>
+      <li><a href="../../../guide/topics/security/security.html">
+            <span class="en">Security and Permissions</span>
+          </a></li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/manifest/manifest-intro.html">
+          <span class="en">The AndroidManifest.xml File</span>
+        </a></div>
+        <ul>
+          <li><a href="../../../guide/topics/manifest/action-element.html">&lt;action&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/activity-element.html">&lt;activity&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/activity-alias-element.html">&lt;activity-alias&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/application-element.html">&lt;application&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/category-element.html">&lt;category&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/compatible-screens-element.html">&lt;compatible-screens&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/data-element.html">&lt;data&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/grant-uri-permission-element.html">&lt;grant-uri-permission&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/instrumentation-element.html">&lt;instrumentation&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/intent-filter-element.html">&lt;intent-filter&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/manifest-element.html">&lt;manifest&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/meta-data-element.html">&lt;meta-data&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/path-permission-element.html">&lt;path-permission&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/permission-element.html">&lt;permission&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/permission-group-element.html">&lt;permission-group&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/permission-tree-element.html">&lt;permission-tree&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/provider-element.html">&lt;provider&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/receiver-element.html">&lt;receiver&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/service-element.html">&lt;service&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/supports-gl-texture-element.html">&lt;supports-gl-texture&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/supports-screens-element.html">&lt;supports-screens&gt;</a></li><!-- ##api level 4## -->
+          <li><a href="../../../guide/topics/manifest/uses-configuration-element.html">&lt;uses-configuration&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/uses-feature-element.html">&lt;uses-feature&gt;</a></li> <!-- ##api level 4## -->
+          <li><a href="../../../guide/topics/manifest/uses-library-element.html">&lt;uses-library&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/uses-permission-element.html">&lt;uses-permission&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/uses-sdk-element.html">&lt;uses-sdk&gt;</a></li>
+        </ul>
+      </li><!-- end of the manifest file -->
+    </ul>
+
+    <ul>
+    <li class="toggle-list">
+        <div><a href="../../../guide/topics/graphics/index.html">
+            <span class="en">Graphics</span>
+          </a> <span class="new-child">new!</span></div>
+        <ul>
+          <li><a href="../../../guide/topics/graphics/2d-graphics.html">
+              <span class="en">Canvas and Drawables</span></a></li>
+          <li><a href="../../../guide/topics/graphics/hardware-accel.html">
+              <span class="en">Hardware Acceleration</span></a>
+            <span class="new">new!</span></li>
+          <li><a href="../../../guide/topics/graphics/opengl.html">
+              <span class="en">OpenGL</span>
+            </a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/graphics/animation.html">
+            <span class="en">Animation</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../guide/topics/graphics/prop-animation.html">
+              <span class="en">Property Animation</span></a></li>
+          <li><a href="../../../guide/topics/graphics/view-animation.html">
+              <span class="en">View Animation</span></a></li>
+          <li><a href="../../../guide/topics/graphics/drawable-animation.html">
+              <span class="en">Drawable Animation</span></a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/renderscript/index.html">
+          <span class="en">Renderscript</span></a>
+          <span class="new">updated</span>
+        </div>
+        <ul>
+          <li><a href="../../../guide/topics/renderscript/graphics.html">
+                <span class="en">Graphics</span>
+              </a>
+          </li>
+          <li><a href="../../../guide/topics/renderscript/compute.html">
+                <span class="en">Compute</span>
+              </a>
+          </li>
+          <li><a href="../../../guide/topics/renderscript/reference.html">
+                <span class="en">Runtime API Reference</span>
+              </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="toggle-list">
+          <div><a href="../../../guide/topics/media/index.html">
+            <span class="en">Multimedia and Camera</span>
+          </a></div>
+          <ul>
+            <li><a href="../../../guide/topics/media/mediaplayer.html">
+                  <span class="en">Media Playback</span></a>
+                </li>
+            <li><a href="../../../guide/topics/media/jetplayer.html">
+                  <span class="en">JetPlayer</span></a>
+                </li>
+            <li><a href="../../../guide/topics/media/camera.html">
+                  <span class="en">Camera</span></a>
+                  <span class="new">new!</span>
+                </li>
+            <li><a href="../../../guide/topics/media/audio-capture.html">
+                  <span class="en">Audio Capture</span></a>
+                </li>
+          </ul>
+      </li>
+      <li>
+        <a href="../../../guide/topics/clipboard/copy-paste.html">
+            <span class="en">Copy and Paste</span>
+        </a></li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/sensors/index.html">
+              <span class="en">Sensors</span>
+              </a> <span class="new">new!</span></div>
+        <ul>
+          <li><a href="../../../guide/topics/sensors/sensors_overview.html">
+              <span class="en">Sensors Overview</span>
+            </a></li>
+          <li><a href="../../../guide/topics/sensors/sensors_motion.html">
+              <span class="en">Motion Sensors</span>
+            </a></li>
+          <li><a href="../../../guide/topics/sensors/sensors_position.html">
+              <span class="en">Position Sensors</span>
+            </a></li>
+          <li><a href="../../../guide/topics/sensors/sensors_environment.html">
+              <span class="en">Environment Sensors</span>
+            </a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/location/index.html">
+               <span class="en">Location and Maps</span>
+             </a></div>
+        <ul>
+          <li><a href="../../../guide/topics/location/obtaining-user-location.html">
+                <span class="en">Obtaining User Location</span>
+              </a></li>
+        </ul>
+      </li>
+  <!--<li class="toggle-list">
+        <div><a style="color:gray;">Wireless Controls</a></div>
+          <ul>
+            <li><a style="color:gray;">Wi-Fi</a></li>
+          </ul>
+      </li> -->
+  <!--<li><a style="color:gray;">Localization</a></li>  -->
+      <li><a href="../../../guide/topics/appwidgets/index.html">
+            <span class="en">App Widgets</span></a>
+          </li>
+      <li><a href="../../../guide/topics/wireless/bluetooth.html">
+            <span class="en">Bluetooth</span></a>
+          </li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/nfc/index.html">
+          <span class="en">Near Field Communication</span></a> <span class="new">updated</span>
+        </div>
+        <ul>
+          <li><a href="../../../guide/topics/nfc/nfc.html">NFC Basics</a></li>
+          <li><a href="../../../guide/topics/nfc/advanced-nfc.html">Advanced NFC</a></li>
+        </ul>
+      </li>
+      <li><a href="../../../guide/topics/wireless/wifip2p.html">
+            <span class="en">Wi-Fi Direct</span></a> <span class="new">new!</span>
+          </li>
+      <li class="toggle-list">
+          <div><a href="../../../guide/topics/usb/index.html">
+            <span class="en">USB</span></a>
+          </div>
+            <ul>
+              <li><a href="../../../guide/topics/usb/accessory.html">Accessory</a></li>
+              <li><a href="../../../guide/topics/usb/host.html">Host</a></li>
+              <li><a href="../../../guide/topics/usb/adk.html">Open Accessory Dev Kit</a></li>
+            </ul>
+          </li>
+
+       <li><a href="../../../guide/topics/network/sip.html">
+            <span class="en">Session Initiation Protocol</span>
+          </a></li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/search/index.html">
+            <span class="en">Search</span>
+          </a></div>
+          <ul>
+            <li><a href="../../../guide/topics/search/search-dialog.html">Creating a Search Interface</a></li>
+            <li><a href="../../../guide/topics/search/adding-recent-query-suggestions.html">Adding Recent Query Suggestions</a></li>
+            <li><a href="../../../guide/topics/search/adding-custom-suggestions.html">Adding Custom Suggestions</a></li>
+            <li><a href="../../../guide/topics/search/searchable-config.html">Searchable Configuration</a></li>
+          </ul>
+      </li>
+      <li><a href="../../../guide/topics/admin/device-admin.html">
+            <span class="en">Device Administration</span></a>
+      </li>
+      <li class="toggle-list">
+           <div>
+                <a href="../../../guide/topics/testing/index.html">
+                   <span class="en">Testing</span>
+               </a>
+           </div>
+           <ul>
+              <li>
+                <a href="../../../guide/topics/testing/testing_android.html">
+                <span class="en">Testing Fundamentals</span></a>
+              </li>
+              <li>
+                <a href="../../../guide/topics/testing/activity_testing.html">
+                <span class="en">Activity Testing</span></a>
+              </li>
+              <li>
+                <a href="../../../guide/topics/testing/contentprovider_testing.html">
+                <span class="en">Content Provider Testing</span></a>
+              </li>
+              <li>
+                <a href="../../../guide/topics/testing/service_testing.html">
+                <span class="en">Service Testing</span></a>
+              </li>
+              <li>
+                <a href="../../../guide/topics/testing/what_to_test.html">
+                <span class="en">What To Test</span></a>
+              </li>
+           </ul>
+      </li>
+    </ul>
+  </li>
+
+  <li>
+    <h2>
+      <span class="en">Google Play Topics</span>
+    </h2>
+    <ul>
+      <li><a href="../../../guide/publishing/publishing.html">
+          <span class="en">Publishing on Google Play</span>
+          </a></li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/market/licensing/index.html">
+          <span class="en">Application Licensing</span></a>
+        </div>
+        <ul>
+          <li><a href="../../../guide/market/licensing/overview.html">
+              <span class="en">Licensing Overview</span></a>
+          </li>
+          <li><a href="../../../guide/market/licensing/setting-up.html">
+              <span class="en">Setting Up for Licensing</span></a>
+          </li>
+          <li><a href="../../../guide/market/licensing/adding-licensing.html">
+              <span class="en">Adding Licensing to Your App</span></a>
+          </li>
+          <li><a href="../../../guide/market/licensing/licensing-reference.html">
+              <span class="en">Licensing Reference</span></a>
+          </li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/market/billing/index.html">
+            <span class="en">In-app Billing</span></a>
+        </div>
+        <ul>
+          <li><a href="../../../guide/market/billing/billing_overview.html">
+              <span class="en">In-app Billing Overview</span></a>
+          </li>
+          <li><a href="../../../guide/market/billing/billing_integrate.html">
+              <span class="en">Implementing In-app Billing</span></a>
+          </li>
+          <li><a href="../../../guide/market/billing/billing_best_practices.html">
+              <span class="en">Security and Design</span></a>
+          </li>
+          <li><a href="../../../guide/market/billing/billing_testing.html">
+              <span class="en">Testing In-app Billing</span></a>
+          </li>
+          <li><a href="../../../guide/market/billing/billing_admin.html">
+              <span class="en">Administering In-app Billing</span></a>
+          </li>
+          <li><a href="../../../guide/market/billing/billing_reference.html">
+              <span class="en">In-app Billing Reference</span></a>
+          </li>
+        </ul>
+      </li>
+      <li><a href="../../../guide/appendix/market-filters.html">
+          <span class="en">Filters on Google Play</span></a>
+      </li>
+      <li><a href="../../../guide/market/publishing/multiple-apks.html">
+          <span class="en">Multiple APK Support</span></a>
+      </li>
+      <li><a href="../../../guide/market/expansion-files.html">
+          <span class="en">APK Expansion Files</span></a>
+          <span class="new">new!</span>
+      </li>
+    </ul>
+  </li>
+
+
+  <li>
+    <span class="heading">
+      <span class="en">Developing</span>
+      <span class="de" style="display:none">Entwicklung</span>
+      <span class="es" style="display:none">Desarrollo</span>
+      <span class="fr" style="display:none">Développement</span>
+      <span class="it" style="display:none">Sviluppo</span>
+      <span class="ja" style="display:none">開発</span>
+      <span class="zh-CN" style="display:none">开发</span>
+      <span class="zh-TW" style="display:none">開發</span>
+    </span>
+    <ul>
+  <!--<li><a href="">Developing for Android</a></li>
+      signing, upgrading, selecting a package name, select device profile, touch, trackball, dpad available, etc. -->
+      <li>
+        <a href="../../../guide/developing/index.html">
+        <span class="en">Introduction</span></a>
+      </li>
+
+      <li class="toggle-list">
+        <div>
+           <a href="../../../guide/developing/devices/index.html">
+                <span class="en">Managing Virtual Devices</span>
+            </a>
+        </div>
+        <ul>
+          <li>
+            <a href="../../../guide/developing/devices/managing-avds.html">
+              <span class="en">With AVD Manager</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../guide/developing/devices/managing-avds-cmdline.html">
+              <span class="en">From the Command Line</span>
+            </a>
+          </li>
+          <li>
+           <a href="../../../guide/developing/devices/emulator.html">
+                <span class="en">Using the Android Emulator</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="../../../guide/developing/device.html">
+          <span class="en">Using Hardware Devices</span>
+        </a>
+      </li>
+
+      <li class="toggle-list">
+        <div>
+          <a href="../../../guide/developing/projects/index.html">
+            <span class="en">Managing Projects</span>
+          </a>
+        </div>
+        <ul>
+          <li>
+            <a href="../../../guide/developing/projects/projects-eclipse.html">
+              <span class="en">From Eclipse with ADT</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../guide/developing/projects/projects-cmdline.html">
+                <span class="en">From the Command Line</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="toggle-list">
+        <div>
+          <a href="../../../guide/developing/building/index.html">
+            <span class="en">Building and Running</span>
+          </a>
+        </div>
+        <ul>
+          <li><a href="../../../guide/developing/building/building-eclipse.html">
+            <span class="en">From Eclipse with ADT</span>
+          </a></li>
+          <li><a href="../../../guide/developing/building/building-cmdline.html">
+            <span class="en">From the Command Line</span></a></li>
+        </ul>
+      </li>
+
+      <li class="toggle-list">
+        <div>
+          <a href="../../../guide/developing/debugging/index.html">
+            <span class="en">Debugging</span>
+          </a>
+        </div>
+        <ul>
+          <li>
+            <a href="../../../guide/developing/debugging/debugging-projects.html">
+                <span class="en">From Eclipse with ADT</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../guide/developing/debugging/debugging-projects-cmdline.html">
+                <span class="en">From Other IDEs</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../guide/developing/debugging/ddms.html">
+              <span class="en">Using DDMS</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../guide/developing/debugging/debugging-log.html">
+                <span class="en">Reading and Writing Logs</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../guide/developing/debugging/debugging-ui.html">
+                <span class="en">Debugging and Profiling UIs</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../guide/developing/debugging/debugging-tracing.html">
+                <span class="en">Profiling with Traceview and dmtracedump</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../guide/developing/debugging/debugging-devtools.html">
+                <span class="en">Using the Dev Tools App</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="toggle-list">
+           <div>
+                <a href="../../../guide/developing/testing/index.html">
+                   <span class="en">Testing</span>
+               </a>
+           </div>
+           <ul>
+              <li>
+                <a href="../../../guide/developing/testing/testing_eclipse.html">
+                  <span class="en">From Eclipse with ADT</span>
+                </a>
+              </li>
+
+              <li>
+                <a href="../../../guide/developing/testing/testing_otheride.html">
+                  <span class="en">From Other IDEs</span>
+                </a>
+              </li>
+           </ul>
+         </li>
+
+         <li class="toggle-list">
+        <div><a href="../../../guide/developing/tools/index.html">
+            <span class="en">Tools</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../guide/developing/tools/adb.html">adb</a></li>
+          <li><a href="../../../guide/developing/tools/adt.html">ADT</a></li>
+          <li><a href="../../../guide/developing/tools/android.html">android</a></li>
+          <li><a href="../../../guide/developing/tools/bmgr.html">bmgr</a>
+          <li><a href="../../../guide/developing/tools/dmtracedump.html">dmtracedump</a></li>
+          <li><a href="../../../guide/developing/tools/draw9patch.html">Draw
+          9-Patch</a></li>
+          <li><a href="../../../guide/developing/tools/emulator.html">Emulator</a></li>
+          <li><a href="../../../guide/developing/tools/etc1tool.html">etc1tool</a></li>
+          <li><a href="../../../guide/developing/tools/hierarchy-viewer.html">Hierarchy Viewer</a></li>
+          <li><a href="../../../guide/developing/tools/hprof-conv.html">hprof-conv</a></li>
+          <li><a href="../../../guide/developing/tools/layoutopt.html">layoutopt</a></li>
+          <li><a href="../../../guide/developing/tools/logcat.html">logcat</a></li>
+          <li><a href="../../../guide/developing/tools/mksdcard.html">mksdcard</a></li>
+          <li><a href="../../../guide/developing/tools/monkey.html">Monkey</a></li>
+          <li class="toggle-list">
+            <div><a href="../../../guide/developing/tools/monkeyrunner_concepts.html">
+              <span class="en">monkeyrunner</span>
+            </a></div>
+            <ul>
+              <li><a href="../../../guide/developing/tools/MonkeyDevice.html">
+                <span class="en">MonkeyDevice</span>
+                </a></li>
+              <li><a href="../../../guide/developing/tools/MonkeyImage.html">
+                <span class="en">MonkeyImage</span>
+                </a></li>
+              <li><a href="../../../guide/developing/tools/MonkeyRunner.html">
+                <span class="en">MonkeyRunner</span>
+                </a></li>
+            </ul>
+          </li>
+          <li><a href="../../../guide/developing/tools/proguard.html">ProGuard</a></li>
+          <li><a href="../../../guide/developing/tools/adb.html#sqlite">sqlite3</a></li>
+          <li><a href="../../../guide/developing/tools/traceview.html">Traceview</a></li>
+          <li><a href="../../../guide/developing/tools/zipalign.html">zipalign</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+
+  <li>
+    <span class="heading">
+      <span class="en">Publishing</span>
+      <span class="de" style="display:none">Veröffentlichung</span>
+      <span class="es" style="display:none">Publicación</span>
+      <span class="fr" style="display:none">Publication</span>
+      <span class="it" style="display:none">Pubblicazione</span>
+      <span class="ja" style="display:none">公開</span>
+      <span class="zh-CN" style="display:none">发布</span>
+      <span class="zh-TW" style="display:none">發佈</span>
+    </span>
+    <ul>
+      <li><a href="../../../guide/publishing/publishing_overview.html">
+            <span class="en">Publishing Overview</span>
+          </a></li>
+      <li><a href="../../../guide/publishing/preparing.html">
+            <span class="en">Preparing for Release</span>
+            <span class="de" style="display:none">Vorbereitung auf die Veröffentlichung</span>
+            <span class="es" style="display:none">Publicación de aplicaciones</span>
+            <span class="fr" style="display:none">Préparation à la publication</span>
+            <span class="it" style="display:none">Preparativi per la pubblicazione</span>
+            <span class="ja" style="display:none">公開の準備</span>
+            <span class="zh-CN" style="display:none">准备发布</span>
+            <span class="zh-TW" style="display:none">準備發佈</span>
+          </a></li>
+      <li><a href="../../../guide/publishing/app-signing.html">
+            <span class="en">Signing Your Applications</span>
+            <span class="de" style="display:none">Signieren Ihrer Anwendungen</span>
+            <span class="es" style="display:none">Firma de aplicaciones</span>
+            <span class="fr" style="display:none">Attribution de votre signature <br />à vos
+applications</span>
+            <span class="it" style="display:none">Firma delle applicazioni</span>
+            <span class="ja" style="display:none">アプリケーションへの署名</span>
+            <span class="zh-CN" style="display:none">应用程序签名</span>
+            <span class="zh-TW" style="display:none">簽署應用程式</span>
+          </a></li>
+      <li><a href="../../../guide/publishing/versioning.html">
+            <span class="en">Versioning Your Applications</span>
+            <span class="de" style="display:none">Versionsverwaltung für Ihre <br
+/>Anwendungen</span>
+            <span class="es" style="display:none">Versiones de las aplicaciones</span>
+            <span class="fr" style="display:none">Attribution d'une version à vos
+applications</span>
+            <span class="it" style="display:none">Controllo versioni delle applicazioni</span>
+            <span class="ja" style="display:none">アプリケーションのバージョニング</span>
+            <span class="zh-CN" style="display:none">应用程序版本控制</span>
+            <span class="zh-TW" style="display:none">應用程式版本設定</span>
+          </a></li>
+    </ul>
+  </li>
+
+  <li>
+    <span class="heading">
+      <span class="en">Best Practices</span>
+      <span class="de" style="display:none">Bewährte Verfahren</span>
+      <span class="es" style="display:none">Prácticas recomendadas</span>
+      <span class="fr" style="display:none">Meilleures pratiques</span>
+      <span class="it" style="display:none">Best practice</span>
+      <span class="ja" style="display:none">ベスト プラクティス</span>
+      <span class="zh-CN" style="display:none">最佳实践</span>
+      <span class="zh-TW" style="display:none">最佳實務</span>
+    </span>
+    <ul>
+      <li><a href="../../../guide/practices/compatibility.html">
+            <span class="en">Compatibility</span>
+          </a></li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/practices/screens_support.html">
+          <span class="en">Supporting Multiple Screens</span>
+        </a></div>
+        <ul>
+          <li><a href="../../../guide/practices/screens-distribution.html">
+            <span class="en">Distributing to Specific Screens</span>
+          </a></li>
+          <li><a href="../../../guide/practices/screen-compat-mode.html">
+            <span class="en">Screen Compatibility Mode</span>
+          </a></li>
+          <li><a href="../../../guide/practices/screens-support-1.5.html">
+            <span class="en">Strategies for Android 1.5</span>
+          </a></li>
+        </ul>
+      </li>
+      <li><a href="../../../guide/practices/tablets-and-handsets.html">
+            <span class="en">Supporting Tablets and Handsets</span>
+          </a> <span class="new">new!</span></li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/practices/ui_guidelines/index.html">
+               <span class="en">UI Guidelines</span>
+             </a></div>
+        <ul>
+          <li class="toggle-list">
+            <div><a href="../../../guide/practices/ui_guidelines/icon_design.html">
+                   <span class="en">Icon Design</span>
+                 </a></div>
+            <ul>
+              <li><a href="../../../guide/practices/ui_guidelines/icon_design_launcher.html">
+                    <span class="en">Launcher Icons</span>
+                  </a></li>
+              <li><a href="../../../guide/practices/ui_guidelines/icon_design_menu.html">
+                    <span class="en">Menu Icons</span>
+                  </a></li>
+              <li><a href="../../../guide/practices/ui_guidelines/icon_design_action_bar.html">
+                    <span class="en">Action Bar Icons</span>
+                  </a></li>
+              <li><a href="../../../guide/practices/ui_guidelines/icon_design_status_bar.html">
+                    <span class="en">Status Bar Icons</span>
+                  </a></li>
+              <li><a href="../../../guide/practices/ui_guidelines/icon_design_tab.html">
+                    <span class="en">Tab Icons</span>
+                  </a></li>
+              <li><a href="../../../guide/practices/ui_guidelines/icon_design_dialog.html">
+                    <span class="en">Dialog Icons</span>
+                  </a></li>
+              <li><a href="../../../guide/practices/ui_guidelines/icon_design_list.html">
+                    <span class="en">List View Icons</span>
+                  </a></li>
+            </ul>
+          </li>
+          <li><a href="../../../guide/practices/ui_guidelines/widget_design.html">
+                <span class="en">App Widget Design</span>
+              </a></li>
+          <li><a href="../../../guide/practices/ui_guidelines/activity_task_design.html">
+                <span class="en">Activity and Task Design</span>
+              </a></li>
+          <li><a href="../../../guide/practices/ui_guidelines/menu_design.html">
+                <span class="en">Menu Design</span>
+              </a></li>
+        </ul>
+      </li>
+      </ul>
+      <ul>
+      <li><a href="../../../guide/practices/design/accessibility.html">
+            <span class="en">Designing for Accessibility</span>
+          </a></li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/practices/design/performance.html">
+            <span class="en">Designing for Performance</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../guide/practices/design/jni.html">
+                <span class="en">JNI Tips</span>
+              </a></li>
+        </ul>
+      </li>
+      <li><a href="../../../guide/practices/design/responsiveness.html">
+            <span class="en">Designing for Responsiveness</span>
+          </a></li>
+      <li><a href="../../../guide/practices/design/seamlessness.html">
+            <span class="en">Designing for Seamlessness</span>
+          </a></li>
+      <li><a href="../../../guide/practices/security.html">
+            <span class="en">Designing for Security</span></a>
+            </li>
+    </ul>
+  </li>
+
+  <li>
+    <span class="heading">
+      <span class="en">Web Applications</span>
+    </span>
+    <ul>
+      <li><a href="../../../guide/webapps/index.html">
+            <span class="en">Web Apps Overview</span>
+          </a></li>
+      <li><a href="../../../guide/webapps/targeting.html">
+            <span class="en">Targeting Screens from Web Apps</span>
+          </a></li>
+      <li><a href="../../../guide/webapps/webview.html">
+            <span class="en">Building Web Apps in WebView</span>
+          </a></li>
+      <li><a href="../../../guide/webapps/debugging.html">
+            <span class="en">Debugging Web Apps</span>
+          </a></li>
+      <li><a href="../../../guide/webapps/best-practices.html">
+            <span class="en">Best Practices for Web Apps</span>
+          </a></li>
+    </ul>
+  </li>
+
+  <li>
+    <span class="heading">
+      <span class="en">Appendix</span>
+      <span class="de" style="display:none">Anhang</span>
+      <span class="es" style="display:none">Apéndice</span>
+      <span class="fr" style="display:none">Annexes</span>
+      <span class="it" style="display:none">Appendice</span>
+      <span class="ja" style="display:none">付録</span>
+      <span class="zh-CN" style="display:none">附录</span>
+      <span class="zh-TW" style="display:none">附錄</span>
+    </span>
+    <ul>
+      <li><a href="../../../guide/appendix/api-levels.html">
+            <span class="en">Android API Levels</span>
+          </a></li>
+      <li><a href="../../../guide/appendix/install-location.html">
+            <span class="en">App Install Location</span>
+          </a></li>
+      <li><a href="../../../guide/appendix/media-formats.html">
+            <span class="en">Supported Media Formats</span>
+          </a></li>
+      <li><a href="../../../guide/appendix/g-app-intents.html">
+            <span class="en">Intents List: Google Apps</span>
+          </a></li>
+      <li><a href="../../../guide/developing/tools/aidl.html">AIDL</a></li>
+      <li><a href="../../../guide/appendix/glossary.html">
+            <span class="en">Glossary</span>
+          </a></li>
+    </ul>
+  </li>
+
+</ul>
+
+<script type="text/javascript">
+<!--
+    buildToggleLists();
+    changeNavLang(getLangPref());
+//-->
+</script>
+
+      </div>
+    </div> <!-- end side-nav -->
+    <script>
+      addLoadEvent(function() {
+        scrollIntoView("devdoc-nav");
+        });
+    </script>
+
+
+
+
+<div class="g-unit" id="doc-content"><a name="top"></a>
+
+<div id="jd-header" class="guide-header">
+  <span class="crumb" itemprop="breadcrumb">
+    
+      <a href="index.html">Sensors</a>:
+    
+  </span>
+<h1 itemprop="name">Motion Sensors</h1>
+</div>
+
+  
+  <div id="jd-content">
+ 
+    
+
+
+    <div class="jd-descr" itemprop="articleBody">
+    <div id="qv-wrapper">
+  <div id="qv">
+    <h2>In this document</h2>
+    <ol>
+      <li><a href="#sensors-motion-accel">Using the Accelerometer</a></li>
+      <li><a href="#sensors-motion-grav">Using the Gravity Sensor</a></li>
+      <li><a href="#sensors-motion-gyro">Using the Gyroscope</a></li>
+      <li><a href="#sensors-motion-linear">Using the Linear Accelerometer</a></li>
+      <li><a href="#sensors-motion-rotate">Using the Rotation Vector Sensor</a></li>
+    </ol>
+    <h2>Key classes and interfaces</h2>
+    <ol>
+      <li><code><a href="../../../reference/android/hardware/Sensor.html">Sensor</a></code></li>
+      <li><code><a href="../../../reference/android/hardware/SensorEvent.html">SensorEvent</a></code></li>
+      <li><code><a href="../../../reference/android/hardware/SensorManager.html">SensorManager</a></code></li>
+      <li><code><a href="../../../reference/android/hardware/SensorEventListener.html">SensorEventListener</a></code></li>
+    </ol>
+    <h2>Related samples</h2>
+    <ol>
+      <li><a href="../../../resources/samples/AccelerometerPlay/index.html">Accelerometer
+      Play</a></li>
+      <li><a
+href="../../../resources/samples/ApiDemos/src/com/example/android/apis/os/RotationVectorDemo.html">
+API Demos (OS - RotationVectorDemo)</a></li>
+      <li><a
+href="../../../resources/samples/ApiDemos/src/com/example/android/apis/os/RotationVectorDemo.html"
+>API Demos (OS - Sensors)</a></li>
+    </ol>
+    <h2>See also</h2>
+    <ol>
+      <li><a href="../../../guide/topics/sensors/index.html">Sensors</a></li>
+      <li><a href="../../../guide/topics/sensors/sensors_overview.html">Sensors Overview</a></li>
+      <li><a href="../../../guide/topics/sensors/sensors_position.html">Position Sensors</a></li>
+      <li><a href="../../../guide/topics/sensors/sensors_environment.html">Environment
+Sensors</a></li>
+    </ol>
+  </div>
+</div>
+
+<p>The Android platform provides several sensors that let you monitor the motion of a device. Two of
+these sensors are always hardware-based (the accelerometer and gyroscope), and three of these
+sensors can be either hardware-based or software-based (the gravity, linear acceleration, and
+rotation vector sensors). For example, on some devices the software-based sensors derive their data
+from the accelerometer and magnetometer, but on other devices they may also use the gyroscope to
+derive their data. Most Android-powered devices have an accelerometer, and many now
+include a gyroscope. The availability of the softare-based sensors is more variable because they
+often rely on one or more hardware sensors to derive their data.</p>
+
+<p>Motion sensors are useful for monitoring device movement, such as tilt, shake, rotation, or
+swing. The movement is usually a reflection of direct user input (for example, a user steering a
+car in a game or a user controlling a ball in a game), but it can also be a reflection of the
+physical environment in which the device is sitting (for example, moving with you while you drive
+your car). In the first case, you are monitoring motion relative to the device's frame of reference
+or your application's frame of reference; in the second case you are monitoring motion relative to
+the world's frame of reference. Motion sensors by themselves are not typically used to monitor
+device position, but they can be used with other sensors, such as the geomagnetic field sensor, to
+determine a device's position relative to the world's frame of reference (see <a
+href="../../../guide/topics/sensors/sensors_position.html">Position Sensors</a> for more
+information).</p>
+
+<p>All of the motion sensors return multi-dimensional arrays of sensor values for each <code><a href="../../../reference/android/hardware/SensorEvent.html">SensorEvent</a></code>. For example, during a single sensor event the accelerometer returns
+acceleration force data for the three coordinate axes, and the gyroscope returns rate of rotation
+data for the three coordinate axes. These data values are returned in a <code>float</code> array
+(<code><a href="../../../reference/android/hardware/SensorEvent.html#values">values</a></code>) along with other <code><a href="../../../reference/android/hardware/SensorEvent.html">SensorEvent</a></code>
+parameters. Table 1 summarizes the motion sensors that are available on the Android platform.</p>
+
+<p class="table-caption" id="table1">
+  <strong>Table 1.</strong> Motion sensors that are supported on the Android platform.</p>
+<table>
+  <tr>
+    <th scope="col" style="white-space:nowrap">Sensor</th>
+    <th scope="col" style="white-space:nowrap">Sensor event data</th>
+    <th scope="col" style="white-space:nowrap">Description</th>
+    <th scope="col" style="white-space:nowrap">Units of measure</th>
+  </tr>
+  <tr>
+    <td rowspan="3"><code><a href="../../../reference/android/hardware/Sensor.html#TYPE_ACCELEROMETER">TYPE_ACCELEROMETER</a></code></td>
+    <td><code>SensorEvent.values[0]</code></td>
+    <td>Acceleration force along the x axis (including gravity).</td>
+    <td rowspan="3">m/s<sup>2</sup></td>
+  </tr>
+  <tr>
+    <td><code>SensorEvent.values[1]</code></td>
+    <td>Acceleration force along the y axis (including gravity).</td>
+  </tr>
+  <tr>
+    <td><code>SensorEvent.values[2]</code></td>
+    <td>Acceleration force along the z axis (including gravity).</td>
+  </tr>
+  <tr>
+    <td rowspan="3"><code><a href="../../../reference/android/hardware/Sensor.html#TYPE_GRAVITY">TYPE_GRAVITY</a></code></td>
+    <td><code>SensorEvent.values[0]</code></td>
+    <td>Force of gravity along the x axis.</td>
+    <td rowspan="3">m/s<sup>2</sup></td>
+  </tr>
+  <tr>
+    <td><code>SensorEvent.values[1]</code></td>
+    <td>Force of gravity along the y axis.</td>
+  </tr>
+  <tr>
+    <td><code>SensorEvent.values[2]</code></td>
+    <td>Force of gravity along the z axis.</td>
+  </tr>
+  <tr>
+    <td rowspan="3"><code><a href="../../../reference/android/hardware/Sensor.html#TYPE_GYROSCOPE">TYPE_GYROSCOPE</a></code></td>
+    <td><code>SensorEvent.values[0]</code></td>
+    <td>Rate of rotation around the x axis.</td>
+    <td rowspan="3">rad/s</td>
+  </tr>
+  <tr>
+    <td><code>SensorEvent.values[1]</code></td>
+    <td>Rate of rotation around the y axis.</td>
+  </tr>
+  <tr>
+    <td><code>SensorEvent.values[2]</code></td>
+    <td>Rate of rotation around the z axis.</td>
+  </tr>
+  <tr>
+    <td rowspan="3"><code><a href="../../../reference/android/hardware/Sensor.html#TYPE_LINEAR_ACCELERATION">TYPE_LINEAR_ACCELERATION</a></code></td>
+    <td><code>SensorEvent.values[0]</code></td>
+    <td>Acceleration force along the x axis (excluding gravity).</td>
+    <td rowspan="3">m/s<sup>2</sup></td>
+  </tr>
+  <tr>
+    <td><code>SensorEvent.values[1]</code></td>
+    <td>Acceleration force along the y axis (excluding gravity).</td>
+  </tr>
+  <tr>
+    <td><code>SensorEvent.values[2]</code></td>
+    <td>Acceleration force along the z axis (excluding gravity).</td>
+  </tr>
+  <tr>
+    <td rowspan="4"><code><a href="../../../reference/android/hardware/Sensor.html#TYPE_ROTATION_VECTOR">TYPE_ROTATION_VECTOR</a></code></td>
+    <td><code>SensorEvent.values[0]</code></td>
+    <td>Rotation vector component along the x axis (x * sin(θ/2)).</td>
+    <td rowspan="4">Unitless</td>
+  </tr>
+  <tr>
+    <td><code>SensorEvent.values[1]</code></td>
+    <td>Rotation vector component along the y axis (y * sin(θ/2)).</td>
+  </tr>
+  <tr>
+    <td><code>SensorEvent.values[2]</code></td>
+    <td>Rotation vector component along the z axis (z * sin(θ/2)).</td>
+  </tr>
+  <tr>
+    <td><code>SensorEvent.values[3]</code></td>
+    <td>Scalar component of the rotation vector ((cos(θ/2)).<sup>1</sup></td>
+  </tr>
+</table>
+
+<p class="note"><strong><sup>1</sup></strong> The scalar component is an optional value.</p>
+
+<p>The rotation vector sensor and the gravity sensor are the most frequently used sensors for motion
+detection and monitoring. The rotational vector sensor is particularly versatile and can be used for
+a wide range of motion-related tasks, such as detecting gestures, monitoring angular change, and
+monitoring relative orientation changes. For example, the rotational vector sensor is ideal if you
+are developing a game, an augmented reality application, a 2-dimensional or 3-dimensional compass,
+or a camera stabilization app. In most cases, using these sensors is a better choice than using
+the accelerometer and geomagnetic field sensor or the orientation sensor.</p>
+
+<h3>Android Open Source Project Sensors</h3>
+
+<p>The Android Open Source Project (AOSP) provides three software-based motion sensors: a gravity
+sensor, a linear acceleration sensor, and a rotation vector sensor. These sensors were updated in
+Android 4.0 and now use a device's gyroscope (in addition to other sensors) to improve stability and
+performance. If you want to try these sensors, you can identify them by using the <code><a href="../../../reference/android/hardware/Sensor.html#getVendor()">getVendor()</a></code> method and the <code><a href="../../../reference/android/hardware/Sensor.html#getVersion()">getVersion()</a></code> method
+(the vendor is Google Inc.; the version number is 3). Identifying these sensors by vendor and
+version number is necessary because the Android system considers these three sensors to be secondary
+sensors. For example, if a device manufacturer provides their own gravity sensor, then the AOSP
+gravity sensor shows up as a secondary gravity sensor. All three of these sensors rely on a
+gyroscope: if a device does not have a gyroscope, these sensors do not show up and are not
+available for use.</p>
+
+<h2 id="sensors-motion-accel">Using the Accelerometer</h2>
+
+<p>An acceleration sensor measures the acceleration applied to the device, including the force of
+gravity. The following code shows you how to get an instance of the default acceleration sensor:</p>
+
+<pre>
+private SensorManager mSensorManager;
+private Sensor mSensor;
+  ...
+mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+mSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+</pre>
+
+<p>Conceptually, an acceleration sensor determines the acceleration that is applied
+to a device (A<sub>d</sub>) by measuring the forces that are applied to the sensor
+itself (F<sub>s</sub>) using the following relationship:</p>
+
+<pre class="no-pretty-print classic">
+A<sub>d</sub> = - ∑F<sub>s</sub> / mass
+</pre>
+
+<p>However, the force of gravity is always influencing the measured acceleration according to
+the following relationship:</p>
+
+<pre class="no-pretty-print classic">
+A<sub>d</sub> = -g - ∑F / mass
+</pre>
+
+<p>For this reason, when the device is sitting on a table (and not accelerating), the
+accelerometer reads a magnitude of g = 9.81 m/s<sup>2</sup>. Similarly, when the device is in
+free fall and therefore rapidly accelerating toward the ground at 9.81 m/s<sup>2</sup>, its
+accelerometer reads a magnitude of g = 0 m/s<sup>2</sup>. Therefore, to measure
+the real acceleration of the device, the contribution of the force of gravity must be removed from
+the accelerometer data. This can be achieved by applying a high-pass filter. Conversely, a low-pass
+filter can be used to isolate the force of gravity. The following example shows how you can do
+this:</p>
+
+<pre>
+public void onSensorChanged(SensorEvent event){
+  // In this example, alpha is calculated as t / (t + dT),
+  // where t is the low-pass filter's time-constant and
+  // dT is the event delivery rate.
+
+  final float alpha = 0.8;
+
+  // Isolate the force of gravity with the low-pass filter.
+  gravity[0] = alpha * gravity[0] + (1 - alpha) * event.values[0];
+  gravity[1] = alpha * gravity[1] + (1 - alpha) * event.values[1];
+  gravity[2] = alpha * gravity[2] + (1 - alpha) * event.values[2];
+
+  // Remove the gravity contribution with the high-pass filter.
+  linear_acceleration[0] = event.values[0] - gravity[0];
+  linear_acceleration[1] = event.values[1] - gravity[1];
+  linear_acceleration[2] = event.values[2] - gravity[2];
+}
+</pre>
+
+<p class="note"><strong>Note:</strong> You can use many different techniques to filter sensor data.
+The code sample above uses a simple filter constant (alpha) to create a low-pass filter. This filter
+constant is derived from a time constant (t), which is a rough representation of the latency that
+the filter adds to the sensor events, and the sensor's event delivery rate (dt). The code sample
+uses an alpha value of 0.8 for demonstration purposes. If you use this filtering method you may need
+to choose a different alpha value.</p>
+
+<p>Accelerometers use the standard sensor <a
+href="../../../guide/topics/sensors/sensors_overview.html#sensors-coords">coordinate
+system</a>. In practice, this means that the following conditions apply when a device is laying
+flat on a table in its natural orientation:</p>
+
+<ul>
+  <li>If you push the device on the left side (so it moves to the right), the x acceleration value
+is positive.</li>
+  <li>If you push the device on the bottom (so it moves away from you), the y acceleration value is
+positive.</li>
+  <li>If you push the device toward the sky with an acceleration of A m/s<sup>2</sup>, the
+z acceleration value is equal to A + 9.81, which corresponds to the acceleration of the device (+A
+m/s<sup>2</sup>) minus the force of gravity (-9.81 m/s<sup>2</sup>).</li>
+  <li>The stationary device will have an acceleration value of +9.81, which corresponds to the
+acceleration of the device (0 m/s<sup>2</sup> minus the force of gravity, which is -9.81
+m/s<sup>2</sup>).</li>
+</ul>
+
+<p>In general, the accelerometer is a good sensor to use if you are monitoring device motion.
+Almost every Android-powered handset and tablet has an accelerometer, and it uses about 10 times
+less power than the other motion sensors. One drawback is that you might have to implement
+low-pass and high-pass filters to eliminate gravitational forces and reduce noise.</p>
+
+<p>The Android SDK provides a sample application that shows how to use the acceleration sensor (<a
+href="../../../resources/samples/AccelerometerPlay/index.html">Accelerometer Play</a>).</p>
+
+<h2 id="sensors-motion-grav">Using the Gravity Sensor</h2>
+
+<p>The gravity sensor provides a three dimensional vector indicating the direction and magnitude of
+gravity. The following code shows you how to get an instance of the default gravity sensor:</p>
+
+<pre>
+private SensorManager mSensorManager;
+private Sensor mSensor;
+...
+mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+mSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_GRAVITY);
+</pre>
+
+<p>The units are the same as those used by the acceleration
+sensor (m/s<sup>2</sup>), and the coordinate system is the same as the one used by the
+acceleration sensor.</p>
+
+<p class="note"><strong>Note:</strong> When a device is at rest, the output of the gravity sensor
+should be identical to that of the accelerometer.</p>
+
+<h2 id="sensors-motion-gyro">Using the Gyroscope</h2>
+<p>The gyroscope measures the rate or rotation in rad/s around a device's x, y,
+and z axis. The following code shows you how to get an instance of the default gyroscope:</p>
+
+<pre>
+private SensorManager mSensorManager;
+private Sensor mSensor;
+...
+mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+mSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_GYROSCOPE);
+</pre>
+
+<p>The sensor's <a
+href="../../../guide/topics/sensors/sensors_overview.html#sensors-coords">coordinate system</a>
+is the same as the one used for the acceleration sensor. Rotation is positive in the
+counter-clockwise direction; that is, an observer looking
+from some positive location on the x, y or z axis at a device positioned on the origin would report
+positive rotation if the device appeared to be rotating counter clockwise. This is the
+standard mathematical definition of positive rotation and is not the same as the definition for
+roll that is used by the orientation sensor.</p>
+
+<p>Usually, the output of the gyroscope is integrated over time to calculate a rotation describing
+the change of angles over the timestep. For example:</p>
+
+<pre>
+// Create a constant to convert nanoseconds to seconds.
+private static final float NS2S = 1.0f / 1000000000.0f;
+private final float[] deltaRotationVector = new float[4]();
+private float timestamp;
+
+public void onSensorChanged(SensorEvent event) {
+  // This timestep's delta rotation to be multiplied by the current rotation
+  // after computing it from the gyro sample data.
+  if (timestamp != 0) {
+    final float dT = (event.timestamp - timestamp) * NS2S;
+    // Axis of the rotation sample, not normalized yet.
+    float axisX = event.values[0];
+    float axisY = event.values[1];
+    float axisZ = event.values[2];
+
+    // Calculate the angular speed of the sample
+    float omegaMagnitude = sqrt(axisX*axisX + axisY*axisY + axisZ*axisZ);
+
+    // Normalize the rotation vector if it's big enough to get the axis
+    // (that is, EPSILON should represent your maximum allowable margin of error)
+    if (omegaMagnitude > EPSILON) {
+      axisX /= omegaMagnitude;
+      axisY /= omegaMagnitude;
+      axisZ /= omegaMagnitude;
+    }
+
+    // Integrate around this axis with the angular speed by the timestep
+    // in order to get a delta rotation from this sample over the timestep
+    // We will convert this axis-angle representation of the delta rotation
+    // into a quaternion before turning it into the rotation matrix.
+    float thetaOverTwo = omegaMagnitude * dT / 2.0f;
+    float sinThetaOverTwo = sin(thetaOverTwo);
+    float cosThetaOverTwo = cos(thetaOverTwo);
+    deltaRotationVector[0] = sinThetaOverTwo * axisX;
+    deltaRotationVector[1] = sinThetaOverTwo * axisY;
+    deltaRotationVector[2] = sinThetaOverTwo * axisZ;
+    deltaRotationVector[3] = cosThetaOverTwo;
+  }
+  timestamp = event.timestamp;
+  float[] deltaRotationMatrix = new float[9];
+  SensorManager.getRotationMatrixFromVector(deltaRotationMatrix, deltaRotationVector);
+    // User code should concatenate the delta rotation we computed with the current rotation
+    // in order to get the updated rotation.
+    // rotationCurrent = rotationCurrent * deltaRotationMatrix;
+   }
+}
+ </pre>
+
+<p>Standard gyroscopes provide raw rotational data without any filtering or correction for noise and
+drift (bias). In practice, gyroscope noise and drift will introduce errors that need to be
+compensated for. You usually determine the drift (bias) and noise by monitoring other sensors, such
+as the gravity sensor or accelerometer.</p>
+
+<h2 id="sensors-motion-linear">Using the Linear Accelerometer</h2>
+
+<p>The linear acceleration sensor provides you with a three-dimensional vector representing
+acceleration along each device axis, excluding gravity. The following code shows you how to get an
+instance of the default linear acceleration sensor:</p>
+
+<pre>
+private SensorManager mSensorManager;
+private Sensor mSensor;
+...
+mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+mSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_LINEAR_ACCELERATION);
+</pre>
+
+<p>Conceptually, this sensor provides you with acceleration data according to the following
+relationship:</p>
+
+<pre class="no-pretty-print classic">
+linear acceleration = acceleration - acceleration due to gravity
+</pre>
+
+<p>You typically use this sensor when you want to obtain acceleration data without the influence of
+gravity. For example, you could use this sensor to see how fast your car is going. The linear
+acceleration sensor always has an offset, which you need to remove. The simplest way to do this is
+to build a calibration step into your application. During calibration you can ask the user to set
+the device on a table, and then read the offsets for all three axes. You can then subtract that
+offset from the acceleration sensor's direct readings to get the actual linear
+acceleration.</p>
+
+<p>The sensor <a
+  href="../../../guide/topics/sensors/sensors_overview.html#sensors-coords">coordinate
+system</a> is the same as the one used by the acceleration sensor, as are the units of measure
+(m/s<sup>2</sup>).
+
+<h2 id="sensors-motion-rotate">Using the Rotation Vector Sensor</h2>
+
+<p>The rotation vector represents the orientation of the device as a combination of an angle and an
+axis, in which the device has rotated through an angle θ around an axis (x, y, or z). The following
+code shows you how to get an instance of the default rotation vector sensor:</p>
+
+<pre>
+private SensorManager mSensorManager;
+private Sensor mSensor;
+...
+mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+mSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_ROTATION_VECTOR);
+</pre>
+
+<p>The three elements of the rotation vector are expressed as follows:</p>
+
+<pre class="no-pretty-print classic">
+x*sin(θ/2)
+y*sin(θ/2)
+z*sin(θ/2)
+</pre>
+
+<p>Where the magnitude of the rotation vector is equal to sin(θ/2), and the direction of the
+rotation vector is equal to the direction of the axis of rotation.</p>
+
+<div class="figure" style="width:246px">
+  <img src="../../../images/axis_globe.png" alt="" height="235" />
+  <p class="img-caption">
+    <strong>Figure 1.</strong> Coordinate system used by the rotation vector sensor.
+  </p>
+</div>
+
+<p>The three elements of the rotation vector are equal to the last three components of a unit
+quaternion (cos(θ/2), x*sin(θ/2), y*sin(θ/2), z*sin(θ/2)). Elements of the rotation vector are
+unitless. The x, y, and z axes are defined in the same way as the acceleration sensor. The reference
+coordinate system is defined as a direct orthonormal basis (see figure 1). This coordinate system
+has the following characteristics:</p>
+
+<ul>
+  <li>X is defined as the vector product Y x Z. It is tangential to the
+ground at the device's current location and points approximately East.</li>
+  <li>Y is tangential to the ground at the device's current location and points toward the
+geomagnetic
+North Pole.</li>
+  <li>Z points toward the sky and is perpendicular to the ground plane.</li>
+</ul>
+
+<p>The Android SDK provides a sample application that shows how to use the rotation vector sensor.
+The sample application is located in the API Demos code (<a
+href="../../../resources/samples/ApiDemos/src/com/example/android/apis/os/RotationVectorDemo.html">
+OS - RotationVectorDemo</a>).</p>
+    </div>
+
+    
+    
+    <a href="#top" style="float:right">&uarr; Go to top</a>
+    
+      <p><a href="index.html">&larr; Back to Sensors</a></p>
+    
+
+  </div> <!-- end jd-content -->
+
+<div id="footer">
+
+
+  <div id="copyright">
+    
+  Except as noted, this content is licensed under <a
+  href="http://www.apache.org/licenses/LICENSE-2.0">Apache 2.0</a>. 
+  For details and restrictions, see the <a href="../../../license.html">
+  Content License</a>.
+  </div>
+  <div id="build_info">
+    
+  Android 4.0&nbsp;r1 - 16 Mar 2012 16:45
+
+  </div>
+
+  <div id="footerlinks">
+    
+  <p>
+    <a href="http://www.google.com/intl/en/policies/" target="_blank">Privacy &amp; Terms</a> -
+    <a href="http://www.android.com/branding.html" target="_blank">Brand Guidelines</a> -
+    <a
+href="http://code.google.com/p/android/issues/entry?template=Developer%20Documentation"
+target="_blank">Report Document Issues</a>
+  </p>
+  </div>
+
+</div> <!-- end footer -->
+
+</div><!-- end doc-content -->
+
+</div> <!-- end body-content --> 
+
+<script type="text/javascript">
+init(); /* initialize android-developer-docs.js */
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-5831155-1");
+pageTracker._trackPageview();
+</script>
+
+</body>
+</html>
+
+
+

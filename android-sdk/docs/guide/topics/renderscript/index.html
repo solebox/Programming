@@ -1,0 +1,2029 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico" />
+<title>Renderscript | Android Developers</title>
+<link href="../../../assets/android-developer-docs-devguide.css" rel="stylesheet" type="text/css" />
+<script src="../../../assets/search_autocomplete.js" type="text/javascript"></script>
+<script src="../../../assets/jquery-resizable.min.js" type="text/javascript"></script>
+<script src="../../../assets/android-developer-docs.js" type="text/javascript"></script>
+<script src="../../../assets/prettify.js" type="text/javascript"></script>
+<script type="text/javascript">
+  setToRoot("../../../");
+</script>
+<noscript>
+  <style type="text/css">
+    html,body{overflow:auto;}
+    #body-content{position:relative; top:0;}
+    #doc-content{overflow:visible;border-left:3px solid #666;}
+    #side-nav{padding:0;}
+    #side-nav .toggle-list ul {display:block;}
+    #resize-packages-nav{border-bottom:3px solid #666;}
+  </style>
+</noscript>
+</head>
+<body class="gc-documentation" itemscope itemtype="http://schema.org/Article">
+
+  <div id="header">
+      <div id="headerLeft">
+          <a href="../../../index.html" tabindex="-1"><img
+              src="../../../assets/images/bg_logo.png" alt="Android Developers" /></a>
+          <ul id="header-tabs" class="guide">
+    
+	<li id="home-link"><a href="../../../offline.html">
+	
+		<span class="en">Home</span>
+		<span style="display:none" class="de">Startseite</span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ホーム</span>
+		<span style="display:none" class="zh-CN">主页</span>
+		<span style="display:none" class="zh-TW">首頁</span>
+	
+	</a></li>
+	<li id="sdk-link"><a href="../../../sdk/index.html">
+		<span class="en">SDK</span>
+	</a></li>
+	<li id="guide-link"><a href="../../../guide/index.html" onClick="return loadLast('guide')">
+	
+		<span class="en">Dev Guide</span>
+		<span style="display:none" class="de">Handbuch</span>
+		<span style="display:none" class="es">Guía</span>
+		<span style="display:none" class="fr">Guide</span>
+		<span style="display:none" class="it">Guida</span>
+		<span style="display:none" class="ja">開発ガイド</span>
+		<span style="display:none" class="zh-CN">开发人员指南</span>
+		<span style="display:none" class="zh-TW">開發指南</span>
+	
+	</a></li>
+	<li id="reference-link"><a href="../../../reference/packages.html" onClick="return loadLast('reference')">
+	
+		<span class="en">Reference</span>
+		<span style="display:none" class="de">Referenz</span>
+		<span style="display:none" class="es">Referencia</span>
+		<span style="display:none" class="fr">Référence</span>
+		<span style="display:none" class="it">Riferimento</span>
+		<span style="display:none" class="ja">リファレンス</span>
+		<span style="display:none" class="zh-CN">参考</span>
+		<span style="display:none" class="zh-TW">參考資料</span>
+	
+	</a></li>
+	<li id="resources-link"><a href="../../../resources/index.html" onClick="return loadLast('resources')">
+	
+		<span class="en">Resources</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+    		<span style="display:none" class="ja"></span>
+		<span style="display:none" class="zh-CN"></span>
+		<span style="display:none" class="zh-TW"></span>
+	
+	</a></li>
+	<li id="videos-link"><a href="../../../videos/index.html" onClick="return loadLast('videos')">
+	
+		<span class="en">Videos</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ビデオ</span>
+		<span style="display:none" class="zh-CN"></span>
+		<span style="display:none" class="zh-TW"></span>
+	
+	</a></li>
+	<li><a href="http://android-developers.blogspot.com" onClick="return requestAppendHL(this.href)">
+	
+		<span class="en">Blog</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ブログ</span>
+		<span style="display:none" class="zh-CN">博客</span>
+		<span style="display:none" class="zh-TW">網誌</span>
+	
+	</a></li>
+
+
+     
+</ul>
+     
+      </div>
+      <div id="headerRight">
+          <div id="headerLinks">
+          &nbsp;&nbsp;
+          <a href="../../../design/index.html">Android Design</a>&nbsp;&nbsp;
+          <a href="http://www.android.com">Android.com</a>
+          </div>
+  <div id="search" >
+      <div id="searchForm">
+          <form accept-charset="utf-8" class="gsc-search-box" 
+                onsubmit="return submit_search()">
+            <table class="gsc-search-box" cellpadding="0" cellspacing="0"><tbody>
+                <tr>
+                  <td class="gsc-input">
+                    <input id="search_autocomplete" class="gsc-input" type="text" size="33" autocomplete="off"
+                      title="search developer docs" name="q"
+                      value="search developer docs"
+                      onFocus="search_focus_changed(this, true)"
+                      onBlur="search_focus_changed(this, false)"
+                      onkeydown="return search_changed(event, true, '../../../')"
+                      onkeyup="return search_changed(event, false, '../../../')" />
+                  <div id="search_filtered_div" class="no-display">
+                      <table id="search_filtered" cellspacing=0>
+                      </table>
+                  </div>
+                  </td>
+                  <td class="gsc-search-button">
+                    <input type="submit" value="Search" title="search" id="search-button" class="gsc-search-button" />
+                  </td>
+                  <td class="gsc-clear-button">
+                    <div title="clear results" class="gsc-clear-button">&nbsp;</div>
+                  </td>
+                </tr></tbody>
+              </table>
+          </form>
+      </div><!-- searchForm -->
+  </div><!-- search -->
+      </div><!-- headerRight -->
+      <script type="text/javascript">
+        <!--  
+        changeTabLang(getLangPref());
+        //-->
+      </script>
+  </div><!-- header -->
+
+  <div class="g-section g-tpl-240" id="body-content">
+    <div class="g-unit g-first" id="side-nav" itemscope itemtype="http://schema.org/SiteNavigationElement">
+      <div id="devdoc-nav">
+<ul>
+
+  <li>
+    <span class="heading">
+      <span class="en">Android Basics</span>
+      <span class="de" style="display:none">Einführung in Android</span>
+      <span class="es" style="display:none">Información básica sobre Android</span>
+      <span class="fr" style="display:none">Présentation d'Android</span>
+      <span class="it" style="display:none">Nozioni di base su Android</span>
+      <span class="ja" style="display:none">Android の基本</span>
+      <span class="zh-CN" style="display:none">Android 基础知识</span>
+      <span class="zh-TW" style="display:none">Android 簡介</span>
+    </span>
+    <ul>
+      <li><a href="../../../guide/basics/what-is-android.html">
+        <span class="en">What Is Android?</span>
+        <span class="de" style="display:none">Was ist Android?</span>
+        <span class="es" style="display:none">¿Qué es Android?</span>
+        <span class="fr" style="display:none">Qu'est-ce qu'Android&nbsp;?</span>
+        <span class="it" style="display:none">Che cos'è Android?</span>
+        <span class="ja" style="display:none">Android とは</span>
+        <span class="zh-CN" style="display:none">Android 是什么？</span>
+        <span class="zh-TW" style="display:none">什麼是 Android？</span>
+          </a></li>
+      <li><a href="../../../guide/topics/fundamentals.html">
+        <span class="en">Application Fundamentals</span>
+        <span class="de" style="display:none">Anwendungsgrundlagen</span>
+        <span class="es" style="display:none">Fundamentos de las aplicaciones</span>
+        <span class="fr" style="display:none">Principes de base des applications</span>
+        <span class="it" style="display:none">Concetti fondamentali sulle applicazioni</span>
+        <span class="ja" style="display:none">開発の基礎</span>
+        <span class="zh-CN" style="display:none">应用程序基础</span>
+        <span class="zh-TW" style="display:none">應用程式基本原理</span>
+      </a></li>
+
+  <!--  <li><a style="color:gray;">The Android SDK</a></li> -->
+  <!--  <li><a style="color:gray;">Walkthrough for Developers</a></li> -->
+      <!-- quick overview of what it's like to develop on Android -->
+    </ul>
+  </li>
+
+  <li>
+    <span class="heading">
+      <span class="en">Framework Topics</span>
+      <span class="de" style="display:none">Framework-Themen</span>
+      <span class="es" style="display:none">Temas sobre el framework</span>
+      <span class="fr" style="display:none">Thèmes relatifs au framework</span>
+      <span class="it" style="display:none">Argomenti relativi al framework</span>
+      <span class="ja" style="display:none">フレームワーク トピック</span>
+      <span class="zh-CN" style="display:none">框架主题</span>
+      <span class="zh-TW" style="display:none">架構主題</span>
+    </span>
+    <ul>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/fundamentals/activities.html">
+          <span class="en">Activities</span>
+        </a></div>
+        <ul>
+          <li><a href="../../../guide/topics/fundamentals/fragments.html">
+            <span class="en">Fragments</span>
+          </a></li>
+          <li><a href="../../../guide/topics/fundamentals/loaders.html">
+            <span class="en">Loaders</span>
+          </a></li>
+          <li><a href="../../../guide/topics/fundamentals/tasks-and-back-stack.html">
+            <span class="en">Tasks and Back Stack</span></a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/fundamentals/services.html">
+          <span class="en">Services</span>
+        </a></div>
+        <ul>
+          <li><a href="../../../guide/topics/fundamentals/bound-services.html">
+            <span class="en">Bound Services</span>
+          </a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+          <div><a href="../../../guide/topics/providers/content-providers.html">
+            <span class="en">Content Providers</span>
+          </a></div>
+          <ul>
+            <li>
+                <a href="../../../guide/topics/providers/content-provider-basics.html">
+                    <span class="en">Content Provider Basics</span>
+                </a>
+                <span class="new">new!</span>
+            </li>
+            <li>
+                <a href="../../../guide/topics/providers/content-provider-creating.html">
+                    <span class="en">Creating a Content Provider</span>
+                </a>
+                <span class="new">new!</span>
+            </li>
+            <li>
+                <a href="../../../guide/topics/providers/calendar-provider.html">
+                    <span class="en">Calendar Provider</span>
+                </a>
+                <span class="new">new!</span>
+            </li>
+          </ul>
+      </li>
+      <li><a href="../../../guide/topics/intents/intents-filters.html">
+            <span class="en">Intents and Intent Filters</span>
+          </a></li>
+      <li><a href="../../../guide/topics/fundamentals/processes-and-threads.html">
+            <span class="en">Processes and Threads</span>
+          </a></li>
+    </ul>
+
+
+    <ul>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/ui/index.html">
+            <span class="en">User Interface</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../guide/topics/ui/declaring-layout.html">
+               <span class="en">XML Layouts</span>
+              </a></li>
+          <li><a href="../../../guide/topics/ui/ui-events.html">
+                <span class="en">Input Events</span>
+              </a></li>
+          <li><a href="../../../guide/topics/ui/menus.html">
+               <span class="en">Menus</span>
+              </a> <span class="new">updated</span></li>
+          <li><a href="../../../guide/topics/ui/actionbar.html">
+               <span class="en">Action Bar</span>
+              </a></li>
+          <li><a href="../../../guide/topics/ui/dialogs.html">
+                <span class="en">Dialogs</span>
+              </a></li>
+          <li class="toggle-list">
+            <div><a href="../../../guide/topics/ui/notifiers/index.html">
+                <span class="en">Notifications</span>
+            </a></div>
+            <ul>
+              <li><a href="../../../guide/topics/ui/notifiers/toasts.html">
+                <span class="en">Toast Notifications</span>
+              </a></li>
+              <li><a href="../../../guide/topics/ui/notifiers/notifications.html">
+                <span class="en">Status Bar Notifications</span>
+              </a></li>
+            </ul>
+          </li>
+          <li><a href="../../../guide/topics/ui/drag-drop.html">
+                <span class="en">Drag and Drop</span>
+              </a></li>
+          <li><a href="../../../guide/topics/ui/themes.html">
+                <span class="en">Styles and Themes</span>
+              </a></li>
+          <li><a href="../../../guide/topics/ui/custom-components.html">
+                <span class="en">Custom Components</span>
+              </a></li>
+          <li><a href="../../../guide/topics/ui/binding.html">
+                <span class="en">Binding to Data with AdapterView</span>
+              </a></li>
+          <li><a href="../../../guide/topics/ui/layout-objects.html">
+                <span class="en">Common Layout Objects</span>
+              </a></li>
+          <li><a href="../../../guide/topics/ui/how-android-draws.html">
+                <span class="en">How Android Draws Views</span>
+              </a></li>
+        </ul>
+      </li><!-- end of User Interface -->
+
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/resources/index.html">
+               <span class="en">Application Resources</span>
+             </a></div>
+        <ul>
+          <li><a href="../../../guide/topics/resources/providing-resources.html">
+                <span class="en">Providing Resources</span>
+              </a></li>
+          <li><a href="../../../guide/topics/resources/accessing-resources.html">
+                <span class="en">Accessing Resources</span>
+              </a></li>
+          <li><a href="../../../guide/topics/resources/runtime-changes.html">
+                <span class="en">Handling Runtime Changes</span>
+              </a></li>
+          <li><a href="../../../guide/topics/resources/localization.html">
+                <span class="en">Localization</span>
+              </a></li>
+          <li class="toggle-list">
+            <div><a href="../../../guide/topics/resources/available-resources.html">
+              <span class="en">Resource Types</span>
+            </a></div>
+            <ul>
+              <li><a href="../../../guide/topics/resources/animation-resource.html">Animation</a></li>
+              <li><a href="../../../guide/topics/resources/color-list-resource.html">Color State List</a></li>
+              <li><a href="../../../guide/topics/resources/drawable-resource.html">Drawable</a></li>
+              <li><a href="../../../guide/topics/resources/layout-resource.html">Layout</a></li>
+              <li><a href="../../../guide/topics/resources/menu-resource.html">Menu</a></li>
+              <li><a href="../../../guide/topics/resources/string-resource.html">String</a></li>
+              <li><a href="../../../guide/topics/resources/style-resource.html">Style</a></li>
+              <li><a href="../../../guide/topics/resources/more-resources.html">More Types</a></li>
+            </ul>
+          </li><!-- end of resource types -->
+        </ul>
+      </li><!-- end of app resources -->
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/data/data-storage.html">
+            <span class="en">Data Storage</span>
+          </a></div>
+          <ul>
+            <li><a href="../../../guide/topics/data/backup.html">
+                <span class="en">Data Backup</span>
+              </a>
+            </li>
+          </ul>
+      </li>
+      <li><a href="../../../guide/topics/security/security.html">
+            <span class="en">Security and Permissions</span>
+          </a></li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/manifest/manifest-intro.html">
+          <span class="en">The AndroidManifest.xml File</span>
+        </a></div>
+        <ul>
+          <li><a href="../../../guide/topics/manifest/action-element.html">&lt;action&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/activity-element.html">&lt;activity&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/activity-alias-element.html">&lt;activity-alias&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/application-element.html">&lt;application&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/category-element.html">&lt;category&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/compatible-screens-element.html">&lt;compatible-screens&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/data-element.html">&lt;data&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/grant-uri-permission-element.html">&lt;grant-uri-permission&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/instrumentation-element.html">&lt;instrumentation&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/intent-filter-element.html">&lt;intent-filter&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/manifest-element.html">&lt;manifest&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/meta-data-element.html">&lt;meta-data&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/path-permission-element.html">&lt;path-permission&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/permission-element.html">&lt;permission&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/permission-group-element.html">&lt;permission-group&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/permission-tree-element.html">&lt;permission-tree&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/provider-element.html">&lt;provider&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/receiver-element.html">&lt;receiver&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/service-element.html">&lt;service&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/supports-gl-texture-element.html">&lt;supports-gl-texture&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/supports-screens-element.html">&lt;supports-screens&gt;</a></li><!-- ##api level 4## -->
+          <li><a href="../../../guide/topics/manifest/uses-configuration-element.html">&lt;uses-configuration&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/uses-feature-element.html">&lt;uses-feature&gt;</a></li> <!-- ##api level 4## -->
+          <li><a href="../../../guide/topics/manifest/uses-library-element.html">&lt;uses-library&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/uses-permission-element.html">&lt;uses-permission&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/uses-sdk-element.html">&lt;uses-sdk&gt;</a></li>
+        </ul>
+      </li><!-- end of the manifest file -->
+    </ul>
+
+    <ul>
+    <li class="toggle-list">
+        <div><a href="../../../guide/topics/graphics/index.html">
+            <span class="en">Graphics</span>
+          </a> <span class="new-child">new!</span></div>
+        <ul>
+          <li><a href="../../../guide/topics/graphics/2d-graphics.html">
+              <span class="en">Canvas and Drawables</span></a></li>
+          <li><a href="../../../guide/topics/graphics/hardware-accel.html">
+              <span class="en">Hardware Acceleration</span></a>
+            <span class="new">new!</span></li>
+          <li><a href="../../../guide/topics/graphics/opengl.html">
+              <span class="en">OpenGL</span>
+            </a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/graphics/animation.html">
+            <span class="en">Animation</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../guide/topics/graphics/prop-animation.html">
+              <span class="en">Property Animation</span></a></li>
+          <li><a href="../../../guide/topics/graphics/view-animation.html">
+              <span class="en">View Animation</span></a></li>
+          <li><a href="../../../guide/topics/graphics/drawable-animation.html">
+              <span class="en">Drawable Animation</span></a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/renderscript/index.html">
+          <span class="en">Renderscript</span></a>
+          <span class="new">updated</span>
+        </div>
+        <ul>
+          <li><a href="../../../guide/topics/renderscript/graphics.html">
+                <span class="en">Graphics</span>
+              </a>
+          </li>
+          <li><a href="../../../guide/topics/renderscript/compute.html">
+                <span class="en">Compute</span>
+              </a>
+          </li>
+          <li><a href="../../../guide/topics/renderscript/reference.html">
+                <span class="en">Runtime API Reference</span>
+              </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="toggle-list">
+          <div><a href="../../../guide/topics/media/index.html">
+            <span class="en">Multimedia and Camera</span>
+          </a></div>
+          <ul>
+            <li><a href="../../../guide/topics/media/mediaplayer.html">
+                  <span class="en">Media Playback</span></a>
+                </li>
+            <li><a href="../../../guide/topics/media/jetplayer.html">
+                  <span class="en">JetPlayer</span></a>
+                </li>
+            <li><a href="../../../guide/topics/media/camera.html">
+                  <span class="en">Camera</span></a>
+                  <span class="new">new!</span>
+                </li>
+            <li><a href="../../../guide/topics/media/audio-capture.html">
+                  <span class="en">Audio Capture</span></a>
+                </li>
+          </ul>
+      </li>
+      <li>
+        <a href="../../../guide/topics/clipboard/copy-paste.html">
+            <span class="en">Copy and Paste</span>
+        </a></li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/sensors/index.html">
+              <span class="en">Sensors</span>
+              </a> <span class="new">new!</span></div>
+        <ul>
+          <li><a href="../../../guide/topics/sensors/sensors_overview.html">
+              <span class="en">Sensors Overview</span>
+            </a></li>
+          <li><a href="../../../guide/topics/sensors/sensors_motion.html">
+              <span class="en">Motion Sensors</span>
+            </a></li>
+          <li><a href="../../../guide/topics/sensors/sensors_position.html">
+              <span class="en">Position Sensors</span>
+            </a></li>
+          <li><a href="../../../guide/topics/sensors/sensors_environment.html">
+              <span class="en">Environment Sensors</span>
+            </a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/location/index.html">
+               <span class="en">Location and Maps</span>
+             </a></div>
+        <ul>
+          <li><a href="../../../guide/topics/location/obtaining-user-location.html">
+                <span class="en">Obtaining User Location</span>
+              </a></li>
+        </ul>
+      </li>
+  <!--<li class="toggle-list">
+        <div><a style="color:gray;">Wireless Controls</a></div>
+          <ul>
+            <li><a style="color:gray;">Wi-Fi</a></li>
+          </ul>
+      </li> -->
+  <!--<li><a style="color:gray;">Localization</a></li>  -->
+      <li><a href="../../../guide/topics/appwidgets/index.html">
+            <span class="en">App Widgets</span></a>
+          </li>
+      <li><a href="../../../guide/topics/wireless/bluetooth.html">
+            <span class="en">Bluetooth</span></a>
+          </li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/nfc/index.html">
+          <span class="en">Near Field Communication</span></a> <span class="new">updated</span>
+        </div>
+        <ul>
+          <li><a href="../../../guide/topics/nfc/nfc.html">NFC Basics</a></li>
+          <li><a href="../../../guide/topics/nfc/advanced-nfc.html">Advanced NFC</a></li>
+        </ul>
+      </li>
+      <li><a href="../../../guide/topics/wireless/wifip2p.html">
+            <span class="en">Wi-Fi Direct</span></a> <span class="new">new!</span>
+          </li>
+      <li class="toggle-list">
+          <div><a href="../../../guide/topics/usb/index.html">
+            <span class="en">USB</span></a>
+          </div>
+            <ul>
+              <li><a href="../../../guide/topics/usb/accessory.html">Accessory</a></li>
+              <li><a href="../../../guide/topics/usb/host.html">Host</a></li>
+              <li><a href="../../../guide/topics/usb/adk.html">Open Accessory Dev Kit</a></li>
+            </ul>
+          </li>
+
+       <li><a href="../../../guide/topics/network/sip.html">
+            <span class="en">Session Initiation Protocol</span>
+          </a></li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/search/index.html">
+            <span class="en">Search</span>
+          </a></div>
+          <ul>
+            <li><a href="../../../guide/topics/search/search-dialog.html">Creating a Search Interface</a></li>
+            <li><a href="../../../guide/topics/search/adding-recent-query-suggestions.html">Adding Recent Query Suggestions</a></li>
+            <li><a href="../../../guide/topics/search/adding-custom-suggestions.html">Adding Custom Suggestions</a></li>
+            <li><a href="../../../guide/topics/search/searchable-config.html">Searchable Configuration</a></li>
+          </ul>
+      </li>
+      <li><a href="../../../guide/topics/admin/device-admin.html">
+            <span class="en">Device Administration</span></a>
+      </li>
+      <li class="toggle-list">
+           <div>
+                <a href="../../../guide/topics/testing/index.html">
+                   <span class="en">Testing</span>
+               </a>
+           </div>
+           <ul>
+              <li>
+                <a href="../../../guide/topics/testing/testing_android.html">
+                <span class="en">Testing Fundamentals</span></a>
+              </li>
+              <li>
+                <a href="../../../guide/topics/testing/activity_testing.html">
+                <span class="en">Activity Testing</span></a>
+              </li>
+              <li>
+                <a href="../../../guide/topics/testing/contentprovider_testing.html">
+                <span class="en">Content Provider Testing</span></a>
+              </li>
+              <li>
+                <a href="../../../guide/topics/testing/service_testing.html">
+                <span class="en">Service Testing</span></a>
+              </li>
+              <li>
+                <a href="../../../guide/topics/testing/what_to_test.html">
+                <span class="en">What To Test</span></a>
+              </li>
+           </ul>
+      </li>
+    </ul>
+  </li>
+
+  <li>
+    <h2>
+      <span class="en">Google Play Topics</span>
+    </h2>
+    <ul>
+      <li><a href="../../../guide/publishing/publishing.html">
+          <span class="en">Publishing on Google Play</span>
+          </a></li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/market/licensing/index.html">
+          <span class="en">Application Licensing</span></a>
+        </div>
+        <ul>
+          <li><a href="../../../guide/market/licensing/overview.html">
+              <span class="en">Licensing Overview</span></a>
+          </li>
+          <li><a href="../../../guide/market/licensing/setting-up.html">
+              <span class="en">Setting Up for Licensing</span></a>
+          </li>
+          <li><a href="../../../guide/market/licensing/adding-licensing.html">
+              <span class="en">Adding Licensing to Your App</span></a>
+          </li>
+          <li><a href="../../../guide/market/licensing/licensing-reference.html">
+              <span class="en">Licensing Reference</span></a>
+          </li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/market/billing/index.html">
+            <span class="en">In-app Billing</span></a>
+        </div>
+        <ul>
+          <li><a href="../../../guide/market/billing/billing_overview.html">
+              <span class="en">In-app Billing Overview</span></a>
+          </li>
+          <li><a href="../../../guide/market/billing/billing_integrate.html">
+              <span class="en">Implementing In-app Billing</span></a>
+          </li>
+          <li><a href="../../../guide/market/billing/billing_best_practices.html">
+              <span class="en">Security and Design</span></a>
+          </li>
+          <li><a href="../../../guide/market/billing/billing_testing.html">
+              <span class="en">Testing In-app Billing</span></a>
+          </li>
+          <li><a href="../../../guide/market/billing/billing_admin.html">
+              <span class="en">Administering In-app Billing</span></a>
+          </li>
+          <li><a href="../../../guide/market/billing/billing_reference.html">
+              <span class="en">In-app Billing Reference</span></a>
+          </li>
+        </ul>
+      </li>
+      <li><a href="../../../guide/appendix/market-filters.html">
+          <span class="en">Filters on Google Play</span></a>
+      </li>
+      <li><a href="../../../guide/market/publishing/multiple-apks.html">
+          <span class="en">Multiple APK Support</span></a>
+      </li>
+      <li><a href="../../../guide/market/expansion-files.html">
+          <span class="en">APK Expansion Files</span></a>
+          <span class="new">new!</span>
+      </li>
+    </ul>
+  </li>
+
+
+  <li>
+    <span class="heading">
+      <span class="en">Developing</span>
+      <span class="de" style="display:none">Entwicklung</span>
+      <span class="es" style="display:none">Desarrollo</span>
+      <span class="fr" style="display:none">Développement</span>
+      <span class="it" style="display:none">Sviluppo</span>
+      <span class="ja" style="display:none">開発</span>
+      <span class="zh-CN" style="display:none">开发</span>
+      <span class="zh-TW" style="display:none">開發</span>
+    </span>
+    <ul>
+  <!--<li><a href="">Developing for Android</a></li>
+      signing, upgrading, selecting a package name, select device profile, touch, trackball, dpad available, etc. -->
+      <li>
+        <a href="../../../guide/developing/index.html">
+        <span class="en">Introduction</span></a>
+      </li>
+
+      <li class="toggle-list">
+        <div>
+           <a href="../../../guide/developing/devices/index.html">
+                <span class="en">Managing Virtual Devices</span>
+            </a>
+        </div>
+        <ul>
+          <li>
+            <a href="../../../guide/developing/devices/managing-avds.html">
+              <span class="en">With AVD Manager</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../guide/developing/devices/managing-avds-cmdline.html">
+              <span class="en">From the Command Line</span>
+            </a>
+          </li>
+          <li>
+           <a href="../../../guide/developing/devices/emulator.html">
+                <span class="en">Using the Android Emulator</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="../../../guide/developing/device.html">
+          <span class="en">Using Hardware Devices</span>
+        </a>
+      </li>
+
+      <li class="toggle-list">
+        <div>
+          <a href="../../../guide/developing/projects/index.html">
+            <span class="en">Managing Projects</span>
+          </a>
+        </div>
+        <ul>
+          <li>
+            <a href="../../../guide/developing/projects/projects-eclipse.html">
+              <span class="en">From Eclipse with ADT</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../guide/developing/projects/projects-cmdline.html">
+                <span class="en">From the Command Line</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="toggle-list">
+        <div>
+          <a href="../../../guide/developing/building/index.html">
+            <span class="en">Building and Running</span>
+          </a>
+        </div>
+        <ul>
+          <li><a href="../../../guide/developing/building/building-eclipse.html">
+            <span class="en">From Eclipse with ADT</span>
+          </a></li>
+          <li><a href="../../../guide/developing/building/building-cmdline.html">
+            <span class="en">From the Command Line</span></a></li>
+        </ul>
+      </li>
+
+      <li class="toggle-list">
+        <div>
+          <a href="../../../guide/developing/debugging/index.html">
+            <span class="en">Debugging</span>
+          </a>
+        </div>
+        <ul>
+          <li>
+            <a href="../../../guide/developing/debugging/debugging-projects.html">
+                <span class="en">From Eclipse with ADT</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../guide/developing/debugging/debugging-projects-cmdline.html">
+                <span class="en">From Other IDEs</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../guide/developing/debugging/ddms.html">
+              <span class="en">Using DDMS</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../guide/developing/debugging/debugging-log.html">
+                <span class="en">Reading and Writing Logs</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../guide/developing/debugging/debugging-ui.html">
+                <span class="en">Debugging and Profiling UIs</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../guide/developing/debugging/debugging-tracing.html">
+                <span class="en">Profiling with Traceview and dmtracedump</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../guide/developing/debugging/debugging-devtools.html">
+                <span class="en">Using the Dev Tools App</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="toggle-list">
+           <div>
+                <a href="../../../guide/developing/testing/index.html">
+                   <span class="en">Testing</span>
+               </a>
+           </div>
+           <ul>
+              <li>
+                <a href="../../../guide/developing/testing/testing_eclipse.html">
+                  <span class="en">From Eclipse with ADT</span>
+                </a>
+              </li>
+
+              <li>
+                <a href="../../../guide/developing/testing/testing_otheride.html">
+                  <span class="en">From Other IDEs</span>
+                </a>
+              </li>
+           </ul>
+         </li>
+
+         <li class="toggle-list">
+        <div><a href="../../../guide/developing/tools/index.html">
+            <span class="en">Tools</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../guide/developing/tools/adb.html">adb</a></li>
+          <li><a href="../../../guide/developing/tools/adt.html">ADT</a></li>
+          <li><a href="../../../guide/developing/tools/android.html">android</a></li>
+          <li><a href="../../../guide/developing/tools/bmgr.html">bmgr</a>
+          <li><a href="../../../guide/developing/tools/dmtracedump.html">dmtracedump</a></li>
+          <li><a href="../../../guide/developing/tools/draw9patch.html">Draw
+          9-Patch</a></li>
+          <li><a href="../../../guide/developing/tools/emulator.html">Emulator</a></li>
+          <li><a href="../../../guide/developing/tools/etc1tool.html">etc1tool</a></li>
+          <li><a href="../../../guide/developing/tools/hierarchy-viewer.html">Hierarchy Viewer</a></li>
+          <li><a href="../../../guide/developing/tools/hprof-conv.html">hprof-conv</a></li>
+          <li><a href="../../../guide/developing/tools/layoutopt.html">layoutopt</a></li>
+          <li><a href="../../../guide/developing/tools/logcat.html">logcat</a></li>
+          <li><a href="../../../guide/developing/tools/mksdcard.html">mksdcard</a></li>
+          <li><a href="../../../guide/developing/tools/monkey.html">Monkey</a></li>
+          <li class="toggle-list">
+            <div><a href="../../../guide/developing/tools/monkeyrunner_concepts.html">
+              <span class="en">monkeyrunner</span>
+            </a></div>
+            <ul>
+              <li><a href="../../../guide/developing/tools/MonkeyDevice.html">
+                <span class="en">MonkeyDevice</span>
+                </a></li>
+              <li><a href="../../../guide/developing/tools/MonkeyImage.html">
+                <span class="en">MonkeyImage</span>
+                </a></li>
+              <li><a href="../../../guide/developing/tools/MonkeyRunner.html">
+                <span class="en">MonkeyRunner</span>
+                </a></li>
+            </ul>
+          </li>
+          <li><a href="../../../guide/developing/tools/proguard.html">ProGuard</a></li>
+          <li><a href="../../../guide/developing/tools/adb.html#sqlite">sqlite3</a></li>
+          <li><a href="../../../guide/developing/tools/traceview.html">Traceview</a></li>
+          <li><a href="../../../guide/developing/tools/zipalign.html">zipalign</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+
+  <li>
+    <span class="heading">
+      <span class="en">Publishing</span>
+      <span class="de" style="display:none">Veröffentlichung</span>
+      <span class="es" style="display:none">Publicación</span>
+      <span class="fr" style="display:none">Publication</span>
+      <span class="it" style="display:none">Pubblicazione</span>
+      <span class="ja" style="display:none">公開</span>
+      <span class="zh-CN" style="display:none">发布</span>
+      <span class="zh-TW" style="display:none">發佈</span>
+    </span>
+    <ul>
+      <li><a href="../../../guide/publishing/publishing_overview.html">
+            <span class="en">Publishing Overview</span>
+          </a></li>
+      <li><a href="../../../guide/publishing/preparing.html">
+            <span class="en">Preparing for Release</span>
+            <span class="de" style="display:none">Vorbereitung auf die Veröffentlichung</span>
+            <span class="es" style="display:none">Publicación de aplicaciones</span>
+            <span class="fr" style="display:none">Préparation à la publication</span>
+            <span class="it" style="display:none">Preparativi per la pubblicazione</span>
+            <span class="ja" style="display:none">公開の準備</span>
+            <span class="zh-CN" style="display:none">准备发布</span>
+            <span class="zh-TW" style="display:none">準備發佈</span>
+          </a></li>
+      <li><a href="../../../guide/publishing/app-signing.html">
+            <span class="en">Signing Your Applications</span>
+            <span class="de" style="display:none">Signieren Ihrer Anwendungen</span>
+            <span class="es" style="display:none">Firma de aplicaciones</span>
+            <span class="fr" style="display:none">Attribution de votre signature <br />à vos
+applications</span>
+            <span class="it" style="display:none">Firma delle applicazioni</span>
+            <span class="ja" style="display:none">アプリケーションへの署名</span>
+            <span class="zh-CN" style="display:none">应用程序签名</span>
+            <span class="zh-TW" style="display:none">簽署應用程式</span>
+          </a></li>
+      <li><a href="../../../guide/publishing/versioning.html">
+            <span class="en">Versioning Your Applications</span>
+            <span class="de" style="display:none">Versionsverwaltung für Ihre <br
+/>Anwendungen</span>
+            <span class="es" style="display:none">Versiones de las aplicaciones</span>
+            <span class="fr" style="display:none">Attribution d'une version à vos
+applications</span>
+            <span class="it" style="display:none">Controllo versioni delle applicazioni</span>
+            <span class="ja" style="display:none">アプリケーションのバージョニング</span>
+            <span class="zh-CN" style="display:none">应用程序版本控制</span>
+            <span class="zh-TW" style="display:none">應用程式版本設定</span>
+          </a></li>
+    </ul>
+  </li>
+
+  <li>
+    <span class="heading">
+      <span class="en">Best Practices</span>
+      <span class="de" style="display:none">Bewährte Verfahren</span>
+      <span class="es" style="display:none">Prácticas recomendadas</span>
+      <span class="fr" style="display:none">Meilleures pratiques</span>
+      <span class="it" style="display:none">Best practice</span>
+      <span class="ja" style="display:none">ベスト プラクティス</span>
+      <span class="zh-CN" style="display:none">最佳实践</span>
+      <span class="zh-TW" style="display:none">最佳實務</span>
+    </span>
+    <ul>
+      <li><a href="../../../guide/practices/compatibility.html">
+            <span class="en">Compatibility</span>
+          </a></li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/practices/screens_support.html">
+          <span class="en">Supporting Multiple Screens</span>
+        </a></div>
+        <ul>
+          <li><a href="../../../guide/practices/screens-distribution.html">
+            <span class="en">Distributing to Specific Screens</span>
+          </a></li>
+          <li><a href="../../../guide/practices/screen-compat-mode.html">
+            <span class="en">Screen Compatibility Mode</span>
+          </a></li>
+          <li><a href="../../../guide/practices/screens-support-1.5.html">
+            <span class="en">Strategies for Android 1.5</span>
+          </a></li>
+        </ul>
+      </li>
+      <li><a href="../../../guide/practices/tablets-and-handsets.html">
+            <span class="en">Supporting Tablets and Handsets</span>
+          </a> <span class="new">new!</span></li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/practices/ui_guidelines/index.html">
+               <span class="en">UI Guidelines</span>
+             </a></div>
+        <ul>
+          <li class="toggle-list">
+            <div><a href="../../../guide/practices/ui_guidelines/icon_design.html">
+                   <span class="en">Icon Design</span>
+                 </a></div>
+            <ul>
+              <li><a href="../../../guide/practices/ui_guidelines/icon_design_launcher.html">
+                    <span class="en">Launcher Icons</span>
+                  </a></li>
+              <li><a href="../../../guide/practices/ui_guidelines/icon_design_menu.html">
+                    <span class="en">Menu Icons</span>
+                  </a></li>
+              <li><a href="../../../guide/practices/ui_guidelines/icon_design_action_bar.html">
+                    <span class="en">Action Bar Icons</span>
+                  </a></li>
+              <li><a href="../../../guide/practices/ui_guidelines/icon_design_status_bar.html">
+                    <span class="en">Status Bar Icons</span>
+                  </a></li>
+              <li><a href="../../../guide/practices/ui_guidelines/icon_design_tab.html">
+                    <span class="en">Tab Icons</span>
+                  </a></li>
+              <li><a href="../../../guide/practices/ui_guidelines/icon_design_dialog.html">
+                    <span class="en">Dialog Icons</span>
+                  </a></li>
+              <li><a href="../../../guide/practices/ui_guidelines/icon_design_list.html">
+                    <span class="en">List View Icons</span>
+                  </a></li>
+            </ul>
+          </li>
+          <li><a href="../../../guide/practices/ui_guidelines/widget_design.html">
+                <span class="en">App Widget Design</span>
+              </a></li>
+          <li><a href="../../../guide/practices/ui_guidelines/activity_task_design.html">
+                <span class="en">Activity and Task Design</span>
+              </a></li>
+          <li><a href="../../../guide/practices/ui_guidelines/menu_design.html">
+                <span class="en">Menu Design</span>
+              </a></li>
+        </ul>
+      </li>
+      </ul>
+      <ul>
+      <li><a href="../../../guide/practices/design/accessibility.html">
+            <span class="en">Designing for Accessibility</span>
+          </a></li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/practices/design/performance.html">
+            <span class="en">Designing for Performance</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../guide/practices/design/jni.html">
+                <span class="en">JNI Tips</span>
+              </a></li>
+        </ul>
+      </li>
+      <li><a href="../../../guide/practices/design/responsiveness.html">
+            <span class="en">Designing for Responsiveness</span>
+          </a></li>
+      <li><a href="../../../guide/practices/design/seamlessness.html">
+            <span class="en">Designing for Seamlessness</span>
+          </a></li>
+      <li><a href="../../../guide/practices/security.html">
+            <span class="en">Designing for Security</span></a>
+            </li>
+    </ul>
+  </li>
+
+  <li>
+    <span class="heading">
+      <span class="en">Web Applications</span>
+    </span>
+    <ul>
+      <li><a href="../../../guide/webapps/index.html">
+            <span class="en">Web Apps Overview</span>
+          </a></li>
+      <li><a href="../../../guide/webapps/targeting.html">
+            <span class="en">Targeting Screens from Web Apps</span>
+          </a></li>
+      <li><a href="../../../guide/webapps/webview.html">
+            <span class="en">Building Web Apps in WebView</span>
+          </a></li>
+      <li><a href="../../../guide/webapps/debugging.html">
+            <span class="en">Debugging Web Apps</span>
+          </a></li>
+      <li><a href="../../../guide/webapps/best-practices.html">
+            <span class="en">Best Practices for Web Apps</span>
+          </a></li>
+    </ul>
+  </li>
+
+  <li>
+    <span class="heading">
+      <span class="en">Appendix</span>
+      <span class="de" style="display:none">Anhang</span>
+      <span class="es" style="display:none">Apéndice</span>
+      <span class="fr" style="display:none">Annexes</span>
+      <span class="it" style="display:none">Appendice</span>
+      <span class="ja" style="display:none">付録</span>
+      <span class="zh-CN" style="display:none">附录</span>
+      <span class="zh-TW" style="display:none">附錄</span>
+    </span>
+    <ul>
+      <li><a href="../../../guide/appendix/api-levels.html">
+            <span class="en">Android API Levels</span>
+          </a></li>
+      <li><a href="../../../guide/appendix/install-location.html">
+            <span class="en">App Install Location</span>
+          </a></li>
+      <li><a href="../../../guide/appendix/media-formats.html">
+            <span class="en">Supported Media Formats</span>
+          </a></li>
+      <li><a href="../../../guide/appendix/g-app-intents.html">
+            <span class="en">Intents List: Google Apps</span>
+          </a></li>
+      <li><a href="../../../guide/developing/tools/aidl.html">AIDL</a></li>
+      <li><a href="../../../guide/appendix/glossary.html">
+            <span class="en">Glossary</span>
+          </a></li>
+    </ul>
+  </li>
+
+</ul>
+
+<script type="text/javascript">
+<!--
+    buildToggleLists();
+    changeNavLang(getLangPref());
+//-->
+</script>
+
+      </div>
+    </div> <!-- end side-nav -->
+    <script>
+      addLoadEvent(function() {
+        scrollIntoView("devdoc-nav");
+        });
+    </script>
+
+
+
+
+<div class="g-unit" id="doc-content"><a name="top"></a>
+
+<div id="jd-header" class="guide-header">
+  <span class="crumb" itemprop="breadcrumb">
+    &nbsp;
+    
+  </span>
+<h1 itemprop="name">Renderscript</h1>
+</div>
+
+  
+  <div id="jd-content">
+ 
+    
+
+
+    <div class="jd-descr" itemprop="articleBody">
+    <div id="qv-wrapper">
+    <div id="qv">
+      <h2>In this document</h2>
+
+      <ol>
+        <li><a href="#overview">Renderscript Overview</a></li>
+        <li><a href="#native">Renderscript Runtime Layer</a></li>
+        <li><a href="#reflected">Reflected Layer</a>
+          <ol>
+            <li><a href="#func">Functions</a></li>
+            <li><a href="#var">Variables</a></li>
+            <li><a href="#pointer">Pointers</a></li>
+            <li><a href="#struct">Structs</a></li>
+          </ol>
+        </li>
+
+        <li>
+          <a href="#mem-allocation">Memory Allocation APIs</a>
+        </li>
+        <li>
+          <a href="#memory">Working with Memory</a>
+          <ol>
+            <li><a href="#allocating-mem">Allocating and binding memory to the Renderscript</a></li>
+
+            <li><a href="#read-write">Reading and writing to memory</a></li>
+
+          </ol>
+        </li>
+      </ol>
+    </div>
+  </div>
+
+  <p>Renderscript offers a high performance 3D graphics rendering and compute API at the native
+  level that you write in C (C99 standard). The main advantages of Renderscript are:</p>
+  <ul>
+    <li>Portability: Renderscript is designed to run on many types of devices with different
+    processor (CPU, GPU, and DSP for instance) architectures. It supports all of these architectures without
+    having to target each device, because the code is compiled and cached on the device
+    at runtime.</li>
+
+    <li>Performance: Renderscript provides similar performance to OpenGL with the NDK and also
+    provides a high performance compute API that is not offered by OpenGL.</li>
+
+    <li>Usability: Renderscript simplifies development when possible, such as eliminating JNI glue code
+    and simplifying mesh setup.</li>
+  </ul>
+
+  <p>The main disadvantages are:</p>
+
+  <ul>
+    <li>Development complexity: Renderscript introduces a new set of APIs that you have to learn.
+    Renderscript also allocates memory differently compared to OpenGL with the Android framework APIs.
+    However, these issues are not hard to understand and Renderscript offers many features that
+    make it easier than OpenGL to initialize rendering.</li>
+
+    <li>Debugging visibility: Renderscript can potentially execute (planned feature for later releases)
+    on processors other than the main CPU (such as the GPU), so if this occurs, debugging becomes more difficult.
+    </li>
+  </ul>
+
+
+  <p>For an example of Renderscript in action, install the Renderscript sample applications that
+  are shipped with the SDK in <code>&lt;sdk_root&gt;/samples/android-11/RenderScript</code>.
+  You can also see a typical use of Renderscript with the 3D carousel view in the Android 3.x
+  versions of Google Books and YouTube.</p>
+
+  <h2 id="overview">Renderscript Overview</h2>
+  <p>The Renderscript runtime operates at the native level and still needs to communicate
+with the Android VM, so the way a Renderscript application is setup is different from a pure VM
+application. An application that uses Renderscript is still a traditional Android application that
+runs in the VM, but you write Renderscript code for the parts of your program that require
+it. Using Renderscript can be as simple as offloading a few math calculations or as complicated as
+rendering an entire 3D game. No matter what you use it for, Renderscript remains platform
+independent, so you do not have to target multiple architectures (for example,
+ARM v5, ARM v7, x86).</p>
+
+  <p>The Renderscript system adopts a control and slave architecture where the low-level Renderscript runtime
+  code is controlled by the higher level Android system that runs in a virtual machine (VM). The
+  Android VM still retains all control of memory management and binds memory that it allocates to
+  the Renderscript runtime, so the Renderscript code can access it. The Android framework makes
+asynchronous calls to Renderscript, and the calls are placed in a message queue and processed
+as soon as possible. Figure 1 shows how the Renderscript system is structured.</p>
+
+   <img id="figure1" src="../../../images/rs_overview.png" />
+  <p class="img-caption"><strong>Figure 1.</strong> Renderscript system overview</p>
+
+  <p>When using Renderscript, there are three layers of APIs that enable communication between the
+  Renderscript runtime and Android framework code:</p>
+
+  <ul>
+    <li>The Renderscript runtime APIs allow you to do the computation or graphics rendering
+    that is required by your application.</li>
+
+    <li>The reflected layer APIs are a set of classes that are reflected from your Renderscript
+runtime code. It is basically a wrapper around the Renderscript code that allows the Android
+framework to interact with the Renderscript runtime. The Android build tools automatically generate the
+classes for this layer during the build process. These classes eliminate the need to write JNI glue
+code, like with the NDK.</li>
+
+    <li>The Android framework APIs, which include the <code><a href="../../../reference/android/renderscript/package-summary.html">android.renderscript</a></code> package, allow you to
+    build your application using traditional Android components such as activities and views. When
+    using Renderscript, this layer calls the reflected layer to access the Renderscript
+    runtime.</li>
+  </ul>
+
+ <p></p>
+
+  <h2 id="native">Renderscript Runtime Layer</h2>
+
+  <p>Your Renderscript code is compiled and
+  executed in a compact and well-defined runtime layer. The Renderscript runtime APIs offer support for
+intensive computation and graphics rendering that is portable and automatically scalable to the
+amount of cores available on a processor.
+</p>
+<p class="note"><strong>Note:</strong> The standard C functions in the NDK must be
+  guaranteed to run on a CPU, so Renderscript cannot access these libraries,
+  because Renderscript is designed to run on different types of processors.</p>
+
+<p>You define your Renderscript code in <code>.rs</code>
+  and <code>.rsh</code> files in the <code>src/</code> directory of your Android project. The code
+  is compiled to intermediate bytecode by the
+  <code>llvm</code> compiler that runs as part of an Android build. When your application
+  runs on a device, the bytecode is then compiled (just-in-time) to machine code by another
+  <code>llvm</code> compiler that resides on the device. The machine code is optimized for the
+  device and also cached, so subsequent uses of the Renderscript enabled application does not
+  recompile the bytecode.</p>
+
+  <p>Some key features of the Renderscript runtime libraries include:</p>
+
+  <ul>
+
+    <li>Graphics rendering functions</li>
+
+    <li>Memory allocation request features</li>
+
+    <li>A large collection of math functions with both scalar and vector typed overloaded versions
+    of many common routines. Operations such as adding, multiplying, dot product, and cross product
+    are available as well as atomic arithmetic and comparison functions.</li>
+
+    <li>Conversion routines for primitive data types and vectors, matrix routines, date and time
+    routines, and graphics routines.</li>
+
+    <li>Data types and structures to support the Renderscript system such as Vector types for
+    defining two-, three-, or four-vectors.</li>
+
+    <li>Logging functions</li>
+  </ul>
+
+  <p>See the Renderscript runtime API reference for more information on the available functions. The
+  Renderscript header files are automatically included for you, except for the Renderscript graphics header file, which
+  you can include as follows:</p>
+
+<pre>#include "rs_graphics.rsh"</pre>
+
+  <h2 id="reflected">Reflected Layer</h2>
+
+  <p>The reflected layer is a set of classes that the Android build tools generate to allow access
+  to the Renderscript runtime from the Android framework. This layer also provides methods
+and constructors that allow you to allocate and work with memory for pointers that are defined in
+your Renderscript code. The following list describes the major
+  components that are reflected:</p>
+
+  <ul>
+    <li>Every <code>.rs</code> file that you create is generated into a class named
+    <code>project_root/gen/package/name/ScriptC_<em>renderscript_filename</em></code> of
+type <code><a href="../../../reference/android/renderscript/ScriptC.html">ScriptC</a></code>. This file is the <code>.java</code> version of your
+<code>.rs</code> file, which you can call from the Android framework. This class contains the
+following items reflected from the <code>.rs</code> file:
+
+      <ul>
+        <li>Non-static functions</li>
+
+        <li>Non-static, global Renderscript variables. Accessor methods are generated for each
+        variable, so you can read and write the Renderscript variables from the Android
+        framework. If a global variable is initialized at the Renderscript runtime layer, those
+values are used to initialize the corresponding values in the Android framework layer. If global
+variables are marked as <code>const</code>, then a <code>set</code> method is not
+generated.</p></li>
+
+        <li>Global pointers</li>
+      </ul>
+    </li>
+
+    <li>A <code>struct</code> is reflected into its own class named
+
+    <code>project_root/gen/package/name/ScriptField_struct_name</em></code>, which extends <code><a href="../../../reference/android/renderscript/Script.FieldBase.html">Script.FieldBase</a></code>. This class represents an array of the
+    <code>struct</code>, which allows you to allocate memory for one or more instances of this
+    <code>struct</code>.</li>
+  </ul>
+
+
+<h3 id="func">Functions</h3>
+<p>Functions are reflected into the script class itself, located in
+<code>project_root/gen/package/name/ScriptC_renderscript_filename</code>. For
+example, if you declare the following function in your Renderscript code:</p>
+
+<pre>
+void touch(float x, float y, float pressure, int id) {
+    if (id >= 10) {
+        return;
+    }
+
+    touchPos[id].x = x;
+    touchPos[id].y = y;
+    touchPressure[id] = pressure;
+}
+</pre>
+
+<p>then the following code is generated:</p>
+
+<pre>
+public void invoke_touch(float x, float y, float pressure, int id) {
+    FieldPacker touch_fp = new FieldPacker(16);
+    touch_fp.addF32(x);
+    touch_fp.addF32(y);
+    touch_fp.addF32(pressure);
+    touch_fp.addI32(id);
+    invoke(mExportFuncIdx_touch, touch_fp);
+}
+</pre>
+<p>
+Functions cannot have a return value, because the Renderscript system is designed to be
+asynchronous. When your Android framework code calls into Renderscript, the call is queued and is
+executed when possible. This restriction allows the Renderscript system to function without constant
+interruption and increases efficiency. If functions were allowed to have return values, the call
+would block until the value was returned.</p>
+
+<p>
+If you want the Renderscript code to send a value back to the Android framework, use the
+<a href="../../../reference/renderscript/rs__core_8rsh.html"><code>rsSendToClient()</code></a>
+function.
+</p>
+
+<h3 id="var">Variables</h3>
+
+  <p>Variables of supported types are reflected into the script class itself, located in
+<code>project_root/gen/package/name/ScriptC_renderscript_filename</code>. A set of accessor
+methods are generated for each variable. For example, if you declare the following variable in
+your Renderscript code:</p>
+  <pre>uint32_t unsignedInteger = 1;</pre>
+
+  <p>then the following code is generated:</p>
+
+<pre>
+private long mExportVar_unsignedInteger;
+public void set_unsignedInteger(long v){
+    mExportVar_unsignedInteger = v;
+    setVar(mExportVarIdx_unsignedInteger, v);
+}
+
+public long get_unsignedInteger(){
+    return mExportVar_unsignedInteger;
+}
+  </pre>
+
+
+  <h3 id="struct">Structs</h3>
+  <p>Structs are reflected into their own classes, located in
+    <code>&lt;project_root&gt;/gen/com/example/renderscript/ScriptField_struct_name</code>. This
+    class represents an array of the <code>struct</code> and allows you to allocate memory for a
+    specified number of <code>struct</code>s. For example, if you declare the following struct:</p>
+<pre>
+typedef struct Point {
+    float2 position;
+    float size;
+} Point_t;
+</pre>
+
+<p>then the following code is generated in <code>ScriptField_Point.java</code>:
+<pre>
+package com.example.android.rs.hellocompute;
+
+import android.renderscript.*;
+import android.content.res.Resources;
+
+  /**
+  * @hide
+  */
+public class ScriptField_Point extends android.renderscript.Script.FieldBase {
+
+    static public class Item {
+        public static final int sizeof = 12;
+
+        Float2 position;
+        float size;
+
+        Item() {
+            position = new Float2();
+        }
+    }
+
+    private Item mItemArray[];
+    private FieldPacker mIOBuffer;
+    public static Element createElement(RenderScript rs) {
+        Element.Builder eb = new Element.Builder(rs);
+        eb.add(Element.F32_2(rs), "position");
+        eb.add(Element.F32(rs), "size");
+        return eb.create();
+    }
+
+    public  ScriptField_Point(RenderScript rs, int count) {
+        mItemArray = null;
+        mIOBuffer = null;
+        mElement = createElement(rs);
+        init(rs, count);
+    }
+
+    public  ScriptField_Point(RenderScript rs, int count, int usages) {
+        mItemArray = null;
+        mIOBuffer = null;
+        mElement = createElement(rs);
+        init(rs, count, usages);
+    }
+
+    private void copyToArray(Item i, int index) {
+        if (mIOBuffer == null) mIOBuffer = new FieldPacker(Item.sizeof * getType().getX()/* count
+        */);
+        mIOBuffer.reset(index * Item.sizeof);
+        mIOBuffer.addF32(i.position);
+        mIOBuffer.addF32(i.size);
+    }
+
+    public void set(Item i, int index, boolean copyNow) {
+        if (mItemArray == null) mItemArray = new Item[getType().getX() /* count */];
+        mItemArray[index] = i;
+        if (copyNow)  {
+            copyToArray(i, index);
+            mAllocation.setFromFieldPacker(index, mIOBuffer);
+        }
+    }
+
+    public Item get(int index) {
+        if (mItemArray == null) return null;
+        return mItemArray[index];
+    }
+
+    public void set_position(int index, Float2 v, boolean copyNow) {
+        if (mIOBuffer == null) mIOBuffer = new FieldPacker(Item.sizeof * getType().getX()/* count */);
+        if (mItemArray == null) mItemArray = new Item[getType().getX() /* count */];
+        if (mItemArray[index] == null) mItemArray[index] = new Item();
+        mItemArray[index].position = v;
+        if (copyNow) {
+            mIOBuffer.reset(index * Item.sizeof);
+            mIOBuffer.addF32(v);
+            FieldPacker fp = new FieldPacker(8);
+            fp.addF32(v);
+            mAllocation.setFromFieldPacker(index, 0, fp);
+        }
+    }
+
+    public void set_size(int index, float v, boolean copyNow) {
+        if (mIOBuffer == null) mIOBuffer = new FieldPacker(Item.sizeof * getType().getX()/* count */);
+        if (mItemArray == null) mItemArray = new Item[getType().getX() /* count */];
+        if (mItemArray[index] == null) mItemArray[index] = new Item();
+        mItemArray[index].size = v;
+        if (copyNow)  {
+            mIOBuffer.reset(index * Item.sizeof + 8);
+            mIOBuffer.addF32(v);
+            FieldPacker fp = new FieldPacker(4);
+            fp.addF32(v);
+            mAllocation.setFromFieldPacker(index, 1, fp);
+        }
+    }
+
+    public Float2 get_position(int index) {
+        if (mItemArray == null) return null;
+        return mItemArray[index].position;
+    }
+
+    public float get_size(int index) {
+        if (mItemArray == null) return 0;
+        return mItemArray[index].size;
+    }
+
+    public void copyAll() {
+        for (int ct = 0; ct &lt; mItemArray.length; ct++) copyToArray(mItemArray[ct], ct);
+        mAllocation.setFromFieldPacker(0, mIOBuffer);
+    }
+
+    public void resize(int newSize) {
+        if (mItemArray != null)  {
+            int oldSize = mItemArray.length;
+            int copySize = Math.min(oldSize, newSize);
+            if (newSize == oldSize) return;
+            Item ni[] = new Item[newSize];
+            System.arraycopy(mItemArray, 0, ni, 0, copySize);
+            mItemArray = ni;
+        }
+        mAllocation.resize(newSize);
+        if (mIOBuffer != null) mIOBuffer = new FieldPacker(Item.sizeof * getType().getX()/* count */);
+    }
+}
+</pre>
+
+<p>The generated code is provided to you as a convenience to allocate memory for structs requested
+by the Renderscript runtime and to interact with <code>struct</code>s
+in memory. Each <code>struct</code>'s class defines the following methods and constructors:</p>
+
+  <ul>
+    <li>Overloaded constructors that allow you to allocate memory. The
+      <code>ScriptField_<em>struct_name</em>(RenderScript rs, int count)</code> constructor allows
+      you to define the number of structures that you want to allocate memory for with the
+      <code>count</code> parameter. The <code>ScriptField_<em>struct_name</em>(RenderScript rs, int
+        count, int usages)</code> constructor defines an extra parameter, <code>usages</code>, that
+      lets you specify the memory space of this memory allocation. There are four memory space
+      possibilities:
+
+      <ul>
+        <li><code><a href="../../../reference/android/renderscript/Allocation.html#USAGE_SCRIPT">USAGE_SCRIPT</a></code>: Allocates in the script memory
+          space. This is the default memory space if you do not specify a memory space.</li>
+
+        <li><code><a href="../../../reference/android/renderscript/Allocation.html#USAGE_GRAPHICS_TEXTURE">USAGE_GRAPHICS_TEXTURE</a></code>: Allocates in the
+          texture memory space of the GPU.</li>
+
+        <li><code><a href="../../../reference/android/renderscript/Allocation.html#USAGE_GRAPHICS_VERTEX">USAGE_GRAPHICS_VERTEX</a></code>: Allocates in the vertex
+          memory space of the GPU.</li>
+
+        <li><code><a href="../../../reference/android/renderscript/Allocation.html#USAGE_GRAPHICS_CONSTANTS">USAGE_GRAPHICS_CONSTANTS</a></code>: Allocates in the
+          constants memory space of the GPU that is used by the various program objects.</li>
+      </ul>
+
+      <p>You can specify multiple memory spaces by using the bitwise <code>OR</code> operator. Doing so
+        notifies the Renderscript runtime that you intend on accessing the data in the
+        specified memory spaces. The following example allocates memory for a custom data type
+        in both the script and vertex memory spaces:</p>
+      <pre>
+        ScriptField_Point touchPoints = new ScriptField_Point(glRenderer, 2,
+        Allocation.USAGE_SCRIPT | Allocation.USAGE_GRAPHICS_VERTEX);
+      </pre>
+
+      <p>If you modify the memory in one memory space and want to push the updates to the rest of
+        the memory spaces, call <a href="../../../reference/renderscript/rs__graphics_8rsh.html">
+        <code>rsgAllocationSyncAll()</code></a> in your Renderscript code to
+        synchronize the memory.</p>
+    </li>
+
+    <li>A static nested class, <code>Item</code>, allows you to create an instance of the
+      <code>struct</code>, in the form of an object. This nested class is useful if it makes more sense to work
+      with the <code>struct</code> in your Android code. When you are done manipulating the object,
+      you can push the object to the allocated memory by calling <code>set(Item i, int index,
+        boolean copyNow)</code> and setting the <code>Item</code> to the desired position in
+the array. The Renderscript runtime automatically has access to the newly written memory.
+
+      <li>Accessor methods to get and set the values of each field in a struct. Each of these
+        accessor methods have an <code>index</code> parameter to specify the <code>struct</code> in
+        the array that you want to read or write to. Each setter method also has a
+<code>copyNow</code> parameter that specifies whether or not to immediately sync this memory
+to the Renderscript runtime. To sync any memory that has not been synced, call
+        <code>copyAll()</code>.</li>
+
+      <li>The <code>createElement()</code> method creates a description of the struct in memory. This
+      description is used to allocate memory consisting of one or many elements.</li>
+
+      <li><code>resize()</code> works much like a <code>realloc()</code> in C, allowing you to
+expand previously allocated memory, maintaining the current values that were previously
+created.</li>
+
+      <li><code>copyAll()</code> synchronizes memory that was set on the framework level to the
+Renderscript runtime. When you call a set accessor method on a member, there is an optional
+<code>copyNow</code> boolean parameter that you can specify. Specifying
+        <code>true</code> synchronizes the memory when you call the method. If you specify false,
+        you can call <code>copyAll()</code> once, and it synchronizes memory for all the
+properties that are not yet synchronized.</li>
+    </ul>
+
+  <h3 id="pointer">Pointers</h3>
+  <p>Pointers are reflected into the script class itself, located in
+<code>project_root/gen/package/name/ScriptC_renderscript_filename</code>. You
+can declare pointers to a <code>struct</code> or any of the supported Renderscript types, but a
+<code>struct</code> cannot contain pointers or nested arrays. For example, if you declare the
+following pointers to a <code>struct</code> and <code>int32_t</code></p>
+
+<pre>
+typedef struct Point {
+    float2 position;
+    float size;
+} Point_t;
+
+Point_t *touchPoints;
+int32_t *intPointer;
+</pre>
+  <p>then the following code is generated in:</p>
+
+<pre>
+private ScriptField_Point mExportVar_touchPoints;
+public void bind_touchPoints(ScriptField_Point v) {
+    mExportVar_touchPoints = v;
+    if (v == null) bindAllocation(null, mExportVarIdx_touchPoints);
+    else bindAllocation(v.getAllocation(), mExportVarIdx_touchPoints);
+}
+
+public ScriptField_Point get_touchPoints() {
+    return mExportVar_touchPoints;
+}
+
+private Allocation mExportVar_intPointer;
+public void bind_intPointer(Allocation v) {
+    mExportVar_intPointer = v;
+    if (v == null) bindAllocation(null, mExportVarIdx_intPointer);
+    else bindAllocation(v, mExportVarIdx_intPointer);
+}
+
+public Allocation get_intPointer() {
+    return mExportVar_intPointer;
+}
+  </pre>
+
+<p>A <code>get</code> method and a special method named <code>bind_<em>pointer_name</em></code>
+(instead of a <code>set()</code> method) is generated. This method allows you to bind the memory
+that is allocated in the Android VM to the Renderscript runtime (you cannot allocate
+memory in your <code>.rs</code> file). For more information, see <a href="#memory">Working
+with Allocated Memory</a>.
+</p>
+
+
+  <h2 id="mem-allocation">Memory Allocation APIs</h2>
+
+ <p>Applications that use Renderscript still run in the Android VM. The actual Renderscript code, however, runs natively and
+  needs access to the memory allocated in the Android VM. To accomplish this, you must
+  attach the memory that is allocated in the VM to the Renderscript runtime. This
+process, called binding, allows the Renderscript runtime to seamlessly work with memory that it
+requests but cannot explicitly allocate. The end result is essentially the same as if you had
+called <code>malloc</code> in C. The added benefit is that the Android VM can carry out garbage collection as well as
+share memory with the Renderscript runtime layer. Binding is only necessary for dynamically allocated memory. Statically
+allocated memory is automatically created for your Renderscript code at compile time. See <a href="#figure1">Figure 1</a>
+for more information on how memory allocation occurs.
+</p>
+
+  <p>To support this memory allocation system, there are a set of APIs that allow the Android VM to
+allocate memory and offer similar functionality to a <code>malloc</code> call. These classes
+essentially describe how memory should be allocated and also carry out the allocation. To better
+understand how these classes work, it is useful to think of them in relation to a simple
+<code>malloc</code> call that can look like this: </p>
+
+  <pre>array = (int *)malloc(sizeof(int)*10);</pre>
+
+  <p>The <code>malloc</code> call can be broken up into two parts: the size of the memory being allocated (<code>sizeof(int)</code>),
+  along with how many units of that memory should be allocated (10). The Android framework provides classes for these two parts as
+  well as a class to represent <code>malloc</code> itself.</p>
+
+  <p>The <code><a href="../../../reference/android/renderscript/Element.html">Element</a></code> class represents the (<code>sizeof(int)</code>) portion
+  of the <code>malloc</code> call and encapsulates one cell of a memory allocation, such as a single
+  float value or a struct. The <code><a href="../../../reference/android/renderscript/Type.html">Type</a></code> class encapsulates the <code><a href="../../../reference/android/renderscript/Element.html">Element</a></code>
+  and the amount of elements to allocate (10 in our example). You can think of a <code><a href="../../../reference/android/renderscript/Type.html">Type</a></code> as
+  an array of <code><a href="../../../reference/android/renderscript/Element.html">Element</a></code>s. The <code><a href="../../../reference/android/renderscript/Allocation.html">Allocation</a></code> class does the actual
+  memory allocation based on a given <code><a href="../../../reference/android/renderscript/Type.html">Type</a></code> and represents the actual allocated memory.</p>
+
+  <p>In most situations, you do not need to call these memory allocation APIs directly. The reflected layer
+  classes generate code to use these APIs automatically and all you need to do to allocate memory is call a
+  constructor that is declared in one of the reflected layer classes and then bind
+  the resulting memory <code><a href="../../../reference/android/renderscript/Allocation.html">Allocation</a></code> to the Renderscript.
+  There are some situations where you would want to use these classes directly to allocate memory on your
+  own, such as loading a bitmap from a resource or when you want to allocate memory for pointers to
+  primitive types. You can see how to do this in the
+  <a href="#allocating-mem">Allocating and binding memory to the Renderscript</a> section.
+  The following table describes the three memory management classes in more detail:</p>
+
+  <table id="mem-mgmt-table">
+    <tr>
+      <th>Android Object Type</th>
+
+      <th>Description</th>
+    </tr>
+
+    <tr>
+      <td><code><a href="../../../reference/android/renderscript/Element.html">Element</a></code></td>
+
+      <td>
+        <p>An element describes one cell of a memory allocation and can have two forms: basic or
+        complex.</p>
+
+        <p>A basic element contains a single component of data of any valid Renderscript data type.
+        Examples of basic element data types include a single <code>float</code> value, a <code>float4</code> vector, or a
+        single RGB-565 color.</p>
+
+        <p>Complex elements contain a list of basic elements and are created from
+        <code>struct</code>s that you declare in your Renderscript code. For instance an allocation
+        can contain multiple <code>struct</code>s arranged in order in memory. Each struct is considered as its
+        own element, rather than each data type within that struct.</p>
+      </td>
+    </tr>
+
+    <tr>
+      <td><code><a href="../../../reference/android/renderscript/Type.html">Type</a></code></td>
+
+      <td>
+        <p>A type is a memory allocation template and consists of an element and one or more
+        dimensions. It describes the layout of the memory (basically an array of <code><a href="../../../reference/android/renderscript/Element.html">Element</a></code>s) but does not allocate the memory for the data that it
+        describes.</p>
+
+        <p>A type consists of five dimensions: X, Y, Z, LOD (level of detail), and Faces (of a cube
+        map). You can assign the X,Y,Z dimensions to any positive integer value within the
+        constraints of available memory. A single dimension allocation has an X dimension of
+        greater than zero while the Y and Z dimensions are zero to indicate not present. For
+        example, an allocation of x=10, y=1 is considered two dimensional and x=10, y=0 is
+        considered one dimensional. The LOD and Faces dimensions are booleans to indicate present
+        or not present.</p>
+      </td>
+    </tr>
+
+    <tr>
+      <td><code><a href="../../../reference/android/renderscript/Allocation.html">Allocation</a></code></td>
+
+      <td>
+        <p>An allocation provides the memory for applications based on a description of the memory
+        that is represented by a <code><a href="../../../reference/android/renderscript/Type.html">Type</a></code>. Allocated memory can exist in
+        many memory spaces concurrently. If memory is modified in one space, you must explicitly
+        synchronize the memory, so that it is updated in all the other spaces in which it exists.
+        </p>
+
+        <p>Allocation data is uploaded in one of two primary ways: type checked and type unchecked.
+        For simple arrays there are <code>copyFrom()</code> functions that take an array from the
+        Android system and copy it to the native layer memory store. The unchecked variants allow
+        the Android system to copy over arrays of structures because it does not support
+        structures. For example, if there is an allocation that is an array of n floats, the data
+        contained in a float[n] array or a <code>byte[n*4]</code> array can be copied.</p>
+      </td>
+    </tr>
+  </table>
+
+  <h2 id="memory">Working with Memory</h2>
+
+<p>Non-static, global variables that you declare in your Renderscript are allocated memory at compile time.
+You can work with these variables directly in your Renderscript code without having to allocate
+memory for them at the Android framework level. The Android framework layer also has access to these variables
+with the provided accessor methods that are generated in the reflected layer classes. If these variables are
+initialized at the Renderscript runtime layer, those values are used to initialize the corresponding
+values in the Android framework layer. If global variables are marked as const, then a <code>set</code> method is
+not generated.</p>
+
+
+<p class="note"><strong>Note:</strong> If you are using certain Renderscript structures that contain pointers, such as
+<code>rs_program_fragment</code> and <code>rs_allocation</code>, you have to obtain an object of the
+corresponding Android framework class first and then call the <code>set</code> method for that
+structure to bind the memory to the Renderscript runtime. You cannot directly manipulate these structures
+at the Renderscript runtime layer. Keep in mind that user-defined structures
+cannot contain pointers, so this restriction only applies to certain structures that are provided by Renderscript. 
+</p>
+
+<p>Renderscript also has support for pointers, but you must explicitly allocate the memory in your
+Android framework code. When you declare a global pointer in your <code>.rs</code> file, you
+allocate memory through the appropriate reflected layer class and bind that memory to the native
+Renderscript layer. You can interact with this memory from the Android framework layer as well as
+the Renderscript layer, which offers you the flexibility to modify variables in the most
+appropriate layer.</p>
+
+
+
+  <h3 id="allocating-mem">Allocating and binding dynamic memory to the Renderscript</h3>
+
+  <p>To allocate dynamic memory, you need to call the constructor of a
+  <code><a href="../../../reference/android/renderscript/Script.FieldBase.html">Script.FieldBase</a></code> class, which is the most common way. An alternative is to create an
+  <code><a href="../../../reference/android/renderscript/Allocation.html">Allocation</a></code> manually, which is required for things such as primitive type pointers. You should
+  use a <code><a href="../../../reference/android/renderscript/Script.FieldBase.html">Script.FieldBase</a></code> class constructor whenever available for simplicity.
+  After obtaining a memory allocation, call the reflected <code>bind</code> method of the pointer to bind the allocated memory to the
+  Renderscript runtime.</p>
+  <p>The example below allocates memory for both a primitive type pointer,
+   <code>intPointer</code>, and a pointer to a struct, <code>touchPoints</code>. It also binds the memory to the
+  Renderscript:</p>
+  <pre>
+private RenderScriptGL glRenderer;
+private ScriptC_example script;
+private Resources resources;
+
+public void init(RenderScriptGL rs, Resources res) {
+    //get the rendering context and resources from the calling method
+    glRenderer = rs;
+    resources = res;
+
+    //allocate memory for the struct pointer, calling the constructor
+    ScriptField_Point touchPoints = new ScriptField_Point(glRenderer, 2);
+
+    //Create an element manually and allocate memory for the int pointer
+    intPointer = Allocation.createSized(glRenderer, Element.I32(glRenderer), 2);
+
+    //create an instance of the Renderscript, pointing it to the bytecode resource
+    mScript = new ScriptC_example(glRenderer, resources, R.raw.example);
+
+    //bind the struct and int pointers to the Renderscript
+    mScript.bind_touchPoints(touchPoints);
+    script.bind_intPointer(intPointer);
+
+   ...
+}
+</pre>
+
+  <h3>Reading and writing to memory</h3>
+  <p>You can read and write to statically and dynamically allocated memory both at the Renderscript runtime
+  and Android framework layer.</p>
+
+<p>Statically allocated memory comes with a one-way communication restriction
+at the Renderscript runtime level. When Renderscript code changes the value of a variable, it is not
+communicated back to the Android framework layer for efficiency purposes. The last value
+that is set from the Android framework is always returned during a call to a <code>get</code>
+method. However, when Android framework code modifies a variable, that change can be communicated to
+the Renderscript runtime automatically or synchronized at a later time. If you need to send data
+from the Renderscript runtime to the Android framework layer, you can use the
+<a href="../../../reference/renderscript/rs__core_8rsh.html"><code>rsSendToClient()</code></a> function
+to overcome this limitation.
+</p>
+<p>When working with dynamically allocated memory, any changes at the Renderscript runtime layer are propagated
+back to the Android framework layer if you modified the memory allocation using its associated pointer.
+Modifying an object at the Android framework layer immediately propagates that change back to the Renderscript
+runtime layer.</p>
+
+  <h4>Reading and writing to global variables</h4>
+
+  <p>Reading and writing to global variables is a straightforward process. You can use the accessor methods
+  at the Android framework level or set them directly in the Renderscript code. Keep in mind that any
+  changes that you make in your Renderscript code are not propagated back to the Android framework layer.</p>
+
+  <p>For example, given the following struct declared in a file named <code>rsfile.rs</code>:</p>
+<pre>
+typedef struct Point {
+    int x;
+    int y;
+} Point_t;
+
+Point_t point;
+
+</pre>
+<p>You can assign values to the struct like this directly in <code>rsfile.rs</code>. These values are not
+propagated back to the Android framework level:</p>
+<pre>
+point.x = 1;
+point.y = 1;
+</pre>
+
+<p>You can assign values to the struct at the Android framework layer like this. These values are 
+propagated back to the Renderscript runtime level:</p>
+<pre>
+ScriptC_rsfile mScript;
+
+...
+
+Item i = new ScriptField_Point.Item();
+i.x = 1;
+i.y = 1;
+mScript.set_point(i);
+</pre>
+
+<p>You can read the values in your Renderscript code like this:</p>
+
+<pre>
+rsDebug("Printing out a Point", point.x, point.y);
+</pre>
+
+<p>You can read the values in the Android framework layer with the following code. Keep in mind that this
+code only returns a value if one was set at the Android framework level. You will get a null pointer
+exception if you only set the value at the Renderscript runtime level:</p>
+
+<pre>
+Log.i("TAGNAME", "Printing out a Point: " + mScript.get_point().x + " " + mScript.get_point().y);
+System.out.println(point.get_x() + " " + point.get_y());
+</pre>
+
+<h4>Reading and writing global pointers</h4>
+
+<p>Assuming that memory has been allocated in the Android framework level and bound to the Renderscript runtime,
+you can read and write memory from the Android framework level by using the <code>get</code> and <code>set</code> methods for that pointer.
+In the Renderscript runtime layer, you can read and write to memory with pointers as normal and the changes are propagated
+back to the Android framework layer, unlike with statically allocated memory.</p>
+
+<p>For example, given the following pointer to a <code>struct</code> in a file named <code>rsfile.rs</code>:</p>
+<pre>
+typedef struct Point {
+    int x;
+    int y;
+} Point_t;
+
+Point_t *point;
+</pre>
+
+<p>Assuming you already allocated memory at the Android framework layer, you can access values in
+the <code>struct</code> as normal. Any changes you make to the struct via its pointer variable
+are automatically available to the Android framework layer:</p>
+
+<pre>
+point[index].x = 1;
+point[index].y = 1;
+</pre>
+
+<p>You can read and write values to the pointer at the Android framework layer as well:
+<pre>
+ScriptField_Point p = new ScriptField_Point(mRS, 1);
+    Item i = new ScriptField_Point.Item();
+    i.x=100;
+    i.y = 100;
+    p.set(i, 0, true);
+    mScript.bind_point(p);
+
+    points.get_x(0);            //read x and y from index 0
+    points.get_x(0);
+</pre>
+
+<p>Once memory is already bound, you do not have to rebind the memory to the Renderscript
+runtime every time you make a change to a value.</p>
+
+    </div>
+
+    
+    
+    <a href="#top" style="float:right">&uarr; Go to top</a>
+    
+
+  </div> <!-- end jd-content -->
+
+<div id="footer">
+
+
+  <div id="copyright">
+    
+  Except as noted, this content is licensed under <a
+  href="http://www.apache.org/licenses/LICENSE-2.0">Apache 2.0</a>. 
+  For details and restrictions, see the <a href="../../../license.html">
+  Content License</a>.
+  </div>
+  <div id="build_info">
+    
+  Android 4.0&nbsp;r1 - 16 Mar 2012 16:45
+
+  </div>
+
+  <div id="footerlinks">
+    
+  <p>
+    <a href="http://www.google.com/intl/en/policies/" target="_blank">Privacy &amp; Terms</a> -
+    <a href="http://www.android.com/branding.html" target="_blank">Brand Guidelines</a> -
+    <a
+href="http://code.google.com/p/android/issues/entry?template=Developer%20Documentation"
+target="_blank">Report Document Issues</a>
+  </p>
+  </div>
+
+</div> <!-- end footer -->
+
+</div><!-- end doc-content -->
+
+</div> <!-- end body-content --> 
+
+<script type="text/javascript">
+init(); /* initialize android-developer-docs.js */
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-5831155-1");
+pageTracker._trackPageview();
+</script>
+
+</body>
+</html>
+
+
+

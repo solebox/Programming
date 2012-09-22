@@ -1,0 +1,3945 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico" />
+<title>FileChannel - Android SDK | Android Developers</title>
+<link href="../../../../assets/android-developer-docs.css" rel="stylesheet" type="text/css" />
+<script src="../../../../assets/search_autocomplete.js" type="text/javascript"></script>
+<script src="../../../../assets/jquery-resizable.min.js" type="text/javascript"></script>
+<script src="../../../../assets/android-developer-docs.js" type="text/javascript"></script>
+<script src="../../../../assets/prettify.js" type="text/javascript"></script>
+<script type="text/javascript">
+  setToRoot("../../../../");
+</script>
+<script src="../../../../assets/android-developer-reference.js" type="text/javascript"></script>
+<script src="../../../../navtree_data.js" type="text/javascript"></script>
+<noscript>
+  <style type="text/css">
+    html,body{overflow:auto;}
+    #body-content{position:relative; top:0;}
+    #doc-content{overflow:visible;border-left:3px solid #666;}
+    #side-nav{padding:0;}
+    #side-nav .toggle-list ul {display:block;}
+    #resize-packages-nav{border-bottom:3px solid #666;}
+  </style>
+</noscript>
+</head>
+<body class="1" itemscope itemtype="http://schema.org/Article">
+
+  <div id="header">
+      <div id="headerLeft">
+          <a href="../../../../index.html" tabindex="-1"><img
+              src="../../../../assets/images/bg_logo.png" alt="Android Developers" /></a>
+          <ul id="header-tabs" class="reference">
+    
+	<li id="home-link"><a href="../../../../offline.html">
+	
+		<span class="en">Home</span>
+		<span style="display:none" class="de">Startseite</span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ホーム</span>
+		<span style="display:none" class="zh-CN">主页</span>
+		<span style="display:none" class="zh-TW">首頁</span>
+	
+	</a></li>
+	<li id="sdk-link"><a href="../../../../sdk/index.html">
+		<span class="en">SDK</span>
+	</a></li>
+	<li id="guide-link"><a href="../../../../guide/index.html" onClick="return loadLast('guide')">
+	
+		<span class="en">Dev Guide</span>
+		<span style="display:none" class="de">Handbuch</span>
+		<span style="display:none" class="es">Guía</span>
+		<span style="display:none" class="fr">Guide</span>
+		<span style="display:none" class="it">Guida</span>
+		<span style="display:none" class="ja">開発ガイド</span>
+		<span style="display:none" class="zh-CN">开发人员指南</span>
+		<span style="display:none" class="zh-TW">開發指南</span>
+	
+	</a></li>
+	<li id="reference-link"><a href="../../../../reference/packages.html" onClick="return loadLast('reference')">
+	
+		<span class="en">Reference</span>
+		<span style="display:none" class="de">Referenz</span>
+		<span style="display:none" class="es">Referencia</span>
+		<span style="display:none" class="fr">Référence</span>
+		<span style="display:none" class="it">Riferimento</span>
+		<span style="display:none" class="ja">リファレンス</span>
+		<span style="display:none" class="zh-CN">参考</span>
+		<span style="display:none" class="zh-TW">參考資料</span>
+	
+	</a></li>
+	<li id="resources-link"><a href="../../../../resources/index.html" onClick="return loadLast('resources')">
+	
+		<span class="en">Resources</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+    		<span style="display:none" class="ja"></span>
+		<span style="display:none" class="zh-CN"></span>
+		<span style="display:none" class="zh-TW"></span>
+	
+	</a></li>
+	<li id="videos-link"><a href="../../../../videos/index.html" onClick="return loadLast('videos')">
+	
+		<span class="en">Videos</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ビデオ</span>
+		<span style="display:none" class="zh-CN"></span>
+		<span style="display:none" class="zh-TW"></span>
+	
+	</a></li>
+	<li><a href="http://android-developers.blogspot.com" onClick="return requestAppendHL(this.href)">
+	
+		<span class="en">Blog</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ブログ</span>
+		<span style="display:none" class="zh-CN">博客</span>
+		<span style="display:none" class="zh-TW">網誌</span>
+	
+	</a></li>
+
+
+     
+</ul>
+     
+      </div>
+      <div id="headerRight">
+          <div id="headerLinks">
+          &nbsp;&nbsp;
+          <a href="../../../../design/index.html">Android Design</a>&nbsp;&nbsp;
+          <a href="http://www.android.com">Android.com</a>
+          </div>
+  <div id="search" >
+      <div id="searchForm">
+          <form accept-charset="utf-8" class="gsc-search-box" 
+                onsubmit="return submit_search()">
+            <table class="gsc-search-box" cellpadding="0" cellspacing="0"><tbody>
+                <tr>
+                  <td class="gsc-input">
+                    <input id="search_autocomplete" class="gsc-input" type="text" size="33" autocomplete="off"
+                      title="search developer docs" name="q"
+                      value="search developer docs"
+                      onFocus="search_focus_changed(this, true)"
+                      onBlur="search_focus_changed(this, false)"
+                      onkeydown="return search_changed(event, true, '../../../../')"
+                      onkeyup="return search_changed(event, false, '../../../../')" />
+                  <div id="search_filtered_div" class="no-display">
+                      <table id="search_filtered" cellspacing=0>
+                      </table>
+                  </div>
+                  </td>
+                  <td class="gsc-search-button">
+                    <input type="submit" value="Search" title="search" id="search-button" class="gsc-search-button" />
+                  </td>
+                  <td class="gsc-clear-button">
+                    <div title="clear results" class="gsc-clear-button">&nbsp;</div>
+                  </td>
+                </tr></tbody>
+              </table>
+          </form>
+      </div><!-- searchForm -->
+  </div><!-- search -->
+    			  <div id="api-level-toggle">
+    			    <input type="checkbox" id="apiLevelCheckbox" onclick="toggleApiLevelSelector(this)" />
+    			    <label for="apiLevelCheckbox" class="disabled">Filter by API Level: </label>
+    			    <select id="apiLevelSelector">
+    			      <!-- option elements added by buildApiLevelSelector() -->
+    			    </select>
+    			  </div>
+    	 	    <script>
+              var SINCE_DATA = [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15' ];
+              buildApiLevelSelector();
+            </script>
+      </div><!-- headerRight -->
+      <script type="text/javascript">
+        <!--  
+        changeTabLang(getLangPref());
+        //-->
+      </script>
+  </div><!-- header -->
+
+  <div class="g-section g-tpl-240" id="body-content">
+    <div class="g-unit g-first" id="side-nav" itemscope itemtype="http://schema.org/SiteNavigationElement">
+      <div id="swapper">
+        <div id="nav-panels">
+          <div id="resize-packages-nav">
+            <div id="packages-nav">
+              <div id="index-links"><nobr>
+                <a href="../../../../reference/packages.html"  >Package Index</a> | 
+                <a href="../../../../reference/classes.html" >Class Index</a></nobr>
+              </div>
+              <ul>
+              	
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/package-summary.html">android</a></li>
+    <li class="api apilevel-4">
+  <a href="../../../../reference/android/accessibilityservice/package-summary.html">android.accessibilityservice</a></li>
+    <li class="api apilevel-5">
+  <a href="../../../../reference/android/accounts/package-summary.html">android.accounts</a></li>
+    <li class="api apilevel-11">
+  <a href="../../../../reference/android/animation/package-summary.html">android.animation</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/app/package-summary.html">android.app</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../../reference/android/app/admin/package-summary.html">android.app.admin</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../../reference/android/app/backup/package-summary.html">android.app.backup</a></li>
+    <li class="api apilevel-3">
+  <a href="../../../../reference/android/appwidget/package-summary.html">android.appwidget</a></li>
+    <li class="api apilevel-5">
+  <a href="../../../../reference/android/bluetooth/package-summary.html">android.bluetooth</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/content/package-summary.html">android.content</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/content/pm/package-summary.html">android.content.pm</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/content/res/package-summary.html">android.content.res</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/database/package-summary.html">android.database</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/database/sqlite/package-summary.html">android.database.sqlite</a></li>
+    <li class="api apilevel-11">
+  <a href="../../../../reference/android/drm/package-summary.html">android.drm</a></li>
+    <li class="api apilevel-4">
+  <a href="../../../../reference/android/gesture/package-summary.html">android.gesture</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/graphics/package-summary.html">android.graphics</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/graphics/drawable/package-summary.html">android.graphics.drawable</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/graphics/drawable/shapes/package-summary.html">android.graphics.drawable.shapes</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/hardware/package-summary.html">android.hardware</a></li>
+    <li class="api apilevel-12">
+  <a href="../../../../reference/android/hardware/usb/package-summary.html">android.hardware.usb</a></li>
+    <li class="api apilevel-3">
+  <a href="../../../../reference/android/inputmethodservice/package-summary.html">android.inputmethodservice</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/location/package-summary.html">android.location</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/media/package-summary.html">android.media</a></li>
+    <li class="api apilevel-9">
+  <a href="../../../../reference/android/media/audiofx/package-summary.html">android.media.audiofx</a></li>
+    <li class="api apilevel-14">
+  <a href="../../../../reference/android/media/effect/package-summary.html">android.media.effect</a></li>
+    <li class="api apilevel-12">
+  <a href="../../../../reference/android/mtp/package-summary.html">android.mtp</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/net/package-summary.html">android.net</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/net/http/package-summary.html">android.net.http</a></li>
+    <li class="api apilevel-12">
+  <a href="../../../../reference/android/net/rtp/package-summary.html">android.net.rtp</a></li>
+    <li class="api apilevel-9">
+  <a href="../../../../reference/android/net/sip/package-summary.html">android.net.sip</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/net/wifi/package-summary.html">android.net.wifi</a></li>
+    <li class="api apilevel-14">
+  <a href="../../../../reference/android/net/wifi/p2p/package-summary.html">android.net.wifi.p2p</a></li>
+    <li class="api apilevel-9">
+  <a href="../../../../reference/android/nfc/package-summary.html">android.nfc</a></li>
+    <li class="api apilevel-10">
+  <a href="../../../../reference/android/nfc/tech/package-summary.html">android.nfc.tech</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/opengl/package-summary.html">android.opengl</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/os/package-summary.html">android.os</a></li>
+    <li class="api apilevel-9">
+  <a href="../../../../reference/android/os/storage/package-summary.html">android.os.storage</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/preference/package-summary.html">android.preference</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/provider/package-summary.html">android.provider</a></li>
+    <li class="api apilevel-11">
+  <a href="../../../../reference/android/renderscript/package-summary.html">android.renderscript</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/sax/package-summary.html">android.sax</a></li>
+    <li class="api apilevel-14">
+  <a href="../../../../reference/android/security/package-summary.html">android.security</a></li>
+    <li class="api apilevel-14">
+  <a href="../../../../reference/android/service/textservice/package-summary.html">android.service.textservice</a></li>
+    <li class="api apilevel-7">
+  <a href="../../../../reference/android/service/wallpaper/package-summary.html">android.service.wallpaper</a></li>
+    <li class="api apilevel-3">
+  <a href="../../../../reference/android/speech/package-summary.html">android.speech</a></li>
+    <li class="api apilevel-4">
+  <a href="../../../../reference/android/speech/tts/package-summary.html">android.speech.tts</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v13/app/package-summary.html">android.support.v13.app</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v4/accessibilityservice/package-summary.html">android.support.v4.accessibilityservice</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v4/app/package-summary.html">android.support.v4.app</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v4/content/package-summary.html">android.support.v4.content</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v4/content/pm/package-summary.html">android.support.v4.content.pm</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v4/database/package-summary.html">android.support.v4.database</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v4/os/package-summary.html">android.support.v4.os</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v4/util/package-summary.html">android.support.v4.util</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v4/view/package-summary.html">android.support.v4.view</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v4/view/accessibility/package-summary.html">android.support.v4.view.accessibility</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v4/widget/package-summary.html">android.support.v4.widget</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/telephony/package-summary.html">android.telephony</a></li>
+    <li class="api apilevel-5">
+  <a href="../../../../reference/android/telephony/cdma/package-summary.html">android.telephony.cdma</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/telephony/gsm/package-summary.html">android.telephony.gsm</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/test/package-summary.html">android.test</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/test/mock/package-summary.html">android.test.mock</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/test/suitebuilder/package-summary.html">android.test.suitebuilder</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/text/package-summary.html">android.text</a></li>
+    <li class="api apilevel-3">
+  <a href="../../../../reference/android/text/format/package-summary.html">android.text.format</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/text/method/package-summary.html">android.text.method</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/text/style/package-summary.html">android.text.style</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/text/util/package-summary.html">android.text.util</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/util/package-summary.html">android.util</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/view/package-summary.html">android.view</a></li>
+    <li class="api apilevel-4">
+  <a href="../../../../reference/android/view/accessibility/package-summary.html">android.view.accessibility</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/view/animation/package-summary.html">android.view.animation</a></li>
+    <li class="api apilevel-3">
+  <a href="../../../../reference/android/view/inputmethod/package-summary.html">android.view.inputmethod</a></li>
+    <li class="api apilevel-14">
+  <a href="../../../../reference/android/view/textservice/package-summary.html">android.view.textservice</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/webkit/package-summary.html">android.webkit</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/widget/package-summary.html">android.widget</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/dalvik/bytecode/package-summary.html">dalvik.bytecode</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/dalvik/system/package-summary.html">dalvik.system</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/awt/font/package-summary.html">java.awt.font</a></li>
+    <li class="api apilevel-3">
+  <a href="../../../../reference/java/beans/package-summary.html">java.beans</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/io/package-summary.html">java.io</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/lang/package-summary.html">java.lang</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/lang/annotation/package-summary.html">java.lang.annotation</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/lang/ref/package-summary.html">java.lang.ref</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/lang/reflect/package-summary.html">java.lang.reflect</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/math/package-summary.html">java.math</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/net/package-summary.html">java.net</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/nio/package-summary.html">java.nio</a></li>
+    <li class="selected api apilevel-1">
+  <a href="../../../../reference/java/nio/channels/package-summary.html">java.nio.channels</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/nio/channels/spi/package-summary.html">java.nio.channels.spi</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/nio/charset/package-summary.html">java.nio.charset</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/nio/charset/spi/package-summary.html">java.nio.charset.spi</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/security/package-summary.html">java.security</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/security/acl/package-summary.html">java.security.acl</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/security/cert/package-summary.html">java.security.cert</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/security/interfaces/package-summary.html">java.security.interfaces</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/security/spec/package-summary.html">java.security.spec</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/sql/package-summary.html">java.sql</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/text/package-summary.html">java.text</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/util/package-summary.html">java.util</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/util/concurrent/package-summary.html">java.util.concurrent</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/util/concurrent/atomic/package-summary.html">java.util.concurrent.atomic</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/util/concurrent/locks/package-summary.html">java.util.concurrent.locks</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/util/jar/package-summary.html">java.util.jar</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/util/logging/package-summary.html">java.util.logging</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/util/prefs/package-summary.html">java.util.prefs</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/util/regex/package-summary.html">java.util.regex</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/util/zip/package-summary.html">java.util.zip</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/javax/crypto/package-summary.html">javax.crypto</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/javax/crypto/interfaces/package-summary.html">javax.crypto.interfaces</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/javax/crypto/spec/package-summary.html">javax.crypto.spec</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/javax/microedition/khronos/egl/package-summary.html">javax.microedition.khronos.egl</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/javax/microedition/khronos/opengles/package-summary.html">javax.microedition.khronos.opengles</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/javax/net/package-summary.html">javax.net</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/javax/net/ssl/package-summary.html">javax.net.ssl</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/javax/security/auth/package-summary.html">javax.security.auth</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/javax/security/auth/callback/package-summary.html">javax.security.auth.callback</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/javax/security/auth/login/package-summary.html">javax.security.auth.login</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/javax/security/auth/x500/package-summary.html">javax.security.auth.x500</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/javax/security/cert/package-summary.html">javax.security.cert</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/javax/sql/package-summary.html">javax.sql</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/javax/xml/package-summary.html">javax.xml</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../../reference/javax/xml/datatype/package-summary.html">javax.xml.datatype</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../../reference/javax/xml/namespace/package-summary.html">javax.xml.namespace</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/javax/xml/parsers/package-summary.html">javax.xml.parsers</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../../reference/javax/xml/transform/package-summary.html">javax.xml.transform</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../../reference/javax/xml/transform/dom/package-summary.html">javax.xml.transform.dom</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../../reference/javax/xml/transform/sax/package-summary.html">javax.xml.transform.sax</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../../reference/javax/xml/transform/stream/package-summary.html">javax.xml.transform.stream</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../../reference/javax/xml/validation/package-summary.html">javax.xml.validation</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../../reference/javax/xml/xpath/package-summary.html">javax.xml.xpath</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/junit/framework/package-summary.html">junit.framework</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/junit/runner/package-summary.html">junit.runner</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/apache/http/package-summary.html">org.apache.http</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/apache/http/auth/package-summary.html">org.apache.http.auth</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/apache/http/auth/params/package-summary.html">org.apache.http.auth.params</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/apache/http/client/package-summary.html">org.apache.http.client</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/apache/http/client/entity/package-summary.html">org.apache.http.client.entity</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/apache/http/client/methods/package-summary.html">org.apache.http.client.methods</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/apache/http/client/params/package-summary.html">org.apache.http.client.params</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/apache/http/client/protocol/package-summary.html">org.apache.http.client.protocol</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/apache/http/client/utils/package-summary.html">org.apache.http.client.utils</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/apache/http/conn/package-summary.html">org.apache.http.conn</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/apache/http/conn/params/package-summary.html">org.apache.http.conn.params</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/apache/http/conn/routing/package-summary.html">org.apache.http.conn.routing</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/apache/http/conn/scheme/package-summary.html">org.apache.http.conn.scheme</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/apache/http/conn/ssl/package-summary.html">org.apache.http.conn.ssl</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/apache/http/conn/util/package-summary.html">org.apache.http.conn.util</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/apache/http/cookie/package-summary.html">org.apache.http.cookie</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/apache/http/cookie/params/package-summary.html">org.apache.http.cookie.params</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/apache/http/entity/package-summary.html">org.apache.http.entity</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/apache/http/impl/package-summary.html">org.apache.http.impl</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/apache/http/impl/auth/package-summary.html">org.apache.http.impl.auth</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/apache/http/impl/client/package-summary.html">org.apache.http.impl.client</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/apache/http/impl/conn/package-summary.html">org.apache.http.impl.conn</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/apache/http/impl/conn/tsccm/package-summary.html">org.apache.http.impl.conn.tsccm</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/apache/http/impl/cookie/package-summary.html">org.apache.http.impl.cookie</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/apache/http/impl/entity/package-summary.html">org.apache.http.impl.entity</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/apache/http/impl/io/package-summary.html">org.apache.http.impl.io</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/apache/http/io/package-summary.html">org.apache.http.io</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/apache/http/message/package-summary.html">org.apache.http.message</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/apache/http/params/package-summary.html">org.apache.http.params</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/apache/http/protocol/package-summary.html">org.apache.http.protocol</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/apache/http/util/package-summary.html">org.apache.http.util</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/json/package-summary.html">org.json</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/w3c/dom/package-summary.html">org.w3c.dom</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../../reference/org/w3c/dom/ls/package-summary.html">org.w3c.dom.ls</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/xml/sax/package-summary.html">org.xml.sax</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/xml/sax/ext/package-summary.html">org.xml.sax.ext</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/xml/sax/helpers/package-summary.html">org.xml.sax.helpers</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/xmlpull/v1/package-summary.html">org.xmlpull.v1</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/xmlpull/v1/sax2/package-summary.html">org.xmlpull.v1.sax2</a></li>
+              </ul><br/>
+            </div> <!-- end packages -->
+          </div> <!-- end resize-packages -->
+          <div id="classes-nav">
+            <ul>
+              
+    <li><h2>Interfaces</h2>
+      <ul>
+          <li class="api apilevel-1"><a href="../../../../reference/java/nio/channels/ByteChannel.html">ByteChannel</a></li>
+          <li class="api apilevel-1"><a href="../../../../reference/java/nio/channels/Channel.html">Channel</a></li>
+          <li class="api apilevel-1"><a href="../../../../reference/java/nio/channels/GatheringByteChannel.html">GatheringByteChannel</a></li>
+          <li class="api apilevel-1"><a href="../../../../reference/java/nio/channels/InterruptibleChannel.html">InterruptibleChannel</a></li>
+          <li class="api apilevel-1"><a href="../../../../reference/java/nio/channels/ReadableByteChannel.html">ReadableByteChannel</a></li>
+          <li class="api apilevel-1"><a href="../../../../reference/java/nio/channels/ScatteringByteChannel.html">ScatteringByteChannel</a></li>
+          <li class="api apilevel-1"><a href="../../../../reference/java/nio/channels/WritableByteChannel.html">WritableByteChannel</a></li>
+      </ul>
+    </li>
+              
+    <li><h2>Classes</h2>
+      <ul>
+          <li class="api apilevel-1"><a href="../../../../reference/java/nio/channels/Channels.html">Channels</a></li>
+          <li class="api apilevel-1"><a href="../../../../reference/java/nio/channels/DatagramChannel.html">DatagramChannel</a></li>
+          <li class="selected api apilevel-1"><a href="../../../../reference/java/nio/channels/FileChannel.html">FileChannel</a></li>
+          <li class="api apilevel-1"><a href="../../../../reference/java/nio/channels/FileChannel.MapMode.html">FileChannel.MapMode</a></li>
+          <li class="api apilevel-1"><a href="../../../../reference/java/nio/channels/FileLock.html">FileLock</a></li>
+          <li class="api apilevel-1"><a href="../../../../reference/java/nio/channels/Pipe.html">Pipe</a></li>
+          <li class="api apilevel-1"><a href="../../../../reference/java/nio/channels/Pipe.SinkChannel.html">Pipe.SinkChannel</a></li>
+          <li class="api apilevel-1"><a href="../../../../reference/java/nio/channels/Pipe.SourceChannel.html">Pipe.SourceChannel</a></li>
+          <li class="api apilevel-1"><a href="../../../../reference/java/nio/channels/SelectableChannel.html">SelectableChannel</a></li>
+          <li class="api apilevel-1"><a href="../../../../reference/java/nio/channels/SelectionKey.html">SelectionKey</a></li>
+          <li class="api apilevel-1"><a href="../../../../reference/java/nio/channels/Selector.html">Selector</a></li>
+          <li class="api apilevel-1"><a href="../../../../reference/java/nio/channels/ServerSocketChannel.html">ServerSocketChannel</a></li>
+          <li class="api apilevel-1"><a href="../../../../reference/java/nio/channels/SocketChannel.html">SocketChannel</a></li>
+      </ul>
+    </li>
+              
+              
+    <li><h2>Exceptions</h2>
+      <ul>
+          <li class="api apilevel-1"><a href="../../../../reference/java/nio/channels/AlreadyConnectedException.html">AlreadyConnectedException</a></li>
+          <li class="api apilevel-1"><a href="../../../../reference/java/nio/channels/AsynchronousCloseException.html">AsynchronousCloseException</a></li>
+          <li class="api apilevel-1"><a href="../../../../reference/java/nio/channels/CancelledKeyException.html">CancelledKeyException</a></li>
+          <li class="api apilevel-1"><a href="../../../../reference/java/nio/channels/ClosedByInterruptException.html">ClosedByInterruptException</a></li>
+          <li class="api apilevel-1"><a href="../../../../reference/java/nio/channels/ClosedChannelException.html">ClosedChannelException</a></li>
+          <li class="api apilevel-1"><a href="../../../../reference/java/nio/channels/ClosedSelectorException.html">ClosedSelectorException</a></li>
+          <li class="api apilevel-1"><a href="../../../../reference/java/nio/channels/ConnectionPendingException.html">ConnectionPendingException</a></li>
+          <li class="api apilevel-1"><a href="../../../../reference/java/nio/channels/FileLockInterruptionException.html">FileLockInterruptionException</a></li>
+          <li class="api apilevel-1"><a href="../../../../reference/java/nio/channels/IllegalBlockingModeException.html">IllegalBlockingModeException</a></li>
+          <li class="api apilevel-1"><a href="../../../../reference/java/nio/channels/IllegalSelectorException.html">IllegalSelectorException</a></li>
+          <li class="api apilevel-1"><a href="../../../../reference/java/nio/channels/NoConnectionPendingException.html">NoConnectionPendingException</a></li>
+          <li class="api apilevel-1"><a href="../../../../reference/java/nio/channels/NonReadableChannelException.html">NonReadableChannelException</a></li>
+          <li class="api apilevel-1"><a href="../../../../reference/java/nio/channels/NonWritableChannelException.html">NonWritableChannelException</a></li>
+          <li class="api apilevel-1"><a href="../../../../reference/java/nio/channels/NotYetBoundException.html">NotYetBoundException</a></li>
+          <li class="api apilevel-1"><a href="../../../../reference/java/nio/channels/NotYetConnectedException.html">NotYetConnectedException</a></li>
+          <li class="api apilevel-1"><a href="../../../../reference/java/nio/channels/OverlappingFileLockException.html">OverlappingFileLockException</a></li>
+          <li class="api apilevel-1"><a href="../../../../reference/java/nio/channels/UnresolvedAddressException.html">UnresolvedAddressException</a></li>
+          <li class="api apilevel-1"><a href="../../../../reference/java/nio/channels/UnsupportedAddressTypeException.html">UnsupportedAddressTypeException</a></li>
+      </ul>
+    </li>
+              
+            </ul><br/>
+          </div><!-- end classes -->
+        </div><!-- end nav-panels -->
+        <div id="nav-tree" style="display:none">
+          <div id="index-links"><nobr>
+            <a href="../../../../reference/packages.html"  >Package Index</a> | 
+            <a href="../../../../reference/classes.html" >Class Index</a></nobr>
+          </div>
+        </div><!-- end nav-tree -->
+      </div><!-- end swapper -->
+    </div> <!-- end side-nav -->
+    <script>
+      if (!isMobile) {
+        $("<a href='#' id='nav-swap' onclick='swapNav();return false;' style='font-size:10px;line-height:9px;margin-left:1em;text-decoration:none;'><span id='tree-link'>Use Tree Navigation</span><span id='panel-link' style='display:none'>Use Panel Navigation</span></a>").appendTo("#side-nav");
+        chooseDefaultNav();
+        if ($("#nav-tree").is(':visible')) {
+          init_default_navtree("../../../../");
+        } else {
+          addLoadEvent(function() {
+            scrollIntoView("packages-nav");
+            scrollIntoView("classes-nav");
+          });
+        }
+        $("#swapper").css({borderBottom:"2px solid #aaa"});
+      } else {
+        swapNav(); // tree view should be used on mobile
+      }
+    </script>
+
+
+
+<div class="g-unit" id="doc-content">
+
+<div id="api-info-block">
+
+
+
+  
+   
+  
+  
+  
+  
+
+  
+   
+  
+  
+  
+  
+
+  
+   
+  
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+   
+  
+  
+  
+  
+
+  
+   
+  
+  
+  
+  
+
+  
+   
+  
+  
+  
+  
+
+  
+   
+  
+  
+  
+  
+
+  
+   
+  
+  
+  
+  
+
+  
+   
+  
+  
+  
+  
+
+
+<div class="sum-details-links">
+
+Summary:
+
+  <a href="#nestedclasses">Nested Classes</a>
+  
+
+
+
+
+
+
+
+
+
+
+  &#124; <a href="#proctors">Protected Ctors</a>
+  
+
+
+  &#124; <a href="#pubmethods">Methods</a>
+  
+
+
+
+  &#124; <a href="#inhmethods">Inherited Methods</a>
+
+&#124; <a href="#" onclick="return toggleAllClassInherited()" id="toggleAllClassInherited">[Expand All]</a>
+
+</div><!-- end sum-details-links -->
+<div class="api-level">
+  
+
+  Since: <a href="../../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+
+  
+  
+
+</div>
+</div><!-- end api-info-block -->
+
+
+<!-- ======== START OF CLASS DATA ======== -->
+
+<div id="jd-header">
+    public
+     
+     
+    abstract
+    class
+<h1 itemprop="name">FileChannel</h1>
+
+
+
+  
+  
+  
+
+  
+    extends <a href="../../../../reference/java/nio/channels/spi/AbstractInterruptibleChannel.html">AbstractInterruptibleChannel</a><br/>
+  
+  
+  
+
+  
+  
+      implements 
+      
+        <a href="../../../../reference/java/nio/channels/ByteChannel.html">ByteChannel</a> 
+      
+        <a href="../../../../reference/java/nio/channels/GatheringByteChannel.html">GatheringByteChannel</a> 
+      
+        <a href="../../../../reference/java/nio/channels/ScatteringByteChannel.html">ScatteringByteChannel</a> 
+      
+  
+  
+
+
+</div><!-- end header -->
+
+<div id="naMessage"></div>
+
+<div id="jd-content" class="api apilevel-1">
+<table class="jd-inheritance-table">
+
+
+    <tr>
+         	
+        <td colspan="3" class="jd-inheritance-class-cell"><a href="../../../../reference/java/lang/Object.html">java.lang.Object</a></td>
+    </tr>
+    
+
+    <tr>
+        
+            <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
+         	
+        <td colspan="2" class="jd-inheritance-class-cell"><a href="../../../../reference/java/nio/channels/spi/AbstractInterruptibleChannel.html">java.nio.channels.spi.AbstractInterruptibleChannel</a></td>
+    </tr>
+    
+
+    <tr>
+        
+            <td class="jd-inheritance-space">&nbsp;</td>
+        
+            <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
+         	
+        <td colspan="1" class="jd-inheritance-class-cell">java.nio.channels.FileChannel</td>
+    </tr>
+    
+
+</table>
+
+
+
+
+
+
+
+<div class="jd-descr">
+
+
+<h2>Class Overview</h2>
+<p itemprop="articleBody">An abstract channel type for interaction with a platform file.
+ <p>
+ A <code>FileChannel</code> defines the methods for reading, writing, memory
+ mapping, and manipulating the logical state of a platform file. This type
+ does not have a method for opening files, since this behavior has been
+ delegated to the <code><a href="../../../../reference/java/io/FileInputStream.html">FileInputStream</a></code>,
+ <code><a href="../../../../reference/java/io/FileOutputStream.html">FileOutputStream</a></code> and <code><a href="../../../../reference/java/io/RandomAccessFile.html">RandomAccessFile</a></code> types.
+ <p>
+ FileChannels created from a <code>FileInputStream</code> or a
+ <code>RandomAccessFile</code> created in mode "r", are read-only. FileChannels
+ created from a <code>FileOutputStream</code> are write-only. FileChannels created
+ from a <code>RandomAccessFile</code> created in mode "rw" are read/write.
+ FileChannels created from a <code>RandomAccessFile</code> that was opened in
+ append-mode will also be in append-mode -- meaning that each write will be
+ proceeded by a seek to the end of file.
+ <p>
+ FileChannels have a virtual pointer into the file which is referred to as a
+ file <em>position</em>. The position can be manipulated by moving it
+ within the file, and the current position can be queried.
+ <p>
+ FileChannels also have an associated <em>size</em>. The size of the file
+ is the number of bytes that it currently contains. The size can be
+ manipulated by adding more bytes to the end of the file (which increases the
+ size) or truncating the file (which decreases the size). The current size can
+ also be queried.
+ <p>
+ FileChannels have operations beyond the simple read, write, and close. They
+ can also:
+ <ul>
+ <li>request that cached data be forced onto the disk,</li>
+ <li>lock ranges of bytes associated with the file,</li>
+ <li>transfer data directly to another channel in a manner that has the
+ potential to be optimized by the platform,</li>
+ <li>memory-mapping files into NIO buffers to provide efficient manipulation
+ of file data,</li>
+ <li>read and write to the file at absolute byte offsets in a fashion that
+ does not modify the current position.</li>
+ </ul>
+ <p>
+ FileChannels are thread-safe. Only one operation involving manipulation of
+ the file position may be executed at the same time. Subsequent calls to such
+ operations will block, and one of those blocked will be freed to continue
+ when the first operation has completed. There is no ordered queue or fairness
+ applied to the blocked threads.
+ <p>
+ It is undefined whether operations that do not manipulate the file position
+ will also block when there are any other operations in-flight.
+ <p>
+ The logical view of the underlying file is consistent across all FileChannels
+ and I/O streams opened on the same file by the same VM.
+ Therefore, modifications performed via a channel will be visible to the
+ stream and vice versa; this includes modifications to the file position,
+ content, size, etc.
+</p>
+
+
+
+
+
+</div><!-- jd-descr -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="jd-descr">
+
+
+<h2>Summary</h2>
+
+
+
+<!-- ======== NESTED CLASS SUMMARY ======== -->
+<table id="nestedclasses" class="jd-sumtable"><tr><th colspan="12">Nested Classes</th></tr>
+
+
+  
+    <tr class="alt-color api apilevel-1" >
+      <td class="jd-typecol"><nobr>
+        
+         
+         
+        
+        class</nobr></td>
+      <td class="jd-linkcol"><a href="../../../../reference/java/nio/channels/FileChannel.MapMode.html">FileChannel.MapMode</a></td>
+      <td class="jd-descrcol" width="100%"><code>MapMode</code> defines file mapping mode constants.&nbsp;</td>
+    </tr>
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+<table id="proctors" class="jd-sumtable"><tr><th colspan="12">Protected Constructors</th></tr>
+
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            </nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../reference/java/nio/channels/FileChannel.html#FileChannel()">FileChannel</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Protected default constructor.</div>
+  
+  </td></tr>
+
+
+
+</table>
+
+
+
+
+<!-- ========== METHOD SUMMARY =========== -->
+<table id="pubmethods" class="jd-sumtable"><tr><th colspan="12">Public Methods</th></tr>
+
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../reference/java/nio/channels/FileChannel.html#force(boolean)">force</a></span>(boolean metadata)</nobr>
+        
+        <div class="jd-descrdiv">Requests that all updates to this channel are committed to the storage
+ device.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            <a href="../../../../reference/java/nio/channels/FileLock.html">FileLock</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../reference/java/nio/channels/FileChannel.html#lock()">lock</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Obtains an exclusive lock on this file.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            <a href="../../../../reference/java/nio/channels/FileLock.html">FileLock</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../reference/java/nio/channels/FileChannel.html#lock(long, long, boolean)">lock</a></span>(long position, long size, boolean shared)</nobr>
+        
+        <div class="jd-descrdiv">Obtains a lock on a specified region of the file.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            <a href="../../../../reference/java/nio/MappedByteBuffer.html">MappedByteBuffer</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../reference/java/nio/channels/FileChannel.html#map(java.nio.channels.FileChannel.MapMode, long, long)">map</a></span>(<a href="../../../../reference/java/nio/channels/FileChannel.MapMode.html">FileChannel.MapMode</a> mode, long position, long size)</nobr>
+        
+        <div class="jd-descrdiv">Maps the file into memory.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            long</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../reference/java/nio/channels/FileChannel.html#position()">position</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Returns the current value of the file position pointer.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            <a href="../../../../reference/java/nio/channels/FileChannel.html">FileChannel</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../reference/java/nio/channels/FileChannel.html#position(long)">position</a></span>(long offset)</nobr>
+        
+        <div class="jd-descrdiv">Sets the file position pointer to a new value.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../reference/java/nio/channels/FileChannel.html#read(java.nio.ByteBuffer, long)">read</a></span>(<a href="../../../../reference/java/nio/ByteBuffer.html">ByteBuffer</a> buffer, long position)</nobr>
+        
+        <div class="jd-descrdiv">Reads bytes from this file channel into the given buffer starting from
+ the specified file position.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../reference/java/nio/channels/FileChannel.html#read(java.nio.ByteBuffer)">read</a></span>(<a href="../../../../reference/java/nio/ByteBuffer.html">ByteBuffer</a> buffer)</nobr>
+        
+        <div class="jd-descrdiv">Reads bytes from this file channel into the given buffer.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            long</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../reference/java/nio/channels/FileChannel.html#read(java.nio.ByteBuffer[], int, int)">read</a></span>(<a href="../../../../reference/java/nio/ByteBuffer.html">ByteBuffer[]</a> buffers, int start, int number)</nobr>
+        
+        <div class="jd-descrdiv">Reads bytes from this file channel into a subset of the given buffers.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            long</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../reference/java/nio/channels/FileChannel.html#read(java.nio.ByteBuffer[])">read</a></span>(<a href="../../../../reference/java/nio/ByteBuffer.html">ByteBuffer[]</a> buffers)</nobr>
+        
+        <div class="jd-descrdiv">Reads bytes from this file channel and stores them in the specified array
+ of buffers.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            long</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../reference/java/nio/channels/FileChannel.html#size()">size</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Returns the size of the file underlying this channel in bytes.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            long</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../reference/java/nio/channels/FileChannel.html#transferFrom(java.nio.channels.ReadableByteChannel, long, long)">transferFrom</a></span>(<a href="../../../../reference/java/nio/channels/ReadableByteChannel.html">ReadableByteChannel</a> src, long position, long count)</nobr>
+        
+        <div class="jd-descrdiv">Reads up to <code>count</code> bytes from <code>src</code> and stores them in this
+ channel's file starting at <code>position</code>.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            long</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../reference/java/nio/channels/FileChannel.html#transferTo(long, long, java.nio.channels.WritableByteChannel)">transferTo</a></span>(long position, long count, <a href="../../../../reference/java/nio/channels/WritableByteChannel.html">WritableByteChannel</a> target)</nobr>
+        
+        <div class="jd-descrdiv">Reads up to <code>count</code> bytes from this channel's file starting at
+ <code>position</code> and writes them to <code>target</code>.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            <a href="../../../../reference/java/nio/channels/FileChannel.html">FileChannel</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../reference/java/nio/channels/FileChannel.html#truncate(long)">truncate</a></span>(long size)</nobr>
+        
+        <div class="jd-descrdiv">Truncates the file underlying this channel to a given size.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            <a href="../../../../reference/java/nio/channels/FileLock.html">FileLock</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../reference/java/nio/channels/FileChannel.html#tryLock(long, long, boolean)">tryLock</a></span>(long position, long size, boolean shared)</nobr>
+        
+        <div class="jd-descrdiv">Attempts to acquire an exclusive lock on this file without blocking.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            <a href="../../../../reference/java/nio/channels/FileLock.html">FileLock</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../reference/java/nio/channels/FileChannel.html#tryLock()">tryLock</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Attempts to acquire an exclusive lock on this file without blocking.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            long</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../reference/java/nio/channels/FileChannel.html#write(java.nio.ByteBuffer[])">write</a></span>(<a href="../../../../reference/java/nio/ByteBuffer.html">ByteBuffer[]</a> buffers)</nobr>
+        
+        <div class="jd-descrdiv">Writes bytes from all the given byte buffers to this file channel.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            long</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../reference/java/nio/channels/FileChannel.html#write(java.nio.ByteBuffer[], int, int)">write</a></span>(<a href="../../../../reference/java/nio/ByteBuffer.html">ByteBuffer[]</a> buffers, int offset, int length)</nobr>
+        
+        <div class="jd-descrdiv">Attempts to write a subset of the given bytes from the buffers to this
+ file channel.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../reference/java/nio/channels/FileChannel.html#write(java.nio.ByteBuffer)">write</a></span>(<a href="../../../../reference/java/nio/ByteBuffer.html">ByteBuffer</a> src)</nobr>
+        
+        <div class="jd-descrdiv">Writes bytes from the given byte buffer to this file channel.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../reference/java/nio/channels/FileChannel.html#write(java.nio.ByteBuffer, long)">write</a></span>(<a href="../../../../reference/java/nio/ByteBuffer.html">ByteBuffer</a> buffer, long position)</nobr>
+        
+        <div class="jd-descrdiv">Writes bytes from the given buffer to this file channel starting at the
+ given file position.</div>
+  
+  </td></tr>
+
+
+
+</table>
+
+
+
+
+
+
+
+<!-- ========== METHOD SUMMARY =========== -->
+<table id="inhmethods" class="jd-sumtable"><tr><th>
+  <a href="#" class="toggle-all" onclick="return toggleAllInherited(this, null)">[Expand]</a>
+  <div style="clear:left;">Inherited Methods</div></th></tr>
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-java.nio.channels.spi.AbstractInterruptibleChannel" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-java.nio.channels.spi.AbstractInterruptibleChannel-trigger"
+          src="../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From class
+
+  <a href="../../../../reference/java/nio/channels/spi/AbstractInterruptibleChannel.html">java.nio.channels.spi.AbstractInterruptibleChannel</a>
+
+<div id="inherited-methods-java.nio.channels.spi.AbstractInterruptibleChannel">
+  <div id="inherited-methods-java.nio.channels.spi.AbstractInterruptibleChannel-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-java.nio.channels.spi.AbstractInterruptibleChannel-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../reference/java/nio/channels/spi/AbstractInterruptibleChannel.html#begin()">begin</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Indicates the beginning of a code section that includes an I/O operation
+ that is potentially blocking.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../reference/java/nio/channels/spi/AbstractInterruptibleChannel.html#close()">close</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Closes an open channel.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../reference/java/nio/channels/spi/AbstractInterruptibleChannel.html#end(boolean)">end</a></span>(boolean success)</nobr>
+        
+        <div class="jd-descrdiv">Indicates the end of a code section that has been started with
+ <code>begin()</code> and that includes a potentially blocking I/O operation.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../reference/java/nio/channels/spi/AbstractInterruptibleChannel.html#implCloseChannel()">implCloseChannel</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Implements the channel closing behavior.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            synchronized
+            final
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../reference/java/nio/channels/spi/AbstractInterruptibleChannel.html#isOpen()">isOpen</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Returns true if this channel is open.</div>
+  
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-java.lang.Object" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-java.lang.Object-trigger"
+          src="../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From class
+
+  <a href="../../../../reference/java/lang/Object.html">java.lang.Object</a>
+
+<div id="inherited-methods-java.lang.Object">
+  <div id="inherited-methods-java.lang.Object-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-java.lang.Object-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../../reference/java/lang/Object.html">Object</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../reference/java/lang/Object.html#clone()">clone</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Creates and returns a copy of this <code>Object</code>.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../reference/java/lang/Object.html#equals(java.lang.Object)">equals</a></span>(<a href="../../../../reference/java/lang/Object.html">Object</a> o)</nobr>
+        
+        <div class="jd-descrdiv">Compares this instance with the specified object and indicates if they
+ are equal.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../reference/java/lang/Object.html#finalize()">finalize</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Invoked when the garbage collector has detected that this instance is no longer reachable.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            <a href="../../../../reference/java/lang/Class.html">Class</a>&lt;?&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../reference/java/lang/Object.html#getClass()">getClass</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Returns the unique instance of <code><a href="../../../../reference/java/lang/Class.html">Class</a></code> that represents this
+ object's class.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../reference/java/lang/Object.html#hashCode()">hashCode</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Returns an integer hash code for this object.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../reference/java/lang/Object.html#notify()">notify</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Causes a thread which is waiting on this object's monitor (by means of
+ calling one of the <code>wait()</code> methods) to be woken up.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../reference/java/lang/Object.html#notifyAll()">notifyAll</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Causes all threads which are waiting on this object's monitor (by means
+ of calling one of the <code>wait()</code> methods) to be woken up.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../../reference/java/lang/String.html">String</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../reference/java/lang/Object.html#toString()">toString</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Returns a string containing a concise, human-readable description of this
+ object.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../reference/java/lang/Object.html#wait()">wait</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../reference/java/lang/Object.html#wait(long, int)">wait</a></span>(long millis, int nanos)</nobr>
+        
+        <div class="jd-descrdiv">Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
+ specified timeout expires.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../reference/java/lang/Object.html#wait(long)">wait</a></span>(long millis)</nobr>
+        
+        <div class="jd-descrdiv">Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
+ specified timeout expires.</div>
+  
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-java.io.Closeable" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-java.io.Closeable-trigger"
+          src="../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From interface
+
+  <a href="../../../../reference/java/io/Closeable.html">java.io.Closeable</a>
+
+<div id="inherited-methods-java.io.Closeable">
+  <div id="inherited-methods-java.io.Closeable-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-java.io.Closeable-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../reference/java/io/Closeable.html#close()">close</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Closes the object and release any system resources it holds.</div>
+  
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-java.nio.channels.Channel" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-java.nio.channels.Channel-trigger"
+          src="../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From interface
+
+  <a href="../../../../reference/java/nio/channels/Channel.html">java.nio.channels.Channel</a>
+
+<div id="inherited-methods-java.nio.channels.Channel">
+  <div id="inherited-methods-java.nio.channels.Channel-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-java.nio.channels.Channel-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../reference/java/nio/channels/Channel.html#close()">close</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Closes an open channel.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../reference/java/nio/channels/Channel.html#isOpen()">isOpen</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Returns true if this channel is open.</div>
+  
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-java.nio.channels.GatheringByteChannel" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-java.nio.channels.GatheringByteChannel-trigger"
+          src="../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From interface
+
+  <a href="../../../../reference/java/nio/channels/GatheringByteChannel.html">java.nio.channels.GatheringByteChannel</a>
+
+<div id="inherited-methods-java.nio.channels.GatheringByteChannel">
+  <div id="inherited-methods-java.nio.channels.GatheringByteChannel-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-java.nio.channels.GatheringByteChannel-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            long</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../reference/java/nio/channels/GatheringByteChannel.html#write(java.nio.ByteBuffer[], int, int)">write</a></span>(<a href="../../../../reference/java/nio/ByteBuffer.html">ByteBuffer[]</a> buffers, int offset, int length)</nobr>
+        
+        <div class="jd-descrdiv">Attempts to write all <code>remaining()</code> bytes from <code>length</code>
+ byte buffers, in order, starting at <code>buffers[offset]</code>.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            long</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../reference/java/nio/channels/GatheringByteChannel.html#write(java.nio.ByteBuffer[])">write</a></span>(<a href="../../../../reference/java/nio/ByteBuffer.html">ByteBuffer[]</a> buffers)</nobr>
+        
+        <div class="jd-descrdiv">Writes bytes from all the given buffers to a channel.</div>
+  
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-java.nio.channels.InterruptibleChannel" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-java.nio.channels.InterruptibleChannel-trigger"
+          src="../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From interface
+
+  <a href="../../../../reference/java/nio/channels/InterruptibleChannel.html">java.nio.channels.InterruptibleChannel</a>
+
+<div id="inherited-methods-java.nio.channels.InterruptibleChannel">
+  <div id="inherited-methods-java.nio.channels.InterruptibleChannel-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-java.nio.channels.InterruptibleChannel-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../reference/java/nio/channels/InterruptibleChannel.html#close()">close</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Closes the channel.</div>
+  
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-java.nio.channels.ReadableByteChannel" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-java.nio.channels.ReadableByteChannel-trigger"
+          src="../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From interface
+
+  <a href="../../../../reference/java/nio/channels/ReadableByteChannel.html">java.nio.channels.ReadableByteChannel</a>
+
+<div id="inherited-methods-java.nio.channels.ReadableByteChannel">
+  <div id="inherited-methods-java.nio.channels.ReadableByteChannel-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-java.nio.channels.ReadableByteChannel-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../reference/java/nio/channels/ReadableByteChannel.html#read(java.nio.ByteBuffer)">read</a></span>(<a href="../../../../reference/java/nio/ByteBuffer.html">ByteBuffer</a> buffer)</nobr>
+        
+        <div class="jd-descrdiv">Reads bytes from the channel into the given buffer.</div>
+  
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-java.nio.channels.ScatteringByteChannel" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-java.nio.channels.ScatteringByteChannel-trigger"
+          src="../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From interface
+
+  <a href="../../../../reference/java/nio/channels/ScatteringByteChannel.html">java.nio.channels.ScatteringByteChannel</a>
+
+<div id="inherited-methods-java.nio.channels.ScatteringByteChannel">
+  <div id="inherited-methods-java.nio.channels.ScatteringByteChannel-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-java.nio.channels.ScatteringByteChannel-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            long</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../reference/java/nio/channels/ScatteringByteChannel.html#read(java.nio.ByteBuffer[], int, int)">read</a></span>(<a href="../../../../reference/java/nio/ByteBuffer.html">ByteBuffer[]</a> buffers, int offset, int length)</nobr>
+        
+        <div class="jd-descrdiv">Attempts to read all <code>remaining()</code> bytes from <code>length</code> byte
+ buffers, in order, starting at <code>buffers[offset]</code>.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            long</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../reference/java/nio/channels/ScatteringByteChannel.html#read(java.nio.ByteBuffer[])">read</a></span>(<a href="../../../../reference/java/nio/ByteBuffer.html">ByteBuffer[]</a> buffers)</nobr>
+        
+        <div class="jd-descrdiv">Reads bytes from this channel into the specified array of buffers.</div>
+  
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-java.nio.channels.WritableByteChannel" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-java.nio.channels.WritableByteChannel-trigger"
+          src="../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From interface
+
+  <a href="../../../../reference/java/nio/channels/WritableByteChannel.html">java.nio.channels.WritableByteChannel</a>
+
+<div id="inherited-methods-java.nio.channels.WritableByteChannel">
+  <div id="inherited-methods-java.nio.channels.WritableByteChannel-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-java.nio.channels.WritableByteChannel-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../reference/java/nio/channels/WritableByteChannel.html#write(java.nio.ByteBuffer)">write</a></span>(<a href="../../../../reference/java/nio/ByteBuffer.html">ByteBuffer</a> buffer)</nobr>
+        
+        <div class="jd-descrdiv">Writes bytes from the given buffer to the channel.</div>
+  
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+</table>
+
+
+</div><!-- jd-descr (summary) -->
+
+<!-- Details -->
+
+
+
+
+
+
+
+
+<!-- XML Attributes -->
+
+
+<!-- Enum Values -->
+
+
+<!-- Constants -->
+
+
+<!-- Fields -->
+
+
+<!-- Public ctors -->
+
+
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<!-- Protected ctors -->
+
+<h2>Protected Constructors</h2>
+
+
+
+<A NAME="FileChannel()"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        protected 
+         
+         
+         
+         
+        
+      </span>
+      <span class="sympad">FileChannel</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Protected default constructor.
+</p></div>
+
+    </div>
+</div>
+
+
+
+
+
+<!-- ========= METHOD DETAIL ======== -->
+<!-- Public methdos -->
+
+<h2>Public Methods</h2>
+
+
+
+<A NAME="force(boolean)"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        void
+      </span>
+      <span class="sympad">force</span>
+      <span class="normal">(boolean metadata)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Requests that all updates to this channel are committed to the storage
+ device.
+ <p>
+ When this method returns, all modifications made to the platform file
+ underlying this channel have been committed if the file resides on a
+ local storage device. If the file is not hosted locally, for example on a
+ networked file system, then applications cannot be certain that the
+ modifications have been committed.
+ <p>
+ There are no assurances given that changes made to the file using methods
+ defined elsewhere will be committed. For example, changes made via a
+ mapped byte buffer may not be committed.
+ <p>
+ The <code>metadata</code> parameter indicates whether the update should
+ include the file's metadata such as last modification time, last access
+ time, etc. Note that passing <code>true</code> may invoke an underlying
+ write to the operating system (if the platform is maintaining metadata
+ such as last access time), even if the channel is opened read-only.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>metadata</td>
+          <td><code>true</code> if the file metadata should be flushed in
+            addition to the file content, <code>false</code> otherwise.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="../../../../reference/java/nio/channels/ClosedChannelException.html">ClosedChannelException</a></td>
+            <td>if this channel is already closed.</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../../reference/java/io/IOException.html">IOException</a></td>
+            <td>if another I/O error occurs.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="lock()"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+        final 
+         
+         
+        <a href="../../../../reference/java/nio/channels/FileLock.html">FileLock</a>
+      </span>
+      <span class="sympad">lock</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Obtains an exclusive lock on this file.
+ <p>
+ This is a convenience method for acquiring a maximum length lock on a
+ file. It is equivalent to:
+ <code>fileChannel.lock(0L, Long.MAX_VALUE, false);</code></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the lock object representing the locked file area.</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="../../../../reference/java/nio/channels/ClosedChannelException.html">ClosedChannelException</a></td>
+            <td>the file channel is closed.</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../../reference/java/nio/channels/NonWritableChannelException.html">NonWritableChannelException</a></td>
+            <td>this channel was not opened for writing.</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../../reference/java/nio/channels/OverlappingFileLockException.html">OverlappingFileLockException</a></td>
+            <td>either a lock is already held that overlaps this lock
+             request, or another thread is waiting to acquire a lock that
+             will overlap with this request.</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../../reference/java/nio/channels/FileLockInterruptionException.html">FileLockInterruptionException</a></td>
+            <td>the calling thread was interrupted while waiting to acquire
+             the lock.</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../../reference/java/nio/channels/AsynchronousCloseException.html">AsynchronousCloseException</a></td>
+            <td>the channel was closed while the calling thread was waiting
+             to acquire the lock.</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../../reference/java/io/IOException.html">IOException</a></td>
+            <td>if another I/O error occurs while obtaining the requested
+             lock.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="lock(long, long, boolean)"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        <a href="../../../../reference/java/nio/channels/FileLock.html">FileLock</a>
+      </span>
+      <span class="sympad">lock</span>
+      <span class="normal">(long position, long size, boolean shared)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Obtains a lock on a specified region of the file.
+ <p>
+ This is the blocking version of lock acquisition, see also the
+ <code>tryLock()</code> methods.
+ <p>
+ Attempts to acquire an overlapping lock region will fail. The attempt
+ will fail if the overlapping lock has already been obtained, or if
+ another thread is currently waiting to acquire the overlapping lock.
+ <p>
+ If the request is not for an overlapping lock, the thread calling this
+ method will block until the lock is obtained (likely by no contention or
+ another process releasing a lock), or until this thread is interrupted or
+ the channel is closed.
+ <p>
+ If the lock is obtained successfully then the <code><a href="../../../../reference/java/nio/channels/FileLock.html">FileLock</a></code> object
+ returned represents the lock for subsequent operations on the locked
+ region.
+ <p>
+ If the thread is interrupted while waiting for the lock, the thread is
+ set to the interrupted state and throws a
+ <code><a href="../../../../reference/java/nio/channels/FileLockInterruptionException.html">FileLockInterruptionException</a></code>. If this channel is closed while
+ the thread is waiting to obtain the lock then the thread throws a
+ <code><a href="../../../../reference/java/nio/channels/AsynchronousCloseException.html">AsynchronousCloseException</a></code>.
+ <p>
+ There is no requirement for the position and size to be within the
+ current start and length of the file.
+ <p>
+ Some platforms do not support shared locks, and if a request is made for
+ a shared lock on such a platform, this method will attempt to acquire an
+ exclusive lock instead. It is undefined whether the lock obtained is
+ advisory or mandatory.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>position</td>
+          <td>the starting position for the locked region.</td>
+        </tr>
+        <tr>
+          <th>size</td>
+          <td>the length of the locked region in bytes.</td>
+        </tr>
+        <tr>
+          <th>shared</td>
+          <td>a flag indicating whether an attempt should be made to acquire
+            a shared lock.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the file lock object.</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="../../../../reference/java/lang/IllegalArgumentException.html">IllegalArgumentException</a></td>
+            <td>if <code>position</code> or <code>size</code> is negative.</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../../reference/java/nio/channels/ClosedChannelException.html">ClosedChannelException</a></td>
+            <td>if this channel is closed.</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../../reference/java/nio/channels/OverlappingFileLockException.html">OverlappingFileLockException</a></td>
+            <td>if the requested region overlaps an existing lock or pending
+             lock request.</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../../reference/java/nio/channels/NonReadableChannelException.html">NonReadableChannelException</a></td>
+            <td>if the channel is not opened in read-mode but shared is true.</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../../reference/java/nio/channels/NonWritableChannelException.html">NonWritableChannelException</a></td>
+            <td>if the channel is not opened in write mode but shared is
+             false.</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../../reference/java/nio/channels/AsynchronousCloseException.html">AsynchronousCloseException</a></td>
+            <td>if this channel is closed by another thread while this method
+             is executing.</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../../reference/java/nio/channels/FileLockInterruptionException.html">FileLockInterruptionException</a></td>
+            <td>if the thread is interrupted while in the state of waiting on
+             the desired file lock.</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../../reference/java/io/IOException.html">IOException</a></td>
+            <td>if another I/O error occurs.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="map(java.nio.channels.FileChannel.MapMode, long, long)"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        <a href="../../../../reference/java/nio/MappedByteBuffer.html">MappedByteBuffer</a>
+      </span>
+      <span class="sympad">map</span>
+      <span class="normal">(<a href="../../../../reference/java/nio/channels/FileChannel.MapMode.html">FileChannel.MapMode</a> mode, long position, long size)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Maps the file into memory. There can be three modes: read-only,
+ read/write and private. After mapping, changes made to memory or the file
+ channel do not affect the other storage place.
+ <p>
+ Note: mapping a file into memory is usually expensive.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>mode</td>
+          <td>one of the three mapping modes.</td>
+        </tr>
+        <tr>
+          <th>position</td>
+          <td>the starting position of the file.</td>
+        </tr>
+        <tr>
+          <th>size</td>
+          <td>the size of the region to map into memory.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the mapped byte buffer.</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="../../../../reference/java/nio/channels/NonReadableChannelException.html">NonReadableChannelException</a></td>
+            <td>if the FileChannel is not opened for reading but the given
+             mode is "READ_ONLY".</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../../reference/java/nio/channels/NonWritableChannelException.html">NonWritableChannelException</a></td>
+            <td>if the FileChannel is not opened for writing but the given
+             mode is not "READ_ONLY".</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../../reference/java/lang/IllegalArgumentException.html">IllegalArgumentException</a></td>
+            <td>if the given parameters of position and size are not correct.
+             Both must be non negative. <code>size</code> also must not be
+             bigger than max integer.</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../../reference/java/io/IOException.html">IOException</a></td>
+            <td>if any I/O error occurs.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="position()"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        long
+      </span>
+      <span class="sympad">position</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Returns the current value of the file position pointer.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the current position as a positive integer number of bytes from
+         the start of the file.</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="../../../../reference/java/nio/channels/ClosedChannelException.html">ClosedChannelException</a></td>
+            <td>if this channel is closed.</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../../reference/java/io/IOException.html">IOException</a></td>
+            <td>if another I/O error occurs.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="position(long)"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        <a href="../../../../reference/java/nio/channels/FileChannel.html">FileChannel</a>
+      </span>
+      <span class="sympad">position</span>
+      <span class="normal">(long offset)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the file position pointer to a new value.
+ <p>
+ The argument is the number of bytes counted from the start of the file.
+ The position cannot be set to a value that is negative. The new position
+ can be set beyond the current file size. If set beyond the current file
+ size, attempts to read will return end of file. Write operations will
+ succeed but they will fill the bytes between the current end of file and
+ the new position with the required number of (unspecified) byte values.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>offset</td>
+          <td>the new file position, in bytes.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the receiver.</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="../../../../reference/java/lang/IllegalArgumentException.html">IllegalArgumentException</a></td>
+            <td>if the new position is negative.</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../../reference/java/nio/channels/ClosedChannelException.html">ClosedChannelException</a></td>
+            <td>if this channel is closed.</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../../reference/java/io/IOException.html">IOException</a></td>
+            <td>if another I/O error occurs.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="read(java.nio.ByteBuffer, long)"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        int
+      </span>
+      <span class="sympad">read</span>
+      <span class="normal">(<a href="../../../../reference/java/nio/ByteBuffer.html">ByteBuffer</a> buffer, long position)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Reads bytes from this file channel into the given buffer starting from
+ the specified file position.
+ <p>
+ The bytes are read starting at the given file position (up to the
+ remaining number of bytes in the buffer). The number of bytes actually
+ read is returned.
+ <p>
+ If <code>position</code> is beyond the current end of file, then no bytes are
+ read.
+ <p>
+ Note that the file position is unmodified by this method.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>buffer</td>
+          <td>the buffer to receive the bytes.</td>
+        </tr>
+        <tr>
+          <th>position</td>
+          <td>the (non-negative) position at which to read the bytes.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the number of bytes actually read.</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="../../../../reference/java/nio/channels/AsynchronousCloseException.html">AsynchronousCloseException</a></td>
+            <td>if this channel is closed by another thread while this method
+             is executing.</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../../reference/java/nio/channels/ClosedByInterruptException.html">ClosedByInterruptException</a></td>
+            <td>if another thread interrupts the calling thread while this
+             operation is in progress. The calling thread will have the
+             interrupt state set, and the channel will be closed.</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../../reference/java/nio/channels/ClosedChannelException.html">ClosedChannelException</a></td>
+            <td>if this channel is closed.</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../../reference/java/lang/IllegalArgumentException.html">IllegalArgumentException</a></td>
+            <td>if <code>position</code> is less than 0.</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../../reference/java/io/IOException.html">IOException</a></td>
+            <td>if another I/O error occurs.</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../../reference/java/nio/channels/NonReadableChannelException.html">NonReadableChannelException</a></td>
+            <td>if the channel has not been opened in a mode that permits
+             reading.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="read(java.nio.ByteBuffer)"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        int
+      </span>
+      <span class="sympad">read</span>
+      <span class="normal">(<a href="../../../../reference/java/nio/ByteBuffer.html">ByteBuffer</a> buffer)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Reads bytes from this file channel into the given buffer.
+ <p>
+ The maximum number of bytes that will be read is the remaining number of
+ bytes in the buffer when the method is invoked. The bytes will be copied
+ into the buffer starting at the buffer's current position.
+ <p>
+ The call may block if other threads are also attempting to read from this
+ channel.
+ <p>
+ Upon completion, the buffer's position is set to the end of the bytes
+ that have been read. The buffer's limit is not changed.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>buffer</td>
+          <td>the byte buffer to receive the bytes.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the number of bytes actually read.</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="../../../../reference/java/nio/channels/AsynchronousCloseException.html">AsynchronousCloseException</a></td>
+            <td>if another thread closes the channel during the read.</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../../reference/java/nio/channels/ClosedByInterruptException.html">ClosedByInterruptException</a></td>
+            <td>if another thread interrupts the calling thread during the
+             read.</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../../reference/java/nio/channels/ClosedChannelException.html">ClosedChannelException</a></td>
+            <td>if this channel is closed.</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../../reference/java/io/IOException.html">IOException</a></td>
+            <td>if another I/O error occurs, details are in the message.</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../../reference/java/nio/channels/NonReadableChannelException.html">NonReadableChannelException</a></td>
+            <td>if the channel has not been opened in a mode that permits
+             reading.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="read(java.nio.ByteBuffer[], int, int)"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        long
+      </span>
+      <span class="sympad">read</span>
+      <span class="normal">(<a href="../../../../reference/java/nio/ByteBuffer.html">ByteBuffer[]</a> buffers, int start, int number)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Reads bytes from this file channel into a subset of the given buffers.
+ This method attempts to read all <code>remaining()</code> bytes from <code>length</code> byte buffers, in order, starting at <code>targets[offset]</code>. It
+ increases the file position by the number of bytes actually read. The
+ number of bytes actually read is returned.
+ <p>
+ If a read operation is in progress, subsequent threads will block until
+ the read is completed and will then contend for the ability to read.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>buffers</td>
+          <td>the array of byte buffers into which the bytes will be copied.</td>
+        </tr>
+        <tr>
+          <th>start</td>
+          <td>the index of the first buffer to store bytes in.</td>
+        </tr>
+        <tr>
+          <th>number</td>
+          <td>the maximum number of buffers to store bytes in.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the number of bytes actually read.</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="../../../../reference/java/nio/channels/AsynchronousCloseException.html">AsynchronousCloseException</a></td>
+            <td>if this channel is closed by another thread during this read
+             operation.</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../../reference/java/nio/channels/ClosedByInterruptException.html">ClosedByInterruptException</a></td>
+            <td>if the thread is interrupted by another thread during this
+             read operation.</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../../reference/java/nio/channels/ClosedChannelException.html">ClosedChannelException</a></td>
+            <td>if this channel is closed.</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../../reference/java/lang/IndexOutOfBoundsException.html">IndexOutOfBoundsException</a></td>
+            <td>if <code>start < 0</code> or <code>number < 0</code>, or if
+             <code>start + number</code> is greater than the size of
+             <code>buffers</code>.</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../../reference/java/io/IOException.html">IOException</a></td>
+            <td>if another I/O error occurs; details are in the message.</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../../reference/java/nio/channels/NonReadableChannelException.html">NonReadableChannelException</a></td>
+            <td>if the channel has not been opened in a mode that permits
+             reading.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="read(java.nio.ByteBuffer[])"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+        final 
+         
+         
+        long
+      </span>
+      <span class="sympad">read</span>
+      <span class="normal">(<a href="../../../../reference/java/nio/ByteBuffer.html">ByteBuffer[]</a> buffers)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Reads bytes from this file channel and stores them in the specified array
+ of buffers. This method attempts to read as many bytes as can be stored
+ in the buffer array from this channel and returns the number of bytes
+ actually read. It also increases the file position by the number of bytes
+ read.
+ <p>
+ If a read operation is in progress, subsequent threads will block until
+ the read is completed and will then contend for the ability to read.
+ <p>
+ Calling this method is equivalent to calling
+ <code>read(buffers, 0, buffers.length);</code></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>buffers</td>
+          <td>the array of byte buffers into which the bytes will be copied.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the number of bytes actually read.</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="../../../../reference/java/nio/channels/AsynchronousCloseException.html">AsynchronousCloseException</a></td>
+            <td>if this channel is closed by another thread during this read
+             operation.</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../../reference/java/nio/channels/ClosedByInterruptException.html">ClosedByInterruptException</a></td>
+            <td>if the thread is interrupted by another thread during this
+             read operation.</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../../reference/java/nio/channels/ClosedChannelException.html">ClosedChannelException</a></td>
+            <td>if this channel is closed.</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../../reference/java/io/IOException.html">IOException</a></td>
+            <td>if another I/O error occurs; details are in the message.</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../../reference/java/nio/channels/NonReadableChannelException.html">NonReadableChannelException</a></td>
+            <td>if the channel has not been opened in a mode that permits
+             reading.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="size()"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        long
+      </span>
+      <span class="sympad">size</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Returns the size of the file underlying this channel in bytes.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the size of the file in bytes.</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="../../../../reference/java/nio/channels/ClosedChannelException.html">ClosedChannelException</a></td>
+            <td>if this channel is closed.</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../../reference/java/io/IOException.html">IOException</a></td>
+            <td>if an I/O error occurs while getting the size of the file.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="transferFrom(java.nio.channels.ReadableByteChannel, long, long)"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        long
+      </span>
+      <span class="sympad">transferFrom</span>
+      <span class="normal">(<a href="../../../../reference/java/nio/channels/ReadableByteChannel.html">ReadableByteChannel</a> src, long position, long count)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Reads up to <code>count</code> bytes from <code>src</code> and stores them in this
+ channel's file starting at <code>position</code>. No bytes are transferred if
+ <code>position</code> is larger than the size of this channel's file. Less
+ than <code>count</code> bytes are transferred if there are less bytes
+ remaining in the source channel or if the source channel is non-blocking
+ and has less than <code>count</code> bytes immediately available in its output
+ buffer.
+ <p>
+ Note that this channel's position is not modified.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>src</td>
+          <td>the source channel to read bytes from.</td>
+        </tr>
+        <tr>
+          <th>position</td>
+          <td>the non-negative start position.</td>
+        </tr>
+        <tr>
+          <th>count</td>
+          <td>the non-negative number of bytes to transfer.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the number of bytes that are transferred.</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="../../../../reference/java/lang/IllegalArgumentException.html">IllegalArgumentException</a></td>
+            <td>if the parameters are invalid.</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../../reference/java/nio/channels/NonReadableChannelException.html">NonReadableChannelException</a></td>
+            <td>if the source channel is not readable.</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../../reference/java/nio/channels/NonWritableChannelException.html">NonWritableChannelException</a></td>
+            <td>if this channel is not writable.</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../../reference/java/nio/channels/ClosedChannelException.html">ClosedChannelException</a></td>
+            <td>if either channel has already been closed.</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../../reference/java/nio/channels/AsynchronousCloseException.html">AsynchronousCloseException</a></td>
+            <td>if either channel is closed by other threads during this
+             operation.</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../../reference/java/nio/channels/ClosedByInterruptException.html">ClosedByInterruptException</a></td>
+            <td>if the thread is interrupted during this operation.</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../../reference/java/io/IOException.html">IOException</a></td>
+            <td>if any I/O error occurs.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="transferTo(long, long, java.nio.channels.WritableByteChannel)"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        long
+      </span>
+      <span class="sympad">transferTo</span>
+      <span class="normal">(long position, long count, <a href="../../../../reference/java/nio/channels/WritableByteChannel.html">WritableByteChannel</a> target)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Reads up to <code>count</code> bytes from this channel's file starting at
+ <code>position</code> and writes them to <code>target</code>. No bytes are
+ transferred if <code>position</code> is larger than the size of this channel's
+ file. Less than <code>count</code> bytes are transferred if there less bytes
+ available from this channel's file or if the target channel is
+ non-blocking and has less than <code>count</code> bytes free in its input
+ buffer.
+ <p>
+ Note that this channel's position is not modified.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>position</td>
+          <td>the non-negative position to begin.</td>
+        </tr>
+        <tr>
+          <th>count</td>
+          <td>the non-negative number of bytes to transfer.</td>
+        </tr>
+        <tr>
+          <th>target</td>
+          <td>the target channel to write to.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the number of bytes that were transferred.</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="../../../../reference/java/lang/IllegalArgumentException.html">IllegalArgumentException</a></td>
+            <td>if the parameters are invalid.</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../../reference/java/nio/channels/NonReadableChannelException.html">NonReadableChannelException</a></td>
+            <td>if this channel is not readable.</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../../reference/java/nio/channels/NonWritableChannelException.html">NonWritableChannelException</a></td>
+            <td>if the target channel is not writable.</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../../reference/java/nio/channels/ClosedChannelException.html">ClosedChannelException</a></td>
+            <td>if either channel has already been closed.</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../../reference/java/nio/channels/AsynchronousCloseException.html">AsynchronousCloseException</a></td>
+            <td>if either channel is closed by other threads during this
+             operation.</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../../reference/java/nio/channels/ClosedByInterruptException.html">ClosedByInterruptException</a></td>
+            <td>if the thread is interrupted during this operation.</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../../reference/java/io/IOException.html">IOException</a></td>
+            <td>if any I/O error occurs.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="truncate(long)"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        <a href="../../../../reference/java/nio/channels/FileChannel.html">FileChannel</a>
+      </span>
+      <span class="sympad">truncate</span>
+      <span class="normal">(long size)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Truncates the file underlying this channel to a given size. Any bytes
+ beyond the given size are removed from the file. If there are no bytes
+ beyond the given size then the file contents are unmodified.
+ <p>
+ If the file position is currently greater than the given size, then it is
+ set to the new size.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>size</td>
+          <td>the maximum size of the underlying file.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>this channel.
+</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="../../../../reference/java/lang/IllegalArgumentException.html">IllegalArgumentException</a></td>
+            <td>if the requested size is negative.</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../../reference/java/nio/channels/ClosedChannelException.html">ClosedChannelException</a></td>
+            <td>if this channel is closed.</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../../reference/java/nio/channels/NonWritableChannelException.html">NonWritableChannelException</a></td>
+            <td>if the channel cannot be written to.</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../../reference/java/io/IOException.html">IOException</a></td>
+            <td>if another I/O error occurs.</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="tryLock(long, long, boolean)"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        <a href="../../../../reference/java/nio/channels/FileLock.html">FileLock</a>
+      </span>
+      <span class="sympad">tryLock</span>
+      <span class="normal">(long position, long size, boolean shared)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Attempts to acquire an exclusive lock on this file without blocking. The
+ method returns <code>null</code> if the acquisition would result in an
+ overlapped lock with another OS process.
+ <p>
+ It is possible to acquire a lock for any region even if it's completely
+ outside of the file's size. The size of the lock is fixed. If the file
+ grows outside of the lock that region of the file won't be locked by this
+ lock.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>position</td>
+          <td>the starting position.</td>
+        </tr>
+        <tr>
+          <th>size</td>
+          <td>the size of file to lock.</td>
+        </tr>
+        <tr>
+          <th>shared</td>
+          <td>true if the lock is shared.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the file lock object, or <code>null</code> if the lock would overlap
+         with an existing exclusive lock in another OS process.</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="../../../../reference/java/lang/IllegalArgumentException.html">IllegalArgumentException</a></td>
+            <td>if any parameters are invalid.</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../../reference/java/nio/channels/ClosedChannelException.html">ClosedChannelException</a></td>
+            <td>if the file channel is closed.</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../../reference/java/nio/channels/OverlappingFileLockException.html">OverlappingFileLockException</a></td>
+            <td>if a lock is already held that overlaps this lock request or
+             another thread is waiting to acquire a lock that will overlap
+             with this request.</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../../reference/java/io/IOException.html">IOException</a></td>
+            <td>if any I/O error occurs.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="tryLock()"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+        final 
+         
+         
+        <a href="../../../../reference/java/nio/channels/FileLock.html">FileLock</a>
+      </span>
+      <span class="sympad">tryLock</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Attempts to acquire an exclusive lock on this file without blocking.
+ <p>
+ This is a convenience method for attempting to acquire a maximum length
+ lock on the file. It is equivalent to:
+ <code>fileChannel.tryLock(0L, Long.MAX_VALUE, false);</code>
+ <p>
+ The method returns <code>null</code> if the acquisition would result in an
+ overlapped lock with another OS process.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the file lock object, or <code>null</code> if the lock would overlap
+         with an existing exclusive lock in another OS process.</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="../../../../reference/java/nio/channels/ClosedChannelException.html">ClosedChannelException</a></td>
+            <td>if the file channel is closed.</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../../reference/java/nio/channels/OverlappingFileLockException.html">OverlappingFileLockException</a></td>
+            <td>if a lock already exists that overlaps this lock request or
+             another thread is waiting to acquire a lock that will overlap
+             with this request.</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../../reference/java/io/IOException.html">IOException</a></td>
+            <td>if any I/O error occurs.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="write(java.nio.ByteBuffer[])"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+        final 
+         
+         
+        long
+      </span>
+      <span class="sympad">write</span>
+      <span class="normal">(<a href="../../../../reference/java/nio/ByteBuffer.html">ByteBuffer[]</a> buffers)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Writes bytes from all the given byte buffers to this file channel.
+ <p>
+ The bytes are written starting at the current file position, and after
+ the bytes are written (up to the remaining number of bytes in all the
+ buffers), the file position is increased by the number of bytes actually
+ written.
+ <p>
+ Calling this method is equivalent to calling
+ <code>write(buffers, 0, buffers.length);</code></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>buffers</td>
+          <td>the buffers containing bytes to write.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the number of bytes actually written.</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="../../../../reference/java/nio/channels/AsynchronousCloseException.html">AsynchronousCloseException</a></td>
+            <td>if this channel is closed by another thread during this write
+             operation.</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../../reference/java/nio/channels/ClosedByInterruptException.html">ClosedByInterruptException</a></td>
+            <td>if another thread interrupts the calling thread while this
+             operation is in progress. The interrupt state of the calling
+             thread is set and the channel is closed.</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../../reference/java/nio/channels/ClosedChannelException.html">ClosedChannelException</a></td>
+            <td>if this channel is closed.</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../../reference/java/io/IOException.html">IOException</a></td>
+            <td>if another I/O error occurs; details are in the message.</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../../reference/java/nio/channels/NonWritableChannelException.html">NonWritableChannelException</a></td>
+            <td>if this channel was not opened for writing.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="write(java.nio.ByteBuffer[], int, int)"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        long
+      </span>
+      <span class="sympad">write</span>
+      <span class="normal">(<a href="../../../../reference/java/nio/ByteBuffer.html">ByteBuffer[]</a> buffers, int offset, int length)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Attempts to write a subset of the given bytes from the buffers to this
+ file channel. This method attempts to write all <code>remaining()</code>
+ bytes from <code>length</code> byte buffers, in order, starting at <code>sources[offset]</code>. The number of bytes actually written is returned.
+ <p>
+ If a write operation is in progress, subsequent threads will block until
+ the write is completed and then contend for the ability to write.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>buffers</td>
+          <td>the array of byte buffers that is the source for bytes written
+            to this channel.</td>
+        </tr>
+        <tr>
+          <th>offset</td>
+          <td>the index of the first buffer in <code>buffers </code>to get bytes
+            from.</td>
+        </tr>
+        <tr>
+          <th>length</td>
+          <td>the number of buffers to get bytes from.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the number of bytes actually written to this channel.</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="../../../../reference/java/nio/channels/AsynchronousCloseException.html">AsynchronousCloseException</a></td>
+            <td>if this channel is closed by another thread during this write
+             operation.</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../../reference/java/nio/channels/ClosedByInterruptException.html">ClosedByInterruptException</a></td>
+            <td>if another thread interrupts the calling thread while this
+             operation is in progress. The interrupt state of the calling
+             thread is set and the channel is closed.</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../../reference/java/nio/channels/ClosedChannelException.html">ClosedChannelException</a></td>
+            <td>if this channel is closed.</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../../reference/java/lang/IndexOutOfBoundsException.html">IndexOutOfBoundsException</a></td>
+            <td>if <code>offset < 0</code> or <code>length < 0</code>, or if
+             <code>offset + length</code> is greater than the size of
+             <code>buffers</code>.</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../../reference/java/io/IOException.html">IOException</a></td>
+            <td>if another I/O error occurs; details are in the message.</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../../reference/java/nio/channels/NonWritableChannelException.html">NonWritableChannelException</a></td>
+            <td>if this channel was not opened for writing.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="write(java.nio.ByteBuffer)"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        int
+      </span>
+      <span class="sympad">write</span>
+      <span class="normal">(<a href="../../../../reference/java/nio/ByteBuffer.html">ByteBuffer</a> src)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Writes bytes from the given byte buffer to this file channel.
+ <p>
+ The bytes are written starting at the current file position, and after
+ some number of bytes are written (up to the remaining number of bytes in
+ the buffer) the file position is increased by the number of bytes
+ actually written.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>src</td>
+          <td>the byte buffer containing the bytes to be written.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the number of bytes actually written.</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="../../../../reference/java/nio/channels/NonWritableChannelException.html">NonWritableChannelException</a></td>
+            <td>if the channel was not opened for writing.</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../../reference/java/nio/channels/ClosedChannelException.html">ClosedChannelException</a></td>
+            <td>if the channel was already closed.</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../../reference/java/nio/channels/AsynchronousCloseException.html">AsynchronousCloseException</a></td>
+            <td>if another thread closes the channel during the write.</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../../reference/java/nio/channels/ClosedByInterruptException.html">ClosedByInterruptException</a></td>
+            <td>if another thread interrupts the calling thread while this
+             operation is in progress. The interrupt state of the calling
+             thread is set and the channel is closed.</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../../reference/java/io/IOException.html">IOException</a></td>
+            <td>if another I/O error occurs, details are in the message.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">See Also</h5>
+      <ul class="nolist"><li><code><a href="../../../../reference/java/nio/channels/WritableByteChannel.html#write(java.nio.ByteBuffer)">write(java.nio.ByteBuffer)</a></code></li>
+      </ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="write(java.nio.ByteBuffer, long)"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        int
+      </span>
+      <span class="sympad">write</span>
+      <span class="normal">(<a href="../../../../reference/java/nio/ByteBuffer.html">ByteBuffer</a> buffer, long position)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Writes bytes from the given buffer to this file channel starting at the
+ given file position.
+ <p>
+ The bytes are written starting at the given file position (up to the
+ remaining number of bytes in the buffer). The number of bytes actually
+ written is returned.
+ <p>
+ If the position is beyond the current end of file, then the file is first
+ extended up to the given position by the required number of unspecified
+ byte values.
+ <p>
+ Note that the file position is not modified by this method.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>buffer</td>
+          <td>the buffer containing the bytes to be written.</td>
+        </tr>
+        <tr>
+          <th>position</td>
+          <td>the (non-negative) position at which to write the bytes.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the number of bytes actually written.</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="../../../../reference/java/lang/IllegalArgumentException.html">IllegalArgumentException</a></td>
+            <td>if <code>position</code> is less than 0.</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../../reference/java/nio/channels/ClosedChannelException.html">ClosedChannelException</a></td>
+            <td>if this channel is closed.</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../../reference/java/nio/channels/NonWritableChannelException.html">NonWritableChannelException</a></td>
+            <td>if the channel was not opened in write-mode.</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../../reference/java/nio/channels/AsynchronousCloseException.html">AsynchronousCloseException</a></td>
+            <td>if this channel is closed by another thread while this method
+             is executing.</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../../reference/java/nio/channels/ClosedByInterruptException.html">ClosedByInterruptException</a></td>
+            <td>if another thread interrupts the calling thread while this
+             operation is in progress. The interrupt state of the calling
+             thread is set and the channel is closed.</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../../reference/java/io/IOException.html">IOException</a></td>
+            <td>if another I/O error occurs.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+
+
+
+<!-- ========= METHOD DETAIL ======== -->
+
+
+
+<!-- ========= END OF CLASS DATA ========= -->
+<A NAME="navbar_top"></A>
+
+<div id="footer">
+
+
+  <div id="copyright">
+    
+  Except as noted, this content is licensed under <a
+  href="http://www.apache.org/licenses/LICENSE-2.0">Apache 2.0</a>. 
+  For details and restrictions, see the <a href="../../../../license.html">
+  Content License</a>.
+  </div>
+  <div id="build_info">
+    
+  Android 4.0&nbsp;r1 - 16 Mar 2012 16:45
+
+  </div>
+
+  <div id="footerlinks">
+    
+  <p>
+    <a href="http://www.google.com/intl/en/policies/" target="_blank">Privacy &amp; Terms</a> -
+    <a href="http://www.android.com/branding.html" target="_blank">Brand Guidelines</a> -
+    <a
+href="http://code.google.com/p/android/issues/entry?template=Developer%20Documentation"
+target="_blank">Report Document Issues</a>
+  </p>
+  </div>
+
+</div> <!-- end footer -->
+
+</div> <!-- jd-content -->
+
+</div><!-- end doc-content -->
+
+</div> <!-- end body-content --> 
+
+<script type="text/javascript">
+init(); /* initialize android-developer-docs.js */
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-5831155-1");
+pageTracker._trackPageview();
+</script>
+
+</body>
+</html>

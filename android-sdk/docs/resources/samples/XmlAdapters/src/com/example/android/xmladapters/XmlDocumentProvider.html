@@ -1,0 +1,1145 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<link rel="shortcut icon" type="image/x-icon" href="../../../../../../../../favicon.ico" />
+<title>XmlDocumentProvider.java | Android Developers</title>
+<link href="../../../../../../../../assets/android-developer-docs-devguide.css" rel="stylesheet" type="text/css" />
+<script src="../../../../../../../../assets/search_autocomplete.js" type="text/javascript"></script>
+<script src="../../../../../../../../assets/jquery-resizable.min.js" type="text/javascript"></script>
+<script src="../../../../../../../../assets/android-developer-docs.js" type="text/javascript"></script>
+<script src="../../../../../../../../assets/prettify.js" type="text/javascript"></script>
+<script type="text/javascript">
+  setToRoot("../../../../../../../../");
+</script>
+<script src="../../../../../../../../resources/resources-data.js" type="text/javascript"></script>
+<noscript>
+  <style type="text/css">
+    html,body{overflow:auto;}
+    #body-content{position:relative; top:0;}
+    #doc-content{overflow:visible;border-left:3px solid #666;}
+    #side-nav{padding:0;}
+    #side-nav .toggle-list ul {display:block;}
+    #resize-packages-nav{border-bottom:3px solid #666;}
+  </style>
+</noscript>
+</head>
+
+  <div id="header">
+      <div id="headerLeft">
+          <a href="../../../../../../../../index.html" tabindex="-1"><img
+              src="../../../../../../../../assets/images/bg_logo.png" alt="Android Developers" /></a>
+          <ul id="header-tabs" class="resources">
+    
+	<li id="home-link"><a href="../../../../../../../../offline.html">
+	
+		<span class="en">Home</span>
+		<span style="display:none" class="de">Startseite</span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ホーム</span>
+		<span style="display:none" class="zh-CN">主页</span>
+		<span style="display:none" class="zh-TW">首頁</span>
+	
+	</a></li>
+	<li id="sdk-link"><a href="../../../../../../../../sdk/index.html">
+		<span class="en">SDK</span>
+	</a></li>
+	<li id="guide-link"><a href="../../../../../../../../guide/index.html" onClick="return loadLast('guide')">
+	
+		<span class="en">Dev Guide</span>
+		<span style="display:none" class="de">Handbuch</span>
+		<span style="display:none" class="es">Guía</span>
+		<span style="display:none" class="fr">Guide</span>
+		<span style="display:none" class="it">Guida</span>
+		<span style="display:none" class="ja">開発ガイド</span>
+		<span style="display:none" class="zh-CN">开发人员指南</span>
+		<span style="display:none" class="zh-TW">開發指南</span>
+	
+	</a></li>
+	<li id="reference-link"><a href="../../../../../../../../reference/packages.html" onClick="return loadLast('reference')">
+	
+		<span class="en">Reference</span>
+		<span style="display:none" class="de">Referenz</span>
+		<span style="display:none" class="es">Referencia</span>
+		<span style="display:none" class="fr">Référence</span>
+		<span style="display:none" class="it">Riferimento</span>
+		<span style="display:none" class="ja">リファレンス</span>
+		<span style="display:none" class="zh-CN">参考</span>
+		<span style="display:none" class="zh-TW">參考資料</span>
+	
+	</a></li>
+	<li id="resources-link"><a href="../../../../../../../../resources/index.html" onClick="return loadLast('resources')">
+	
+		<span class="en">Resources</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+    		<span style="display:none" class="ja"></span>
+		<span style="display:none" class="zh-CN"></span>
+		<span style="display:none" class="zh-TW"></span>
+	
+	</a></li>
+	<li id="videos-link"><a href="../../../../../../../../videos/index.html" onClick="return loadLast('videos')">
+	
+		<span class="en">Videos</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ビデオ</span>
+		<span style="display:none" class="zh-CN"></span>
+		<span style="display:none" class="zh-TW"></span>
+	
+	</a></li>
+	<li><a href="http://android-developers.blogspot.com" onClick="return requestAppendHL(this.href)">
+	
+		<span class="en">Blog</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ブログ</span>
+		<span style="display:none" class="zh-CN">博客</span>
+		<span style="display:none" class="zh-TW">網誌</span>
+	
+	</a></li>
+
+
+     
+</ul>
+     
+      </div>
+      <div id="headerRight">
+          <div id="headerLinks">
+          &nbsp;&nbsp;
+          <a href="../../../../../../../../design/index.html">Android Design</a>&nbsp;&nbsp;
+          <a href="http://www.android.com">Android.com</a>
+          </div>
+  <div id="search" >
+      <div id="searchForm">
+          <form accept-charset="utf-8" class="gsc-search-box" 
+                onsubmit="return submit_search()">
+            <table class="gsc-search-box" cellpadding="0" cellspacing="0"><tbody>
+                <tr>
+                  <td class="gsc-input">
+                    <input id="search_autocomplete" class="gsc-input" type="text" size="33" autocomplete="off"
+                      title="search developer docs" name="q"
+                      value="search developer docs"
+                      onFocus="search_focus_changed(this, true)"
+                      onBlur="search_focus_changed(this, false)"
+                      onkeydown="return search_changed(event, true, '../../../../../../../../')"
+                      onkeyup="return search_changed(event, false, '../../../../../../../../')" />
+                  <div id="search_filtered_div" class="no-display">
+                      <table id="search_filtered" cellspacing=0>
+                      </table>
+                  </div>
+                  </td>
+                  <td class="gsc-search-button">
+                    <input type="submit" value="Search" title="search" id="search-button" class="gsc-search-button" />
+                  </td>
+                  <td class="gsc-clear-button">
+                    <div title="clear results" class="gsc-clear-button">&nbsp;</div>
+                  </td>
+                </tr></tbody>
+              </table>
+          </form>
+      </div><!-- searchForm -->
+  </div><!-- search -->
+      </div><!-- headerRight -->
+      <script type="text/javascript">
+        <!--  
+        changeTabLang(getLangPref());
+        //-->
+      </script>
+  </div><!-- header -->
+
+  <div class="g-section g-tpl-200" id="body-content">
+    <div class="g-unit g-first" id="side-nav" itemscope itemtype="http://schema.org/SiteNavigationElement">
+      <div id="devdoc-nav"><ul>
+  <li>
+    <span class="heading">
+      <span class="en">Android Training</span>
+    </span>
+    <ul>
+      
+      <li><a href="../../../../../../../../training/index.html">
+            <span class="en">Orientation</span>
+          </a>
+      </li>
+
+      <li class="toggle-list">
+        <div><a href="../../../../../../../../training/multiscreen/index.html">
+            <span class="en">Designing for Multiple Screens</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../../../../../../training/multiscreen/screensizes.html">
+            <span class="en">Supporting Different Screen Sizes</span>
+          </a>
+          </li>
+          <li><a href="../../../../../../../../training/multiscreen/screendensities.html">
+            <span class="en">Supporting Different Screen Densities</span>
+          </a>
+          </li>
+          <li><a href="../../../../../../../../training/multiscreen/adaptui.html">
+            <span class="en">Implementing Adaptive UI Flows</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+      
+      <li class="toggle-list">
+        <div><a href="../../../../../../../../training/improving-layouts/index.html">
+            <span class="en">Improving Layout Performance</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../../../../../../training/improving-layouts/optimizing-layout.html">
+            <span class="en">Optimizing Layout Hierarchies</span>
+          </a>
+          </li>
+          <li><a href="../../../../../../../../training/improving-layouts/reusing-layouts.html">
+            <span class="en">Re-using Layouts with &lt;include/&gt;</span>
+          </a>
+          </li>
+          <li><a href="../../../../../../../../training/improving-layouts/loading-ondemand.html">
+            <span class="en">Loading Views On Demand</span>
+          </a>
+          </li>
+          <li><a href="../../../../../../../../training/improving-layouts/smooth-scrolling.html">
+            <span class="en">Making ListView Scrolling Smooth</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+      
+      <li class="toggle-list">
+        <div><a href="../../../../../../../../training/managing-audio/index.html">
+            <span class="en">Managing Audio Playback</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../../../../../../training/managing-audio/volume-playback.html">
+            <span class="en">Controlling Your App’s Volume and Playback</span>
+          </a>
+          </li>
+          <li><a href="../../../../../../../../training/managing-audio/audio-focus.html">
+            <span class="en">Managing Audio Focus</span>
+          </a>
+          </li>
+          <li><a href="../../../../../../../../training/managing-audio/audio-output.html">
+            <span class="en">Dealing with Audio Output Hardware</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+      
+      <li class="toggle-list">
+        <div><a href="../../../../../../../../training/monitoring-device-state/index.html">
+            <span class="en">Optimizing Battery Life</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../../../../../../training/monitoring-device-state/battery-monitoring.html">
+            <span class="en">Monitoring the Battery Level and Charging State</span>
+          </a>
+          </li>
+          <li><a href="../../../../../../../../training/monitoring-device-state/docking-monitoring.html">
+            <span class="en">Determining and Monitoring the Docking State and Type</span>
+          </a>
+          </li>
+          <li><a href="../../../../../../../../training/monitoring-device-state/connectivity-monitoring.html">
+            <span class="en">Determining and Monitoring the Connectivity Status</span>
+          </a>
+          </li>
+          <li><a href="../../../../../../../../training/monitoring-device-state/manifest-receivers.html">
+            <span class="en">Manipulating Broadcast Receivers On Demand</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="toggle-list">
+        <div><a href="../../../../../../../../training/search/index.html">
+            <span class="en">Adding Search Functionality</span>
+          </a> <span class="new">new!</span>
+        </div>
+        <ul>
+          <li><a href="../../../../../../../../training/search/setup.html">
+            <span class="en">Setting up the Search Interface</span>
+          </a>
+          </li>
+          <li><a href="../../../../../../../../training/search/search.html">
+            <span class="en">Storing and Searching for Data</span>
+          </a>
+          </li>
+          <li><a href="../../../../../../../../training/search/backward-compat.html">
+            <span class="en">Remaining Backward Compatible</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="toggle-list">
+        <div><a href="../../../../../../../../training/id-auth/index.html">
+            <span class="en">Remembering Users</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../../../../../../training/id-auth/identify.html">
+            <span class="en">Remembering Your User</span>
+          </a>
+          </li>
+          <li><a href="../../../../../../../../training/id-auth/authenticate.html">
+            <span class="en">Authenticating to OAuth2 Services</span>
+          </a>
+          </li>
+          <li><a href="../../../../../../../../training/id-auth/custom_auth.html">
+            <span class="en">Creating a Custom Account Type</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="toggle-list">
+        <div><a href="../../../../../../../../training/sharing/index.html">
+            <span class="en">Sharing Content</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../../../../../../training/sharing/send.html">
+            <span class="en">Sending Content to Other Apps</span>
+          </a>
+          </li>
+          <li><a href="../../../../../../../../training/sharing/receive.html">
+            <span class="en">Receiving Content from Other Apps</span>
+          </a>
+          </li>
+          <li><a href="../../../../../../../../training/sharing/shareaction.html">
+            <span class="en">Adding an Easy Share Action</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+      
+      <li class="toggle-list">
+        <div><a href="../../../../../../../../training/camera/index.html">
+            <span class="en">Capturing Photos</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../../../../../../training/camera/photobasics.html">
+            <span class="en">Taking Photos Simply</span>
+          </a>
+          </li>
+          <li><a href="../../../../../../../../training/camera/videobasics.html">
+            <span class="en">Recording Videos Simply</span>
+          </a>
+          </li>
+          <li><a href="../../../../../../../../training/camera/cameradirect.html">
+            <span class="en">Controlling the Camera</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+      
+      <li class="toggle-list">
+        <div><a href="../../../../../../../../training/multiple-apks/index.html">
+            <span class="en">Maintaining Multiple APKs</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../../../../../../training/multiple-apks/api.html">
+            <span class="en">Creating Multiple APKs for Different API Levels</span>
+          </a>
+          </li>
+          <li><a href="../../../../../../../../training/multiple-apks/screensize.html">
+            <span class="en">Creating Multiple APKs for Different Screen Sizes</span>
+          </a>
+          </li>
+          <li><a href="../../../../../../../../training/multiple-apks/texture.html">
+            <span class="en">Creating Multiple APKs for Different GL Textures</span>
+          </a>
+          </li>
+          <li><a href="../../../../../../../../training/multiple-apks/multiple.html">
+            <span class="en">Creating Multiple APKs with 2+ Dimensions</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+      
+      <li class="toggle-list">
+        <div><a href="../../../../../../../../training/enterprise/index.html">
+            <span class="en">Developing for Enterprise</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../../../../../../training/enterprise/device-management-policy.html">
+            <span class="en">Enhancing Security with Device Management Policies</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+      
+      <li class="toggle-list">
+        <div><a href="../../../../../../../../training/monetization/index.html">
+            <span class="en">Monetizing Your App</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../../../../../../training/monetization/ads-and-ux.html">
+            <span class="en">Advertising without Compromising User Experience</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+      
+      <li class="toggle-list">
+        <div><a href="../../../../../../../../training/design-navigation/index.html">
+            <span class="en">Designing Effective Navigation</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../../../../../../training/design-navigation/screen-planning.html">
+            <span class="en">Planning Screens and Their Relationships</span>
+          </a>
+          </li>
+          <li><a href="../../../../../../../../training/design-navigation/multiple-sizes.html">
+            <span class="en">Planning for Multiple Touchscreen Sizes</span>
+          </a>
+          </li>
+          <li><a href="../../../../../../../../training/design-navigation/descendant-lateral.html">
+            <span class="en">Providing Descendant and Lateral Navigation</span>
+          </a>
+          </li>
+          <li><a href="../../../../../../../../training/design-navigation/ancestral-temporal.html">
+            <span class="en">Providing Ancestral and Temporal Navigation</span>
+          </a>
+          </li>
+          <li><a href="../../../../../../../../training/design-navigation/wireframing.html">
+            <span class="en">Putting it All Together: Wireframing the Example App</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>    
+      
+      
+  <li>
+    <span class="heading">
+      <span class="en">Technical Resources</span>
+    </span>
+    <ul>
+      <li class="toggle-list">
+        <div><a href="../../../../../../../../resources/browser.html?tag=sample">
+            <span class="en">Sample Code</span>
+            <span class="de" style="display:none">Beispielcode</span>
+            <span class="es" style="display:none">Código de ejemplo</span>
+            <span class="fr" style="display:none">Exemple de code</span>
+            <span class="it" style="display:none">Codice di esempio</span>
+            <span class="ja" style="display:none">サンプル コード</span>
+            <span class="zh-CN" style="display:none"></span>
+            <span class="zh-TW" style="display:none"></span>
+          </a></div>
+        <ul id="devdoc-nav-sample-list">
+          <li><a href="../../../../../../../../resources/samples/get.html">
+                <span class="en">Getting the Samples</span>
+              </a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../../../../../../../../resources/browser.html?tag=article">
+               <span class="en">Articles</span>
+             </a></div>
+        <ul id="devdoc-nav-article-list">
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../../../../../../../../resources/browser.html?tag=tutorial">
+               <span class="en">Tutorials</span>
+               <span class="de" style="display:none">Lernprogramme</span>
+               <span class="es" style="display:none">Tutoriales</span>
+               <span class="fr" style="display:none">Didacticiels</span>
+               <span class="it" style="display:none">Esercitazioni</span>
+               <span class="ja" style="display:none">チュートリアル</span>
+               <span class="zh-CN" style="display:none"></span>
+               <span class="zh-TW" style="display:none"></span>
+             </a></div>
+        <ul id="devdoc-nav-tutorial-list">
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../../../../../../../../resources/topics.html">
+               <span class="en">Topics</span>
+             </a></div>
+        <ul id="devdoc-nav-topic-list">
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <span class="heading">
+      <span class="en">Community</span>
+      <span style="display:none" class="de"></span>
+      <span style="display:none" class="es">Comunidad</span>
+      <span style="display:none" class="fr">Communauté</span>
+      <span style="display:none" class="it"></span>
+      <span style="display:none" class="ja">コミュニティ</span>
+      <span style="display:none" class="zh-CN">社区</span>
+      <span style="display:none" class="zh-TW">社群</span>
+    </span>
+    <ul>
+      <li><a href="../../../../../../../../resources/community-groups.html">
+            <span class="en">Developer Forums</span>
+          </a></li>
+      <li><a href="../../../../../../../../resources/community-more.html">
+            <span class="en">IRC, G+, Twitter</span>
+          </a></li>
+    </ul>
+  </li>
+
+
+  <li>
+    <span class="heading">
+      <span class="en">More</span>
+    </span>
+    <ul>
+      <li><a href="../../../../../../../../resources/faq/commontasks.html">
+            <span class="en">Common Tasks </span>
+          </a></li>
+      <li><a href="../../../../../../../../resources/faq/troubleshooting.html">
+            <span class="en">Troubleshooting Tips</span>
+          </a></li>
+      <li class="toggle-list">
+        <div><a href="../../../../../../../../resources/faq/index.html">
+               <span class="en">FAQs</span>
+             </a></div>
+        <ul>
+        <li><a href="../../../../../../../../resources/faq/framework.html">
+                <span class="en">App Framework FAQ</span>
+                </a></li>
+        <li><a href="../../../../../../../../resources/faq/licensingandoss.html">
+                <span class="en">Licensing FAQ</span>
+                </a></li>
+        <li><a href="../../../../../../../../resources/faq/security.html">
+                <span class="en">Security FAQ</span>
+                </a></li>
+        </ul>
+     </li>
+    </ul>
+  </li>
+</ul>
+
+<script type="text/javascript">
+<!--
+    buildToggleLists();
+    changeNavLang(getLangPref());
+//-->
+</script>
+
+      </div>
+    </div> <!-- end side-nav -->
+    <script>
+      addLoadEvent(function() {
+        scrollIntoView("devdoc-nav");
+        });
+    </script>
+
+
+
+<body class="gc-documentation">
+
+
+<a name="top"></a>
+<div class="g-unit" id="doc-content">
+ <div id="jd-header" class="guide-header">
+  <span class="crumb">&nbsp;</span>
+  <h1>XmlDocumentProvider.java</h1>
+ </div>
+
+<div id="jd-content">
+<p><a href="index.html">&larr; Back</a></p>
+
+<p>The file containing the source code shown below is located in the corresponding directory in <code>&lt;sdk&gt;/samples/android-&lt;version&gt;/...</code></p>
+
+<!-- begin file contents -->
+<pre>/*
+ * Copyright (C) 2011 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package com.example.android.xmladapters;
+
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.HttpStatus;
+import org.apache.http.client.methods.HttpGet;
+
+import android.content.ContentProvider;
+import android.content.ContentResolver;
+import android.content.ContentValues;
+import android.content.pm.PackageManager.NameNotFoundException;
+import android.content.res.Resources;
+import android.database.Cursor;
+import android.database.MatrixCursor;
+import android.net.Uri;
+import android.net.http.AndroidHttpClient;
+import android.text.TextUtils;
+import android.util.Log;
+import android.widget.CursorAdapter;
+
+import org.xmlpull.v1.XmlPullParser;
+import org.xmlpull.v1.XmlPullParserException;
+import org.xmlpull.v1.XmlPullParserFactory;
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.BitSet;
+import java.util.List;
+import java.util.Stack;
+import java.util.regex.Pattern;
+
+/**
+ *
+ * A read-only content provider which extracts data out of an XML document.
+ *
+ * &lt;p&gt;A XPath-like selection pattern is used to select some nodes in the XML document. Each such
+ * node will create a row in the {@link Cursor} result.&lt;/p&gt;
+ *
+ * Each row is then populated with columns that are also defined as XPath-like projections. These
+ * projections fetch attributes values or text in the matching row node or its children.
+ *
+ * &lt;p&gt;To add this provider in your application, you should add its declaration to your application
+ * manifest:
+ * &lt;pre class="prettyprint"&gt;
+ * &amp;lt;provider android:name="android.content.XmlDocumentProvider" android:authorities="xmldocument" /&amp;gt;
+ * &lt;/pre&gt;
+ * &lt;/p&gt;
+ *
+ * &lt;h2&gt;Node selection syntax&lt;/h2&gt;
+ * The node selection syntax is made of the concatenation of an arbitrary number (at least one) of
+ * &lt;code&gt;/node_name&lt;/code&gt; node selection patterns.
+ *
+ * &lt;p&gt;The &lt;code&gt;/root/child1/child2&lt;/code&gt; pattern will for instance match all nodes named
+ * &lt;code&gt;child2&lt;/code&gt; which are children of a node named &lt;code&gt;child1&lt;/code&gt; which are themselves
+ * children of a root node named &lt;code&gt;root&lt;/code&gt;.&lt;/p&gt;
+ *
+ * Any &lt;code&gt;/&lt;/code&gt; separator in the previous expression can be replaced by a &lt;code&gt;//&lt;/code&gt;
+ * separator instead, which indicated a &lt;i&gt;descendant&lt;/i&gt; instead of a child.
+ *
+ * &lt;p&gt;The &lt;code&gt;//node1//node2&lt;/code&gt; pattern will for instance match all nodes named
+ * &lt;code&gt;node2&lt;/code&gt; which are descendant of a node named &lt;code&gt;node1&lt;/code&gt; located anywhere in
+ * the document hierarchy.&lt;/p&gt;
+ *
+ * Node names can contain namespaces in the form &lt;code&gt;namespace:node&lt;/code&gt;.
+ *
+ * &lt;h2&gt;Projection syntax&lt;/h2&gt;
+ * For every selected node, the projection will then extract actual data from this node and its
+ * descendant.
+ *
+ * &lt;p&gt;Use a syntax similar to the selection syntax described above to select the text associated
+ * with a child of the selected node. The implicit root of this projection pattern is the selected
+ * node. &lt;code&gt;/&lt;/code&gt; will hence refer to the text of the selected node, while
+ * &lt;code&gt;/child1&lt;/code&gt; will fetch the text of its child named &lt;code&gt;child1&lt;/code&gt; and
+ * &lt;code&gt;//child1&lt;/code&gt; will match any &lt;i&gt;descendant&lt;/i&gt; named &lt;code&gt;child1&lt;/code&gt;. If several
+ * nodes match the projection pattern, their texts are appended as a result.&lt;/p&gt;
+ *
+ * A projection can also fetch any node attribute by appending a &lt;code&gt;@attribute_name&lt;/code&gt;
+ * pattern to the previously described syntax. &lt;code&gt;//child1@price&lt;/code&gt; will for instance match
+ * the attribute &lt;code&gt;price&lt;/code&gt; of any &lt;code&gt;child1&lt;/code&gt; descendant.
+ *
+ * &lt;p&gt;If a projection does not match any node/attribute, its associated value will be an empty
+ * string.&lt;/p&gt;
+ *
+ * &lt;h2&gt;Example&lt;/h2&gt;
+ * Using the following XML document:
+ * &lt;pre class="prettyprint"&gt;
+ * &amp;lt;library&amp;gt;
+ *   &amp;lt;book id="EH94"&amp;gt;
+ *     &amp;lt;title&amp;gt;The Old Man and the Sea&amp;lt;/title&amp;gt;
+ *     &amp;lt;author&amp;gt;Ernest Hemingway&amp;lt;/author&amp;gt;
+ *   &amp;lt;/book&amp;gt;
+ *   &amp;lt;book id="XX10"&amp;gt;
+ *     &amp;lt;title&amp;gt;The Arabian Nights: Tales of 1,001 Nights&amp;lt;/title&amp;gt;
+ *   &amp;lt;/book&amp;gt;
+ *   &amp;lt;no-id&amp;gt;
+ *     &amp;lt;book&amp;gt;
+ *       &amp;lt;title&amp;gt;Animal Farm&amp;lt;/title&amp;gt;
+ *       &amp;lt;author&amp;gt;George Orwell&amp;lt;/author&amp;gt;
+ *     &amp;lt;/book&amp;gt;
+ *   &amp;lt;/no-id&amp;gt;
+ * &amp;lt;/library&amp;gt;
+ * &lt;/pre&gt;
+ * A selection pattern of &lt;code&gt;/library//book&lt;/code&gt; will match the three book entries (while
+ * &lt;code&gt;/library/book&lt;/code&gt; will only match the first two ones).
+ *
+ * &lt;p&gt;Defining the projections as &lt;code&gt;/title&lt;/code&gt;, &lt;code&gt;/author&lt;/code&gt; and &lt;code&gt;@id&lt;/code&gt;
+ * will retrieve the associated data. Note that the author of the second book as well as the id of
+ * the third are empty strings.
+ */
+public class XmlDocumentProvider extends ContentProvider {
+    /*
+     * Ideas for improvement:
+     * - Expand XPath-like syntax to allow for [nb] child number selector
+     * - Address the starting . bug in AbstractCursor which prevents a true XPath syntax.
+     * - Provide an alternative to concatenation when several node match (list-like).
+     * - Support namespaces in attribute names.
+     * - Incremental Cursor creation, pagination
+     */
+    private static final String LOG_TAG = "XmlDocumentProvider";
+    private AndroidHttpClient mHttpClient;
+
+    @Override
+    public boolean onCreate() {
+        return true;
+    }
+
+    /**
+     * Query data from the XML document referenced in the URI.
+     *
+     * &lt;p&gt;The XML document can be a local resource or a file that will be downloaded from the
+     * Internet. In the latter case, your application needs to request the INTERNET permission in
+     * its manifest.&lt;/p&gt;
+     *
+     * The URI will be of the form &lt;code&gt;content://xmldocument/?resource=R.xml.myFile&lt;/code&gt; for a
+     * local resource. &lt;code&gt;xmldocument&lt;/code&gt; should match the authority declared for this
+     * provider in your manifest. Internet documents are referenced using
+     * &lt;code&gt;content://xmldocument/?url=&lt;/code&gt; followed by an encoded version of the URL of your
+     * document (see {@link Uri#encode(String)}).
+     *
+     * &lt;p&gt;The number of columns of the resulting Cursor is equal to the size of the projection
+     * array plus one, named &lt;code&gt;_id&lt;/code&gt; which will contain a unique row id (allowing the
+     * Cursor to be used with a {@link CursorAdapter}). The other columns' names are the projection
+     * patterns.&lt;/p&gt;
+     *
+     * @param uri The URI of your local resource or Internet document.
+     * @param projection A set of patterns that will be used to extract data from each selected
+     * node. See class documentation for pattern syntax.
+     * @param selection A selection pattern which will select the nodes that will create the
+     * Cursor's rows. See class documentation for pattern syntax.
+     * @param selectionArgs This parameter is ignored.
+     * @param sortOrder The row order in the resulting cursor is determined from the node order in
+     * the XML document. This parameter is ignored.
+     * @return A Cursor or null in case of error.
+     */
+    @Override
+    public Cursor query(Uri uri, String[] projection, String selection, String[] selectionArgs,
+            String sortOrder) {
+
+        XmlPullParser parser = null;
+        mHttpClient = null;
+
+        final String url = uri.getQueryParameter("url");
+        if (url != null) {
+            parser = getUriXmlPullParser(url);
+        } else {
+            final String resource = uri.getQueryParameter("resource");
+            if (resource != null) {
+                Uri resourceUri = Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE + "://" +
+                        getContext().getPackageName() + "/" + resource);
+                parser = getResourceXmlPullParser(resourceUri);
+            }
+        }
+
+        if (parser != null) {
+            XMLCursor xmlCursor = new XMLCursor(selection, projection);
+            try {
+                xmlCursor.parseWith(parser);
+                return xmlCursor;
+            } catch (IOException e) {
+                Log.w(LOG_TAG, "I/O error while parsing XML " + uri, e);
+            } catch (XmlPullParserException e) {
+                Log.w(LOG_TAG, "Error while parsing XML " + uri, e);
+            } finally {
+                if (mHttpClient != null) {
+                    mHttpClient.close();
+                }
+            }
+        }
+
+        return null;
+    }
+
+    /**
+     * Creates an XmlPullParser for the provided URL. Can be overloaded to provide your own parser.
+     * @param url The URL of the XML document that is to be parsed.
+     * @return An XmlPullParser on this document.
+     */
+    protected XmlPullParser getUriXmlPullParser(String url) {
+        XmlPullParser parser = null;
+        try {
+            XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
+            factory.setNamespaceAware(true);
+            parser = factory.newPullParser();
+        } catch (XmlPullParserException e) {
+            Log.e(LOG_TAG, "Unable to create XmlPullParser", e);
+            return null;
+        }
+
+        InputStream inputStream = null;
+        try {
+            final HttpGet get = new HttpGet(url);
+            mHttpClient = AndroidHttpClient.newInstance("Android");
+            HttpResponse response = mHttpClient.execute(get);
+            if (response.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
+                final HttpEntity entity = response.getEntity();
+                if (entity != null) {
+                    inputStream = entity.getContent();
+                }
+            }
+        } catch (IOException e) {
+            Log.w(LOG_TAG, "Error while retrieving XML file " + url, e);
+            return null;
+        }
+
+        try {
+            parser.setInput(inputStream, null);
+        } catch (XmlPullParserException e) {
+            Log.w(LOG_TAG, "Error while reading XML file from " + url, e);
+            return null;
+        }
+
+        return parser;
+    }
+
+    /**
+     * Creates an XmlPullParser for the provided local resource. Can be overloaded to provide your
+     * own parser.
+     * @param resourceUri A fully qualified resource name referencing a local XML resource.
+     * @return An XmlPullParser on this resource.
+     */
+    protected XmlPullParser getResourceXmlPullParser(Uri resourceUri) {
+        //OpenResourceIdResult resourceId;
+        try {
+            String authority = resourceUri.getAuthority();
+            Resources r;
+            if (TextUtils.isEmpty(authority)) {
+                throw new FileNotFoundException("No authority: " + resourceUri);
+            } else {
+                try {
+                    r = getContext().getPackageManager().getResourcesForApplication(authority);
+                } catch (NameNotFoundException ex) {
+                    throw new FileNotFoundException("No package found for authority: " + resourceUri);
+                }
+            }
+            List&lt;String&gt; path = resourceUri.getPathSegments();
+            if (path == null) {
+                throw new FileNotFoundException("No path: " + resourceUri);
+            }
+            int len = path.size();
+            int id;
+            if (len == 1) {
+                try {
+                    id = Integer.parseInt(path.get(0));
+                } catch (NumberFormatException e) {
+                    throw new FileNotFoundException("Single path segment is not a resource ID: " + resourceUri);
+                }
+            } else if (len == 2) {
+                id = r.getIdentifier(path.get(1), path.get(0), authority);
+            } else {
+                throw new FileNotFoundException("More than two path segments: " + resourceUri);
+            }
+            if (id == 0) {
+                throw new FileNotFoundException("No resource found for: " + resourceUri);
+            }
+
+            return r.getXml(id);
+        } catch (FileNotFoundException e) {
+            Log.w(LOG_TAG, "XML resource not found: " + resourceUri.toString(), e);
+            return null;
+        }
+    }
+
+    /**
+     * Returns "vnd.android.cursor.dir/xmldoc".
+     */
+    @Override
+    public String getType(Uri uri) {
+        return "vnd.android.cursor.dir/xmldoc";
+    }
+
+    /**
+     * This ContentProvider is read-only. This method throws an UnsupportedOperationException.
+     **/
+    @Override
+    public Uri insert(Uri uri, ContentValues values) {
+        throw new UnsupportedOperationException();
+    }
+
+    /**
+     * This ContentProvider is read-only. This method throws an UnsupportedOperationException.
+     **/
+    @Override
+    public int delete(Uri uri, String selection, String[] selectionArgs) {
+        throw new UnsupportedOperationException();
+    }
+
+    /**
+     * This ContentProvider is read-only. This method throws an UnsupportedOperationException.
+     **/
+    @Override
+    public int update(Uri uri, ContentValues values, String selection, String[] selectionArgs) {
+        throw new UnsupportedOperationException();
+    }
+
+    private static class XMLCursor extends MatrixCursor {
+        private final Pattern mSelectionPattern;
+        private Pattern[] mProjectionPatterns;
+        private String[] mAttributeNames;
+        private String[] mCurrentValues;
+        private BitSet[] mActiveTextDepthMask;
+        private final int mNumberOfProjections;
+
+        public XMLCursor(String selection, String[] projections) {
+            super(projections);
+            // The first column in projections is used for the _ID
+            mNumberOfProjections = projections.length - 1;
+            mSelectionPattern = createPattern(selection);
+            createProjectionPattern(projections);
+        }
+
+        private Pattern createPattern(String input) {
+            String pattern = input.replaceAll("//", "/(.*/|)").replaceAll("^/", "^/") + "$";
+            return Pattern.compile(pattern);
+        }
+
+        private void createProjectionPattern(String[] projections) {
+            mProjectionPatterns = new Pattern[mNumberOfProjections];
+            mAttributeNames = new String[mNumberOfProjections];
+            mActiveTextDepthMask = new BitSet[mNumberOfProjections];
+            // Add a column to store _ID
+            mCurrentValues = new String[mNumberOfProjections + 1];
+
+            for (int i=0; i&lt;mNumberOfProjections; i++) {
+                mActiveTextDepthMask[i] = new BitSet();
+                String projection = projections[i + 1]; // +1 to skip the _ID column
+                int atIndex = projection.lastIndexOf('@', projection.length());
+                if (atIndex &gt;= 0) {
+                    mAttributeNames[i] = projection.substring(atIndex+1);
+                    projection = projection.substring(0, atIndex);
+                } else {
+                    mAttributeNames[i] = null;
+                }
+
+                // Conforms to XPath standard: reference to local context starts with a .
+                if (projection.charAt(0) == '.') {
+                    projection = projection.substring(1);
+                }
+                mProjectionPatterns[i] = createPattern(projection);
+            }
+        }
+
+        public void parseWith(XmlPullParser parser) throws IOException, XmlPullParserException {
+            StringBuilder path = new StringBuilder();
+            Stack&lt;Integer&gt; pathLengthStack = new Stack&lt;Integer&gt;();
+
+            // There are two parsing mode: in root mode, rootPath is updated and nodes matching
+            // selectionPattern are searched for and currentNodeDepth is negative.
+            // When a node matching selectionPattern is found, currentNodeDepth is set to 0 and
+            // updated as children are parsed and projectionPatterns are searched in nodePath.
+            int currentNodeDepth = -1;
+
+            // Index where local selected node path starts from in path
+            int currentNodePathStartIndex = 0;
+
+            int eventType = parser.getEventType();
+            while (eventType != XmlPullParser.END_DOCUMENT) {
+
+                if (eventType == XmlPullParser.START_TAG) {
+                    // Update path
+                    pathLengthStack.push(path.length());
+                    path.append('/');
+                    String prefix = null;
+                    try {
+                        // getPrefix is not supported by local Xml resource parser
+                        prefix = parser.getPrefix();
+                    } catch (RuntimeException e) {
+                        prefix = null;
+                    }
+                    if (prefix != null) {
+                        path.append(prefix);
+                        path.append(':');
+                    }
+                    path.append(parser.getName());
+
+                    if (currentNodeDepth &gt;= 0) {
+                        currentNodeDepth++;
+                    } else {
+                        // A node matching selection is found: initialize child parsing mode
+                        if (mSelectionPattern.matcher(path.toString()).matches()) {
+                            currentNodeDepth = 0;
+                            currentNodePathStartIndex = path.length();
+                            mCurrentValues[0] = Integer.toString(getCount()); // _ID
+                            for (int i = 0; i &lt; mNumberOfProjections; i++) {
+                                // Reset values to default (empty string)
+                                mCurrentValues[i + 1] = "";
+                                mActiveTextDepthMask[i].clear();
+                            }
+                        }
+                    }
+
+                    // This test has to be separated from the previous one as currentNodeDepth can
+                    // be modified above (when a node matching selection is found).
+                    if (currentNodeDepth &gt;= 0) {
+                        final String localNodePath = path.substring(currentNodePathStartIndex);
+                        for (int i = 0; i &lt; mNumberOfProjections; i++) {
+                            if (mProjectionPatterns[i].matcher(localNodePath).matches()) {
+                                String attribute = mAttributeNames[i];
+                                if (attribute != null) {
+                                    mCurrentValues[i + 1] =
+                                        parser.getAttributeValue(null, attribute);
+                                } else {
+                                    mActiveTextDepthMask[i].set(currentNodeDepth, true);
+                                }
+                            }
+                        }
+                    }
+
+                } else if (eventType == XmlPullParser.END_TAG) {
+                    // Pop last node from path
+                    final int length = pathLengthStack.pop();
+                    path.setLength(length);
+
+                    if (currentNodeDepth &gt;= 0) {
+                        if (currentNodeDepth == 0) {
+                            // Leaving a selection matching node: add a new row with results
+                            addRow(mCurrentValues);
+                        } else {
+                            for (int i = 0; i &lt; mNumberOfProjections; i++) {
+                                mActiveTextDepthMask[i].set(currentNodeDepth, false);
+                            }
+                        }
+                        currentNodeDepth--;
+                    }
+
+                } else if ((eventType == XmlPullParser.TEXT) &amp;&amp; (!parser.isWhitespace())) {
+                    for (int i = 0; i &lt; mNumberOfProjections; i++) {
+                        if ((currentNodeDepth &gt;= 0) &amp;&amp;
+                            (mActiveTextDepthMask[i].get(currentNodeDepth))) {
+                            mCurrentValues[i + 1] += parser.getText();
+                        }
+                    }
+                }
+
+                eventType = parser.next();
+            }
+        }
+    }
+}</pre>
+<!-- end file contents -->
+
+<div id="footer">
+
+
+  <div id="copyright">
+    
+  Except as noted, this content is 
+  licensed under <a href="http://creativecommons.org/licenses/by/2.5/">
+  Creative Commons Attribution 2.5</a>. For details and 
+  restrictions, see the <a href="../../../../../../../../license.html">Content 
+  License</a>.
+  </div>
+
+  <div id="footerlinks">
+    
+  <p>
+    <a href="http://www.google.com/intl/en/policies/" target="_blank">Privacy &amp; Terms</a> -
+    <a href="http://www.android.com/branding.html" target="_blank">Brand Guidelines</a> -
+    <a
+href="http://code.google.com/p/android/issues/entry?template=Developer%20Documentation"
+target="_blank">Report Document Issues</a>
+  </p>
+  </div>
+
+</div> <!-- end footer -->
+
+</div><!-- end jd-content -->
+</div> <!-- end doc-content -->
+
+</div> <!-- end body-content --> 
+
+<script type="text/javascript">
+init(); /* initialize android-developer-docs.js */
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-5831155-1");
+pageTracker._trackPageview();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<link rel="shortcut icon" type="image/x-icon" href="../favicon.ico" />
+<title>Android 1.6 Platform Highlights | Android Developers</title>
+<link href="../assets/android-developer-docs-devguide.css" rel="stylesheet" type="text/css" />
+<script src="../assets/search_autocomplete.js" type="text/javascript"></script>
+<script src="../assets/jquery-resizable.min.js" type="text/javascript"></script>
+<script src="../assets/android-developer-docs.js" type="text/javascript"></script>
+<script src="../assets/prettify.js" type="text/javascript"></script>
+<script type="text/javascript">
+  setToRoot("../");
+</script>
+<noscript>
+  <style type="text/css">
+    html,body{overflow:auto;}
+    #body-content{position:relative; top:0;}
+    #doc-content{overflow:visible;border-left:3px solid #666;}
+    #side-nav{padding:0;}
+    #side-nav .toggle-list ul {display:block;}
+    #resize-packages-nav{border-bottom:3px solid #666;}
+  </style>
+</noscript>
+</head>
+<body class="gc-documentation" itemscope itemtype="http://schema.org/Article">
+
+  <div id="header">
+      <div id="headerLeft">
+          <a href="../index.html" tabindex="-1"><img
+              src="../assets/images/bg_logo.png" alt="Android Developers" /></a>
+          <ul id="header-tabs" class="sdk">
+    
+	<li id="home-link"><a href="../offline.html">
+	
+		<span class="en">Home</span>
+		<span style="display:none" class="de">Startseite</span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ホーム</span>
+		<span style="display:none" class="zh-CN">主页</span>
+		<span style="display:none" class="zh-TW">首頁</span>
+	
+	</a></li>
+	<li id="sdk-link"><a href="../sdk/index.html">
+		<span class="en">SDK</span>
+	</a></li>
+	<li id="guide-link"><a href="../guide/index.html" onClick="return loadLast('guide')">
+	
+		<span class="en">Dev Guide</span>
+		<span style="display:none" class="de">Handbuch</span>
+		<span style="display:none" class="es">Guía</span>
+		<span style="display:none" class="fr">Guide</span>
+		<span style="display:none" class="it">Guida</span>
+		<span style="display:none" class="ja">開発ガイド</span>
+		<span style="display:none" class="zh-CN">开发人员指南</span>
+		<span style="display:none" class="zh-TW">開發指南</span>
+	
+	</a></li>
+	<li id="reference-link"><a href="../reference/packages.html" onClick="return loadLast('reference')">
+	
+		<span class="en">Reference</span>
+		<span style="display:none" class="de">Referenz</span>
+		<span style="display:none" class="es">Referencia</span>
+		<span style="display:none" class="fr">Référence</span>
+		<span style="display:none" class="it">Riferimento</span>
+		<span style="display:none" class="ja">リファレンス</span>
+		<span style="display:none" class="zh-CN">参考</span>
+		<span style="display:none" class="zh-TW">參考資料</span>
+	
+	</a></li>
+	<li id="resources-link"><a href="../resources/index.html" onClick="return loadLast('resources')">
+	
+		<span class="en">Resources</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+    		<span style="display:none" class="ja"></span>
+		<span style="display:none" class="zh-CN"></span>
+		<span style="display:none" class="zh-TW"></span>
+	
+	</a></li>
+	<li id="videos-link"><a href="../videos/index.html" onClick="return loadLast('videos')">
+	
+		<span class="en">Videos</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ビデオ</span>
+		<span style="display:none" class="zh-CN"></span>
+		<span style="display:none" class="zh-TW"></span>
+	
+	</a></li>
+	<li><a href="http://android-developers.blogspot.com" onClick="return requestAppendHL(this.href)">
+	
+		<span class="en">Blog</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ブログ</span>
+		<span style="display:none" class="zh-CN">博客</span>
+		<span style="display:none" class="zh-TW">網誌</span>
+	
+	</a></li>
+
+
+     
+</ul>
+     
+      </div>
+      <div id="headerRight">
+          <div id="headerLinks">
+          &nbsp;&nbsp;
+          <a href="../design/index.html">Android Design</a>&nbsp;&nbsp;
+          <a href="http://www.android.com">Android.com</a>
+          </div>
+  <div id="search" >
+      <div id="searchForm">
+          <form accept-charset="utf-8" class="gsc-search-box" 
+                onsubmit="return submit_search()">
+            <table class="gsc-search-box" cellpadding="0" cellspacing="0"><tbody>
+                <tr>
+                  <td class="gsc-input">
+                    <input id="search_autocomplete" class="gsc-input" type="text" size="33" autocomplete="off"
+                      title="search developer docs" name="q"
+                      value="search developer docs"
+                      onFocus="search_focus_changed(this, true)"
+                      onBlur="search_focus_changed(this, false)"
+                      onkeydown="return search_changed(event, true, '../')"
+                      onkeyup="return search_changed(event, false, '../')" />
+                  <div id="search_filtered_div" class="no-display">
+                      <table id="search_filtered" cellspacing=0>
+                      </table>
+                  </div>
+                  </td>
+                  <td class="gsc-search-button">
+                    <input type="submit" value="Search" title="search" id="search-button" class="gsc-search-button" />
+                  </td>
+                  <td class="gsc-clear-button">
+                    <div title="clear results" class="gsc-clear-button">&nbsp;</div>
+                  </td>
+                </tr></tbody>
+              </table>
+          </form>
+      </div><!-- searchForm -->
+  </div><!-- search -->
+      </div><!-- headerRight -->
+      <script type="text/javascript">
+        <!--  
+        changeTabLang(getLangPref());
+        //-->
+      </script>
+  </div><!-- header -->
+
+  <div class="g-section g-tpl-240" id="body-content">
+    <div class="g-unit g-first" id="side-nav" itemscope itemtype="http://schema.org/SiteNavigationElement">
+      <div id="devdoc-nav">
+<ul>
+  <li>
+    <span class="heading">
+      <span class="en">Android SDK Starter Package</span>
+      <span style="display:none" class="de">Aktuelle SDK-Version</span>
+      <span style="display:none" class="es">Versión actual del SDK</span>
+      <span style="display:none" class="fr">Version actuelle du SDK</span>
+      <span style="display:none" class="it">Release SDK attuale</span>
+      <span style="display:none" class="ja">現在リリースされている SDK</span>
+      <span style="display:none" class="zh-CN">当前的 SDK 版本</span>
+      <span style="display:none" class="zh-TW">目前 SDK 發行版本</span>
+    </span>
+    <ul>
+      <li><a href="../sdk/installing.html">
+          <span class="en">Installing the SDK</span>
+          <span style="display:none" class="de">Installieren</span>
+          <span style="display:none" class="es">Instalación</span>
+          <span style="display:none" class="fr">Installation</span>
+          <span style="display:none" class="it">Installazione</span>
+          <span style="display:none" class="ja">インストール</span>
+          <span style="display:none" class="zh-CN">安装</span>
+          <span style="display:none" class="zh-TW">安裝</span>
+        </a></li>
+    </ul>
+  </li>
+  
+  <li>
+    <span class="heading">
+      <span class="en">Downloadable SDK Components</span>
+      <span style="display:none" class="de"></span>
+      <span style="display:none" class="es"></span>
+      <span style="display:none" class="fr"></span>
+      <span style="display:none" class="it"></span>
+      <span style="display:none" class="ja"></span>
+      <span style="display:none" class="zh-CN"></span>
+      <span style="display:none" class="zh-TW"></span>
+    </span>
+    <ul>
+      <li><a href="../sdk/adding-components.html">
+      <span class="en">Adding SDK Components</span>
+      <span style="display:none" class="de"></span>
+      <span style="display:none" class="es"></span>
+      <span style="display:none" class="fr"></span>
+      <span style="display:none" class="it"></span>
+      <span style="display:none" class="ja"></span>
+      <span style="display:none" class="zh-CN"></span>
+      <span style="display:none" class="zh-TW"></span></a>
+      </li>
+    </ul>
+    <ul>
+      <li class="toggle-list">
+        <div><a href="../sdk/android-4.0-highlights.html">
+        <span class="en">Android 4.0.x Platform</span></a> <span class="new">new!</span></div>
+        <ul>
+          <li><a href="../sdk/android-4.0.3.html">Android 4.0.3 Platform</a> <span class="new">new!</span></li>
+          <li><a href="../sdk/android-4.0.html">Android 4.0 Platform</a> </li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../sdk/android-3.2.html">
+        <span class="en">Android 3.2 Platform</span></a></div>
+        <ul>
+          <!-- <li><a href="../sdk/android-3.2-highlights.html">Platform Highlights</a></li> -->
+          <li><a href="../sdk/api_diff/13/changes.html">API Differences Report &raquo;</a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../sdk/android-3.1.html">
+        <span class="en">Android 3.1 Platform</span></a></div>
+        <ul>
+          <li><a href="../sdk/android-3.1-highlights.html">Platform Highlights</a></li>
+          <li><a href="../sdk/api_diff/12/changes.html">API Differences Report &raquo;</a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../sdk/android-3.0.html">
+        <span class="en">Android 3.0 Platform</span></a></div>
+        <ul>
+          <li><a href="../sdk/android-3.0-highlights.html">Platform Highlights</a></li>
+          <li><a href="../sdk/api_diff/11/changes.html">API Differences Report &raquo;</a></li>
+        </ul>
+      </li>
+      <li><a href="../sdk/android-2.3.4.html">Android 2.3.4 Platform</span></a></li>
+      <li class="toggle-list">
+      <div><a href="../sdk/android-2.3.3.html">
+      <span class="en">Android 2.3.3 Platform</span></a></div>
+        <ul>
+          <li><a href="../sdk/api_diff/10/changes.html">API Differences Report &raquo;</a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../sdk/android-2.2.html">
+        <span class="en">Android 2.2 Platform</span></a></div>
+        <ul>
+          <li><a href="../sdk/android-2.2-highlights.html">Platform Highlights</a></li>
+          <li><a href="../sdk/api_diff/8/changes.html">API Differences Report &raquo;</a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../sdk/android-2.1.html">
+        <span class="en">Android 2.1 Platform</span></a></div>
+        <ul>
+          <li><a href="../sdk/api_diff/7/changes.html">API Differences Report &raquo;</a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="#" onclick="toggle(this.parentNode.parentNode,true); return false;">Other Platforms</a></div>
+        <ul>
+          <li class="toggle-list">
+            <div><a href="../sdk/android-2.3.html">
+            <span class="en">Android 2.3 Platform</span></a></div>
+              <ul>
+                <li><a href="../sdk/android-2.3-highlights.html">Platform Highlights</a></li>
+                <li><a href="../sdk/api_diff/9/changes.html">API Differences Report &raquo;</a></li>
+              </ul>
+          </li>
+          <li><a href="../sdk/android-2.0.1.html">Android 2.0.1 Platform</a></li>
+          <li><a href="../sdk/android-2.0.html">Android 2.0 Platform</a></li>
+          <li><a href="../sdk/android-1.6.html">Android 1.6 Platform</a></li>
+          <li><a href="../sdk/android-1.5.html">Android 1.5 Platform</a></li>
+          <li><a href="../sdk/android-1.1.html">Android 1.1 Platform</a></li>
+        </ul>
+      </li>
+    </ul>
+    <ul>
+      <li><a href="../sdk/tools-notes.html">SDK Tools, r16</a> <span
+class="new">new!</span></li>
+      <li><a href="../sdk/win-usb.html">Google USB Driver, r4</a></li>
+      <li><a href="../sdk/compatibility-library.html">Support Package, r6</a>
+      <span class="new">new!</span></li>
+    </ul>
+  </li>
+  <li>
+    <span class="heading">
+      <span class="en">ADT Plugin for Eclipse</span>
+      <span style="display:none" class="de"></span>
+      <span style="display:none" class="es"></span>
+      <span style="display:none" class="fr"></span>
+      <span style="display:none" class="it"></span>
+      <span style="display:none" class="ja"></span>
+      <span style="display:none" class="zh-CN"></span>
+      <span style="display:none" class="zh-TW"></span>
+    </span>
+    <ul>
+      <li><a href="../sdk/eclipse-adt.html">ADT 16.0.1
+      <span style="display:none" class="de"></span>
+      <span style="display:none" class="es"></span>
+      <span style="display:none" class="fr"></span>
+      <span style="display:none" class="it"></span>
+      <span style="display:none" class="ja"></span>
+      <span style="display:none" class="zh-CN"></span>
+      <span style="display:none" class="zh-TW"></span></a> <span
+class="new">new!</span>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <span class="heading">
+      <span class="en">Native Development Tools</span>
+      <span style="display:none" class="de"></span>
+      <span style="display:none" class="es"></span>
+      <span style="display:none" class="fr"></span>
+      <span style="display:none" class="it"></span>
+      <span style="display:none" class="ja"></span>
+      <span style="display:none" class="zh-CN"></span>
+      <span style="display:none" class="zh-TW"></span>
+    </span>
+    <ul>
+      <li><a href="../sdk/ndk/index.html">Android NDK, r7b</a>
+        <span class="new">new!</span>
+        </li>
+      <li><a href="../sdk/ndk/overview.html">What is the NDK?</a></li>
+    </ul>
+  </li>
+
+  <li>
+    <span class="heading">
+      <span class="en">More Information</span>
+      <span style="display:none" class="de"></span>
+      <span style="display:none" class="es"></span>
+      <span style="display:none" class="fr"></span>
+      <span style="display:none" class="it"></span>
+      <span style="display:none" class="ja"></span>
+      <span style="display:none" class="zh-CN"></span>
+      <span style="display:none" class="zh-TW"></span>
+    </span>
+    <ul>
+      <li><a href="../sdk/oem-usb.html">
+        <span class="en">OEM USB Drivers</span>
+      </a></li>
+      <li><a href="../sdk/requirements.html">SDK System Requirements</a></li>
+      <li><a href="../sdk/older_releases.html">SDK Archives</a></li>
+
+    </ul>
+  </li>
+
+</ul>
+
+<script type="text/javascript">
+<!--
+    buildToggleLists();
+    changeNavLang(getLangPref());
+//-->
+</script>
+
+
+      </div>
+    </div> <!-- end side-nav -->
+
+
+
+
+<div class="g-unit" id="doc-content"><a name="top"></a>
+
+<div id="jd-header" class="guide-header">
+  <span class="crumb" itemprop="breadcrumb">
+    &nbsp;
+    
+  </span>
+<h1 itemprop="name">Android 1.6 Platform Highlights</h1>
+</div>
+
+  
+  <div id="jd-content">
+ 
+    
+
+
+    <div class="jd-descr" itemprop="articleBody">
+    <style type="text/css">
+#jd-content div.screenshot,
+#jd-content div.video {
+  float:right;
+  clear:right;
+  padding:15px 70px;
+  font-size:.9em;
+  font-weight:bold;
+  line-height:1.7em;
+}
+#jd-content div.video {
+  padding-top:0;
+  margin-top:-15px;
+}
+#jd-content div.screenshot img {
+  margin:0;
+}
+</style>
+
+<div class="video">
+<object width="278" height="180">
+<param name="movie" value="http://www.youtube.com/v/MBRFkLKRwFw&hl=en&fs=1&"></param>
+<param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param>
+<embed src="http://www.youtube.com/v/MBRFkLKRwFw&hl=en&fs=1&" type="application/x-shockwave-flash" 
+allowscriptaccess="always" allowfullscreen="true" width="278" height="180"></embed>
+</object>
+</div>
+
+
+<p>The Android 1.6 platform introduces new features for users and developers. 
+This page provides an overview of some new features and technologies.</p>
+
+<ul>
+  <li><a href="#UserFeatures">New User Features</a></li>
+  <li><a href="#GooglePlayUpdates">Google Play Updates</a></li>
+  <li><a href="#PlatformTechnologies">New Platform Technologies</a></li>
+</ul>
+
+
+    
+<h2 id="UserFeatures" style="clear:right">New User Features</h2>
+
+<!-- screenshots float right -->
+
+<div class="screenshot">
+<img src="images/search.png" class="screenshot" alt="" /><br/>
+Quick Search Box
+</div>
+ 
+<div class="screenshot">
+<img src="images/camera.png" class="screenshot" alt="" /><br/>
+New Camera/Camcorder UI
+</div>
+
+<div class="screenshot">
+<img src="images/battery.png" class="screenshot" alt="" /><br/>
+Battery Usage Indicator
+</div>
+
+
+<h3 id="QuickSearchBox">Quick Search Box for Android</h3>
+
+<p>Android 1.6  includes a redesigned search framework that provides a quick, 
+effective, and consistent way for users to search across multiple sources&mdash;such as 
+browser bookmarks &amp; history, contacts, and the web&mdash;directly from 
+the home screen.</p>
+
+<p>The system constantly learns which search results are more relevant based on what is 
+clicked. So popular contacts or apps that have previously been picked will bubble up to 
+the top when a user types the first few letters of a relevant query.</p>
+
+<p>The search framework also provides developers a way to easily expose relevant 
+content from their applications in Quick Search Box.</p>
+
+<h3 id="Camera">Camera, Camcorder, and Gallery</h3>
+
+<p>An updated user interface provides an integrated camera, camcorder, and gallery experience. 
+Users can quickly toggle between still and video capture modes. Additionally, the gallery 
+enables users to select multiple photos for deletion.</p>
+
+<p>Android 1.6 also provides a much faster camera experience.
+Compared to the previous release, launching the camera is now 39% faster, 
+and there is a 28% improvement in the time from completing one shot to the next.</p>
+
+
+<h3 id="VPN">VPN, 802.1x</h3>
+
+<p>A new Virtual Private Network (VPN) control panel in Settings allows users 
+to configure and connect to the following types of VPNs:</p>
+
+<ul>
+  <li>L2TP/IPSEC pre-shared key based VPN</li>
+  <li>L2TP/IPsec certificate based VPN</li>
+  <li>L2TP only VPN</li>
+  <li>PPTP only VPN</li>
+</ul>
+
+
+<h3 id="Battery">Battery usage indicator</h3>
+
+<p>A new battery usage screen lets users see which apps and services are consuming 
+battery power. If the user determines that a particular service or application is 
+using too much power, they can take action to save the battery by
+adjusting settings, stopping the application, or uninstalling the application.</p>
+
+
+<h3 id="A11y">Accessibility</h3>
+
+<p>Users will be able to download new accessibility services built
+on the new accessibility framework and enable them in Settings.</p>
+
+
+
+
+<h2 id="GooglePlayUpdates" style="clear:right">Google Play Updates</h2>
+
+<div class="screenshot" style="margin-top:-35px">
+<img src="images/market.png" class="screenshot" alt="" /><br/>
+New Google Play UI
+</div>
+
+<p>For devices with Google Play, the latest version improves the overall user experience and makes
+it easier for users to discover great apps and games from developers.</p>
+
+<ul>
+  <li>At the homescreen, users can choose among <em>Apps</em>, <em>Games</em>, and <em>Downloads</em>.</li>
+  <li>Inside a category, users can explore titles that are <em>Top paid</em>, <em>Top free</em>, and <em>Just in</em>.</li>
+  <li>For each title, users can now see screenshots submitted by developers in addition to 
+  reviews from other users.</li>
+</ul>
+    
+    
+
+
+<h2 id="PlatformTechnologies" style="clear:right">New Platform Technologies</h2>
+
+<h3 id="SearchFramework">Expanded Search Framework</h3>
+
+<p>The Android search framework has been redesigned and expanded to provide
+third-party applications the opportunity to surface
+content from their applications in Quick Search Box, the global search tool. 
+To do this, developers will need to make their app "searchable" and provide 
+suggestions in response to user queries.
+To enable application search suggestions, users simply select each application from which 
+they'd like to receive suggestions, under Searchable items in the Search settings.</p>
+
+
+<h3 id="TTS">Text-to-speech engine</h3>
+
+<p>Android 1.6 features a multi-lingual speech synthesis engine called Pico. 
+It allows any Android application to "speak" a string of text with an accent that matches the language. 
+The engine supports the following languages: English (American and British accents), French, 
+Italian, German and Spanish. If you're using a T-Mobile G1 or Dream device, you'll need to download the 
+SpeechSynthesis Data Installer from Google Play, which includes the "voices" needed by the 
+text-to-speech engine.</p>
+
+
+<h3 id="Gestures">Gestures</h3>
+
+<p>A new gestures framework provides application developers with a framework for creating, storing, 
+loading, and recognizing gestures and associating them with specific actions.</p>
+
+<p>Developers can use the new GestureBuilder tool included in the Android 1.6 SDK to generate libraries 
+of gestures to include with their application.</p>
+
+
+<h3 id="A11y">Accessibility</h3>
+
+<p>Android 1.6 provides a new accessibility framework. 
+With this framework, developers can create accessibility plugins that respond to user input, 
+such as making a sound when a new window is shown, vibrating when navigating to the top of 
+a list, and providing spoken feedback.</p>
+
+
+<h3 id="Screens">Expanded support for screen densities and resolutions</h3>
+
+<p>Android 1.6 adds screen support that enables applications to be rendered properly on different 
+display resolutions and densities. Developers can also specify the types of screens supported by their 
+application.</p>
+
+
+<h3 id="CDMA">Telephony support for CDMA</h3>
+
+<p>Android 1.6 includes support for CDMA in the telephony stack.</p>
+
+
+<h3 id="OpenCore">New version of OpenCore</h3>
+
+<p>Android 1.6 includes the updated OpenCore 2 media engine, which has:</p>
+
+<ul>
+  <li>Support for OpenMAX encoders</li>
+  <li>Support for additional audio codecs in AuthorEngine</li>
+  <li>Improved buffering model supports shared buffers allocated in the decoder</li>
+</ul>
+
+<h3 id="LinuxKernel">2.6.29 Linux kernel</h3>
+
+<p>Android 1.6 upgrades the Linux kernel from 2.6.27 to 2.6.29.</p>
+
+
+<h3 id="DeveloperAPIs">New Framework APIs</h3>
+
+<p>For a detailed overview of new APIs, see the 
+<a href="../sdk/android-1.6.html#api-changes">Version Notes</a>. 
+For a complete report of all API changes, see the 
+<a href="../sdk/api_diff/4/changes.html">API Differences Report</a>.
+
+    </div>
+
+    
+    
+    <a href="#top" style="float:right">&uarr; Go to top</a>
+    
+
+  </div> <!-- end jd-content -->
+
+<div id="footer">
+
+
+  <div id="copyright">
+    
+  Except as noted, this content is 
+  licensed under <a href="http://creativecommons.org/licenses/by/2.5/">
+  Creative Commons Attribution 2.5</a>. For details and 
+  restrictions, see the <a href="../license.html">Content 
+  License</a>.
+  </div>
+
+  <div id="footerlinks">
+    
+  <p>
+    <a href="http://www.google.com/intl/en/policies/" target="_blank">Privacy &amp; Terms</a> -
+    <a href="http://www.android.com/branding.html" target="_blank">Brand Guidelines</a> -
+    <a
+href="http://code.google.com/p/android/issues/entry?template=Developer%20Documentation"
+target="_blank">Report Document Issues</a>
+  </p>
+  </div>
+
+</div> <!-- end footer -->
+
+</div><!-- end doc-content -->
+
+</div> <!-- end body-content --> 
+
+<script type="text/javascript">
+init(); /* initialize android-developer-docs.js */
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-5831155-1");
+pageTracker._trackPageview();
+</script>
+
+</body>
+</html>
+
+
+

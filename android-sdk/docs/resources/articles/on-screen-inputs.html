@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico" />
+<title>Onscreen Input Methods | Android Developers</title>
+<link href="../../assets/android-developer-docs-devguide.css" rel="stylesheet" type="text/css" />
+<script src="../../assets/search_autocomplete.js" type="text/javascript"></script>
+<script src="../../assets/jquery-resizable.min.js" type="text/javascript"></script>
+<script src="../../assets/android-developer-docs.js" type="text/javascript"></script>
+<script src="../../assets/prettify.js" type="text/javascript"></script>
+<script type="text/javascript">
+  setToRoot("../../");
+</script>
+<script src="../../resources/resources-data.js" type="text/javascript"></script>
+<noscript>
+  <style type="text/css">
+    html,body{overflow:auto;}
+    #body-content{position:relative; top:0;}
+    #doc-content{overflow:visible;border-left:3px solid #666;}
+    #side-nav{padding:0;}
+    #side-nav .toggle-list ul {display:block;}
+    #resize-packages-nav{border-bottom:3px solid #666;}
+  </style>
+</noscript>
+</head>
+<body class="gc-documentation" itemscope itemtype="http://schema.org/Article">
+
+  <div id="header">
+      <div id="headerLeft">
+          <a href="../../index.html" tabindex="-1"><img
+              src="../../assets/images/bg_logo.png" alt="Android Developers" /></a>
+          <ul id="header-tabs" class="resources">
+    
+	<li id="home-link"><a href="../../offline.html">
+	
+		<span class="en">Home</span>
+		<span style="display:none" class="de">Startseite</span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ホーム</span>
+		<span style="display:none" class="zh-CN">主页</span>
+		<span style="display:none" class="zh-TW">首頁</span>
+	
+	</a></li>
+	<li id="sdk-link"><a href="../../sdk/index.html">
+		<span class="en">SDK</span>
+	</a></li>
+	<li id="guide-link"><a href="../../guide/index.html" onClick="return loadLast('guide')">
+	
+		<span class="en">Dev Guide</span>
+		<span style="display:none" class="de">Handbuch</span>
+		<span style="display:none" class="es">Guía</span>
+		<span style="display:none" class="fr">Guide</span>
+		<span style="display:none" class="it">Guida</span>
+		<span style="display:none" class="ja">開発ガイド</span>
+		<span style="display:none" class="zh-CN">开发人员指南</span>
+		<span style="display:none" class="zh-TW">開發指南</span>
+	
+	</a></li>
+	<li id="reference-link"><a href="../../reference/packages.html" onClick="return loadLast('reference')">
+	
+		<span class="en">Reference</span>
+		<span style="display:none" class="de">Referenz</span>
+		<span style="display:none" class="es">Referencia</span>
+		<span style="display:none" class="fr">Référence</span>
+		<span style="display:none" class="it">Riferimento</span>
+		<span style="display:none" class="ja">リファレンス</span>
+		<span style="display:none" class="zh-CN">参考</span>
+		<span style="display:none" class="zh-TW">參考資料</span>
+	
+	</a></li>
+	<li id="resources-link"><a href="../../resources/index.html" onClick="return loadLast('resources')">
+	
+		<span class="en">Resources</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+    		<span style="display:none" class="ja"></span>
+		<span style="display:none" class="zh-CN"></span>
+		<span style="display:none" class="zh-TW"></span>
+	
+	</a></li>
+	<li id="videos-link"><a href="../../videos/index.html" onClick="return loadLast('videos')">
+	
+		<span class="en">Videos</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ビデオ</span>
+		<span style="display:none" class="zh-CN"></span>
+		<span style="display:none" class="zh-TW"></span>
+	
+	</a></li>
+	<li><a href="http://android-developers.blogspot.com" onClick="return requestAppendHL(this.href)">
+	
+		<span class="en">Blog</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ブログ</span>
+		<span style="display:none" class="zh-CN">博客</span>
+		<span style="display:none" class="zh-TW">網誌</span>
+	
+	</a></li>
+
+
+     
+</ul>
+     
+      </div>
+      <div id="headerRight">
+          <div id="headerLinks">
+          &nbsp;&nbsp;
+          <a href="../../design/index.html">Android Design</a>&nbsp;&nbsp;
+          <a href="http://www.android.com">Android.com</a>
+          </div>
+  <div id="search" >
+      <div id="searchForm">
+          <form accept-charset="utf-8" class="gsc-search-box" 
+                onsubmit="return submit_search()">
+            <table class="gsc-search-box" cellpadding="0" cellspacing="0"><tbody>
+                <tr>
+                  <td class="gsc-input">
+                    <input id="search_autocomplete" class="gsc-input" type="text" size="33" autocomplete="off"
+                      title="search developer docs" name="q"
+                      value="search developer docs"
+                      onFocus="search_focus_changed(this, true)"
+                      onBlur="search_focus_changed(this, false)"
+                      onkeydown="return search_changed(event, true, '../../')"
+                      onkeyup="return search_changed(event, false, '../../')" />
+                  <div id="search_filtered_div" class="no-display">
+                      <table id="search_filtered" cellspacing=0>
+                      </table>
+                  </div>
+                  </td>
+                  <td class="gsc-search-button">
+                    <input type="submit" value="Search" title="search" id="search-button" class="gsc-search-button" />
+                  </td>
+                  <td class="gsc-clear-button">
+                    <div title="clear results" class="gsc-clear-button">&nbsp;</div>
+                  </td>
+                </tr></tbody>
+              </table>
+          </form>
+      </div><!-- searchForm -->
+  </div><!-- search -->
+      </div><!-- headerRight -->
+      <script type="text/javascript">
+        <!--  
+        changeTabLang(getLangPref());
+        //-->
+      </script>
+  </div><!-- header -->
+
+  <div class="g-section g-tpl-200" id="body-content">
+    <div class="g-unit g-first" id="side-nav" itemscope itemtype="http://schema.org/SiteNavigationElement">
+      <div id="devdoc-nav"><ul>
+  <li>
+    <span class="heading">
+      <span class="en">Android Training</span>
+    </span>
+    <ul>
+      
+      <li><a href="../../training/index.html">
+            <span class="en">Orientation</span>
+          </a>
+      </li>
+
+      <li class="toggle-list">
+        <div><a href="../../training/multiscreen/index.html">
+            <span class="en">Designing for Multiple Screens</span>
+          </a></div>
+        <ul>
+          <li><a href="../../training/multiscreen/screensizes.html">
+            <span class="en">Supporting Different Screen Sizes</span>
+          </a>
+          </li>
+          <li><a href="../../training/multiscreen/screendensities.html">
+            <span class="en">Supporting Different Screen Densities</span>
+          </a>
+          </li>
+          <li><a href="../../training/multiscreen/adaptui.html">
+            <span class="en">Implementing Adaptive UI Flows</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+      
+      <li class="toggle-list">
+        <div><a href="../../training/improving-layouts/index.html">
+            <span class="en">Improving Layout Performance</span>
+          </a></div>
+        <ul>
+          <li><a href="../../training/improving-layouts/optimizing-layout.html">
+            <span class="en">Optimizing Layout Hierarchies</span>
+          </a>
+          </li>
+          <li><a href="../../training/improving-layouts/reusing-layouts.html">
+            <span class="en">Re-using Layouts with &lt;include/&gt;</span>
+          </a>
+          </li>
+          <li><a href="../../training/improving-layouts/loading-ondemand.html">
+            <span class="en">Loading Views On Demand</span>
+          </a>
+          </li>
+          <li><a href="../../training/improving-layouts/smooth-scrolling.html">
+            <span class="en">Making ListView Scrolling Smooth</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+      
+      <li class="toggle-list">
+        <div><a href="../../training/managing-audio/index.html">
+            <span class="en">Managing Audio Playback</span>
+          </a></div>
+        <ul>
+          <li><a href="../../training/managing-audio/volume-playback.html">
+            <span class="en">Controlling Your App’s Volume and Playback</span>
+          </a>
+          </li>
+          <li><a href="../../training/managing-audio/audio-focus.html">
+            <span class="en">Managing Audio Focus</span>
+          </a>
+          </li>
+          <li><a href="../../training/managing-audio/audio-output.html">
+            <span class="en">Dealing with Audio Output Hardware</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+      
+      <li class="toggle-list">
+        <div><a href="../../training/monitoring-device-state/index.html">
+            <span class="en">Optimizing Battery Life</span>
+          </a></div>
+        <ul>
+          <li><a href="../../training/monitoring-device-state/battery-monitoring.html">
+            <span class="en">Monitoring the Battery Level and Charging State</span>
+          </a>
+          </li>
+          <li><a href="../../training/monitoring-device-state/docking-monitoring.html">
+            <span class="en">Determining and Monitoring the Docking State and Type</span>
+          </a>
+          </li>
+          <li><a href="../../training/monitoring-device-state/connectivity-monitoring.html">
+            <span class="en">Determining and Monitoring the Connectivity Status</span>
+          </a>
+          </li>
+          <li><a href="../../training/monitoring-device-state/manifest-receivers.html">
+            <span class="en">Manipulating Broadcast Receivers On Demand</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="toggle-list">
+        <div><a href="../../training/search/index.html">
+            <span class="en">Adding Search Functionality</span>
+          </a> <span class="new">new!</span>
+        </div>
+        <ul>
+          <li><a href="../../training/search/setup.html">
+            <span class="en">Setting up the Search Interface</span>
+          </a>
+          </li>
+          <li><a href="../../training/search/search.html">
+            <span class="en">Storing and Searching for Data</span>
+          </a>
+          </li>
+          <li><a href="../../training/search/backward-compat.html">
+            <span class="en">Remaining Backward Compatible</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="toggle-list">
+        <div><a href="../../training/id-auth/index.html">
+            <span class="en">Remembering Users</span>
+          </a></div>
+        <ul>
+          <li><a href="../../training/id-auth/identify.html">
+            <span class="en">Remembering Your User</span>
+          </a>
+          </li>
+          <li><a href="../../training/id-auth/authenticate.html">
+            <span class="en">Authenticating to OAuth2 Services</span>
+          </a>
+          </li>
+          <li><a href="../../training/id-auth/custom_auth.html">
+            <span class="en">Creating a Custom Account Type</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="toggle-list">
+        <div><a href="../../training/sharing/index.html">
+            <span class="en">Sharing Content</span>
+          </a></div>
+        <ul>
+          <li><a href="../../training/sharing/send.html">
+            <span class="en">Sending Content to Other Apps</span>
+          </a>
+          </li>
+          <li><a href="../../training/sharing/receive.html">
+            <span class="en">Receiving Content from Other Apps</span>
+          </a>
+          </li>
+          <li><a href="../../training/sharing/shareaction.html">
+            <span class="en">Adding an Easy Share Action</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+      
+      <li class="toggle-list">
+        <div><a href="../../training/camera/index.html">
+            <span class="en">Capturing Photos</span>
+          </a></div>
+        <ul>
+          <li><a href="../../training/camera/photobasics.html">
+            <span class="en">Taking Photos Simply</span>
+          </a>
+          </li>
+          <li><a href="../../training/camera/videobasics.html">
+            <span class="en">Recording Videos Simply</span>
+          </a>
+          </li>
+          <li><a href="../../training/camera/cameradirect.html">
+            <span class="en">Controlling the Camera</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+      
+      <li class="toggle-list">
+        <div><a href="../../training/multiple-apks/index.html">
+            <span class="en">Maintaining Multiple APKs</span>
+          </a></div>
+        <ul>
+          <li><a href="../../training/multiple-apks/api.html">
+            <span class="en">Creating Multiple APKs for Different API Levels</span>
+          </a>
+          </li>
+          <li><a href="../../training/multiple-apks/screensize.html">
+            <span class="en">Creating Multiple APKs for Different Screen Sizes</span>
+          </a>
+          </li>
+          <li><a href="../../training/multiple-apks/texture.html">
+            <span class="en">Creating Multiple APKs for Different GL Textures</span>
+          </a>
+          </li>
+          <li><a href="../../training/multiple-apks/multiple.html">
+            <span class="en">Creating Multiple APKs with 2+ Dimensions</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+      
+      <li class="toggle-list">
+        <div><a href="../../training/enterprise/index.html">
+            <span class="en">Developing for Enterprise</span>
+          </a></div>
+        <ul>
+          <li><a href="../../training/enterprise/device-management-policy.html">
+            <span class="en">Enhancing Security with Device Management Policies</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+      
+      <li class="toggle-list">
+        <div><a href="../../training/monetization/index.html">
+            <span class="en">Monetizing Your App</span>
+          </a></div>
+        <ul>
+          <li><a href="../../training/monetization/ads-and-ux.html">
+            <span class="en">Advertising without Compromising User Experience</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+      
+      <li class="toggle-list">
+        <div><a href="../../training/design-navigation/index.html">
+            <span class="en">Designing Effective Navigation</span>
+          </a></div>
+        <ul>
+          <li><a href="../../training/design-navigation/screen-planning.html">
+            <span class="en">Planning Screens and Their Relationships</span>
+          </a>
+          </li>
+          <li><a href="../../training/design-navigation/multiple-sizes.html">
+            <span class="en">Planning for Multiple Touchscreen Sizes</span>
+          </a>
+          </li>
+          <li><a href="../../training/design-navigation/descendant-lateral.html">
+            <span class="en">Providing Descendant and Lateral Navigation</span>
+          </a>
+          </li>
+          <li><a href="../../training/design-navigation/ancestral-temporal.html">
+            <span class="en">Providing Ancestral and Temporal Navigation</span>
+          </a>
+          </li>
+          <li><a href="../../training/design-navigation/wireframing.html">
+            <span class="en">Putting it All Together: Wireframing the Example App</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>    
+      
+      
+  <li>
+    <span class="heading">
+      <span class="en">Technical Resources</span>
+    </span>
+    <ul>
+      <li class="toggle-list">
+        <div><a href="../../resources/browser.html?tag=sample">
+            <span class="en">Sample Code</span>
+            <span class="de" style="display:none">Beispielcode</span>
+            <span class="es" style="display:none">Código de ejemplo</span>
+            <span class="fr" style="display:none">Exemple de code</span>
+            <span class="it" style="display:none">Codice di esempio</span>
+            <span class="ja" style="display:none">サンプル コード</span>
+            <span class="zh-CN" style="display:none"></span>
+            <span class="zh-TW" style="display:none"></span>
+          </a></div>
+        <ul id="devdoc-nav-sample-list">
+          <li><a href="../../resources/samples/get.html">
+                <span class="en">Getting the Samples</span>
+              </a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../../resources/browser.html?tag=article">
+               <span class="en">Articles</span>
+             </a></div>
+        <ul id="devdoc-nav-article-list">
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../../resources/browser.html?tag=tutorial">
+               <span class="en">Tutorials</span>
+               <span class="de" style="display:none">Lernprogramme</span>
+               <span class="es" style="display:none">Tutoriales</span>
+               <span class="fr" style="display:none">Didacticiels</span>
+               <span class="it" style="display:none">Esercitazioni</span>
+               <span class="ja" style="display:none">チュートリアル</span>
+               <span class="zh-CN" style="display:none"></span>
+               <span class="zh-TW" style="display:none"></span>
+             </a></div>
+        <ul id="devdoc-nav-tutorial-list">
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../../resources/topics.html">
+               <span class="en">Topics</span>
+             </a></div>
+        <ul id="devdoc-nav-topic-list">
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <span class="heading">
+      <span class="en">Community</span>
+      <span style="display:none" class="de"></span>
+      <span style="display:none" class="es">Comunidad</span>
+      <span style="display:none" class="fr">Communauté</span>
+      <span style="display:none" class="it"></span>
+      <span style="display:none" class="ja">コミュニティ</span>
+      <span style="display:none" class="zh-CN">社区</span>
+      <span style="display:none" class="zh-TW">社群</span>
+    </span>
+    <ul>
+      <li><a href="../../resources/community-groups.html">
+            <span class="en">Developer Forums</span>
+          </a></li>
+      <li><a href="../../resources/community-more.html">
+            <span class="en">IRC, G+, Twitter</span>
+          </a></li>
+    </ul>
+  </li>
+
+
+  <li>
+    <span class="heading">
+      <span class="en">More</span>
+    </span>
+    <ul>
+      <li><a href="../../resources/faq/commontasks.html">
+            <span class="en">Common Tasks </span>
+          </a></li>
+      <li><a href="../../resources/faq/troubleshooting.html">
+            <span class="en">Troubleshooting Tips</span>
+          </a></li>
+      <li class="toggle-list">
+        <div><a href="../../resources/faq/index.html">
+               <span class="en">FAQs</span>
+             </a></div>
+        <ul>
+        <li><a href="../../resources/faq/framework.html">
+                <span class="en">App Framework FAQ</span>
+                </a></li>
+        <li><a href="../../resources/faq/licensingandoss.html">
+                <span class="en">Licensing FAQ</span>
+                </a></li>
+        <li><a href="../../resources/faq/security.html">
+                <span class="en">Security FAQ</span>
+                </a></li>
+        </ul>
+     </li>
+    </ul>
+  </li>
+</ul>
+
+<script type="text/javascript">
+<!--
+    buildToggleLists();
+    changeNavLang(getLangPref());
+//-->
+</script>
+
+      </div>
+    </div> <!-- end side-nav -->
+    <script>
+      addLoadEvent(function() {
+        scrollIntoView("devdoc-nav");
+        });
+    </script>
+
+
+
+
+<div class="g-unit" id="doc-content"><a name="top"></a>
+
+<div id="jd-header" class="guide-header">
+  <span class="crumb" itemprop="breadcrumb">
+    
+      <a href="../browser.html?tag=article">Articles</a>:
+    
+  </span>
+<h1 itemprop="name">Onscreen Input Methods</h1>
+</div>
+
+  
+  <div id="jd-content">
+ 
+    
+
+
+    <div class="jd-descr" itemprop="articleBody">
+    <div id="qv-wrapper">
+<div id="qv">
+
+  <h2>See also</h2>
+  <ol>
+    <li><a href="../../resources/articles/creating-input-method.html">Creating an Input
+Method</a></li>
+    <li><a href="../../resources/samples/SoftKeyboard/index.html">Soft Keyboard sample</a></li>
+  </ol>
+
+</div>
+</div>
+
+
+<p>Starting from Android 1.5, the Android platform offers an Input Method
+Framework (IMF) that lets you create on-screen input methods such as software
+keyboards. This article provide an overview of what Android input method editors
+(IMEs) are and what an application needs to do to work well with them. The IMF
+is designed to support new classes of Android devices, such as those without
+hardware keyboards, so it is important that your application works well with the
+IMF and offers a great experience for users.</p>
+
+<h3>What is an input method?</h3>
+
+<p>The Android IMF is designed to support a variety of IMEs, including soft
+keyboard, hand-writing recognizers, and hard keyboard translators. Our focus,
+however, will be on soft keyboards, since this is the kind of input method that
+is currently part of the platform.</p>
+
+<p>A user will usually access the current IME by tapping on a text view to 
+edit, as shown here in the home screen:</p>
+
+<img style="width: 320px; height: 480px; margin-right: 10px;" src="images/on-screen-inputs_004.png">
+<img style="width: 320px; height: 480px;" src="images/on-screen-inputs.png">
+
+<p>The soft keyboard is positioned at the bottom of the screen over the
+application's window. To organize the available space between the application
+and IME, we use a few approaches; the one shown here is called <em>pan and
+scan</em>, and simply involves scrolling the application window around so that
+the currently focused view is visible. This is the default mode, since it is the
+safest for existing applications.</p>
+
+<p>Most often the preferred screen layout is a <em>resize</em>, where the
+application's window is resized to be entirely visible.  An example is shown
+here, when composing an e-mail message:</p>
+
+<img style="width: 320px; height: 480px; margin-right: 10px;" src="images/on-screen-inputs_005.png">
+<img style="width: 320px; height: 480px;" src="images/on-screen-inputs_003.png">
+
+<p>The size of the application window is changed so that none of it is hidden by
+the IME, allowing full access to both the application and IME. This of course
+only works for applications that have a resizeable area that can be reduced to
+make enough space, but the vertical space in this mode is actually no less than
+what is available in landscape orientation, so very often an application can
+already accommodate it.</p>
+
+<p>The final major mode is <em>fullscreen</em> or <em>extract</em>
+mode. This is used when the IME is too large to reasonably share space
+with the underlying application. With the standard IMEs, you will only
+encounter this situation when the screen is in a landscape orientation,
+although other IMEs are free to use it whenever they desire. In this
+case the application window is left as-is, and the IME simply displays
+fullscreen on top of it, as shown here:</p>
+
+<img style="width: 480px; height: 320px; margin-right: 10px; margin-bottom: 10px;" src="images/on-screen-inputs_006.png">
+<img style="width: 480px; height: 320px;" src="images/on-screen-inputs_002.png">
+
+<p>Because the IME is covering the application, it has its own editing area,
+which shows the text actually contained in the application. There are also some
+limited opportunities the application has to customize parts of the IME (the
+"done" button at the top and enter key label at the bottom) to improve the user
+experience.</p>
+
+<h3>Basic XML attributes for controlling IMEs</h3>
+
+<p>There are a number of things the system does to try to help existing 
+applications work with IMEs as well as possible, such as:</p>
+
+<ul>
+<li>Use pan and scan mode by default, unless it can reasonably guess that
+resize mode will work by the existence of lists, scroll views, etc.</li>
+<li>Analyze the various existing TextView attributes to guess at the kind of
+content (numbers, plain text, etc) to help the soft keyboard display an
+appropriate key layout.</li>
+<li>Assign a few default actions to the fullscreen IME, such as "next field"
+and "done".</li>
+</ul>
+
+<p>There are also some simple things you can do in your application that will
+often greatly improve its user experience. Except where explicitly mentioned,
+these will work in any Android platform version, even those previous to Android
+1.5 (since they will simply ignore these new options).</p>
+
+<h4>Specifying each EditText control's input type</h4>
+
+<p>The most important thing for an application to do is to use the new
+<code>android:inputType</code>
+attribute on each <code>EditText</code>. The attribute provides much richer
+information
+about the text content. This attribute actually replaces many existing
+attributes (<code>android:</code><code>password</code>,
+<code>android:</code><code>singleLine</code>,
+<code>android:</code><code>numeric</code>,
+<code>android:</code><code>phoneNumber</code>,
+<code>android:</code><code>capitalize</code>,
+<code>android:</code><code>autoText</code>, and 
+<code>android:</code><code>editable</code>). If you specify the older attributes
+and the new <code>android:inputType</code> attribute, the system uses
+<code>android:inputType</code> and ignores the others. </p>
+
+<p>The <code>android:inputType</code> attribute has three pieces:</p>
+
+<ul>
+<li>The <em>class</em> is the overall interpretation of characters.  The
+currently supported classes are <code>text</code> (plain text),
+<code>number</code> (decimal number), <code>phone</code> (phone number), and
+<code>datetime</code> (a date or time).</li>
+<li>The <em>variation</em> is a further refinement on the class. In the
+attribute you will normally specify the class and variant together, with the
+class as a prefix. For example, <code>textEmailAddress</code> is a text field
+where the user will enter something that is an e-mail address (foo@bar.com) so
+the key layout will have an '@' character in easy access, and
+<code>numberSigned</code> is a numeric field with a sign.  If only the class is
+specified, then you get the default/generic variant.</li>
+<li>Additional <em>flags</em> can be specified that supply further refinement. 
+These flags are specific to a class.  For example, some flags for the
+<code>text</code> class are <code>textCapSentences</code>,
+<code>textAutoCorrect</code>, and <code>textMultiline</code>.</li>
+</ul>
+
+<p>As an example, here is the new EditText for the IM application's message text view:</p>
+
+<pre>    &lt;EditText android:id="@+id/edtInput"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:inputType="textShortMessage|textAutoCorrect|textCapSentences|textMultiLine"
+        android:imeOptions="actionSend|flagNoEnterAction"
+        android:maxLines="4"
+        android:maxLength="2000"
+        android:hint="@string/compose_hint"/&gt;</pre>
+
+<p>A full description of all of the input types can be found in the
+documentation. It is important to make use of the correct input types that are
+available, so that the soft keyboard can use the optimal keyboard layout for the
+text the user will be entering.</p>
+
+<h4>Enabling resize mode and other window features</h4>
+
+<p>The second most important thing for your app to do is to specify the overall
+behavior of your window in relation to the input method. The most visible aspect
+of this is controlling resize vs. pan and scan mode, but there are other things
+you can do as well to improve your user experience.</p>
+
+<p>You will usually control this behavior through the
+<code>android:windowSoftInputMode</code> attribute on each
+<code>&lt;activity&gt;</code> definition in your
+<code>AndroidManifest.xml</code>.  Like the input type, there are a couple
+different pieces of data that can be specified here by combining them
+together:</p>
+
+<ul>
+<li>The window adjustment mode is specified with either
+<code>adjustResize</code> or <code>adjustPan</code>.  It is highly recommended
+that you always specify one or the other.</li>
+<li>You can further control whether the IME will be shown automatically when
+your activity is displayed and other situations where the user moves to it. The
+system won't automatically show an IME by default, but in some cases it can be
+convenient for the user if an application enables this behavior. You can request
+this with <code>stateVisible</code>.  There are also a number of other state
+options for finer-grained control that you can find in the documentation.</li>
+</ul>
+
+<p>A typical example of this field can be see in the edit contact activity,
+which ensures it is resized and automatically displays the IME for the user:</p>
+
+<pre>    &lt;activity name="EditContactActivity"
+        android:windowSoftInputMode="stateVisible|adjustResize"&gt;
+        ...
+    &lt;/activity&gt;</pre>
+
+<p class="note"><strong>Note:</strong>Starting from Android 1.5 (API Level 3), 
+the platform offers a new method, 
+<code><a href="../../reference/android/view/Window.html#setSoftInputMode(int)">setSoftInputMode(int)</a></code>,
+that non-Activity windows can use to control their behavior. Calling this method
+in your will make your application incompatible with previous versions of the
+Android platform.</p>
+
+<h4>Controlling the action buttons</h4>
+
+<p>The final customization we will look at is the "action" buttons in the IME.  
+There are currently two types of actions:</p>
+
+<ul>
+<li>The enter key on a soft keyboard is typically bound to an action when not
+operating on a mult-line edit text. For example, on the G1 pressing the hard
+enter key will typically move to the next field or the application will
+intercept it to execute an action; with a soft keyboard, this overloading of the
+enter key remains, since the enter button just sends an enter key event.</li>
+<li>When in fullscreen mode, an IME may also put an additional action button to
+the right of the text being edited, giving the user quick access to a common
+application operation.</li>
+</ul>
+
+<p>These options are controlled with the <code>android:imeOptions</code> 
+attribute on <code>TextView</code>. The value you supply here can be any 
+combination of:</p>
+
+<ul>
+<li>One of the pre-defined action constants (<code>actionGo</code>,
+<code>actionSearch</code>, <code>actionSend</code>, <code>actionNext</code>,
+<code>actionDone</code>).  If none of these are specified, the system will infer
+either <code>actionNext</code> or <code>actionDone</code> depending on whether
+there is a focusable field after this one; you can explicitly force no action
+with <code>actionNone</code>.</li>
+<li>The <code>flagNoEnterAction</code> option tells the IME that the action
+should <em>not</em> be available on the enter key, even if the text itself is
+not multi-line. This avoids having unrecoverable actions like (send) that can be
+accidentally touched by the user while typing.</li>
+<li>The <code>flagNoAccessoryAction</code> removes the action button from the
+text area, leaving more room for text.</li><li>The <code>flagNoExtractUi</code>
+completely removes the text area, allowing the application to be seen behind
+it.</li>
+</ul>
+
+<p>The previous IM application message view also provides an example of an
+interesting use of <code>imeOptions</code>, to specify the send action but not
+let it be shown on the enter key:</p>
+
+<pre>android:imeOptions="actionSend|flagNoEnterAction"</pre>
+
+<h3>APIs for controlling IMEs</h3>
+
+<p>For more advanced control over the IME, there are a variety of new APIs you
+can use. Unless special care is taken (such as by using reflection), using these
+APIs will cause your application to be incompatible with previous versions of
+Android, and you should make sure you specify
+<code>android:minSdkVersion="3"</code> in your manifest. For more information,
+see the documentation for the <a
+href="../../guide/topics/manifest/uses-sdk-element.html">&lt;uses-sdk&gt;</a
+> manifest element.</p>
+
+<p>The primary API is the new <code>android.view.inputmethod.InputMethodManager</code> class, which you can retrieve with <code>Context.getSystemService()</code>.
+It allows you to interact with the global input method state, such as
+explicitly hiding or showing the current IME's input area.</p>
+
+<p>There are also new window flags controlling input method interaction, which you can control through the existing <code>Window.addFlags()</code> method and new <code>Window.setSoftInputMode()</code> method.  The <code>PopupWindow</code>
+class has grown corresponding methods to control these options on its
+window. One thing in particular to be aware of is the new <code>WindowManager.LayoutParams.FLAG_ALT_FOCUSABLE_IM</code> constant, which is used to control whether a window is on top of or behind the current IME.</p>
+
+<p>Most of the interaction between an active IME and application is done through the <code>android.view.inputmethod.InputConnection</code>
+class. This is the API an application implement, which an IME calls to
+perform the appropriate edit operations on the application. You won't
+normally need to worry about this, since <code>TextView</code> provides its own implementation for itself.</p>
+
+<p>There are also a handful of new <code>View</code> APIs, the most important of these being<code> onCreateInputConnection()</code> which creates a new <code>InputConnection</code> for an IME (and fills in an <code>android.view.inputmethod.EditorInfo</code>
+structure with your input type, IME options, and other data); again,
+most developers won't need to worry about this, since TextView takes
+care of it for you.</p>
+    </div>
+
+    
+    
+    <a href="#top" style="float:right">&uarr; Go to top</a>
+    
+      <p><a href="../browser.html?tag=article">&larr; Back to Articles</a></p>
+    
+
+  </div> <!-- end jd-content -->
+
+<div id="footer">
+
+
+  <div id="copyright">
+    
+  Except as noted, this content is 
+  licensed under <a href="http://creativecommons.org/licenses/by/2.5/">
+  Creative Commons Attribution 2.5</a>. For details and 
+  restrictions, see the <a href="../../license.html">Content 
+  License</a>.
+  </div>
+
+  <div id="footerlinks">
+    
+  <p>
+    <a href="http://www.google.com/intl/en/policies/" target="_blank">Privacy &amp; Terms</a> -
+    <a href="http://www.android.com/branding.html" target="_blank">Brand Guidelines</a> -
+    <a
+href="http://code.google.com/p/android/issues/entry?template=Developer%20Documentation"
+target="_blank">Report Document Issues</a>
+  </p>
+  </div>
+
+</div> <!-- end footer -->
+
+</div><!-- end doc-content -->
+
+</div> <!-- end body-content --> 
+
+<script type="text/javascript">
+init(); /* initialize android-developer-docs.js */
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-5831155-1");
+pageTracker._trackPageview();
+</script>
+
+</body>
+</html>
+
+
+

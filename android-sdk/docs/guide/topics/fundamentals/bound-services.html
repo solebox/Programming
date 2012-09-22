@@ -1,0 +1,1860 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico" />
+<title>Bound Services | Android Developers</title>
+<link href="../../../assets/android-developer-docs-devguide.css" rel="stylesheet" type="text/css" />
+<script src="../../../assets/search_autocomplete.js" type="text/javascript"></script>
+<script src="../../../assets/jquery-resizable.min.js" type="text/javascript"></script>
+<script src="../../../assets/android-developer-docs.js" type="text/javascript"></script>
+<script src="../../../assets/prettify.js" type="text/javascript"></script>
+<script type="text/javascript">
+  setToRoot("../../../");
+</script>
+<noscript>
+  <style type="text/css">
+    html,body{overflow:auto;}
+    #body-content{position:relative; top:0;}
+    #doc-content{overflow:visible;border-left:3px solid #666;}
+    #side-nav{padding:0;}
+    #side-nav .toggle-list ul {display:block;}
+    #resize-packages-nav{border-bottom:3px solid #666;}
+  </style>
+</noscript>
+</head>
+<body class="gc-documentation" itemscope itemtype="http://schema.org/Article">
+
+  <div id="header">
+      <div id="headerLeft">
+          <a href="../../../index.html" tabindex="-1"><img
+              src="../../../assets/images/bg_logo.png" alt="Android Developers" /></a>
+          <ul id="header-tabs" class="guide">
+    
+	<li id="home-link"><a href="../../../offline.html">
+	
+		<span class="en">Home</span>
+		<span style="display:none" class="de">Startseite</span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ホーム</span>
+		<span style="display:none" class="zh-CN">主页</span>
+		<span style="display:none" class="zh-TW">首頁</span>
+	
+	</a></li>
+	<li id="sdk-link"><a href="../../../sdk/index.html">
+		<span class="en">SDK</span>
+	</a></li>
+	<li id="guide-link"><a href="../../../guide/index.html" onClick="return loadLast('guide')">
+	
+		<span class="en">Dev Guide</span>
+		<span style="display:none" class="de">Handbuch</span>
+		<span style="display:none" class="es">Guía</span>
+		<span style="display:none" class="fr">Guide</span>
+		<span style="display:none" class="it">Guida</span>
+		<span style="display:none" class="ja">開発ガイド</span>
+		<span style="display:none" class="zh-CN">开发人员指南</span>
+		<span style="display:none" class="zh-TW">開發指南</span>
+	
+	</a></li>
+	<li id="reference-link"><a href="../../../reference/packages.html" onClick="return loadLast('reference')">
+	
+		<span class="en">Reference</span>
+		<span style="display:none" class="de">Referenz</span>
+		<span style="display:none" class="es">Referencia</span>
+		<span style="display:none" class="fr">Référence</span>
+		<span style="display:none" class="it">Riferimento</span>
+		<span style="display:none" class="ja">リファレンス</span>
+		<span style="display:none" class="zh-CN">参考</span>
+		<span style="display:none" class="zh-TW">參考資料</span>
+	
+	</a></li>
+	<li id="resources-link"><a href="../../../resources/index.html" onClick="return loadLast('resources')">
+	
+		<span class="en">Resources</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+    		<span style="display:none" class="ja"></span>
+		<span style="display:none" class="zh-CN"></span>
+		<span style="display:none" class="zh-TW"></span>
+	
+	</a></li>
+	<li id="videos-link"><a href="../../../videos/index.html" onClick="return loadLast('videos')">
+	
+		<span class="en">Videos</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ビデオ</span>
+		<span style="display:none" class="zh-CN"></span>
+		<span style="display:none" class="zh-TW"></span>
+	
+	</a></li>
+	<li><a href="http://android-developers.blogspot.com" onClick="return requestAppendHL(this.href)">
+	
+		<span class="en">Blog</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ブログ</span>
+		<span style="display:none" class="zh-CN">博客</span>
+		<span style="display:none" class="zh-TW">網誌</span>
+	
+	</a></li>
+
+
+     
+</ul>
+     
+      </div>
+      <div id="headerRight">
+          <div id="headerLinks">
+          &nbsp;&nbsp;
+          <a href="../../../design/index.html">Android Design</a>&nbsp;&nbsp;
+          <a href="http://www.android.com">Android.com</a>
+          </div>
+  <div id="search" >
+      <div id="searchForm">
+          <form accept-charset="utf-8" class="gsc-search-box" 
+                onsubmit="return submit_search()">
+            <table class="gsc-search-box" cellpadding="0" cellspacing="0"><tbody>
+                <tr>
+                  <td class="gsc-input">
+                    <input id="search_autocomplete" class="gsc-input" type="text" size="33" autocomplete="off"
+                      title="search developer docs" name="q"
+                      value="search developer docs"
+                      onFocus="search_focus_changed(this, true)"
+                      onBlur="search_focus_changed(this, false)"
+                      onkeydown="return search_changed(event, true, '../../../')"
+                      onkeyup="return search_changed(event, false, '../../../')" />
+                  <div id="search_filtered_div" class="no-display">
+                      <table id="search_filtered" cellspacing=0>
+                      </table>
+                  </div>
+                  </td>
+                  <td class="gsc-search-button">
+                    <input type="submit" value="Search" title="search" id="search-button" class="gsc-search-button" />
+                  </td>
+                  <td class="gsc-clear-button">
+                    <div title="clear results" class="gsc-clear-button">&nbsp;</div>
+                  </td>
+                </tr></tbody>
+              </table>
+          </form>
+      </div><!-- searchForm -->
+  </div><!-- search -->
+      </div><!-- headerRight -->
+      <script type="text/javascript">
+        <!--  
+        changeTabLang(getLangPref());
+        //-->
+      </script>
+  </div><!-- header -->
+
+  <div class="g-section g-tpl-240" id="body-content">
+    <div class="g-unit g-first" id="side-nav" itemscope itemtype="http://schema.org/SiteNavigationElement">
+      <div id="devdoc-nav">
+<ul>
+
+  <li>
+    <span class="heading">
+      <span class="en">Android Basics</span>
+      <span class="de" style="display:none">Einführung in Android</span>
+      <span class="es" style="display:none">Información básica sobre Android</span>
+      <span class="fr" style="display:none">Présentation d'Android</span>
+      <span class="it" style="display:none">Nozioni di base su Android</span>
+      <span class="ja" style="display:none">Android の基本</span>
+      <span class="zh-CN" style="display:none">Android 基础知识</span>
+      <span class="zh-TW" style="display:none">Android 簡介</span>
+    </span>
+    <ul>
+      <li><a href="../../../guide/basics/what-is-android.html">
+        <span class="en">What Is Android?</span>
+        <span class="de" style="display:none">Was ist Android?</span>
+        <span class="es" style="display:none">¿Qué es Android?</span>
+        <span class="fr" style="display:none">Qu'est-ce qu'Android&nbsp;?</span>
+        <span class="it" style="display:none">Che cos'è Android?</span>
+        <span class="ja" style="display:none">Android とは</span>
+        <span class="zh-CN" style="display:none">Android 是什么？</span>
+        <span class="zh-TW" style="display:none">什麼是 Android？</span>
+          </a></li>
+      <li><a href="../../../guide/topics/fundamentals.html">
+        <span class="en">Application Fundamentals</span>
+        <span class="de" style="display:none">Anwendungsgrundlagen</span>
+        <span class="es" style="display:none">Fundamentos de las aplicaciones</span>
+        <span class="fr" style="display:none">Principes de base des applications</span>
+        <span class="it" style="display:none">Concetti fondamentali sulle applicazioni</span>
+        <span class="ja" style="display:none">開発の基礎</span>
+        <span class="zh-CN" style="display:none">应用程序基础</span>
+        <span class="zh-TW" style="display:none">應用程式基本原理</span>
+      </a></li>
+
+  <!--  <li><a style="color:gray;">The Android SDK</a></li> -->
+  <!--  <li><a style="color:gray;">Walkthrough for Developers</a></li> -->
+      <!-- quick overview of what it's like to develop on Android -->
+    </ul>
+  </li>
+
+  <li>
+    <span class="heading">
+      <span class="en">Framework Topics</span>
+      <span class="de" style="display:none">Framework-Themen</span>
+      <span class="es" style="display:none">Temas sobre el framework</span>
+      <span class="fr" style="display:none">Thèmes relatifs au framework</span>
+      <span class="it" style="display:none">Argomenti relativi al framework</span>
+      <span class="ja" style="display:none">フレームワーク トピック</span>
+      <span class="zh-CN" style="display:none">框架主题</span>
+      <span class="zh-TW" style="display:none">架構主題</span>
+    </span>
+    <ul>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/fundamentals/activities.html">
+          <span class="en">Activities</span>
+        </a></div>
+        <ul>
+          <li><a href="../../../guide/topics/fundamentals/fragments.html">
+            <span class="en">Fragments</span>
+          </a></li>
+          <li><a href="../../../guide/topics/fundamentals/loaders.html">
+            <span class="en">Loaders</span>
+          </a></li>
+          <li><a href="../../../guide/topics/fundamentals/tasks-and-back-stack.html">
+            <span class="en">Tasks and Back Stack</span></a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/fundamentals/services.html">
+          <span class="en">Services</span>
+        </a></div>
+        <ul>
+          <li><a href="../../../guide/topics/fundamentals/bound-services.html">
+            <span class="en">Bound Services</span>
+          </a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+          <div><a href="../../../guide/topics/providers/content-providers.html">
+            <span class="en">Content Providers</span>
+          </a></div>
+          <ul>
+            <li>
+                <a href="../../../guide/topics/providers/content-provider-basics.html">
+                    <span class="en">Content Provider Basics</span>
+                </a>
+                <span class="new">new!</span>
+            </li>
+            <li>
+                <a href="../../../guide/topics/providers/content-provider-creating.html">
+                    <span class="en">Creating a Content Provider</span>
+                </a>
+                <span class="new">new!</span>
+            </li>
+            <li>
+                <a href="../../../guide/topics/providers/calendar-provider.html">
+                    <span class="en">Calendar Provider</span>
+                </a>
+                <span class="new">new!</span>
+            </li>
+          </ul>
+      </li>
+      <li><a href="../../../guide/topics/intents/intents-filters.html">
+            <span class="en">Intents and Intent Filters</span>
+          </a></li>
+      <li><a href="../../../guide/topics/fundamentals/processes-and-threads.html">
+            <span class="en">Processes and Threads</span>
+          </a></li>
+    </ul>
+
+
+    <ul>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/ui/index.html">
+            <span class="en">User Interface</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../guide/topics/ui/declaring-layout.html">
+               <span class="en">XML Layouts</span>
+              </a></li>
+          <li><a href="../../../guide/topics/ui/ui-events.html">
+                <span class="en">Input Events</span>
+              </a></li>
+          <li><a href="../../../guide/topics/ui/menus.html">
+               <span class="en">Menus</span>
+              </a> <span class="new">updated</span></li>
+          <li><a href="../../../guide/topics/ui/actionbar.html">
+               <span class="en">Action Bar</span>
+              </a></li>
+          <li><a href="../../../guide/topics/ui/dialogs.html">
+                <span class="en">Dialogs</span>
+              </a></li>
+          <li class="toggle-list">
+            <div><a href="../../../guide/topics/ui/notifiers/index.html">
+                <span class="en">Notifications</span>
+            </a></div>
+            <ul>
+              <li><a href="../../../guide/topics/ui/notifiers/toasts.html">
+                <span class="en">Toast Notifications</span>
+              </a></li>
+              <li><a href="../../../guide/topics/ui/notifiers/notifications.html">
+                <span class="en">Status Bar Notifications</span>
+              </a></li>
+            </ul>
+          </li>
+          <li><a href="../../../guide/topics/ui/drag-drop.html">
+                <span class="en">Drag and Drop</span>
+              </a></li>
+          <li><a href="../../../guide/topics/ui/themes.html">
+                <span class="en">Styles and Themes</span>
+              </a></li>
+          <li><a href="../../../guide/topics/ui/custom-components.html">
+                <span class="en">Custom Components</span>
+              </a></li>
+          <li><a href="../../../guide/topics/ui/binding.html">
+                <span class="en">Binding to Data with AdapterView</span>
+              </a></li>
+          <li><a href="../../../guide/topics/ui/layout-objects.html">
+                <span class="en">Common Layout Objects</span>
+              </a></li>
+          <li><a href="../../../guide/topics/ui/how-android-draws.html">
+                <span class="en">How Android Draws Views</span>
+              </a></li>
+        </ul>
+      </li><!-- end of User Interface -->
+
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/resources/index.html">
+               <span class="en">Application Resources</span>
+             </a></div>
+        <ul>
+          <li><a href="../../../guide/topics/resources/providing-resources.html">
+                <span class="en">Providing Resources</span>
+              </a></li>
+          <li><a href="../../../guide/topics/resources/accessing-resources.html">
+                <span class="en">Accessing Resources</span>
+              </a></li>
+          <li><a href="../../../guide/topics/resources/runtime-changes.html">
+                <span class="en">Handling Runtime Changes</span>
+              </a></li>
+          <li><a href="../../../guide/topics/resources/localization.html">
+                <span class="en">Localization</span>
+              </a></li>
+          <li class="toggle-list">
+            <div><a href="../../../guide/topics/resources/available-resources.html">
+              <span class="en">Resource Types</span>
+            </a></div>
+            <ul>
+              <li><a href="../../../guide/topics/resources/animation-resource.html">Animation</a></li>
+              <li><a href="../../../guide/topics/resources/color-list-resource.html">Color State List</a></li>
+              <li><a href="../../../guide/topics/resources/drawable-resource.html">Drawable</a></li>
+              <li><a href="../../../guide/topics/resources/layout-resource.html">Layout</a></li>
+              <li><a href="../../../guide/topics/resources/menu-resource.html">Menu</a></li>
+              <li><a href="../../../guide/topics/resources/string-resource.html">String</a></li>
+              <li><a href="../../../guide/topics/resources/style-resource.html">Style</a></li>
+              <li><a href="../../../guide/topics/resources/more-resources.html">More Types</a></li>
+            </ul>
+          </li><!-- end of resource types -->
+        </ul>
+      </li><!-- end of app resources -->
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/data/data-storage.html">
+            <span class="en">Data Storage</span>
+          </a></div>
+          <ul>
+            <li><a href="../../../guide/topics/data/backup.html">
+                <span class="en">Data Backup</span>
+              </a>
+            </li>
+          </ul>
+      </li>
+      <li><a href="../../../guide/topics/security/security.html">
+            <span class="en">Security and Permissions</span>
+          </a></li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/manifest/manifest-intro.html">
+          <span class="en">The AndroidManifest.xml File</span>
+        </a></div>
+        <ul>
+          <li><a href="../../../guide/topics/manifest/action-element.html">&lt;action&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/activity-element.html">&lt;activity&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/activity-alias-element.html">&lt;activity-alias&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/application-element.html">&lt;application&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/category-element.html">&lt;category&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/compatible-screens-element.html">&lt;compatible-screens&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/data-element.html">&lt;data&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/grant-uri-permission-element.html">&lt;grant-uri-permission&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/instrumentation-element.html">&lt;instrumentation&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/intent-filter-element.html">&lt;intent-filter&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/manifest-element.html">&lt;manifest&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/meta-data-element.html">&lt;meta-data&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/path-permission-element.html">&lt;path-permission&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/permission-element.html">&lt;permission&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/permission-group-element.html">&lt;permission-group&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/permission-tree-element.html">&lt;permission-tree&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/provider-element.html">&lt;provider&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/receiver-element.html">&lt;receiver&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/service-element.html">&lt;service&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/supports-gl-texture-element.html">&lt;supports-gl-texture&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/supports-screens-element.html">&lt;supports-screens&gt;</a></li><!-- ##api level 4## -->
+          <li><a href="../../../guide/topics/manifest/uses-configuration-element.html">&lt;uses-configuration&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/uses-feature-element.html">&lt;uses-feature&gt;</a></li> <!-- ##api level 4## -->
+          <li><a href="../../../guide/topics/manifest/uses-library-element.html">&lt;uses-library&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/uses-permission-element.html">&lt;uses-permission&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/uses-sdk-element.html">&lt;uses-sdk&gt;</a></li>
+        </ul>
+      </li><!-- end of the manifest file -->
+    </ul>
+
+    <ul>
+    <li class="toggle-list">
+        <div><a href="../../../guide/topics/graphics/index.html">
+            <span class="en">Graphics</span>
+          </a> <span class="new-child">new!</span></div>
+        <ul>
+          <li><a href="../../../guide/topics/graphics/2d-graphics.html">
+              <span class="en">Canvas and Drawables</span></a></li>
+          <li><a href="../../../guide/topics/graphics/hardware-accel.html">
+              <span class="en">Hardware Acceleration</span></a>
+            <span class="new">new!</span></li>
+          <li><a href="../../../guide/topics/graphics/opengl.html">
+              <span class="en">OpenGL</span>
+            </a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/graphics/animation.html">
+            <span class="en">Animation</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../guide/topics/graphics/prop-animation.html">
+              <span class="en">Property Animation</span></a></li>
+          <li><a href="../../../guide/topics/graphics/view-animation.html">
+              <span class="en">View Animation</span></a></li>
+          <li><a href="../../../guide/topics/graphics/drawable-animation.html">
+              <span class="en">Drawable Animation</span></a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/renderscript/index.html">
+          <span class="en">Renderscript</span></a>
+          <span class="new">updated</span>
+        </div>
+        <ul>
+          <li><a href="../../../guide/topics/renderscript/graphics.html">
+                <span class="en">Graphics</span>
+              </a>
+          </li>
+          <li><a href="../../../guide/topics/renderscript/compute.html">
+                <span class="en">Compute</span>
+              </a>
+          </li>
+          <li><a href="../../../guide/topics/renderscript/reference.html">
+                <span class="en">Runtime API Reference</span>
+              </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="toggle-list">
+          <div><a href="../../../guide/topics/media/index.html">
+            <span class="en">Multimedia and Camera</span>
+          </a></div>
+          <ul>
+            <li><a href="../../../guide/topics/media/mediaplayer.html">
+                  <span class="en">Media Playback</span></a>
+                </li>
+            <li><a href="../../../guide/topics/media/jetplayer.html">
+                  <span class="en">JetPlayer</span></a>
+                </li>
+            <li><a href="../../../guide/topics/media/camera.html">
+                  <span class="en">Camera</span></a>
+                  <span class="new">new!</span>
+                </li>
+            <li><a href="../../../guide/topics/media/audio-capture.html">
+                  <span class="en">Audio Capture</span></a>
+                </li>
+          </ul>
+      </li>
+      <li>
+        <a href="../../../guide/topics/clipboard/copy-paste.html">
+            <span class="en">Copy and Paste</span>
+        </a></li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/sensors/index.html">
+              <span class="en">Sensors</span>
+              </a> <span class="new">new!</span></div>
+        <ul>
+          <li><a href="../../../guide/topics/sensors/sensors_overview.html">
+              <span class="en">Sensors Overview</span>
+            </a></li>
+          <li><a href="../../../guide/topics/sensors/sensors_motion.html">
+              <span class="en">Motion Sensors</span>
+            </a></li>
+          <li><a href="../../../guide/topics/sensors/sensors_position.html">
+              <span class="en">Position Sensors</span>
+            </a></li>
+          <li><a href="../../../guide/topics/sensors/sensors_environment.html">
+              <span class="en">Environment Sensors</span>
+            </a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/location/index.html">
+               <span class="en">Location and Maps</span>
+             </a></div>
+        <ul>
+          <li><a href="../../../guide/topics/location/obtaining-user-location.html">
+                <span class="en">Obtaining User Location</span>
+              </a></li>
+        </ul>
+      </li>
+  <!--<li class="toggle-list">
+        <div><a style="color:gray;">Wireless Controls</a></div>
+          <ul>
+            <li><a style="color:gray;">Wi-Fi</a></li>
+          </ul>
+      </li> -->
+  <!--<li><a style="color:gray;">Localization</a></li>  -->
+      <li><a href="../../../guide/topics/appwidgets/index.html">
+            <span class="en">App Widgets</span></a>
+          </li>
+      <li><a href="../../../guide/topics/wireless/bluetooth.html">
+            <span class="en">Bluetooth</span></a>
+          </li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/nfc/index.html">
+          <span class="en">Near Field Communication</span></a> <span class="new">updated</span>
+        </div>
+        <ul>
+          <li><a href="../../../guide/topics/nfc/nfc.html">NFC Basics</a></li>
+          <li><a href="../../../guide/topics/nfc/advanced-nfc.html">Advanced NFC</a></li>
+        </ul>
+      </li>
+      <li><a href="../../../guide/topics/wireless/wifip2p.html">
+            <span class="en">Wi-Fi Direct</span></a> <span class="new">new!</span>
+          </li>
+      <li class="toggle-list">
+          <div><a href="../../../guide/topics/usb/index.html">
+            <span class="en">USB</span></a>
+          </div>
+            <ul>
+              <li><a href="../../../guide/topics/usb/accessory.html">Accessory</a></li>
+              <li><a href="../../../guide/topics/usb/host.html">Host</a></li>
+              <li><a href="../../../guide/topics/usb/adk.html">Open Accessory Dev Kit</a></li>
+            </ul>
+          </li>
+
+       <li><a href="../../../guide/topics/network/sip.html">
+            <span class="en">Session Initiation Protocol</span>
+          </a></li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/search/index.html">
+            <span class="en">Search</span>
+          </a></div>
+          <ul>
+            <li><a href="../../../guide/topics/search/search-dialog.html">Creating a Search Interface</a></li>
+            <li><a href="../../../guide/topics/search/adding-recent-query-suggestions.html">Adding Recent Query Suggestions</a></li>
+            <li><a href="../../../guide/topics/search/adding-custom-suggestions.html">Adding Custom Suggestions</a></li>
+            <li><a href="../../../guide/topics/search/searchable-config.html">Searchable Configuration</a></li>
+          </ul>
+      </li>
+      <li><a href="../../../guide/topics/admin/device-admin.html">
+            <span class="en">Device Administration</span></a>
+      </li>
+      <li class="toggle-list">
+           <div>
+                <a href="../../../guide/topics/testing/index.html">
+                   <span class="en">Testing</span>
+               </a>
+           </div>
+           <ul>
+              <li>
+                <a href="../../../guide/topics/testing/testing_android.html">
+                <span class="en">Testing Fundamentals</span></a>
+              </li>
+              <li>
+                <a href="../../../guide/topics/testing/activity_testing.html">
+                <span class="en">Activity Testing</span></a>
+              </li>
+              <li>
+                <a href="../../../guide/topics/testing/contentprovider_testing.html">
+                <span class="en">Content Provider Testing</span></a>
+              </li>
+              <li>
+                <a href="../../../guide/topics/testing/service_testing.html">
+                <span class="en">Service Testing</span></a>
+              </li>
+              <li>
+                <a href="../../../guide/topics/testing/what_to_test.html">
+                <span class="en">What To Test</span></a>
+              </li>
+           </ul>
+      </li>
+    </ul>
+  </li>
+
+  <li>
+    <h2>
+      <span class="en">Google Play Topics</span>
+    </h2>
+    <ul>
+      <li><a href="../../../guide/publishing/publishing.html">
+          <span class="en">Publishing on Google Play</span>
+          </a></li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/market/licensing/index.html">
+          <span class="en">Application Licensing</span></a>
+        </div>
+        <ul>
+          <li><a href="../../../guide/market/licensing/overview.html">
+              <span class="en">Licensing Overview</span></a>
+          </li>
+          <li><a href="../../../guide/market/licensing/setting-up.html">
+              <span class="en">Setting Up for Licensing</span></a>
+          </li>
+          <li><a href="../../../guide/market/licensing/adding-licensing.html">
+              <span class="en">Adding Licensing to Your App</span></a>
+          </li>
+          <li><a href="../../../guide/market/licensing/licensing-reference.html">
+              <span class="en">Licensing Reference</span></a>
+          </li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/market/billing/index.html">
+            <span class="en">In-app Billing</span></a>
+        </div>
+        <ul>
+          <li><a href="../../../guide/market/billing/billing_overview.html">
+              <span class="en">In-app Billing Overview</span></a>
+          </li>
+          <li><a href="../../../guide/market/billing/billing_integrate.html">
+              <span class="en">Implementing In-app Billing</span></a>
+          </li>
+          <li><a href="../../../guide/market/billing/billing_best_practices.html">
+              <span class="en">Security and Design</span></a>
+          </li>
+          <li><a href="../../../guide/market/billing/billing_testing.html">
+              <span class="en">Testing In-app Billing</span></a>
+          </li>
+          <li><a href="../../../guide/market/billing/billing_admin.html">
+              <span class="en">Administering In-app Billing</span></a>
+          </li>
+          <li><a href="../../../guide/market/billing/billing_reference.html">
+              <span class="en">In-app Billing Reference</span></a>
+          </li>
+        </ul>
+      </li>
+      <li><a href="../../../guide/appendix/market-filters.html">
+          <span class="en">Filters on Google Play</span></a>
+      </li>
+      <li><a href="../../../guide/market/publishing/multiple-apks.html">
+          <span class="en">Multiple APK Support</span></a>
+      </li>
+      <li><a href="../../../guide/market/expansion-files.html">
+          <span class="en">APK Expansion Files</span></a>
+          <span class="new">new!</span>
+      </li>
+    </ul>
+  </li>
+
+
+  <li>
+    <span class="heading">
+      <span class="en">Developing</span>
+      <span class="de" style="display:none">Entwicklung</span>
+      <span class="es" style="display:none">Desarrollo</span>
+      <span class="fr" style="display:none">Développement</span>
+      <span class="it" style="display:none">Sviluppo</span>
+      <span class="ja" style="display:none">開発</span>
+      <span class="zh-CN" style="display:none">开发</span>
+      <span class="zh-TW" style="display:none">開發</span>
+    </span>
+    <ul>
+  <!--<li><a href="">Developing for Android</a></li>
+      signing, upgrading, selecting a package name, select device profile, touch, trackball, dpad available, etc. -->
+      <li>
+        <a href="../../../guide/developing/index.html">
+        <span class="en">Introduction</span></a>
+      </li>
+
+      <li class="toggle-list">
+        <div>
+           <a href="../../../guide/developing/devices/index.html">
+                <span class="en">Managing Virtual Devices</span>
+            </a>
+        </div>
+        <ul>
+          <li>
+            <a href="../../../guide/developing/devices/managing-avds.html">
+              <span class="en">With AVD Manager</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../guide/developing/devices/managing-avds-cmdline.html">
+              <span class="en">From the Command Line</span>
+            </a>
+          </li>
+          <li>
+           <a href="../../../guide/developing/devices/emulator.html">
+                <span class="en">Using the Android Emulator</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="../../../guide/developing/device.html">
+          <span class="en">Using Hardware Devices</span>
+        </a>
+      </li>
+
+      <li class="toggle-list">
+        <div>
+          <a href="../../../guide/developing/projects/index.html">
+            <span class="en">Managing Projects</span>
+          </a>
+        </div>
+        <ul>
+          <li>
+            <a href="../../../guide/developing/projects/projects-eclipse.html">
+              <span class="en">From Eclipse with ADT</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../guide/developing/projects/projects-cmdline.html">
+                <span class="en">From the Command Line</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="toggle-list">
+        <div>
+          <a href="../../../guide/developing/building/index.html">
+            <span class="en">Building and Running</span>
+          </a>
+        </div>
+        <ul>
+          <li><a href="../../../guide/developing/building/building-eclipse.html">
+            <span class="en">From Eclipse with ADT</span>
+          </a></li>
+          <li><a href="../../../guide/developing/building/building-cmdline.html">
+            <span class="en">From the Command Line</span></a></li>
+        </ul>
+      </li>
+
+      <li class="toggle-list">
+        <div>
+          <a href="../../../guide/developing/debugging/index.html">
+            <span class="en">Debugging</span>
+          </a>
+        </div>
+        <ul>
+          <li>
+            <a href="../../../guide/developing/debugging/debugging-projects.html">
+                <span class="en">From Eclipse with ADT</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../guide/developing/debugging/debugging-projects-cmdline.html">
+                <span class="en">From Other IDEs</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../guide/developing/debugging/ddms.html">
+              <span class="en">Using DDMS</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../guide/developing/debugging/debugging-log.html">
+                <span class="en">Reading and Writing Logs</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../guide/developing/debugging/debugging-ui.html">
+                <span class="en">Debugging and Profiling UIs</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../guide/developing/debugging/debugging-tracing.html">
+                <span class="en">Profiling with Traceview and dmtracedump</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../guide/developing/debugging/debugging-devtools.html">
+                <span class="en">Using the Dev Tools App</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="toggle-list">
+           <div>
+                <a href="../../../guide/developing/testing/index.html">
+                   <span class="en">Testing</span>
+               </a>
+           </div>
+           <ul>
+              <li>
+                <a href="../../../guide/developing/testing/testing_eclipse.html">
+                  <span class="en">From Eclipse with ADT</span>
+                </a>
+              </li>
+
+              <li>
+                <a href="../../../guide/developing/testing/testing_otheride.html">
+                  <span class="en">From Other IDEs</span>
+                </a>
+              </li>
+           </ul>
+         </li>
+
+         <li class="toggle-list">
+        <div><a href="../../../guide/developing/tools/index.html">
+            <span class="en">Tools</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../guide/developing/tools/adb.html">adb</a></li>
+          <li><a href="../../../guide/developing/tools/adt.html">ADT</a></li>
+          <li><a href="../../../guide/developing/tools/android.html">android</a></li>
+          <li><a href="../../../guide/developing/tools/bmgr.html">bmgr</a>
+          <li><a href="../../../guide/developing/tools/dmtracedump.html">dmtracedump</a></li>
+          <li><a href="../../../guide/developing/tools/draw9patch.html">Draw
+          9-Patch</a></li>
+          <li><a href="../../../guide/developing/tools/emulator.html">Emulator</a></li>
+          <li><a href="../../../guide/developing/tools/etc1tool.html">etc1tool</a></li>
+          <li><a href="../../../guide/developing/tools/hierarchy-viewer.html">Hierarchy Viewer</a></li>
+          <li><a href="../../../guide/developing/tools/hprof-conv.html">hprof-conv</a></li>
+          <li><a href="../../../guide/developing/tools/layoutopt.html">layoutopt</a></li>
+          <li><a href="../../../guide/developing/tools/logcat.html">logcat</a></li>
+          <li><a href="../../../guide/developing/tools/mksdcard.html">mksdcard</a></li>
+          <li><a href="../../../guide/developing/tools/monkey.html">Monkey</a></li>
+          <li class="toggle-list">
+            <div><a href="../../../guide/developing/tools/monkeyrunner_concepts.html">
+              <span class="en">monkeyrunner</span>
+            </a></div>
+            <ul>
+              <li><a href="../../../guide/developing/tools/MonkeyDevice.html">
+                <span class="en">MonkeyDevice</span>
+                </a></li>
+              <li><a href="../../../guide/developing/tools/MonkeyImage.html">
+                <span class="en">MonkeyImage</span>
+                </a></li>
+              <li><a href="../../../guide/developing/tools/MonkeyRunner.html">
+                <span class="en">MonkeyRunner</span>
+                </a></li>
+            </ul>
+          </li>
+          <li><a href="../../../guide/developing/tools/proguard.html">ProGuard</a></li>
+          <li><a href="../../../guide/developing/tools/adb.html#sqlite">sqlite3</a></li>
+          <li><a href="../../../guide/developing/tools/traceview.html">Traceview</a></li>
+          <li><a href="../../../guide/developing/tools/zipalign.html">zipalign</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+
+  <li>
+    <span class="heading">
+      <span class="en">Publishing</span>
+      <span class="de" style="display:none">Veröffentlichung</span>
+      <span class="es" style="display:none">Publicación</span>
+      <span class="fr" style="display:none">Publication</span>
+      <span class="it" style="display:none">Pubblicazione</span>
+      <span class="ja" style="display:none">公開</span>
+      <span class="zh-CN" style="display:none">发布</span>
+      <span class="zh-TW" style="display:none">發佈</span>
+    </span>
+    <ul>
+      <li><a href="../../../guide/publishing/publishing_overview.html">
+            <span class="en">Publishing Overview</span>
+          </a></li>
+      <li><a href="../../../guide/publishing/preparing.html">
+            <span class="en">Preparing for Release</span>
+            <span class="de" style="display:none">Vorbereitung auf die Veröffentlichung</span>
+            <span class="es" style="display:none">Publicación de aplicaciones</span>
+            <span class="fr" style="display:none">Préparation à la publication</span>
+            <span class="it" style="display:none">Preparativi per la pubblicazione</span>
+            <span class="ja" style="display:none">公開の準備</span>
+            <span class="zh-CN" style="display:none">准备发布</span>
+            <span class="zh-TW" style="display:none">準備發佈</span>
+          </a></li>
+      <li><a href="../../../guide/publishing/app-signing.html">
+            <span class="en">Signing Your Applications</span>
+            <span class="de" style="display:none">Signieren Ihrer Anwendungen</span>
+            <span class="es" style="display:none">Firma de aplicaciones</span>
+            <span class="fr" style="display:none">Attribution de votre signature <br />à vos
+applications</span>
+            <span class="it" style="display:none">Firma delle applicazioni</span>
+            <span class="ja" style="display:none">アプリケーションへの署名</span>
+            <span class="zh-CN" style="display:none">应用程序签名</span>
+            <span class="zh-TW" style="display:none">簽署應用程式</span>
+          </a></li>
+      <li><a href="../../../guide/publishing/versioning.html">
+            <span class="en">Versioning Your Applications</span>
+            <span class="de" style="display:none">Versionsverwaltung für Ihre <br
+/>Anwendungen</span>
+            <span class="es" style="display:none">Versiones de las aplicaciones</span>
+            <span class="fr" style="display:none">Attribution d'une version à vos
+applications</span>
+            <span class="it" style="display:none">Controllo versioni delle applicazioni</span>
+            <span class="ja" style="display:none">アプリケーションのバージョニング</span>
+            <span class="zh-CN" style="display:none">应用程序版本控制</span>
+            <span class="zh-TW" style="display:none">應用程式版本設定</span>
+          </a></li>
+    </ul>
+  </li>
+
+  <li>
+    <span class="heading">
+      <span class="en">Best Practices</span>
+      <span class="de" style="display:none">Bewährte Verfahren</span>
+      <span class="es" style="display:none">Prácticas recomendadas</span>
+      <span class="fr" style="display:none">Meilleures pratiques</span>
+      <span class="it" style="display:none">Best practice</span>
+      <span class="ja" style="display:none">ベスト プラクティス</span>
+      <span class="zh-CN" style="display:none">最佳实践</span>
+      <span class="zh-TW" style="display:none">最佳實務</span>
+    </span>
+    <ul>
+      <li><a href="../../../guide/practices/compatibility.html">
+            <span class="en">Compatibility</span>
+          </a></li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/practices/screens_support.html">
+          <span class="en">Supporting Multiple Screens</span>
+        </a></div>
+        <ul>
+          <li><a href="../../../guide/practices/screens-distribution.html">
+            <span class="en">Distributing to Specific Screens</span>
+          </a></li>
+          <li><a href="../../../guide/practices/screen-compat-mode.html">
+            <span class="en">Screen Compatibility Mode</span>
+          </a></li>
+          <li><a href="../../../guide/practices/screens-support-1.5.html">
+            <span class="en">Strategies for Android 1.5</span>
+          </a></li>
+        </ul>
+      </li>
+      <li><a href="../../../guide/practices/tablets-and-handsets.html">
+            <span class="en">Supporting Tablets and Handsets</span>
+          </a> <span class="new">new!</span></li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/practices/ui_guidelines/index.html">
+               <span class="en">UI Guidelines</span>
+             </a></div>
+        <ul>
+          <li class="toggle-list">
+            <div><a href="../../../guide/practices/ui_guidelines/icon_design.html">
+                   <span class="en">Icon Design</span>
+                 </a></div>
+            <ul>
+              <li><a href="../../../guide/practices/ui_guidelines/icon_design_launcher.html">
+                    <span class="en">Launcher Icons</span>
+                  </a></li>
+              <li><a href="../../../guide/practices/ui_guidelines/icon_design_menu.html">
+                    <span class="en">Menu Icons</span>
+                  </a></li>
+              <li><a href="../../../guide/practices/ui_guidelines/icon_design_action_bar.html">
+                    <span class="en">Action Bar Icons</span>
+                  </a></li>
+              <li><a href="../../../guide/practices/ui_guidelines/icon_design_status_bar.html">
+                    <span class="en">Status Bar Icons</span>
+                  </a></li>
+              <li><a href="../../../guide/practices/ui_guidelines/icon_design_tab.html">
+                    <span class="en">Tab Icons</span>
+                  </a></li>
+              <li><a href="../../../guide/practices/ui_guidelines/icon_design_dialog.html">
+                    <span class="en">Dialog Icons</span>
+                  </a></li>
+              <li><a href="../../../guide/practices/ui_guidelines/icon_design_list.html">
+                    <span class="en">List View Icons</span>
+                  </a></li>
+            </ul>
+          </li>
+          <li><a href="../../../guide/practices/ui_guidelines/widget_design.html">
+                <span class="en">App Widget Design</span>
+              </a></li>
+          <li><a href="../../../guide/practices/ui_guidelines/activity_task_design.html">
+                <span class="en">Activity and Task Design</span>
+              </a></li>
+          <li><a href="../../../guide/practices/ui_guidelines/menu_design.html">
+                <span class="en">Menu Design</span>
+              </a></li>
+        </ul>
+      </li>
+      </ul>
+      <ul>
+      <li><a href="../../../guide/practices/design/accessibility.html">
+            <span class="en">Designing for Accessibility</span>
+          </a></li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/practices/design/performance.html">
+            <span class="en">Designing for Performance</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../guide/practices/design/jni.html">
+                <span class="en">JNI Tips</span>
+              </a></li>
+        </ul>
+      </li>
+      <li><a href="../../../guide/practices/design/responsiveness.html">
+            <span class="en">Designing for Responsiveness</span>
+          </a></li>
+      <li><a href="../../../guide/practices/design/seamlessness.html">
+            <span class="en">Designing for Seamlessness</span>
+          </a></li>
+      <li><a href="../../../guide/practices/security.html">
+            <span class="en">Designing for Security</span></a>
+            </li>
+    </ul>
+  </li>
+
+  <li>
+    <span class="heading">
+      <span class="en">Web Applications</span>
+    </span>
+    <ul>
+      <li><a href="../../../guide/webapps/index.html">
+            <span class="en">Web Apps Overview</span>
+          </a></li>
+      <li><a href="../../../guide/webapps/targeting.html">
+            <span class="en">Targeting Screens from Web Apps</span>
+          </a></li>
+      <li><a href="../../../guide/webapps/webview.html">
+            <span class="en">Building Web Apps in WebView</span>
+          </a></li>
+      <li><a href="../../../guide/webapps/debugging.html">
+            <span class="en">Debugging Web Apps</span>
+          </a></li>
+      <li><a href="../../../guide/webapps/best-practices.html">
+            <span class="en">Best Practices for Web Apps</span>
+          </a></li>
+    </ul>
+  </li>
+
+  <li>
+    <span class="heading">
+      <span class="en">Appendix</span>
+      <span class="de" style="display:none">Anhang</span>
+      <span class="es" style="display:none">Apéndice</span>
+      <span class="fr" style="display:none">Annexes</span>
+      <span class="it" style="display:none">Appendice</span>
+      <span class="ja" style="display:none">付録</span>
+      <span class="zh-CN" style="display:none">附录</span>
+      <span class="zh-TW" style="display:none">附錄</span>
+    </span>
+    <ul>
+      <li><a href="../../../guide/appendix/api-levels.html">
+            <span class="en">Android API Levels</span>
+          </a></li>
+      <li><a href="../../../guide/appendix/install-location.html">
+            <span class="en">App Install Location</span>
+          </a></li>
+      <li><a href="../../../guide/appendix/media-formats.html">
+            <span class="en">Supported Media Formats</span>
+          </a></li>
+      <li><a href="../../../guide/appendix/g-app-intents.html">
+            <span class="en">Intents List: Google Apps</span>
+          </a></li>
+      <li><a href="../../../guide/developing/tools/aidl.html">AIDL</a></li>
+      <li><a href="../../../guide/appendix/glossary.html">
+            <span class="en">Glossary</span>
+          </a></li>
+    </ul>
+  </li>
+
+</ul>
+
+<script type="text/javascript">
+<!--
+    buildToggleLists();
+    changeNavLang(getLangPref());
+//-->
+</script>
+
+      </div>
+    </div> <!-- end side-nav -->
+    <script>
+      addLoadEvent(function() {
+        scrollIntoView("devdoc-nav");
+        });
+    </script>
+
+
+
+
+<div class="g-unit" id="doc-content"><a name="top"></a>
+
+<div id="jd-header" class="guide-header">
+  <span class="crumb" itemprop="breadcrumb">
+    
+      <a href="services.html">Services</a>:
+    
+  </span>
+<h1 itemprop="name">Bound Services</h1>
+</div>
+
+  
+  <div id="jd-content">
+ 
+    
+
+
+    <div class="jd-descr" itemprop="articleBody">
+    <div id="qv-wrapper">
+<ol id="qv">
+<h2>Quickview</h2>
+<ul>
+  <li>A bound service allows other components to bind to it, in order to interact with it and
+perform interprocess communication</li>
+  <li>A bound service is destroyed once all clients unbind, unless the service was also started</li>
+</ul>
+<h2>In this document</h2>
+<ol>
+  <li><a href="#Basics">The Basics</a></li>
+  <li><a href="#Creating">Creating a Bound Service</a>
+    <ol>
+      <li><a href="#Binder">Extending the Binder class</a></li>
+      <li><a href="#Messenger">Using a Messenger</a></li>
+    </ol>
+  </li>
+  <li><a href="#Binding">Binding to a Service</a></li>
+  <li><a href="#Lifecycle">Managing the Lifecycle of a Bound Service</a></li>
+</ol>
+
+<h2>Key classes</h2>
+<ol>
+  <li><code><a href="../../../reference/android/app/Service.html">Service</a></code></li>
+  <li><code><a href="../../../reference/android/content/ServiceConnection.html">ServiceConnection</a></code></li>
+  <li><code><a href="../../../reference/android/os/IBinder.html">IBinder</a></code></li>
+</ol>
+
+<h2>Samples</h2>
+<ol>
+  <li><a href="../../../resources/samples/ApiDemos/src/com/example/android/apis/app/RemoteService.html"><code>RemoteService</code></a></li>
+  <li><a href="../../../resources/samples/ApiDemos/src/com/example/android/apis/app/LocalService.html"><code>LocalService</code></a></li>
+</ol>
+
+<h2>See also</h2>
+<ol>
+  <li><a href="../../../guide/topics/fundamentals/services.html">Services</a></li>
+</ol>
+</div>
+
+
+<p>A bound service is the server in a client-server interface. A bound service allows components
+(such as activities) to bind to the service, send requests, receive responses, and even perform
+interprocess communication (IPC). A bound service typically lives only while it serves another
+application component and does not run in the background indefinitely.</p>
+
+<p>This document shows you how to create a bound service, including how to bind
+to the service from other application components. However, you should also refer to the <a
+href="../../../guide/topics/fundamentals/services.html">Services</a> document for additional
+information about services in general, such as how to deliver notifications from a service, set
+the service to run in the foreground, and more.</p>
+
+
+<h2 id="Basics">The Basics</h2>
+
+<p>A bound service is an implementation of the <code><a href="../../../reference/android/app/Service.html">Service</a></code> class that allows
+other applications to bind to it and interact with it. To provide binding for a
+service, you must implement the <code><a href="../../../reference/android/app/Service.html#onBind(android.content.Intent)">onBind()</a></code> callback method. This
+method returns an <code><a href="../../../reference/android/os/IBinder.html">IBinder</a></code> object that defines the programming interface that
+clients can use to interact with the service.</p>
+
+<div class="sidebox-wrapper">
+<div class="sidebox">
+  <h3>Binding to a Started Service</h3>
+
+<p>As discussed in the <a href="../../../guide/topics/fundamentals/services.html">Services</a>
+document, you can create a service that is both started and bound. That is, the service can be
+started by calling <code><a href="../../../reference/android/content/Context.html#startService(android.content.Intent)">startService()</a></code>, which allows the
+service to run indefinitely, and also allow a client to bind to the service by calling <code><a href="../../../reference/android/content/Context.html#bindService(android.content.Intent, android.content.ServiceConnection, int)">bindService()</a></code>.
+  <p>If you do allow your service to be started and bound, then when the service has been
+started, the system does <em>not</em> destroy the service when all clients unbind. Instead, you must
+explicitly stop the service, by calling <code><a href="../../../reference/android/app/Service.html#stopSelf()">stopSelf()</a></code> or <code><a href="../../../reference/android/content/Context.html#stopService(android.content.Intent)">stopService()</a></code>.</p>
+
+<p>Although you should usually implement either <code><a href="../../../reference/android/app/Service.html#onBind(android.content.Intent)">onBind()</a></code>
+<em>or</em> <code><a href="../../../reference/android/app/Service.html#onStartCommand(android.content.Intent, int, int)">onStartCommand()</a></code>, it's sometimes necessary to
+implement both. For example, a music player might find it useful to allow its service to run
+indefinitely and also provide binding. This way, an activity can start the service to play some
+music and the music continues to play even if the user leaves the application. Then, when the user
+returns to the application, the activity can bind to the service to regain control of playback.</p>
+
+<p>Be sure to read the section about <a href="#Lifecycle">Managing the Lifecycle of a Bound
+Service</a>, for more information about the service lifecycle when adding binding to a
+started service.</p>
+</div>
+</div>
+
+<p>A client can bind to the service by calling <code><a href="../../../reference/android/content/Context.html#bindService(android.content.Intent, android.content.ServiceConnection, int)">bindService()</a></code>. When it does, it must provide an implementation of <code><a href="../../../reference/android/content/ServiceConnection.html">ServiceConnection</a></code>, which monitors the connection with the service. The <code><a href="../../../reference/android/content/Context.html#bindService(android.content.Intent, android.content.ServiceConnection, int)">bindService()</a></code> method returns immediately without a value, but
+when the Android system creates the connection between the
+client and service, it calls <code><a href="../../../reference/android/content/ServiceConnection.html#onServiceConnected(android.content.ComponentName, android.os.IBinder)">onServiceConnected()</a></code> on the <code><a href="../../../reference/android/content/ServiceConnection.html">ServiceConnection</a></code>, to deliver the <code><a href="../../../reference/android/os/IBinder.html">IBinder</a></code> that
+the client can use to communicate with the service.</p>
+
+<p>Multiple clients can connect to the service at once. However, the system calls your service's
+<code><a href="../../../reference/android/app/Service.html#onBind(android.content.Intent)">onBind()</a></code> method to retrieve the <code><a href="../../../reference/android/os/IBinder.html">IBinder</a></code> only
+when the first client binds. The system then delivers the same <code><a href="../../../reference/android/os/IBinder.html">IBinder</a></code> to any
+additional clients that bind, without calling <code><a href="../../../reference/android/app/Service.html#onBind(android.content.Intent)">onBind()</a></code> again.</p>
+
+<p>When the last client unbinds from the service, the system destroys the service (unless the
+service was also started by <code><a href="../../../reference/android/content/Context.html#startService(android.content.Intent)">startService()</a></code>).</p>
+
+<p>When you implement your bound service, the most important part is defining the interface
+that your <code><a href="../../../reference/android/app/Service.html#onBind(android.content.Intent)">onBind()</a></code> callback method returns. There are a few
+different ways you can define your service's <code><a href="../../../reference/android/os/IBinder.html">IBinder</a></code> interface and the following
+section discusses each technique.</p>
+
+
+
+<h2 id="Creating">Creating a Bound Service</h2>
+
+<p>When creating a service that provides binding, you must provide an <code><a href="../../../reference/android/os/IBinder.html">IBinder</a></code>
+that provides the programming interface that clients can use to interact with the service. There
+are three ways you can define the interface:</p>
+
+<dl>
+  <dt><a href="#Binder">Extending the Binder class</a></dt>
+  <dd>If your service is private to your own application and runs in the same process as the client
+(which is common), you should create your interface by extending the <code><a href="../../../reference/android/os/Binder.html">Binder</a></code> class
+and returning an instance of it from
+<code><a href="../../../reference/android/app/Service.html#onBind(android.content.Intent)">onBind()</a></code>. The client receives the <code><a href="../../../reference/android/os/Binder.html">Binder</a></code> and
+can use it to directly access public methods available in either the <code><a href="../../../reference/android/os/Binder.html">Binder</a></code>
+implementation or even the <code><a href="../../../reference/android/app/Service.html">Service</a></code>.
+  <p>This is the preferred technique when your service is merely a background worker for your own
+application. The only reason you would not create your interface this way is because
+your service is used by other applications or across separate processes.</dd>
+
+  <dt><a href="#Messenger">Using a Messenger</a></dt>
+  <dd>If you need your interface to work across different processes, you can create
+an interface for the service with a <code><a href="../../../reference/android/os/Messenger.html">Messenger</a></code>. In this manner, the service
+defines a <code><a href="../../../reference/android/os/Handler.html">Handler</a></code> that responds to different types of <code><a href="../../../reference/android/os/Message.html">Message</a></code> objects. This <code><a href="../../../reference/android/os/Handler.html">Handler</a></code>
+is the basis for a <code><a href="../../../reference/android/os/Messenger.html">Messenger</a></code> that can then share an <code><a href="../../../reference/android/os/IBinder.html">IBinder</a></code>
+with the client, allowing the client to send commands to the service using <code><a href="../../../reference/android/os/Message.html">Message</a></code> objects. Additionally, the client can define a <code><a href="../../../reference/android/os/Messenger.html">Messenger</a></code> of
+its own so the service can send messages back.
+  <p>This is the simplest way to perform interprocess communication (IPC), because the <code><a href="../../../reference/android/os/Messenger.html">Messenger</a></code> queues all requests into a single thread so that you don't have to design
+your service to be thread-safe.</p>
+  </dd>
+
+  <dt>Using AIDL</dt>
+  <dd>AIDL (Android Interface Definition Language) performs all the work to decompose objects into
+primitives that the operating system can understand and marshall them across processes to perform
+IPC. The previous technique, using a <code><a href="../../../reference/android/os/Messenger.html">Messenger</a></code>, is actually based on AIDL as
+its underlying structure. As mentioned above, the <code><a href="../../../reference/android/os/Messenger.html">Messenger</a></code> creates a queue of
+all the client requests in a single thread, so the service receives requests one at a time. If,
+however, you want your service to handle multiple requests simultaneously, then you can use AIDL
+directly. In this case, your service must be capable of multi-threading and be built thread-safe.
+  <p>To use AIDL directly, you must
+create an <code>.aidl</code> file that defines the programming interface. The Android SDK tools use
+this file to generate an abstract class that implements the interface and handles IPC, which you
+can then extend within your service.</p>
+  </dd>
+</dl>
+
+  <p class="note"><strong>Note:</strong> Most applications <strong>should not</strong> use AIDL to
+create a bound service, because it may require multithreading capabilities and
+can result in a more complicated implementation. As such, AIDL is not suitable for most applications
+and this document does not discuss how to use it for your service. If you're certain that you need
+to use AIDL directly, see the <a href="../../../guide/developing/tools/aidl.html">AIDL</a>
+document.</p>
+
+
+
+
+<h3 id="Binder">Extending the Binder class</h3>
+
+<p>If your service is used only by the local application and does not need to work across processes,
+then you can implement your own <code><a href="../../../reference/android/os/Binder.html">Binder</a></code> class that provides your client direct
+access to public methods in the service.</p>
+
+<p class="note"><strong>Note:</strong> This works only if the client and service are in the same
+application and process, which is most common. For example, this would work well for a music
+application that needs to bind an activity to its own service that's playing music in the
+background.</p>
+
+<p>Here's how to set it up:</p>
+<ol>
+  <li>In your service, create an instance of <code><a href="../../../reference/android/os/Binder.html">Binder</a></code> that either:
+    <ul>
+      <li>contains public methods that the client can call</li>
+      <li>returns the current <code><a href="../../../reference/android/app/Service.html">Service</a></code> instance, which has public methods the
+client can call</li>
+      <li>or, returns an instance of another class hosted by the service with public methods the
+client can call</li>
+    </ul>
+  <li>Return this instance of <code><a href="../../../reference/android/os/Binder.html">Binder</a></code> from the <code><a href="../../../reference/android/app/Service.html#onBind(android.content.Intent)">onBind()</a></code> callback method.</li>
+  <li>In the client, receive the <code><a href="../../../reference/android/os/Binder.html">Binder</a></code> from the <code><a href="../../../reference/android/content/ServiceConnection.html#onServiceConnected(android.content.ComponentName, android.os.IBinder)">onServiceConnected()</a></code> callback method and
+make calls to the bound service using the methods provided.</li>
+</ol>
+
+<p class="note"><strong>Note:</strong> The reason the service and client must be in the same
+application is so the client can cast the returned object and properly call its APIs. The service
+and client must also be in the same process, because this technique does not perform any
+marshalling across processes.</p>
+
+<p>For example, here's a service that provides clients access to methods in the service through
+a <code><a href="../../../reference/android/os/Binder.html">Binder</a></code> implementation:</p>
+
+<pre>
+public class LocalService extends Service {
+    // Binder given to clients
+    private final IBinder mBinder = new LocalBinder();
+    // Random number generator
+    private final Random mGenerator = new Random();
+
+    /**
+     * Class used for the client Binder.  Because we know this service always
+     * runs in the same process as its clients, we don't need to deal with IPC.
+     */
+    public class LocalBinder extends Binder {
+        LocalService getService() {
+            // Return this instance of LocalService so clients can call public methods
+            return LocalService.this;
+        }
+    }
+
+    &#64;Override
+    public IBinder onBind(Intent intent) {
+        return mBinder;
+    }
+
+    /** method for clients */
+    public int getRandomNumber() {
+      return mGenerator.nextInt(100);
+    }
+}
+</pre>
+
+<p>The <code>LocalBinder</code> provides the <code>getService()</code> method for clients to retrieve the
+current instance of <code>LocalService</code>. This allows clients to call public methods in the
+service. For example, clients can call <code>getRandomNumber()</code> from the service.</p>
+
+<p>Here's an activity that binds to <code>LocalService</code> and calls <code>getRandomNumber()</code>
+when a button is clicked:</p>
+
+<pre>
+public class BindingActivity extends Activity {
+    LocalService mService;
+    boolean mBound = false;
+
+    &#64;Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.main);
+    }
+
+    &#64;Override
+    protected void onStart() {
+        super.onStart();
+        // Bind to LocalService
+        Intent intent = new Intent(this, LocalService.class);
+        bindService(intent, mConnection, Context.BIND_AUTO_CREATE);
+    }
+
+    &#64;Override
+    protected void onStop() {
+        super.onStop();
+        // Unbind from the service
+        if (mBound) {
+            unbindService(mConnection);
+            mBound = false;
+        }
+    }
+
+    /** Called when a button is clicked (the button in the layout file attaches to
+      * this method with the android:onClick attribute) */
+    public void onButtonClick(View v) {
+        if (mBound) {
+            // Call a method from the LocalService.
+            // However, if this call were something that might hang, then this request should
+            // occur in a separate thread to avoid slowing down the activity performance.
+            int num = mService.getRandomNumber();
+            Toast.makeText(this, "number: " + num, Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    /** Defines callbacks for service binding, passed to bindService() */
+    private ServiceConnection mConnection = new ServiceConnection() {
+
+        &#64;Override
+        public void onServiceConnected(ComponentName className,
+                IBinder service) {
+            // We've bound to LocalService, cast the IBinder and get LocalService instance
+            LocalBinder binder = (LocalBinder) service;
+            mService = binder.getService();
+            mBound = true;
+        }
+
+        &#64;Override
+        public void onServiceDisconnected(ComponentName arg0) {
+            mBound = false;
+        }
+    };
+}
+</pre>
+
+<p>The above sample shows how the client binds to the service using an implementation of
+<code><a href="../../../reference/android/content/ServiceConnection.html">ServiceConnection</a></code> and the <code><a href="../../../reference/android/content/ServiceConnection.html#onServiceConnected(android.content.ComponentName, android.os.IBinder)">onServiceConnected()</a></code> callback. The next
+section provides more information about this process of binding to the service.</p>
+
+<p class="note"><strong>Note:</strong> The example above doesn't explicitly unbind from the service,
+but all clients should unbind at an appropriate time (such as when the activity pauses).</p>
+
+<p>For more sample code, see the <a
+href="../../../resources/samples/ApiDemos/src/com/example/android/apis/app/LocalService.html"><code>LocalService.java</code></a> class and the <a
+href="../../../resources/samples/ApiDemos/src/com/example/android/apis/app/LocalServiceActivities.html"><code>LocalServiceActivities.java</code></a> class in <a
+href="../../../resources/samples/ApiDemos/index.html">ApiDemos</a>.</p>
+
+
+
+
+
+<h3 id="Messenger">Using a Messenger</h3>
+
+<div class="sidebox-wrapper">
+<div class="sidebox">
+  <h4>Compared to AIDL</h4>
+  <p>When you need to perform IPC, using a <code><a href="../../../reference/android/os/Messenger.html">Messenger</a></code> for your interface is
+simpler than implementing it with AIDL, because <code><a href="../../../reference/android/os/Messenger.html">Messenger</a></code> queues
+all calls to the service, whereas, a pure AIDL interface sends simultaneous requests to the
+service, which must then handle multi-threading.</p>
+  <p>For most applications, the service doesn't need to perform multi-threading, so using a <code><a href="../../../reference/android/os/Messenger.html">Messenger</a></code> allows the service to handle one call at a time. If it's important
+that your service be multi-threaded, then you should use <a
+href="../../../guide/developing/tools/aidl.html">AIDL</a> to define your interface.</p>
+</div>
+</div>
+
+<p>If you need your service to communicate with remote processes, then you can use a
+<code><a href="../../../reference/android/os/Messenger.html">Messenger</a></code> to provide the interface for your service. This technique allows
+you to perform interprocess communication (IPC) without the need to use AIDL.</p>
+
+<p>Here's a summary of how to use a <code><a href="../../../reference/android/os/Messenger.html">Messenger</a></code>:</p>
+
+<ul>
+  <li>The service implements a <code><a href="../../../reference/android/os/Handler.html">Handler</a></code> that receives a callback for each
+call from a client.</li>
+  <li>The <code><a href="../../../reference/android/os/Handler.html">Handler</a></code> is used to create a <code><a href="../../../reference/android/os/Messenger.html">Messenger</a></code> object
+(which is a reference to the <code><a href="../../../reference/android/os/Handler.html">Handler</a></code>).</li>
+  <li>The <code><a href="../../../reference/android/os/Messenger.html">Messenger</a></code> creates an <code><a href="../../../reference/android/os/IBinder.html">IBinder</a></code> that the service
+returns to clients from <code><a href="../../../reference/android/app/Service.html#onBind(android.content.Intent)">onBind()</a></code>.</li>
+  <li>Clients use the <code><a href="../../../reference/android/os/IBinder.html">IBinder</a></code> to instantiate the <code><a href="../../../reference/android/os/Messenger.html">Messenger</a></code>
+(that references the service's <code><a href="../../../reference/android/os/Handler.html">Handler</a></code>), which the client uses to send
+<code><a href="../../../reference/android/os/Message.html">Message</a></code> objects to the service.</li>
+  <li>The service receives each <code><a href="../../../reference/android/os/Message.html">Message</a></code> in its <code><a href="../../../reference/android/os/Handler.html">Handler</a></code>&mdash;specifically, in the <code><a href="../../../reference/android/os/Handler.html#handleMessage(android.os.Message)">handleMessage()</a></code> method.</li>
+</ul>
+
+
+<p>In this way, there are no "methods" for the client to call on the service. Instead, the
+client delivers "messages" (<code><a href="../../../reference/android/os/Message.html">Message</a></code> objects) that the service receives in
+its <code><a href="../../../reference/android/os/Handler.html">Handler</a></code>.</p>
+
+<p>Here's a simple example service that uses a <code><a href="../../../reference/android/os/Messenger.html">Messenger</a></code> interface:</p>
+
+<pre>
+public class MessengerService extends Service {
+    /** Command to the service to display a message */
+    static final int MSG_SAY_HELLO = 1;
+
+    /**
+     * Handler of incoming messages from clients.
+     */
+    class IncomingHandler extends Handler {
+        &#64;Override
+        public void handleMessage(Message msg) {
+            switch (msg.what) {
+                case MSG_SAY_HELLO:
+                    Toast.makeText(getApplicationContext(), "hello!", Toast.LENGTH_SHORT).show();
+                    break;
+                default:
+                    super.handleMessage(msg);
+            }
+        }
+    }
+
+    /**
+     * Target we publish for clients to send messages to IncomingHandler.
+     */
+    final Messenger mMessenger = new Messenger(new IncomingHandler());
+
+    /**
+     * When binding to the service, we return an interface to our messenger
+     * for sending messages to the service.
+     */
+    &#64;Override
+    public IBinder onBind(Intent intent) {
+        Toast.makeText(getApplicationContext(), "binding", Toast.LENGTH_SHORT).show();
+        return mMessenger.getBinder();
+    }
+}
+</pre>
+
+<p>Notice that the <code><a href="../../../reference/android/os/Handler.html#handleMessage(android.os.Message)">handleMessage()</a></code> method in the
+<code><a href="../../../reference/android/os/Handler.html">Handler</a></code> is where the service receives the incoming <code><a href="../../../reference/android/os/Message.html">Message</a></code>
+and decides what to do, based on the <code><a href="../../../reference/android/os/Message.html#what">what</a></code> member.</p>
+
+<p>All that a client needs to do is create a <code><a href="../../../reference/android/os/Messenger.html">Messenger</a></code> based on the <code><a href="../../../reference/android/os/IBinder.html">IBinder</a></code> returned by the service and send a message using <code><a href="../../../reference/android/os/Messenger.html#send(android.os.Message)">send()</a></code>. For example, here's a simple activity that binds to the
+service and delivers the <code>MSG_SAY_HELLO</code> message to the service:</p>
+
+<pre>
+public class ActivityMessenger extends Activity {
+    /** Messenger for communicating with the service. */
+    Messenger mService = null;
+
+    /** Flag indicating whether we have called bind on the service. */
+    boolean mBound;
+
+    /**
+     * Class for interacting with the main interface of the service.
+     */
+    private ServiceConnection mConnection = new ServiceConnection() {
+        public void onServiceConnected(ComponentName className, IBinder service) {
+            // This is called when the connection with the service has been
+            // established, giving us the object we can use to
+            // interact with the service.  We are communicating with the
+            // service using a Messenger, so here we get a client-side
+            // representation of that from the raw IBinder object.
+            mService = new Messenger(service);
+            mBound = true;
+        }
+
+        public void onServiceDisconnected(ComponentName className) {
+            // This is called when the connection with the service has been
+            // unexpectedly disconnected -- that is, its process crashed.
+            mService = null;
+            mBound = false;
+        }
+    };
+
+    public void sayHello(View v) {
+        if (!mBound) return;
+        // Create and send a message to the service, using a supported 'what' value
+        Message msg = Message.obtain(null, MessengerService.MSG_SAY_HELLO, 0, 0);
+        try {
+            mService.send(msg);
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+    }
+
+    &#64;Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.main);
+    }
+
+    &#64;Override
+    protected void onStart() {
+        super.onStart();
+        // Bind to the service
+        bindService(new Intent(this, MessengerService.class), mConnection,
+            Context.BIND_AUTO_CREATE);
+    }
+
+    &#64;Override
+    protected void onStop() {
+        super.onStop();
+        // Unbind from the service
+        if (mBound) {
+            unbindService(mConnection);
+            mBound = false;
+        }
+    }
+}
+</pre>
+
+<p>Notice that this example does not show how the service can respond to the client. If you want the
+service to respond, then you need to also create a <code><a href="../../../reference/android/os/Messenger.html">Messenger</a></code> in the client. Then
+when the client receives the <code><a href="../../../reference/android/content/ServiceConnection.html#onServiceConnected(android.content.ComponentName, android.os.IBinder)">onServiceConnected()</a></code> callback, it sends a <code><a href="../../../reference/android/os/Message.html">Message</a></code> to the service that includes
+the client's <code><a href="../../../reference/android/os/Messenger.html">Messenger</a></code> in the <code><a href="../../../reference/android/os/Message.html#replyTo">replyTo</a></code> parameter
+of the <code><a href="../../../reference/android/os/Messenger.html#send(android.os.Message)">send()</a></code> method.</p>
+
+<p>You can see an example of how to provide two-way messaging in the <a
+href="../../../resources/samples/ApiDemos/src/com/example/android/apis/app/MessengerService.html"><code>MessengerService.java</code></a> (service) and <a
+href="../../../resources/samples/ApiDemos/src/com/example/android/apis/app/MessengerServiceActivities.html"><code>MessengerServiceActivities.java</code></a> (client) samples.</p>
+
+
+
+
+
+<h2 id="Binding">Binding to a Service</h2>
+
+<p>Application components (clients) can bind to a service by calling
+<code><a href="../../../reference/android/content/Context.html#bindService(android.content.Intent, android.content.ServiceConnection, int)">bindService()</a></code>. The Android
+system then calls the service's <code><a href="../../../reference/android/app/Service.html#onBind(android.content.Intent)">onBind()</a></code> method, which returns an <code><a href="../../../reference/android/os/IBinder.html">IBinder</a></code> for interacting with the service.</p>
+
+<p>The binding is asynchronous. <code><a href="../../../reference/android/content/Context.html#bindService(android.content.Intent, android.content.ServiceConnection, int)">bindService()</a></code> returns immediately and does <em>not</em> return the <code><a href="../../../reference/android/os/IBinder.html">IBinder</a></code> to
+the client. To receive the <code><a href="../../../reference/android/os/IBinder.html">IBinder</a></code>, the client must create an instance of <code><a href="../../../reference/android/content/ServiceConnection.html">ServiceConnection</a></code> and pass it to <code><a href="../../../reference/android/content/Context.html#bindService(android.content.Intent, android.content.ServiceConnection, int)">bindService()</a></code>. The <code><a href="../../../reference/android/content/ServiceConnection.html">ServiceConnection</a></code> includes a callback method that the
+system calls to deliver the <code><a href="../../../reference/android/os/IBinder.html">IBinder</a></code>.</p>
+
+<p class="note"><strong>Note:</strong> Only activities, services, and content providers can bind
+to a service&mdash;you <strong>cannot</strong> bind to a service from a broadcast receiver.</p>
+
+<p>So, to bind to a service from your client, you must: </p>
+<ol>
+  <li>Implement <code><a href="../../../reference/android/content/ServiceConnection.html">ServiceConnection</a></code>.
+    <p>Your implementation must override two callback methods:</p>
+    <dl>
+      <dt><code><a href="../../../reference/android/content/ServiceConnection.html#onServiceConnected(android.content.ComponentName, android.os.IBinder)">onServiceConnected()</a></code></dt>
+        <dd>The system calls this to deliver the <code><a href="../../../reference/android/os/IBinder.html">IBinder</a></code> returned by
+the service's <code><a href="../../../reference/android/app/Service.html#onBind(android.content.Intent)">onBind()</a></code> method.</dd>
+      <dt><code><a href="../../../reference/android/content/ServiceConnection.html#onServiceDisconnected(android.content.ComponentName)">onServiceDisconnected()</a></code></dt>
+        <dd>The Android system calls this when the connection to the service is unexpectedly
+lost, such as when the service has crashed or has been killed. This is <em>not</em> called when the
+client unbinds.</dd>
+    </dl>
+  </li>
+  <li>Call <code><a href="../../../reference/android/content/Context.html#bindService(android.content.Intent, android.content.ServiceConnection, int)">bindService()</a></code>, passing the <code><a href="../../../reference/android/content/ServiceConnection.html">ServiceConnection</a></code> implementation. </li>
+  <li>When the system calls your <code><a href="../../../reference/android/content/ServiceConnection.html#onServiceConnected(android.content.ComponentName, android.os.IBinder)">onServiceConnected()</a></code> callback method, you can begin making calls to the service, using
+the methods defined by the interface.</li>
+  <li>To disconnect from the service, call <code><a href="../../../reference/android/content/Context.html#unbindService(android.content.ServiceConnection)">unbindService()</a></code>.
+    <p>When your client is destroyed, it will unbind from the service, but you should always unbind
+when you're done interacting with the service or when your activity pauses so that the service can
+shutdown while its not being used. (Appropriate times to bind and unbind is discussed
+more below.)</p>
+  </li>
+</ol>
+
+<p>For example, the following snippet connects the client to the service created above by
+<a href="#Binder">extending the Binder class</a>, so all it must do is cast the returned
+<code><a href="../../../reference/android/os/IBinder.html">IBinder</a></code> to the <code>LocalService</code> class and request the <code>LocalService</code> instance:</p>
+
+<pre>
+LocalService mService;
+private ServiceConnection mConnection = new ServiceConnection() {
+    // Called when the connection with the service is established
+    public void onServiceConnected(ComponentName className, IBinder service) {
+        // Because we have bound to an explicit
+        // service that is running in our own process, we can
+        // cast its IBinder to a concrete class and directly access it.
+        LocalBinder binder = (LocalBinder) service;
+        mService = binder.getService();
+        mBound = true;
+    }
+
+    // Called when the connection with the service disconnects unexpectedly
+    public void onServiceDisconnected(ComponentName className) {
+        Log.e(TAG, "onServiceDisconnected");
+        mBound = false;
+    }
+};
+</pre>
+
+<p>With this <code><a href="../../../reference/android/content/ServiceConnection.html">ServiceConnection</a></code>, the client can bind to a service by passing
+this it to <code><a href="../../../reference/android/content/Context.html#bindService(android.content.Intent, android.content.ServiceConnection, int)">bindService()</a></code>. For example:</p>
+
+<pre>
+Intent intent = new Intent(this, LocalService.class);
+bindService(intent, mConnection, Context.BIND_AUTO_CREATE);
+</pre>
+
+<ul>
+  <li>The first parameter of <code><a href="../../../reference/android/content/Context.html#bindService(android.content.Intent, android.content.ServiceConnection, int)">bindService()</a></code> is an
+<code><a href="../../../reference/android/content/Intent.html">Intent</a></code> that explicitly names the service to bind (thought the intent
+could be implicit).</li>
+<li>The second parameter is the <code><a href="../../../reference/android/content/ServiceConnection.html">ServiceConnection</a></code> object.</li>
+<li>The third parameter is a flag indicating options for the binding. It should usually be <code><a href="../../../reference/android/content/Context.html#BIND_AUTO_CREATE">BIND_AUTO_CREATE</a></code> in order to create the service if its not already alive.
+Other possible values are <code><a href="../../../reference/android/content/Context.html#BIND_DEBUG_UNBIND">BIND_DEBUG_UNBIND</a></code>
+and <code><a href="../../../reference/android/content/Context.html#BIND_NOT_FOREGROUND">BIND_NOT_FOREGROUND</a></code>, or <code>0</code> for none.</li>
+</ul>
+
+
+<h3>Additional notes</h3>
+
+<p>Here are some important notes about binding to a service:</p>
+<ul>
+  <li>You should always trap <code><a href="../../../reference/android/os/DeadObjectException.html">DeadObjectException</a></code> exceptions, which are thrown
+when the connection has broken. This is the only exception thrown by remote methods.</li>
+  <li>Objects are reference counted across processes. </li>
+  <li>You should usually pair the binding and unbinding during
+matching bring-up and tear-down moments of the client's lifecycle. For example:
+    <ul>
+      <li>If you only need to interact with the service while your activity is visible, you
+should bind during <code><a href="../../../reference/android/app/Activity.html#onStart()">onStart()</a></code> and unbind during <code><a href="../../../reference/android/app/Activity.html#onStop()">onStop()</a></code>.</li>
+      <li>If you want your activity to receive responses even while it is stopped in the
+background, then you can bind during <code><a href="../../../reference/android/app/Activity.html#onCreate(android.os.Bundle)">onCreate()</a></code> and unbind
+during <code><a href="../../../reference/android/app/Activity.html#onDestroy()">onDestroy()</a></code>. Beware that this implies that your
+activity needs to use the service the entire time it's running (even in the background), so if
+the service is in another process, then you increase the weight of the process and it becomes
+more likely that the system will kill it.</li>
+    </ul>
+    <p class="note"><strong>Note:</strong> You should usually <strong>not</strong> bind and unbind
+during your activity's <code><a href="../../../reference/android/app/Activity.html#onResume()">onResume()</a></code> and <code><a href="../../../reference/android/app/Activity.html#onPause()">onPause()</a></code>, because these callbacks occur at every lifecycle transition
+and you should keep the processing that occurs at these transitions to a minimum. Also, if
+multiple activities in your application bind to the same service and there is a transition between
+two of those activities, the service may be destroyed and recreated as the current activity unbinds
+(during pause) before the next one binds (during resume). (This activity transition for how
+activities coordinate their lifecycles is described in the <a
+href="../../../guide/topics/fundamentals/activities.html#CoordinatingActivities">Activities</a>
+document.)</p>
+</ul>
+
+<p>For more sample code, showing how to bind to a service, see the <a
+href="../../../resources/samples/ApiDemos/src/com/example/android/apis/app/RemoteService.html"><code>RemoteService.java</code></a> class in <a
+href="../../../resources/samples/ApiDemos/index.html">ApiDemos</a>.</p>
+
+
+
+
+
+<h2 id="Lifecycle">Managing the Lifecycle of a Bound Service</h2>
+
+<div class="figure" style="width:588px">
+<img src="../../../images/fundamentals/service_binding_tree_lifecycle.png" alt="" />
+<p class="img-caption"><strong>Figure 1.</strong> The lifecycle for a service that is started
+and also allows binding.</p>
+</div>
+
+<p>When a service is unbound from all clients, the Android system destroys it (unless it was also
+started with <code><a href="../../../reference/android/app/Service.html#onStartCommand(android.content.Intent, int, int)">onStartCommand()</a></code>). As such, you don't have
+to manage the lifecycle of your service if it's purely a bound
+service&mdash;the Android system manages it for you based on whether it is bound to any clients.</p>
+
+<p>However, if you choose to implement the <code><a href="../../../reference/android/app/Service.html#onStartCommand(android.content.Intent, int, int)">onStartCommand()</a></code> callback method, then you must explicitly stop the service, because the
+service is now considered to be <em>started</em>. In this case, the service runs until the service
+stops itself with <code><a href="../../../reference/android/app/Service.html#stopSelf()">stopSelf()</a></code> or another component calls <code><a href="../../../reference/android/content/Context.html#stopService(android.content.Intent)">stopService()</a></code>, regardless of whether it is bound to any
+clients.</p>
+
+<p>Additionally, if your service is started and accepts binding, then when the system calls
+your <code><a href="../../../reference/android/app/Service.html#onUnbind(android.content.Intent)">onUnbind()</a></code> method, you can optionally return
+<code>true</code> if you would like to receive a call to <code><a href="../../../reference/android/app/Service.html#onRebind(android.content.Intent)">onRebind()</a></code> the next time a client binds to the service (instead of receiving a call to <code><a href="../../../reference/android/app/Service.html#onBind(android.content.Intent)">onBind()</a></code>). <code><a href="../../../reference/android/app/Service.html#onRebind(android.content.Intent)">onRebind()</a></code> returns void, but the client still receives the <code><a href="../../../reference/android/os/IBinder.html">IBinder</a></code> in its
+<code><a href="../../../reference/android/content/ServiceConnection.html#onServiceConnected(android.content.ComponentName, android.os.IBinder)">onServiceConnected()</a></code> callback.
+Below, figure 1 illustrates the logic for this kind of lifecycle.</p>
+
+<p>For more information about the lifecycle of an started service, see the <a
+href="../../../guide/topics/fundamentals/services.html#Lifecycle">Services</a> document.</p>
+
+
+
+
+
+    </div>
+
+    
+    
+    <a href="#top" style="float:right">&uarr; Go to top</a>
+    
+      <p><a href="services.html">&larr; Back to Services</a></p>
+    
+
+  </div> <!-- end jd-content -->
+
+<div id="footer">
+
+
+  <div id="copyright">
+    
+  Except as noted, this content is licensed under <a
+  href="http://www.apache.org/licenses/LICENSE-2.0">Apache 2.0</a>. 
+  For details and restrictions, see the <a href="../../../license.html">
+  Content License</a>.
+  </div>
+  <div id="build_info">
+    
+  Android 4.0&nbsp;r1 - 16 Mar 2012 16:45
+
+  </div>
+
+  <div id="footerlinks">
+    
+  <p>
+    <a href="http://www.google.com/intl/en/policies/" target="_blank">Privacy &amp; Terms</a> -
+    <a href="http://www.android.com/branding.html" target="_blank">Brand Guidelines</a> -
+    <a
+href="http://code.google.com/p/android/issues/entry?template=Developer%20Documentation"
+target="_blank">Report Document Issues</a>
+  </p>
+  </div>
+
+</div> <!-- end footer -->
+
+</div><!-- end doc-content -->
+
+</div> <!-- end body-content --> 
+
+<script type="text/javascript">
+init(); /* initialize android-developer-docs.js */
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-5831155-1");
+pageTracker._trackPageview();
+</script>
+
+</body>
+</html>
+
+
+

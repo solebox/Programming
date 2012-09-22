@@ -1,0 +1,5863 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico" />
+<title>SensorManager - Android SDK | Android Developers</title>
+<link href="../../../assets/android-developer-docs.css" rel="stylesheet" type="text/css" />
+<script src="../../../assets/search_autocomplete.js" type="text/javascript"></script>
+<script src="../../../assets/jquery-resizable.min.js" type="text/javascript"></script>
+<script src="../../../assets/android-developer-docs.js" type="text/javascript"></script>
+<script src="../../../assets/prettify.js" type="text/javascript"></script>
+<script type="text/javascript">
+  setToRoot("../../../");
+</script>
+<script src="../../../assets/android-developer-reference.js" type="text/javascript"></script>
+<script src="../../../navtree_data.js" type="text/javascript"></script>
+<noscript>
+  <style type="text/css">
+    html,body{overflow:auto;}
+    #body-content{position:relative; top:0;}
+    #doc-content{overflow:visible;border-left:3px solid #666;}
+    #side-nav{padding:0;}
+    #side-nav .toggle-list ul {display:block;}
+    #resize-packages-nav{border-bottom:3px solid #666;}
+  </style>
+</noscript>
+</head>
+<body class="1" itemscope itemtype="http://schema.org/Article">
+
+  <div id="header">
+      <div id="headerLeft">
+          <a href="../../../index.html" tabindex="-1"><img
+              src="../../../assets/images/bg_logo.png" alt="Android Developers" /></a>
+          <ul id="header-tabs" class="reference">
+    
+	<li id="home-link"><a href="../../../offline.html">
+	
+		<span class="en">Home</span>
+		<span style="display:none" class="de">Startseite</span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ホーム</span>
+		<span style="display:none" class="zh-CN">主页</span>
+		<span style="display:none" class="zh-TW">首頁</span>
+	
+	</a></li>
+	<li id="sdk-link"><a href="../../../sdk/index.html">
+		<span class="en">SDK</span>
+	</a></li>
+	<li id="guide-link"><a href="../../../guide/index.html" onClick="return loadLast('guide')">
+	
+		<span class="en">Dev Guide</span>
+		<span style="display:none" class="de">Handbuch</span>
+		<span style="display:none" class="es">Guía</span>
+		<span style="display:none" class="fr">Guide</span>
+		<span style="display:none" class="it">Guida</span>
+		<span style="display:none" class="ja">開発ガイド</span>
+		<span style="display:none" class="zh-CN">开发人员指南</span>
+		<span style="display:none" class="zh-TW">開發指南</span>
+	
+	</a></li>
+	<li id="reference-link"><a href="../../../reference/packages.html" onClick="return loadLast('reference')">
+	
+		<span class="en">Reference</span>
+		<span style="display:none" class="de">Referenz</span>
+		<span style="display:none" class="es">Referencia</span>
+		<span style="display:none" class="fr">Référence</span>
+		<span style="display:none" class="it">Riferimento</span>
+		<span style="display:none" class="ja">リファレンス</span>
+		<span style="display:none" class="zh-CN">参考</span>
+		<span style="display:none" class="zh-TW">參考資料</span>
+	
+	</a></li>
+	<li id="resources-link"><a href="../../../resources/index.html" onClick="return loadLast('resources')">
+	
+		<span class="en">Resources</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+    		<span style="display:none" class="ja"></span>
+		<span style="display:none" class="zh-CN"></span>
+		<span style="display:none" class="zh-TW"></span>
+	
+	</a></li>
+	<li id="videos-link"><a href="../../../videos/index.html" onClick="return loadLast('videos')">
+	
+		<span class="en">Videos</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ビデオ</span>
+		<span style="display:none" class="zh-CN"></span>
+		<span style="display:none" class="zh-TW"></span>
+	
+	</a></li>
+	<li><a href="http://android-developers.blogspot.com" onClick="return requestAppendHL(this.href)">
+	
+		<span class="en">Blog</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ブログ</span>
+		<span style="display:none" class="zh-CN">博客</span>
+		<span style="display:none" class="zh-TW">網誌</span>
+	
+	</a></li>
+
+
+     
+</ul>
+     
+      </div>
+      <div id="headerRight">
+          <div id="headerLinks">
+          &nbsp;&nbsp;
+          <a href="../../../design/index.html">Android Design</a>&nbsp;&nbsp;
+          <a href="http://www.android.com">Android.com</a>
+          </div>
+  <div id="search" >
+      <div id="searchForm">
+          <form accept-charset="utf-8" class="gsc-search-box" 
+                onsubmit="return submit_search()">
+            <table class="gsc-search-box" cellpadding="0" cellspacing="0"><tbody>
+                <tr>
+                  <td class="gsc-input">
+                    <input id="search_autocomplete" class="gsc-input" type="text" size="33" autocomplete="off"
+                      title="search developer docs" name="q"
+                      value="search developer docs"
+                      onFocus="search_focus_changed(this, true)"
+                      onBlur="search_focus_changed(this, false)"
+                      onkeydown="return search_changed(event, true, '../../../')"
+                      onkeyup="return search_changed(event, false, '../../../')" />
+                  <div id="search_filtered_div" class="no-display">
+                      <table id="search_filtered" cellspacing=0>
+                      </table>
+                  </div>
+                  </td>
+                  <td class="gsc-search-button">
+                    <input type="submit" value="Search" title="search" id="search-button" class="gsc-search-button" />
+                  </td>
+                  <td class="gsc-clear-button">
+                    <div title="clear results" class="gsc-clear-button">&nbsp;</div>
+                  </td>
+                </tr></tbody>
+              </table>
+          </form>
+      </div><!-- searchForm -->
+  </div><!-- search -->
+    			  <div id="api-level-toggle">
+    			    <input type="checkbox" id="apiLevelCheckbox" onclick="toggleApiLevelSelector(this)" />
+    			    <label for="apiLevelCheckbox" class="disabled">Filter by API Level: </label>
+    			    <select id="apiLevelSelector">
+    			      <!-- option elements added by buildApiLevelSelector() -->
+    			    </select>
+    			  </div>
+    	 	    <script>
+              var SINCE_DATA = [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15' ];
+              buildApiLevelSelector();
+            </script>
+      </div><!-- headerRight -->
+      <script type="text/javascript">
+        <!--  
+        changeTabLang(getLangPref());
+        //-->
+      </script>
+  </div><!-- header -->
+
+  <div class="g-section g-tpl-240" id="body-content">
+    <div class="g-unit g-first" id="side-nav" itemscope itemtype="http://schema.org/SiteNavigationElement">
+      <div id="swapper">
+        <div id="nav-panels">
+          <div id="resize-packages-nav">
+            <div id="packages-nav">
+              <div id="index-links"><nobr>
+                <a href="../../../reference/packages.html"  >Package Index</a> | 
+                <a href="../../../reference/classes.html" >Class Index</a></nobr>
+              </div>
+              <ul>
+              	
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/package-summary.html">android</a></li>
+    <li class="api apilevel-4">
+  <a href="../../../reference/android/accessibilityservice/package-summary.html">android.accessibilityservice</a></li>
+    <li class="api apilevel-5">
+  <a href="../../../reference/android/accounts/package-summary.html">android.accounts</a></li>
+    <li class="api apilevel-11">
+  <a href="../../../reference/android/animation/package-summary.html">android.animation</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/app/package-summary.html">android.app</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../reference/android/app/admin/package-summary.html">android.app.admin</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../reference/android/app/backup/package-summary.html">android.app.backup</a></li>
+    <li class="api apilevel-3">
+  <a href="../../../reference/android/appwidget/package-summary.html">android.appwidget</a></li>
+    <li class="api apilevel-5">
+  <a href="../../../reference/android/bluetooth/package-summary.html">android.bluetooth</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/content/package-summary.html">android.content</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/content/pm/package-summary.html">android.content.pm</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/content/res/package-summary.html">android.content.res</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/database/package-summary.html">android.database</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/database/sqlite/package-summary.html">android.database.sqlite</a></li>
+    <li class="api apilevel-11">
+  <a href="../../../reference/android/drm/package-summary.html">android.drm</a></li>
+    <li class="api apilevel-4">
+  <a href="../../../reference/android/gesture/package-summary.html">android.gesture</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/graphics/package-summary.html">android.graphics</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/graphics/drawable/package-summary.html">android.graphics.drawable</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/graphics/drawable/shapes/package-summary.html">android.graphics.drawable.shapes</a></li>
+    <li class="selected api apilevel-1">
+  <a href="../../../reference/android/hardware/package-summary.html">android.hardware</a></li>
+    <li class="api apilevel-12">
+  <a href="../../../reference/android/hardware/usb/package-summary.html">android.hardware.usb</a></li>
+    <li class="api apilevel-3">
+  <a href="../../../reference/android/inputmethodservice/package-summary.html">android.inputmethodservice</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/location/package-summary.html">android.location</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/media/package-summary.html">android.media</a></li>
+    <li class="api apilevel-9">
+  <a href="../../../reference/android/media/audiofx/package-summary.html">android.media.audiofx</a></li>
+    <li class="api apilevel-14">
+  <a href="../../../reference/android/media/effect/package-summary.html">android.media.effect</a></li>
+    <li class="api apilevel-12">
+  <a href="../../../reference/android/mtp/package-summary.html">android.mtp</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/net/package-summary.html">android.net</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/net/http/package-summary.html">android.net.http</a></li>
+    <li class="api apilevel-12">
+  <a href="../../../reference/android/net/rtp/package-summary.html">android.net.rtp</a></li>
+    <li class="api apilevel-9">
+  <a href="../../../reference/android/net/sip/package-summary.html">android.net.sip</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/net/wifi/package-summary.html">android.net.wifi</a></li>
+    <li class="api apilevel-14">
+  <a href="../../../reference/android/net/wifi/p2p/package-summary.html">android.net.wifi.p2p</a></li>
+    <li class="api apilevel-9">
+  <a href="../../../reference/android/nfc/package-summary.html">android.nfc</a></li>
+    <li class="api apilevel-10">
+  <a href="../../../reference/android/nfc/tech/package-summary.html">android.nfc.tech</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/opengl/package-summary.html">android.opengl</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/os/package-summary.html">android.os</a></li>
+    <li class="api apilevel-9">
+  <a href="../../../reference/android/os/storage/package-summary.html">android.os.storage</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/preference/package-summary.html">android.preference</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/provider/package-summary.html">android.provider</a></li>
+    <li class="api apilevel-11">
+  <a href="../../../reference/android/renderscript/package-summary.html">android.renderscript</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/sax/package-summary.html">android.sax</a></li>
+    <li class="api apilevel-14">
+  <a href="../../../reference/android/security/package-summary.html">android.security</a></li>
+    <li class="api apilevel-14">
+  <a href="../../../reference/android/service/textservice/package-summary.html">android.service.textservice</a></li>
+    <li class="api apilevel-7">
+  <a href="../../../reference/android/service/wallpaper/package-summary.html">android.service.wallpaper</a></li>
+    <li class="api apilevel-3">
+  <a href="../../../reference/android/speech/package-summary.html">android.speech</a></li>
+    <li class="api apilevel-4">
+  <a href="../../../reference/android/speech/tts/package-summary.html">android.speech.tts</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v13/app/package-summary.html">android.support.v13.app</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v4/accessibilityservice/package-summary.html">android.support.v4.accessibilityservice</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v4/app/package-summary.html">android.support.v4.app</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v4/content/package-summary.html">android.support.v4.content</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v4/content/pm/package-summary.html">android.support.v4.content.pm</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v4/database/package-summary.html">android.support.v4.database</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v4/os/package-summary.html">android.support.v4.os</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v4/util/package-summary.html">android.support.v4.util</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v4/view/package-summary.html">android.support.v4.view</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v4/view/accessibility/package-summary.html">android.support.v4.view.accessibility</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v4/widget/package-summary.html">android.support.v4.widget</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/telephony/package-summary.html">android.telephony</a></li>
+    <li class="api apilevel-5">
+  <a href="../../../reference/android/telephony/cdma/package-summary.html">android.telephony.cdma</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/telephony/gsm/package-summary.html">android.telephony.gsm</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/test/package-summary.html">android.test</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/test/mock/package-summary.html">android.test.mock</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/test/suitebuilder/package-summary.html">android.test.suitebuilder</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/text/package-summary.html">android.text</a></li>
+    <li class="api apilevel-3">
+  <a href="../../../reference/android/text/format/package-summary.html">android.text.format</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/text/method/package-summary.html">android.text.method</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/text/style/package-summary.html">android.text.style</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/text/util/package-summary.html">android.text.util</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/util/package-summary.html">android.util</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/view/package-summary.html">android.view</a></li>
+    <li class="api apilevel-4">
+  <a href="../../../reference/android/view/accessibility/package-summary.html">android.view.accessibility</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/view/animation/package-summary.html">android.view.animation</a></li>
+    <li class="api apilevel-3">
+  <a href="../../../reference/android/view/inputmethod/package-summary.html">android.view.inputmethod</a></li>
+    <li class="api apilevel-14">
+  <a href="../../../reference/android/view/textservice/package-summary.html">android.view.textservice</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/webkit/package-summary.html">android.webkit</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/widget/package-summary.html">android.widget</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/dalvik/bytecode/package-summary.html">dalvik.bytecode</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/dalvik/system/package-summary.html">dalvik.system</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/awt/font/package-summary.html">java.awt.font</a></li>
+    <li class="api apilevel-3">
+  <a href="../../../reference/java/beans/package-summary.html">java.beans</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/io/package-summary.html">java.io</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/lang/package-summary.html">java.lang</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/lang/annotation/package-summary.html">java.lang.annotation</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/lang/ref/package-summary.html">java.lang.ref</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/lang/reflect/package-summary.html">java.lang.reflect</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/math/package-summary.html">java.math</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/net/package-summary.html">java.net</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/nio/package-summary.html">java.nio</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/nio/channels/package-summary.html">java.nio.channels</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/nio/channels/spi/package-summary.html">java.nio.channels.spi</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/nio/charset/package-summary.html">java.nio.charset</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/nio/charset/spi/package-summary.html">java.nio.charset.spi</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/security/package-summary.html">java.security</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/security/acl/package-summary.html">java.security.acl</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/security/cert/package-summary.html">java.security.cert</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/security/interfaces/package-summary.html">java.security.interfaces</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/security/spec/package-summary.html">java.security.spec</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/sql/package-summary.html">java.sql</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/text/package-summary.html">java.text</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/util/package-summary.html">java.util</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/util/concurrent/package-summary.html">java.util.concurrent</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/util/concurrent/atomic/package-summary.html">java.util.concurrent.atomic</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/util/concurrent/locks/package-summary.html">java.util.concurrent.locks</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/util/jar/package-summary.html">java.util.jar</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/util/logging/package-summary.html">java.util.logging</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/util/prefs/package-summary.html">java.util.prefs</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/util/regex/package-summary.html">java.util.regex</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/util/zip/package-summary.html">java.util.zip</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/javax/crypto/package-summary.html">javax.crypto</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/javax/crypto/interfaces/package-summary.html">javax.crypto.interfaces</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/javax/crypto/spec/package-summary.html">javax.crypto.spec</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/javax/microedition/khronos/egl/package-summary.html">javax.microedition.khronos.egl</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/javax/microedition/khronos/opengles/package-summary.html">javax.microedition.khronos.opengles</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/javax/net/package-summary.html">javax.net</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/javax/net/ssl/package-summary.html">javax.net.ssl</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/javax/security/auth/package-summary.html">javax.security.auth</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/javax/security/auth/callback/package-summary.html">javax.security.auth.callback</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/javax/security/auth/login/package-summary.html">javax.security.auth.login</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/javax/security/auth/x500/package-summary.html">javax.security.auth.x500</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/javax/security/cert/package-summary.html">javax.security.cert</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/javax/sql/package-summary.html">javax.sql</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/javax/xml/package-summary.html">javax.xml</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../reference/javax/xml/datatype/package-summary.html">javax.xml.datatype</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../reference/javax/xml/namespace/package-summary.html">javax.xml.namespace</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/javax/xml/parsers/package-summary.html">javax.xml.parsers</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../reference/javax/xml/transform/package-summary.html">javax.xml.transform</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../reference/javax/xml/transform/dom/package-summary.html">javax.xml.transform.dom</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../reference/javax/xml/transform/sax/package-summary.html">javax.xml.transform.sax</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../reference/javax/xml/transform/stream/package-summary.html">javax.xml.transform.stream</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../reference/javax/xml/validation/package-summary.html">javax.xml.validation</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../reference/javax/xml/xpath/package-summary.html">javax.xml.xpath</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/junit/framework/package-summary.html">junit.framework</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/junit/runner/package-summary.html">junit.runner</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/package-summary.html">org.apache.http</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/auth/package-summary.html">org.apache.http.auth</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/auth/params/package-summary.html">org.apache.http.auth.params</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/client/package-summary.html">org.apache.http.client</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/client/entity/package-summary.html">org.apache.http.client.entity</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/client/methods/package-summary.html">org.apache.http.client.methods</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/client/params/package-summary.html">org.apache.http.client.params</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/client/protocol/package-summary.html">org.apache.http.client.protocol</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/client/utils/package-summary.html">org.apache.http.client.utils</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/conn/package-summary.html">org.apache.http.conn</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/conn/params/package-summary.html">org.apache.http.conn.params</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/conn/routing/package-summary.html">org.apache.http.conn.routing</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/conn/scheme/package-summary.html">org.apache.http.conn.scheme</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/conn/ssl/package-summary.html">org.apache.http.conn.ssl</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/conn/util/package-summary.html">org.apache.http.conn.util</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/cookie/package-summary.html">org.apache.http.cookie</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/cookie/params/package-summary.html">org.apache.http.cookie.params</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/entity/package-summary.html">org.apache.http.entity</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/impl/package-summary.html">org.apache.http.impl</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/impl/auth/package-summary.html">org.apache.http.impl.auth</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/impl/client/package-summary.html">org.apache.http.impl.client</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/impl/conn/package-summary.html">org.apache.http.impl.conn</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/impl/conn/tsccm/package-summary.html">org.apache.http.impl.conn.tsccm</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/impl/cookie/package-summary.html">org.apache.http.impl.cookie</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/impl/entity/package-summary.html">org.apache.http.impl.entity</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/impl/io/package-summary.html">org.apache.http.impl.io</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/io/package-summary.html">org.apache.http.io</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/message/package-summary.html">org.apache.http.message</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/params/package-summary.html">org.apache.http.params</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/protocol/package-summary.html">org.apache.http.protocol</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/util/package-summary.html">org.apache.http.util</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/json/package-summary.html">org.json</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/w3c/dom/package-summary.html">org.w3c.dom</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../reference/org/w3c/dom/ls/package-summary.html">org.w3c.dom.ls</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/xml/sax/package-summary.html">org.xml.sax</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/xml/sax/ext/package-summary.html">org.xml.sax.ext</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/xml/sax/helpers/package-summary.html">org.xml.sax.helpers</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/xmlpull/v1/package-summary.html">org.xmlpull.v1</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/xmlpull/v1/sax2/package-summary.html">org.xmlpull.v1.sax2</a></li>
+              </ul><br/>
+            </div> <!-- end packages -->
+          </div> <!-- end resize-packages -->
+          <div id="classes-nav">
+            <ul>
+              
+    <li><h2>Interfaces</h2>
+      <ul>
+          <li class="api apilevel-1"><a href="../../../reference/android/hardware/Camera.AutoFocusCallback.html">Camera.AutoFocusCallback</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/hardware/Camera.ErrorCallback.html">Camera.ErrorCallback</a></li>
+          <li class="api apilevel-14"><a href="../../../reference/android/hardware/Camera.FaceDetectionListener.html">Camera.FaceDetectionListener</a></li>
+          <li class="api apilevel-8"><a href="../../../reference/android/hardware/Camera.OnZoomChangeListener.html">Camera.OnZoomChangeListener</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/hardware/Camera.PictureCallback.html">Camera.PictureCallback</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/hardware/Camera.PreviewCallback.html">Camera.PreviewCallback</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/hardware/Camera.ShutterCallback.html">Camera.ShutterCallback</a></li>
+          <li class="api apilevel-3"><a href="../../../reference/android/hardware/SensorEventListener.html">SensorEventListener</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/hardware/SensorListener.html">SensorListener</a></li>
+      </ul>
+    </li>
+              
+    <li><h2>Classes</h2>
+      <ul>
+          <li class="api apilevel-1"><a href="../../../reference/android/hardware/Camera.html">Camera</a></li>
+          <li class="api apilevel-14"><a href="../../../reference/android/hardware/Camera.Area.html">Camera.Area</a></li>
+          <li class="api apilevel-9"><a href="../../../reference/android/hardware/Camera.CameraInfo.html">Camera.CameraInfo</a></li>
+          <li class="api apilevel-14"><a href="../../../reference/android/hardware/Camera.Face.html">Camera.Face</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/hardware/Camera.Parameters.html">Camera.Parameters</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/hardware/Camera.Size.html">Camera.Size</a></li>
+          <li class="api apilevel-3"><a href="../../../reference/android/hardware/GeomagneticField.html">GeomagneticField</a></li>
+          <li class="api apilevel-3"><a href="../../../reference/android/hardware/Sensor.html">Sensor</a></li>
+          <li class="api apilevel-3"><a href="../../../reference/android/hardware/SensorEvent.html">SensorEvent</a></li>
+          <li class="selected api apilevel-1"><a href="../../../reference/android/hardware/SensorManager.html">SensorManager</a></li>
+      </ul>
+    </li>
+              
+              
+              
+            </ul><br/>
+          </div><!-- end classes -->
+        </div><!-- end nav-panels -->
+        <div id="nav-tree" style="display:none">
+          <div id="index-links"><nobr>
+            <a href="../../../reference/packages.html"  >Package Index</a> | 
+            <a href="../../../reference/classes.html" >Class Index</a></nobr>
+          </div>
+        </div><!-- end nav-tree -->
+      </div><!-- end swapper -->
+    </div> <!-- end side-nav -->
+    <script>
+      if (!isMobile) {
+        $("<a href='#' id='nav-swap' onclick='swapNav();return false;' style='font-size:10px;line-height:9px;margin-left:1em;text-decoration:none;'><span id='tree-link'>Use Tree Navigation</span><span id='panel-link' style='display:none'>Use Panel Navigation</span></a>").appendTo("#side-nav");
+        chooseDefaultNav();
+        if ($("#nav-tree").is(':visible')) {
+          init_default_navtree("../../../");
+        } else {
+          addLoadEvent(function() {
+            scrollIntoView("packages-nav");
+            scrollIntoView("classes-nav");
+          });
+        }
+        $("#swapper").css({borderBottom:"2px solid #aaa"});
+      } else {
+        swapNav(); // tree view should be used on mobile
+      }
+    </script>
+
+
+
+<div class="g-unit" id="doc-content">
+
+<div id="api-info-block">
+
+
+
+  
+   
+  
+  
+  
+  
+
+
+<div class="sum-details-links">
+
+Summary:
+
+
+
+
+
+  <a href="#constants">Constants</a>
+  
+
+
+
+
+
+
+
+  &#124; <a href="#pubmethods">Methods</a>
+  
+
+
+
+  &#124; <a href="#inhmethods">Inherited Methods</a>
+
+&#124; <a href="#" onclick="return toggleAllClassInherited()" id="toggleAllClassInherited">[Expand All]</a>
+
+</div><!-- end sum-details-links -->
+<div class="api-level">
+  
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+
+  
+  
+
+</div>
+</div><!-- end api-info-block -->
+
+
+<!-- ======== START OF CLASS DATA ======== -->
+
+<div id="jd-header">
+    public
+     
+     
+    
+    class
+<h1 itemprop="name">SensorManager</h1>
+
+
+
+  
+    extends <a href="../../../reference/java/lang/Object.html">Object</a><br/>
+  
+  
+  
+
+  
+  
+  
+
+
+</div><!-- end header -->
+
+<div id="naMessage"></div>
+
+<div id="jd-content" class="api apilevel-1">
+<table class="jd-inheritance-table">
+
+
+    <tr>
+         	
+        <td colspan="2" class="jd-inheritance-class-cell"><a href="../../../reference/java/lang/Object.html">java.lang.Object</a></td>
+    </tr>
+    
+
+    <tr>
+        
+            <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
+         	
+        <td colspan="1" class="jd-inheritance-class-cell">android.hardware.SensorManager</td>
+    </tr>
+    
+
+</table>
+
+
+
+
+
+
+
+<div class="jd-descr">
+
+
+<h2>Class Overview</h2>
+<p itemprop="articleBody"><p>
+ SensorManager lets you access the device's <code><a href="../../../reference/android/hardware/Sensor.html">sensors</a></code>. Get an instance of this class by calling
+ <code><a href="../../../reference/android/content/Context.html#getSystemService(java.lang.String)">Context.getSystemService()</a></code> with the argument
+ <code><a href="../../../reference/android/content/Context.html#SENSOR_SERVICE">SENSOR_SERVICE</a></code>.
+ </p>
+ <p>
+ Always make sure to disable sensors you don't need, especially when your
+ activity is paused. Failing to do so can drain the battery in just a few
+ hours. Note that the system will <i>not</i> disable sensors automatically when
+ the screen turns off.
+ </p>
+
+ <pre class="prettyprint">
+ public class SensorActivity extends Activity, implements SensorEventListener {
+     private final SensorManager mSensorManager;
+     private final Sensor mAccelerometer;
+
+     public SensorActivity() {
+         mSensorManager = (SensorManager)getSystemService(SENSOR_SERVICE);
+         mAccelerometer = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+     }
+
+     protected void onResume() {
+         super.onResume();
+         mSensorManager.registerListener(this, mAccelerometer, SensorManager.SENSOR_DELAY_NORMAL);
+     }
+
+     protected void onPause() {
+         super.onPause();
+         mSensorManager.unregisterListener(this);
+     }
+
+     public void onAccuracyChanged(Sensor sensor, int accuracy) {
+     }
+
+     public void onSensorChanged(SensorEvent event) {
+     }
+ }
+ </pre></p>
+
+
+
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">See Also</h5>
+      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/SensorEventListener.html">SensorEventListener</a></code></li><li><code><a href="../../../reference/android/hardware/SensorEvent.html">SensorEvent</a></code></li><li><code><a href="../../../reference/android/hardware/Sensor.html">Sensor</a></code></li>
+      </ul>
+  </div>
+
+
+</div><!-- jd-descr -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="jd-descr">
+
+
+<h2>Summary</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- =========== ENUM CONSTANT SUMMARY =========== -->
+<table id="constants" class="jd-sumtable"><tr><th colspan="12">Constants</th></tr>
+
+
+    
+    <tr class="alt-color api apilevel-3" >
+        <td class="jd-typecol">int</td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/SensorManager.html#AXIS_MINUS_X">AXIS_MINUS_X</a></td>
+        <td class="jd-descrcol" width="100%">see <code><a href="../../../reference/android/hardware/SensorManager.html#remapCoordinateSystem(float[], int, int, float[])">remapCoordinateSystem(float[], int, int, float[])</a></code> </td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-3" >
+        <td class="jd-typecol">int</td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/SensorManager.html#AXIS_MINUS_Y">AXIS_MINUS_Y</a></td>
+        <td class="jd-descrcol" width="100%">see <code><a href="../../../reference/android/hardware/SensorManager.html#remapCoordinateSystem(float[], int, int, float[])">remapCoordinateSystem(float[], int, int, float[])</a></code> </td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-3" >
+        <td class="jd-typecol">int</td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/SensorManager.html#AXIS_MINUS_Z">AXIS_MINUS_Z</a></td>
+        <td class="jd-descrcol" width="100%">see <code><a href="../../../reference/android/hardware/SensorManager.html#remapCoordinateSystem(float[], int, int, float[])">remapCoordinateSystem(float[], int, int, float[])</a></code> </td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-3" >
+        <td class="jd-typecol">int</td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/SensorManager.html#AXIS_X">AXIS_X</a></td>
+        <td class="jd-descrcol" width="100%">see <code><a href="../../../reference/android/hardware/SensorManager.html#remapCoordinateSystem(float[], int, int, float[])">remapCoordinateSystem(float[], int, int, float[])</a></code> </td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-3" >
+        <td class="jd-typecol">int</td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/SensorManager.html#AXIS_Y">AXIS_Y</a></td>
+        <td class="jd-descrcol" width="100%">see <code><a href="../../../reference/android/hardware/SensorManager.html#remapCoordinateSystem(float[], int, int, float[])">remapCoordinateSystem(float[], int, int, float[])</a></code> </td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-3" >
+        <td class="jd-typecol">int</td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/SensorManager.html#AXIS_Z">AXIS_Z</a></td>
+        <td class="jd-descrcol" width="100%">see <code><a href="../../../reference/android/hardware/SensorManager.html#remapCoordinateSystem(float[], int, int, float[])">remapCoordinateSystem(float[], int, int, float[])</a></code> </td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol">int</td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/SensorManager.html#DATA_X">DATA_X</a></td>
+        <td class="jd-descrcol" width="100%">
+      <em>
+  This constant is deprecated.
+      use <code><a href="../../../reference/android/hardware/Sensor.html">Sensor</a></code> instead.
+</em></td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol">int</td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/SensorManager.html#DATA_Y">DATA_Y</a></td>
+        <td class="jd-descrcol" width="100%">
+      <em>
+  This constant is deprecated.
+      use <code><a href="../../../reference/android/hardware/Sensor.html">Sensor</a></code> instead.
+</em></td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol">int</td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/SensorManager.html#DATA_Z">DATA_Z</a></td>
+        <td class="jd-descrcol" width="100%">
+      <em>
+  This constant is deprecated.
+      use <code><a href="../../../reference/android/hardware/Sensor.html">Sensor</a></code> instead.
+</em></td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol">float</td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/SensorManager.html#GRAVITY_DEATH_STAR_I">GRAVITY_DEATH_STAR_I</a></td>
+        <td class="jd-descrcol" width="100%">Gravity (estimate) on the first Death Star in Empire units (m/s^2) </td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol">float</td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/SensorManager.html#GRAVITY_EARTH">GRAVITY_EARTH</a></td>
+        <td class="jd-descrcol" width="100%">Earth's gravity in SI units (m/s^2) </td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol">float</td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/SensorManager.html#GRAVITY_JUPITER">GRAVITY_JUPITER</a></td>
+        <td class="jd-descrcol" width="100%">Jupiter's gravity in SI units (m/s^2) </td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol">float</td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/SensorManager.html#GRAVITY_MARS">GRAVITY_MARS</a></td>
+        <td class="jd-descrcol" width="100%">Mars' gravity in SI units (m/s^2) </td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol">float</td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/SensorManager.html#GRAVITY_MERCURY">GRAVITY_MERCURY</a></td>
+        <td class="jd-descrcol" width="100%">Mercury's gravity in SI units (m/s^2) </td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol">float</td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/SensorManager.html#GRAVITY_MOON">GRAVITY_MOON</a></td>
+        <td class="jd-descrcol" width="100%">The Moon's gravity in SI units (m/s^2) </td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol">float</td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/SensorManager.html#GRAVITY_NEPTUNE">GRAVITY_NEPTUNE</a></td>
+        <td class="jd-descrcol" width="100%">Neptune's gravity in SI units (m/s^2) </td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol">float</td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/SensorManager.html#GRAVITY_PLUTO">GRAVITY_PLUTO</a></td>
+        <td class="jd-descrcol" width="100%">Pluto's gravity in SI units (m/s^2) </td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol">float</td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/SensorManager.html#GRAVITY_SATURN">GRAVITY_SATURN</a></td>
+        <td class="jd-descrcol" width="100%">Saturn's gravity in SI units (m/s^2) </td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol">float</td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/SensorManager.html#GRAVITY_SUN">GRAVITY_SUN</a></td>
+        <td class="jd-descrcol" width="100%">Sun's gravity in SI units (m/s^2) </td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol">float</td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/SensorManager.html#GRAVITY_THE_ISLAND">GRAVITY_THE_ISLAND</a></td>
+        <td class="jd-descrcol" width="100%">Gravity on the island </td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol">float</td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/SensorManager.html#GRAVITY_URANUS">GRAVITY_URANUS</a></td>
+        <td class="jd-descrcol" width="100%">Uranus' gravity in SI units (m/s^2) </td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol">float</td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/SensorManager.html#GRAVITY_VENUS">GRAVITY_VENUS</a></td>
+        <td class="jd-descrcol" width="100%">Venus' gravity in SI units (m/s^2) </td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol">float</td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/SensorManager.html#LIGHT_CLOUDY">LIGHT_CLOUDY</a></td>
+        <td class="jd-descrcol" width="100%">luminance under a cloudy sky in lux </td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol">float</td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/SensorManager.html#LIGHT_FULLMOON">LIGHT_FULLMOON</a></td>
+        <td class="jd-descrcol" width="100%">luminance at night with full moon in lux </td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol">float</td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/SensorManager.html#LIGHT_NO_MOON">LIGHT_NO_MOON</a></td>
+        <td class="jd-descrcol" width="100%">luminance at night with no moon in lux</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol">float</td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/SensorManager.html#LIGHT_OVERCAST">LIGHT_OVERCAST</a></td>
+        <td class="jd-descrcol" width="100%">luminance under an overcast sky in lux </td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol">float</td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/SensorManager.html#LIGHT_SHADE">LIGHT_SHADE</a></td>
+        <td class="jd-descrcol" width="100%">luminance in shade in lux </td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol">float</td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/SensorManager.html#LIGHT_SUNLIGHT">LIGHT_SUNLIGHT</a></td>
+        <td class="jd-descrcol" width="100%">luminance of sunlight in lux </td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol">float</td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/SensorManager.html#LIGHT_SUNLIGHT_MAX">LIGHT_SUNLIGHT_MAX</a></td>
+        <td class="jd-descrcol" width="100%">Maximum luminance of sunlight in lux </td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol">float</td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/SensorManager.html#LIGHT_SUNRISE">LIGHT_SUNRISE</a></td>
+        <td class="jd-descrcol" width="100%">luminance at sunrise in lux </td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol">float</td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/SensorManager.html#MAGNETIC_FIELD_EARTH_MAX">MAGNETIC_FIELD_EARTH_MAX</a></td>
+        <td class="jd-descrcol" width="100%">Maximum magnetic field on Earth's surface </td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol">float</td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/SensorManager.html#MAGNETIC_FIELD_EARTH_MIN">MAGNETIC_FIELD_EARTH_MIN</a></td>
+        <td class="jd-descrcol" width="100%">Minimum magnetic field on Earth's surface </td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-9" >
+        <td class="jd-typecol">float</td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/SensorManager.html#PRESSURE_STANDARD_ATMOSPHERE">PRESSURE_STANDARD_ATMOSPHERE</a></td>
+        <td class="jd-descrcol" width="100%">Standard atmosphere, or average sea-level pressure in hPa (millibar) </td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol">int</td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/SensorManager.html#RAW_DATA_INDEX">RAW_DATA_INDEX</a></td>
+        <td class="jd-descrcol" width="100%">
+      <em>
+  This constant is deprecated.
+      use <code><a href="../../../reference/android/hardware/Sensor.html">Sensor</a></code> instead.
+</em></td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol">int</td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/SensorManager.html#RAW_DATA_X">RAW_DATA_X</a></td>
+        <td class="jd-descrcol" width="100%">
+      <em>
+  This constant is deprecated.
+      use <code><a href="../../../reference/android/hardware/Sensor.html">Sensor</a></code> instead.
+</em></td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol">int</td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/SensorManager.html#RAW_DATA_Y">RAW_DATA_Y</a></td>
+        <td class="jd-descrcol" width="100%">
+      <em>
+  This constant is deprecated.
+      use <code><a href="../../../reference/android/hardware/Sensor.html">Sensor</a></code> instead.
+</em></td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol">int</td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/SensorManager.html#RAW_DATA_Z">RAW_DATA_Z</a></td>
+        <td class="jd-descrcol" width="100%">
+      <em>
+  This constant is deprecated.
+      use <code><a href="../../../reference/android/hardware/Sensor.html">Sensor</a></code> instead.
+</em></td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol">int</td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/SensorManager.html#SENSOR_ACCELEROMETER">SENSOR_ACCELEROMETER</a></td>
+        <td class="jd-descrcol" width="100%">
+      <em>
+  This constant is deprecated.
+      use <code><a href="../../../reference/android/hardware/Sensor.html">Sensor</a></code> instead.
+</em></td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol">int</td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/SensorManager.html#SENSOR_ALL">SENSOR_ALL</a></td>
+        <td class="jd-descrcol" width="100%">
+      <em>
+  This constant is deprecated.
+      use <code><a href="../../../reference/android/hardware/Sensor.html">Sensor</a></code> instead.
+</em></td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol">int</td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/SensorManager.html#SENSOR_DELAY_FASTEST">SENSOR_DELAY_FASTEST</a></td>
+        <td class="jd-descrcol" width="100%">get sensor data as fast as possible </td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol">int</td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/SensorManager.html#SENSOR_DELAY_GAME">SENSOR_DELAY_GAME</a></td>
+        <td class="jd-descrcol" width="100%">rate suitable for games </td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol">int</td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/SensorManager.html#SENSOR_DELAY_NORMAL">SENSOR_DELAY_NORMAL</a></td>
+        <td class="jd-descrcol" width="100%">rate (default) suitable for screen orientation changes </td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol">int</td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/SensorManager.html#SENSOR_DELAY_UI">SENSOR_DELAY_UI</a></td>
+        <td class="jd-descrcol" width="100%">rate suitable for the user interface  </td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol">int</td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/SensorManager.html#SENSOR_LIGHT">SENSOR_LIGHT</a></td>
+        <td class="jd-descrcol" width="100%">
+      <em>
+  This constant is deprecated.
+      use <code><a href="../../../reference/android/hardware/Sensor.html">Sensor</a></code> instead.
+</em></td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol">int</td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/SensorManager.html#SENSOR_MAGNETIC_FIELD">SENSOR_MAGNETIC_FIELD</a></td>
+        <td class="jd-descrcol" width="100%">
+      <em>
+  This constant is deprecated.
+      use <code><a href="../../../reference/android/hardware/Sensor.html">Sensor</a></code> instead.
+</em></td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol">int</td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/SensorManager.html#SENSOR_MAX">SENSOR_MAX</a></td>
+        <td class="jd-descrcol" width="100%">
+      <em>
+  This constant is deprecated.
+      use <code><a href="../../../reference/android/hardware/Sensor.html">Sensor</a></code> instead.
+</em></td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol">int</td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/SensorManager.html#SENSOR_MIN">SENSOR_MIN</a></td>
+        <td class="jd-descrcol" width="100%">
+      <em>
+  This constant is deprecated.
+      use <code><a href="../../../reference/android/hardware/Sensor.html">Sensor</a></code> instead.
+</em></td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol">int</td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/SensorManager.html#SENSOR_ORIENTATION">SENSOR_ORIENTATION</a></td>
+        <td class="jd-descrcol" width="100%">
+      <em>
+  This constant is deprecated.
+      use <code><a href="../../../reference/android/hardware/Sensor.html">Sensor</a></code> instead.
+</em></td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol">int</td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/SensorManager.html#SENSOR_ORIENTATION_RAW">SENSOR_ORIENTATION_RAW</a></td>
+        <td class="jd-descrcol" width="100%">
+      <em>
+  This constant is deprecated.
+      use <code><a href="../../../reference/android/hardware/Sensor.html">Sensor</a></code> instead.
+</em></td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol">int</td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/SensorManager.html#SENSOR_PROXIMITY">SENSOR_PROXIMITY</a></td>
+        <td class="jd-descrcol" width="100%">
+      <em>
+  This constant is deprecated.
+      use <code><a href="../../../reference/android/hardware/Sensor.html">Sensor</a></code> instead.
+</em></td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol">int</td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/SensorManager.html#SENSOR_STATUS_ACCURACY_HIGH">SENSOR_STATUS_ACCURACY_HIGH</a></td>
+        <td class="jd-descrcol" width="100%">This sensor is reporting data with maximum accuracy </td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol">int</td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/SensorManager.html#SENSOR_STATUS_ACCURACY_LOW">SENSOR_STATUS_ACCURACY_LOW</a></td>
+        <td class="jd-descrcol" width="100%">This sensor is reporting data with low accuracy, calibration with the
+ environment is needed
+</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol">int</td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/SensorManager.html#SENSOR_STATUS_ACCURACY_MEDIUM">SENSOR_STATUS_ACCURACY_MEDIUM</a></td>
+        <td class="jd-descrcol" width="100%">This sensor is reporting data with an average level of accuracy,
+ calibration with the environment may improve the readings
+</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol">int</td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/SensorManager.html#SENSOR_STATUS_UNRELIABLE">SENSOR_STATUS_UNRELIABLE</a></td>
+        <td class="jd-descrcol" width="100%">The values returned by this sensor cannot be trusted, calibration is
+ needed or the environment doesn't allow readings
+</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol">int</td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/SensorManager.html#SENSOR_TEMPERATURE">SENSOR_TEMPERATURE</a></td>
+        <td class="jd-descrcol" width="100%">
+      <em>
+  This constant is deprecated.
+      use <code><a href="../../../reference/android/hardware/Sensor.html">Sensor</a></code> instead.
+</em></td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol">int</td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/SensorManager.html#SENSOR_TRICORDER">SENSOR_TRICORDER</a></td>
+        <td class="jd-descrcol" width="100%">
+      <em>
+  This constant is deprecated.
+      use <code><a href="../../../reference/android/hardware/Sensor.html">Sensor</a></code> instead.
+</em></td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol">float</td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/SensorManager.html#STANDARD_GRAVITY">STANDARD_GRAVITY</a></td>
+        <td class="jd-descrcol" width="100%">Standard gravity (g) on Earth.</td>
+    </tr>
+    
+    
+
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ========== METHOD SUMMARY =========== -->
+<table id="pubmethods" class="jd-sumtable"><tr><th colspan="12">Public Methods</th></tr>
+
+
+
+	 
+    <tr class="alt-color api apilevel-9" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            static
+            
+            float</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/SensorManager.html#getAltitude(float, float)">getAltitude</a></span>(float p0, float p)</nobr>
+        
+        <div class="jd-descrdiv">Computes the Altitude in meters from the atmospheric pressure and the
+ pressure at sea level.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-9" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            static
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/SensorManager.html#getAngleChange(float[], float[], float[])">getAngleChange</a></span>(float[] angleChange, float[] R, float[] prevR)</nobr>
+        
+        <div class="jd-descrdiv">Helper function to compute the angle change between two rotation matrices.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-3" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../reference/android/hardware/Sensor.html">Sensor</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/SensorManager.html#getDefaultSensor(int)">getDefaultSensor</a></span>(int type)</nobr>
+        
+        <div class="jd-descrdiv">Use this method to get the default sensor for a given type.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-3" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            static
+            
+            float</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/SensorManager.html#getInclination(float[])">getInclination</a></span>(float[] I)</nobr>
+        
+        <div class="jd-descrdiv">Computes the geomagnetic inclination angle in radians from the
+ inclination matrix <b>I</b> returned by <code><a href="../../../reference/android/hardware/SensorManager.html#getRotationMatrix(float[], float[], float[], float[])">getRotationMatrix(float[], float[], float[], float[])</a></code>.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-3" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            static
+            
+            float[]</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/SensorManager.html#getOrientation(float[], float[])">getOrientation</a></span>(float[] R, float[] values)</nobr>
+        
+        <div class="jd-descrdiv">Computes the device's orientation based on the rotation matrix.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-9" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            static
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/SensorManager.html#getQuaternionFromVector(float[], float[])">getQuaternionFromVector</a></span>(float[] Q, float[] rv)</nobr>
+        
+        <div class="jd-descrdiv">Helper function to convert a rotation vector to a normalized quaternion.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-3" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            static
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/SensorManager.html#getRotationMatrix(float[], float[], float[], float[])">getRotationMatrix</a></span>(float[] R, float[] I, float[] gravity, float[] geomagnetic)</nobr>
+        
+        <div class="jd-descrdiv"><p>
+ Computes the inclination matrix <b>I</b> as well as the rotation matrix
+ <b>R</b> transforming a vector from the device coordinate system to the
+ world's coordinate system which is defined as a direct orthonormal basis,
+ where:
+ </p>
+
+ <ul>
+ <li>X is defined as the vector product <b>Y.Z</b> (It is tangential to
+ the ground at the device's current location and roughly points East).</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-9" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            static
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/SensorManager.html#getRotationMatrixFromVector(float[], float[])">getRotationMatrixFromVector</a></span>(float[] R, float[] rotationVector)</nobr>
+        
+        <div class="jd-descrdiv">Helper function to convert a rotation vector to a rotation matrix.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-3" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../reference/java/util/List.html">List</a>&lt;<a href="../../../reference/android/hardware/Sensor.html">Sensor</a>&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/SensorManager.html#getSensorList(int)">getSensorList</a></span>(int type)</nobr>
+        
+        <div class="jd-descrdiv">Use this method to get the list of available sensors of a certain type.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/SensorManager.html#getSensors()">getSensors</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">
+      <em>
+  This method is deprecated.
+      This method is deprecated, use
+             <code><a href="../../../reference/android/hardware/SensorManager.html#getSensorList(int)">getSensorList(int)</a></code> instead
+</em></div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/SensorManager.html#registerListener(android.hardware.SensorListener, int, int)">registerListener</a></span>(<a href="../../../reference/android/hardware/SensorListener.html">SensorListener</a> listener, int sensors, int rate)</nobr>
+        
+        <div class="jd-descrdiv">
+      <em>
+  This method is deprecated.
+      This method is deprecated, use
+             <code><a href="../../../reference/android/hardware/SensorManager.html#registerListener(android.hardware.SensorEventListener, android.hardware.Sensor, int)">registerListener(SensorEventListener, Sensor, int)</a></code>
+             instead.</em></div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/SensorManager.html#registerListener(android.hardware.SensorListener, int)">registerListener</a></span>(<a href="../../../reference/android/hardware/SensorListener.html">SensorListener</a> listener, int sensors)</nobr>
+        
+        <div class="jd-descrdiv">
+      <em>
+  This method is deprecated.
+      This method is deprecated, use
+             <code><a href="../../../reference/android/hardware/SensorManager.html#registerListener(android.hardware.SensorEventListener, android.hardware.Sensor, int)">registerListener(SensorEventListener, Sensor, int)</a></code>
+             instead.</em></div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-3" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/SensorManager.html#registerListener(android.hardware.SensorEventListener, android.hardware.Sensor, int, android.os.Handler)">registerListener</a></span>(<a href="../../../reference/android/hardware/SensorEventListener.html">SensorEventListener</a> listener, <a href="../../../reference/android/hardware/Sensor.html">Sensor</a> sensor, int rate, <a href="../../../reference/android/os/Handler.html">Handler</a> handler)</nobr>
+        
+        <div class="jd-descrdiv">Registers a <code><a href="../../../reference/android/hardware/SensorEventListener.html">SensorEventListener</a></code> for the given sensor.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-3" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/SensorManager.html#registerListener(android.hardware.SensorEventListener, android.hardware.Sensor, int)">registerListener</a></span>(<a href="../../../reference/android/hardware/SensorEventListener.html">SensorEventListener</a> listener, <a href="../../../reference/android/hardware/Sensor.html">Sensor</a> sensor, int rate)</nobr>
+        
+        <div class="jd-descrdiv">Registers a <code><a href="../../../reference/android/hardware/SensorEventListener.html">SensorEventListener</a></code> for the given sensor.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-3" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            static
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/SensorManager.html#remapCoordinateSystem(float[], int, int, float[])">remapCoordinateSystem</a></span>(float[] inR, int X, int Y, float[] outR)</nobr>
+        
+        <div class="jd-descrdiv"><p>
+ Rotates the supplied rotation matrix so it is expressed in a different
+ coordinate system.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/SensorManager.html#unregisterListener(android.hardware.SensorListener)">unregisterListener</a></span>(<a href="../../../reference/android/hardware/SensorListener.html">SensorListener</a> listener)</nobr>
+        
+        <div class="jd-descrdiv">
+      <em>
+  This method is deprecated.
+      This method is deprecated, use
+             <code><a href="../../../reference/android/hardware/SensorManager.html#unregisterListener(android.hardware.SensorEventListener)">unregisterListener(SensorEventListener)</a></code>
+             instead.</em></div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/SensorManager.html#unregisterListener(android.hardware.SensorListener, int)">unregisterListener</a></span>(<a href="../../../reference/android/hardware/SensorListener.html">SensorListener</a> listener, int sensors)</nobr>
+        
+        <div class="jd-descrdiv">
+      <em>
+  This method is deprecated.
+      This method is deprecated, use
+             <code><a href="../../../reference/android/hardware/SensorManager.html#unregisterListener(android.hardware.SensorEventListener, android.hardware.Sensor)">unregisterListener(SensorEventListener, Sensor)</a></code>
+             instead.</em></div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-3" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/SensorManager.html#unregisterListener(android.hardware.SensorEventListener, android.hardware.Sensor)">unregisterListener</a></span>(<a href="../../../reference/android/hardware/SensorEventListener.html">SensorEventListener</a> listener, <a href="../../../reference/android/hardware/Sensor.html">Sensor</a> sensor)</nobr>
+        
+        <div class="jd-descrdiv">Unregisters a listener for the sensors with which it is registered.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-3" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/SensorManager.html#unregisterListener(android.hardware.SensorEventListener)">unregisterListener</a></span>(<a href="../../../reference/android/hardware/SensorEventListener.html">SensorEventListener</a> listener)</nobr>
+        
+        <div class="jd-descrdiv">Unregisters a listener for all sensors.</div>
+  
+  </td></tr>
+
+
+
+</table>
+
+
+
+
+
+
+
+<!-- ========== METHOD SUMMARY =========== -->
+<table id="inhmethods" class="jd-sumtable"><tr><th>
+  <a href="#" class="toggle-all" onclick="return toggleAllInherited(this, null)">[Expand]</a>
+  <div style="clear:left;">Inherited Methods</div></th></tr>
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-java.lang.Object" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-java.lang.Object-trigger"
+          src="../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From class
+
+  <a href="../../../reference/java/lang/Object.html">java.lang.Object</a>
+
+<div id="inherited-methods-java.lang.Object">
+  <div id="inherited-methods-java.lang.Object-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-java.lang.Object-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../reference/java/lang/Object.html">Object</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/java/lang/Object.html#clone()">clone</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Creates and returns a copy of this <code>Object</code>.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/java/lang/Object.html#equals(java.lang.Object)">equals</a></span>(<a href="../../../reference/java/lang/Object.html">Object</a> o)</nobr>
+        
+        <div class="jd-descrdiv">Compares this instance with the specified object and indicates if they
+ are equal.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/java/lang/Object.html#finalize()">finalize</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Invoked when the garbage collector has detected that this instance is no longer reachable.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            <a href="../../../reference/java/lang/Class.html">Class</a>&lt;?&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/java/lang/Object.html#getClass()">getClass</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Returns the unique instance of <code><a href="../../../reference/java/lang/Class.html">Class</a></code> that represents this
+ object's class.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/java/lang/Object.html#hashCode()">hashCode</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Returns an integer hash code for this object.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/java/lang/Object.html#notify()">notify</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Causes a thread which is waiting on this object's monitor (by means of
+ calling one of the <code>wait()</code> methods) to be woken up.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/java/lang/Object.html#notifyAll()">notifyAll</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Causes all threads which are waiting on this object's monitor (by means
+ of calling one of the <code>wait()</code> methods) to be woken up.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../reference/java/lang/String.html">String</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/java/lang/Object.html#toString()">toString</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Returns a string containing a concise, human-readable description of this
+ object.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/java/lang/Object.html#wait()">wait</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/java/lang/Object.html#wait(long, int)">wait</a></span>(long millis, int nanos)</nobr>
+        
+        <div class="jd-descrdiv">Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
+ specified timeout expires.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/java/lang/Object.html#wait(long)">wait</a></span>(long millis)</nobr>
+        
+        <div class="jd-descrdiv">Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
+ specified timeout expires.</div>
+  
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+</table>
+
+
+</div><!-- jd-descr (summary) -->
+
+<!-- Details -->
+
+
+
+
+
+
+
+
+<!-- XML Attributes -->
+
+
+<!-- Enum Values -->
+
+
+<!-- Constants -->
+
+
+<!-- ========= ENUM CONSTANTS DETAIL ======== -->
+<h2>Constants</h2>
+
+
+
+
+<A NAME="AXIS_MINUS_X"></A>
+
+<div class="jd-details api apilevel-3"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        int
+      </span>
+        AXIS_MINUS_X
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level3">API Level 3</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>see <code><a href="../../../reference/android/hardware/SensorManager.html#remapCoordinateSystem(float[], int, int, float[])">remapCoordinateSystem(float[], int, int, float[])</a></code> </p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                129
+                (0x00000081)
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="AXIS_MINUS_Y"></A>
+
+<div class="jd-details api apilevel-3"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        int
+      </span>
+        AXIS_MINUS_Y
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level3">API Level 3</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>see <code><a href="../../../reference/android/hardware/SensorManager.html#remapCoordinateSystem(float[], int, int, float[])">remapCoordinateSystem(float[], int, int, float[])</a></code> </p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                130
+                (0x00000082)
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="AXIS_MINUS_Z"></A>
+
+<div class="jd-details api apilevel-3"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        int
+      </span>
+        AXIS_MINUS_Z
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level3">API Level 3</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>see <code><a href="../../../reference/android/hardware/SensorManager.html#remapCoordinateSystem(float[], int, int, float[])">remapCoordinateSystem(float[], int, int, float[])</a></code> </p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                131
+                (0x00000083)
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="AXIS_X"></A>
+
+<div class="jd-details api apilevel-3"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        int
+      </span>
+        AXIS_X
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level3">API Level 3</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>see <code><a href="../../../reference/android/hardware/SensorManager.html#remapCoordinateSystem(float[], int, int, float[])">remapCoordinateSystem(float[], int, int, float[])</a></code> </p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                1
+                (0x00000001)
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="AXIS_Y"></A>
+
+<div class="jd-details api apilevel-3"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        int
+      </span>
+        AXIS_Y
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level3">API Level 3</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>see <code><a href="../../../reference/android/hardware/SensorManager.html#remapCoordinateSystem(float[], int, int, float[])">remapCoordinateSystem(float[], int, int, float[])</a></code> </p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                2
+                (0x00000002)
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="AXIS_Z"></A>
+
+<div class="jd-details api apilevel-3"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        int
+      </span>
+        AXIS_Z
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level3">API Level 3</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>see <code><a href="../../../reference/android/hardware/SensorManager.html#remapCoordinateSystem(float[], int, int, float[])">remapCoordinateSystem(float[], int, int, float[])</a></code> </p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                3
+                (0x00000003)
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="DATA_X"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        int
+      </span>
+        DATA_X
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      <p>
+  <p class="caution">
+      <strong>
+  This constant is deprecated.</strong><br/> use <code><a href="../../../reference/android/hardware/Sensor.html">Sensor</a></code> instead.
+
+  </p>
+  <div class="jd-tagdata jd-tagdescr"><p>Index of the X value in the array returned by
+ <code><a href="../../../reference/android/hardware/SensorListener.html#onSensorChanged(int, float[])">onSensorChanged(int, float[])</a></code></p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                0
+                (0x00000000)
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="DATA_Y"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        int
+      </span>
+        DATA_Y
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      <p>
+  <p class="caution">
+      <strong>
+  This constant is deprecated.</strong><br/> use <code><a href="../../../reference/android/hardware/Sensor.html">Sensor</a></code> instead.
+
+  </p>
+  <div class="jd-tagdata jd-tagdescr"><p>Index of the Y value in the array returned by
+ <code><a href="../../../reference/android/hardware/SensorListener.html#onSensorChanged(int, float[])">onSensorChanged(int, float[])</a></code></p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                1
+                (0x00000001)
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="DATA_Z"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        int
+      </span>
+        DATA_Z
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      <p>
+  <p class="caution">
+      <strong>
+  This constant is deprecated.</strong><br/> use <code><a href="../../../reference/android/hardware/Sensor.html">Sensor</a></code> instead.
+
+  </p>
+  <div class="jd-tagdata jd-tagdescr"><p>Index of the Z value in the array returned by
+ <code><a href="../../../reference/android/hardware/SensorListener.html#onSensorChanged(int, float[])">onSensorChanged(int, float[])</a></code></p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                2
+                (0x00000002)
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="GRAVITY_DEATH_STAR_I"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        float
+      </span>
+        GRAVITY_DEATH_STAR_I
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Gravity (estimate) on the first Death Star in Empire units (m/s^2) </p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                3.5303614E-7
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="GRAVITY_EARTH"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        float
+      </span>
+        GRAVITY_EARTH
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Earth's gravity in SI units (m/s^2) </p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                9.80665
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="GRAVITY_JUPITER"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        float
+      </span>
+        GRAVITY_JUPITER
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Jupiter's gravity in SI units (m/s^2) </p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                23.12
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="GRAVITY_MARS"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        float
+      </span>
+        GRAVITY_MARS
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Mars' gravity in SI units (m/s^2) </p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                3.71
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="GRAVITY_MERCURY"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        float
+      </span>
+        GRAVITY_MERCURY
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Mercury's gravity in SI units (m/s^2) </p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                3.7
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="GRAVITY_MOON"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        float
+      </span>
+        GRAVITY_MOON
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>The Moon's gravity in SI units (m/s^2) </p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                1.6
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="GRAVITY_NEPTUNE"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        float
+      </span>
+        GRAVITY_NEPTUNE
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Neptune's gravity in SI units (m/s^2) </p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                11.0
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="GRAVITY_PLUTO"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        float
+      </span>
+        GRAVITY_PLUTO
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Pluto's gravity in SI units (m/s^2) </p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                0.6
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="GRAVITY_SATURN"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        float
+      </span>
+        GRAVITY_SATURN
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Saturn's gravity in SI units (m/s^2) </p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                8.96
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="GRAVITY_SUN"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        float
+      </span>
+        GRAVITY_SUN
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sun's gravity in SI units (m/s^2) </p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                275.0
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="GRAVITY_THE_ISLAND"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        float
+      </span>
+        GRAVITY_THE_ISLAND
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Gravity on the island </p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                4.815162
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="GRAVITY_URANUS"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        float
+      </span>
+        GRAVITY_URANUS
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Uranus' gravity in SI units (m/s^2) </p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                8.69
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="GRAVITY_VENUS"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        float
+      </span>
+        GRAVITY_VENUS
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Venus' gravity in SI units (m/s^2) </p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                8.87
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="LIGHT_CLOUDY"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        float
+      </span>
+        LIGHT_CLOUDY
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>luminance under a cloudy sky in lux </p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                100.0
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="LIGHT_FULLMOON"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        float
+      </span>
+        LIGHT_FULLMOON
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>luminance at night with full moon in lux </p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                0.25
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="LIGHT_NO_MOON"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        float
+      </span>
+        LIGHT_NO_MOON
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>luminance at night with no moon in lux</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                0.0010
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="LIGHT_OVERCAST"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        float
+      </span>
+        LIGHT_OVERCAST
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>luminance under an overcast sky in lux </p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                10000.0
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="LIGHT_SHADE"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        float
+      </span>
+        LIGHT_SHADE
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>luminance in shade in lux </p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                20000.0
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="LIGHT_SUNLIGHT"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        float
+      </span>
+        LIGHT_SUNLIGHT
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>luminance of sunlight in lux </p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                110000.0
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="LIGHT_SUNLIGHT_MAX"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        float
+      </span>
+        LIGHT_SUNLIGHT_MAX
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Maximum luminance of sunlight in lux </p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                120000.0
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="LIGHT_SUNRISE"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        float
+      </span>
+        LIGHT_SUNRISE
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>luminance at sunrise in lux </p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                400.0
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="MAGNETIC_FIELD_EARTH_MAX"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        float
+      </span>
+        MAGNETIC_FIELD_EARTH_MAX
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Maximum magnetic field on Earth's surface </p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                60.0
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="MAGNETIC_FIELD_EARTH_MIN"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        float
+      </span>
+        MAGNETIC_FIELD_EARTH_MIN
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Minimum magnetic field on Earth's surface </p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                30.0
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="PRESSURE_STANDARD_ATMOSPHERE"></A>
+
+<div class="jd-details api apilevel-9"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        float
+      </span>
+        PRESSURE_STANDARD_ATMOSPHERE
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level9">API Level 9</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Standard atmosphere, or average sea-level pressure in hPa (millibar) </p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                1013.25
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="RAW_DATA_INDEX"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        int
+      </span>
+        RAW_DATA_INDEX
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      <p>
+  <p class="caution">
+      <strong>
+  This constant is deprecated.</strong><br/> use <code><a href="../../../reference/android/hardware/Sensor.html">Sensor</a></code> instead.
+
+  </p>
+  <div class="jd-tagdata jd-tagdescr"><p>Offset to the untransformed values in the array returned by
+ <code><a href="../../../reference/android/hardware/SensorListener.html#onSensorChanged(int, float[])">onSensorChanged(int, float[])</a></code></p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                3
+                (0x00000003)
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="RAW_DATA_X"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        int
+      </span>
+        RAW_DATA_X
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      <p>
+  <p class="caution">
+      <strong>
+  This constant is deprecated.</strong><br/> use <code><a href="../../../reference/android/hardware/Sensor.html">Sensor</a></code> instead.
+
+  </p>
+  <div class="jd-tagdata jd-tagdescr"><p>Index of the untransformed X value in the array returned by
+ <code><a href="../../../reference/android/hardware/SensorListener.html#onSensorChanged(int, float[])">onSensorChanged(int, float[])</a></code></p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                3
+                (0x00000003)
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="RAW_DATA_Y"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        int
+      </span>
+        RAW_DATA_Y
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      <p>
+  <p class="caution">
+      <strong>
+  This constant is deprecated.</strong><br/> use <code><a href="../../../reference/android/hardware/Sensor.html">Sensor</a></code> instead.
+
+  </p>
+  <div class="jd-tagdata jd-tagdescr"><p>Index of the untransformed Y value in the array returned by
+ <code><a href="../../../reference/android/hardware/SensorListener.html#onSensorChanged(int, float[])">onSensorChanged(int, float[])</a></code></p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                4
+                (0x00000004)
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="RAW_DATA_Z"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        int
+      </span>
+        RAW_DATA_Z
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      <p>
+  <p class="caution">
+      <strong>
+  This constant is deprecated.</strong><br/> use <code><a href="../../../reference/android/hardware/Sensor.html">Sensor</a></code> instead.
+
+  </p>
+  <div class="jd-tagdata jd-tagdescr"><p>Index of the untransformed Z value in the array returned by
+ <code><a href="../../../reference/android/hardware/SensorListener.html#onSensorChanged(int, float[])">onSensorChanged(int, float[])</a></code></p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                5
+                (0x00000005)
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="SENSOR_ACCELEROMETER"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        int
+      </span>
+        SENSOR_ACCELEROMETER
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      <p>
+  <p class="caution">
+      <strong>
+  This constant is deprecated.</strong><br/> use <code><a href="../../../reference/android/hardware/Sensor.html">Sensor</a></code> instead.
+
+  </p>
+  <div class="jd-tagdata jd-tagdescr"><p>A constant describing an accelerometer. See
+ <code><a href="../../../reference/android/hardware/SensorListener.html">SensorListener</a></code> for more details.</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                2
+                (0x00000002)
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="SENSOR_ALL"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        int
+      </span>
+        SENSOR_ALL
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      <p>
+  <p class="caution">
+      <strong>
+  This constant is deprecated.</strong><br/> use <code><a href="../../../reference/android/hardware/Sensor.html">Sensor</a></code> instead.
+
+  </p>
+  <div class="jd-tagdata jd-tagdescr"><p>A constant that includes all sensors</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                127
+                (0x0000007f)
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="SENSOR_DELAY_FASTEST"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        int
+      </span>
+        SENSOR_DELAY_FASTEST
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>get sensor data as fast as possible </p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                0
+                (0x00000000)
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="SENSOR_DELAY_GAME"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        int
+      </span>
+        SENSOR_DELAY_GAME
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>rate suitable for games </p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                1
+                (0x00000001)
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="SENSOR_DELAY_NORMAL"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        int
+      </span>
+        SENSOR_DELAY_NORMAL
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>rate (default) suitable for screen orientation changes </p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                3
+                (0x00000003)
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="SENSOR_DELAY_UI"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        int
+      </span>
+        SENSOR_DELAY_UI
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>rate suitable for the user interface  </p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                2
+                (0x00000002)
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="SENSOR_LIGHT"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        int
+      </span>
+        SENSOR_LIGHT
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      <p>
+  <p class="caution">
+      <strong>
+  This constant is deprecated.</strong><br/> use <code><a href="../../../reference/android/hardware/Sensor.html">Sensor</a></code> instead.
+
+  </p>
+  <div class="jd-tagdata jd-tagdescr"><p>A constant describing an ambient light sensor See
+ <code><a href="../../../reference/android/hardware/SensorListener.html">SensorListener</a></code> for more details.</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                16
+                (0x00000010)
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="SENSOR_MAGNETIC_FIELD"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        int
+      </span>
+        SENSOR_MAGNETIC_FIELD
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      <p>
+  <p class="caution">
+      <strong>
+  This constant is deprecated.</strong><br/> use <code><a href="../../../reference/android/hardware/Sensor.html">Sensor</a></code> instead.
+
+  </p>
+  <div class="jd-tagdata jd-tagdescr"><p>A constant describing a magnetic sensor See
+ <code><a href="../../../reference/android/hardware/SensorListener.html">SensorListener</a></code> for more details.</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                8
+                (0x00000008)
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="SENSOR_MAX"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        int
+      </span>
+        SENSOR_MAX
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      <p>
+  <p class="caution">
+      <strong>
+  This constant is deprecated.</strong><br/> use <code><a href="../../../reference/android/hardware/Sensor.html">Sensor</a></code> instead.
+
+  </p>
+  <div class="jd-tagdata jd-tagdescr"><p>Largest sensor ID</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                64
+                (0x00000040)
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="SENSOR_MIN"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        int
+      </span>
+        SENSOR_MIN
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      <p>
+  <p class="caution">
+      <strong>
+  This constant is deprecated.</strong><br/> use <code><a href="../../../reference/android/hardware/Sensor.html">Sensor</a></code> instead.
+
+  </p>
+  <div class="jd-tagdata jd-tagdescr"><p>Smallest sensor ID</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                1
+                (0x00000001)
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="SENSOR_ORIENTATION"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        int
+      </span>
+        SENSOR_ORIENTATION
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      <p>
+  <p class="caution">
+      <strong>
+  This constant is deprecated.</strong><br/> use <code><a href="../../../reference/android/hardware/Sensor.html">Sensor</a></code> instead.
+
+  </p>
+  <div class="jd-tagdata jd-tagdescr"><p>A constant describing an orientation sensor. See
+ <code><a href="../../../reference/android/hardware/SensorListener.html">SensorListener</a></code> for more details.</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                1
+                (0x00000001)
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="SENSOR_ORIENTATION_RAW"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        int
+      </span>
+        SENSOR_ORIENTATION_RAW
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      <p>
+  <p class="caution">
+      <strong>
+  This constant is deprecated.</strong><br/> use <code><a href="../../../reference/android/hardware/Sensor.html">Sensor</a></code> instead.
+
+  </p>
+  <div class="jd-tagdata jd-tagdescr"><p>A constant describing an orientation sensor. See
+ <code><a href="../../../reference/android/hardware/SensorListener.html">SensorListener</a></code> for more details.</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                128
+                (0x00000080)
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="SENSOR_PROXIMITY"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        int
+      </span>
+        SENSOR_PROXIMITY
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      <p>
+  <p class="caution">
+      <strong>
+  This constant is deprecated.</strong><br/> use <code><a href="../../../reference/android/hardware/Sensor.html">Sensor</a></code> instead.
+
+  </p>
+  <div class="jd-tagdata jd-tagdescr"><p>A constant describing a proximity sensor See
+ <code><a href="../../../reference/android/hardware/SensorListener.html">SensorListener</a></code> for more details.</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                32
+                (0x00000020)
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="SENSOR_STATUS_ACCURACY_HIGH"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        int
+      </span>
+        SENSOR_STATUS_ACCURACY_HIGH
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>This sensor is reporting data with maximum accuracy </p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                3
+                (0x00000003)
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="SENSOR_STATUS_ACCURACY_LOW"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        int
+      </span>
+        SENSOR_STATUS_ACCURACY_LOW
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>This sensor is reporting data with low accuracy, calibration with the
+ environment is needed
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                1
+                (0x00000001)
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="SENSOR_STATUS_ACCURACY_MEDIUM"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        int
+      </span>
+        SENSOR_STATUS_ACCURACY_MEDIUM
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>This sensor is reporting data with an average level of accuracy,
+ calibration with the environment may improve the readings
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                2
+                (0x00000002)
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="SENSOR_STATUS_UNRELIABLE"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        int
+      </span>
+        SENSOR_STATUS_UNRELIABLE
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>The values returned by this sensor cannot be trusted, calibration is
+ needed or the environment doesn't allow readings
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                0
+                (0x00000000)
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="SENSOR_TEMPERATURE"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        int
+      </span>
+        SENSOR_TEMPERATURE
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      <p>
+  <p class="caution">
+      <strong>
+  This constant is deprecated.</strong><br/> use <code><a href="../../../reference/android/hardware/Sensor.html">Sensor</a></code> instead.
+
+  </p>
+  <div class="jd-tagdata jd-tagdescr"><p>A constant describing a temperature sensor See
+ <code><a href="../../../reference/android/hardware/SensorListener.html">SensorListener</a></code> for more details.</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                4
+                (0x00000004)
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="SENSOR_TRICORDER"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        int
+      </span>
+        SENSOR_TRICORDER
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      <p>
+  <p class="caution">
+      <strong>
+  This constant is deprecated.</strong><br/> use <code><a href="../../../reference/android/hardware/Sensor.html">Sensor</a></code> instead.
+
+  </p>
+  <div class="jd-tagdata jd-tagdescr"><p>A constant describing a Tricorder See
+ <code><a href="../../../reference/android/hardware/SensorListener.html">SensorListener</a></code> for more details.</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                64
+                (0x00000040)
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="STANDARD_GRAVITY"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        float
+      </span>
+        STANDARD_GRAVITY
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Standard gravity (g) on Earth. This value is equivalent to 1G </p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                9.80665
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+
+<!-- Fields -->
+
+
+<!-- Public ctors -->
+
+
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<!-- Protected ctors -->
+
+
+
+<!-- ========= METHOD DETAIL ======== -->
+<!-- Public methdos -->
+
+<h2>Public Methods</h2>
+
+
+
+<A NAME="getAltitude(float, float)"></A>
+
+<div class="jd-details api apilevel-9"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        float
+      </span>
+      <span class="sympad">getAltitude</span>
+      <span class="normal">(float p0, float p)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level9">API Level 9</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Computes the Altitude in meters from the atmospheric pressure and the
+ pressure at sea level.
+ <p>
+ Typically the atmospheric pressure is read from a
+ <code><a href="../../../reference/android/hardware/Sensor.html#TYPE_PRESSURE">TYPE_PRESSURE</a></code> sensor. The pressure at sea level must be
+ known, usually it can be retrieved from airport databases in the
+ vicinity. If unknown, you can use <code><a href="../../../reference/android/hardware/SensorManager.html#PRESSURE_STANDARD_ATMOSPHERE">PRESSURE_STANDARD_ATMOSPHERE</a></code>
+ as an approximation, but absolute altitudes won't be accurate.
+ </p>
+ <p>
+ To calculate altitude differences, you must calculate the difference
+ between the altitudes at both points. If you don't know the altitude
+ as sea level, you can use <code><a href="../../../reference/android/hardware/SensorManager.html#PRESSURE_STANDARD_ATMOSPHERE">PRESSURE_STANDARD_ATMOSPHERE</a></code> instead,
+ which will give good results considering the range of pressure typically
+ involved.
+ </p>
+ <p>
+ <code><ul>
+  float altitude_difference =
+      getAltitude(SensorManager.PRESSURE_STANDARD_ATMOSPHERE, pressure_at_point2)
+      - getAltitude(SensorManager.PRESSURE_STANDARD_ATMOSPHERE, pressure_at_point1);
+ </ul></code>
+ </p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>p0</td>
+          <td>pressure at sea level</td>
+        </tr>
+        <tr>
+          <th>p</td>
+          <td>atmospheric pressure</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>Altitude in meters
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getAngleChange(float[], float[], float[])"></A>
+
+<div class="jd-details api apilevel-9"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">getAngleChange</span>
+      <span class="normal">(float[] angleChange, float[] R, float[] prevR)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level9">API Level 9</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Helper function to compute the angle change between two rotation matrices.
+  Given a current rotation matrix (R) and a previous rotation matrix
+  (prevR) computes the rotation around the x,y, and z axes which
+  transforms prevR to R.
+  outputs a 3 element vector containing the x,y, and z angle
+  change at indexes 0, 1, and 2 respectively.
+ <p> Each input matrix is either as a 3x3 or 4x4 row-major matrix
+ depending on the length of the passed array:
+ <p>If the array length is 9, then the array elements represent this matrix
+ <pre>
+   /  R[ 0]   R[ 1]   R[ 2]   \
+   |  R[ 3]   R[ 4]   R[ 5]   |
+   \  R[ 6]   R[ 7]   R[ 8]   /
+</pre>
+ <p>If the array length is 16, then the array elements represent this matrix
+ <pre>
+   /  R[ 0]   R[ 1]   R[ 2]   R[ 3]  \
+   |  R[ 4]   R[ 5]   R[ 6]   R[ 7]  |
+   |  R[ 8]   R[ 9]   R[10]   R[11]  |
+   \  R[12]   R[13]   R[14]   R[15]  /
+</pre></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>angleChange</td>
+          <td>an array of floats in which the angle change is stored
+</td>
+        </tr>
+        <tr>
+          <th>R</td>
+          <td>current rotation matrix</td>
+        </tr>
+        <tr>
+          <th>prevR</td>
+          <td>previous rotation matrix</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getDefaultSensor(int)"></A>
+
+<div class="jd-details api apilevel-3"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../reference/android/hardware/Sensor.html">Sensor</a>
+      </span>
+      <span class="sympad">getDefaultSensor</span>
+      <span class="normal">(int type)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level3">API Level 3</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Use this method to get the default sensor for a given type. Note that the
+ returned sensor could be a composite sensor, and its data could be
+ averaged or filtered. If you need to access the raw sensors use
+ <code><a href="../../../reference/android/hardware/SensorManager.html#getSensorList(int)">getSensorList</a></code>.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>type</td>
+          <td>of sensors requested</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the default sensors matching the asked type.</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">See Also</h5>
+      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/SensorManager.html#getSensorList(int)">getSensorList(int)</a></code></li><li><code><a href="../../../reference/android/hardware/Sensor.html">Sensor</a></code></li>
+      </ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getInclination(float[])"></A>
+
+<div class="jd-details api apilevel-3"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        float
+      </span>
+      <span class="sympad">getInclination</span>
+      <span class="normal">(float[] I)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level3">API Level 3</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Computes the geomagnetic inclination angle in radians from the
+ inclination matrix <b>I</b> returned by <code><a href="../../../reference/android/hardware/SensorManager.html#getRotationMatrix(float[], float[], float[], float[])">getRotationMatrix(float[], float[], float[], float[])</a></code>.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>I</td>
+          <td>inclination matrix see <code><a href="../../../reference/android/hardware/SensorManager.html#getRotationMatrix(float[], float[], float[], float[])">getRotationMatrix(float[], float[], float[], float[])</a></code>.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>The geomagnetic inclination angle in radians.</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">See Also</h5>
+      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/SensorManager.html#getRotationMatrix(float[], float[], float[], float[])">getRotationMatrix(float[], float[], float[], float[])</a></code></li><li><code><a href="../../../reference/android/hardware/SensorManager.html#getOrientation(float[], float[])">getOrientation(float[], float[])</a></code></li><li><code><a href="../../../reference/android/hardware/GeomagneticField.html">GeomagneticField</a></code></li>
+      </ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getOrientation(float[], float[])"></A>
+
+<div class="jd-details api apilevel-3"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        float[]
+      </span>
+      <span class="sympad">getOrientation</span>
+      <span class="normal">(float[] R, float[] values)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level3">API Level 3</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Computes the device's orientation based on the rotation matrix.
+ <p>
+ When it returns, the array values is filled with the result:
+ <ul>
+ <li>values[0]: <i>azimuth</i>, rotation around the Z axis.</li>
+ <li>values[1]: <i>pitch</i>, rotation around the X axis.</li>
+ <li>values[2]: <i>roll</i>, rotation around the Y axis.</li>
+ </ul>
+ <p>The reference coordinate-system used is different from the world
+ coordinate-system defined for the rotation matrix:</p>
+ <ul>
+ <li>X is defined as the vector product <b>Y.Z</b> (It is tangential to
+ the ground at the device's current location and roughly points West).</li>
+ <li>Y is tangential to the ground at the device's current location and
+ points towards the magnetic North Pole.</li>
+ <li>Z points towards the center of the Earth and is perpendicular to the ground.</li>
+ </ul>
+
+ <p>
+ <center><img src="../../../images/axis_globe_inverted.png"
+ alt="Inverted world coordinate-system diagram." border="0" /></center>
+ </p>
+ <p>
+ All three angles above are in <b>radians</b> and <b>positive</b> in the
+ <b>counter-clockwise</b> direction.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>R</td>
+          <td>rotation matrix see <code><a href="../../../reference/android/hardware/SensorManager.html#getRotationMatrix(float[], float[], float[], float[])">getRotationMatrix(float[], float[], float[], float[])</a></code>.</td>
+        </tr>
+        <tr>
+          <th>values</td>
+          <td>an array of 3 floats to hold the result.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>The array values passed as argument.</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">See Also</h5>
+      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/SensorManager.html#getRotationMatrix(float[], float[], float[], float[])">getRotationMatrix(float[], float[], float[], float[])</a></code></li><li><code><a href="../../../reference/android/hardware/GeomagneticField.html">GeomagneticField</a></code></li>
+      </ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getQuaternionFromVector(float[], float[])"></A>
+
+<div class="jd-details api apilevel-9"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">getQuaternionFromVector</span>
+      <span class="normal">(float[] Q, float[] rv)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level9">API Level 9</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Helper function to convert a rotation vector to a normalized quaternion.
+  Given a rotation vector (presumably from a ROTATION_VECTOR sensor), returns a normalized
+  quaternion in the array Q.  The quaternion is stored as [w, x, y, z]</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>Q</td>
+          <td>an array of floats in which to store the computed quaternion
+</td>
+        </tr>
+        <tr>
+          <th>rv</td>
+          <td>the rotation vector to convert</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getRotationMatrix(float[], float[], float[], float[])"></A>
+
+<div class="jd-details api apilevel-3"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        boolean
+      </span>
+      <span class="sympad">getRotationMatrix</span>
+      <span class="normal">(float[] R, float[] I, float[] gravity, float[] geomagnetic)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level3">API Level 3</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p><p>
+ Computes the inclination matrix <b>I</b> as well as the rotation matrix
+ <b>R</b> transforming a vector from the device coordinate system to the
+ world's coordinate system which is defined as a direct orthonormal basis,
+ where:
+ </p>
+
+ <ul>
+ <li>X is defined as the vector product <b>Y.Z</b> (It is tangential to
+ the ground at the device's current location and roughly points East).</li>
+ <li>Y is tangential to the ground at the device's current location and
+ points towards the magnetic North Pole.</li>
+ <li>Z points towards the sky and is perpendicular to the ground.</li>
+ </ul>
+
+ <p>
+ <center><img src="../../../images/axis_globe.png"
+ alt="World coordinate-system diagram." border="0" /></center>
+ </p>
+
+ <p>
+ <hr>
+ <p>
+ By definition:
+ <p>
+ [0 0 g] = <b>R</b> * <b>gravity</b> (g = magnitude of gravity)
+ <p>
+ [0 m 0] = <b>I</b> * <b>R</b> * <b>geomagnetic</b> (m = magnitude of
+ geomagnetic field)
+ <p>
+ <b>R</b> is the identity matrix when the device is aligned with the
+ world's coordinate system, that is, when the device's X axis points
+ toward East, the Y axis points to the North Pole and the device is facing
+ the sky.
+
+ <p>
+ <b>I</b> is a rotation matrix transforming the geomagnetic vector into
+ the same coordinate space as gravity (the world's coordinate space).
+ <b>I</b> is a simple rotation around the X axis. The inclination angle in
+ radians can be computed with <code><a href="../../../reference/android/hardware/SensorManager.html#getInclination(float[])">getInclination(float[])</a></code>.
+ <hr>
+
+ <p>
+ Each matrix is returned either as a 3x3 or 4x4 row-major matrix depending
+ on the length of the passed array:
+ <p>
+ <u>If the array length is 16:</u>
+
+ <pre>
+   /  M[ 0]   M[ 1]   M[ 2]   M[ 3]  \
+   |  M[ 4]   M[ 5]   M[ 6]   M[ 7]  |
+   |  M[ 8]   M[ 9]   M[10]   M[11]  |
+   \  M[12]   M[13]   M[14]   M[15]  /
+</pre>
+
+ This matrix is ready to be used by OpenGL ES's
+ <code><a href="../../../reference/javax/microedition/khronos/opengles/GL10.html#glLoadMatrixf(float[], int)">glLoadMatrixf(float[], int)</a></code>.
+ <p>
+ Note that because OpenGL matrices are column-major matrices you must
+ transpose the matrix before using it. However, since the matrix is a
+ rotation matrix, its transpose is also its inverse, conveniently, it is
+ often the inverse of the rotation that is needed for rendering; it can
+ therefore be used with OpenGL ES directly.
+ <p>
+ Also note that the returned matrices always have this form:
+
+ <pre>
+   /  M[ 0]   M[ 1]   M[ 2]   0  \
+   |  M[ 4]   M[ 5]   M[ 6]   0  |
+   |  M[ 8]   M[ 9]   M[10]   0  |
+   \      0       0       0   1  /
+</pre>
+
+ <p>
+ <u>If the array length is 9:</u>
+
+ <pre>
+   /  M[ 0]   M[ 1]   M[ 2]  \
+   |  M[ 3]   M[ 4]   M[ 5]  |
+   \  M[ 6]   M[ 7]   M[ 8]  /
+</pre>
+
+ <hr>
+ <p>
+ The inverse of each matrix can be computed easily by taking its
+ transpose.
+
+ <p>
+ The matrices returned by this function are meaningful only when the
+ device is not free-falling and it is not close to the magnetic north. If
+ the device is accelerating, or placed into a strong magnetic field, the
+ returned matrices may be inaccurate.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>R</td>
+          <td>is an array of 9 floats holding the rotation matrix <b>R</b> when
+        this function returns. R can be null.
+        <p></td>
+        </tr>
+        <tr>
+          <th>I</td>
+          <td>is an array of 9 floats holding the rotation matrix <b>I</b> when
+        this function returns. I can be null.
+        <p></td>
+        </tr>
+        <tr>
+          <th>gravity</td>
+          <td>is an array of 3 floats containing the gravity vector expressed in
+        the device's coordinate. You can simply use the
+        <code><a href="../../../reference/android/hardware/SensorEvent.html#values">values</a></code> returned by a
+        <code><a href="../../../reference/android/hardware/SensorEvent.html">SensorEvent</a></code> of a
+        <code><a href="../../../reference/android/hardware/Sensor.html">Sensor</a></code> of type
+        <code><a href="../../../reference/android/hardware/Sensor.html#TYPE_ACCELEROMETER">TYPE_ACCELEROMETER</a></code>.
+        <p></td>
+        </tr>
+        <tr>
+          <th>geomagnetic</td>
+          <td>is an array of 3 floats containing the geomagnetic vector
+        expressed in the device's coordinate. You can simply use the
+        <code><a href="../../../reference/android/hardware/SensorEvent.html#values">values</a></code> returned by a
+        <code><a href="../../../reference/android/hardware/SensorEvent.html">SensorEvent</a></code> of a
+        <code><a href="../../../reference/android/hardware/Sensor.html">Sensor</a></code> of type
+        <code><a href="../../../reference/android/hardware/Sensor.html#TYPE_MAGNETIC_FIELD">TYPE_MAGNETIC_FIELD</a></code>.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li><code>true</code> on success, <code>false</code> on failure (for
+         instance, if the device is in free fall). On failure the output
+         matrices are not modified.</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">See Also</h5>
+      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/SensorManager.html#getInclination(float[])">getInclination(float[])</a></code></li><li><code><a href="../../../reference/android/hardware/SensorManager.html#getOrientation(float[], float[])">getOrientation(float[], float[])</a></code></li><li><code><a href="../../../reference/android/hardware/SensorManager.html#remapCoordinateSystem(float[], int, int, float[])">remapCoordinateSystem(float[], int, int, float[])</a></code></li>
+      </ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getRotationMatrixFromVector(float[], float[])"></A>
+
+<div class="jd-details api apilevel-9"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">getRotationMatrixFromVector</span>
+      <span class="normal">(float[] R, float[] rotationVector)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level9">API Level 9</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Helper function to convert a rotation vector to a rotation matrix.
+  Given a rotation vector (presumably from a ROTATION_VECTOR sensor), returns a
+  9  or 16 element rotation matrix in the array R.  R must have length 9 or 16.
+  If R.length == 9, the following matrix is returned:
+ <pre>
+   /  R[ 0]   R[ 1]   R[ 2]   \
+   |  R[ 3]   R[ 4]   R[ 5]   |
+   \  R[ 6]   R[ 7]   R[ 8]   /
+</pre>
+ If R.length == 16, the following matrix is returned:
+ <pre>
+   /  R[ 0]   R[ 1]   R[ 2]   0  \
+   |  R[ 4]   R[ 5]   R[ 6]   0  |
+   |  R[ 8]   R[ 9]   R[10]   0  |
+   \  0       0       0       1  /
+</pre></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>R</td>
+          <td>an array of floats in which to store the rotation matrix
+</td>
+        </tr>
+        <tr>
+          <th>rotationVector</td>
+          <td>the rotation vector to convert</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getSensorList(int)"></A>
+
+<div class="jd-details api apilevel-3"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../reference/java/util/List.html">List</a>&lt;<a href="../../../reference/android/hardware/Sensor.html">Sensor</a>&gt;
+      </span>
+      <span class="sympad">getSensorList</span>
+      <span class="normal">(int type)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level3">API Level 3</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Use this method to get the list of available sensors of a certain type.
+ Make multiple calls to get sensors of different types or use
+ <code><a href="../../../reference/android/hardware/Sensor.html#TYPE_ALL">Sensor.TYPE_ALL</a></code> to get all the
+ sensors.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>type</td>
+          <td>of sensors requested</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>a list of sensors matching the asked type.</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">See Also</h5>
+      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/SensorManager.html#getDefaultSensor(int)">getDefaultSensor(int)</a></code></li><li><code><a href="../../../reference/android/hardware/Sensor.html">Sensor</a></code></li>
+      </ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getSensors()"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        int
+      </span>
+      <span class="sympad">getSensors</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      <p>
+  <p class="caution">
+      <strong>
+  This method is deprecated.</strong><br/> This method is deprecated, use
+             <code><a href="../../../reference/android/hardware/SensorManager.html#getSensorList(int)">getSensorList(int)</a></code> instead
+
+  </p>
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>available sensors.</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="registerListener(android.hardware.SensorListener, int, int)"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        boolean
+      </span>
+      <span class="sympad">registerListener</span>
+      <span class="normal">(<a href="../../../reference/android/hardware/SensorListener.html">SensorListener</a> listener, int sensors, int rate)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      <p>
+  <p class="caution">
+      <strong>
+  This method is deprecated.</strong><br/> This method is deprecated, use
+             <code><a href="../../../reference/android/hardware/SensorManager.html#registerListener(android.hardware.SensorEventListener, android.hardware.Sensor, int)">registerListener(SensorEventListener, Sensor, int)</a></code>
+             instead.
+  </p>
+  <div class="jd-tagdata jd-tagdescr"><p>Registers a SensorListener for given sensors.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>listener</td>
+          <td>sensor listener object</td>
+        </tr>
+        <tr>
+          <th>sensors</td>
+          <td>a bit masks of the sensors to register to</td>
+        </tr>
+        <tr>
+          <th>rate</td>
+          <td>rate of events. This is only a hint to the system. events may be
+        received faster or slower than the specified rate. Usually events
+        are received faster. The value must be one of
+        <code><a href="../../../reference/android/hardware/SensorManager.html#SENSOR_DELAY_NORMAL">SENSOR_DELAY_NORMAL</a></code>, <code><a href="../../../reference/android/hardware/SensorManager.html#SENSOR_DELAY_UI">SENSOR_DELAY_UI</a></code>,
+        <code><a href="../../../reference/android/hardware/SensorManager.html#SENSOR_DELAY_GAME">SENSOR_DELAY_GAME</a></code>, or <code><a href="../../../reference/android/hardware/SensorManager.html#SENSOR_DELAY_FASTEST">SENSOR_DELAY_FASTEST</a></code>.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li><code>true</code> if the sensor is supported and successfully
+         enabled
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="registerListener(android.hardware.SensorListener, int)"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        boolean
+      </span>
+      <span class="sympad">registerListener</span>
+      <span class="normal">(<a href="../../../reference/android/hardware/SensorListener.html">SensorListener</a> listener, int sensors)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      <p>
+  <p class="caution">
+      <strong>
+  This method is deprecated.</strong><br/> This method is deprecated, use
+             <code><a href="../../../reference/android/hardware/SensorManager.html#registerListener(android.hardware.SensorEventListener, android.hardware.Sensor, int)">registerListener(SensorEventListener, Sensor, int)</a></code>
+             instead.
+  </p>
+  <div class="jd-tagdata jd-tagdescr"><p>Registers a listener for given sensors.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>listener</td>
+          <td>sensor listener object</td>
+        </tr>
+        <tr>
+          <th>sensors</td>
+          <td>a bit masks of the sensors to register to</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li><code>true</code> if the sensor is supported and successfully
+         enabled
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="registerListener(android.hardware.SensorEventListener, android.hardware.Sensor, int, android.os.Handler)"></A>
+
+<div class="jd-details api apilevel-3"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        boolean
+      </span>
+      <span class="sympad">registerListener</span>
+      <span class="normal">(<a href="../../../reference/android/hardware/SensorEventListener.html">SensorEventListener</a> listener, <a href="../../../reference/android/hardware/Sensor.html">Sensor</a> sensor, int rate, <a href="../../../reference/android/os/Handler.html">Handler</a> handler)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level3">API Level 3</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Registers a <code><a href="../../../reference/android/hardware/SensorEventListener.html">SensorEventListener</a></code> for the given sensor.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>listener</td>
+          <td>A <code><a href="../../../reference/android/hardware/SensorEventListener.html">SensorEventListener</a></code>
+        object.</td>
+        </tr>
+        <tr>
+          <th>sensor</td>
+          <td>The <code><a href="../../../reference/android/hardware/Sensor.html">Sensor</a></code> to register to.</td>
+        </tr>
+        <tr>
+          <th>rate</td>
+          <td>The rate <code><a href="../../../reference/android/hardware/SensorEvent.html">sensor events</a></code> are
+        delivered at. This is only a hint to the system. Events may be
+        received faster or slower than the specified rate. Usually events
+        are received faster. The value must be one of
+        <code><a href="../../../reference/android/hardware/SensorManager.html#SENSOR_DELAY_NORMAL">SENSOR_DELAY_NORMAL</a></code>, <code><a href="../../../reference/android/hardware/SensorManager.html#SENSOR_DELAY_UI">SENSOR_DELAY_UI</a></code>,
+        <code><a href="../../../reference/android/hardware/SensorManager.html#SENSOR_DELAY_GAME">SENSOR_DELAY_GAME</a></code>, or <code><a href="../../../reference/android/hardware/SensorManager.html#SENSOR_DELAY_FASTEST">SENSOR_DELAY_FASTEST</a></code>.
+        or, the desired delay between events in microsecond.</td>
+        </tr>
+        <tr>
+          <th>handler</td>
+          <td>The <code><a href="../../../reference/android/os/Handler.html">Handler</a></code> the
+        <code><a href="../../../reference/android/hardware/SensorEvent.html">sensor events</a></code> will be
+        delivered to.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>true if the sensor is supported and successfully enabled.</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">See Also</h5>
+      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/SensorManager.html#registerListener(android.hardware.SensorEventListener, android.hardware.Sensor, int)">registerListener(SensorEventListener, Sensor, int)</a></code></li><li><code><a href="../../../reference/android/hardware/SensorManager.html#unregisterListener(android.hardware.SensorEventListener)">unregisterListener(SensorEventListener)</a></code></li><li><code><a href="../../../reference/android/hardware/SensorManager.html#unregisterListener(android.hardware.SensorEventListener, android.hardware.Sensor)">unregisterListener(SensorEventListener, Sensor)</a></code></li>
+      </ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="registerListener(android.hardware.SensorEventListener, android.hardware.Sensor, int)"></A>
+
+<div class="jd-details api apilevel-3"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        boolean
+      </span>
+      <span class="sympad">registerListener</span>
+      <span class="normal">(<a href="../../../reference/android/hardware/SensorEventListener.html">SensorEventListener</a> listener, <a href="../../../reference/android/hardware/Sensor.html">Sensor</a> sensor, int rate)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level3">API Level 3</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Registers a <code><a href="../../../reference/android/hardware/SensorEventListener.html">SensorEventListener</a></code> for the given sensor.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>listener</td>
+          <td>A <code><a href="../../../reference/android/hardware/SensorEventListener.html">SensorEventListener</a></code>
+        object.</td>
+        </tr>
+        <tr>
+          <th>sensor</td>
+          <td>The <code><a href="../../../reference/android/hardware/Sensor.html">Sensor</a></code> to register to.</td>
+        </tr>
+        <tr>
+          <th>rate</td>
+          <td>The rate <code><a href="../../../reference/android/hardware/SensorEvent.html">sensor events</a></code> are
+        delivered at. This is only a hint to the system. Events may be
+        received faster or slower than the specified rate. Usually events
+        are received faster. The value must be one of
+        <code><a href="../../../reference/android/hardware/SensorManager.html#SENSOR_DELAY_NORMAL">SENSOR_DELAY_NORMAL</a></code>, <code><a href="../../../reference/android/hardware/SensorManager.html#SENSOR_DELAY_UI">SENSOR_DELAY_UI</a></code>,
+        <code><a href="../../../reference/android/hardware/SensorManager.html#SENSOR_DELAY_GAME">SENSOR_DELAY_GAME</a></code>, or <code><a href="../../../reference/android/hardware/SensorManager.html#SENSOR_DELAY_FASTEST">SENSOR_DELAY_FASTEST</a></code>
+        or, the desired delay between events in microsecond.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li><code>true</code> if the sensor is supported and successfully
+         enabled.</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">See Also</h5>
+      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/SensorManager.html#registerListener(android.hardware.SensorEventListener, android.hardware.Sensor, int, android.os.Handler)">registerListener(SensorEventListener, Sensor, int, Handler)</a></code></li><li><code><a href="../../../reference/android/hardware/SensorManager.html#unregisterListener(android.hardware.SensorEventListener)">unregisterListener(SensorEventListener)</a></code></li><li><code><a href="../../../reference/android/hardware/SensorManager.html#unregisterListener(android.hardware.SensorEventListener, android.hardware.Sensor)">unregisterListener(SensorEventListener, Sensor)</a></code></li>
+      </ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="remapCoordinateSystem(float[], int, int, float[])"></A>
+
+<div class="jd-details api apilevel-3"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        boolean
+      </span>
+      <span class="sympad">remapCoordinateSystem</span>
+      <span class="normal">(float[] inR, int X, int Y, float[] outR)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level3">API Level 3</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p><p>
+ Rotates the supplied rotation matrix so it is expressed in a different
+ coordinate system. This is typically used when an application needs to
+ compute the three orientation angles of the device (see
+ <code><a href="../../../reference/android/hardware/SensorManager.html#getOrientation(float[], float[])">getOrientation(float[], float[])</a></code>) in a different coordinate system.
+ </p>
+
+ <p>
+ When the rotation matrix is used for drawing (for instance with OpenGL
+ ES), it usually <b>doesn't need</b> to be transformed by this function,
+ unless the screen is physically rotated, in which case you can use
+ <code><a href="../../../reference/android/view/Display.html#getRotation()">Display.getRotation()</a></code> to
+ retrieve the current rotation of the screen. Note that because the user
+ is generally free to rotate their screen, you often should consider the
+ rotation in deciding the parameters to use here.
+ </p>
+
+ <p>
+ <u>Examples:</u>
+ <p>
+
+ <ul>
+ <li>Using the camera (Y axis along the camera's axis) for an augmented
+ reality application where the rotation angles are needed:</li>
+
+ <p>
+ <ul>
+ <code>remapCoordinateSystem(inR, AXIS_X, AXIS_Z, outR);</code>
+ </ul>
+ </p>
+
+ <li>Using the device as a mechanical compass when rotation is
+ <code><a href="../../../reference/android/view/Surface.html#ROTATION_90">Surface.ROTATION_90</a></code>:</li>
+
+ <p>
+ <ul>
+ <code>remapCoordinateSystem(inR, AXIS_Y, AXIS_MINUS_X, outR);</code>
+ </ul>
+ </p>
+
+ Beware of the above example. This call is needed only to account for a
+ rotation from its natural orientation when calculating the rotation
+ angles (see <code><a href="../../../reference/android/hardware/SensorManager.html#getOrientation(float[], float[])">getOrientation(float[], float[])</a></code>). If the rotation matrix is also used
+ for rendering, it may not need to be transformed, for instance if your
+ <code><a href="../../../reference/android/app/Activity.html">Activity</a></code> is running in landscape mode.
+ </ul>
+
+ <p>
+ Since the resulting coordinate system is orthonormal, only two axes need
+ to be specified.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>inR</td>
+          <td>the rotation matrix to be transformed. Usually it is the matrix
+        returned by <code><a href="../../../reference/android/hardware/SensorManager.html#getRotationMatrix(float[], float[], float[], float[])">getRotationMatrix(float[], float[], float[], float[])</a></code>.</td>
+        </tr>
+        <tr>
+          <th>X</td>
+          <td>defines on which world axis and direction the X axis of the device
+        is mapped.</td>
+        </tr>
+        <tr>
+          <th>Y</td>
+          <td>defines on which world axis and direction the Y axis of the device
+        is mapped.</td>
+        </tr>
+        <tr>
+          <th>outR</td>
+          <td>the transformed rotation matrix. inR and outR can be the same
+        array, but it is not recommended for performance reason.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li><code>true</code> on success. <code>false</code> if the input
+         parameters are incorrect, for instance if X and Y define the same
+         axis. Or if inR and outR don't have the same length.</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">See Also</h5>
+      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/SensorManager.html#getRotationMatrix(float[], float[], float[], float[])">getRotationMatrix(float[], float[], float[], float[])</a></code></li>
+      </ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="unregisterListener(android.hardware.SensorListener)"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">unregisterListener</span>
+      <span class="normal">(<a href="../../../reference/android/hardware/SensorListener.html">SensorListener</a> listener)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      <p>
+  <p class="caution">
+      <strong>
+  This method is deprecated.</strong><br/> This method is deprecated, use
+             <code><a href="../../../reference/android/hardware/SensorManager.html#unregisterListener(android.hardware.SensorEventListener)">unregisterListener(SensorEventListener)</a></code>
+             instead.
+  </p>
+  <div class="jd-tagdata jd-tagdescr"><p>Unregisters a listener for all sensors.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>listener</td>
+          <td>a SensorListener object
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="unregisterListener(android.hardware.SensorListener, int)"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">unregisterListener</span>
+      <span class="normal">(<a href="../../../reference/android/hardware/SensorListener.html">SensorListener</a> listener, int sensors)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      <p>
+  <p class="caution">
+      <strong>
+  This method is deprecated.</strong><br/> This method is deprecated, use
+             <code><a href="../../../reference/android/hardware/SensorManager.html#unregisterListener(android.hardware.SensorEventListener, android.hardware.Sensor)">unregisterListener(SensorEventListener, Sensor)</a></code>
+             instead.
+  </p>
+  <div class="jd-tagdata jd-tagdescr"><p>Unregisters a listener for the sensors with which it is registered.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>listener</td>
+          <td>a SensorListener object</td>
+        </tr>
+        <tr>
+          <th>sensors</td>
+          <td>a bit masks of the sensors to unregister from
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="unregisterListener(android.hardware.SensorEventListener, android.hardware.Sensor)"></A>
+
+<div class="jd-details api apilevel-3"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">unregisterListener</span>
+      <span class="normal">(<a href="../../../reference/android/hardware/SensorEventListener.html">SensorEventListener</a> listener, <a href="../../../reference/android/hardware/Sensor.html">Sensor</a> sensor)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level3">API Level 3</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Unregisters a listener for the sensors with which it is registered.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>listener</td>
+          <td>a SensorEventListener object</td>
+        </tr>
+        <tr>
+          <th>sensor</td>
+          <td>the sensor to unregister from</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">See Also</h5>
+      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/SensorManager.html#unregisterListener(android.hardware.SensorEventListener)">unregisterListener(SensorEventListener)</a></code></li><li><code><a href="../../../reference/android/hardware/SensorManager.html#registerListener(android.hardware.SensorEventListener, android.hardware.Sensor, int)">registerListener(SensorEventListener, Sensor, int)</a></code></li>
+      </ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="unregisterListener(android.hardware.SensorEventListener)"></A>
+
+<div class="jd-details api apilevel-3"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">unregisterListener</span>
+      <span class="normal">(<a href="../../../reference/android/hardware/SensorEventListener.html">SensorEventListener</a> listener)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../guide/appendix/api-levels.html#level3">API Level 3</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Unregisters a listener for all sensors.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>listener</td>
+          <td>a SensorListener object</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">See Also</h5>
+      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/SensorManager.html#unregisterListener(android.hardware.SensorEventListener, android.hardware.Sensor)">unregisterListener(SensorEventListener, Sensor)</a></code></li><li><code><a href="../../../reference/android/hardware/SensorManager.html#registerListener(android.hardware.SensorEventListener, android.hardware.Sensor, int)">registerListener(SensorEventListener, Sensor, int)</a></code></li>
+      </ul>
+  </div>
+
+    </div>
+</div>
+
+
+
+
+
+<!-- ========= METHOD DETAIL ======== -->
+
+
+
+<!-- ========= END OF CLASS DATA ========= -->
+<A NAME="navbar_top"></A>
+
+<div id="footer">
+
+
+  <div id="copyright">
+    
+  Except as noted, this content is licensed under <a
+  href="http://www.apache.org/licenses/LICENSE-2.0">Apache 2.0</a>. 
+  For details and restrictions, see the <a href="../../../license.html">
+  Content License</a>.
+  </div>
+  <div id="build_info">
+    
+  Android 4.0&nbsp;r1 - 16 Mar 2012 16:45
+
+  </div>
+
+  <div id="footerlinks">
+    
+  <p>
+    <a href="http://www.google.com/intl/en/policies/" target="_blank">Privacy &amp; Terms</a> -
+    <a href="http://www.android.com/branding.html" target="_blank">Brand Guidelines</a> -
+    <a
+href="http://code.google.com/p/android/issues/entry?template=Developer%20Documentation"
+target="_blank">Report Document Issues</a>
+  </p>
+  </div>
+
+</div> <!-- end footer -->
+
+</div> <!-- jd-content -->
+
+</div><!-- end doc-content -->
+
+</div> <!-- end body-content --> 
+
+<script type="text/javascript">
+init(); /* initialize android-developer-docs.js */
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-5831155-1");
+pageTracker._trackPageview();
+</script>
+
+</body>
+</html>

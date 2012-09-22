@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<link rel="shortcut icon" type="image/x-icon" href="../favicon.ico" />
+<title>Support Package | Android Developers</title>
+<link href="../assets/android-developer-docs-devguide.css" rel="stylesheet" type="text/css" />
+<script src="../assets/search_autocomplete.js" type="text/javascript"></script>
+<script src="../assets/jquery-resizable.min.js" type="text/javascript"></script>
+<script src="../assets/android-developer-docs.js" type="text/javascript"></script>
+<script src="../assets/prettify.js" type="text/javascript"></script>
+<script type="text/javascript">
+  setToRoot("../");
+</script>
+<noscript>
+  <style type="text/css">
+    html,body{overflow:auto;}
+    #body-content{position:relative; top:0;}
+    #doc-content{overflow:visible;border-left:3px solid #666;}
+    #side-nav{padding:0;}
+    #side-nav .toggle-list ul {display:block;}
+    #resize-packages-nav{border-bottom:3px solid #666;}
+  </style>
+</noscript>
+</head>
+<body class="gc-documentation" itemscope itemtype="http://schema.org/Article">
+
+  <div id="header">
+      <div id="headerLeft">
+          <a href="../index.html" tabindex="-1"><img
+              src="../assets/images/bg_logo.png" alt="Android Developers" /></a>
+          <ul id="header-tabs" class="sdk">
+    
+	<li id="home-link"><a href="../offline.html">
+	
+		<span class="en">Home</span>
+		<span style="display:none" class="de">Startseite</span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ホーム</span>
+		<span style="display:none" class="zh-CN">主页</span>
+		<span style="display:none" class="zh-TW">首頁</span>
+	
+	</a></li>
+	<li id="sdk-link"><a href="../sdk/index.html">
+		<span class="en">SDK</span>
+	</a></li>
+	<li id="guide-link"><a href="../guide/index.html" onClick="return loadLast('guide')">
+	
+		<span class="en">Dev Guide</span>
+		<span style="display:none" class="de">Handbuch</span>
+		<span style="display:none" class="es">Guía</span>
+		<span style="display:none" class="fr">Guide</span>
+		<span style="display:none" class="it">Guida</span>
+		<span style="display:none" class="ja">開発ガイド</span>
+		<span style="display:none" class="zh-CN">开发人员指南</span>
+		<span style="display:none" class="zh-TW">開發指南</span>
+	
+	</a></li>
+	<li id="reference-link"><a href="../reference/packages.html" onClick="return loadLast('reference')">
+	
+		<span class="en">Reference</span>
+		<span style="display:none" class="de">Referenz</span>
+		<span style="display:none" class="es">Referencia</span>
+		<span style="display:none" class="fr">Référence</span>
+		<span style="display:none" class="it">Riferimento</span>
+		<span style="display:none" class="ja">リファレンス</span>
+		<span style="display:none" class="zh-CN">参考</span>
+		<span style="display:none" class="zh-TW">參考資料</span>
+	
+	</a></li>
+	<li id="resources-link"><a href="../resources/index.html" onClick="return loadLast('resources')">
+	
+		<span class="en">Resources</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+    		<span style="display:none" class="ja"></span>
+		<span style="display:none" class="zh-CN"></span>
+		<span style="display:none" class="zh-TW"></span>
+	
+	</a></li>
+	<li id="videos-link"><a href="../videos/index.html" onClick="return loadLast('videos')">
+	
+		<span class="en">Videos</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ビデオ</span>
+		<span style="display:none" class="zh-CN"></span>
+		<span style="display:none" class="zh-TW"></span>
+	
+	</a></li>
+	<li><a href="http://android-developers.blogspot.com" onClick="return requestAppendHL(this.href)">
+	
+		<span class="en">Blog</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ブログ</span>
+		<span style="display:none" class="zh-CN">博客</span>
+		<span style="display:none" class="zh-TW">網誌</span>
+	
+	</a></li>
+
+
+     
+</ul>
+     
+      </div>
+      <div id="headerRight">
+          <div id="headerLinks">
+          &nbsp;&nbsp;
+          <a href="../design/index.html">Android Design</a>&nbsp;&nbsp;
+          <a href="http://www.android.com">Android.com</a>
+          </div>
+  <div id="search" >
+      <div id="searchForm">
+          <form accept-charset="utf-8" class="gsc-search-box" 
+                onsubmit="return submit_search()">
+            <table class="gsc-search-box" cellpadding="0" cellspacing="0"><tbody>
+                <tr>
+                  <td class="gsc-input">
+                    <input id="search_autocomplete" class="gsc-input" type="text" size="33" autocomplete="off"
+                      title="search developer docs" name="q"
+                      value="search developer docs"
+                      onFocus="search_focus_changed(this, true)"
+                      onBlur="search_focus_changed(this, false)"
+                      onkeydown="return search_changed(event, true, '../')"
+                      onkeyup="return search_changed(event, false, '../')" />
+                  <div id="search_filtered_div" class="no-display">
+                      <table id="search_filtered" cellspacing=0>
+                      </table>
+                  </div>
+                  </td>
+                  <td class="gsc-search-button">
+                    <input type="submit" value="Search" title="search" id="search-button" class="gsc-search-button" />
+                  </td>
+                  <td class="gsc-clear-button">
+                    <div title="clear results" class="gsc-clear-button">&nbsp;</div>
+                  </td>
+                </tr></tbody>
+              </table>
+          </form>
+      </div><!-- searchForm -->
+  </div><!-- search -->
+      </div><!-- headerRight -->
+      <script type="text/javascript">
+        <!--  
+        changeTabLang(getLangPref());
+        //-->
+      </script>
+  </div><!-- header -->
+
+  <div class="g-section g-tpl-240" id="body-content">
+    <div class="g-unit g-first" id="side-nav" itemscope itemtype="http://schema.org/SiteNavigationElement">
+      <div id="devdoc-nav">
+<ul>
+  <li>
+    <span class="heading">
+      <span class="en">Android SDK Starter Package</span>
+      <span style="display:none" class="de">Aktuelle SDK-Version</span>
+      <span style="display:none" class="es">Versión actual del SDK</span>
+      <span style="display:none" class="fr">Version actuelle du SDK</span>
+      <span style="display:none" class="it">Release SDK attuale</span>
+      <span style="display:none" class="ja">現在リリースされている SDK</span>
+      <span style="display:none" class="zh-CN">当前的 SDK 版本</span>
+      <span style="display:none" class="zh-TW">目前 SDK 發行版本</span>
+    </span>
+    <ul>
+      <li><a href="../sdk/installing.html">
+          <span class="en">Installing the SDK</span>
+          <span style="display:none" class="de">Installieren</span>
+          <span style="display:none" class="es">Instalación</span>
+          <span style="display:none" class="fr">Installation</span>
+          <span style="display:none" class="it">Installazione</span>
+          <span style="display:none" class="ja">インストール</span>
+          <span style="display:none" class="zh-CN">安装</span>
+          <span style="display:none" class="zh-TW">安裝</span>
+        </a></li>
+    </ul>
+  </li>
+  
+  <li>
+    <span class="heading">
+      <span class="en">Downloadable SDK Components</span>
+      <span style="display:none" class="de"></span>
+      <span style="display:none" class="es"></span>
+      <span style="display:none" class="fr"></span>
+      <span style="display:none" class="it"></span>
+      <span style="display:none" class="ja"></span>
+      <span style="display:none" class="zh-CN"></span>
+      <span style="display:none" class="zh-TW"></span>
+    </span>
+    <ul>
+      <li><a href="../sdk/adding-components.html">
+      <span class="en">Adding SDK Components</span>
+      <span style="display:none" class="de"></span>
+      <span style="display:none" class="es"></span>
+      <span style="display:none" class="fr"></span>
+      <span style="display:none" class="it"></span>
+      <span style="display:none" class="ja"></span>
+      <span style="display:none" class="zh-CN"></span>
+      <span style="display:none" class="zh-TW"></span></a>
+      </li>
+    </ul>
+    <ul>
+      <li class="toggle-list">
+        <div><a href="../sdk/android-4.0-highlights.html">
+        <span class="en">Android 4.0.x Platform</span></a> <span class="new">new!</span></div>
+        <ul>
+          <li><a href="../sdk/android-4.0.3.html">Android 4.0.3 Platform</a> <span class="new">new!</span></li>
+          <li><a href="../sdk/android-4.0.html">Android 4.0 Platform</a> </li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../sdk/android-3.2.html">
+        <span class="en">Android 3.2 Platform</span></a></div>
+        <ul>
+          <!-- <li><a href="../sdk/android-3.2-highlights.html">Platform Highlights</a></li> -->
+          <li><a href="../sdk/api_diff/13/changes.html">API Differences Report &raquo;</a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../sdk/android-3.1.html">
+        <span class="en">Android 3.1 Platform</span></a></div>
+        <ul>
+          <li><a href="../sdk/android-3.1-highlights.html">Platform Highlights</a></li>
+          <li><a href="../sdk/api_diff/12/changes.html">API Differences Report &raquo;</a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../sdk/android-3.0.html">
+        <span class="en">Android 3.0 Platform</span></a></div>
+        <ul>
+          <li><a href="../sdk/android-3.0-highlights.html">Platform Highlights</a></li>
+          <li><a href="../sdk/api_diff/11/changes.html">API Differences Report &raquo;</a></li>
+        </ul>
+      </li>
+      <li><a href="../sdk/android-2.3.4.html">Android 2.3.4 Platform</span></a></li>
+      <li class="toggle-list">
+      <div><a href="../sdk/android-2.3.3.html">
+      <span class="en">Android 2.3.3 Platform</span></a></div>
+        <ul>
+          <li><a href="../sdk/api_diff/10/changes.html">API Differences Report &raquo;</a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../sdk/android-2.2.html">
+        <span class="en">Android 2.2 Platform</span></a></div>
+        <ul>
+          <li><a href="../sdk/android-2.2-highlights.html">Platform Highlights</a></li>
+          <li><a href="../sdk/api_diff/8/changes.html">API Differences Report &raquo;</a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../sdk/android-2.1.html">
+        <span class="en">Android 2.1 Platform</span></a></div>
+        <ul>
+          <li><a href="../sdk/api_diff/7/changes.html">API Differences Report &raquo;</a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="#" onclick="toggle(this.parentNode.parentNode,true); return false;">Other Platforms</a></div>
+        <ul>
+          <li class="toggle-list">
+            <div><a href="../sdk/android-2.3.html">
+            <span class="en">Android 2.3 Platform</span></a></div>
+              <ul>
+                <li><a href="../sdk/android-2.3-highlights.html">Platform Highlights</a></li>
+                <li><a href="../sdk/api_diff/9/changes.html">API Differences Report &raquo;</a></li>
+              </ul>
+          </li>
+          <li><a href="../sdk/android-2.0.1.html">Android 2.0.1 Platform</a></li>
+          <li><a href="../sdk/android-2.0.html">Android 2.0 Platform</a></li>
+          <li><a href="../sdk/android-1.6.html">Android 1.6 Platform</a></li>
+          <li><a href="../sdk/android-1.5.html">Android 1.5 Platform</a></li>
+          <li><a href="../sdk/android-1.1.html">Android 1.1 Platform</a></li>
+        </ul>
+      </li>
+    </ul>
+    <ul>
+      <li><a href="../sdk/tools-notes.html">SDK Tools, r16</a> <span
+class="new">new!</span></li>
+      <li><a href="../sdk/win-usb.html">Google USB Driver, r4</a></li>
+      <li><a href="../sdk/compatibility-library.html">Support Package, r6</a>
+      <span class="new">new!</span></li>
+    </ul>
+  </li>
+  <li>
+    <span class="heading">
+      <span class="en">ADT Plugin for Eclipse</span>
+      <span style="display:none" class="de"></span>
+      <span style="display:none" class="es"></span>
+      <span style="display:none" class="fr"></span>
+      <span style="display:none" class="it"></span>
+      <span style="display:none" class="ja"></span>
+      <span style="display:none" class="zh-CN"></span>
+      <span style="display:none" class="zh-TW"></span>
+    </span>
+    <ul>
+      <li><a href="../sdk/eclipse-adt.html">ADT 16.0.1
+      <span style="display:none" class="de"></span>
+      <span style="display:none" class="es"></span>
+      <span style="display:none" class="fr"></span>
+      <span style="display:none" class="it"></span>
+      <span style="display:none" class="ja"></span>
+      <span style="display:none" class="zh-CN"></span>
+      <span style="display:none" class="zh-TW"></span></a> <span
+class="new">new!</span>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <span class="heading">
+      <span class="en">Native Development Tools</span>
+      <span style="display:none" class="de"></span>
+      <span style="display:none" class="es"></span>
+      <span style="display:none" class="fr"></span>
+      <span style="display:none" class="it"></span>
+      <span style="display:none" class="ja"></span>
+      <span style="display:none" class="zh-CN"></span>
+      <span style="display:none" class="zh-TW"></span>
+    </span>
+    <ul>
+      <li><a href="../sdk/ndk/index.html">Android NDK, r7b</a>
+        <span class="new">new!</span>
+        </li>
+      <li><a href="../sdk/ndk/overview.html">What is the NDK?</a></li>
+    </ul>
+  </li>
+
+  <li>
+    <span class="heading">
+      <span class="en">More Information</span>
+      <span style="display:none" class="de"></span>
+      <span style="display:none" class="es"></span>
+      <span style="display:none" class="fr"></span>
+      <span style="display:none" class="it"></span>
+      <span style="display:none" class="ja"></span>
+      <span style="display:none" class="zh-CN"></span>
+      <span style="display:none" class="zh-TW"></span>
+    </span>
+    <ul>
+      <li><a href="../sdk/oem-usb.html">
+        <span class="en">OEM USB Drivers</span>
+      </a></li>
+      <li><a href="../sdk/requirements.html">SDK System Requirements</a></li>
+      <li><a href="../sdk/older_releases.html">SDK Archives</a></li>
+
+    </ul>
+  </li>
+
+</ul>
+
+<script type="text/javascript">
+<!--
+    buildToggleLists();
+    changeNavLang(getLangPref());
+//-->
+</script>
+
+
+      </div>
+    </div> <!-- end side-nav -->
+
+
+
+
+<div class="g-unit" id="doc-content"><a name="top"></a>
+
+<div id="jd-header" class="guide-header">
+  <span class="crumb" itemprop="breadcrumb">
+    &nbsp;
+    
+  </span>
+<h1 itemprop="name">Support Package</h1>
+</div>
+
+  
+  <div id="jd-content">
+ 
+    
+
+
+    <div class="jd-descr" itemprop="articleBody">
+    <div id="qv-wrapper">
+<div id="qv">
+
+<h2>In this document</h2>
+<ol>
+  <li><a href="#Notes">Revisions</a></li>
+  <li><a href="#Downloading">Downloading the Support Package</a></li>
+  <li><a href="#SettingUp">Setting Up a Project to Use a Library</a></li>
+  <li><a href="#Using">Using the v4 Library APIs</a></li>
+  <li><a href="#Docs">Reference Docs</a></li>
+  <li><a href="#Samples">Samples</a></li>
+</ol>
+
+<h2>See also</h2>
+<ol>
+  <li><a
+href="../guide/practices/optimizing-for-3.0.html">Optimizing Apps for Android 3.0</a></li>
+  <li><a href="http://code.google.com/p/iosched/">Google I/O App source code</a></li>
+</ol>
+
+</div>
+</div>
+
+<p><em>Minimum API level supported:</em> <b>4</b></p>
+
+<p>The Support Package includes static "support libraries" that you can add to your Android
+application in order to use APIs that are either not available for older platform versions or that
+offer "utility" APIs that aren't a part of the framework APIs. The goal is to simplify your
+development by offering more APIs that you can bundle with your application so you can
+worry less about platform versions.</p>
+
+<p class="note"><strong>Note:</strong> The Support Package includes more than one support
+library. Each one has a different <em>minimum API level</em>. For example, one library requires API
+level 4 or higher, while another requires API level 13 or higher (v13 is a superset of v4 and
+includes additional
+support classes to work with v13 APIs). The minimum version is indicated
+by the directory name, such as <code>v4/</code> and <code>v13/</code>.</p>
+
+
+<h2 id="Notes">Revisions</h2>
+
+<p>The sections below provide notes about successive releases of
+the Support Package, as denoted by revision number.</p>
+
+
+<div class="toggle-content open">
+
+  <p><a href="#" onclick="return toggleContent(this)">
+    <img src="../assets/images/triangle-opened.png" class="toggle-content-img" />
+    Support Package, revision 6 (December 2011)
+  </a></p>
+
+  <div class="toggle-content-toggleme" style="padding-left:2em">
+    <p class="note"><strong>Note:</strong> Reference for support library APIs are now available with
+    the framework references, for example: <code><a href="../reference/android/support/v4/app/package-summary.html">android.support.v4.app</a></code>.</p>
+<dl>
+      <dt>Changes for v4 support library:</dt>
+      <dd>
+        <ul>
+          <li>Changes to ViewPager:
+            <ul>
+              <li>Added extra decorative view support for <code><a href="../reference/android/support/v4/view/ViewPager.html">ViewPager</a></code>.
+                Decorative views may be supplied as child views of a pager in XML layout.</li>
+              <li>Added <code><a href="../reference/android/support/v4/view/PagerAdapter.html#getPageTitle(int)">PagerAdapter.getPageTitle()</a></code> to supply title strings for pages, which defaults to no
+                title for each page.</li>
+              <li>Added <code><a href="../reference/android/support/v4/view/PagerTitleStrip.html">PagerTitleStrip</a></code>, a non-interactive title
+                strip, that can be added as a child of ViewPager. Developers can supply text
+                appearance and color, as well as layout sizing and gravity information.</li>
+              <li>Updated <code><a href="../reference/android/support/v4/view/PagerAdapter.html">PagerAdapter</a></code> methods to take ViewGroup
+                objects, rather than View to avoid class casting in adapter implementations.</li>
+              <li>Updated <code><a href="../reference/android/support/v4/view/ViewPager.html">ViewPager</a></code> to use Launcher-style
+                fling behavior.</li>
+              <li>Bug fixes for user interface interaction and test automation.</li>
+            </ul>
+          </li>
+
+          <li>Support for Fragments:
+            <ul>
+              <li>Changed <code>setStartDeferred()</code> method to <code><a href="../reference/android/support/v4/app/Fragment.html#setUserVisibleHint(boolean)">setUserVisibleHint(boolean)</a></code>.</li>
+              <li>Added deferred start for off-screen pages to improve performance.</li>
+            </ul>
+          </li>
+
+          <li>Support for Accessiblity APIs:
+            <ul>
+              <li>Updated <code><a href="../reference/android/support/v4/view/AccessibilityDelegateCompat.html">AccessibilityDelegateCompat</a></code> methods
+                to return empty lists instead of null.</li>
+              <li>Added new APIs needed by the v4 samples.</li>
+            </ul>
+          </li>
+
+        </ul>
+      </dd>
+    </dl>
+  </div>
+
+<div class="toggle-content closed">
+
+  <p><a href="#" onclick="return toggleContent(this)">
+    <img src="../assets/images/triangle-closed.png" class="toggle-content-img" />
+    Support Package, revision 5 (December 2011)
+  </a></p>
+
+  <div class="toggle-content-toggleme" style="padding-left:2em">
+    <dl>
+      <dt>Changes for v4 support library:</dt>
+      <dd>
+        <ul>
+          <li>Support for Accessiblity APIs:
+            <ul>
+              <li>Added <code><a href="../reference/android/support/v4/view/AccessibilityDelegateCompat.html">AccessibilityDelegateCompat</a></code>
+              to support <code><a href="../reference/android/view/View.AccessibilityDelegate.html">View.AccessibilityDelegate</a></code>.</li>
+
+              <li>Added <code><a href="../reference/android/support/v4/view/accessibility/AccessibilityEventCompat.html">AccessibilityEventCompat</a></code>
+              to support <code><a href="../reference/android/view/accessibility/AccessibilityEvent.html">AccessibilityEvent</a></code>.</li>
+
+              <li>Added <code><a href="../reference/android/support/v4/view/accessibility/AccessibilityManagerCompat.html">AccessibilityManagerCompat</a></code>
+              to support <code><a href="../reference/android/view/accessibility/AccessibilityManager.html">AccessibilityManager</a></code>.</li>
+
+              <li>Added <code><a href="../reference/android/support/v4/view/accessibility/AccessibilityNodeInfoCompat.html">AccessibilityNodeInfoCompat</a></code>
+              to support <code><a href="../reference/android/view/accessibility/AccessibilityNodeInfo.html">AccessibilityNodeInfo</a></code>.</li>
+
+              <li>Added <code><a href="../reference/android/support/v4/view/accessibility/AccessibilityRecordCompat.html">AccessibilityRecordCompat</a></code>
+              to support <code><a href="../reference/android/view/accessibility/AccessibilityRecord.html">AccessibilityRecord</a></code>.</li>
+
+              <li>Added <code><a href="../reference/android/support/v4/accessibilityservice/AccessibilityServiceInfoCompat.html">AccessibilityServiceInfoCompat</a></code>
+              to support <code><a href="../reference/android/accessibilityservice/AccessibilityServiceInfo.html">AccessibilityServiceInfo</a></code>.</li>
+
+              <li>Added <code><a href="../reference/android/support/v4/view/ViewGroupCompat.html">ViewGroupCompat</a></code>
+              to support accessibility features in <code><a href="../reference/android/view/ViewGroup.html">ViewGroup</a></code>.
+              </li>
+
+              <li>Modified <code><a href="../reference/android/support/v4/view/ViewCompat.html">ViewCompat</a></code>
+              to support accessibility features in <code><a href="../reference/android/view/View.html">View</a></code>.</li>
+            </ul>
+          </li>
+
+          <li>Changes to ViewPager:
+            <ul>
+              <li>Added support for margins between pages.
+              An optional <code><a href="../reference/android/graphics/drawable/Drawable.html">Drawable</a></code> can be provided
+              to fill the margins.</li>
+              <li>Added support for <code><a href="../reference/android/widget/EdgeEffect.html">EdgeEffect</a></code>.</li>
+              <li>Added support for keyboard navigation</li>
+              <li>Added support to control how many pages are kept to either side
+              of the current page.</li>
+              <li>Improved touch physics.</li>
+              <li>Bug fixes for user interface behavior.</li>
+            </ul>
+          </li>
+        </ul>
+      </dd>
+    </dl>
+  </div>
+
+<div class="toggle-content closed">
+
+  <p><a href="#" onclick="return toggleContent(this)">
+    <img src="../assets/images/triangle-closed.png" class="toggle-content-img" />
+    Support Package, revision 4 (October 2011)
+  </a></p>
+
+  <div class="toggle-content-toggleme" style="padding-left:2em">
+    <dl>
+      <dt>Changes for v4 support library:</dt>
+      <dd>
+        <ul>
+          <li>Added <code>EdgeEffectCompat</code> to
+          support <code><a href="../reference/android/widget/EdgeEffect.html">EdgeEffect</a></code>.</li>
+
+          <li>Added <code>LocalBroadcastManager</code> to allow applications to easily
+            register for and receive intents within a single application without
+            broadcasting them globally.</li>
+
+          <li>Added support in <code>ViewCompat</code> to check for and set overscroll
+          modes for <code><a href="../reference/android/view/View.html">View</a></code>s on Android 2.3 and later.</li>
+          <li>Changes to Fragment APIs:
+            <ul>
+              <li>Added new APIs to control the visibility of new menus.</li>
+              <li>Added custom animation APIs.</li>
+              <li>Added APIs in <code>FragmentActivity</code> to retain custom,
+              non-configuration instance data.</li>
+              <li>Various bug fixes.</li>
+            </ul>
+          </li>
+
+          <li>Fixed a <code><a href="../reference/android/content/Loader.html">Loader</a></code> bug that caused issues in
+          canceling <code><a href="../reference/android/os/AsyncTask.html">AsyncTask</a></code>s when running on Froyo and older
+          versions of the platform. The support
+          code now uses its own version of <code><a href="../reference/android/os/AsyncTask.html">AsyncTask</a></code> to keep the same
+          behavior on all platform versions.</li>
+
+        </ul>
+      </dd>
+    </dl>
+  </div>
+
+
+
+</div>
+
+
+<div class="toggle-content closed">
+
+  <p><a href="#" onclick="return toggleContent(this)">
+    <img src="../assets/images/triangle-closed.png" class="toggle-content-img" />
+    Compatibility Package, revision 3 (July 2011)
+  </a></p>
+
+  <div class="toggle-content-toggleme" style="padding-left:2em">
+    <dl>
+      <dt>Changes for v4 support library:</dt>
+      <dd>
+        <ul>
+          <li>Adds support for <code><a href="../reference/android/app/Fragment.SavedState.html">Fragment.SavedState</a></code></li>
+          <li>Adds <code>MotionEventCompat</code> to support newer <code><a href="../reference/android/view/MotionEvent.html">MotionEvent</a></code> APIs</li>
+          <li>Adds <code>VelocityTrackerCompat</code> to support a newer <code><a href="../reference/android/view/VelocityTracker.html">VelocityTracker</a></code> APIs</li>
+          <li>Adds <code>ViewConfigurationCompat</code> to support a newer <code><a href="../reference/android/view/ViewConfiguration.html">ViewConfiguration</a></code> APIs</li>
+          <li>All new APIs (available only in the support library) that allow you to create UIs
+with horizontal paging, allowing users to swipe left and right between content views. Classes to
+support this include:
+            <ul>
+              <li><code>ViewPager</code>: A <code><a href="../reference/android/view/ViewGroup.html">ViewGroup</a></code> that manages the
+layout for the child views, which the user can swipe between.</li>
+              <li><code>PagerAdapter</code>: An adapter that populates the <code>ViewPager</code> with the
+views that represent each page.</li>
+              <li><code>FragmentPagerAdapter</code>: An extension of <code>PagerAdapter</code> for flipping
+between fragments.</li>
+              <li><code>FragmentStatePagerAdapter</code>: An extension of <code>PagerAdapter</code> for
+flipping between fragments that uses the library's support for <code><a href="../reference/android/app/Fragment.SavedState.html">Fragment.SavedState</a></code>.</li>
+            </ul>
+          </li>
+        </ul>
+      </dd>
+      <dt>New v13 support library:</dt>
+      <dd>
+        <ul>
+          <li>Includes the <code>FragmentPagerAdapter</code> and <code>FragmentStatePagerAdapter</code>
+to support the horizontal paging.
+          <p>These are exactly the same as the APIs added to the v4 support library, but rely on
+other platform components in Android 3.2. Use this library instead of v4 if you're developing for
+Android 3.2 and higher (all other APIs in the v4 library are already available with API level
+13).</p>
+          </li>
+        </ul>
+      </dd>
+    </dl>
+  </div>
+
+</div>
+
+
+<div class="toggle-content closed">
+
+  <p><a href="#" onclick="return toggleContent(this)">
+    <img src="../assets/images/triangle-closed.png" class="toggle-content-img" />
+    Compatibility Package, revision 2 (May 2011)
+  </a></p>
+
+  <div class="toggle-content-toggleme" style="padding-left:2em">
+    <dl>
+    <dt>Changes for v4 library:</dt>
+    <dd>
+      <ul>
+        <li>Support for fragment animations</li>
+        <li>Fix <code>android.support.v4.app.Fragment#onActivityResult Fragment.onActivityResult()</code>
+          bug</li>
+      </ul>
+    </dd>
+    </dl>
+  </div>
+
+</div>
+
+
+<div class="toggle-content closed">
+
+  <p><a href="#" onclick="return toggleContent(this)">
+    <img src="../assets/images/triangle-closed.png" class="toggle-content-img" />
+    Compatibility Package, revision 1 (March 2011)
+  </a></p>
+
+  <div class="toggle-content-toggleme" style="padding-left:2em">
+      <p>Initial release with the v4 library.</p>
+  </div>
+
+</div>
+
+
+
+<h2 id="Downloading">Downloading the Support Package</h2>
+
+<p>The Support Package is provided as a downloadable package from the Android SDK and AVD
+Manager. To install:</p>
+
+<ol>
+  <li>Launch the SDK and AVD Manager.
+    <p>From Eclipse, you can select <strong>Window</strong>
+&gt; <strong>Android SDK and AVD Manager</strong>. Or, launch <code>SDK Manager.exe</code> from
+the <code>&lt;sdk&gt;/</code> directory (on Windows only) or <code>android</code> from the <code>&lt;sdk&gt;/tools/</code> directory.</p></li>
+  <li>Expand the Android Repository, check <strong>Android Support package</strong>
+and click <strong>Install selected</strong>.</li>
+  <li>Proceed to install the package.</li>
+</ol>
+
+<p>When done, all files (including source code, samples, and the <code>.jar</code> files) are saved
+into the <code>&lt;sdk&gt;/extras/android/support/</code> directory. This directory contains
+each of the different support libraries, such as the library for API level 4 and up and the library
+for API level 13 and up, each named with the respective version (such as <code>v4/</code>).</p>
+
+
+<h2 id="SettingUp">Setting Up a Project to Use a Library</h2>
+
+<p>To add one of the libraries to your Android project:</p>
+<ol>
+  <li>In your Android project, create a directory named <code>libs</code> at the root of your
+project (next to <code>src/</code>, <code>res/</code>, etc.)</li>
+  <li>Locate the JAR file for the library you want to use and copy it into the <code>libs/</code> directory.
+    <p>For example, the library that supports API level 4 and up is located at <code>&lt;sdk&gt;/extras/android/support/v4/android-support-v4.jar</code>.</p>
+  </li>
+  <li>Add the JAR to your project build path.
+    <p>In Eclipse, right-click the JAR file in the Package Explorer, select <strong>Build
+Path</strong> &gt; <strong>Add to Build Path</strong>.</p>
+  </li>
+</ol>
+
+<p>Your application is now ready to use the library APIs. All the
+provided APIs are available in the <code>android.support</code> package (for
+example, <code>android.support.v4</code>).</p>
+
+<p class="note"><strong>Tip:</strong> To see the library APIs in action, take a look at the sample
+apps in <code>&lt;sdk&gt;/extras/android/support/&lt;version&gt;/samples/</code>.</p>
+
+<p class="warning"><strong>Warning:</strong> Be certain that you not confuse the standard
+<code>android</code> packages with those in <code>android.support</code> library. Some code completion tools
+might
+get this wrong, especially if you're building against recent versions of the platform. To be safe,
+keep your build target set to the same version as you have defined for your <a
+href="../guide/topics/manifest/uses-sdk-element.html#min"><code>android:minSdkVersion</code></a>
+and double check the import statements for classes that also exist in the support library, such as
+<code>SimpleCursorAdapter</code>.</p>
+
+
+<h2 id="Using">Using the v4 Library APIs</h2>
+
+<p>The support library for v4 provides access to several classes introduced with Android 3.0 and
+beyond, plus some updated version of existing classes, and even some APIs that currently don't
+exist in the Android platform. Some of the most useful and notable classes that have
+counterparts in the v4 support library are:</p>
+
+<ul>
+  <li><code><a href="../reference/android/app/Fragment.html">Fragment</a></code></li>
+  <li><code><a href="../reference/android/app/FragmentManager.html">FragmentManager</a></code></li>
+  <li><code><a href="../reference/android/app/FragmentTransaction.html">FragmentTransaction</a></code></li>
+  <li><code><a href="../reference/android/app/ListFragment.html">ListFragment</a></code></li>
+  <li><code><a href="../reference/android/app/DialogFragment.html">DialogFragment</a></code></li>
+  <li><code><a href="../reference/android/app/LoaderManager.html">LoaderManager</a></code></li>
+  <li><code><a href="../reference/android/content/Loader.html">Loader</a></code></li>
+  <li><code><a href="../reference/android/content/AsyncTaskLoader.html">AsyncTaskLoader</a></code></li>
+  <li><code><a href="../reference/android/content/CursorLoader.html">CursorLoader</a></code></li>
+</ul>
+
+<p>For each of the classes above (and others not listed), the APIs work almost exactly the same
+as the counterparts in the latest Android platform. Thus, you can usually refer to
+the online documentation for information about the supported APIs. There are some
+differences, however. Most notably:</p>
+
+<ul>
+  <li>When creating an activity to use fragments, you must declare your activity to extend the
+<code><a href="../reference/android/support/v4/app/FragmentActivity.html">FragmentActivity</a></code> class (instead of the traditional
+<code><a href="../reference/android/app/Activity.html">Activity</a></code> class).</li>
+  <li>To manage your fragments and loaders, you must use the methods
+  <code><a href="../reference/android/support/v4/app/FragmentActivity.html#getSupportFragmentManager()">FragmentActivity.getSupportFragmentManager()</a></code> and
+  <code><a href="../reference/android/support/v4/app/FragmentActivity.html#getSupportLoaderManager()">FragmentActivity.getSupportLoaderManager()</a></code> (instead of the
+  <code><a href="../reference/android/app/Activity.html#getFragmentManager()">getFragmentManager()</a></code> and
+  <code><a href="../reference/android/app/Activity.html#getLoaderManager()">getLoaderManager()</a></code> methods).</li>
+  <li>The <code><a href="../reference/android/app/ActionBar.html">ActionBar</a></code> is <strong>not supported</strong> by the library.
+However, when creating your <a href="../guide/topics/ui/menus.html#options-menu">Options
+Menu</a>, you can declare which items should be added to the Action Bar when it's available (on
+Android 3.0 or later). You can do so with the
+<code><a href="../reference/android/support/v4/view/MenuCompat.html#setShowAsAction(android.view.MenuItem, int)">MenuCompat.setShowAsAction()</a></code> method, for
+example:
+<pre>
+public boolean onCreateOptionsMenu(Menu menu) {
+    MenuInflater inflater = getMenuInflater();
+    inflater.inflate(R.menu.options, menu);
+    MenuCompat.setShowAsAction(menu.findItem(R.id.action_search), 1);
+    return true;
+}
+</pre>
+<p>Also see the <a href="../resources/samples/ActionBarCompat/index.html">Action Bar
+Compatibility</a> sample for a demonstration of how to use <code><a href="../reference/android/app/ActionBar.html">ActionBar</a></code> on Android
+3.0+ and also support action bar functionality on older versions.</p>
+</li>
+</ul>
+
+<div class="note"><p><strong>Tip:</strong> To enable the Holographic theme on devices
+running Android 3.0 or higher, declare in your manifest file that your application targets
+API level 11, for example:</p>
+<pre>
+&lt;uses-sdk android:minSdkVersion="4" android:targetSdkVersion="11" /&gt;
+</pre>
+<p>This way, your application automatically receives the Holographic theme and the Action Bar for
+each activity when running on Android 3.0 and higher.</p>
+</div>
+
+<p>For more information about how you can optimize your application for the latest
+Android-powered devices, read <a href="../guide/practices/optimizing-for-3.0.html">Optimizing
+Apps for Android 3.0</a>.</p>
+
+
+<h2 id="Docs">Reference Docs</h2>
+
+<p>The reference documentation for the Support Packages is included as part of the Android
+online developer documentation:</p>
+
+<ul>
+  <li><a href="../reference/android/support/v4/app/package-summary.html">Support Package
+    API 4 Reference</a></li>
+  <li><a href="../reference/android/support/v13/app/package-summary.html">Support Package
+    API 13 Reference</a></li>
+</ul>
+
+
+<h2 id="Samples">Samples</h2>
+
+<p>If you want to see some code that uses the support libraries, samples are included with the
+Support Package, inside each support library directory, for example; <code>&lt;sdk&gt;/extras/android/support/v4/samples/</code>. You can also view these samples as part of the
+Android online developer documentation:</p>
+
+<ul>
+  <li><a href="../resources/samples/Support4Demos/index.html">Support API 4 Demos</a></li>
+  <li><a href="../resources/samples/Support13Demos/index.html">Support API 13 Demos</a></li>
+</ul>
+
+<p>Additionally, the <a href="http://code.google.com/p/iosched/">Google I/O App</a> is a complete
+application that uses the v4 support library to provide a single APK for both handsets and tablets
+and also demonstrates some of Android's best practices in Android UI design.</p>
+
+    </div>
+
+    
+    
+    <a href="#top" style="float:right">&uarr; Go to top</a>
+    
+
+  </div> <!-- end jd-content -->
+
+<div id="footer">
+
+
+  <div id="copyright">
+    
+  Except as noted, this content is 
+  licensed under <a href="http://creativecommons.org/licenses/by/2.5/">
+  Creative Commons Attribution 2.5</a>. For details and 
+  restrictions, see the <a href="../license.html">Content 
+  License</a>.
+  </div>
+
+  <div id="footerlinks">
+    
+  <p>
+    <a href="http://www.google.com/intl/en/policies/" target="_blank">Privacy &amp; Terms</a> -
+    <a href="http://www.android.com/branding.html" target="_blank">Brand Guidelines</a> -
+    <a
+href="http://code.google.com/p/android/issues/entry?template=Developer%20Documentation"
+target="_blank">Report Document Issues</a>
+  </p>
+  </div>
+
+</div> <!-- end footer -->
+
+</div><!-- end doc-content -->
+
+</div> <!-- end body-content --> 
+
+<script type="text/javascript">
+init(); /* initialize android-developer-docs.js */
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-5831155-1");
+pageTracker._trackPageview();
+</script>
+
+</body>
+</html>
+
+
+

@@ -1,0 +1,3004 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico" />
+<title>Using the Android Emulator | Android Developers</title>
+<link href="../../../assets/android-developer-docs-devguide.css" rel="stylesheet" type="text/css" />
+<script src="../../../assets/search_autocomplete.js" type="text/javascript"></script>
+<script src="../../../assets/jquery-resizable.min.js" type="text/javascript"></script>
+<script src="../../../assets/android-developer-docs.js" type="text/javascript"></script>
+<script src="../../../assets/prettify.js" type="text/javascript"></script>
+<script type="text/javascript">
+  setToRoot("../../../");
+</script>
+<noscript>
+  <style type="text/css">
+    html,body{overflow:auto;}
+    #body-content{position:relative; top:0;}
+    #doc-content{overflow:visible;border-left:3px solid #666;}
+    #side-nav{padding:0;}
+    #side-nav .toggle-list ul {display:block;}
+    #resize-packages-nav{border-bottom:3px solid #666;}
+  </style>
+</noscript>
+</head>
+<body class="gc-documentation" itemscope itemtype="http://schema.org/Article">
+
+  <div id="header">
+      <div id="headerLeft">
+          <a href="../../../index.html" tabindex="-1"><img
+              src="../../../assets/images/bg_logo.png" alt="Android Developers" /></a>
+          <ul id="header-tabs" class="guide">
+    
+	<li id="home-link"><a href="../../../offline.html">
+	
+		<span class="en">Home</span>
+		<span style="display:none" class="de">Startseite</span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ホーム</span>
+		<span style="display:none" class="zh-CN">主页</span>
+		<span style="display:none" class="zh-TW">首頁</span>
+	
+	</a></li>
+	<li id="sdk-link"><a href="../../../sdk/index.html">
+		<span class="en">SDK</span>
+	</a></li>
+	<li id="guide-link"><a href="../../../guide/index.html" onClick="return loadLast('guide')">
+	
+		<span class="en">Dev Guide</span>
+		<span style="display:none" class="de">Handbuch</span>
+		<span style="display:none" class="es">Guía</span>
+		<span style="display:none" class="fr">Guide</span>
+		<span style="display:none" class="it">Guida</span>
+		<span style="display:none" class="ja">開発ガイド</span>
+		<span style="display:none" class="zh-CN">开发人员指南</span>
+		<span style="display:none" class="zh-TW">開發指南</span>
+	
+	</a></li>
+	<li id="reference-link"><a href="../../../reference/packages.html" onClick="return loadLast('reference')">
+	
+		<span class="en">Reference</span>
+		<span style="display:none" class="de">Referenz</span>
+		<span style="display:none" class="es">Referencia</span>
+		<span style="display:none" class="fr">Référence</span>
+		<span style="display:none" class="it">Riferimento</span>
+		<span style="display:none" class="ja">リファレンス</span>
+		<span style="display:none" class="zh-CN">参考</span>
+		<span style="display:none" class="zh-TW">參考資料</span>
+	
+	</a></li>
+	<li id="resources-link"><a href="../../../resources/index.html" onClick="return loadLast('resources')">
+	
+		<span class="en">Resources</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+    		<span style="display:none" class="ja"></span>
+		<span style="display:none" class="zh-CN"></span>
+		<span style="display:none" class="zh-TW"></span>
+	
+	</a></li>
+	<li id="videos-link"><a href="../../../videos/index.html" onClick="return loadLast('videos')">
+	
+		<span class="en">Videos</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ビデオ</span>
+		<span style="display:none" class="zh-CN"></span>
+		<span style="display:none" class="zh-TW"></span>
+	
+	</a></li>
+	<li><a href="http://android-developers.blogspot.com" onClick="return requestAppendHL(this.href)">
+	
+		<span class="en">Blog</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ブログ</span>
+		<span style="display:none" class="zh-CN">博客</span>
+		<span style="display:none" class="zh-TW">網誌</span>
+	
+	</a></li>
+
+
+     
+</ul>
+     
+      </div>
+      <div id="headerRight">
+          <div id="headerLinks">
+          &nbsp;&nbsp;
+          <a href="../../../design/index.html">Android Design</a>&nbsp;&nbsp;
+          <a href="http://www.android.com">Android.com</a>
+          </div>
+  <div id="search" >
+      <div id="searchForm">
+          <form accept-charset="utf-8" class="gsc-search-box" 
+                onsubmit="return submit_search()">
+            <table class="gsc-search-box" cellpadding="0" cellspacing="0"><tbody>
+                <tr>
+                  <td class="gsc-input">
+                    <input id="search_autocomplete" class="gsc-input" type="text" size="33" autocomplete="off"
+                      title="search developer docs" name="q"
+                      value="search developer docs"
+                      onFocus="search_focus_changed(this, true)"
+                      onBlur="search_focus_changed(this, false)"
+                      onkeydown="return search_changed(event, true, '../../../')"
+                      onkeyup="return search_changed(event, false, '../../../')" />
+                  <div id="search_filtered_div" class="no-display">
+                      <table id="search_filtered" cellspacing=0>
+                      </table>
+                  </div>
+                  </td>
+                  <td class="gsc-search-button">
+                    <input type="submit" value="Search" title="search" id="search-button" class="gsc-search-button" />
+                  </td>
+                  <td class="gsc-clear-button">
+                    <div title="clear results" class="gsc-clear-button">&nbsp;</div>
+                  </td>
+                </tr></tbody>
+              </table>
+          </form>
+      </div><!-- searchForm -->
+  </div><!-- search -->
+      </div><!-- headerRight -->
+      <script type="text/javascript">
+        <!--  
+        changeTabLang(getLangPref());
+        //-->
+      </script>
+  </div><!-- header -->
+
+  <div class="g-section g-tpl-240" id="body-content">
+    <div class="g-unit g-first" id="side-nav" itemscope itemtype="http://schema.org/SiteNavigationElement">
+      <div id="devdoc-nav">
+<ul>
+
+  <li>
+    <span class="heading">
+      <span class="en">Android Basics</span>
+      <span class="de" style="display:none">Einführung in Android</span>
+      <span class="es" style="display:none">Información básica sobre Android</span>
+      <span class="fr" style="display:none">Présentation d'Android</span>
+      <span class="it" style="display:none">Nozioni di base su Android</span>
+      <span class="ja" style="display:none">Android の基本</span>
+      <span class="zh-CN" style="display:none">Android 基础知识</span>
+      <span class="zh-TW" style="display:none">Android 簡介</span>
+    </span>
+    <ul>
+      <li><a href="../../../guide/basics/what-is-android.html">
+        <span class="en">What Is Android?</span>
+        <span class="de" style="display:none">Was ist Android?</span>
+        <span class="es" style="display:none">¿Qué es Android?</span>
+        <span class="fr" style="display:none">Qu'est-ce qu'Android&nbsp;?</span>
+        <span class="it" style="display:none">Che cos'è Android?</span>
+        <span class="ja" style="display:none">Android とは</span>
+        <span class="zh-CN" style="display:none">Android 是什么？</span>
+        <span class="zh-TW" style="display:none">什麼是 Android？</span>
+          </a></li>
+      <li><a href="../../../guide/topics/fundamentals.html">
+        <span class="en">Application Fundamentals</span>
+        <span class="de" style="display:none">Anwendungsgrundlagen</span>
+        <span class="es" style="display:none">Fundamentos de las aplicaciones</span>
+        <span class="fr" style="display:none">Principes de base des applications</span>
+        <span class="it" style="display:none">Concetti fondamentali sulle applicazioni</span>
+        <span class="ja" style="display:none">開発の基礎</span>
+        <span class="zh-CN" style="display:none">应用程序基础</span>
+        <span class="zh-TW" style="display:none">應用程式基本原理</span>
+      </a></li>
+
+  <!--  <li><a style="color:gray;">The Android SDK</a></li> -->
+  <!--  <li><a style="color:gray;">Walkthrough for Developers</a></li> -->
+      <!-- quick overview of what it's like to develop on Android -->
+    </ul>
+  </li>
+
+  <li>
+    <span class="heading">
+      <span class="en">Framework Topics</span>
+      <span class="de" style="display:none">Framework-Themen</span>
+      <span class="es" style="display:none">Temas sobre el framework</span>
+      <span class="fr" style="display:none">Thèmes relatifs au framework</span>
+      <span class="it" style="display:none">Argomenti relativi al framework</span>
+      <span class="ja" style="display:none">フレームワーク トピック</span>
+      <span class="zh-CN" style="display:none">框架主题</span>
+      <span class="zh-TW" style="display:none">架構主題</span>
+    </span>
+    <ul>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/fundamentals/activities.html">
+          <span class="en">Activities</span>
+        </a></div>
+        <ul>
+          <li><a href="../../../guide/topics/fundamentals/fragments.html">
+            <span class="en">Fragments</span>
+          </a></li>
+          <li><a href="../../../guide/topics/fundamentals/loaders.html">
+            <span class="en">Loaders</span>
+          </a></li>
+          <li><a href="../../../guide/topics/fundamentals/tasks-and-back-stack.html">
+            <span class="en">Tasks and Back Stack</span></a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/fundamentals/services.html">
+          <span class="en">Services</span>
+        </a></div>
+        <ul>
+          <li><a href="../../../guide/topics/fundamentals/bound-services.html">
+            <span class="en">Bound Services</span>
+          </a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+          <div><a href="../../../guide/topics/providers/content-providers.html">
+            <span class="en">Content Providers</span>
+          </a></div>
+          <ul>
+            <li>
+                <a href="../../../guide/topics/providers/content-provider-basics.html">
+                    <span class="en">Content Provider Basics</span>
+                </a>
+                <span class="new">new!</span>
+            </li>
+            <li>
+                <a href="../../../guide/topics/providers/content-provider-creating.html">
+                    <span class="en">Creating a Content Provider</span>
+                </a>
+                <span class="new">new!</span>
+            </li>
+            <li>
+                <a href="../../../guide/topics/providers/calendar-provider.html">
+                    <span class="en">Calendar Provider</span>
+                </a>
+                <span class="new">new!</span>
+            </li>
+          </ul>
+      </li>
+      <li><a href="../../../guide/topics/intents/intents-filters.html">
+            <span class="en">Intents and Intent Filters</span>
+          </a></li>
+      <li><a href="../../../guide/topics/fundamentals/processes-and-threads.html">
+            <span class="en">Processes and Threads</span>
+          </a></li>
+    </ul>
+
+
+    <ul>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/ui/index.html">
+            <span class="en">User Interface</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../guide/topics/ui/declaring-layout.html">
+               <span class="en">XML Layouts</span>
+              </a></li>
+          <li><a href="../../../guide/topics/ui/ui-events.html">
+                <span class="en">Input Events</span>
+              </a></li>
+          <li><a href="../../../guide/topics/ui/menus.html">
+               <span class="en">Menus</span>
+              </a> <span class="new">updated</span></li>
+          <li><a href="../../../guide/topics/ui/actionbar.html">
+               <span class="en">Action Bar</span>
+              </a></li>
+          <li><a href="../../../guide/topics/ui/dialogs.html">
+                <span class="en">Dialogs</span>
+              </a></li>
+          <li class="toggle-list">
+            <div><a href="../../../guide/topics/ui/notifiers/index.html">
+                <span class="en">Notifications</span>
+            </a></div>
+            <ul>
+              <li><a href="../../../guide/topics/ui/notifiers/toasts.html">
+                <span class="en">Toast Notifications</span>
+              </a></li>
+              <li><a href="../../../guide/topics/ui/notifiers/notifications.html">
+                <span class="en">Status Bar Notifications</span>
+              </a></li>
+            </ul>
+          </li>
+          <li><a href="../../../guide/topics/ui/drag-drop.html">
+                <span class="en">Drag and Drop</span>
+              </a></li>
+          <li><a href="../../../guide/topics/ui/themes.html">
+                <span class="en">Styles and Themes</span>
+              </a></li>
+          <li><a href="../../../guide/topics/ui/custom-components.html">
+                <span class="en">Custom Components</span>
+              </a></li>
+          <li><a href="../../../guide/topics/ui/binding.html">
+                <span class="en">Binding to Data with AdapterView</span>
+              </a></li>
+          <li><a href="../../../guide/topics/ui/layout-objects.html">
+                <span class="en">Common Layout Objects</span>
+              </a></li>
+          <li><a href="../../../guide/topics/ui/how-android-draws.html">
+                <span class="en">How Android Draws Views</span>
+              </a></li>
+        </ul>
+      </li><!-- end of User Interface -->
+
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/resources/index.html">
+               <span class="en">Application Resources</span>
+             </a></div>
+        <ul>
+          <li><a href="../../../guide/topics/resources/providing-resources.html">
+                <span class="en">Providing Resources</span>
+              </a></li>
+          <li><a href="../../../guide/topics/resources/accessing-resources.html">
+                <span class="en">Accessing Resources</span>
+              </a></li>
+          <li><a href="../../../guide/topics/resources/runtime-changes.html">
+                <span class="en">Handling Runtime Changes</span>
+              </a></li>
+          <li><a href="../../../guide/topics/resources/localization.html">
+                <span class="en">Localization</span>
+              </a></li>
+          <li class="toggle-list">
+            <div><a href="../../../guide/topics/resources/available-resources.html">
+              <span class="en">Resource Types</span>
+            </a></div>
+            <ul>
+              <li><a href="../../../guide/topics/resources/animation-resource.html">Animation</a></li>
+              <li><a href="../../../guide/topics/resources/color-list-resource.html">Color State List</a></li>
+              <li><a href="../../../guide/topics/resources/drawable-resource.html">Drawable</a></li>
+              <li><a href="../../../guide/topics/resources/layout-resource.html">Layout</a></li>
+              <li><a href="../../../guide/topics/resources/menu-resource.html">Menu</a></li>
+              <li><a href="../../../guide/topics/resources/string-resource.html">String</a></li>
+              <li><a href="../../../guide/topics/resources/style-resource.html">Style</a></li>
+              <li><a href="../../../guide/topics/resources/more-resources.html">More Types</a></li>
+            </ul>
+          </li><!-- end of resource types -->
+        </ul>
+      </li><!-- end of app resources -->
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/data/data-storage.html">
+            <span class="en">Data Storage</span>
+          </a></div>
+          <ul>
+            <li><a href="../../../guide/topics/data/backup.html">
+                <span class="en">Data Backup</span>
+              </a>
+            </li>
+          </ul>
+      </li>
+      <li><a href="../../../guide/topics/security/security.html">
+            <span class="en">Security and Permissions</span>
+          </a></li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/manifest/manifest-intro.html">
+          <span class="en">The AndroidManifest.xml File</span>
+        </a></div>
+        <ul>
+          <li><a href="../../../guide/topics/manifest/action-element.html">&lt;action&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/activity-element.html">&lt;activity&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/activity-alias-element.html">&lt;activity-alias&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/application-element.html">&lt;application&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/category-element.html">&lt;category&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/compatible-screens-element.html">&lt;compatible-screens&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/data-element.html">&lt;data&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/grant-uri-permission-element.html">&lt;grant-uri-permission&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/instrumentation-element.html">&lt;instrumentation&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/intent-filter-element.html">&lt;intent-filter&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/manifest-element.html">&lt;manifest&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/meta-data-element.html">&lt;meta-data&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/path-permission-element.html">&lt;path-permission&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/permission-element.html">&lt;permission&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/permission-group-element.html">&lt;permission-group&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/permission-tree-element.html">&lt;permission-tree&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/provider-element.html">&lt;provider&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/receiver-element.html">&lt;receiver&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/service-element.html">&lt;service&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/supports-gl-texture-element.html">&lt;supports-gl-texture&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/supports-screens-element.html">&lt;supports-screens&gt;</a></li><!-- ##api level 4## -->
+          <li><a href="../../../guide/topics/manifest/uses-configuration-element.html">&lt;uses-configuration&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/uses-feature-element.html">&lt;uses-feature&gt;</a></li> <!-- ##api level 4## -->
+          <li><a href="../../../guide/topics/manifest/uses-library-element.html">&lt;uses-library&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/uses-permission-element.html">&lt;uses-permission&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/uses-sdk-element.html">&lt;uses-sdk&gt;</a></li>
+        </ul>
+      </li><!-- end of the manifest file -->
+    </ul>
+
+    <ul>
+    <li class="toggle-list">
+        <div><a href="../../../guide/topics/graphics/index.html">
+            <span class="en">Graphics</span>
+          </a> <span class="new-child">new!</span></div>
+        <ul>
+          <li><a href="../../../guide/topics/graphics/2d-graphics.html">
+              <span class="en">Canvas and Drawables</span></a></li>
+          <li><a href="../../../guide/topics/graphics/hardware-accel.html">
+              <span class="en">Hardware Acceleration</span></a>
+            <span class="new">new!</span></li>
+          <li><a href="../../../guide/topics/graphics/opengl.html">
+              <span class="en">OpenGL</span>
+            </a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/graphics/animation.html">
+            <span class="en">Animation</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../guide/topics/graphics/prop-animation.html">
+              <span class="en">Property Animation</span></a></li>
+          <li><a href="../../../guide/topics/graphics/view-animation.html">
+              <span class="en">View Animation</span></a></li>
+          <li><a href="../../../guide/topics/graphics/drawable-animation.html">
+              <span class="en">Drawable Animation</span></a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/renderscript/index.html">
+          <span class="en">Renderscript</span></a>
+          <span class="new">updated</span>
+        </div>
+        <ul>
+          <li><a href="../../../guide/topics/renderscript/graphics.html">
+                <span class="en">Graphics</span>
+              </a>
+          </li>
+          <li><a href="../../../guide/topics/renderscript/compute.html">
+                <span class="en">Compute</span>
+              </a>
+          </li>
+          <li><a href="../../../guide/topics/renderscript/reference.html">
+                <span class="en">Runtime API Reference</span>
+              </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="toggle-list">
+          <div><a href="../../../guide/topics/media/index.html">
+            <span class="en">Multimedia and Camera</span>
+          </a></div>
+          <ul>
+            <li><a href="../../../guide/topics/media/mediaplayer.html">
+                  <span class="en">Media Playback</span></a>
+                </li>
+            <li><a href="../../../guide/topics/media/jetplayer.html">
+                  <span class="en">JetPlayer</span></a>
+                </li>
+            <li><a href="../../../guide/topics/media/camera.html">
+                  <span class="en">Camera</span></a>
+                  <span class="new">new!</span>
+                </li>
+            <li><a href="../../../guide/topics/media/audio-capture.html">
+                  <span class="en">Audio Capture</span></a>
+                </li>
+          </ul>
+      </li>
+      <li>
+        <a href="../../../guide/topics/clipboard/copy-paste.html">
+            <span class="en">Copy and Paste</span>
+        </a></li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/sensors/index.html">
+              <span class="en">Sensors</span>
+              </a> <span class="new">new!</span></div>
+        <ul>
+          <li><a href="../../../guide/topics/sensors/sensors_overview.html">
+              <span class="en">Sensors Overview</span>
+            </a></li>
+          <li><a href="../../../guide/topics/sensors/sensors_motion.html">
+              <span class="en">Motion Sensors</span>
+            </a></li>
+          <li><a href="../../../guide/topics/sensors/sensors_position.html">
+              <span class="en">Position Sensors</span>
+            </a></li>
+          <li><a href="../../../guide/topics/sensors/sensors_environment.html">
+              <span class="en">Environment Sensors</span>
+            </a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/location/index.html">
+               <span class="en">Location and Maps</span>
+             </a></div>
+        <ul>
+          <li><a href="../../../guide/topics/location/obtaining-user-location.html">
+                <span class="en">Obtaining User Location</span>
+              </a></li>
+        </ul>
+      </li>
+  <!--<li class="toggle-list">
+        <div><a style="color:gray;">Wireless Controls</a></div>
+          <ul>
+            <li><a style="color:gray;">Wi-Fi</a></li>
+          </ul>
+      </li> -->
+  <!--<li><a style="color:gray;">Localization</a></li>  -->
+      <li><a href="../../../guide/topics/appwidgets/index.html">
+            <span class="en">App Widgets</span></a>
+          </li>
+      <li><a href="../../../guide/topics/wireless/bluetooth.html">
+            <span class="en">Bluetooth</span></a>
+          </li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/nfc/index.html">
+          <span class="en">Near Field Communication</span></a> <span class="new">updated</span>
+        </div>
+        <ul>
+          <li><a href="../../../guide/topics/nfc/nfc.html">NFC Basics</a></li>
+          <li><a href="../../../guide/topics/nfc/advanced-nfc.html">Advanced NFC</a></li>
+        </ul>
+      </li>
+      <li><a href="../../../guide/topics/wireless/wifip2p.html">
+            <span class="en">Wi-Fi Direct</span></a> <span class="new">new!</span>
+          </li>
+      <li class="toggle-list">
+          <div><a href="../../../guide/topics/usb/index.html">
+            <span class="en">USB</span></a>
+          </div>
+            <ul>
+              <li><a href="../../../guide/topics/usb/accessory.html">Accessory</a></li>
+              <li><a href="../../../guide/topics/usb/host.html">Host</a></li>
+              <li><a href="../../../guide/topics/usb/adk.html">Open Accessory Dev Kit</a></li>
+            </ul>
+          </li>
+
+       <li><a href="../../../guide/topics/network/sip.html">
+            <span class="en">Session Initiation Protocol</span>
+          </a></li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/search/index.html">
+            <span class="en">Search</span>
+          </a></div>
+          <ul>
+            <li><a href="../../../guide/topics/search/search-dialog.html">Creating a Search Interface</a></li>
+            <li><a href="../../../guide/topics/search/adding-recent-query-suggestions.html">Adding Recent Query Suggestions</a></li>
+            <li><a href="../../../guide/topics/search/adding-custom-suggestions.html">Adding Custom Suggestions</a></li>
+            <li><a href="../../../guide/topics/search/searchable-config.html">Searchable Configuration</a></li>
+          </ul>
+      </li>
+      <li><a href="../../../guide/topics/admin/device-admin.html">
+            <span class="en">Device Administration</span></a>
+      </li>
+      <li class="toggle-list">
+           <div>
+                <a href="../../../guide/topics/testing/index.html">
+                   <span class="en">Testing</span>
+               </a>
+           </div>
+           <ul>
+              <li>
+                <a href="../../../guide/topics/testing/testing_android.html">
+                <span class="en">Testing Fundamentals</span></a>
+              </li>
+              <li>
+                <a href="../../../guide/topics/testing/activity_testing.html">
+                <span class="en">Activity Testing</span></a>
+              </li>
+              <li>
+                <a href="../../../guide/topics/testing/contentprovider_testing.html">
+                <span class="en">Content Provider Testing</span></a>
+              </li>
+              <li>
+                <a href="../../../guide/topics/testing/service_testing.html">
+                <span class="en">Service Testing</span></a>
+              </li>
+              <li>
+                <a href="../../../guide/topics/testing/what_to_test.html">
+                <span class="en">What To Test</span></a>
+              </li>
+           </ul>
+      </li>
+    </ul>
+  </li>
+
+  <li>
+    <h2>
+      <span class="en">Google Play Topics</span>
+    </h2>
+    <ul>
+      <li><a href="../../../guide/publishing/publishing.html">
+          <span class="en">Publishing on Google Play</span>
+          </a></li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/market/licensing/index.html">
+          <span class="en">Application Licensing</span></a>
+        </div>
+        <ul>
+          <li><a href="../../../guide/market/licensing/overview.html">
+              <span class="en">Licensing Overview</span></a>
+          </li>
+          <li><a href="../../../guide/market/licensing/setting-up.html">
+              <span class="en">Setting Up for Licensing</span></a>
+          </li>
+          <li><a href="../../../guide/market/licensing/adding-licensing.html">
+              <span class="en">Adding Licensing to Your App</span></a>
+          </li>
+          <li><a href="../../../guide/market/licensing/licensing-reference.html">
+              <span class="en">Licensing Reference</span></a>
+          </li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/market/billing/index.html">
+            <span class="en">In-app Billing</span></a>
+        </div>
+        <ul>
+          <li><a href="../../../guide/market/billing/billing_overview.html">
+              <span class="en">In-app Billing Overview</span></a>
+          </li>
+          <li><a href="../../../guide/market/billing/billing_integrate.html">
+              <span class="en">Implementing In-app Billing</span></a>
+          </li>
+          <li><a href="../../../guide/market/billing/billing_best_practices.html">
+              <span class="en">Security and Design</span></a>
+          </li>
+          <li><a href="../../../guide/market/billing/billing_testing.html">
+              <span class="en">Testing In-app Billing</span></a>
+          </li>
+          <li><a href="../../../guide/market/billing/billing_admin.html">
+              <span class="en">Administering In-app Billing</span></a>
+          </li>
+          <li><a href="../../../guide/market/billing/billing_reference.html">
+              <span class="en">In-app Billing Reference</span></a>
+          </li>
+        </ul>
+      </li>
+      <li><a href="../../../guide/appendix/market-filters.html">
+          <span class="en">Filters on Google Play</span></a>
+      </li>
+      <li><a href="../../../guide/market/publishing/multiple-apks.html">
+          <span class="en">Multiple APK Support</span></a>
+      </li>
+      <li><a href="../../../guide/market/expansion-files.html">
+          <span class="en">APK Expansion Files</span></a>
+          <span class="new">new!</span>
+      </li>
+    </ul>
+  </li>
+
+
+  <li>
+    <span class="heading">
+      <span class="en">Developing</span>
+      <span class="de" style="display:none">Entwicklung</span>
+      <span class="es" style="display:none">Desarrollo</span>
+      <span class="fr" style="display:none">Développement</span>
+      <span class="it" style="display:none">Sviluppo</span>
+      <span class="ja" style="display:none">開発</span>
+      <span class="zh-CN" style="display:none">开发</span>
+      <span class="zh-TW" style="display:none">開發</span>
+    </span>
+    <ul>
+  <!--<li><a href="">Developing for Android</a></li>
+      signing, upgrading, selecting a package name, select device profile, touch, trackball, dpad available, etc. -->
+      <li>
+        <a href="../../../guide/developing/index.html">
+        <span class="en">Introduction</span></a>
+      </li>
+
+      <li class="toggle-list">
+        <div>
+           <a href="../../../guide/developing/devices/index.html">
+                <span class="en">Managing Virtual Devices</span>
+            </a>
+        </div>
+        <ul>
+          <li>
+            <a href="../../../guide/developing/devices/managing-avds.html">
+              <span class="en">With AVD Manager</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../guide/developing/devices/managing-avds-cmdline.html">
+              <span class="en">From the Command Line</span>
+            </a>
+          </li>
+          <li>
+           <a href="../../../guide/developing/devices/emulator.html">
+                <span class="en">Using the Android Emulator</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="../../../guide/developing/device.html">
+          <span class="en">Using Hardware Devices</span>
+        </a>
+      </li>
+
+      <li class="toggle-list">
+        <div>
+          <a href="../../../guide/developing/projects/index.html">
+            <span class="en">Managing Projects</span>
+          </a>
+        </div>
+        <ul>
+          <li>
+            <a href="../../../guide/developing/projects/projects-eclipse.html">
+              <span class="en">From Eclipse with ADT</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../guide/developing/projects/projects-cmdline.html">
+                <span class="en">From the Command Line</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="toggle-list">
+        <div>
+          <a href="../../../guide/developing/building/index.html">
+            <span class="en">Building and Running</span>
+          </a>
+        </div>
+        <ul>
+          <li><a href="../../../guide/developing/building/building-eclipse.html">
+            <span class="en">From Eclipse with ADT</span>
+          </a></li>
+          <li><a href="../../../guide/developing/building/building-cmdline.html">
+            <span class="en">From the Command Line</span></a></li>
+        </ul>
+      </li>
+
+      <li class="toggle-list">
+        <div>
+          <a href="../../../guide/developing/debugging/index.html">
+            <span class="en">Debugging</span>
+          </a>
+        </div>
+        <ul>
+          <li>
+            <a href="../../../guide/developing/debugging/debugging-projects.html">
+                <span class="en">From Eclipse with ADT</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../guide/developing/debugging/debugging-projects-cmdline.html">
+                <span class="en">From Other IDEs</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../guide/developing/debugging/ddms.html">
+              <span class="en">Using DDMS</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../guide/developing/debugging/debugging-log.html">
+                <span class="en">Reading and Writing Logs</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../guide/developing/debugging/debugging-ui.html">
+                <span class="en">Debugging and Profiling UIs</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../guide/developing/debugging/debugging-tracing.html">
+                <span class="en">Profiling with Traceview and dmtracedump</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../guide/developing/debugging/debugging-devtools.html">
+                <span class="en">Using the Dev Tools App</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="toggle-list">
+           <div>
+                <a href="../../../guide/developing/testing/index.html">
+                   <span class="en">Testing</span>
+               </a>
+           </div>
+           <ul>
+              <li>
+                <a href="../../../guide/developing/testing/testing_eclipse.html">
+                  <span class="en">From Eclipse with ADT</span>
+                </a>
+              </li>
+
+              <li>
+                <a href="../../../guide/developing/testing/testing_otheride.html">
+                  <span class="en">From Other IDEs</span>
+                </a>
+              </li>
+           </ul>
+         </li>
+
+         <li class="toggle-list">
+        <div><a href="../../../guide/developing/tools/index.html">
+            <span class="en">Tools</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../guide/developing/tools/adb.html">adb</a></li>
+          <li><a href="../../../guide/developing/tools/adt.html">ADT</a></li>
+          <li><a href="../../../guide/developing/tools/android.html">android</a></li>
+          <li><a href="../../../guide/developing/tools/bmgr.html">bmgr</a>
+          <li><a href="../../../guide/developing/tools/dmtracedump.html">dmtracedump</a></li>
+          <li><a href="../../../guide/developing/tools/draw9patch.html">Draw
+          9-Patch</a></li>
+          <li><a href="../../../guide/developing/tools/emulator.html">Emulator</a></li>
+          <li><a href="../../../guide/developing/tools/etc1tool.html">etc1tool</a></li>
+          <li><a href="../../../guide/developing/tools/hierarchy-viewer.html">Hierarchy Viewer</a></li>
+          <li><a href="../../../guide/developing/tools/hprof-conv.html">hprof-conv</a></li>
+          <li><a href="../../../guide/developing/tools/layoutopt.html">layoutopt</a></li>
+          <li><a href="../../../guide/developing/tools/logcat.html">logcat</a></li>
+          <li><a href="../../../guide/developing/tools/mksdcard.html">mksdcard</a></li>
+          <li><a href="../../../guide/developing/tools/monkey.html">Monkey</a></li>
+          <li class="toggle-list">
+            <div><a href="../../../guide/developing/tools/monkeyrunner_concepts.html">
+              <span class="en">monkeyrunner</span>
+            </a></div>
+            <ul>
+              <li><a href="../../../guide/developing/tools/MonkeyDevice.html">
+                <span class="en">MonkeyDevice</span>
+                </a></li>
+              <li><a href="../../../guide/developing/tools/MonkeyImage.html">
+                <span class="en">MonkeyImage</span>
+                </a></li>
+              <li><a href="../../../guide/developing/tools/MonkeyRunner.html">
+                <span class="en">MonkeyRunner</span>
+                </a></li>
+            </ul>
+          </li>
+          <li><a href="../../../guide/developing/tools/proguard.html">ProGuard</a></li>
+          <li><a href="../../../guide/developing/tools/adb.html#sqlite">sqlite3</a></li>
+          <li><a href="../../../guide/developing/tools/traceview.html">Traceview</a></li>
+          <li><a href="../../../guide/developing/tools/zipalign.html">zipalign</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+
+  <li>
+    <span class="heading">
+      <span class="en">Publishing</span>
+      <span class="de" style="display:none">Veröffentlichung</span>
+      <span class="es" style="display:none">Publicación</span>
+      <span class="fr" style="display:none">Publication</span>
+      <span class="it" style="display:none">Pubblicazione</span>
+      <span class="ja" style="display:none">公開</span>
+      <span class="zh-CN" style="display:none">发布</span>
+      <span class="zh-TW" style="display:none">發佈</span>
+    </span>
+    <ul>
+      <li><a href="../../../guide/publishing/publishing_overview.html">
+            <span class="en">Publishing Overview</span>
+          </a></li>
+      <li><a href="../../../guide/publishing/preparing.html">
+            <span class="en">Preparing for Release</span>
+            <span class="de" style="display:none">Vorbereitung auf die Veröffentlichung</span>
+            <span class="es" style="display:none">Publicación de aplicaciones</span>
+            <span class="fr" style="display:none">Préparation à la publication</span>
+            <span class="it" style="display:none">Preparativi per la pubblicazione</span>
+            <span class="ja" style="display:none">公開の準備</span>
+            <span class="zh-CN" style="display:none">准备发布</span>
+            <span class="zh-TW" style="display:none">準備發佈</span>
+          </a></li>
+      <li><a href="../../../guide/publishing/app-signing.html">
+            <span class="en">Signing Your Applications</span>
+            <span class="de" style="display:none">Signieren Ihrer Anwendungen</span>
+            <span class="es" style="display:none">Firma de aplicaciones</span>
+            <span class="fr" style="display:none">Attribution de votre signature <br />à vos
+applications</span>
+            <span class="it" style="display:none">Firma delle applicazioni</span>
+            <span class="ja" style="display:none">アプリケーションへの署名</span>
+            <span class="zh-CN" style="display:none">应用程序签名</span>
+            <span class="zh-TW" style="display:none">簽署應用程式</span>
+          </a></li>
+      <li><a href="../../../guide/publishing/versioning.html">
+            <span class="en">Versioning Your Applications</span>
+            <span class="de" style="display:none">Versionsverwaltung für Ihre <br
+/>Anwendungen</span>
+            <span class="es" style="display:none">Versiones de las aplicaciones</span>
+            <span class="fr" style="display:none">Attribution d'une version à vos
+applications</span>
+            <span class="it" style="display:none">Controllo versioni delle applicazioni</span>
+            <span class="ja" style="display:none">アプリケーションのバージョニング</span>
+            <span class="zh-CN" style="display:none">应用程序版本控制</span>
+            <span class="zh-TW" style="display:none">應用程式版本設定</span>
+          </a></li>
+    </ul>
+  </li>
+
+  <li>
+    <span class="heading">
+      <span class="en">Best Practices</span>
+      <span class="de" style="display:none">Bewährte Verfahren</span>
+      <span class="es" style="display:none">Prácticas recomendadas</span>
+      <span class="fr" style="display:none">Meilleures pratiques</span>
+      <span class="it" style="display:none">Best practice</span>
+      <span class="ja" style="display:none">ベスト プラクティス</span>
+      <span class="zh-CN" style="display:none">最佳实践</span>
+      <span class="zh-TW" style="display:none">最佳實務</span>
+    </span>
+    <ul>
+      <li><a href="../../../guide/practices/compatibility.html">
+            <span class="en">Compatibility</span>
+          </a></li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/practices/screens_support.html">
+          <span class="en">Supporting Multiple Screens</span>
+        </a></div>
+        <ul>
+          <li><a href="../../../guide/practices/screens-distribution.html">
+            <span class="en">Distributing to Specific Screens</span>
+          </a></li>
+          <li><a href="../../../guide/practices/screen-compat-mode.html">
+            <span class="en">Screen Compatibility Mode</span>
+          </a></li>
+          <li><a href="../../../guide/practices/screens-support-1.5.html">
+            <span class="en">Strategies for Android 1.5</span>
+          </a></li>
+        </ul>
+      </li>
+      <li><a href="../../../guide/practices/tablets-and-handsets.html">
+            <span class="en">Supporting Tablets and Handsets</span>
+          </a> <span class="new">new!</span></li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/practices/ui_guidelines/index.html">
+               <span class="en">UI Guidelines</span>
+             </a></div>
+        <ul>
+          <li class="toggle-list">
+            <div><a href="../../../guide/practices/ui_guidelines/icon_design.html">
+                   <span class="en">Icon Design</span>
+                 </a></div>
+            <ul>
+              <li><a href="../../../guide/practices/ui_guidelines/icon_design_launcher.html">
+                    <span class="en">Launcher Icons</span>
+                  </a></li>
+              <li><a href="../../../guide/practices/ui_guidelines/icon_design_menu.html">
+                    <span class="en">Menu Icons</span>
+                  </a></li>
+              <li><a href="../../../guide/practices/ui_guidelines/icon_design_action_bar.html">
+                    <span class="en">Action Bar Icons</span>
+                  </a></li>
+              <li><a href="../../../guide/practices/ui_guidelines/icon_design_status_bar.html">
+                    <span class="en">Status Bar Icons</span>
+                  </a></li>
+              <li><a href="../../../guide/practices/ui_guidelines/icon_design_tab.html">
+                    <span class="en">Tab Icons</span>
+                  </a></li>
+              <li><a href="../../../guide/practices/ui_guidelines/icon_design_dialog.html">
+                    <span class="en">Dialog Icons</span>
+                  </a></li>
+              <li><a href="../../../guide/practices/ui_guidelines/icon_design_list.html">
+                    <span class="en">List View Icons</span>
+                  </a></li>
+            </ul>
+          </li>
+          <li><a href="../../../guide/practices/ui_guidelines/widget_design.html">
+                <span class="en">App Widget Design</span>
+              </a></li>
+          <li><a href="../../../guide/practices/ui_guidelines/activity_task_design.html">
+                <span class="en">Activity and Task Design</span>
+              </a></li>
+          <li><a href="../../../guide/practices/ui_guidelines/menu_design.html">
+                <span class="en">Menu Design</span>
+              </a></li>
+        </ul>
+      </li>
+      </ul>
+      <ul>
+      <li><a href="../../../guide/practices/design/accessibility.html">
+            <span class="en">Designing for Accessibility</span>
+          </a></li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/practices/design/performance.html">
+            <span class="en">Designing for Performance</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../guide/practices/design/jni.html">
+                <span class="en">JNI Tips</span>
+              </a></li>
+        </ul>
+      </li>
+      <li><a href="../../../guide/practices/design/responsiveness.html">
+            <span class="en">Designing for Responsiveness</span>
+          </a></li>
+      <li><a href="../../../guide/practices/design/seamlessness.html">
+            <span class="en">Designing for Seamlessness</span>
+          </a></li>
+      <li><a href="../../../guide/practices/security.html">
+            <span class="en">Designing for Security</span></a>
+            </li>
+    </ul>
+  </li>
+
+  <li>
+    <span class="heading">
+      <span class="en">Web Applications</span>
+    </span>
+    <ul>
+      <li><a href="../../../guide/webapps/index.html">
+            <span class="en">Web Apps Overview</span>
+          </a></li>
+      <li><a href="../../../guide/webapps/targeting.html">
+            <span class="en">Targeting Screens from Web Apps</span>
+          </a></li>
+      <li><a href="../../../guide/webapps/webview.html">
+            <span class="en">Building Web Apps in WebView</span>
+          </a></li>
+      <li><a href="../../../guide/webapps/debugging.html">
+            <span class="en">Debugging Web Apps</span>
+          </a></li>
+      <li><a href="../../../guide/webapps/best-practices.html">
+            <span class="en">Best Practices for Web Apps</span>
+          </a></li>
+    </ul>
+  </li>
+
+  <li>
+    <span class="heading">
+      <span class="en">Appendix</span>
+      <span class="de" style="display:none">Anhang</span>
+      <span class="es" style="display:none">Apéndice</span>
+      <span class="fr" style="display:none">Annexes</span>
+      <span class="it" style="display:none">Appendice</span>
+      <span class="ja" style="display:none">付録</span>
+      <span class="zh-CN" style="display:none">附录</span>
+      <span class="zh-TW" style="display:none">附錄</span>
+    </span>
+    <ul>
+      <li><a href="../../../guide/appendix/api-levels.html">
+            <span class="en">Android API Levels</span>
+          </a></li>
+      <li><a href="../../../guide/appendix/install-location.html">
+            <span class="en">App Install Location</span>
+          </a></li>
+      <li><a href="../../../guide/appendix/media-formats.html">
+            <span class="en">Supported Media Formats</span>
+          </a></li>
+      <li><a href="../../../guide/appendix/g-app-intents.html">
+            <span class="en">Intents List: Google Apps</span>
+          </a></li>
+      <li><a href="../../../guide/developing/tools/aidl.html">AIDL</a></li>
+      <li><a href="../../../guide/appendix/glossary.html">
+            <span class="en">Glossary</span>
+          </a></li>
+    </ul>
+  </li>
+
+</ul>
+
+<script type="text/javascript">
+<!--
+    buildToggleLists();
+    changeNavLang(getLangPref());
+//-->
+</script>
+
+      </div>
+    </div> <!-- end side-nav -->
+    <script>
+      addLoadEvent(function() {
+        scrollIntoView("devdoc-nav");
+        });
+    </script>
+
+
+
+
+<div class="g-unit" id="doc-content"><a name="top"></a>
+
+<div id="jd-header" class="guide-header">
+  <span class="crumb" itemprop="breadcrumb">
+    
+      <a href="index.html">Managing Virtual Devices</a>:
+    
+  </span>
+<h1 itemprop="name">Using the Android Emulator</h1>
+</div>
+
+  
+  <div id="jd-content">
+ 
+    
+
+
+    <div class="jd-descr" itemprop="articleBody">
+    <div id="qv-wrapper">
+<div id="qv">
+
+  <h2>In this document</h2>
+    <ol>
+      <li><a href="#overview">Overview</a></li>
+      <li><a href="#starting">Starting and Stopping the Emulator</a></li>
+      <li><a href="#starting">Android Virtual Devices and the Emulator</a></li>
+      <li><a href="#controlling">Controlling the Emulator</a></li>
+      <li><a href="#startup-options">Emulator Startup Options</a></li>
+      <li><a href="#diskimages">Working with Emulator Disk Images</a>
+	      <ol>
+	        <li><a href="#defaultimages">Default Images</a></li>
+	        <li><a href="#runtimeimages">Runtime Images: User Data and SD Card</a></li>
+	        <li><a href="#temporaryimages">Temporary Images</a></li>
+	      </ol>
+	    </li>
+      <li><a href="#emulatornetworking">Emulator Networking</a>
+	      <ol>
+          <li><a href="#networkaddresses">Network Address Space</a></li>
+          <li><a href="#networkinglimitations">Local Networking Limitations</a></li>
+          <li><a href="#redirections">Using Network Redirections</a></li>
+          <li><a href="#dns">Configuring the Emulator's DNS Settings</a></li>
+          <li><a href="#proxy">Using the Emulator with a Proxy</a></li>
+          <li><a href="#connecting">Interconnecting Emulator Instances</a></li>
+          <li><a href="#calling">Sending a Voice Call or SMS to Another Emulator Instance</a></li>
+        </ol>
+      </li>
+    </ol>
+
+  <h2>See also</h2>
+  <ol>
+    <li><a href="../../../guide/developing/tools/emulator.html">Android Emulator</a></li>
+    <li><a href="../../../guide/developing/devices/managing-avds.html">Managing AVDs with AVD Manager</a></li>
+  </ol>
+</div>
+</div>
+
+<img src="../../../images/emulator-wvga800l.png" alt="Image of the Android Emulator"
+width="367" height="349" style="margin-left:2em;float:right;"/>
+<p>The Android SDK includes a virtual mobile device emulator
+that runs on your computer. The emulator lets you prototype, develop, and test
+Android applications without using a physical device. </p>
+
+<p>The Android emulator mimics all of the hardware and software features
+of a typical mobile device, except that it cannot place actual phone
+calls. It provides a variety of navigation and control keys, which you can "press"
+using your mouse or keyboard to generate events for your application. It also
+provides a screen in which your application is displayed, together with any other
+Android applications running. </p>
+
+<p>To let you model and test your application more easily, the emulator utilizes
+Android Virtual Device (AVD) configurations. AVDs let you define certain hardware
+aspects of your emulated phone and allow you to create many configurations to test
+many Android platforms and hardware permutations. Once your application is running on
+the emulator, it can use the services of the Android platform to invoke other
+applications, access the network, play audio and video, store and retrieve data,
+notify the user, and render graphical transitions and themes. </p>
+
+<p>The emulator also includes a variety of debug capabilities, such as a console 
+from which you can log kernel output, simulate application interrupts (such as 
+arriving SMS messages or phone calls), and simulate latency effects and dropouts 
+on the data channel.</p>
+
+
+
+<h2  id="overview">Overview</h2>
+
+<p>The Android emulator is a QEMU-based application that provides a virtual ARM
+mobile device on which you can run your Android applications. It runs a full
+Android system stack, down to the kernel level, that includes a set of
+preinstalled applications (such as the dialer) that you can access from your
+applications. You can choose what version of the Android system you want to
+run in the emulator by configuring AVDs, and you can also customize the
+mobile device skin and key mappings. When launching the emulator and at runtime,
+you can use a variety of commands and options to control its behavior.
+</p>
+
+<p>The Android system image distributed in the SDK contains ARM machine code for
+the Android Linux kernel, the native libraries, the Dalvik VM, and the various
+Android package files (such as for for the Android framework and preinstalled
+applications). The emulator's QEMU layers provide dynamic binary translation of
+the ARM machine code to the OS and processor architecture of your development
+machine. </p>
+
+<p>Adding custom capabilities to the underlying QEMU services, the Android
+emulator supports many hardware features likely to be found on mobile devices,
+including: </p>
+
+<ul>
+  <li>An ARMv5 CPU and the corresponding memory-management unit (MMU)</li>
+  <li>A 16-bit LCD display</li>
+  <li>One or more keyboards (a Qwerty-based keyboard and associated Dpad/Phone
+buttons)</li>
+  <li>A sound chip with output and input capabilities</li>
+  <li>Flash memory partitions (emulated through disk image files on the
+development machine)</li>
+  <li>A GSM modem, including a simulated SIM Card</li>
+</ul>
+
+<p>The sections below provide more information about the emulator and how to use
+it for developing Android applications.</p>
+
+
+<a name="avds"></a>
+
+<h2>Android Virtual Devices and the Emulator</h2>
+
+<p>To use the emulator, you first must create one or more AVD configurations. In each
+configuration, you specify an Android platform to run in the emulator and the set of hardware
+options and emulator skin you want to use. Then, when you launch the emulator, you specify
+the AVD configuration that you want to load. </p>
+
+<p>To specify the AVD you want to load when starting the emulator, you use the
+<code>-avd</code> argument, as shown in the previous section. </p>
+
+<p>Each AVD functions as an independent device, with its own private storage for
+user data, SD card, and so on. When you launch the emulator with an AVD configuration,
+it automatically loads the user data and SD card data from the AVD directory. By default,
+the emulator stores the user data, SD card data, and cache in the AVD directory.</p>
+
+<p>To create and manage AVDs you use the AVD Manager UI or the <code>android</code> tool
+that is included in the SDK. 
+For complete information about how to set up AVDs, see <a
+href="../../../guide/developing/devices/index.html">Managing Virtual Devices</a>.</p>
+
+<a name="starting"></a>
+
+<h2>Starting and Stopping the Emulator</h2>
+
+<p>During development and testing of your application, you install and run your
+application in the Android emulator. You can launch the emulator as a standalone
+application, from a command line, or you can use it as part of your Eclipse
+development environment. In either case, you specify the AVD configuration to
+load and any startup options you want to use, as described in this document.
+</p>
+
+<p>You can run your application on a single instance of the emulator or,
+depending on your needs, you can start multiple emulator instances and run your
+application in more than one emulated device. You can use the emulator's
+built-in commands to simulate GSM phone calling or SMS between emulator
+instances, and you can set up network redirections that allow emulators to send
+data to one another. For more information, see <a href="#telephony">Telephony
+Emulation</a>, <a href="#sms">SMS Emulation</a>, and
+<a href="#emulatornetworking">Emulator Networking</a></p>
+
+<p>To start an instance of the emulator from the command line, change to the
+<code>tools/</code> folder of the SDK. Enter <code>emulator</code> command
+like this: </p>
+
+<pre>emulator -avd &lt;avd_name&gt;</pre>
+
+<p>This initializes the emulator and loads an AVD configuration (see the next
+section for more information about AVDs). You will see the emulator window
+appear on your screen. </p>
+
+<p>If you are working in Eclipse, the ADT plugin for Eclipse installs your
+application and starts the emulator automatically, when you run or debug
+the application. You can specify emulator startup options in the Run/Debug
+dialog, in the Target tab. When the emulator is running, you can issue
+console commands as described later in this document.</p>
+
+<p>If you are not working in Eclipse, see <a href="#apps">Installing Applications
+on the Emulator</a> for information about how to install your application.</p>
+
+<p>To stop an emulator instance, just close the emulator's window.</p>
+
+<p>For a reference of the emulator's startup commands and keyboard mapping, see
+the <a href="../../../guide/developing/tools/emulator.html">Android Emulator</a> document.</p>
+
+
+
+
+
+<a name="controlling"></a>
+
+
+<h2>Controlling the Emulator</h2>
+
+<p>You can use emulator <a href="#startup-options">startup options</a> and <a
+href="#console">console commands</a> to control the behaviors and
+characteristics of the emulated environment itself.
+</p>
+
+<p>When the emulator is running, you can interact with the emulated mobile
+device just as you would an actual mobile device, except that you use your mouse
+pointer to &quot;touch&quot; the touchscreen and your keyboard keys to
+&quot;press&quot; the simulated device keys. </p>
+
+<p>The table below summarizes the mappings between the emulator keys and and
+the keys of your keyboard. </p>
+
+<table  border="0" style="clear:left;">
+  <tr>
+    <th>Emulated Device Key </th>
+    <th>Keyboard Key </th>
+  </tr>
+  <tr>
+    <td>Home</td>
+    <td>HOME</td>
+  </tr>
+  <tr>
+    <td>Menu (left softkey)</td>
+    <td>F2 <em>or</em> Page-up button</td>
+  </tr>
+  <tr>
+    <td>Star (right softkey)</td>
+    <td>Shift-F2 <em>or </em>Page Down</td>
+  </tr>
+  <tr>
+    <td>Back</td>
+    <td>ESC</td>
+  </tr>
+  <tr>
+    <td>Call/dial button </td>
+    <td>F3</td>
+  </tr>
+  <tr>
+    <td>Hangup/end call button</td>
+    <td>F4</td>
+  </tr>
+  <tr>
+    <td>Search</td>
+    <td>F5 </td>
+  </tr>
+  <tr>
+    <td>Power button</td>
+    <td>F7 </td>
+  </tr>
+  <tr>
+    <td>Audio volume up button</td>
+    <td>KEYPAD_PLUS, Ctrl-5</td>
+  </tr>
+
+  <tr>
+    <td>Audio volume down button</td>
+    <td>KEYPAD_MINUS, Ctrl-F6</td>
+  </tr>
+  <tr>
+    <td>Camera button</td>
+    <td>Ctrl-KEYPAD_5, Ctrl-F3</td>
+  </tr>
+  <tr>
+    <td>Switch to previous layout orientation (for example, portrait, landscape)</td>
+    <td>KEYPAD_7, Ctrl-F11</td>
+  </tr>
+  <tr>
+    <td>Switch to next layout orientation (for example, portrait, landscape)</td>
+    <td>KEYPAD_9, Ctrl-F12</td>
+  </tr>
+  <tr>
+    <td>Toggle cell networking on/off</td>
+    <td>F8</td>
+  </tr>
+  <tr>
+    <td>Toggle code profiling</td>
+    <td>F9 (only with <code>-trace</code> startup option)</td>
+  </tr>
+  <tr>
+    <td>Toggle fullscreen mode</td>
+    <td>Alt-Enter</td>
+  </tr>
+  <tr>
+    <td>Toggle trackball mode</td>
+    <td>F6</td>
+  </tr>
+  <tr>
+    <td>Enter trackball mode temporarily (while key is pressed)</td>
+    <td>Delete</td>
+  </tr>
+  <tr>
+    <td>DPad left/up/right/down</td>
+    <td>KEYPAD_4/8/6/2</td>
+  </tr>
+  <tr>
+    <td>DPad center click</td>
+    <td>KEYPAD_5</td>
+  </tr>
+  <tr>
+    <td>Onion alpha increase/decrease</td>
+    <td>KEYPAD_MULTIPLY(*) / KEYPAD_DIVIDE(/)</td>
+  </tr>
+</table>
+
+<p>Note that, to use keypad keys, you must first disable NumLock on your development computer. </p>
+
+<h2 id="emulator">Emulator Startup Options</h2>
+
+<p>The emulator supports a variety of options that you can specify
+when launching the emulator, to control its appearance or behavior.
+Here's the command-line usage for launching the emulator with options: </p>
+
+<pre>emulator -avd &lt;avd_name&gt; [-&lt;option&gt; [&lt;value&gt;]] ... [-&lt;qemu args&gt;]</pre>
+
+<p>The table below summarizes the available options.</p>
+
+<table>
+<tr>
+  <th width="10%" >Category</th>
+  <th width="20%" >Option</th>
+    <th width="30%" >Description</th>
+    <th width="40%" >Comments</th>
+</tr>
+
+<tr>
+  <td rowspan="9">Help</td>
+  <td><code>-help</code></td>
+  <td>Print a list of all emulator options.</td>
+  <td>&nbsp;</td>
+</tr>
+<tr>
+  <td><code>-help-all</code></td>
+  <td>Print help for all startup options.</td>
+  <td>&nbsp;</td>
+</tr>
+<tr>
+  <td><code>-help-&lt;option&gt;</code></td>
+  <td>Print help for a specific startup option.</td>
+  <td>&nbsp;</td>
+</tr>
+<tr>
+  <td><code>-help-debug-tags</code></td>
+  <td>Print a list of all tags for <code>-debug &lt;tags&gt;</code>.</td>
+  <td>&nbsp;</td>
+</tr>
+<tr>
+  <td><code>-help-disk-images</code></td>
+  <td>Print help for using emulator disk images.</td>
+  <td>&nbsp;</td>
+</tr>
+<tr>
+  <td><code>-help-environment</code></td>
+  <td>Print help for emulator environment variables.</td>
+  <td>&nbsp;</td>
+</tr><tr>
+  <td><code>-help-keys</code></td>
+  <td>Print the current mapping of keys.</td>
+  <td>&nbsp;</td>
+</tr>
+<tr>
+  <td><code>-help-keyset-file</code></td>
+  <td>Print help for defining a custom key mappings file.</td>
+  <td>&nbsp;</td>
+</tr>
+<tr>
+  <td><code>-help-virtual-device</code></td>
+  <td>Print help for Android Virtual Device usage.</td>
+  <td>&nbsp;</td>
+</tr>
+<tr>
+  <td>AVD</td>
+  <td><code>-avd &lt;avd_name&gt;</code> or <br>
+      <code>@&lt;avd_name&gt;</code></td>
+  <td><strong>Required</strong>. Specifies the AVD to load for this emulator
+      instance.</td>
+  <td>You must create an AVD configuration before launching the emulator. For
+      information, see <a href="../../../guide/developing/devices/managing-avds.html">Managing
+      Virtual Devices with AVD Manager</a>.</td>
+<tr>
+  <td rowspan="7">Disk Images</td>
+  <td><code>-cache&nbsp;&lt;filepath&gt;</code></td>
+  <td>Use &lt;filepath&gt; as the working cache partition image. </td>
+  <td>Optionally, you can specify a path relative to the current working directory.
+  If no cache file is specified, the emulator's default behavior is to use a temporary file instead.
+  <p>For more information on disk images, use <code>-help-disk-images</code>.</p>
+</td></tr>
+<tr>
+  <td><code>-data&nbsp;&lt;filepath&gt;</code></td>
+  <td>Use &lt;filepath&gt; as the working user-data disk image. </td>
+  <td>Optionally, you can specify a path relative to the current working directory.
+  If <code>-data</code> is not used, the emulator looks for a file named &quot;userdata-qemu.img&quot;
+  in the storage area of the AVD being used (see <code>-avd</code>).
+</td></tr>
+<!--
+<tr>
+  <td><code>-datadir &lt;dir&gt;</code></td>
+  <td>Search for the user-data disk image specified in <code>-data</code> in &lt;dir&gt;</td>
+  <td><code>&lt;dir&gt;</code> is a path relative to the current working directory.
+
+<p>If you do not specify <code>-datadir</code>, the emulator looks for the user-data image
+in the storage area of the AVD being used (see <code>-avd</code>)</p><p>For more information
+on disk images, use <code>-help-disk-images</code>.</p>
+</td></tr>
+-->
+<!-- 
+<tr>
+  <td><code>-image&nbsp;&lt;filepath&gt;</code></td>
+  <td>Use &lt;filepath&gt; as the system image.</td>
+  <td>Optionally, you can specify a path relative to the current working directory.
+   Default is &lt;system&gt;/system.img.</td>
+</tr>
+-->
+<tr>
+  <td><code>-initdata&nbsp;&lt;filepath&gt;</code></td>
+  <td>When resetting the user-data image (through <code>-wipe-data</code>), copy the contents
+  of this file to the new user-data disk image. By default, the emulator copies the <code>&lt;system&gt;/userdata.img</code>.</td>
+  <td>Optionally, you can specify a path relative to the current working directory. See also <code>-wipe-data</code>.
+  <p>For more information on disk images, use <code>-help-disk-images</code>.</p></td>
+</tr>
+<!--
+<tr>
+  <td><code>-kernel&nbsp;&lt;filepath&gt;</code></td>
+  <td>Use &lt;filepath&gt; as the emulated kernel.</td>
+  <td>Optionally, you can specify a path relative to the current working directory. </td>
+</tr>
+-->
+<tr>
+  <td><code>-nocache</code></td>
+  <td>Start the emulator without a cache partition.</td>
+  <td>See also <code>-cache &lt;file&gt;</code>.</td>
+</tr>
+<tr>
+  <td><code>-ramdisk&nbsp;&lt;filepath&gt;</code></td>
+  <td>Use &lt;filepath&gt; as the ramdisk image.</td>
+  <td>Default value is <code>&lt;system&gt;/ramdisk.img</code>.
+  <p>Optionally, you can specify a path relative to the current working directory. 
+  For more information on disk images, use <code>-help-disk-images</code>.</p>
+</td>
+</tr>
+<tr>
+  <td><code>-sdcard&nbsp;&lt;filepath&gt;</code></td>
+  <td>Use &lt;file&gt; as the SD card image.</td>
+  <td>Default value is <code>&lt;system&gt;/sdcard.img</code>.
+  <p>Optionally, you can specify a path relative to the current working directory. For more information on disk images, use <code>-help-disk-images</code>.</p>
+</td>
+</tr>
+<!--
+<tr>
+ <td><code>-system&nbsp;&lt;dirpath&gt;</code></td>
+ <td>Search for system, ramdisk and user data images in &lt;dir&gt;.</td>
+ <td><code>&lt;dir&gt;</code> is a directory path relative to the current 
+  working directory.</td>
+</tr>
+-->
+<tr>
+  <td><code>-wipe-data</code></td>
+  <td>Reset the current user-data disk image (that is, the file specified by <code>-datadir</code> and 
+  <code>-data</code>, or the default file). The emulator deletes all data from the user data image file, 
+  then copies the contents of the file at <code>-inidata</code> data to the image file before starting. 
+  </td>
+  <td>See also <code>-initdata</code>. 
+  <p>For more information on disk images, use <code>-help-disk-images</code>.</p>
+</td>
+</tr>
+<tr>
+  <td rowspan="9">Debug</td>
+  <td><code>-debug &lt;tags&gt;</code></td>
+  <td>Enable/disable debug messages for the specified debug tags.</td>
+  <td><code>&lt;tags&gt;</code> is a space/comma/column-separated list of debug component names. 
+  Use <code>-help-debug-tags</code> to print a list of debug component names that you can use. </td>
+</tr>
+<tr>
+  <td><code>-debug-&lt;tag&gt;</code></td>
+  <td>Enable/disable debug messages for the specified debug tag.</td>
+  <td rowspan="2">Use <code>-help-debug-tags</code> to print a list of debug component names that you can use in <code>&lt;tag&gt;</code>. </td>
+</tr>
+<tr>
+  <td><code>-debug-no-&lt;tag&gt;</code></td>
+  <td>Disable debug messages for the specified debug tag.</td>
+</tr>
+<tr>
+  <td><code>-logcat &lt;logtags&gt;</code></td>
+  <td>Enable logcat output with given tags.</td>
+  <td>If the environment variable ANDROID_LOG_TAGS is defined and not
+    empty, its value will be used to enable logcat output by default.</td>
+</tr>
+<tr>
+  <td><code>-shell</code></td>
+  <td>Create a root shell console on the current terminal.</td>
+  <td>You can use this command even if the adb daemon in the emulated system is broken. 
+  Pressing Ctrl-c from the shell stops the emulator instead of the shell.</td>
+</tr>
+<tr>
+  <td><code>-shell-serial&nbsp;&lt;device&gt;</code></td>
+  <td>Enable the root shell (as in <code>-shell</code> and specify the QEMU character 
+  device to use for communication with the shell.</td>
+  <td>&lt;device&gt; must be a QEMU device type. See the documentation for '-serial <em>dev</em>' at 
+  <a href="http://wiki.qemu.org/download/qemu-doc.html">http://wiki.qemu.org/download/qemu-doc.html</a> 
+  for a list of device types.
+
+<p>Here are some examples: </p>
+<ul>
+  <li><code>-shell-serial stdio</code> is identical to <code>-shell</code></li>
+  <li><code>-shell-serial tcp::4444,server,nowait</code> lets you communicate with the shell over TCP port 4444</li>
+  <li><code>-shell-serial fdpair:3:6</code> lets a parent process communicate with the shell using fds 3 (in) and 6 (out)</li>
+  <li><code>-shell-serial fdpair:0:1</code> uses the normal stdin and stdout fds, except that QEMU won't tty-cook the data.</li>
+  </ul>
+</td>
+</tr>
+<tr>
+  <td><code>-show-kernel &lt;name&gt;</code></td>
+  <td>Display kernel messages.</td>
+  <td>&nbsp;</td>
+</tr>
+<tr>
+  <td><code>-trace &lt;name&gt;</code></td>
+  <td>Enable code profiling (press F9 to start), written to a specified file.</td>
+  <td>&nbsp;</td>
+</tr>
+<tr>
+  <td><code>-verbose</code></td>
+  <td>Enable verbose output.</td>
+  <td>Equivalent to <code>-debug-init</code>. 
+<p>You can define the default verbose output options used by emulator instances in the Android environment variable 
+ANDROID_VERBOSE. Define the options you want to use in a comma-delimited list, specifying only the stem of each option: 
+<code>-debug-&lt;tags&gt;.</code> </p>
+<p>Here's an example showing ANDROID_VERBOSE defined with the <code>-debug-init</code> and <code>-debug-modem</code> options: 
+<p><code>ANDROID_VERBOSE=init,modem</code></p>
+<p>For more information about debug tags, use <code>&lt;-help-debug-tags&gt;</code>.</p>
+</td>
+</tr>
+<tr>
+  <td rowspan="6">Media</td>
+  <td><code>-audio &lt;backend&gt;</code></td>
+  <td>Use the specified audio backend.</td>
+  <td>&nbsp;</td>
+</tr>
+<tr>
+  <td><code>-audio-in &lt;backend&gt;</code></td>
+  <td>Use the specified audio-input backend.</td>
+  <td>&nbsp;</td>
+</tr>
+<tr>
+  <td><code>-audio-out &lt;backend&gt;</code></td>
+  <td>Use the specified audio-output backend.</td>
+  <td>&nbsp;</td>
+</tr>
+<!--<tr>
+  <td><code>-mic &lt;device or file&gt;</code></td>
+  <td>Use device or WAV file for audio input.</td>
+  <td>&nbsp;</td>
+</tr>
+-->
+<tr>
+  <td><code>-noaudio</code></td>
+  <td>Disable audio support in the current emulator instance.</td>
+  <td>&nbsp;</td>
+</tr>
+<tr>
+  <td><code>-radio &lt;device&gt;</code></td>
+  <td>Redirect radio modem interface to a host character device.</td>
+  <td>&nbsp;</td></tr>
+<tr>
+  <td><code>-useaudio</code></td>
+  <td>Enable audio support in the current emulator instance.</td>
+  <td>Enabled by default. </td>
+</tr>
+
+<tr>
+  <td rowspan="7">Network</td>
+  <td><code>-dns-server &lt;servers&gt;</code></td>
+  <td>Use the specified DNS server(s). </td>
+  <td>The value of <code>&lt;servers&gt;</code> must be a comma-separated list of up to 4 DNS server names or
+  IP addresses.</td>
+</tr>
+<tr>
+  <td><code>-http-proxy &lt;proxy&gt;</code></td>
+  <td>Make all TCP connections through a specified HTTP/HTTPS proxy</td>
+  <td>The value of <code>&lt;proxy&gt;</code> can be one of the following:<br>
+     <code>http://&lt;server&gt;:&lt;port&gt;</code><br>
+     <code>http://&lt;username&gt;:&lt;password&gt;@&lt;server&gt;:&lt;port&gt;</code>
+  <p>The <code>http://</code> prefix can be omitted. If the <code>-http-proxy &lt;proxy&gt;</code> command is not supplied,
+  the emulator looks up the <code>http_proxy</code> environment variable and automatically uses any value matching
+  the <code>&lt;proxy&gt;</code> format described above.</p></td>
+</tr>
+<tr>
+  <td><code>-netdelay &lt;delay&gt;</code></td>
+  <td>Set network latency emulation to &lt;delay&gt;.</td>
+  <td>Default value is <code>none</code>. See the table in <a href="#netdelay">Network Delay Emulation</a> for 
+  supported <code>&lt;delay&gt;</code> values. </td>
+</tr>
+<tr>
+  <td><code>-netfast</code></td>
+  <td>Shortcut for <code>-netspeed full -netdelay none</code></td>
+  <td>&nbsp;</td></tr>
+<tr>
+  <td><code>-netspeed &lt;speed&gt;</code></td>
+  <td>Set network speed emulation to &lt;speed&gt;.</td>
+  <td>Default value is <code>full</code>. See the table in <a href="#netspeed">Network Speed Emulation</a> for 
+  supported <code>&lt;speed&gt;</code> values. </td>
+</tr>
+<tr>
+  <td><code>-port &lt;port&gt;</code></td>
+  <td>Set the console port number for this emulator instance to <code>&lt;port&gt;</code>.</td>
+  <td>The console port number must be an even integer between 5554 and 5584, inclusive. <code>&lt;port&gt;</code>+1 
+  must also be free and will be reserved for ADB.</td>
+</tr>
+<tr>
+  <td><code>-report-console &lt;socket&gt;</code></td>
+  <td>Report the assigned console port for this emulator instance to a remote third party 
+  before starting the emulation. </td>
+  <td><code>&lt;socket&gt;</code> must use one of these formats:
+
+<p><code>tcp:&lt;port&gt;[,server][,max=&lt;seconds&gt;]</code></br>
+<code>unix:&lt;port&gt;[,server][,max=&lt;seconds&gt;]</code></p>
+
+<p>Use <code>-help-report-console</code></p> to view more information about this topic. </td>
+</tr>
+<tr>
+  <td rowspan="8">System</td>
+  <td><code>-cpu-delay &lt;delay&gt;</code></td>
+  <td>Slow down emulated CPU speed by &lt;delay&gt; </td>
+  <td>Supported values for &lt;delay&gt; are integers between 0 and 1000.
+
+<p>Note that the &lt;delay&gt; does not correlate to clock speed or other absolute metrics 
+&mdash; it simply represents an abstract, relative delay factor applied non-deterministically 
+in the emulator. Effective performance does not always 
+scale in direct relationship with &lt;delay&gt; values.</p>
+</td>
+</tr>
+<tr>
+  <td><code>-gps &lt;device&gt;</code></td>
+  <td>Redirect NMEA GPS to character device.</td>
+  <td>Use this command to emulate an NMEA-compatible GPS unit connected to
+  an external character device or socket. The format of <code>&lt;device&gt;</code> must be QEMU-specific 
+  serial device specification. See the documentation for 'serial -dev' at 
+  <a href="http://wiki.qemu.org/download/qemu-doc.html">http://wiki.qemu.org/download/qemu-doc.html</a>.
+</td>
+</tr>
+<tr>
+  <td><code>-nojni</code></td>
+  <td>Disable JNI checks in the Dalvik runtime.</td><td>&nbsp;</td></tr>
+<tr>
+  <td><code>-qemu</code></td>
+  <td>Pass arguments to qemu.</td>
+  <td>&nbsp;</td></tr>
+<tr>
+  <td><code>-qemu -h</code></td>
+  <td>Display qemu help.</td>
+  <td></td></tr>
+<tr>
+  <td><code>-radio &lt;device&gt;</code></td>
+  <td>Redirect radio mode to the specified character device.</td>
+  <td>The format of <code>&lt;device&gt;</code> must be QEMU-specific 
+  serial device specification. See the documentation for 'serial -dev' at 
+<a href="http://wiki.qemu.org/download/qemu-doc.html">http://wiki.qemu.org/download/qemu-doc.html</a>.
+</td>
+</tr>
+<tr>
+ <td><code>-timezone &lt;timezone&gt;</code></td>
+ <td>Set the timezone for the emulated device to &lt;timezone&gt;, instead of the host's timezone.</td>
+ <td><code>&lt;timezone&gt;</code> must be specified in zoneinfo format. For example:
+<p>"America/Los_Angeles"<br>
+"Europe/Paris"</p>
+</td>
+</tr>
+<tr>
+ <td><code>-version</code></td>
+ <td>Display the emulator's version number.</td>
+ <td>&nbsp;</td>
+</tr>
+<tr>
+  <td rowspan="12">UI</td>
+  <td><code>-dpi-device &lt;dpi&gt;</code></td>
+  <td>Scale the resolution of the emulator to match the screen size
+  of a physical device.</td>
+  <td>The default value is 165. See also <code>-scale</code>.</td>
+</tr>
+<tr>
+  <td><code>-no-boot-anim</code></td>
+  <td>Disable the boot animation during emulator startup.</td>
+  <td>Disabling the boot animation can speed the startup time for the emulator.</td>
+</tr>
+<tr>
+  <td><code>-no-window</code></td>
+  <td>Disable the emulator's graphical window display.</td>
+  <td>&nbsp;</td>
+</tr>
+<tr>
+  <td><code>-scale &lt;scale&gt;</code></td>
+  <td>Scale the emulator window. </td>
+  <td><code>&lt;scale&gt;</code> is a number between 0.1 and 3 that represents the desired scaling factor. You can 
+  also specify scale as a DPI value if you add the suffix "dpi" to the scale value. A value of "auto" 
+  tells the emulator to select the best window size.</td>
+</tr>
+<tr>
+  <td><code>-raw-keys</code></td>
+  <td>Disable Unicode keyboard reverse-mapping.</td>
+  <td>&nbsp;</td></tr>
+<tr>
+  <td><code>-noskin</code></td>
+  <td>Don't use any emulator skin.</td>
+  <td>&nbsp;</td></tr>
+<tr>
+  <td><code>-keyset &lt;file&gt;</code></td>
+  <td>Use the specified keyset file instead of the default.</td>
+  <td>The keyset file defines the list of key bindings between the emulator and the host keyboard. 
+  For more information, use <code>-help-keyset</code> to print information about this topic.
+</td>
+</tr>
+<tr>
+  <td><code>-onion &lt;image&gt;</code></td>
+  <td>Use overlay image over screen.</td>
+  <td>No support for JPEG. Only PNG is supported.</td></tr>
+<tr>
+  <td><code>-onion-alpha &lt;percent&gt;</code></td>
+  <td>Specify onion skin translucency  value (as percent).
+  <td>Default is 50.</td>
+</tr>
+<tr>
+  <td><code>-onion-rotation &lt;position&gt;</code></td>
+  <td>Specify onion skin rotation.
+  <td><code>&lt;position&gt;</code> must be one of the values 0, 1, 2, 3.</td>
+</tr>
+<tr>
+  <td><code>-skin &lt;skinID&gt;</code></td>
+  <td>This emulator option is deprecated. </td>
+  <td>Please set skin options using AVDs, rather than by using this emulator
+option. Using this option may yield unexpected and in some cases misleading
+results, since the density with which to render the skin may not be defined.
+AVDs let you associate each skin with a default density and override the default
+as needed. For more information, see <a
+href="../../../guide/developing/devices/managing-avds.html">Managing Virtual Devices
+with AVD Manager</a>.
+</td>
+</tr>
+<tr>
+  <td><code>-skindir &lt;dir&gt;</code></td>
+  <td>This emulator option is deprecated. </td>
+  <td>See comments for <code>-skin</code>, above.</td></tr>
+</table>
+
+
+<a name="diskimages"></a>
+
+<h2>Working with Emulator Disk Images</h2>
+
+<p>The emulator uses mountable disk images stored on your development machine to
+simulate flash (or similar) partitions on an actual device. For example, it uses
+disk image containing an emulator-specific kernel, the Android system, a
+ramdisk image, and writeable images for user data and simulated SD card.</p>
+
+<p>To run properly, the emulator requires access to a specific set of disk image
+files. By default, the Emulator always looks for the disk images in the 
+private storage area of the AVD in use. If no images exist there when 
+the Emulator is launched, it creates the images in the AVD directory based on 
+default versions stored in the SDK. </p>
+
+<p class="note"><strong>Note:</strong> The default storage location for 
+AVDs is in <code>~/.android/avd</code> on OS X and Linux, <code>C:\Documents and 
+Settings\&lt;user&gt;\.android\</code> on Windows XP, and 
+<code>C:\Users\&lt;user&gt;\.android\</code>
+on Windows Vista.</p>
+
+<p>To let you use alternate or custom versions of the image files, the emulator
+provides startup options that override the default locations and filenames of
+the image files. When you use the options, the emulator searches for the image
+file under the image name or location that you specify; if it can not locate the
+image, it reverts to using the default names and location.</p>
+
+<p>The emulator uses three types of image files: default image files, runtime
+image files, and temporary image files. The sections below describe how to
+override the location/name of each type of file. </p>
+
+<a name="defaultimages"></a>
+<h3>Default Images</h3>
+
+<p>When the emulator launches but does not find an existing user data image in
+the active AVD's storage area, it creates a new one from a default version
+included in the SDK. The default user data image is read-only. The image 
+files are read-only.</p>
+
+<p>The emulator provides the <code>-system &lt;dir&gt;</code> startup option to
+let you override the location under which the emulator looks for the default
+user data image. </p>
+
+<p>The emulator also provides a startup option that lets you override the name
+of the default user data image, as described in the table below. When you use the 
+option, the emulator looks in the default directory, or in a custom location
+(if you specified <code>-system &lt;dir&gt;</code>). </p>
+
+
+<table>
+<tr>
+  <th width="10%" >Name</th>
+    <th width="30%" >Description</th>
+    <th width="40%" >Comments</th>
+</tr>
+
+<!--
+<tr>
+  <td><code>kernel-qemu.img</code></td>
+  <td>The emulator-specific Linux kernel image</td>
+  <td>Override using <code>-kernel &lt;file&gt;</code></td>
+</tr>
+
+<tr>
+  <td><code>ramdisk.img</code></td>
+  <td>The ramdisk image used to boot the system.</td>
+  <td>Override using <code>-ramdisk &lt;file&gt;</code></td>
+</tr>
+
+<tr>
+  <td><code>system.img</code></td>
+  <td>The <em>initial</em> Android system image.</td>
+  <td>Override using <code>-image &lt;file&gt;</code></td>
+</tr>
+-->
+<tr>
+  <td><code>userdata.img</code></td>
+  <td>The <em>initial</em> user-data disk image</td>
+  <td>Override using <code>-initdata &lt;file&gt;</code>. Also see
+<code>-data &lt;file&gt;</code>, below.</td>
+</tr>
+
+</table>
+
+<a name="runtimeimages"></a>
+<h3>Runtime Images: User Data and SD Card</h3>
+
+<p>At runtime, the emulator reads and writes data on two disk images: a
+user-data image and (optionally) an SD card image. This emulates the user-data
+partition and removable storage media on actual device. </p>
+
+<p>The emulator provides a default user-data disk image. At startup, the emulator 
+creates the default image as a copy of the system user-data image (user-data.img), 
+described above. The emulator stores the new image with the files of the active AVD.</p>
+
+<!--
+<p>The emulator provides a startup option, <code>-datadir &lt;dir&gt;</code>, 
+that you can use to override the location under which the emulator looks for the runtime
+image files. </p>
+-->
+
+<p>The emulator provides startup options to let you override the actual names and storage 
+locations of the runtime images to load, as described in the table below. When you use one 
+of these options, the emulator looks for the specified file(s) in the current working directory,
+in the AVD directory, or in a custom location (if you specified a path with the filename). </p>
+
+<table>
+<tr>
+  <th width="10%" >Name</th>
+    <th width="30%" >Description</th>
+    <th width="40%" >Comments</th>
+</tr>
+<tr>
+  <td><code>userdata-qemu.img</code></td>
+  <td>An image to which the emulator writes runtime user-data for a unique user.</td>
+  <td>Override using <code>-data &lt;filepath&gt;</code>, where <code>&lt;filepath&gt;</code> is the
+path the image, relative to the current working directory. If you supply a filename only, 
+the emulator looks for the file in the current working directory. If the file at <code>&lt;filepath&gt;</code> does
+not exist, the emulator creates an image from the default userdata.img, stores it under the name you
+specified, and persists user data to it at shutdown. </td>
+</tr>
+
+<tr>
+  <td><code>sdcard.img</code></td>
+  <td>An image representing an SD card inserted into the emulated device.</td>
+  <td>Override using <code>-sdcard &lt;filepath&gt;</code>, where <code>&lt;filepath&gt;</code> is the
+path the image, relative to the current working directory. If you supply a filename only, 
+the emulator looks for the file in the current working directory. </td>
+</tr>
+
+</table>
+
+<h4>User-Data Image</h4>
+
+<p>Each emulator instance uses a writeable user-data image to store user- and
+session-specific data. For example, it uses the image to store a unique user's
+installed application data, settings, databases, and files. </p>
+
+<p>At startup, the emulator attempts to load a user-data image stored during 
+a previous session. It looks for the file in the current working directory, 
+in the AVD directory as described above, and at the custom location/name 
+that you specified at startup. </p>
+
+<ul>
+<li>If it finds a user-data image, it mounts the image and makes it available 
+to the system for reading/writing of user data. </li>
+<li>If it does not find one, it creates an image by copying the system user-data
+image (userdata.img), described above. At device power-off, the system persists
+the user data to the image, so that it will be available in the next session. 
+Note that the emulator stores the new disk image at the location/name that you
+specify in <code>-data</code> startup option.</li>
+</ul>
+
+<p class="note"><strong>Note:</strong> Because of the AVD configurations used in the emulator,
+each emulator instance now gets its own dedicated storage. There is no need 
+to use the <code>-d</code> option to specify an instance-specific storage area.</p>
+
+<h4>SD Card</h4>
+
+<P>Optionally, you can create a writeable disk image that the emulator can use
+to simulate removeable storage in an actual device. For information about how to create an 
+emulated SD card and load it in the emulator, see <a href="#sdcard">SD Card Emulation</a></p>
+
+<p>You can also use the android tool to automatically create an SD Card image
+for you, when creating an AVD. For more information, see <a 
+href="../../../guide/developing/devices/managing-avds.html">Managing Virtual Devices with AVD
+Manager</a>.
+
+<a name="temporaryimages"></a>
+<h3>Temporary Images</h3>
+
+<p>The emulator creates two writeable images at startup that it deletes at
+device power-off. The images are: </p>
+
+<ul>
+  <li>A writable copy of the Android system image</li>
+  <li>The <code>/cache</code> partition image</li>
+</ul>
+
+<p>The emulator does not permit renaming the temporary system image or
+persisting it at device power-off. </p>
+
+<p>The <code>/cache</code> partition image is initially empty, and is used by
+the browser to cache downloaded web pages and images. The emulator provides an 
+<code>-cache &lt;file&gt;</code>, which specifies the name of the file at which 
+to persist the <code>/cache</code> image at device power-off. If <code>&lt;file&gt;
+</code> does not exist, the emulator creates it as an empty file. </p>
+
+<p>You can also disable the use of the cache partition by specifying the
+<code>-nocache</code> option at startup. </p>
+
+
+<a name="emulatornetworking"></a>
+<h2>Emulator Networking</h2>
+
+<p>The emulator provides versatile networking capabilities that you can use to
+set up complex modeling and testing environments for your application. The
+sections below introduce the emulator's network architecture and capabilities.
+</p>
+
+<a name="networkaddresses"></a>
+<h3>Network Address Space</h3>
+
+<p>Each instance of the emulator runs behind a virtual router/firewall service
+that isolates it from your development machine's network interfaces and settings
+and from the internet. An emulated device can not see your development machine
+or other emulator instances on the network. Instead, it sees only that it is
+connected through Ethernet to a router/firewall.</p>
+
+<p>The virtual router for each instance manages the 10.0.2/24 network address
+space &mdash; all addresses managed by the router are in the form of
+10.0.2.&lt;xx&gt;, where &lt;xx&gt; is a number. Addresses within this space are
+pre-allocated by the emulator/router as follows:</p>
+
+<table>
+  <tr>
+    <th>Network Address</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>10.0.2.1</td>
+    <td>Router/gateway address </td>
+  </tr>
+  <tr>
+    <td>10.0.2.2</td>
+    <td>Special alias to your host loopback interface (i.e., 127.0.0.1 on your
+development machine)</td>
+  </tr>
+  <tr>
+    <td>10.0.2.3</td>
+    <td>First DNS server</td>
+  </tr>
+  <tr>
+    <td>10.0.2.4 / 10.0.2.5 / 10.0.2.6</td>
+    <td>Optional second, third and fourth DNS server (if any) </td>
+  </tr>
+  <tr>
+    <td>10.0.2.15</td>
+    <td>The emulated device's own network/ethernet interface</td>
+  </tr>
+  <tr>
+    <td>127.0.0.1</td>
+    <td>The emulated device's own loopback interface </td>
+  </tr>
+</table>
+
+<p>Note that the same address assignments are used by all running emulator
+instances. That means that if you have two instances running concurrently on
+your machine, each will have its own router and, behind that, each will have an
+IP address of 10.0.2.15. The instances are isolated by a router and can
+<em>not</em> see each other on the same network. For information about how to
+let emulator instances communicate over TCP/UDP, see <a
+href="#connecting">Connecting Emulator Instances</a>.</p>
+
+<p>Also note that the address 127.0.0.1 on your development machine corresponds
+to the emulator's own loopback interface. If you want to access services running
+on your development machine's loopback interface (a.k.a. 127.0.0.1 on your
+machine), you should use the special address 10.0.2.2 instead.</p>
+
+<p>Finally, note that each emulated device's pre-allocated addresses are
+specific to the Android emulator and will probably be very different on real
+devices (which are also very likely to be NAT-ed, i.e., behind a
+router/firewall)</p>
+
+<a name="networkinglimitations"></a>
+<h3>Local Networking Limitations</h3>
+
+<p>Each emulator instance runs behind a virtual router, but unlike an actual
+device connected to a physical router, the emulated device doesn't have access
+to a physical network. Instead it runs as part of a normal application on your
+development machine. This means that it is subject to the same networking
+limitations as other applications on your machine:</p>
+
+<ul>
+  <li>Communication with the emulated device may be blocked by a firewall
+program running on your machine.</li>
+  <li>Communication with the emulated device may be blocked by another
+(physical) firewall/router to which your machine is connected.</li>
+</ul>
+
+<p>The emulator's virtual router should be able to handle all outbound TCP and
+UDP connections/messages on behalf of the emulated device, provided your
+development machine's network environment allows it to do so. There are no
+built-in limitations on port numbers or ranges except the one imposed by your
+host operating system and network.</p>
+
+<p>Depending on the environment, the emulator may not be able to support other
+protocols (such as ICMP, used for "ping") might not be supported. Currently, the
+emulator does not support IGMP or multicast. </p>
+
+<a name="redirections"></a>
+<h3>Using Network Redirections</h3>
+
+<p>To communicate with an emulator instance behind its virtual router, you need
+to set up network redirections on the virtual router. Clients can then connect
+to a specified guest port on the router, while the router directs traffic
+to/from that port to the emulated device's host port. </p>
+
+<p>To set up the network redirections, you create a mapping of host and guest
+ports/addresses on the the emulator instance. There are two ways to set up
+network redirections: using emulator console commands and using the ADB tool, as
+described below. </p>
+
+<a name="consoleredir"></a>
+<h4>Setting up Redirections through the Emulator Console</h4>
+
+<p>Each emulator instance provides a control console the you can connect to, to
+issue commands that are specific to that instance. You can use the
+<code>redir</code> console command to set up redirections as needed for an
+emulator instance. </p>
+
+<p>First, determine the console port number for the target emulator instance.
+For example, the console port number for the first emulator instance launched is
+5554. Next, connect to the console of the target emulator instance, specifying
+its console port number, as follows: </p>
+
+<pre><code>telnet localhost 5554</code></pre>
+
+<p>Once connected, use the <code>redir</code> command to work with redirections.
+To add a redirection, use:</p>
+
+<pre><code>add&nbsp;&lt;protocol&gt;:&lt;host-port&gt;:&lt;guest-port&gt;</code>
+</pre>
+
+<p>where <code>&lt;protocol&gt;</code> is either <code>tcp</code> or <code>udp</code>, 
+and <code>&lt;host-port&gt;</code> and <code>&lt;guest-port&gt;</code> sets the 
+mapping between your own machine and the emulated system, respectively. </p>
+
+<p>For example, the following command sets up a redirection that will handle all
+incoming TCP connections to your host (development) machine on 127.0.0.1:5000
+and will pass them through to the emulated system's 10.0.2.15:6000.:</p>
+
+<pre>redir add tcp:5000:6000</pre>
+
+<p>To delete a redirection, you can use the <code>redir del</code> command. To
+list all redirections for a specific instance, you can use <code>redir
+list</code>. For more information about these and other console commands, see 
+<a href="#console">Using the Emulator Console</a>. </p>
+
+<p>Note that port numbers are restricted by your local environment. this typically
+means that you cannot use host port numbers under 1024 without special
+administrator privileges.  Also, you won't be able to set up a redirection for a
+host port that is already in use by another process on your machine. In that
+case, <code>redir</code> generates an error message to that effect. </p>
+
+<a name="adbredir"></a>
+<h4>Setting Up Redirections through ADB</h4>
+
+<p>The Android Debug Bridge (ADB) tool provides port forwarding, an alternate
+way for you to set up network redirections. For more information, see <a
+href="../../../guide/developing/tools/adb.html#forwardports">Forwarding Ports</a> in the ADB
+documentation.</p>
+
+<p>Note that ADB does not currently offer any way to remove a redirection,
+except by killing the ADB server.</p>
+
+<a name="dns"></a>
+<h3>Configuring the Emulator's DNS Settings</h3>
+
+<p>At startup, the emulator reads the list of DNS servers that your system is
+currently using. It then stores the IP addresses of up to four servers on this
+list and sets up aliases to them on the emulated addresses 10.0.2.3, 10.0.2.4,
+10.0.2.5 and 10.0.2.6 as needed.  </p>
+
+<p>On Linux and OS X, the emulator obtains the DNS server addresses by parsing 
+the file <code>/etc/resolv.conf</code>. On Windows, the emulator obtains the 
+addresses by calling the <code>GetNetworkParams()</code> API. Note that this 
+usually means that the emulator ignores the content of your "hosts" file 
+(<code>/etc/hosts</code> on Linux/OS X, <code>%WINDOWS%/system32/HOSTS</code>
+ on Windows).</P>
+
+<p>When starting the emulator at the command line, you can also use the
+<code>-dns-server &lt;serverList&gt;</code> option to manually specify the
+addresses of DNS servers to use, where &lt;serverList&gt; is a comma-separated
+list of server names or IP addresses. You might find this option useful if you
+encounter DNS resolution problems in the emulated network (for example, an
+"Unknown Host error" message that appears when using the web browser).</p>
+
+<a name="proxy"></a>
+<h3>Using the Emulator with a Proxy</h3>
+
+<p>If your emulator must access the Internet through a proxy server, you can use
+the <code>-http-proxy &lt;proxy&gt;</code> option when starting the emulator, to
+set up the appropriate redirection. In this case, you specify proxy information
+in <code>&lt;proxy&gt;</code> in one of these formats:</p>
+
+<pre>http://&lt;machineName&gt;:&lt;port&gt;</pre>
+
+<p>or</p>
+
+<pre>http://&lt;username&gt;:&lt;password&gt;@&lt;machineName&gt;:&lt;port&gt;</pre>
+
+<p>The <code>-http-proxy</code> option forces the emulator to use the specified
+HTTP/HTTPS proxy for all outgoing TCP connections. Redirection for UDP is not
+currently supported.</p>
+
+<p>Alternatively, you can define the environment variable
+<code>http_proxy</code> to the value you want to use for
+<code>&lt;proxy&gt;</code>. In this case, you do not need to specify a value for
+<code>&lt;proxy&gt;</code> in the <code>-http-proxy</code> command &mdash; the
+emulator checks the value of the <code>http_proxy</code> environment variable at
+startup and uses its value automatically, if defined. </p>
+
+<p>You can use the <code>-verbose-proxy</code> option to diagnose proxy
+connection problems.</p>
+
+<a name="connecting"></a>
+<h3>Interconnecting Emulator Instances</h3>
+
+<p>To allow one emulator instance to communicate with another, you must set up
+the necessary network redirections as illustrated below. </p>
+
+<p>Assume that your environment is</p>
+
+<ul>
+  <li>A is you development machine</li>
+  <li>B is your first emulator instance, running on A</li>
+  <li>C is your second emulator instance, running on A too</li>
+</ul>
+
+<p>and you want to run a server on B, to which C will connect, here is how you
+could set it up: </p>
+
+<ol>
+  <li>Set up the server on B, listening to
+<code>10.0.2.15:&lt;serverPort&gt;</code></li>
+  <li>On B's console, set up a redirection from
+<code>A:localhost:&lt;localPort&gt;</code> to <code>
+B:10.0.2.15:&lt;serverPort&gt;</code></li>
+  <li>On C, have the client connect to <code>10.0.2.2:&lt;localPort&gt;</code></li>
+</ol>
+
+<p>For example, if you wanted to run an HTTP server, you can select
+<code>&lt;serverPort&gt;</code> as 80 and <code>&lt;localPort&gt;</code> as
+8080:</p>
+
+<ul>
+  <li>B listens on 10.0.2.15:80</li>
+  <li>On B's console, issue <code>redir add tcp:8080:80</code></li>
+  <li>C connects to 10.0.2.2:8080</li>
+</ul>
+
+<a name="calling"></a>
+<h3>Sending a Voice Call or SMS to Another Emulator Instance</h3>
+
+<p>The emulator automatically forwards simulated voice calls and SMS messages from one instance to another. To send a voice call or SMS, you use the dialer application and SMS application (if available) installed on one emulator </p>
+
+<p>To initiate a simulated voice call to another emulator instance:</p>
+<ol>
+<li>Launch the dialer application on the originating emulator instance.</li>
+<li>As the number to dial, enter the console port number of the instance you'd like to call. You can determine
+  the console port number of the target instance by checking its window title, where the
+  console port number is reported as "Android Emulator (&lt;port&gt;). </li>
+<li>Press "Dial". A new inbound call appears in the target emulator instance. </li>
+</ol>
+
+<p>To send an SMS message to another emulator instance, launch the SMS application (if available). Specify the console port number of the target emulator instance as as the SMS address, enter the message text, and send the message. The message is delivered to the target emulator instance. </p>
+
+<p>You can also connect to an emulator instance's console to simulate an incoming voice call or SMS. For more information, see <a href="#telephony">Telephony Emulation</a> and <a href="#sms">SMS Emulation</a>.
+
+<a name="console"></a>
+
+<h2>Using the Emulator Console</h2>
+
+<p>Each running emulator instance includes a console facility that lets you dynamically query and control the simulated device environment. For example, you can use the console to dynamically manage port redirections and network characteristics and simulate telephony events. To access the console and enter commands, you use telnet to connect to the console's port number. </p>
+<p>To connect to the console of any running emulator instance at any time, use this command: </p>
+
+<pre>telnet localhost &lt;console-port&gt;</pre>
+
+<p>An emulator instance occupies a pair of adjacent ports: a console port and an adb port. The port numbers differ by 1, with the adb port having the higher port number. The console of the first emulator instance running on a given machine uses console port 5554 and adb port 5555. Subsequent instances use port numbers increasing by two &mdash; for example, 5556/5557, 5558/5559, and so on. Up to 16 concurrent emulator instances can run a console facility. </p>
+
+<p>To connect to the emulator console, you must specify a valid console port. If multiple emulator instances are running, you need to determine the console port of the emulator instance you want to connect to. You can find the instance's console port listed in the title of the instance window. For example, here's the window title for an instance whose console port is 5554:</p>
+
+<p><code>Android Emulator (5554)</code></p>
+
+<p>Alternatively, you can use the <code>adb devices</code> command, which prints a list of running emulator instances and their console port numbers. For more information, see <a href="../../../guide/developing/tools/adb.html#devicestatus">Querying for Emulator/Device Instances</a> in the adb documentation.</p>
+
+<p class="note">Note: The emulator listens for connections on ports 5554-5587 and accepts connections only from localhost.</p>
+
+<p>Once you are connected to the console, you can then enter <code>help [command]</code> to see a list of console commands and learn about specific commands. </p>
+
+<p>To exit the console session, use <code>quit</code> or <code>exit</code>.</p>
+
+<p>The sections below describe the major functional areas of the console.</p>
+
+<a name="portredirection"></a>
+
+<h3>Port Redirection</h3>
+<p>You can use the console to add and remove port redirections while the emulator is running. After connecting to the console, you can manage port redirections in this way:</p>
+<pre>redir &lt;list|add|del&gt; </pre>
+
+<p>The <code>redir</code> command supports the subcommands listed in the table below. </p>
+
+<table>
+<tr>
+  <th width="25%" >Subcommand
+  <th width="30%" >Description</th>
+  <th width="35%">Comments</th>
+</tr>
+  
+  <tr>
+    <td><code>list</code></td>
+    <td>List the current port redirections.</td>
+  <td>&nbsp;</td>
+  </tr>
+
+  
+<tr>
+ <td><code>add&nbsp;&lt;protocol&gt;:&lt;host-port&gt;:&lt;guest-port&gt;</code></td>
+  <td>Add a new port redirection.</td>
+<td><ul><li>&lt;protocol&gt; must be either &quot;tcp&quot; or &quot;udp&quot;</li>
+<li>&lt;host-port&gt; is the port number to open on the host</li>
+<li>&lt;guest-port&gt; is the port number to route data to on the emulator/device</li>
+</ul></td>
+</tr>
+<tr>
+  <td><code>del &lt;protocol&gt;:&lt;host-port&gt;</code></td>
+  <td>Delete a port redirection.</td>
+<td>See above for meanings of &lt;protocol&gt; and &lt;host-port&gt;.</td>
+</tr>
+</table>
+
+<a name="geo"></a>
+<h3>Geo Location Provider Emulation</h3>
+
+<p>The console provides commands to let you set the geo position used by an emulator emulated device.
+You can use the <code>geo</code> command to send a simple GPS fix to the emulator, without needing to
+use NMEA 1083 formatting. The usage for the command is:</p>
+
+<pre>geo &lt;fix|nmea&gt;</pre>
+
+<p>The <code>geo</code> command supports the subcommands listed in the table below.</p>
+
+<table>
+<tr>
+  <th width="25%" >Subcommand
+  <th width="30%" >Description</th>
+  <th width="35%">Comments</th>
+</tr>
+  
+  <tr>
+    <td><code>fix &lt;longitude&gt; &lt;latitude&gt; [&lt;altitude&gt;]</code></td>
+    <td>Send a simple GPS fix to the emulator instance.</td>
+  <td>Specify longitude and latitude in decimal degrees. Specify altitude in meters.</td>
+  </tr>
+<tr>
+  <td><code>nmea &lt;sentence&gt;</code></td>
+  <td>Send an NMEA 0183 sentence to the emulated device, as if it were sent from an emulated GPS modem.</td>
+<td><code>&lt;sentence&gt;</code> must begin with '$GP'. Only '$GPGGA' and '$GPRCM' sentences are currently supported.</td>
+</tr>
+</table>
+
+<p>You can issue the <code>geo</code> command to fix the GPS location as soon as an emulator instance is running.
+The emulator creates a mock location provider that sends it to GPS-aware applications as soon as they start and
+register location listeners. Any application can query the location manager to obtain the current GPS fix for the
+emulated device by calling:
+
+<pre>LocationManager.getLastKnownLocation("gps")</pre>
+
+<p>For more information about the Location Manager, see <code><a href="../../../reference/android/location/LocationManager.html">LocationManager</a></code> and its methods.</p>
+
+<a name="events"></a>
+<h3>Hardware Events Emulation</h3>
+
+<p>You can use the <code>event</code> command to send various events to the emulator.The usage for the command is: </p>
+
+<pre>event &lt;send|types|codes|text&gt;</pre>
+
+<p>The <code>event</code> command supports the subcommands listed in the table below. </p>
+
+<table>
+<tr>
+  <th width="25%" >Subcommand
+  <th width="30%" >Description</th>
+  <th width="35%">Comments</th>
+</tr>
+  
+  <tr>
+    <td><code>send &lt;type&gt;:&lt;code&gt;:&lt;value&gt; [...]</code></td>
+    <td>Send one or more events to the Android kernel. </td>
+  <td>You can use text names or integers for <code>&lt;type&gt;</code> and <code>&lt;value&gt;</code>.</td>
+  </tr>
+<tr>
+  <td><code>types</code></td>
+  <td>List all <code>&lt;type&gt;</code> string aliases supported by the <code>event</code> subcommands.</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+  <td><code>codes &lt;type&gt;</code></td>
+  <td>List all <code>&lt;codes&gt;</code> string aliases supported by the <code>event</code> 
+   subcommands for the specified <code>&lt;type&gt;</code>.</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+  <td><code>event text &lt;message&gt;</code></td>
+  <td>Simulate keypresses to send the specified string of characters as a message,</td>
+<td>The message must be a UTF-8 string. Unicode posts will be reverse-mapped according to the current device keyboard. Unsupported characters will be discarded silently.</td>
+</tr>
+</table>
+
+<a name="power"></a>
+<h3>Device Power Characteristics</h3>
+
+<p>You can use the <code>power</code> command to control the simulated power state of the emulator instance.The usage for the command is: </p>
+
+<pre>power &lt;display|ac|status|present|health|capacity&gt;</pre>
+
+<p>The <code>event</code> command supports the subcommands listed in the table below. </p>
+
+<table>
+<tr>
+  <th width="25%" >Subcommand </th>
+  <th width="30%" >Description</th>
+  <th width="35%">Comments</th>
+</tr>
+  
+  <tr>
+    <td><code>display</code></td>
+    <td>Display battery and charger state.</td>
+  <td>&nbsp;</td>
+  </tr>
+<tr>
+  <td><code>ac &lt;on|off&gt;</code></td>
+  <td>Set AC charging state to on or off. </td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+  <td><code>status &lt;unknown|charging|discharging|not-charging|full&gt;</code></td>
+  <td>Change battery status as specified.</td>
+<td>&nbsp;</td>
+</tr>
+
+<tr>
+  <td><code>present &lt;true|false&gt;</code></td>
+  <td>Set battery presence state.</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+  <td><code>health &lt;unknown|good|overheat|dead|overvoltage|failure&gt;</code></td>
+  <td>Set battery health state.</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+  <td><code>power health &lt;percent&gt;</code></td>
+  <td>Set remaining battery capacity state (0-100).</td>
+<td>&nbsp;</td>
+</tr>
+</table>
+
+<a name="netstatus"></a>
+<h3>Network Status</h3>
+
+<p>You can use the console to check the network status and current delay and speed characteristics. To do so, connect to the console and use the <code>netstatus</code> command. Here's an example of the command and its output. </p>
+
+<pre>network status
+</pre>
+
+<a name="netdelay"></a>
+<h3>Network Delay Emulation</h3>
+
+<p>The emulator lets you simulate various network latency levels, so that you can test your application in an environment more typical of the actual conditions in which it will run. You can set a latency level or range at emulator startup or you can use the console to change the latency dynamically, while the application is running in the emulator. </p>
+<p>To set latency at emulator startup, use the  <code>-netdelay</code> emulator option with a supported <code>&lt;delay&gt;</code> value, as listed in the table below. Here are some examples:</p>
+<pre>emulator -netdelay gprs
+emulator -netdelay 40 100</pre>
+
+<p>To make dynamic changes to  network delay while the emulator is running, connect to the console and use the <code>netdelay</code> command with a supported <code>&lt;delay&gt;</code> value from the table below.  </p>
+
+<pre>network delay gprs</pre>
+
+<p>The format of network &lt;delay&gt; is one of the following (numbers are milliseconds):</p>
+
+<table style="clear:right;width:100%;">
+<tr>
+  <th width="30%" >Value</th>
+  <th width="35%" >Description</th><th width="35%">Comments</th></tr>
+  
+  <tr><td><code>gprs</code></td><td>GPRS</td>
+  <td>(min 150, max 550)</td>
+  </tr>
+
+<tr><td><code>edge</code></td><td>EDGE/EGPRS</td>
+<td>(min 80, max 400)</td>
+</tr>
+<tr><td><code>umts</code></td><td>UMTS/3G</td>
+<td>(min 35, max 200)</td>
+</tr>
+<tr><td><code>none</code></td><td>No latency</td><td>(min 0, max 0)</td></tr>
+<tr><td><code>&lt;num&gt;</code></td>
+<td>Emulate an exact latency  (milliseconds).</td>
+<td>&nbsp;</td></tr>
+<tr><td><code>&lt;min&gt;:&lt;max&gt;</code></td>
+<td>Emulate an specified latency range (min, max milliseconds).</td>
+<td>&nbsp;</td></tr>
+</table>
+
+<a name="netspeed"></a>
+<h3>Network Speed Emulation</h3>
+
+<p>The emulator also lets you simulate various network transfer rates. 
+You can set a transfer rate or range at emulator startup or you can use the console to change the rate dynamically,
+while the application is running in the emulator.</p>
+
+<p>To set the network speed at emulator startup, use the  <code>-netspeed</code> emulator option with a supported
+<code>&lt;speed&gt;</code> value, as listed in the table below. Here are some examples:</p>
+<pre>emulator -netspeed gsm
+emulator -netspeed 14.4 80</pre>
+
+<p>To make dynamic changes to  network speed while the emulator is running, connect to the console and use the <code>netspeed</code> command with a supported <code>&lt;speed&gt;</code> value from the table below.  </p>
+
+<pre>network speed 14.4 80</pre>
+
+<p>The format of network <code>&lt;speed&gt;</code> is one of the following (numbers are
+kilobits/sec):</p>
+<table style="clear:right;width:100%;">
+<tbody>
+<tr>
+  <th width="30%">Value</th>
+  <th width="35%">Description</th><th width="35%">Comments</th></tr>
+  
+  <tr>
+  <td><code>gsm</code></td>
+  <td>GSM/CSD</td><td>(Up: 14.4, down: 14.4)</td></tr>
+<tr>
+  <td><code>hscsd</code></td>
+  <td>HSCSD</td><td>(Up: 14.4, down: 43.2)</td></tr>
+<tr>
+  <td><code>gprs</code></td>
+  <td>GPRS</td><td>(Up: 40.0, down: 80.0)</td></tr>
+<tr>
+  <td><code>edge</code></td>
+  <td>EDGE/EGPRS</td>
+  <td>(Up: 118.4, down: 236.8)</td>
+</tr>
+<tr>
+  <td><code>umts</code></td>
+  <td>UMTS/3G</td><td>(Up: 128.0, down: 1920.0)</td></tr>
+<tr>
+  <td><code>hsdpa</code></td>
+  <td>HSDPA</td><td>(Up: 348.0, down: 14400.0)</td></tr>
+<tr>
+  <td><code>full</code></td>
+  <td>no limit</td><td>(Up: 0.0, down: 0.0)</td></tr>
+<tr>
+  <td><code>&lt;num&gt;</code></td>
+  <td>Set an exact rate used for both upload and download.</td><td></td></tr>
+<tr>
+  <td><code>&lt;up&gt;:&lt;down&gt;</code></td>
+  <td>Set exact rates for upload and download separately.</td><td></td></tr>
+</table>
+
+<a name="telephony"></a>
+
+<h3>Telephony Emulation</h3>
+
+<p>The Android emulator includes its own GSM emulated modem that lets you simulate telephony functions in the emulator. For example, you can simulate inbound phone calls and establish/terminate data connections. The Android system handles simulated calls exactly as it would actual calls. The emulator does not support call audio in this release. </p>
+<p>You can use the console to access the emulator's telephony functions. After connecting to the console, you can use</p>
+<pre>gsm &lt;call|accept|busy|cancel|data|hold|list|voice|status&gt; </pre>
+<p>to invoke telephony functions. </p>
+<p>The <code>gsm</code> command supports the subcommands listed in the table below. </p>
+<table>
+  <tr>
+    <th>Subcommand </th>
+    <th width="25%">Description</th>
+    <th>Comments</th>
+  </tr>
+  <tr>
+    <td><code>call &lt;phonenumber&gt;</code></td>
+    <td>Simulate an inbound phone call from &lt;phonenumber&gt;.</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><code>accept &lt;phonenumber&gt;</code></td>
+    <td>Accept an inbound call from &lt;phonenumber&gt; and change the call's state "active".</td>
+    <td>You can change a call's state to "active" only if its current state is "waiting" or "held".</td>
+  </tr>
+  <tr>
+    <td><code>busy &lt;phonenumber&gt;</code></td>
+    <td>Close an outbound call to &lt;phonenumber&gt; and change the call's state to "busy".</td>
+    <td>You can change a call's state to "busy" only if its current state is "waiting".</td>
+  </tr>
+  <tr>
+    <td><code>cancel &lt;phonenumber&gt;</code></td>
+    <td>Terminate an inbound or outbound phone call to/from &lt;phonenumber&gt;.</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><code>data &lt;state&gt;</code></td>
+    <td>Change the state of the GPRS data connection to &lt;state&gt;.</td>
+    <td>Supported &lt;state&gt; values are:<br />
+    <ul>
+          <li><code>unregistered</code> -- No network available</li>
+          <li><code>home</code> -- On local network, non-roaming</li>
+          <li><code>roaming</code> -- On roaming network</li>
+          <li><code>searching</code> -- Searching networks</li>
+          <li><code>denied</code> -- Emergency calls only</li>
+          <li><code>off</code> -- Same as 'unregistered'</li>
+      <li><code>on</code> -- same as 'home'</li>
+    </ul>
+          </td>
+  </tr>
+  <tr>
+    <td><code>hold</code></td>
+    <td>Change the state of a call to "held". </td>
+    <td>You can change a call's state to "held" only if its current state is	 "active" or "waiting". </td>
+  </tr>
+  <tr>
+    <td><code>list</code></td>
+    <td>List all inbound and outbound calls and their states.</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><code>voice &lt;state&gt;</code></td>
+    <td>Change the state of the GPRS voice connection to &lt;state&gt;.</td>
+    <td>Supported &lt;state&gt; values are:<br />
+    <ul>
+    <li><code>unregistered</code> -- No network available</li>
+    <li><code>home</code> -- On local network, non-roaming</li>
+    <li><code>roaming</code> -- On roaming network</li>
+    <li><code>searching</code> -- Searching networks</li>
+    <li><code>denied</code> -- Emergency calls only</li>
+    <li><code>off</code> -- Same as 'unregistered'</li>
+    <li><code>on</code> -- Same as 'home'</li>
+    </ul>
+    </td>
+  </tr>
+
+  <tr>
+    <td><code>status</code></td>
+    <td>Report the current GSM voice/data state.</td>
+    <td>Values are those described for the <code>voice</code> and <code>data</code> commands.</td>
+  </tr>
+</table>
+
+<a name="sms"></a>
+
+<h3>SMS Emulation</h3>
+
+<p>The Android emulator console lets you generate an SMS message and direct it to an emulator instance. Once you connect to an emulator instance, you can generate an emulated incoming SMS using this command:</p>
+
+<pre>sms send &lt;senderPhoneNumber&gt; &lt;textmessage&gt;</pre>
+
+<p>where <code>&lt;senderPhoneNumber&gt;</code> contains an arbitrary numeric string. </p>
+
+<p>The console forwards the SMS message to the Android framework, which passes it through to an application that handles that message type. </p>
+
+<a name="vm"></a>
+
+<h3>VM State</h3>
+
+<p>You can use the <code>vm</code> command to control the VM on an emulator instance.The usage for the command is: </p>
+
+<pre>vm &lt;start|stop|status&gt;</pre>
+
+<p>The <code>vm</code> command supports the subcommands listed in the table below. </p>
+
+<table>
+<tr>
+  <th width="25%" >Subcommand </th>
+  <th width="30%" >Description</th>
+  <th width="35%">Comments</th>
+</tr>
+<tr>
+    <td><code>start</code></td>
+    <td>Start the VM on the instance. </td>
+  <td>&nbsp;</td>
+</tr>
+<tr>
+    <td><code>stop</code></td>
+    <td>Stop the VM on the instance. </td>
+  <td>&nbsp;</td>
+</tr>
+<tr>
+    <td><code>start</code></td>
+    <td>Display the current status of the VM (running or stopped). </td>
+  <td>&nbsp;</td>
+</tr>
+</table>
+
+
+<a name="window"></a>
+
+<h3>Emulator Window</h3>
+
+<p>You can use the <code>window</code> command to manage the emulator window. The usage for the command is: </p>
+
+<pre>window &lt;scale&gt;</pre>
+
+<p>The <code>vm</code> command supports the subcommands listed in the table below. </p>
+
+<table>
+<tr>
+  <th width="25%" >Subcommand
+  <th width="30%" >Description</th>
+  <th width="35%">Comments</th>
+</tr>
+<tr>
+    <td><code>scale &lt;scale&gt;</code></td>
+    <td>Scale the emulator window.</td>
+  <td>&lt;scale&gt; must be a number between 0.1 and 3 that describes the desired scaling factor. You can 
+  also specify scale as a DPI value if you add the suffix "dpi" to the scale value. A value of "auto" 
+  tells the emulator to select the best window size.</td>
+</tr>
+</table>
+
+
+<a name="terminating"></a>
+
+<h3>Terminating an Emulator Instance</h3>
+
+<p>You can terminate an emulator instance through the console, using the <code>kill</code> command.</p>
+
+
+<a name="skins"></a>
+
+<h2>Using Emulator Skins</h2>
+
+<p>The Android SDK includes several Emulator skins that you can use to control the resolution and density of the emulated device's screen. To select a specific skin for running the emulator, create an AVD that uses that skin. Please do not use deprecated emulator options such as <code>-skin</code> to control the skin used by an emulator instance. For more information about AVDs, see <a
+href="../../../guide/developing/devices/index.html">Managing Virtual Devices</a>.</p>
+
+
+<a name="multipleinstances"></a>
+
+<h2>Running Multiple Emulator Instances</h2>
+
+<p>Through the AVDs configurations used by the emulator, you can run multiple
+instances of the emulator concurrently, each with its own AVD configuration and
+storage area for user data, SD card, and so on. You no longer need to use the
+<code>-d</code> option when launching the emulator, to point to an
+instance-specific storage area. </p>
+
+<a name="apps"></a>
+
+<h2>Installing Applications on the Emulator</h2>
+
+<p>If you don't have access to Eclipse or the ADT Plugin, you can install 
+your application on the emulator <a href="../../../guide/developing/tools/adb.html#move">using 
+the adb utility</a>. Before installing the application, you need to build and package it 
+into an <code>.apk</code> as described in <a href="../../../guide/developing/building/index.html">Building and
+Running Apps</a>. Once the application is installed, you can start the emulator from the command 
+line, as described in this document, using any startup options necessary. 
+When the emulator is running, you can also connect to the emulator instance's 
+console to issue commands as needed.</p>
+
+<p>As you update your code, you periodically package and install it on the emulator. 
+The emulator preserves the application and its state data across restarts, 
+in a user-data disk partition. To ensure that the application runs properly 
+as you update it, you may need to delete the emulator's user-data partition. 
+To do so, start the emulator with the <code>-wipe-data</code> option. 
+For more information about the user-data partition and other emulator storage, 
+see <a href="#diskimages">Working with Emulator Disk Images</a>.</p>
+
+<a name="sdcard"></a>
+<a name="creating"></a>
+
+<h2>SD Card Emulation</h2>
+
+<p>You can create a disk image and then load it to the emulator at startup, to
+simulate the presence of a user's SD card in the device. To do this, you can use
+the android tool to create a new SD card image with a new AVD, or you can use
+the mksdcard utility included in the SDK. </p>
+
+<p>The sections below describe how to create an SD card disk image, how to copy
+files to it, and how to load it in the emulator at startup. </p>
+
+<p>Note that you can only load disk image at emulator startup. Similarly, you
+can not remove a simulated SD card from a running emulator. However, you can
+browse, send files to, and copy/remove files from a simulated SD card either
+with adb or the emulator. </p>
+
+<p>The emulator supports emulated SDHC cards, so you can create an SD card image
+of any size up to 128 gigabytes.</p>
+
+<h3 id="creatinga">Creating an SD card image using the android tool</h3>
+
+<p>The easiest way to create a new SD card is to use the android tool. When
+creating an AVD, you simply specify the <code>-c</code> option, like this: </p>
+
+<pre>android create avd -n &lt;avd_name&gt; -t &lt;targetID&gt; -c &lt;size&gt;[K|M]</pre>
+
+<p>You can also use the <code>-c</code> option to specify a path to an SD card
+image to use in the new AVD. For more information, see <a
+href="../../../guide/developing/devices/managing-avds-cmdline.html">Managing Virtual Devices
+from the Command Line</a>.
+</p>
+
+<h3 id="creatingm">Creating an SD card image using mksdcard</h3>
+
+<p>You can use the mksdcard tool, included in the SDK, to create a FAT32 disk
+image that you can load in the emulator at startup. You can access mksdcard in
+the tools/ directory of the SDK and create a disk image like this: </p>
+
+<pre>mksdcard &lt;size&gt; &lt;file&gt;</pre>
+
+<p>For example:</p>
+
+<pre>mksdcard 1024M sdcard1.iso</pre>
+
+<p>For more information, see <a href="../../../guide/developing/tools/mksdcard.html"><code>mksdcard</code></a>.</p>
+
+<a name="copying"></a>
+<h3>Copying Files to a Disk Image</h3>
+
+<p>Once you have created the disk image, you can copy files to it prior to
+loading it in the emulator. To copy files, you can mount the image as a loop
+device and then copy the files to it, or you can use a utility such as mtools to
+copy the files directly to the image. The mtools package is available for Linux,
+Mac, and Windows.</p>
+
+<a name="loading"></a>
+<a name="step3" id="step3"></a>
+
+<h3>Loading the Disk Image at Emulator Startup</h3>
+
+<p>By default, the emulator loads the SD card image that is stored with the active
+AVD (see the <code>-avd</code> startup option).</p>
+
+<p>Alternatively, you ca start the emulator with the
+<code>-sdcard</code> flag and specify the name and path of your image (relative
+to the current working directory): </p>
+
+<pre>emulator -sdcard &lt;filepath&gt;</pre>
+
+<a name="troubleshooting"></a>
+
+<h2>Troubleshooting Emulator Problems</h2>
+
+<p>The adb utility sees the emulator as an actual physical device. For this reason, you might have to use the -d flag with some common adb commands, such as <code>install</code>. The -d flag lets you specify which of several connected devices to use as the target of a command. If you don't specify -d, the emulator will target the first device in its list. For more information about adb, see <a href="../../../guide/developing/tools/adb.html">Android Debug Bridge</a>.</p>
+
+<p>For emulators running on Mac OS X, if you see an error &quot;Warning: No DNS servers found&quot; when starting the emulator, check to see whether you have an <code>/etc/resolv.conf</code> file. If not, please run the following line in a command window:</p>
+    <pre>ln -s /private/var/run/resolv.conf /etc/resolv.conf</pre>
+
+<p>See <a href="../../../resources/faq/index.html">Frequently Asked Questions</a> for more troubleshooting information. </p>
+
+<a name="limitations"></a>
+    <h2>Emulator Limitations</h2>
+    <p>In this release, the  limitations of the emulator include: </p>
+    <ul>
+      <li>No support for placing or receiving actual phone calls. You can simulate phone calls (placed and received) through the emulator console, however. </li>
+      <li>No support for USB connections</li>
+      <li>No support for camera/video capture (input).</li>
+      <li>No support for device-attached headphones</li>
+      <li>No support for determining connected state</li>
+      <li>No support for determining battery charge level and AC charging state</li>
+      <li>No support for determining SD card insert/eject</li>
+      <li>No support for Bluetooth</li>
+    </ul>
+
+    </div>
+
+    
+    
+    <a href="#top" style="float:right">&uarr; Go to top</a>
+    
+      <p><a href="index.html">&larr; Back to Managing Virtual Devices</a></p>
+    
+
+  </div> <!-- end jd-content -->
+
+<div id="footer">
+
+
+  <div id="copyright">
+    
+  Except as noted, this content is licensed under <a
+  href="http://www.apache.org/licenses/LICENSE-2.0">Apache 2.0</a>. 
+  For details and restrictions, see the <a href="../../../license.html">
+  Content License</a>.
+  </div>
+  <div id="build_info">
+    
+  Android 4.0&nbsp;r1 - 16 Mar 2012 16:45
+
+  </div>
+
+  <div id="footerlinks">
+    
+  <p>
+    <a href="http://www.google.com/intl/en/policies/" target="_blank">Privacy &amp; Terms</a> -
+    <a href="http://www.android.com/branding.html" target="_blank">Brand Guidelines</a> -
+    <a
+href="http://code.google.com/p/android/issues/entry?template=Developer%20Documentation"
+target="_blank">Report Document Issues</a>
+  </p>
+  </div>
+
+</div> <!-- end footer -->
+
+</div><!-- end doc-content -->
+
+</div> <!-- end body-content --> 
+
+<script type="text/javascript">
+init(); /* initialize android-developer-docs.js */
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-5831155-1");
+pageTracker._trackPageview();
+</script>
+
+</body>
+</html>
+
+
+

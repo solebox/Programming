@@ -13,5 +13,10 @@ int main(void)
     printf("%u \n",sizeof(long int));
     printf("%u \n",sizeof(char));
 	printf("hello world\n");
+    if (1)
+        if (0)
+            printf("second if\n");
+        else
+            printf("kaka2\n");
 	return 0;
 }

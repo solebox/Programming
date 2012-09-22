@@ -1,0 +1,3580 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<link rel="shortcut icon" type="image/x-icon" href="../../../../../favicon.ico" />
+<title>DefaultHandler2 - Android SDK | Android Developers</title>
+<link href="../../../../../assets/android-developer-docs.css" rel="stylesheet" type="text/css" />
+<script src="../../../../../assets/search_autocomplete.js" type="text/javascript"></script>
+<script src="../../../../../assets/jquery-resizable.min.js" type="text/javascript"></script>
+<script src="../../../../../assets/android-developer-docs.js" type="text/javascript"></script>
+<script src="../../../../../assets/prettify.js" type="text/javascript"></script>
+<script type="text/javascript">
+  setToRoot("../../../../../");
+</script>
+<script src="../../../../../assets/android-developer-reference.js" type="text/javascript"></script>
+<script src="../../../../../navtree_data.js" type="text/javascript"></script>
+<noscript>
+  <style type="text/css">
+    html,body{overflow:auto;}
+    #body-content{position:relative; top:0;}
+    #doc-content{overflow:visible;border-left:3px solid #666;}
+    #side-nav{padding:0;}
+    #side-nav .toggle-list ul {display:block;}
+    #resize-packages-nav{border-bottom:3px solid #666;}
+  </style>
+</noscript>
+</head>
+<body class="1" itemscope itemtype="http://schema.org/Article">
+
+  <div id="header">
+      <div id="headerLeft">
+          <a href="../../../../../index.html" tabindex="-1"><img
+              src="../../../../../assets/images/bg_logo.png" alt="Android Developers" /></a>
+          <ul id="header-tabs" class="reference">
+    
+	<li id="home-link"><a href="../../../../../offline.html">
+	
+		<span class="en">Home</span>
+		<span style="display:none" class="de">Startseite</span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ホーム</span>
+		<span style="display:none" class="zh-CN">主页</span>
+		<span style="display:none" class="zh-TW">首頁</span>
+	
+	</a></li>
+	<li id="sdk-link"><a href="../../../../../sdk/index.html">
+		<span class="en">SDK</span>
+	</a></li>
+	<li id="guide-link"><a href="../../../../../guide/index.html" onClick="return loadLast('guide')">
+	
+		<span class="en">Dev Guide</span>
+		<span style="display:none" class="de">Handbuch</span>
+		<span style="display:none" class="es">Guía</span>
+		<span style="display:none" class="fr">Guide</span>
+		<span style="display:none" class="it">Guida</span>
+		<span style="display:none" class="ja">開発ガイド</span>
+		<span style="display:none" class="zh-CN">开发人员指南</span>
+		<span style="display:none" class="zh-TW">開發指南</span>
+	
+	</a></li>
+	<li id="reference-link"><a href="../../../../../reference/packages.html" onClick="return loadLast('reference')">
+	
+		<span class="en">Reference</span>
+		<span style="display:none" class="de">Referenz</span>
+		<span style="display:none" class="es">Referencia</span>
+		<span style="display:none" class="fr">Référence</span>
+		<span style="display:none" class="it">Riferimento</span>
+		<span style="display:none" class="ja">リファレンス</span>
+		<span style="display:none" class="zh-CN">参考</span>
+		<span style="display:none" class="zh-TW">參考資料</span>
+	
+	</a></li>
+	<li id="resources-link"><a href="../../../../../resources/index.html" onClick="return loadLast('resources')">
+	
+		<span class="en">Resources</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+    		<span style="display:none" class="ja"></span>
+		<span style="display:none" class="zh-CN"></span>
+		<span style="display:none" class="zh-TW"></span>
+	
+	</a></li>
+	<li id="videos-link"><a href="../../../../../videos/index.html" onClick="return loadLast('videos')">
+	
+		<span class="en">Videos</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ビデオ</span>
+		<span style="display:none" class="zh-CN"></span>
+		<span style="display:none" class="zh-TW"></span>
+	
+	</a></li>
+	<li><a href="http://android-developers.blogspot.com" onClick="return requestAppendHL(this.href)">
+	
+		<span class="en">Blog</span>
+		<span style="display:none" class="de"></span>
+		<span style="display:none" class="es"></span>
+		<span style="display:none" class="fr"></span>
+		<span style="display:none" class="it"></span>
+		<span style="display:none" class="ja">ブログ</span>
+		<span style="display:none" class="zh-CN">博客</span>
+		<span style="display:none" class="zh-TW">網誌</span>
+	
+	</a></li>
+
+
+     
+</ul>
+     
+      </div>
+      <div id="headerRight">
+          <div id="headerLinks">
+          &nbsp;&nbsp;
+          <a href="../../../../../design/index.html">Android Design</a>&nbsp;&nbsp;
+          <a href="http://www.android.com">Android.com</a>
+          </div>
+  <div id="search" >
+      <div id="searchForm">
+          <form accept-charset="utf-8" class="gsc-search-box" 
+                onsubmit="return submit_search()">
+            <table class="gsc-search-box" cellpadding="0" cellspacing="0"><tbody>
+                <tr>
+                  <td class="gsc-input">
+                    <input id="search_autocomplete" class="gsc-input" type="text" size="33" autocomplete="off"
+                      title="search developer docs" name="q"
+                      value="search developer docs"
+                      onFocus="search_focus_changed(this, true)"
+                      onBlur="search_focus_changed(this, false)"
+                      onkeydown="return search_changed(event, true, '../../../../../')"
+                      onkeyup="return search_changed(event, false, '../../../../../')" />
+                  <div id="search_filtered_div" class="no-display">
+                      <table id="search_filtered" cellspacing=0>
+                      </table>
+                  </div>
+                  </td>
+                  <td class="gsc-search-button">
+                    <input type="submit" value="Search" title="search" id="search-button" class="gsc-search-button" />
+                  </td>
+                  <td class="gsc-clear-button">
+                    <div title="clear results" class="gsc-clear-button">&nbsp;</div>
+                  </td>
+                </tr></tbody>
+              </table>
+          </form>
+      </div><!-- searchForm -->
+  </div><!-- search -->
+    			  <div id="api-level-toggle">
+    			    <input type="checkbox" id="apiLevelCheckbox" onclick="toggleApiLevelSelector(this)" />
+    			    <label for="apiLevelCheckbox" class="disabled">Filter by API Level: </label>
+    			    <select id="apiLevelSelector">
+    			      <!-- option elements added by buildApiLevelSelector() -->
+    			    </select>
+    			  </div>
+    	 	    <script>
+              var SINCE_DATA = [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15' ];
+              buildApiLevelSelector();
+            </script>
+      </div><!-- headerRight -->
+      <script type="text/javascript">
+        <!--  
+        changeTabLang(getLangPref());
+        //-->
+      </script>
+  </div><!-- header -->
+
+  <div class="g-section g-tpl-240" id="body-content">
+    <div class="g-unit g-first" id="side-nav" itemscope itemtype="http://schema.org/SiteNavigationElement">
+      <div id="swapper">
+        <div id="nav-panels">
+          <div id="resize-packages-nav">
+            <div id="packages-nav">
+              <div id="index-links"><nobr>
+                <a href="../../../../../reference/packages.html"  >Package Index</a> | 
+                <a href="../../../../../reference/classes.html" >Class Index</a></nobr>
+              </div>
+              <ul>
+              	
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/package-summary.html">android</a></li>
+    <li class="api apilevel-4">
+  <a href="../../../../../reference/android/accessibilityservice/package-summary.html">android.accessibilityservice</a></li>
+    <li class="api apilevel-5">
+  <a href="../../../../../reference/android/accounts/package-summary.html">android.accounts</a></li>
+    <li class="api apilevel-11">
+  <a href="../../../../../reference/android/animation/package-summary.html">android.animation</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/app/package-summary.html">android.app</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../../../reference/android/app/admin/package-summary.html">android.app.admin</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../../../reference/android/app/backup/package-summary.html">android.app.backup</a></li>
+    <li class="api apilevel-3">
+  <a href="../../../../../reference/android/appwidget/package-summary.html">android.appwidget</a></li>
+    <li class="api apilevel-5">
+  <a href="../../../../../reference/android/bluetooth/package-summary.html">android.bluetooth</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/content/package-summary.html">android.content</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/content/pm/package-summary.html">android.content.pm</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/content/res/package-summary.html">android.content.res</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/database/package-summary.html">android.database</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/database/sqlite/package-summary.html">android.database.sqlite</a></li>
+    <li class="api apilevel-11">
+  <a href="../../../../../reference/android/drm/package-summary.html">android.drm</a></li>
+    <li class="api apilevel-4">
+  <a href="../../../../../reference/android/gesture/package-summary.html">android.gesture</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/graphics/package-summary.html">android.graphics</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/graphics/drawable/package-summary.html">android.graphics.drawable</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/graphics/drawable/shapes/package-summary.html">android.graphics.drawable.shapes</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/hardware/package-summary.html">android.hardware</a></li>
+    <li class="api apilevel-12">
+  <a href="../../../../../reference/android/hardware/usb/package-summary.html">android.hardware.usb</a></li>
+    <li class="api apilevel-3">
+  <a href="../../../../../reference/android/inputmethodservice/package-summary.html">android.inputmethodservice</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/location/package-summary.html">android.location</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/media/package-summary.html">android.media</a></li>
+    <li class="api apilevel-9">
+  <a href="../../../../../reference/android/media/audiofx/package-summary.html">android.media.audiofx</a></li>
+    <li class="api apilevel-14">
+  <a href="../../../../../reference/android/media/effect/package-summary.html">android.media.effect</a></li>
+    <li class="api apilevel-12">
+  <a href="../../../../../reference/android/mtp/package-summary.html">android.mtp</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/net/package-summary.html">android.net</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/net/http/package-summary.html">android.net.http</a></li>
+    <li class="api apilevel-12">
+  <a href="../../../../../reference/android/net/rtp/package-summary.html">android.net.rtp</a></li>
+    <li class="api apilevel-9">
+  <a href="../../../../../reference/android/net/sip/package-summary.html">android.net.sip</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/net/wifi/package-summary.html">android.net.wifi</a></li>
+    <li class="api apilevel-14">
+  <a href="../../../../../reference/android/net/wifi/p2p/package-summary.html">android.net.wifi.p2p</a></li>
+    <li class="api apilevel-9">
+  <a href="../../../../../reference/android/nfc/package-summary.html">android.nfc</a></li>
+    <li class="api apilevel-10">
+  <a href="../../../../../reference/android/nfc/tech/package-summary.html">android.nfc.tech</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/opengl/package-summary.html">android.opengl</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/os/package-summary.html">android.os</a></li>
+    <li class="api apilevel-9">
+  <a href="../../../../../reference/android/os/storage/package-summary.html">android.os.storage</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/preference/package-summary.html">android.preference</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/provider/package-summary.html">android.provider</a></li>
+    <li class="api apilevel-11">
+  <a href="../../../../../reference/android/renderscript/package-summary.html">android.renderscript</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/sax/package-summary.html">android.sax</a></li>
+    <li class="api apilevel-14">
+  <a href="../../../../../reference/android/security/package-summary.html">android.security</a></li>
+    <li class="api apilevel-14">
+  <a href="../../../../../reference/android/service/textservice/package-summary.html">android.service.textservice</a></li>
+    <li class="api apilevel-7">
+  <a href="../../../../../reference/android/service/wallpaper/package-summary.html">android.service.wallpaper</a></li>
+    <li class="api apilevel-3">
+  <a href="../../../../../reference/android/speech/package-summary.html">android.speech</a></li>
+    <li class="api apilevel-4">
+  <a href="../../../../../reference/android/speech/tts/package-summary.html">android.speech.tts</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/support/v13/app/package-summary.html">android.support.v13.app</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/support/v4/accessibilityservice/package-summary.html">android.support.v4.accessibilityservice</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/support/v4/app/package-summary.html">android.support.v4.app</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/support/v4/content/package-summary.html">android.support.v4.content</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/support/v4/content/pm/package-summary.html">android.support.v4.content.pm</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/support/v4/database/package-summary.html">android.support.v4.database</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/support/v4/os/package-summary.html">android.support.v4.os</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/support/v4/util/package-summary.html">android.support.v4.util</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/support/v4/view/package-summary.html">android.support.v4.view</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/support/v4/view/accessibility/package-summary.html">android.support.v4.view.accessibility</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/support/v4/widget/package-summary.html">android.support.v4.widget</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/telephony/package-summary.html">android.telephony</a></li>
+    <li class="api apilevel-5">
+  <a href="../../../../../reference/android/telephony/cdma/package-summary.html">android.telephony.cdma</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/telephony/gsm/package-summary.html">android.telephony.gsm</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/test/package-summary.html">android.test</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/test/mock/package-summary.html">android.test.mock</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/test/suitebuilder/package-summary.html">android.test.suitebuilder</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/text/package-summary.html">android.text</a></li>
+    <li class="api apilevel-3">
+  <a href="../../../../../reference/android/text/format/package-summary.html">android.text.format</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/text/method/package-summary.html">android.text.method</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/text/style/package-summary.html">android.text.style</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/text/util/package-summary.html">android.text.util</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/util/package-summary.html">android.util</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/view/package-summary.html">android.view</a></li>
+    <li class="api apilevel-4">
+  <a href="../../../../../reference/android/view/accessibility/package-summary.html">android.view.accessibility</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/view/animation/package-summary.html">android.view.animation</a></li>
+    <li class="api apilevel-3">
+  <a href="../../../../../reference/android/view/inputmethod/package-summary.html">android.view.inputmethod</a></li>
+    <li class="api apilevel-14">
+  <a href="../../../../../reference/android/view/textservice/package-summary.html">android.view.textservice</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/webkit/package-summary.html">android.webkit</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/widget/package-summary.html">android.widget</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/dalvik/bytecode/package-summary.html">dalvik.bytecode</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/dalvik/system/package-summary.html">dalvik.system</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/java/awt/font/package-summary.html">java.awt.font</a></li>
+    <li class="api apilevel-3">
+  <a href="../../../../../reference/java/beans/package-summary.html">java.beans</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/java/io/package-summary.html">java.io</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/java/lang/package-summary.html">java.lang</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/java/lang/annotation/package-summary.html">java.lang.annotation</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/java/lang/ref/package-summary.html">java.lang.ref</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/java/lang/reflect/package-summary.html">java.lang.reflect</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/java/math/package-summary.html">java.math</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/java/net/package-summary.html">java.net</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/java/nio/package-summary.html">java.nio</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/java/nio/channels/package-summary.html">java.nio.channels</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/java/nio/channels/spi/package-summary.html">java.nio.channels.spi</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/java/nio/charset/package-summary.html">java.nio.charset</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/java/nio/charset/spi/package-summary.html">java.nio.charset.spi</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/java/security/package-summary.html">java.security</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/java/security/acl/package-summary.html">java.security.acl</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/java/security/cert/package-summary.html">java.security.cert</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/java/security/interfaces/package-summary.html">java.security.interfaces</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/java/security/spec/package-summary.html">java.security.spec</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/java/sql/package-summary.html">java.sql</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/java/text/package-summary.html">java.text</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/java/util/package-summary.html">java.util</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/java/util/concurrent/package-summary.html">java.util.concurrent</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/java/util/concurrent/atomic/package-summary.html">java.util.concurrent.atomic</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/java/util/concurrent/locks/package-summary.html">java.util.concurrent.locks</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/java/util/jar/package-summary.html">java.util.jar</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/java/util/logging/package-summary.html">java.util.logging</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/java/util/prefs/package-summary.html">java.util.prefs</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/java/util/regex/package-summary.html">java.util.regex</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/java/util/zip/package-summary.html">java.util.zip</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/javax/crypto/package-summary.html">javax.crypto</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/javax/crypto/interfaces/package-summary.html">javax.crypto.interfaces</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/javax/crypto/spec/package-summary.html">javax.crypto.spec</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/javax/microedition/khronos/egl/package-summary.html">javax.microedition.khronos.egl</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/javax/microedition/khronos/opengles/package-summary.html">javax.microedition.khronos.opengles</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/javax/net/package-summary.html">javax.net</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/javax/net/ssl/package-summary.html">javax.net.ssl</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/javax/security/auth/package-summary.html">javax.security.auth</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/javax/security/auth/callback/package-summary.html">javax.security.auth.callback</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/javax/security/auth/login/package-summary.html">javax.security.auth.login</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/javax/security/auth/x500/package-summary.html">javax.security.auth.x500</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/javax/security/cert/package-summary.html">javax.security.cert</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/javax/sql/package-summary.html">javax.sql</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/javax/xml/package-summary.html">javax.xml</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../../../reference/javax/xml/datatype/package-summary.html">javax.xml.datatype</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../../../reference/javax/xml/namespace/package-summary.html">javax.xml.namespace</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/javax/xml/parsers/package-summary.html">javax.xml.parsers</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../../../reference/javax/xml/transform/package-summary.html">javax.xml.transform</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../../../reference/javax/xml/transform/dom/package-summary.html">javax.xml.transform.dom</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../../../reference/javax/xml/transform/sax/package-summary.html">javax.xml.transform.sax</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../../../reference/javax/xml/transform/stream/package-summary.html">javax.xml.transform.stream</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../../../reference/javax/xml/validation/package-summary.html">javax.xml.validation</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../../../reference/javax/xml/xpath/package-summary.html">javax.xml.xpath</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/junit/framework/package-summary.html">junit.framework</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/junit/runner/package-summary.html">junit.runner</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/org/apache/http/package-summary.html">org.apache.http</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/org/apache/http/auth/package-summary.html">org.apache.http.auth</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/org/apache/http/auth/params/package-summary.html">org.apache.http.auth.params</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/org/apache/http/client/package-summary.html">org.apache.http.client</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/org/apache/http/client/entity/package-summary.html">org.apache.http.client.entity</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/org/apache/http/client/methods/package-summary.html">org.apache.http.client.methods</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/org/apache/http/client/params/package-summary.html">org.apache.http.client.params</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/org/apache/http/client/protocol/package-summary.html">org.apache.http.client.protocol</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/org/apache/http/client/utils/package-summary.html">org.apache.http.client.utils</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/org/apache/http/conn/package-summary.html">org.apache.http.conn</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/org/apache/http/conn/params/package-summary.html">org.apache.http.conn.params</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/org/apache/http/conn/routing/package-summary.html">org.apache.http.conn.routing</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/org/apache/http/conn/scheme/package-summary.html">org.apache.http.conn.scheme</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/org/apache/http/conn/ssl/package-summary.html">org.apache.http.conn.ssl</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/org/apache/http/conn/util/package-summary.html">org.apache.http.conn.util</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/org/apache/http/cookie/package-summary.html">org.apache.http.cookie</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/org/apache/http/cookie/params/package-summary.html">org.apache.http.cookie.params</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/org/apache/http/entity/package-summary.html">org.apache.http.entity</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/org/apache/http/impl/package-summary.html">org.apache.http.impl</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/org/apache/http/impl/auth/package-summary.html">org.apache.http.impl.auth</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/org/apache/http/impl/client/package-summary.html">org.apache.http.impl.client</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/org/apache/http/impl/conn/package-summary.html">org.apache.http.impl.conn</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/org/apache/http/impl/conn/tsccm/package-summary.html">org.apache.http.impl.conn.tsccm</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/org/apache/http/impl/cookie/package-summary.html">org.apache.http.impl.cookie</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/org/apache/http/impl/entity/package-summary.html">org.apache.http.impl.entity</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/org/apache/http/impl/io/package-summary.html">org.apache.http.impl.io</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/org/apache/http/io/package-summary.html">org.apache.http.io</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/org/apache/http/message/package-summary.html">org.apache.http.message</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/org/apache/http/params/package-summary.html">org.apache.http.params</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/org/apache/http/protocol/package-summary.html">org.apache.http.protocol</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/org/apache/http/util/package-summary.html">org.apache.http.util</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/org/json/package-summary.html">org.json</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/org/w3c/dom/package-summary.html">org.w3c.dom</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../../../reference/org/w3c/dom/ls/package-summary.html">org.w3c.dom.ls</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/org/xml/sax/package-summary.html">org.xml.sax</a></li>
+    <li class="selected api apilevel-1">
+  <a href="../../../../../reference/org/xml/sax/ext/package-summary.html">org.xml.sax.ext</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/org/xml/sax/helpers/package-summary.html">org.xml.sax.helpers</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/org/xmlpull/v1/package-summary.html">org.xmlpull.v1</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/org/xmlpull/v1/sax2/package-summary.html">org.xmlpull.v1.sax2</a></li>
+              </ul><br/>
+            </div> <!-- end packages -->
+          </div> <!-- end resize-packages -->
+          <div id="classes-nav">
+            <ul>
+              
+    <li><h2>Interfaces</h2>
+      <ul>
+          <li class="api apilevel-1"><a href="../../../../../reference/org/xml/sax/ext/Attributes2.html">Attributes2</a></li>
+          <li class="api apilevel-1"><a href="../../../../../reference/org/xml/sax/ext/DeclHandler.html">DeclHandler</a></li>
+          <li class="api apilevel-1"><a href="../../../../../reference/org/xml/sax/ext/EntityResolver2.html">EntityResolver2</a></li>
+          <li class="api apilevel-1"><a href="../../../../../reference/org/xml/sax/ext/LexicalHandler.html">LexicalHandler</a></li>
+          <li class="api apilevel-1"><a href="../../../../../reference/org/xml/sax/ext/Locator2.html">Locator2</a></li>
+      </ul>
+    </li>
+              
+    <li><h2>Classes</h2>
+      <ul>
+          <li class="api apilevel-1"><a href="../../../../../reference/org/xml/sax/ext/Attributes2Impl.html">Attributes2Impl</a></li>
+          <li class="selected api apilevel-1"><a href="../../../../../reference/org/xml/sax/ext/DefaultHandler2.html">DefaultHandler2</a></li>
+          <li class="api apilevel-1"><a href="../../../../../reference/org/xml/sax/ext/Locator2Impl.html">Locator2Impl</a></li>
+      </ul>
+    </li>
+              
+              
+              
+            </ul><br/>
+          </div><!-- end classes -->
+        </div><!-- end nav-panels -->
+        <div id="nav-tree" style="display:none">
+          <div id="index-links"><nobr>
+            <a href="../../../../../reference/packages.html"  >Package Index</a> | 
+            <a href="../../../../../reference/classes.html" >Class Index</a></nobr>
+          </div>
+        </div><!-- end nav-tree -->
+      </div><!-- end swapper -->
+    </div> <!-- end side-nav -->
+    <script>
+      if (!isMobile) {
+        $("<a href='#' id='nav-swap' onclick='swapNav();return false;' style='font-size:10px;line-height:9px;margin-left:1em;text-decoration:none;'><span id='tree-link'>Use Tree Navigation</span><span id='panel-link' style='display:none'>Use Panel Navigation</span></a>").appendTo("#side-nav");
+        chooseDefaultNav();
+        if ($("#nav-tree").is(':visible')) {
+          init_default_navtree("../../../../../");
+        } else {
+          addLoadEvent(function() {
+            scrollIntoView("packages-nav");
+            scrollIntoView("classes-nav");
+          });
+        }
+        $("#swapper").css({borderBottom:"2px solid #aaa"});
+      } else {
+        swapNav(); // tree view should be used on mobile
+      }
+    </script>
+
+
+
+<div class="g-unit" id="doc-content">
+
+<div id="api-info-block">
+
+
+
+  
+   
+  
+  
+  
+  
+
+  
+   
+  
+  
+  
+  
+
+  
+   
+  
+  
+  
+  
+
+  
+   
+  
+  
+  
+  
+
+  
+   
+  
+  
+  
+  
+
+  
+   
+  
+  
+  
+  
+
+  
+   
+  
+  
+  
+  
+
+  
+   
+  
+  
+  
+  
+
+  
+   
+  
+  
+  
+  
+
+
+<div class="sum-details-links">
+
+Summary:
+
+
+
+
+
+
+
+
+
+  <a href="#pubctors">Ctors</a>
+  
+
+
+
+  &#124; <a href="#pubmethods">Methods</a>
+  
+
+
+
+  &#124; <a href="#inhmethods">Inherited Methods</a>
+
+&#124; <a href="#" onclick="return toggleAllClassInherited()" id="toggleAllClassInherited">[Expand All]</a>
+
+</div><!-- end sum-details-links -->
+<div class="api-level">
+  
+
+  Since: <a href="../../../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+
+  
+  
+
+</div>
+</div><!-- end api-info-block -->
+
+
+<!-- ======== START OF CLASS DATA ======== -->
+
+<div id="jd-header">
+    public
+     
+     
+    
+    class
+<h1 itemprop="name">DefaultHandler2</h1>
+
+
+
+  
+  
+  
+
+  
+    extends <a href="../../../../../reference/org/xml/sax/helpers/DefaultHandler.html">DefaultHandler</a><br/>
+  
+  
+  
+
+  
+  
+      implements 
+      
+        <a href="../../../../../reference/org/xml/sax/ext/DeclHandler.html">DeclHandler</a> 
+      
+        <a href="../../../../../reference/org/xml/sax/ext/EntityResolver2.html">EntityResolver2</a> 
+      
+        <a href="../../../../../reference/org/xml/sax/ext/LexicalHandler.html">LexicalHandler</a> 
+      
+  
+  
+
+
+</div><!-- end header -->
+
+<div id="naMessage"></div>
+
+<div id="jd-content" class="api apilevel-1">
+<table class="jd-inheritance-table">
+
+
+    <tr>
+         	
+        <td colspan="3" class="jd-inheritance-class-cell"><a href="../../../../../reference/java/lang/Object.html">java.lang.Object</a></td>
+    </tr>
+    
+
+    <tr>
+        
+            <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
+         	
+        <td colspan="2" class="jd-inheritance-class-cell"><a href="../../../../../reference/org/xml/sax/helpers/DefaultHandler.html">org.xml.sax.helpers.DefaultHandler</a></td>
+    </tr>
+    
+
+    <tr>
+        
+            <td class="jd-inheritance-space">&nbsp;</td>
+        
+            <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
+         	
+        <td colspan="1" class="jd-inheritance-class-cell">org.xml.sax.ext.DefaultHandler2</td>
+    </tr>
+    
+
+</table>
+
+
+
+
+
+
+
+<div class="jd-descr">
+
+
+<h2>Class Overview</h2>
+<p itemprop="articleBody">This class extends the SAX2 base handler class to support the
+ SAX2 <code><a href="../../../../../reference/org/xml/sax/ext/LexicalHandler.html">LexicalHandler</a></code>, <code><a href="../../../../../reference/org/xml/sax/ext/DeclHandler.html">DeclHandler</a></code>, and
+ <code><a href="../../../../../reference/org/xml/sax/ext/EntityResolver2.html">EntityResolver2</a></code> extensions.  Except for overriding the
+ original SAX1 <code><a href="../../../../../reference/org/xml/sax/helpers/DefaultHandler.html#resolveEntity(java.lang.String, java.lang.String)">resolveEntity()</a></code>
+ method the added handler methods just return.  Subclassers may
+ override everything on a method-by-method basis.
+
+ <blockquote>
+ <em>This module, both source code and documentation, is in the
+ Public Domain, and comes with <strong>NO WARRANTY</strong>.</em>
+ </blockquote>
+
+ <p> <em>Note:</em> this class might yet learn that the
+ <em>ContentHandler.setDocumentLocator()</em> call might be passed a
+ <code><a href="../../../../../reference/org/xml/sax/ext/Locator2.html">Locator2</a></code> object, and that the
+ <em>ContentHandler.startElement()</em> call might be passed a
+ <code><a href="../../../../../reference/org/xml/sax/ext/Attributes2.html">Attributes2</a></code> object.</p>
+
+
+
+
+
+</div><!-- jd-descr -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="jd-descr">
+
+
+<h2>Summary</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+<table id="pubctors" class="jd-sumtable"><tr><th colspan="12">Public Constructors</th></tr>
+
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            </nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/org/xml/sax/ext/DefaultHandler2.html#DefaultHandler2()">DefaultHandler2</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Constructs a handler which ignores all parsing events.</div>
+  
+  </td></tr>
+
+
+
+</table>
+
+
+
+
+
+
+<!-- ========== METHOD SUMMARY =========== -->
+<table id="pubmethods" class="jd-sumtable"><tr><th colspan="12">Public Methods</th></tr>
+
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/org/xml/sax/ext/DefaultHandler2.html#attributeDecl(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)">attributeDecl</a></span>(<a href="../../../../../reference/java/lang/String.html">String</a> eName, <a href="../../../../../reference/java/lang/String.html">String</a> aName, <a href="../../../../../reference/java/lang/String.html">String</a> type, <a href="../../../../../reference/java/lang/String.html">String</a> mode, <a href="../../../../../reference/java/lang/String.html">String</a> value)</nobr>
+        
+        <div class="jd-descrdiv">Report an attribute type declaration.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/org/xml/sax/ext/DefaultHandler2.html#comment(char[], int, int)">comment</a></span>(char[] ch, int start, int length)</nobr>
+        
+        <div class="jd-descrdiv">Report an XML comment anywhere in the document.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/org/xml/sax/ext/DefaultHandler2.html#elementDecl(java.lang.String, java.lang.String)">elementDecl</a></span>(<a href="../../../../../reference/java/lang/String.html">String</a> name, <a href="../../../../../reference/java/lang/String.html">String</a> model)</nobr>
+        
+        <div class="jd-descrdiv">Report an element type declaration.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/org/xml/sax/ext/DefaultHandler2.html#endCDATA()">endCDATA</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Report the end of a CDATA section.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/org/xml/sax/ext/DefaultHandler2.html#endDTD()">endDTD</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Report the end of DTD declarations.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/org/xml/sax/ext/DefaultHandler2.html#endEntity(java.lang.String)">endEntity</a></span>(<a href="../../../../../reference/java/lang/String.html">String</a> name)</nobr>
+        
+        <div class="jd-descrdiv">Report the end of an entity.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/org/xml/sax/ext/DefaultHandler2.html#externalEntityDecl(java.lang.String, java.lang.String, java.lang.String)">externalEntityDecl</a></span>(<a href="../../../../../reference/java/lang/String.html">String</a> name, <a href="../../../../../reference/java/lang/String.html">String</a> publicId, <a href="../../../../../reference/java/lang/String.html">String</a> systemId)</nobr>
+        
+        <div class="jd-descrdiv">Report a parsed external entity declaration.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../../../reference/org/xml/sax/InputSource.html">InputSource</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/org/xml/sax/ext/DefaultHandler2.html#getExternalSubset(java.lang.String, java.lang.String)">getExternalSubset</a></span>(<a href="../../../../../reference/java/lang/String.html">String</a> name, <a href="../../../../../reference/java/lang/String.html">String</a> baseURI)</nobr>
+        
+        <div class="jd-descrdiv">Tells the parser that if no external subset has been declared
+ in the document text, none should be used.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/org/xml/sax/ext/DefaultHandler2.html#internalEntityDecl(java.lang.String, java.lang.String)">internalEntityDecl</a></span>(<a href="../../../../../reference/java/lang/String.html">String</a> name, <a href="../../../../../reference/java/lang/String.html">String</a> value)</nobr>
+        
+        <div class="jd-descrdiv">Report an internal entity declaration.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../../../reference/org/xml/sax/InputSource.html">InputSource</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/org/xml/sax/ext/DefaultHandler2.html#resolveEntity(java.lang.String, java.lang.String)">resolveEntity</a></span>(<a href="../../../../../reference/java/lang/String.html">String</a> publicId, <a href="../../../../../reference/java/lang/String.html">String</a> systemId)</nobr>
+        
+        <div class="jd-descrdiv">Invokes
+ <code><a href="../../../../../reference/org/xml/sax/EntityResolver.html#resolveEntity(java.lang.String, java.lang.String)">EntityResolver2.resolveEntity()</a></code>
+ with null entity name and base URI.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../../../reference/org/xml/sax/InputSource.html">InputSource</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/org/xml/sax/ext/DefaultHandler2.html#resolveEntity(java.lang.String, java.lang.String, java.lang.String, java.lang.String)">resolveEntity</a></span>(<a href="../../../../../reference/java/lang/String.html">String</a> name, <a href="../../../../../reference/java/lang/String.html">String</a> publicId, <a href="../../../../../reference/java/lang/String.html">String</a> baseURI, <a href="../../../../../reference/java/lang/String.html">String</a> systemId)</nobr>
+        
+        <div class="jd-descrdiv">Tells the parser to resolve the systemId against the baseURI
+ and read the entity text from that resulting absolute URI.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/org/xml/sax/ext/DefaultHandler2.html#startCDATA()">startCDATA</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Report the start of a CDATA section.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/org/xml/sax/ext/DefaultHandler2.html#startDTD(java.lang.String, java.lang.String, java.lang.String)">startDTD</a></span>(<a href="../../../../../reference/java/lang/String.html">String</a> name, <a href="../../../../../reference/java/lang/String.html">String</a> publicId, <a href="../../../../../reference/java/lang/String.html">String</a> systemId)</nobr>
+        
+        <div class="jd-descrdiv">Report the start of DTD declarations, if any.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/org/xml/sax/ext/DefaultHandler2.html#startEntity(java.lang.String)">startEntity</a></span>(<a href="../../../../../reference/java/lang/String.html">String</a> name)</nobr>
+        
+        <div class="jd-descrdiv">Report the beginning of some internal and external XML entities.</div>
+  
+  </td></tr>
+
+
+
+</table>
+
+
+
+
+
+
+
+<!-- ========== METHOD SUMMARY =========== -->
+<table id="inhmethods" class="jd-sumtable"><tr><th>
+  <a href="#" class="toggle-all" onclick="return toggleAllInherited(this, null)">[Expand]</a>
+  <div style="clear:left;">Inherited Methods</div></th></tr>
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-org.xml.sax.helpers.DefaultHandler" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-org.xml.sax.helpers.DefaultHandler-trigger"
+          src="../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From class
+
+  <a href="../../../../../reference/org/xml/sax/helpers/DefaultHandler.html">org.xml.sax.helpers.DefaultHandler</a>
+
+<div id="inherited-methods-org.xml.sax.helpers.DefaultHandler">
+  <div id="inherited-methods-org.xml.sax.helpers.DefaultHandler-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-org.xml.sax.helpers.DefaultHandler-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/org/xml/sax/helpers/DefaultHandler.html#characters(char[], int, int)">characters</a></span>(char[] ch, int start, int length)</nobr>
+        
+        <div class="jd-descrdiv">Receive notification of character data inside an element.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/org/xml/sax/helpers/DefaultHandler.html#endDocument()">endDocument</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Receive notification of the end of the document.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/org/xml/sax/helpers/DefaultHandler.html#endElement(java.lang.String, java.lang.String, java.lang.String)">endElement</a></span>(<a href="../../../../../reference/java/lang/String.html">String</a> uri, <a href="../../../../../reference/java/lang/String.html">String</a> localName, <a href="../../../../../reference/java/lang/String.html">String</a> qName)</nobr>
+        
+        <div class="jd-descrdiv">Receive notification of the end of an element.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/org/xml/sax/helpers/DefaultHandler.html#endPrefixMapping(java.lang.String)">endPrefixMapping</a></span>(<a href="../../../../../reference/java/lang/String.html">String</a> prefix)</nobr>
+        
+        <div class="jd-descrdiv">Receive notification of the end of a Namespace mapping.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/org/xml/sax/helpers/DefaultHandler.html#error(org.xml.sax.SAXParseException)">error</a></span>(<a href="../../../../../reference/org/xml/sax/SAXParseException.html">SAXParseException</a> e)</nobr>
+        
+        <div class="jd-descrdiv">Receive notification of a recoverable parser error.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/org/xml/sax/helpers/DefaultHandler.html#fatalError(org.xml.sax.SAXParseException)">fatalError</a></span>(<a href="../../../../../reference/org/xml/sax/SAXParseException.html">SAXParseException</a> e)</nobr>
+        
+        <div class="jd-descrdiv">Report a fatal XML parsing error.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/org/xml/sax/helpers/DefaultHandler.html#ignorableWhitespace(char[], int, int)">ignorableWhitespace</a></span>(char[] ch, int start, int length)</nobr>
+        
+        <div class="jd-descrdiv">Receive notification of ignorable whitespace in element content.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/org/xml/sax/helpers/DefaultHandler.html#notationDecl(java.lang.String, java.lang.String, java.lang.String)">notationDecl</a></span>(<a href="../../../../../reference/java/lang/String.html">String</a> name, <a href="../../../../../reference/java/lang/String.html">String</a> publicId, <a href="../../../../../reference/java/lang/String.html">String</a> systemId)</nobr>
+        
+        <div class="jd-descrdiv">Receive notification of a notation declaration.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/org/xml/sax/helpers/DefaultHandler.html#processingInstruction(java.lang.String, java.lang.String)">processingInstruction</a></span>(<a href="../../../../../reference/java/lang/String.html">String</a> target, <a href="../../../../../reference/java/lang/String.html">String</a> data)</nobr>
+        
+        <div class="jd-descrdiv">Receive notification of a processing instruction.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../../../reference/org/xml/sax/InputSource.html">InputSource</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/org/xml/sax/helpers/DefaultHandler.html#resolveEntity(java.lang.String, java.lang.String)">resolveEntity</a></span>(<a href="../../../../../reference/java/lang/String.html">String</a> publicId, <a href="../../../../../reference/java/lang/String.html">String</a> systemId)</nobr>
+        
+        <div class="jd-descrdiv">Resolve an external entity.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/org/xml/sax/helpers/DefaultHandler.html#setDocumentLocator(org.xml.sax.Locator)">setDocumentLocator</a></span>(<a href="../../../../../reference/org/xml/sax/Locator.html">Locator</a> locator)</nobr>
+        
+        <div class="jd-descrdiv">Receive a Locator object for document events.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/org/xml/sax/helpers/DefaultHandler.html#skippedEntity(java.lang.String)">skippedEntity</a></span>(<a href="../../../../../reference/java/lang/String.html">String</a> name)</nobr>
+        
+        <div class="jd-descrdiv">Receive notification of a skipped entity.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/org/xml/sax/helpers/DefaultHandler.html#startDocument()">startDocument</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Receive notification of the beginning of the document.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/org/xml/sax/helpers/DefaultHandler.html#startElement(java.lang.String, java.lang.String, java.lang.String, org.xml.sax.Attributes)">startElement</a></span>(<a href="../../../../../reference/java/lang/String.html">String</a> uri, <a href="../../../../../reference/java/lang/String.html">String</a> localName, <a href="../../../../../reference/java/lang/String.html">String</a> qName, <a href="../../../../../reference/org/xml/sax/Attributes.html">Attributes</a> attributes)</nobr>
+        
+        <div class="jd-descrdiv">Receive notification of the start of an element.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/org/xml/sax/helpers/DefaultHandler.html#startPrefixMapping(java.lang.String, java.lang.String)">startPrefixMapping</a></span>(<a href="../../../../../reference/java/lang/String.html">String</a> prefix, <a href="../../../../../reference/java/lang/String.html">String</a> uri)</nobr>
+        
+        <div class="jd-descrdiv">Receive notification of the start of a Namespace mapping.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/org/xml/sax/helpers/DefaultHandler.html#unparsedEntityDecl(java.lang.String, java.lang.String, java.lang.String, java.lang.String)">unparsedEntityDecl</a></span>(<a href="../../../../../reference/java/lang/String.html">String</a> name, <a href="../../../../../reference/java/lang/String.html">String</a> publicId, <a href="../../../../../reference/java/lang/String.html">String</a> systemId, <a href="../../../../../reference/java/lang/String.html">String</a> notationName)</nobr>
+        
+        <div class="jd-descrdiv">Receive notification of an unparsed entity declaration.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/org/xml/sax/helpers/DefaultHandler.html#warning(org.xml.sax.SAXParseException)">warning</a></span>(<a href="../../../../../reference/org/xml/sax/SAXParseException.html">SAXParseException</a> e)</nobr>
+        
+        <div class="jd-descrdiv">Receive notification of a parser warning.</div>
+  
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-java.lang.Object" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-java.lang.Object-trigger"
+          src="../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From class
+
+  <a href="../../../../../reference/java/lang/Object.html">java.lang.Object</a>
+
+<div id="inherited-methods-java.lang.Object">
+  <div id="inherited-methods-java.lang.Object-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-java.lang.Object-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../../../reference/java/lang/Object.html">Object</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/java/lang/Object.html#clone()">clone</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Creates and returns a copy of this <code>Object</code>.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/java/lang/Object.html#equals(java.lang.Object)">equals</a></span>(<a href="../../../../../reference/java/lang/Object.html">Object</a> o)</nobr>
+        
+        <div class="jd-descrdiv">Compares this instance with the specified object and indicates if they
+ are equal.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/java/lang/Object.html#finalize()">finalize</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Invoked when the garbage collector has detected that this instance is no longer reachable.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            <a href="../../../../../reference/java/lang/Class.html">Class</a>&lt;?&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/java/lang/Object.html#getClass()">getClass</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Returns the unique instance of <code><a href="../../../../../reference/java/lang/Class.html">Class</a></code> that represents this
+ object's class.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/java/lang/Object.html#hashCode()">hashCode</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Returns an integer hash code for this object.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/java/lang/Object.html#notify()">notify</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Causes a thread which is waiting on this object's monitor (by means of
+ calling one of the <code>wait()</code> methods) to be woken up.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/java/lang/Object.html#notifyAll()">notifyAll</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Causes all threads which are waiting on this object's monitor (by means
+ of calling one of the <code>wait()</code> methods) to be woken up.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../../../reference/java/lang/String.html">String</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/java/lang/Object.html#toString()">toString</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Returns a string containing a concise, human-readable description of this
+ object.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/java/lang/Object.html#wait()">wait</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/java/lang/Object.html#wait(long, int)">wait</a></span>(long millis, int nanos)</nobr>
+        
+        <div class="jd-descrdiv">Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
+ specified timeout expires.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/java/lang/Object.html#wait(long)">wait</a></span>(long millis)</nobr>
+        
+        <div class="jd-descrdiv">Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
+ specified timeout expires.</div>
+  
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-org.xml.sax.ContentHandler" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-org.xml.sax.ContentHandler-trigger"
+          src="../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From interface
+
+  <a href="../../../../../reference/org/xml/sax/ContentHandler.html">org.xml.sax.ContentHandler</a>
+
+<div id="inherited-methods-org.xml.sax.ContentHandler">
+  <div id="inherited-methods-org.xml.sax.ContentHandler-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-org.xml.sax.ContentHandler-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/org/xml/sax/ContentHandler.html#characters(char[], int, int)">characters</a></span>(char[] ch, int start, int length)</nobr>
+        
+        <div class="jd-descrdiv">Receive notification of character data.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/org/xml/sax/ContentHandler.html#endDocument()">endDocument</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Receive notification of the end of a document.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/org/xml/sax/ContentHandler.html#endElement(java.lang.String, java.lang.String, java.lang.String)">endElement</a></span>(<a href="../../../../../reference/java/lang/String.html">String</a> uri, <a href="../../../../../reference/java/lang/String.html">String</a> localName, <a href="../../../../../reference/java/lang/String.html">String</a> qName)</nobr>
+        
+        <div class="jd-descrdiv">Receive notification of the end of an element.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/org/xml/sax/ContentHandler.html#endPrefixMapping(java.lang.String)">endPrefixMapping</a></span>(<a href="../../../../../reference/java/lang/String.html">String</a> prefix)</nobr>
+        
+        <div class="jd-descrdiv">End the scope of a prefix-URI mapping.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/org/xml/sax/ContentHandler.html#ignorableWhitespace(char[], int, int)">ignorableWhitespace</a></span>(char[] ch, int start, int length)</nobr>
+        
+        <div class="jd-descrdiv">Receive notification of ignorable whitespace in element content.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/org/xml/sax/ContentHandler.html#processingInstruction(java.lang.String, java.lang.String)">processingInstruction</a></span>(<a href="../../../../../reference/java/lang/String.html">String</a> target, <a href="../../../../../reference/java/lang/String.html">String</a> data)</nobr>
+        
+        <div class="jd-descrdiv">Receive notification of a processing instruction.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/org/xml/sax/ContentHandler.html#setDocumentLocator(org.xml.sax.Locator)">setDocumentLocator</a></span>(<a href="../../../../../reference/org/xml/sax/Locator.html">Locator</a> locator)</nobr>
+        
+        <div class="jd-descrdiv">Receive an object for locating the origin of SAX document events.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/org/xml/sax/ContentHandler.html#skippedEntity(java.lang.String)">skippedEntity</a></span>(<a href="../../../../../reference/java/lang/String.html">String</a> name)</nobr>
+        
+        <div class="jd-descrdiv">Receive notification of a skipped entity.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/org/xml/sax/ContentHandler.html#startDocument()">startDocument</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Receive notification of the beginning of a document.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/org/xml/sax/ContentHandler.html#startElement(java.lang.String, java.lang.String, java.lang.String, org.xml.sax.Attributes)">startElement</a></span>(<a href="../../../../../reference/java/lang/String.html">String</a> uri, <a href="../../../../../reference/java/lang/String.html">String</a> localName, <a href="../../../../../reference/java/lang/String.html">String</a> qName, <a href="../../../../../reference/org/xml/sax/Attributes.html">Attributes</a> atts)</nobr>
+        
+        <div class="jd-descrdiv">Receive notification of the beginning of an element.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/org/xml/sax/ContentHandler.html#startPrefixMapping(java.lang.String, java.lang.String)">startPrefixMapping</a></span>(<a href="../../../../../reference/java/lang/String.html">String</a> prefix, <a href="../../../../../reference/java/lang/String.html">String</a> uri)</nobr>
+        
+        <div class="jd-descrdiv">Begin the scope of a prefix-URI Namespace mapping.</div>
+  
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-org.xml.sax.DTDHandler" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-org.xml.sax.DTDHandler-trigger"
+          src="../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From interface
+
+  <a href="../../../../../reference/org/xml/sax/DTDHandler.html">org.xml.sax.DTDHandler</a>
+
+<div id="inherited-methods-org.xml.sax.DTDHandler">
+  <div id="inherited-methods-org.xml.sax.DTDHandler-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-org.xml.sax.DTDHandler-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/org/xml/sax/DTDHandler.html#notationDecl(java.lang.String, java.lang.String, java.lang.String)">notationDecl</a></span>(<a href="../../../../../reference/java/lang/String.html">String</a> name, <a href="../../../../../reference/java/lang/String.html">String</a> publicId, <a href="../../../../../reference/java/lang/String.html">String</a> systemId)</nobr>
+        
+        <div class="jd-descrdiv">Receive notification of a notation declaration event.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/org/xml/sax/DTDHandler.html#unparsedEntityDecl(java.lang.String, java.lang.String, java.lang.String, java.lang.String)">unparsedEntityDecl</a></span>(<a href="../../../../../reference/java/lang/String.html">String</a> name, <a href="../../../../../reference/java/lang/String.html">String</a> publicId, <a href="../../../../../reference/java/lang/String.html">String</a> systemId, <a href="../../../../../reference/java/lang/String.html">String</a> notationName)</nobr>
+        
+        <div class="jd-descrdiv">Receive notification of an unparsed entity declaration event.</div>
+  
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-org.xml.sax.EntityResolver" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-org.xml.sax.EntityResolver-trigger"
+          src="../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From interface
+
+  <a href="../../../../../reference/org/xml/sax/EntityResolver.html">org.xml.sax.EntityResolver</a>
+
+<div id="inherited-methods-org.xml.sax.EntityResolver">
+  <div id="inherited-methods-org.xml.sax.EntityResolver-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-org.xml.sax.EntityResolver-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            <a href="../../../../../reference/org/xml/sax/InputSource.html">InputSource</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/org/xml/sax/EntityResolver.html#resolveEntity(java.lang.String, java.lang.String)">resolveEntity</a></span>(<a href="../../../../../reference/java/lang/String.html">String</a> publicId, <a href="../../../../../reference/java/lang/String.html">String</a> systemId)</nobr>
+        
+        <div class="jd-descrdiv">Allow the application to resolve external entities.</div>
+  
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-org.xml.sax.ErrorHandler" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-org.xml.sax.ErrorHandler-trigger"
+          src="../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From interface
+
+  <a href="../../../../../reference/org/xml/sax/ErrorHandler.html">org.xml.sax.ErrorHandler</a>
+
+<div id="inherited-methods-org.xml.sax.ErrorHandler">
+  <div id="inherited-methods-org.xml.sax.ErrorHandler-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-org.xml.sax.ErrorHandler-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/org/xml/sax/ErrorHandler.html#error(org.xml.sax.SAXParseException)">error</a></span>(<a href="../../../../../reference/org/xml/sax/SAXParseException.html">SAXParseException</a> exception)</nobr>
+        
+        <div class="jd-descrdiv">Receive notification of a recoverable error.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/org/xml/sax/ErrorHandler.html#fatalError(org.xml.sax.SAXParseException)">fatalError</a></span>(<a href="../../../../../reference/org/xml/sax/SAXParseException.html">SAXParseException</a> exception)</nobr>
+        
+        <div class="jd-descrdiv">Receive notification of a non-recoverable error.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/org/xml/sax/ErrorHandler.html#warning(org.xml.sax.SAXParseException)">warning</a></span>(<a href="../../../../../reference/org/xml/sax/SAXParseException.html">SAXParseException</a> exception)</nobr>
+        
+        <div class="jd-descrdiv">Receive notification of a warning.</div>
+  
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-org.xml.sax.ext.DeclHandler" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-org.xml.sax.ext.DeclHandler-trigger"
+          src="../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From interface
+
+  <a href="../../../../../reference/org/xml/sax/ext/DeclHandler.html">org.xml.sax.ext.DeclHandler</a>
+
+<div id="inherited-methods-org.xml.sax.ext.DeclHandler">
+  <div id="inherited-methods-org.xml.sax.ext.DeclHandler-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-org.xml.sax.ext.DeclHandler-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/org/xml/sax/ext/DeclHandler.html#attributeDecl(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)">attributeDecl</a></span>(<a href="../../../../../reference/java/lang/String.html">String</a> eName, <a href="../../../../../reference/java/lang/String.html">String</a> aName, <a href="../../../../../reference/java/lang/String.html">String</a> type, <a href="../../../../../reference/java/lang/String.html">String</a> mode, <a href="../../../../../reference/java/lang/String.html">String</a> value)</nobr>
+        
+        <div class="jd-descrdiv">Report an attribute type declaration.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/org/xml/sax/ext/DeclHandler.html#elementDecl(java.lang.String, java.lang.String)">elementDecl</a></span>(<a href="../../../../../reference/java/lang/String.html">String</a> name, <a href="../../../../../reference/java/lang/String.html">String</a> model)</nobr>
+        
+        <div class="jd-descrdiv">Report an element type declaration.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/org/xml/sax/ext/DeclHandler.html#externalEntityDecl(java.lang.String, java.lang.String, java.lang.String)">externalEntityDecl</a></span>(<a href="../../../../../reference/java/lang/String.html">String</a> name, <a href="../../../../../reference/java/lang/String.html">String</a> publicId, <a href="../../../../../reference/java/lang/String.html">String</a> systemId)</nobr>
+        
+        <div class="jd-descrdiv">Report a parsed external entity declaration.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/org/xml/sax/ext/DeclHandler.html#internalEntityDecl(java.lang.String, java.lang.String)">internalEntityDecl</a></span>(<a href="../../../../../reference/java/lang/String.html">String</a> name, <a href="../../../../../reference/java/lang/String.html">String</a> value)</nobr>
+        
+        <div class="jd-descrdiv">Report an internal entity declaration.</div>
+  
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-org.xml.sax.ext.EntityResolver2" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-org.xml.sax.ext.EntityResolver2-trigger"
+          src="../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From interface
+
+  <a href="../../../../../reference/org/xml/sax/ext/EntityResolver2.html">org.xml.sax.ext.EntityResolver2</a>
+
+<div id="inherited-methods-org.xml.sax.ext.EntityResolver2">
+  <div id="inherited-methods-org.xml.sax.ext.EntityResolver2-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-org.xml.sax.ext.EntityResolver2-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            <a href="../../../../../reference/org/xml/sax/InputSource.html">InputSource</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/org/xml/sax/ext/EntityResolver2.html#getExternalSubset(java.lang.String, java.lang.String)">getExternalSubset</a></span>(<a href="../../../../../reference/java/lang/String.html">String</a> name, <a href="../../../../../reference/java/lang/String.html">String</a> baseURI)</nobr>
+        
+        <div class="jd-descrdiv">Allows applications to provide an external subset for documents
+ that don't explicitly define one.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            <a href="../../../../../reference/org/xml/sax/InputSource.html">InputSource</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/org/xml/sax/ext/EntityResolver2.html#resolveEntity(java.lang.String, java.lang.String, java.lang.String, java.lang.String)">resolveEntity</a></span>(<a href="../../../../../reference/java/lang/String.html">String</a> name, <a href="../../../../../reference/java/lang/String.html">String</a> publicId, <a href="../../../../../reference/java/lang/String.html">String</a> baseURI, <a href="../../../../../reference/java/lang/String.html">String</a> systemId)</nobr>
+        
+        <div class="jd-descrdiv">Allows applications to map references to external entities into input
+ sources, or tell the parser it should use conventional URI resolution.</div>
+  
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-org.xml.sax.ext.LexicalHandler" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-org.xml.sax.ext.LexicalHandler-trigger"
+          src="../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From interface
+
+  <a href="../../../../../reference/org/xml/sax/ext/LexicalHandler.html">org.xml.sax.ext.LexicalHandler</a>
+
+<div id="inherited-methods-org.xml.sax.ext.LexicalHandler">
+  <div id="inherited-methods-org.xml.sax.ext.LexicalHandler-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-org.xml.sax.ext.LexicalHandler-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/org/xml/sax/ext/LexicalHandler.html#comment(char[], int, int)">comment</a></span>(char[] ch, int start, int length)</nobr>
+        
+        <div class="jd-descrdiv">Report an XML comment anywhere in the document.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/org/xml/sax/ext/LexicalHandler.html#endCDATA()">endCDATA</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Report the end of a CDATA section.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/org/xml/sax/ext/LexicalHandler.html#endDTD()">endDTD</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Report the end of DTD declarations.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/org/xml/sax/ext/LexicalHandler.html#endEntity(java.lang.String)">endEntity</a></span>(<a href="../../../../../reference/java/lang/String.html">String</a> name)</nobr>
+        
+        <div class="jd-descrdiv">Report the end of an entity.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/org/xml/sax/ext/LexicalHandler.html#startCDATA()">startCDATA</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Report the start of a CDATA section.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/org/xml/sax/ext/LexicalHandler.html#startDTD(java.lang.String, java.lang.String, java.lang.String)">startDTD</a></span>(<a href="../../../../../reference/java/lang/String.html">String</a> name, <a href="../../../../../reference/java/lang/String.html">String</a> publicId, <a href="../../../../../reference/java/lang/String.html">String</a> systemId)</nobr>
+        
+        <div class="jd-descrdiv">Report the start of DTD declarations, if any.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/org/xml/sax/ext/LexicalHandler.html#startEntity(java.lang.String)">startEntity</a></span>(<a href="../../../../../reference/java/lang/String.html">String</a> name)</nobr>
+        
+        <div class="jd-descrdiv">Report the beginning of some internal and external XML entities.</div>
+  
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+</table>
+
+
+</div><!-- jd-descr (summary) -->
+
+<!-- Details -->
+
+
+
+
+
+
+
+
+<!-- XML Attributes -->
+
+
+<!-- Enum Values -->
+
+
+<!-- Constants -->
+
+
+<!-- Fields -->
+
+
+<!-- Public ctors -->
+
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<h2>Public Constructors</h2>
+
+
+
+<A NAME="DefaultHandler2()"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        
+      </span>
+      <span class="sympad">DefaultHandler2</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Constructs a handler which ignores all parsing events. </p></div>
+
+    </div>
+</div>
+
+
+
+
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<!-- Protected ctors -->
+
+
+
+<!-- ========= METHOD DETAIL ======== -->
+<!-- Public methdos -->
+
+<h2>Public Methods</h2>
+
+
+
+<A NAME="attributeDecl(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">attributeDecl</span>
+      <span class="normal">(<a href="../../../../../reference/java/lang/String.html">String</a> eName, <a href="../../../../../reference/java/lang/String.html">String</a> aName, <a href="../../../../../reference/java/lang/String.html">String</a> type, <a href="../../../../../reference/java/lang/String.html">String</a> mode, <a href="../../../../../reference/java/lang/String.html">String</a> value)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Report an attribute type declaration.
+
+ <p>Only the effective (first) declaration for an attribute will
+ be reported.  The type will be one of the strings "CDATA",
+ "ID", "IDREF", "IDREFS", "NMTOKEN", "NMTOKENS", "ENTITY",
+ "ENTITIES", a parenthesized token group with
+ the separator "|" and all whitespace removed, or the word
+ "NOTATION" followed by a space followed by a parenthesized
+ token group with all whitespace removed.</p>
+
+ <p>The value will be the value as reported to applications,
+ appropriately normalized and with entity and character
+ references expanded.  </p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>eName</td>
+          <td>The name of the associated element.</td>
+        </tr>
+        <tr>
+          <th>aName</td>
+          <td>The name of the attribute.</td>
+        </tr>
+        <tr>
+          <th>type</td>
+          <td>A string representing the attribute type.</td>
+        </tr>
+        <tr>
+          <th>mode</td>
+          <td>A string representing the attribute defaulting mode
+        ("#IMPLIED", "#REQUIRED", or "#FIXED") or null if
+        none of these applies.</td>
+        </tr>
+        <tr>
+          <th>value</td>
+          <td>A string representing the attribute's default value,
+        or null if there is none.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="../../../../../reference/org/xml/sax/SAXException.html">SAXException</a></td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="comment(char[], int, int)"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">comment</span>
+      <span class="normal">(char[] ch, int start, int length)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Report an XML comment anywhere in the document.
+
+ <p>This callback will be used for comments inside or outside the
+ document element, including comments in the external DTD
+ subset (if read).  Comments in the DTD must be properly
+ nested inside start/endDTD and start/endEntity events (if
+ used).</p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>ch</td>
+          <td>An array holding the characters in the comment.</td>
+        </tr>
+        <tr>
+          <th>start</td>
+          <td>The starting position in the array.</td>
+        </tr>
+        <tr>
+          <th>length</td>
+          <td>The number of characters to use from the array.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="../../../../../reference/org/xml/sax/SAXException.html">SAXException</a></td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="elementDecl(java.lang.String, java.lang.String)"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">elementDecl</span>
+      <span class="normal">(<a href="../../../../../reference/java/lang/String.html">String</a> name, <a href="../../../../../reference/java/lang/String.html">String</a> model)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Report an element type declaration.
+
+ <p>The content model will consist of the string "EMPTY", the
+ string "ANY", or a parenthesised group, optionally followed
+ by an occurrence indicator.  The model will be normalized so
+ that all parameter entities are fully resolved and all whitespace
+ is removed,and will include the enclosing parentheses.  Other
+ normalization (such as removing redundant parentheses or
+ simplifying occurrence indicators) is at the discretion of the
+ parser.</p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>name</td>
+          <td>The element type name.</td>
+        </tr>
+        <tr>
+          <th>model</td>
+          <td>The content model as a normalized string.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="../../../../../reference/org/xml/sax/SAXException.html">SAXException</a></td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="endCDATA()"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">endCDATA</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Report the end of a CDATA section.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="../../../../../reference/org/xml/sax/SAXException.html">SAXException</a></td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="endDTD()"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">endDTD</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Report the end of DTD declarations.
+
+ <p>This method is intended to report the end of the
+ DOCTYPE declaration; if the document has no DOCTYPE declaration,
+ this method will not be invoked.</p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="../../../../../reference/org/xml/sax/SAXException.html">SAXException</a></td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="endEntity(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">endEntity</span>
+      <span class="normal">(<a href="../../../../../reference/java/lang/String.html">String</a> name)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Report the end of an entity.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>name</td>
+          <td>The name of the entity that is ending.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="../../../../../reference/org/xml/sax/SAXException.html">SAXException</a></td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="externalEntityDecl(java.lang.String, java.lang.String, java.lang.String)"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">externalEntityDecl</span>
+      <span class="normal">(<a href="../../../../../reference/java/lang/String.html">String</a> name, <a href="../../../../../reference/java/lang/String.html">String</a> publicId, <a href="../../../../../reference/java/lang/String.html">String</a> systemId)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Report a parsed external entity declaration.
+
+ <p>Only the effective (first) declaration for each entity
+ will be reported.</p>
+
+ <p>If the system identifier is a URL, the parser must resolve it
+ fully before passing it to the application.</p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>name</td>
+          <td>The name of the entity.  If it is a parameter
+        entity, the name will begin with '%'.</td>
+        </tr>
+        <tr>
+          <th>publicId</td>
+          <td>The entity's public identifier, or null if none
+        was given.</td>
+        </tr>
+        <tr>
+          <th>systemId</td>
+          <td>The entity's system identifier.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="../../../../../reference/org/xml/sax/SAXException.html">SAXException</a></td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getExternalSubset(java.lang.String, java.lang.String)"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../../../reference/org/xml/sax/InputSource.html">InputSource</a>
+      </span>
+      <span class="sympad">getExternalSubset</span>
+      <span class="normal">(<a href="../../../../../reference/java/lang/String.html">String</a> name, <a href="../../../../../reference/java/lang/String.html">String</a> baseURI)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Tells the parser that if no external subset has been declared
+ in the document text, none should be used.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>name</td>
+          <td>Identifies the document root element.  This name comes
+    from a DOCTYPE declaration (where available) or from the actual
+    root element. The parameter is ignored.</td>
+        </tr>
+        <tr>
+          <th>baseURI</td>
+          <td>The document's base URI, serving as an additional
+    hint for selecting the external subset.  This is always an absolute
+    URI, unless it is null because the XMLReader was given an InputSource
+    without one. The parameter is ignored.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>null (always).</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="../../../../../reference/org/xml/sax/SAXException.html">SAXException</a></td>
+            <td>Any SAX exception, possibly wrapping
+    another exception.</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../../../reference/java/io/IOException.html">IOException</a></td>
+            <td>Probably indicating a failure to create
+    a new InputStream or Reader, or an illegal URL.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="internalEntityDecl(java.lang.String, java.lang.String)"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">internalEntityDecl</span>
+      <span class="normal">(<a href="../../../../../reference/java/lang/String.html">String</a> name, <a href="../../../../../reference/java/lang/String.html">String</a> value)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Report an internal entity declaration.
+
+ <p>Only the effective (first) declaration for each entity
+ will be reported.  All parameter entities in the value
+ will be expanded, but general entities will not.</p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>name</td>
+          <td>The name of the entity.  If it is a parameter
+        entity, the name will begin with '%'.</td>
+        </tr>
+        <tr>
+          <th>value</td>
+          <td>The replacement text of the entity.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="../../../../../reference/org/xml/sax/SAXException.html">SAXException</a></td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="resolveEntity(java.lang.String, java.lang.String)"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../../../reference/org/xml/sax/InputSource.html">InputSource</a>
+      </span>
+      <span class="sympad">resolveEntity</span>
+      <span class="normal">(<a href="../../../../../reference/java/lang/String.html">String</a> publicId, <a href="../../../../../reference/java/lang/String.html">String</a> systemId)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Invokes
+ <code><a href="../../../../../reference/org/xml/sax/EntityResolver.html#resolveEntity(java.lang.String, java.lang.String)">EntityResolver2.resolveEntity()</a></code>
+ with null entity name and base URI.
+ You only need to override that method to use this class.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>publicId</td>
+          <td>The public identifier of the external entity being
+    referenced (normalized as required by the XML specification), or
+    null if none was supplied.</td>
+        </tr>
+        <tr>
+          <th>systemId</td>
+          <td>The system identifier of the external entity
+    being referenced; either a relative or absolute URI.
+  This is never null when invoked by a SAX2 parser; only declared
+    entities, and any external subset, are resolved by such parsers.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>An InputSource object describing the new input source.</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="../../../../../reference/org/xml/sax/SAXException.html">SAXException</a></td>
+            <td>Any SAX exception, possibly wrapping
+    another exception.</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../../../reference/java/io/IOException.html">IOException</a></td>
+            <td>Probably indicating a failure to create
+    a new InputStream or Reader, or an illegal URL.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="resolveEntity(java.lang.String, java.lang.String, java.lang.String, java.lang.String)"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../../../reference/org/xml/sax/InputSource.html">InputSource</a>
+      </span>
+      <span class="sympad">resolveEntity</span>
+      <span class="normal">(<a href="../../../../../reference/java/lang/String.html">String</a> name, <a href="../../../../../reference/java/lang/String.html">String</a> publicId, <a href="../../../../../reference/java/lang/String.html">String</a> baseURI, <a href="../../../../../reference/java/lang/String.html">String</a> systemId)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Tells the parser to resolve the systemId against the baseURI
+ and read the entity text from that resulting absolute URI.
+ Note that because the older
+ <code><a href="../../../../../reference/org/xml/sax/helpers/DefaultHandler.html#resolveEntity(java.lang.String, java.lang.String)">DefaultHandler.resolveEntity()</a></code>,
+ method is overridden to call this one, this method may sometimes
+ be invoked with null <em>name</em> and <em>baseURI</em>, and
+ with the <em>systemId</em> already absolutized.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>name</td>
+          <td>Identifies the external entity being resolved.
+    Either "[dtd]" for the external subset, or a name starting
+    with "%" to indicate a parameter entity, or else the name of
+    a general entity.  This is never null when invoked by a SAX2
+    parser.</td>
+        </tr>
+        <tr>
+          <th>publicId</td>
+          <td>The public identifier of the external entity being
+    referenced (normalized as required by the XML specification), or
+    null if none was supplied.</td>
+        </tr>
+        <tr>
+          <th>baseURI</td>
+          <td>The URI with respect to which relative systemIDs
+    are interpreted.  This is always an absolute URI, unless it is
+    null (likely because the XMLReader was given an InputSource without
+  one).  This URI is defined by the XML specification to be the one
+    associated with the "&lt;" starting the relevant declaration.</td>
+        </tr>
+        <tr>
+          <th>systemId</td>
+          <td>The system identifier of the external entity
+    being referenced; either a relative or absolute URI.
+  This is never null when invoked by a SAX2 parser; only declared
+    entities, and any external subset, are resolved by such parsers.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>An InputSource object describing the new input source.</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="../../../../../reference/org/xml/sax/SAXException.html">SAXException</a></td>
+            <td>Any SAX exception, possibly wrapping
+    another exception.</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../../../reference/java/io/IOException.html">IOException</a></td>
+            <td>Probably indicating a failure to create
+    a new InputStream or Reader, or an illegal URL.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="startCDATA()"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">startCDATA</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Report the start of a CDATA section.
+
+ <p>The contents of the CDATA section will be reported through
+ the regular <code><a href="../../../../../reference/org/xml/sax/ContentHandler.html#characters(char[], int, int)">characters</a></code> event; this event is intended only to report
+ the boundary.</p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="../../../../../reference/org/xml/sax/SAXException.html">SAXException</a></td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="startDTD(java.lang.String, java.lang.String, java.lang.String)"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">startDTD</span>
+      <span class="normal">(<a href="../../../../../reference/java/lang/String.html">String</a> name, <a href="../../../../../reference/java/lang/String.html">String</a> publicId, <a href="../../../../../reference/java/lang/String.html">String</a> systemId)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Report the start of DTD declarations, if any.
+
+ <p>This method is intended to report the beginning of the
+ DOCTYPE declaration; if the document has no DOCTYPE declaration,
+ this method will not be invoked.</p>
+
+ <p>All declarations reported through
+ <code><a href="../../../../../reference/org/xml/sax/DTDHandler.html">DTDHandler</a></code> or
+ <code><a href="../../../../../reference/org/xml/sax/ext/DeclHandler.html">DeclHandler</a></code> events must appear
+ between the startDTD and <code><a href="../../../../../reference/org/xml/sax/ext/LexicalHandler.html#endDTD()">endDTD</a></code> events.
+ Declarations are assumed to belong to the internal DTD subset
+ unless they appear between <code><a href="../../../../../reference/org/xml/sax/ext/LexicalHandler.html#startEntity(java.lang.String)">startEntity</a></code>
+ and <code><a href="../../../../../reference/org/xml/sax/ext/LexicalHandler.html#endEntity(java.lang.String)">endEntity</a></code> events.  Comments and
+ processing instructions from the DTD should also be reported
+ between the startDTD and endDTD events, in their original
+ order of (logical) occurrence; they are not required to
+ appear in their correct locations relative to DTDHandler
+ or DeclHandler events, however.</p>
+
+ <p>Note that the start/endDTD events will appear within
+ the start/endDocument events from ContentHandler and
+ before the first
+ <code><a href="../../../../../reference/org/xml/sax/ContentHandler.html#startElement(java.lang.String, java.lang.String, java.lang.String, org.xml.sax.Attributes)">startElement</a></code>
+ event.</p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>name</td>
+          <td>The document type name.</td>
+        </tr>
+        <tr>
+          <th>publicId</td>
+          <td>The declared public identifier for the
+        external DTD subset, or null if none was declared.</td>
+        </tr>
+        <tr>
+          <th>systemId</td>
+          <td>The declared system identifier for the
+        external DTD subset, or null if none was declared.
+        (Note that this is not resolved against the document
+        base URI.)</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="../../../../../reference/org/xml/sax/SAXException.html">SAXException</a></td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="startEntity(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">startEntity</span>
+      <span class="normal">(<a href="../../../../../reference/java/lang/String.html">String</a> name)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Report the beginning of some internal and external XML entities.
+
+ <p>The reporting of parameter entities (including
+ the external DTD subset) is optional, and SAX2 drivers that
+ report LexicalHandler events may not implement it; you can use the
+ <code
+ >http://xml.org/sax/features/lexical-handler/parameter-entities</code>
+ feature to query or control the reporting of parameter entities.</p>
+
+ <p>General entities are reported with their regular names,
+ parameter entities have '%' prepended to their names, and
+ the external DTD subset has the pseudo-entity name "[dtd]".</p>
+
+ <p>When a SAX2 driver is providing these events, all other
+ events must be properly nested within start/end entity
+ events.  There is no additional requirement that events from
+ <code><a href="../../../../../reference/org/xml/sax/ext/DeclHandler.html">DeclHandler</a></code> or
+ <code><a href="../../../../../reference/org/xml/sax/DTDHandler.html">DTDHandler</a></code> be properly ordered.</p>
+
+ <p>Note that skipped entities will be reported through the
+ <code><a href="../../../../../reference/org/xml/sax/ContentHandler.html#skippedEntity(java.lang.String)">skippedEntity</a></code>
+ event, which is part of the ContentHandler interface.</p>
+
+ <p>Because of the streaming event model that SAX uses, some
+ entity boundaries cannot be reported under any
+ circumstances:</p>
+
+ <ul>
+ <li>general entities within attribute values</li>
+ <li>parameter entities within declarations</li>
+ </ul>
+
+ <p>These will be silently expanded, with no indication of where
+ the original entity boundaries were.</p>
+
+ <p>Note also that the boundaries of character references (which
+ are not really entities anyway) are not reported.</p>
+
+ <p>All start/endEntity events must be properly nested.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>name</td>
+          <td>The name of the entity.  If it is a parameter
+        entity, the name will begin with '%', and if it is the
+        external DTD subset, it will be "[dtd]".</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="../../../../../reference/org/xml/sax/SAXException.html">SAXException</a></td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+
+
+
+<!-- ========= METHOD DETAIL ======== -->
+
+
+
+<!-- ========= END OF CLASS DATA ========= -->
+<A NAME="navbar_top"></A>
+
+<div id="footer">
+
+
+  <div id="copyright">
+    
+  Except as noted, this content is licensed under <a
+  href="http://www.apache.org/licenses/LICENSE-2.0">Apache 2.0</a>. 
+  For details and restrictions, see the <a href="../../../../../license.html">
+  Content License</a>.
+  </div>
+  <div id="build_info">
+    
+  Android 4.0&nbsp;r1 - 16 Mar 2012 16:45
+
+  </div>
+
+  <div id="footerlinks">
+    
+  <p>
+    <a href="http://www.google.com/intl/en/policies/" target="_blank">Privacy &amp; Terms</a> -
+    <a href="http://www.android.com/branding.html" target="_blank">Brand Guidelines</a> -
+    <a
+href="http://code.google.com/p/android/issues/entry?template=Developer%20Documentation"
+target="_blank">Report Document Issues</a>
+  </p>
+  </div>
+
+</div> <!-- end footer -->
+
+</div> <!-- jd-content -->
+
+</div><!-- end doc-content -->
+
+</div> <!-- end body-content --> 
+
+<script type="text/javascript">
+init(); /* initialize android-developer-docs.js */
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-5831155-1");
+pageTracker._trackPageview();
+</script>
+
+</body>
+</html>

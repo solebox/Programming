@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE ncx PUBLIC "-//NISO//DTD ncx 2005-1//EN" "http://www.daisy.org/z3986/2005/ncx-2005-1.dtd">
+<ncx xmlns="http://www.daisy.org/z3986/2005/ncx/" version="2005-1">
+	<head>
+		<meta name="dtb:uid" content=""/>
+		<meta name="dtb:depth" content="3"/>
+		<meta name="dtb:totalPageCount" content="0"/>
+		<meta name="dtb:maxPageNumber" content="0"/>
+	</head>
+	<docTitle>
+		<text/>	</docTitle>
+	<navMap>
+		<navPoint id="navpoint1" playOrder="1">
+			<navLabel>
+				<text>﻿</text>
+			</navLabel>
+			<content src="10664-unit1- a.html#toc_marker-1"/>
+		</navPoint>
+		<navPoint id="navpoint2" playOrder="2">
+			<navLabel>
+				<text>מבוא</text>
+			</navLabel>
+			<content src="10664-unit1- a.html#toc_marker-2"/>
+			<navPoint id="navpoint3" playOrder="3">
+				<navLabel>
+					<text>﻿על שוויון ערך חיי האדם</text>
+				</navLabel>
+				<content src="10664-unit1- a.html#toc_marker-2-1"/>
+			</navPoint>
+			<navPoint id="navpoint4" playOrder="4">
+				<navLabel>
+					<text>﻿על הקורס ועל הספר</text>
+				</navLabel>
+				<content src="10664-unit1- a.html#toc_marker-2-2"/>
+				<navPoint id="navpoint5" playOrder="5">
+					<navLabel>
+						<text>﻿מבנה הקורס</text>
+					</navLabel>
+					<content src="10664-unit1- a.html#toc_marker-2-2-1"/>
+				</navPoint>
+				<navPoint id="navpoint6" playOrder="6">
+					<navLabel>
+						<text>﻿מטרות הקורס</text>
+					</navLabel>
+					<content src="10664-unit1- a.html#toc_marker-2-2-2"/>
+				</navPoint>
+			</navPoint>
+			<navPoint id="navpoint7" playOrder="7">
+				<navLabel>
+					<text>﻿הערות על הוראת הג&apos;נוסייד בעולם</text>
+				</navLabel>
+				<content src="10664-unit1- a.html#toc_marker-2-3"/>
+			</navPoint>
+			<navPoint id="navpoint8" playOrder="8">
+				<navLabel>
+					<text>﻿הוראת הג&apos;נוסייד בישראל — תמונת מצב </text>
+				</navLabel>
+				<content src="10664-unit1- a.html#toc_marker-2-4"/>
+				<navPoint id="navpoint9" playOrder="9">
+					<navLabel>
+						<text></text>
+					</navLabel>
+					<content src="10664-unit1- a.html#toc_marker-2-4-1"/>
+				</navPoint>
+			</navPoint>
+		</navPoint>
+		<navPoint id="navpoint10" playOrder="10">
+			<navLabel>
+				<text>﻿</text>
+			</navLabel>
+			<content src="10664-unit1- bb.html#toc_marker-3"/>
+		</navPoint>
+		<navPoint id="navpoint11" playOrder="11">
+			<navLabel>
+				<text>ג&apos;נוסייד: התופעה וההגדרה</text>
+			</navLabel>
+			<content src="10664-unit1- bb.html#toc_marker-4"/>
+			<navPoint id="navpoint12" playOrder="12">
+				<navLabel>
+					<text>﻿הג&apos;נוסייד כתופעה היסטורית-אנושית</text>
+				</navLabel>
+				<content src="10664-unit1- bb.html#toc_marker-4-1"/>
+			</navPoint>
+			<navPoint id="navpoint13" playOrder="13">
+				<navLabel>
+					<text>﻿הקשיים בהגדרת הג&apos;נוסייד</text>
+				</navLabel>
+				<content src="10664-unit1- bb.html#toc_marker-4-2"/>
+			</navPoint>
+			<navPoint id="navpoint14" playOrder="14">
+				<navLabel>
+					<text>﻿רצח עם: רפאל למקין — חלוץ הגדרת המונח ואפיונו</text>
+				</navLabel>
+				<content src="10664-unit1- bb.html#toc_marker-4-3"/>
+			</navPoint>
+			<navPoint id="navpoint15" playOrder="15">
+				<navLabel>
+					<text></text>
+				</navLabel>
+				<content src="10664-unit1- bb.html#toc_marker-4-4"/>
+			</navPoint>
+			<navPoint id="navpoint16" playOrder="16">
+				<navLabel>
+					<text>﻿תפיסת הג&apos;נוסייד על פי החלטות האו&quot;ם</text>
+				</navLabel>
+				<content src="10664-unit1- bb.html#toc_marker-4-5"/>
+			</navPoint>
+			<navPoint id="navpoint17" playOrder="17">
+				<navLabel>
+					<text>﻿בית הדין הפלילי הבין-לאומי</text>
+				</navLabel>
+				<content src="10664-unit1- bb.html#toc_marker-4-6"/>
+			</navPoint>
+		</navPoint>
+		<navPoint id="navpoint18" playOrder="18">
+			<navLabel>
+				<text>﻿הגדרות וטיפולוגיות לתופעת הג&apos;נוסייד</text>
+			</navLabel>
+			<content src="10664-unit 1- cc1.html#toc_marker-5"/>
+			<navPoint id="navpoint19" playOrder="19">
+				<navLabel>
+					<text>﻿הקשרים חברתיים ותרבותיים שבהם יכול להתרחש ג&apos;נוסייד: מונחים והגדרות </text>
+				</navLabel>
+				<content src="10664-unit 1- cc1.html#toc_marker-5-1"/>
+			</navPoint>
+			<navPoint id="navpoint20" playOrder="20">
+				<navLabel>
+					<text>﻿הבחנה בין ג&apos;נוסייד למעשי השמדה אחרים: מונחים והגדרות</text>
+				</navLabel>
+				<content src="10664-unit 1- cc1.html#toc_marker-5-2"/>
+			</navPoint>
+			<navPoint id="navpoint21" playOrder="21">
+				<navLabel>
+					<text>﻿טיפולוגיות ותיאוריות על ג&apos;נוסייד</text>
+				</navLabel>
+				<content src="10664-unit 1- cc1.html#toc_marker-5-3"/>
+			</navPoint>
+		</navPoint>
+		<navPoint id="navpoint22" playOrder="22">
+			<navLabel>
+				<text>﻿</text>
+			</navLabel>
+			<content src="10664-unit 1- cc1.html#toc_marker-6"/>
+			<navPoint id="navpoint23" playOrder="23">
+				<navLabel>
+					<text>﻿﻿﻿ההגדרה שנשתמש בה בקורס</text>
+				</navLabel>
+				<content src="10664-unit 1- cc1.html#toc_marker-6-1"/>
+			</navPoint>
+			<navPoint id="navpoint24" playOrder="24">
+				<navLabel>
+					<text>﻿טיפולוגיות של המבצעים</text>
+				</navLabel>
+				<content src="10664-unit 1- cc1.html#toc_marker-6-2"/>
+			</navPoint>
+			<navPoint id="navpoint25" playOrder="25">
+				<navLabel>
+					<text>﻿טיפולוגיות של הקורבנות</text>
+				</navLabel>
+				<content src="10664-unit 1- cc1.html#toc_marker-6-3"/>
+			</navPoint>
+			<navPoint id="navpoint26" playOrder="26">
+				<navLabel>
+					<text>﻿תנאים מקדימים להתרחשותו של ג&apos;נוסייד</text>
+				</navLabel>
+				<content src="10664-unit 1- cc1.html#toc_marker-6-4"/>
+			</navPoint>
+			<navPoint id="navpoint27" playOrder="27">
+				<navLabel>
+					<text>﻿רצח עם כתהליך</text>
+				</navLabel>
+				<content src="10664-unit 1- cc1.html#toc_marker-6-5"/>
+			</navPoint>
+			<navPoint id="navpoint28" playOrder="28">
+				<navLabel>
+					<text>הכחשת רצח עם</text>
+				</navLabel>
+				<content src="10664-unit 1- cc1.html#toc_marker-6-6"/>
+			</navPoint>
+		</navPoint>
+		<navPoint id="navpoint29" playOrder="29">
+			<navLabel>
+				<text>﻿שואה וג&apos;נוסייד</text>
+			</navLabel>
+			<content src="10664-unit1_ dd1.html#toc_marker-7"/>
+			<navPoint id="navpoint30" playOrder="30">
+				<navLabel>
+					<text>﻿על הגדרת השואה</text>
+				</navLabel>
+				<content src="10664-unit1_ dd1.html#toc_marker-7-1"/>
+			</navPoint>
+			<navPoint id="navpoint31" playOrder="31">
+				<navLabel>
+					<text>﻿בין שואה לג&apos;נוסייד</text>
+				</navLabel>
+				<content src="10664-unit1_ dd1.html#toc_marker-7-2"/>
+			</navPoint>
+			<navPoint id="navpoint32" playOrder="32">
+				<navLabel>
+					<text>﻿החקיקה במדינת ישראל בנושא הג&apos;נוסייד </text>
+				</navLabel>
+				<content src="10664-unit1_ dd1.html#toc_marker-7-3"/>
+				<navPoint id="navpoint33" playOrder="33">
+					<navLabel>
+						<text>﻿חוק הכנסת בדבר מניעת פשע השמדת עם</text>
+					</navLabel>
+					<content src="10664-unit1_ dd1.html#toc_marker-7-3-1"/>
+				</navPoint>
+				<navPoint id="navpoint34" playOrder="34">
+					<navLabel>
+						<text>﻿פשעים כלפי העם היהודי, פשעים כלפי האנושות ופשעי מלחמה</text>
+					</navLabel>
+					<content src="10664-unit1_ dd1.html#toc_marker-7-3-2"/>
+				</navPoint>
+			</navPoint>
+			<navPoint id="navpoint35" playOrder="35">
+				<navLabel>
+					<text>﻿פוליטיסייד, דמוסייד</text>
+				</navLabel>
+				<content src="10664-unit1_ dd1.html#toc_marker-7-4"/>
+			</navPoint>
+		</navPoint>
+	</navMap>
+</ncx>
