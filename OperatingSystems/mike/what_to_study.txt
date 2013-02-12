@@ -1,0 +1,22 @@
+chap 4,10,11
+page 339 read
+    execution state
+    how its all done on all architectures
+    percise and impersice interrupts 
+    impersice interrupt - registers at most times arnt saved
+page 346-347
+    10 stages need t study perfect
+read about disk capacity cylinders etc
+
+maman13:
+    27.1.12 - mike
+    make something like tar
+    save files and each file's meta data (so they will be able to be restored)
+    stat - on open file, fstat on a file that is not open (to get file metadata)
+    opendir/readdire/getdirentry/mkdir/changemod
+    man stat/man fstat (you have macros that can help extracting the data and using the bitmask)
+
+
+not for exam:
+object store: s3,swift,ceph,moz ddn
+(read about granulation)

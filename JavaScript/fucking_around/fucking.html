@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>fucking around</title>
+	<script type="text/javascript">
+		window.onload = function() {
+			var lis = document.getElementsByClassName("list_item");
+			for (var i = 0; i < lis.length; i++) {
+				var spans = lis[i].children;
+				for (var j = 0; j < spans.length; j++) {
+					spans[j].style.background = "#cfa";
+				}
+			}
+
+		};
+	</script>
+	<style type="text/css">
+		#main_div > div {
+			background-color: #ffa;
+		}
+	</style>
+</head>
+<body>
+	<div id="main_div">
+		<div class="inner_divs">
+			<ul class="generic_list1">
+				<li class="list_item"><span>text1</span></li>
+				<li class="list_item"><span>text2</span></li>
+				<li class="list_item"><span>text3</span></li>
+			</ul>
+		</div>
+		<div class="inner_divs">
+			<ul class="generic_list2">
+				<li class="list_item"><span>text1</span></li>
+				<li class="list_item"><span>text2</span></li>
+				<li class="list_item"><span>text3</span></li>
+			</ul>
+		</div>
+		<div class="inner_divs">
+			<ul class="generic_list3">
+				<li class="list_item"><span>text1</span></li>
+				<li class="list_item"><span>text2</span></li>
+				<li class="list_item"><span>text3</span></li>
+			</ul>
+		</div>
+		<div class="inner_divs">
+			<ul class="generic_list4">
+				<li class="list_item"><span>text1</span></li>
+				<li class="list_item"><span>text2</span></li>
+				<li class="list_item"><span>text3</span></li>
+			</ul>
+		</div>
+	</div>
+</body>
+</html>

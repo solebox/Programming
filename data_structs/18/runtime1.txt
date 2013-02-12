@@ -1,0 +1,92 @@
+insert_player 111
+inserting player 111
+insert_player 222
+inserting player 222
+insert_player 333
+inserting player 333
+insert_player 444
+inserting player 444
+insert_player 555
+inserting player 555
+insert_player 666
+inserting player 666
+insert_player 777
+inserting player 777
+insert_player 888
+inserting player 888
+insert_player 99
+inserting player 99
+insert_player 999
+inserting player 999
+get_top 10
+
+Displaying 10 top-ranked players:
+ Rank id points games
+1 99 0 0
+2 111 0 0
+3 222 0 0
+4 333 0 0
+5 444 0 0
+6 555 0 0
+7 666 0 0
+8 777 0 0
+9 888 0 0
+10 999 0 0
+
+insert_game 111 r 222 r
+inserting game: 111 r<>222 r
+insert_game 333 r 444 r
+inserting game: 333 r<>444 r
+get_rank 111
+
+Rank of Player 111 is 1
+get_top 5
+
+Displaying 5 top-ranked players:
+ Rank id points games
+1 111 2 1
+2 222 2 1
+3 333 2 1
+4 444 2 1
+5 99 0 0
+
+get_player 222
+
+Player id: 222, number of games: 1, number of points:2
+insert_game 888 r 999 p
+inserting game: 888 r<>999 p
+get_top 10
+
+Displaying 10 top-ranked players:
+ Rank id points games
+1 999 5 1
+2 111 2 1
+3 222 2 1
+4 333 2 1
+5 444 2 1
+6 888 1 1
+7 99 0 0
+8 222 0 0
+9 333 0 0
+10 444 0 0
+
+insert_game 222 r 99 p
+inserting game: 222 r<>99 p
+get_top 10
+
+Displaying 10 top-ranked players:
+ Rank id points games
+1 99 5 1
+2 999 5 1
+3 222 3 2
+4 111 2 1
+5 333 2 1
+6 444 2 1
+7 888 1 1
+8 555 0 0
+9 222 0 0
+10 333 0 0
+
+get_player 99
+
+Player id: 99, number of games: 1, number of points:5

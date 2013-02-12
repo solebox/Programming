@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1353120576 source:/home/solekiller/Programming/Operating Systems/signal_handler/signal_handling/main.c
+	<stdio.h>
+	<stdlib.h>
+
