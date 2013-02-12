@@ -1,0 +1,1038 @@
+#######################################################################################################################################
+## 
+
+For OS students,
+Following is a list of typical errors encountered in the assignments submitted by the course students. 
+While it might be, that your work has no problems from the mentioned bellow, you can find it educational to read the list.
+
+1. Please don't submit extra files like executable files etc'. Also extra foldering is really unnecessary.
+   Next times I'll penalize for it.
+2. Name of the make file must be Makefile or makefile only, no extensions.
+   Please verify that 'make' instruction compiles all the files (exe/lib) required by the certain maman.
+3. Name of executable file MUST conform the name required at maman description.
+4. Submit SINGLE ZIP file for the whole maman (including theory and the programming task).
+5. Theory: please submit SINGLE doc/rtf/pdf. English language is preferable. 
+   It can be (AND EVEN BETTER TO BE) uploaded at the same ZIP as the programming task as it have been mentioned above.
+6. Maman11 won't be penalized for late submission. Next mamans: 2 points of penalty for each extra day (except Sat).
+7. Please read very careful the maman description before start working on it.
+
+Good luck at OS course.
+
+Regards, Grader.
+
+########################################################################################################################################
+
+Programming task(70%):
+
+OK
+
+
+theoretical task(30%):
+2 5%  ok 
+3 5%  ok 
+4 5%  ok 
+5 5%  ok
+6 5%  ok
+7 5%  ok
+
+============================================================================
+
+Answers:
+
+
+Question 2:
+--------------------------------------------
+Batch System
+The batch system performs one job at a time. It has a tray full of jobs and the system performs them. 
+When one job is complete the system continues to the next job. The system continues one by one until all the jobs are complete. 
+Multiprogramming System
+The multiprogramming system partitioned the memory into several pieces. 
+These pieces were used to store several jobs. While one job was waiting for I/O, 
+other jobs could continue their execution and get the CPU time they need. 
+This method solved the problem of the CPU being idle while the program waited for I/O. 
+However, the CPU will not switch jobs until that specific job is waiting for I/O or terminated.
+Time Sharing System
+This is a variant of the multiprogramming system. Each job gets a time share from the CPU 
+to use (only if the job is not waiting I/O or idle). This way multiple jobs get CPU time. 
+This prevents one job from hogging the CPU. On the other hand, idle and blocked jobs (I/O) 
+allow the CPU to continue handling large jobs that need the CPU at that time. 
+Distributed System
+A distributed operating system appears to the user as one computing element (CE). 
+However, a distributed system consists of several processors or CEs that process in 
+parallel different parts of a job or different jobs. The user is not aware that there 
+are multiple processing units are handling his jobs. 
+
+Question 3
+--------------------------------------------
+1) The TRAP instruction switches from user mode to kernel mode and starts execution at fix 
+address within the kernel once the system call handler has completed its task the control 
+may be returned to the user mode by the TRAP instruction
+2) An interrupt is an asynchronous signal from hardware indicating the need for attention or 
+a synchronous event in software indicating the need for a change in execution. A hardware i
+nterrupt causes the processor to save its state of execution via a context switch, and begin 
+execution of an interrupt handler. Software interrupts are usually implemented as instructions 
+in the instruction set, which cause a context switch to an interrupt handler similar to a 
+hardware interrupt. TRAPS are used by a program to invoke system calls and switch to 
+kernel mode and back. 
+
+Question 4:
+--------------------------------------------
+A Program is the Algorithm itself written as executable code. 
+A Process is the activity of running the code (the program) for a 
+certain set on input parameters (a process has a program, input, output 
+and state).
+
+
+Question 5:
+Blocking I/O.
+--------------------------------------------
+Calling blocking I/O in such case can bring system to deadlock or starvation situation
+E.g.:
+When threads are implemented in the kernel and make blocking I/O operation, the kernel will
+execute a context switch and schedule another thread for running. However, if hardware 
+interrupts are temporarily blocked, when the I/O device finishes and sends an interrupt, 
+it won't be handled. Blocking I/O operation will continue to block since it won't get the 
+data it required. But, if the blocking I/O operation is in a critical section, then no 
+other thread will be able to execute the critical section because it already locked.
+
+
+Question 6.
+--------------------------------------------
+LRU Least Recently Used Algorithm is used for managing memory pages, it replaces the least recently used page with a new page, 
+thus helping to reduce the page faults.
+Using LRU algorithm for buffer cache management has two main drawbacks:
+a.	It may take a while before blocks which are modified in the cache are written back to disk. 
+Therefore a system crash may cause loss of data. If a modification to a critical block is lost, 
+the file system may be left in an inconsistent state, or even totally destructed in extreme cases. 
+For this reason, modified critical blocks must be written back to disk immediately, rather than wait until 
+they reach the front of the queue.
+b.	Some special blocks, such as I-nodes, are less likely to be referenced again soon than other blocks. 
+Such blocks should not take valuable space in the buffer cache, and therefore must be placed on the front the 
+queue rather than on the back.
+
+
+Question 7:
+Peterson solution.
+--------------------------------------------
+  
+According to Peterson solution, the critical part is final and the process that goes in will go 
+out and let another process go in. Also the processes are generous, so when a process goes 
+in, it checks if there is another process that want to go in. Moreover, the process will not wait an 
+infinite time to enter the critical section, because the process that now in critical section makes it's 
+logic while the other process makes a busy wait on the while loop, and in the moment that the process 
+in critical section call leaveCriticalSection function, the waiting process immediately will enter the 
+critical section, because one of the while condition (interested[otherProcess]) will become false, end 
+the waiting process will enter the critical section.This time won't be infinite, and will not cause 
+starvation of the waiting in the while loop process, because there is an assumption that the process 
+that in the critical section will make it's instructions in final time (and not infinite).
+
+
+================================================================================
+
+/tmp/2013a/Unchecked/2013a-20594-11-*********-21-1
+gcc -Wall -Werror  -L./ -c binsem.c
+ar rcu libbinsem.a binsem.o
+ranlib libbinsem.a 
+gcc -Wall -Werror  -L./  -c ut.c
+ar rcu libut.a ut.o
+ranlib libut.a 
+gcc -Wall -Werror  -L./ ph.c -lbinsem -lut -o ph
+atomic.h
+binsem.c
+binsem.h
+binsem.o
+ex11.pdf
+Grade.txt
+libbinsem.a
+libut.a
+Makefile
+ph
+ph.c
+ph.mk
+ut.c
+ut.h
+ut.o
+
+=====================================================================
+
+gcc -Wall -g -L./  -c binsem.c
+ar rcu libbinsem.a binsem.o
+ranlib libbinsem.a 
+gcc -Wall -g -L./  -c ut.c
+ar rcu libut.a ut.o
+ranlib libut.a 
+
+=====================================================================
+
+=====================================================================
+------Code-----
+------alloc-----
+ph.c:  s = (sem_t *)malloc (N * sizeof(sem_t));
+ph.c:  phil_state = (int *) malloc (N * sizeof(int));
+ut.c:	thread_table = malloc(tt_size * sizeof(ut_slot_t));
+ut.c:    SYS_ERR - on system failure (like failure to allocate the stack).
+ut.c:	thread_table[tt_top].stack = malloc(STACKSIZE);//kinda redundant but fuck it
+------free-----
+------open-----
+------close-----
+------fork-----
+ph.c:void take_forks(int i){
+ph.c:void put_forks(int i){
+ph.c:    take_forks(i);
+ph.c:    put_forks(i);
+------wait-----
+binsem.c:                the calling thread to wait until some other thread raises it 
+binsem.c:                waiting on the same semaphore, and up() will allow only one of
+binsem.c:    0, the calling thread will wait until the semaphore is raised by another 
+------signal-----
+binsem.c:#include <signal.h>
+ph.c:#include <signal.h>
+ph.c:  signal(SIGINT,int_handler);
+ut.c:#include <signal.h>
+ut.c: the scheduler function as a signal handler for SIGALRM, and causing SIGALRM to
+ut.c:    SYS_ERR - on system failure (like failure to establish a signal handler).
+ut.c:void handler(int signal) {
+ut.c:	if (signal == SIGVTALRM) {
+ut.c:	} else if (signal == SIGINT) { // if CTRL-C is pressed print the statistics and terminate
+ut.c:	if (signal == SIGALRM){
+------SIGNAL-----
+
+
+=====================================================================
+
+
+
+------1-------
+
+Executing: ./ph 1
+
+Usage: ./ph N (N >=2)
+
+
+------2-------
+
+Executing: ./ph 2
+
+Philosopher (0) is thinking
+Philosopher (1) is thinking
+Philosopher (0) is hungry
+Philosopher (0) is eating
+Philosopher (0) used the CPU 1.900 sec.
+Philosopher (1) used the CPU 1.0 sec.
+
+
+------10-------
+
+Executing: ./ph 10
+
+Philosopher (0) is thinking
+Philosopher (1) is thinking
+Philosopher (2) is thinking
+Philosopher (3) is thinking
+Philosopher (3) is hungry
+Philosopher (3) is eating
+Philosopher (4) is thinking
+Philosopher (4) is hungry
+Philosopher (5) is thinking
+Philosopher (6) is thinking
+Philosopher (7) is thinking
+Philosopher (8) is thinking
+Philosopher (9) is thinking
+Philosopher (0) is hungry
+Philosopher (0) is eating
+Philosopher (1) is hungry
+Philosopher (0) used the CPU 1.900 sec.
+Philosopher (1) used the CPU 1.100 sec.
+Philosopher (2) used the CPU 1.300 sec.
+Philosopher (3) used the CPU 1.0 sec.
+Philosopher (4) used the CPU 0.500 sec.
+Philosopher (5) used the CPU 1.0 sec.
+Philosopher (6) used the CPU 1.0 sec.
+Philosopher (7) used the CPU 1.0 sec.
+Philosopher (8) used the CPU 1.0 sec.
+Philosopher (9) used the CPU 1.0 sec.
+
+
+------20-------
+
+Executing: ./ph 20
+
+Philosopher (0) is thinking
+Philosopher (1) is thinking
+Philosopher (1) is hungry
+Philosopher (1) is eating
+Philosopher (2) is thinking
+Philosopher (2) is hungry
+Philosopher (3) is thinking
+Philosopher (4) is thinking
+Philosopher (4) is hungry
+Philosopher (4) is eating
+Philosopher (5) is thinking
+Philosopher (6) is thinking
+Philosopher (7) is thinking
+Philosopher (7) is hungry
+Philosopher (7) is eating
+Philosopher (8) is thinking
+Philosopher (9) is thinking
+Philosopher (9) is hungry
+Philosopher (9) is eating
+Philosopher (10) is thinking
+Philosopher (11) is thinking
+Philosopher (12) is thinking
+Philosopher (12) is hungry
+Philosopher (12) is eating
+Philosopher (13) is thinking
+Philosopher (14) is thinking
+Philosopher (15) is thinking
+Philosopher (16) is thinking
+Philosopher (17) is thinking
+Philosopher (18) is thinking
+Philosopher (19) is thinking
+Philosopher (0) used the CPU 1.800 sec.
+Philosopher (1) used the CPU 1.400 sec.
+Philosopher (2) used the CPU 0.600 sec.
+Philosopher (3) used the CPU 1.0 sec.
+Philosopher (4) used the CPU 1.0 sec.
+Philosopher (5) used the CPU 1.0 sec.
+Philosopher (6) used the CPU 1.0 sec.
+Philosopher (7) used the CPU 1.0 sec.
+Philosopher (8) used the CPU 1.0 sec.
+Philosopher (9) used the CPU 1.0 sec.
+Philosopher (10) used the CPU 0.900 sec.
+Philosopher (11) used the CPU 1.0 sec.
+Philosopher (12) used the CPU 1.0 sec.
+Philosopher (13) used the CPU 1.0 sec.
+Philosopher (14) used the CPU 1.0 sec.
+Philosopher (15) used the CPU 1.0 sec.
+Philosopher (16) used the CPU 1.0 sec.
+Philosopher (17) used the CPU 1.0 sec.
+Philosopher (18) used the CPU 1.0 sec.
+Philosopher (19) used the CPU 1.0 sec.
+
+
+------32-------
+
+Executing: ./ph 32
+
+Philosopher (0) is thinking
+Philosopher (1) is thinking
+Philosopher (1) is hungry
+Philosopher (1) is eating
+Philosopher (2) is thinking
+Philosopher (2) is hungry
+Philosopher (3) is thinking
+Philosopher (4) is thinking
+Philosopher (4) is hungry
+Philosopher (4) is eating
+Philosopher (5) is thinking
+Philosopher (6) is thinking
+Philosopher (7) is thinking
+Philosopher (7) is hungry
+Philosopher (7) is eating
+Philosopher (8) is thinking
+Philosopher (9) is thinking
+Philosopher (9) is hungry
+Philosopher (9) is eating
+Philosopher (10) is thinking
+Philosopher (11) is thinking
+Philosopher (12) is thinking
+Philosopher (12) is hungry
+Philosopher (12) is eating
+Philosopher (13) is thinking
+Philosopher (14) is thinking
+Philosopher (15) is thinking
+Philosopher (16) is thinking
+Philosopher (17) is thinking
+Philosopher (18) is thinking
+Philosopher (19) is thinking
+Philosopher (20) is thinking
+Philosopher (20) is hungry
+Philosopher (20) is eating
+Philosopher (21) is thinking
+Philosopher (22) is thinking
+Philosopher (23) is thinking
+Philosopher (23) is hungry
+Philosopher (23) is eating
+Philosopher (24) is thinking
+Philosopher (25) is thinking
+Philosopher (26) is thinking
+Philosopher (27) is thinking
+Philosopher (28) is thinking
+Philosopher (29) is thinking
+Philosopher (30) is thinking
+Philosopher (31) is thinking
+Philosopher (0) used the CPU 1.900 sec.
+Philosopher (1) used the CPU 1.400 sec.
+Philosopher (2) used the CPU 0.600 sec.
+Philosopher (3) used the CPU 1.0 sec.
+Philosopher (4) used the CPU 1.0 sec.
+Philosopher (5) used the CPU 1.0 sec.
+Philosopher (6) used the CPU 1.0 sec.
+Philosopher (7) used the CPU 1.0 sec.
+Philosopher (8) used the CPU 1.0 sec.
+Philosopher (9) used the CPU 0.900 sec.
+Philosopher (10) used the CPU 1.0 sec.
+Philosopher (11) used the CPU 1.0 sec.
+Philosopher (12) used the CPU 1.0 sec.
+Philosopher (13) used the CPU 1.0 sec.
+Philosopher (14) used the CPU 1.0 sec.
+Philosopher (15) used the CPU 1.0 sec.
+Philosopher (16) used the CPU 1.0 sec.
+Philosopher (17) used the CPU 1.0 sec.
+Philosopher (18) used the CPU 1.0 sec.
+Philosopher (19) used the CPU 1.0 sec.
+Philosopher (20) used the CPU 0.900 sec.
+Philosopher (21) used the CPU 1.0 sec.
+Philosopher (22) used the CPU 1.0 sec.
+Philosopher (23) used the CPU 1.0 sec.
+Philosopher (24) used the CPU 1.0 sec.
+Philosopher (25) used the CPU 1.0 sec.
+Philosopher (26) used the CPU 1.0 sec.
+Philosopher (27) used the CPU 1.0 sec.
+Philosopher (28) used the CPU 1.0 sec.
+Philosopher (29) used the CPU 1.0 sec.
+Philosopher (30) used the CPU 0.900 sec.
+Philosopher (31) used the CPU 1.0 sec.
+
+
+------33-------
+
+Executing: ./ph 33
+
+Philosopher (0) is thinking
+Philosopher (1) is thinking
+Philosopher (2) is thinking
+Philosopher (3) is thinking
+Philosopher (3) is hungry
+Philosopher (3) is eating
+Philosopher (4) is thinking
+Philosopher (4) is hungry
+Philosopher (5) is thinking
+Philosopher (6) is thinking
+Philosopher (7) is thinking
+Philosopher (8) is thinking
+Philosopher (8) is hungry
+Philosopher (8) is eating
+Philosopher (9) is thinking
+Philosopher (10) is thinking
+Philosopher (10) is hungry
+Philosopher (10) is eating
+Philosopher (11) is thinking
+Philosopher (12) is thinking
+Philosopher (12) is hungry
+Philosopher (12) is eating
+Philosopher (13) is thinking
+Philosopher (14) is thinking
+Philosopher (15) is thinking
+Philosopher (16) is thinking
+Philosopher (17) is thinking
+Philosopher (18) is thinking
+Philosopher (19) is thinking
+Philosopher (20) is thinking
+Philosopher (21) is thinking
+Philosopher (21) is hungry
+Philosopher (21) is eating
+Philosopher (22) is thinking
+Philosopher (23) is thinking
+Philosopher (24) is thinking
+Philosopher (24) is hungry
+Philosopher (24) is eating
+Philosopher (25) is thinking
+Philosopher (26) is thinking
+Philosopher (27) is thinking
+Philosopher (28) is thinking
+Philosopher (29) is thinking
+Philosopher (30) is thinking
+Philosopher (31) is thinking
+Philosopher (32) is thinking
+Philosopher (1) is hungry
+Philosopher (1) is eating
+Philosopher (0) used the CPU 1.900 sec.
+Philosopher (1) used the CPU 1.500 sec.
+Philosopher (2) used the CPU 1.0 sec.
+Philosopher (3) used the CPU 1.0 sec.
+Philosopher (4) used the CPU 0.500 sec.
+Philosopher (5) used the CPU 1.0 sec.
+Philosopher (6) used the CPU 1.0 sec.
+Philosopher (7) used the CPU 1.0 sec.
+Philosopher (8) used the CPU 1.0 sec.
+Philosopher (9) used the CPU 0.900 sec.
+Philosopher (10) used the CPU 1.0 sec.
+Philosopher (11) used the CPU 1.0 sec.
+Philosopher (12) used the CPU 1.0 sec.
+Philosopher (13) used the CPU 1.0 sec.
+Philosopher (14) used the CPU 1.0 sec.
+Philosopher (15) used the CPU 1.0 sec.
+Philosopher (16) used the CPU 1.0 sec.
+Philosopher (17) used the CPU 1.0 sec.
+Philosopher (18) used the CPU 1.0 sec.
+Philosopher (19) used the CPU 1.0 sec.
+Philosopher (20) used the CPU 0.900 sec.
+Philosopher (21) used the CPU 1.0 sec.
+Philosopher (22) used the CPU 1.0 sec.
+Philosopher (23) used the CPU 1.0 sec.
+Philosopher (24) used the CPU 1.0 sec.
+Philosopher (25) used the CPU 1.0 sec.
+Philosopher (26) used the CPU 1.0 sec.
+Philosopher (27) used the CPU 1.0 sec.
+Philosopher (28) used the CPU 1.0 sec.
+Philosopher (29) used the CPU 1.0 sec.
+Philosopher (30) used the CPU 1.0 sec.
+Philosopher (31) used the CPU 0.900 sec.
+Philosopher (32) used the CPU 1.0 sec.
+
+
+------500-------
+
+Executing: ./ph 500
+
+Philosopher (0) is thinking
+Philosopher (1) is thinking
+Philosopher (2) is thinking
+Philosopher (3) is thinking
+Philosopher (3) is hungry
+Philosopher (3) is eating
+Philosopher (4) is thinking
+Philosopher (4) is hungry
+Philosopher (5) is thinking
+Philosopher (6) is thinking
+Philosopher (7) is thinking
+Philosopher (8) is thinking
+Philosopher (9) is thinking
+Philosopher (10) is thinking
+Philosopher (11) is thinking
+Philosopher (11) is hungry
+Philosopher (11) is eating
+Philosopher (12) is thinking
+Philosopher (13) is thinking
+Philosopher (13) is hungry
+Philosopher (13) is eating
+Philosopher (14) is thinking
+Philosopher (15) is thinking
+Philosopher (16) is thinking
+Philosopher (17) is thinking
+Philosopher (17) is hungry
+Philosopher (17) is eating
+Philosopher (18) is thinking
+Philosopher (19) is thinking
+Philosopher (20) is thinking
+Philosopher (21) is thinking
+Philosopher (21) is hungry
+Philosopher (21) is eating
+Philosopher (22) is thinking
+Philosopher (23) is thinking
+Philosopher (24) is thinking
+Philosopher (24) is hungry
+Philosopher (24) is eating
+Philosopher (25) is thinking
+Philosopher (26) is thinking
+Philosopher (27) is thinking
+Philosopher (28) is thinking
+Philosopher (29) is thinking
+Philosopher (30) is thinking
+Philosopher (31) is thinking
+Philosopher (31) is hungry
+Philosopher (31) is eating
+Philosopher (32) is thinking
+Philosopher (33) is thinking
+Philosopher (34) is thinking
+Philosopher (0) used the CPU 0.900 sec.
+Philosopher (1) used the CPU 1.0 sec.
+Philosopher (2) used the CPU 1.0 sec.
+Philosopher (3) used the CPU 1.0 sec.
+Philosopher (4) used the CPU 0.600 sec.
+Philosopher (5) used the CPU 1.0 sec.
+Philosopher (6) used the CPU 1.0 sec.
+Philosopher (7) used the CPU 1.0 sec.
+Philosopher (8) used the CPU 1.0 sec.
+Philosopher (9) used the CPU 0.900 sec.
+Philosopher (10) used the CPU 1.0 sec.
+Philosopher (11) used the CPU 1.0 sec.
+Philosopher (12) used the CPU 1.0 sec.
+Philosopher (13) used the CPU 1.0 sec.
+Philosopher (14) used the CPU 1.0 sec.
+Philosopher (15) used the CPU 1.0 sec.
+Philosopher (16) used the CPU 1.0 sec.
+Philosopher (17) used the CPU 1.0 sec.
+Philosopher (18) used the CPU 1.0 sec.
+Philosopher (19) used the CPU 1.0 sec.
+Philosopher (20) used the CPU 0.900 sec.
+Philosopher (21) used the CPU 1.0 sec.
+Philosopher (22) used the CPU 1.0 sec.
+Philosopher (23) used the CPU 1.0 sec.
+Philosopher (24) used the CPU 1.0 sec.
+Philosopher (25) used the CPU 1.0 sec.
+Philosopher (26) used the CPU 1.0 sec.
+Philosopher (27) used the CPU 1.0 sec.
+Philosopher (28) used the CPU 1.0 sec.
+Philosopher (29) used the CPU 1.0 sec.
+Philosopher (30) used the CPU 1.0 sec.
+Philosopher (31) used the CPU 0.900 sec.
+Philosopher (32) used the CPU 1.0 sec.
+Philosopher (33) used the CPU 1.0 sec.
+Philosopher (34) used the CPU 0.400 sec.
+Philosopher (35) used the CPU 0.0 sec.
+Philosopher (36) used the CPU 0.0 sec.
+Philosopher (37) used the CPU 0.0 sec.
+Philosopher (38) used the CPU 0.0 sec.
+Philosopher (39) used the CPU 0.0 sec.
+Philosopher (40) used the CPU 0.0 sec.
+Philosopher (41) used the CPU 0.0 sec.
+Philosopher (42) used the CPU 0.0 sec.
+Philosopher (43) used the CPU 0.0 sec.
+Philosopher (44) used the CPU 0.0 sec.
+Philosopher (45) used the CPU 0.0 sec.
+Philosopher (46) used the CPU 0.0 sec.
+Philosopher (47) used the CPU 0.0 sec.
+Philosopher (48) used the CPU 0.0 sec.
+Philosopher (49) used the CPU 0.0 sec.
+Philosopher (50) used the CPU 0.0 sec.
+Philosopher (51) used the CPU 0.0 sec.
+Philosopher (52) used the CPU 0.0 sec.
+Philosopher (53) used the CPU 0.0 sec.
+Philosopher (54) used the CPU 0.0 sec.
+Philosopher (55) used the CPU 0.0 sec.
+Philosopher (56) used the CPU 0.0 sec.
+Philosopher (57) used the CPU 0.0 sec.
+Philosopher (58) used the CPU 0.0 sec.
+Philosopher (59) used the CPU 0.0 sec.
+Philosopher (60) used the CPU 0.0 sec.
+Philosopher (61) used the CPU 0.0 sec.
+Philosopher (62) used the CPU 0.0 sec.
+Philosopher (63) used the CPU 0.0 sec.
+Philosopher (64) used the CPU 0.0 sec.
+Philosopher (65) used the CPU 0.0 sec.
+Philosopher (66) used the CPU 0.0 sec.
+Philosopher (67) used the CPU 0.0 sec.
+Philosopher (68) used the CPU 0.0 sec.
+Philosopher (69) used the CPU 0.0 sec.
+Philosopher (70) used the CPU 0.0 sec.
+Philosopher (71) used the CPU 0.0 sec.
+Philosopher (72) used the CPU 0.0 sec.
+Philosopher (73) used the CPU 0.0 sec.
+Philosopher (74) used the CPU 0.0 sec.
+Philosopher (75) used the CPU 0.0 sec.
+Philosopher (76) used the CPU 0.0 sec.
+Philosopher (77) used the CPU 0.0 sec.
+Philosopher (78) used the CPU 0.0 sec.
+Philosopher (79) used the CPU 0.0 sec.
+Philosopher (80) used the CPU 0.0 sec.
+Philosopher (81) used the CPU 0.0 sec.
+Philosopher (82) used the CPU 0.0 sec.
+Philosopher (83) used the CPU 0.0 sec.
+Philosopher (84) used the CPU 0.0 sec.
+Philosopher (85) used the CPU 0.0 sec.
+Philosopher (86) used the CPU 0.0 sec.
+Philosopher (87) used the CPU 0.0 sec.
+Philosopher (88) used the CPU 0.0 sec.
+Philosopher (89) used the CPU 0.0 sec.
+Philosopher (90) used the CPU 0.0 sec.
+Philosopher (91) used the CPU 0.0 sec.
+Philosopher (92) used the CPU 0.0 sec.
+Philosopher (93) used the CPU 0.0 sec.
+Philosopher (94) used the CPU 0.0 sec.
+Philosopher (95) used the CPU 0.0 sec.
+Philosopher (96) used the CPU 0.0 sec.
+Philosopher (97) used the CPU 0.0 sec.
+Philosopher (98) used the CPU 0.0 sec.
+Philosopher (99) used the CPU 0.0 sec.
+Philosopher (100) used the CPU 0.0 sec.
+Philosopher (101) used the CPU 0.0 sec.
+Philosopher (102) used the CPU 0.0 sec.
+Philosopher (103) used the CPU 0.0 sec.
+Philosopher (104) used the CPU 0.0 sec.
+Philosopher (105) used the CPU 0.0 sec.
+Philosopher (106) used the CPU 0.0 sec.
+Philosopher (107) used the CPU 0.0 sec.
+Philosopher (108) used the CPU 0.0 sec.
+Philosopher (109) used the CPU 0.0 sec.
+Philosopher (110) used the CPU 0.0 sec.
+Philosopher (111) used the CPU 0.0 sec.
+Philosopher (112) used the CPU 0.0 sec.
+Philosopher (113) used the CPU 0.0 sec.
+Philosopher (114) used the CPU 0.0 sec.
+Philosopher (115) used the CPU 0.0 sec.
+Philosopher (116) used the CPU 0.0 sec.
+Philosopher (117) used the CPU 0.0 sec.
+Philosopher (118) used the CPU 0.0 sec.
+Philosopher (119) used the CPU 0.0 sec.
+Philosopher (120) used the CPU 0.0 sec.
+Philosopher (121) used the CPU 0.0 sec.
+Philosopher (122) used the CPU 0.0 sec.
+Philosopher (123) used the CPU 0.0 sec.
+Philosopher (124) used the CPU 0.0 sec.
+Philosopher (125) used the CPU 0.0 sec.
+Philosopher (126) used the CPU 0.0 sec.
+Philosopher (127) used the CPU 0.0 sec.
+Philosopher (128) used the CPU 0.0 sec.
+Philosopher (129) used the CPU 0.0 sec.
+Philosopher (130) used the CPU 0.0 sec.
+Philosopher (131) used the CPU 0.0 sec.
+Philosopher (132) used the CPU 0.0 sec.
+Philosopher (133) used the CPU 0.0 sec.
+Philosopher (134) used the CPU 0.0 sec.
+Philosopher (135) used the CPU 0.0 sec.
+Philosopher (136) used the CPU 0.0 sec.
+Philosopher (137) used the CPU 0.0 sec.
+Philosopher (138) used the CPU 0.0 sec.
+Philosopher (139) used the CPU 0.0 sec.
+Philosopher (140) used the CPU 0.0 sec.
+Philosopher (141) used the CPU 0.0 sec.
+Philosopher (142) used the CPU 0.0 sec.
+Philosopher (143) used the CPU 0.0 sec.
+Philosopher (144) used the CPU 0.0 sec.
+Philosopher (145) used the CPU 0.0 sec.
+Philosopher (146) used the CPU 0.0 sec.
+Philosopher (147) used the CPU 0.0 sec.
+Philosopher (148) used the CPU 0.0 sec.
+Philosopher (149) used the CPU 0.0 sec.
+Philosopher (150) used the CPU 0.0 sec.
+Philosopher (151) used the CPU 0.0 sec.
+Philosopher (152) used the CPU 0.0 sec.
+Philosopher (153) used the CPU 0.0 sec.
+Philosopher (154) used the CPU 0.0 sec.
+Philosopher (155) used the CPU 0.0 sec.
+Philosopher (156) used the CPU 0.0 sec.
+Philosopher (157) used the CPU 0.0 sec.
+Philosopher (158) used the CPU 0.0 sec.
+Philosopher (159) used the CPU 0.0 sec.
+Philosopher (160) used the CPU 0.0 sec.
+Philosopher (161) used the CPU 0.0 sec.
+Philosopher (162) used the CPU 0.0 sec.
+Philosopher (163) used the CPU 0.0 sec.
+Philosopher (164) used the CPU 0.0 sec.
+Philosopher (165) used the CPU 0.0 sec.
+Philosopher (166) used the CPU 0.0 sec.
+Philosopher (167) used the CPU 0.0 sec.
+Philosopher (168) used the CPU 0.0 sec.
+Philosopher (169) used the CPU 0.0 sec.
+Philosopher (170) used the CPU 0.0 sec.
+Philosopher (171) used the CPU 0.0 sec.
+Philosopher (172) used the CPU 0.0 sec.
+Philosopher (173) used the CPU 0.0 sec.
+Philosopher (174) used the CPU 0.0 sec.
+Philosopher (175) used the CPU 0.0 sec.
+Philosopher (176) used the CPU 0.0 sec.
+Philosopher (177) used the CPU 0.0 sec.
+Philosopher (178) used the CPU 0.0 sec.
+Philosopher (179) used the CPU 0.0 sec.
+Philosopher (180) used the CPU 0.0 sec.
+Philosopher (181) used the CPU 0.0 sec.
+Philosopher (182) used the CPU 0.0 sec.
+Philosopher (183) used the CPU 0.0 sec.
+Philosopher (184) used the CPU 0.0 sec.
+Philosopher (185) used the CPU 0.0 sec.
+Philosopher (186) used the CPU 0.0 sec.
+Philosopher (187) used the CPU 0.0 sec.
+Philosopher (188) used the CPU 0.0 sec.
+Philosopher (189) used the CPU 0.0 sec.
+Philosopher (190) used the CPU 0.0 sec.
+Philosopher (191) used the CPU 0.0 sec.
+Philosopher (192) used the CPU 0.0 sec.
+Philosopher (193) used the CPU 0.0 sec.
+Philosopher (194) used the CPU 0.0 sec.
+Philosopher (195) used the CPU 0.0 sec.
+Philosopher (196) used the CPU 0.0 sec.
+Philosopher (197) used the CPU 0.0 sec.
+Philosopher (198) used the CPU 0.0 sec.
+Philosopher (199) used the CPU 0.0 sec.
+Philosopher (200) used the CPU 0.0 sec.
+Philosopher (201) used the CPU 0.0 sec.
+Philosopher (202) used the CPU 0.0 sec.
+Philosopher (203) used the CPU 0.0 sec.
+Philosopher (204) used the CPU 0.0 sec.
+Philosopher (205) used the CPU 0.0 sec.
+Philosopher (206) used the CPU 0.0 sec.
+Philosopher (207) used the CPU 0.0 sec.
+Philosopher (208) used the CPU 0.0 sec.
+Philosopher (209) used the CPU 0.0 sec.
+Philosopher (210) used the CPU 0.0 sec.
+Philosopher (211) used the CPU 0.0 sec.
+Philosopher (212) used the CPU 0.0 sec.
+Philosopher (213) used the CPU 0.0 sec.
+Philosopher (214) used the CPU 0.0 sec.
+Philosopher (215) used the CPU 0.0 sec.
+Philosopher (216) used the CPU 0.0 sec.
+Philosopher (217) used the CPU 0.0 sec.
+Philosopher (218) used the CPU 0.0 sec.
+Philosopher (219) used the CPU 0.0 sec.
+Philosopher (220) used the CPU 0.0 sec.
+Philosopher (221) used the CPU 0.0 sec.
+Philosopher (222) used the CPU 0.0 sec.
+Philosopher (223) used the CPU 0.0 sec.
+Philosopher (224) used the CPU 0.0 sec.
+Philosopher (225) used the CPU 0.0 sec.
+Philosopher (226) used the CPU 0.0 sec.
+Philosopher (227) used the CPU 0.0 sec.
+Philosopher (228) used the CPU 0.0 sec.
+Philosopher (229) used the CPU 0.0 sec.
+Philosopher (230) used the CPU 0.0 sec.
+Philosopher (231) used the CPU 0.0 sec.
+Philosopher (232) used the CPU 0.0 sec.
+Philosopher (233) used the CPU 0.0 sec.
+Philosopher (234) used the CPU 0.0 sec.
+Philosopher (235) used the CPU 0.0 sec.
+Philosopher (236) used the CPU 0.0 sec.
+Philosopher (237) used the CPU 0.0 sec.
+Philosopher (238) used the CPU 0.0 sec.
+Philosopher (239) used the CPU 0.0 sec.
+Philosopher (240) used the CPU 0.0 sec.
+Philosopher (241) used the CPU 0.0 sec.
+Philosopher (242) used the CPU 0.0 sec.
+Philosopher (243) used the CPU 0.0 sec.
+Philosopher (244) used the CPU 0.0 sec.
+Philosopher (245) used the CPU 0.0 sec.
+Philosopher (246) used the CPU 0.0 sec.
+Philosopher (247) used the CPU 0.0 sec.
+Philosopher (248) used the CPU 0.0 sec.
+Philosopher (249) used the CPU 0.0 sec.
+Philosopher (250) used the CPU 0.0 sec.
+Philosopher (251) used the CPU 0.0 sec.
+Philosopher (252) used the CPU 0.0 sec.
+Philosopher (253) used the CPU 0.0 sec.
+Philosopher (254) used the CPU 0.0 sec.
+Philosopher (255) used the CPU 0.0 sec.
+Philosopher (256) used the CPU 0.0 sec.
+Philosopher (257) used the CPU 0.0 sec.
+Philosopher (258) used the CPU 0.0 sec.
+Philosopher (259) used the CPU 0.0 sec.
+Philosopher (260) used the CPU 0.0 sec.
+Philosopher (261) used the CPU 0.0 sec.
+Philosopher (262) used the CPU 0.0 sec.
+Philosopher (263) used the CPU 0.0 sec.
+Philosopher (264) used the CPU 0.0 sec.
+Philosopher (265) used the CPU 0.0 sec.
+Philosopher (266) used the CPU 0.0 sec.
+Philosopher (267) used the CPU 0.0 sec.
+Philosopher (268) used the CPU 0.0 sec.
+Philosopher (269) used the CPU 0.0 sec.
+Philosopher (270) used the CPU 0.0 sec.
+Philosopher (271) used the CPU 0.0 sec.
+Philosopher (272) used the CPU 0.0 sec.
+Philosopher (273) used the CPU 0.0 sec.
+Philosopher (274) used the CPU 0.0 sec.
+Philosopher (275) used the CPU 0.0 sec.
+Philosopher (276) used the CPU 0.0 sec.
+Philosopher (277) used the CPU 0.0 sec.
+Philosopher (278) used the CPU 0.0 sec.
+Philosopher (279) used the CPU 0.0 sec.
+Philosopher (280) used the CPU 0.0 sec.
+Philosopher (281) used the CPU 0.0 sec.
+Philosopher (282) used the CPU 0.0 sec.
+Philosopher (283) used the CPU 0.0 sec.
+Philosopher (284) used the CPU 0.0 sec.
+Philosopher (285) used the CPU 0.0 sec.
+Philosopher (286) used the CPU 0.0 sec.
+Philosopher (287) used the CPU 0.0 sec.
+Philosopher (288) used the CPU 0.0 sec.
+Philosopher (289) used the CPU 0.0 sec.
+Philosopher (290) used the CPU 0.0 sec.
+Philosopher (291) used the CPU 0.0 sec.
+Philosopher (292) used the CPU 0.0 sec.
+Philosopher (293) used the CPU 0.0 sec.
+Philosopher (294) used the CPU 0.0 sec.
+Philosopher (295) used the CPU 0.0 sec.
+Philosopher (296) used the CPU 0.0 sec.
+Philosopher (297) used the CPU 0.0 sec.
+Philosopher (298) used the CPU 0.0 sec.
+Philosopher (299) used the CPU 0.0 sec.
+Philosopher (300) used the CPU 0.0 sec.
+Philosopher (301) used the CPU 0.0 sec.
+Philosopher (302) used the CPU 0.0 sec.
+Philosopher (303) used the CPU 0.0 sec.
+Philosopher (304) used the CPU 0.0 sec.
+Philosopher (305) used the CPU 0.0 sec.
+Philosopher (306) used the CPU 0.0 sec.
+Philosopher (307) used the CPU 0.0 sec.
+Philosopher (308) used the CPU 0.0 sec.
+Philosopher (309) used the CPU 0.0 sec.
+Philosopher (310) used the CPU 0.0 sec.
+Philosopher (311) used the CPU 0.0 sec.
+Philosopher (312) used the CPU 0.0 sec.
+Philosopher (313) used the CPU 0.0 sec.
+Philosopher (314) used the CPU 0.0 sec.
+Philosopher (315) used the CPU 0.0 sec.
+Philosopher (316) used the CPU 0.0 sec.
+Philosopher (317) used the CPU 0.0 sec.
+Philosopher (318) used the CPU 0.0 sec.
+Philosopher (319) used the CPU 0.0 sec.
+Philosopher (320) used the CPU 0.0 sec.
+Philosopher (321) used the CPU 0.0 sec.
+Philosopher (322) used the CPU 0.0 sec.
+Philosopher (323) used the CPU 0.0 sec.
+Philosopher (324) used the CPU 0.0 sec.
+Philosopher (325) used the CPU 0.0 sec.
+Philosopher (326) used the CPU 0.0 sec.
+Philosopher (327) used the CPU 0.0 sec.
+Philosopher (328) used the CPU 0.0 sec.
+Philosopher (329) used the CPU 0.0 sec.
+Philosopher (330) used the CPU 0.0 sec.
+Philosopher (331) used the CPU 0.0 sec.
+Philosopher (332) used the CPU 0.0 sec.
+Philosopher (333) used the CPU 0.0 sec.
+Philosopher (334) used the CPU 0.0 sec.
+Philosopher (335) used the CPU 0.0 sec.
+Philosopher (336) used the CPU 0.0 sec.
+Philosopher (337) used the CPU 0.0 sec.
+Philosopher (338) used the CPU 0.0 sec.
+Philosopher (339) used the CPU 0.0 sec.
+Philosopher (340) used the CPU 0.0 sec.
+Philosopher (341) used the CPU 0.0 sec.
+Philosopher (342) used the CPU 0.0 sec.
+Philosopher (343) used the CPU 0.0 sec.
+Philosopher (344) used the CPU 0.0 sec.
+Philosopher (345) used the CPU 0.0 sec.
+Philosopher (346) used the CPU 0.0 sec.
+Philosopher (347) used the CPU 0.0 sec.
+Philosopher (348) used the CPU 0.0 sec.
+Philosopher (349) used the CPU 0.0 sec.
+Philosopher (350) used the CPU 0.0 sec.
+Philosopher (351) used the CPU 0.0 sec.
+Philosopher (352) used the CPU 0.0 sec.
+Philosopher (353) used the CPU 0.0 sec.
+Philosopher (354) used the CPU 0.0 sec.
+Philosopher (355) used the CPU 0.0 sec.
+Philosopher (356) used the CPU 0.0 sec.
+Philosopher (357) used the CPU 0.0 sec.
+Philosopher (358) used the CPU 0.0 sec.
+Philosopher (359) used the CPU 0.0 sec.
+Philosopher (360) used the CPU 0.0 sec.
+Philosopher (361) used the CPU 0.0 sec.
+Philosopher (362) used the CPU 0.0 sec.
+Philosopher (363) used the CPU 0.0 sec.
+Philosopher (364) used the CPU 0.0 sec.
+Philosopher (365) used the CPU 0.0 sec.
+Philosopher (366) used the CPU 0.0 sec.
+Philosopher (367) used the CPU 0.0 sec.
+Philosopher (368) used the CPU 0.0 sec.
+Philosopher (369) used the CPU 0.0 sec.
+Philosopher (370) used the CPU 0.0 sec.
+Philosopher (371) used the CPU 0.0 sec.
+Philosopher (372) used the CPU 0.0 sec.
+Philosopher (373) used the CPU 0.0 sec.
+Philosopher (374) used the CPU 0.0 sec.
+Philosopher (375) used the CPU 0.0 sec.
+Philosopher (376) used the CPU 0.0 sec.
+Philosopher (377) used the CPU 0.0 sec.
+Philosopher (378) used the CPU 0.0 sec.
+Philosopher (379) used the CPU 0.0 sec.
+Philosopher (380) used the CPU 0.0 sec.
+Philosopher (381) used the CPU 0.0 sec.
+Philosopher (382) used the CPU 0.0 sec.
+Philosopher (383) used the CPU 0.0 sec.
+Philosopher (384) used the CPU 0.0 sec.
+Philosopher (385) used the CPU 0.0 sec.
+Philosopher (386) used the CPU 0.0 sec.
+Philosopher (387) used the CPU 0.0 sec.
+Philosopher (388) used the CPU 0.0 sec.
+Philosopher (389) used the CPU 0.0 sec.
+Philosopher (390) used the CPU 0.0 sec.
+Philosopher (391) used the CPU 0.0 sec.
+Philosopher (392) used the CPU 0.0 sec.
+Philosopher (393) used the CPU 0.0 sec.
+Philosopher (394) used the CPU 0.0 sec.
+Philosopher (395) used the CPU 0.0 sec.
+Philosopher (396) used the CPU 0.0 sec.
+Philosopher (397) used the CPU 0.0 sec.
+Philosopher (398) used the CPU 0.0 sec.
+Philosopher (399) used the CPU 0.0 sec.
+Philosopher (400) used the CPU 0.0 sec.
+Philosopher (401) used the CPU 0.0 sec.
+Philosopher (402) used the CPU 0.0 sec.
+Philosopher (403) used the CPU 0.0 sec.
+Philosopher (404) used the CPU 0.0 sec.
+Philosopher (405) used the CPU 0.0 sec.
+Philosopher (406) used the CPU 0.0 sec.
+Philosopher (407) used the CPU 0.0 sec.
+Philosopher (408) used the CPU 0.0 sec.
+Philosopher (409) used the CPU 0.0 sec.
+Philosopher (410) used the CPU 0.0 sec.
+Philosopher (411) used the CPU 0.0 sec.
+Philosopher (412) used the CPU 0.0 sec.
+Philosopher (413) used the CPU 0.0 sec.
+Philosopher (414) used the CPU 0.0 sec.
+Philosopher (415) used the CPU 0.0 sec.
+Philosopher (416) used the CPU 0.0 sec.
+Philosopher (417) used the CPU 0.0 sec.
+Philosopher (418) used the CPU 0.0 sec.
+Philosopher (419) used the CPU 0.0 sec.
+Philosopher (420) used the CPU 0.0 sec.
+Philosopher (421) used the CPU 0.0 sec.
+Philosopher (422) used the CPU 0.0 sec.
+Philosopher (423) used the CPU 0.0 sec.
+Philosopher (424) used the CPU 0.0 sec.
+Philosopher (425) used the CPU 0.0 sec.
+Philosopher (426) used the CPU 0.0 sec.
+Philosopher (427) used the CPU 0.0 sec.
+Philosopher (428) used the CPU 0.0 sec.
+Philosopher (429) used the CPU 0.0 sec.
+Philosopher (430) used the CPU 0.0 sec.
+Philosopher (431) used the CPU 0.0 sec.
+Philosopher (432) used the CPU 0.0 sec.
+Philosopher (433) used the CPU 0.0 sec.
+Philosopher (434) used the CPU 0.0 sec.
+Philosopher (435) used the CPU 0.0 sec.
+Philosopher (436) used the CPU 0.0 sec.
+Philosopher (437) used the CPU 0.0 sec.
+Philosopher (438) used the CPU 0.0 sec.
+Philosopher (439) used the CPU 0.0 sec.
+Philosopher (440) used the CPU 0.0 sec.
+Philosopher (441) used the CPU 0.0 sec.
+Philosopher (442) used the CPU 0.0 sec.
+Philosopher (443) used the CPU 0.0 sec.
+Philosopher (444) used the CPU 0.0 sec.
+Philosopher (445) used the CPU 0.0 sec.
+Philosopher (446) used the CPU 0.0 sec.
+Philosopher (447) used the CPU 0.0 sec.
+Philosopher (448) used the CPU 0.0 sec.
+Philosopher (449) used the CPU 0.0 sec.
+Philosopher (450) used the CPU 0.0 sec.
+Philosopher (451) used the CPU 0.0 sec.
+Philosopher (452) used the CPU 0.0 sec.
+Philosopher (453) used the CPU 0.0 sec.
+Philosopher (454) used the CPU 0.0 sec.
+Philosopher (455) used the CPU 0.0 sec.
+Philosopher (456) used the CPU 0.0 sec.
+Philosopher (457) used the CPU 0.0 sec.
+Philosopher (458) used the CPU 0.0 sec.
+Philosopher (459) used the CPU 0.0 sec.
+Philosopher (460) used the CPU 0.0 sec.
+Philosopher (461) used the CPU 0.0 sec.
+Philosopher (462) used the CPU 0.0 sec.
+Philosopher (463) used the CPU 0.0 sec.
+Philosopher (464) used the CPU 0.0 sec.
+Philosopher (465) used the CPU 0.0 sec.
+Philosopher (466) used the CPU 0.0 sec.
+Philosopher (467) used the CPU 0.0 sec.
+Philosopher (468) used the CPU 0.0 sec.
+Philosopher (469) used the CPU 0.0 sec.
+Philosopher (470) used the CPU 0.0 sec.
+Philosopher (471) used the CPU 0.0 sec.
+Philosopher (472) used the CPU 0.0 sec.
+Philosopher (473) used the CPU 0.0 sec.
+Philosopher (474) used the CPU 0.0 sec.
+Philosopher (475) used the CPU 0.0 sec.
+Philosopher (476) used the CPU 0.0 sec.
+Philosopher (477) used the CPU 0.0 sec.
+Philosopher (478) used the CPU 0.0 sec.
+Philosopher (479) used the CPU 0.0 sec.
+Philosopher (480) used the CPU 0.0 sec.
+Philosopher (481) used the CPU 0.0 sec.
+Philosopher (482) used the CPU 0.0 sec.
+Philosopher (483) used the CPU 0.0 sec.
+Philosopher (484) used the CPU 0.0 sec.
+Philosopher (485) used the CPU 0.0 sec.
+Philosopher (486) used the CPU 0.0 sec.
+Philosopher (487) used the CPU 0.0 sec.
+Philosopher (488) used the CPU 0.0 sec.
+Philosopher (489) used the CPU 0.0 sec.
+Philosopher (490) used the CPU 0.0 sec.
+Philosopher (491) used the CPU 0.0 sec.
+Philosopher (492) used the CPU 0.0 sec.
+Philosopher (493) used the CPU 0.0 sec.
+Philosopher (494) used the CPU 0.0 sec.
+Philosopher (495) used the CPU 0.0 sec.
+Philosopher (496) used the CPU 0.0 sec.
+Philosopher (497) used the CPU 0.0 sec.
+Philosopher (498) used the CPU 0.0 sec.
+Philosopher (499) used the CPU 0.0 sec.
