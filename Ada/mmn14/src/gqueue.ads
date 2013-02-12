@@ -1,4 +1,4 @@
--- written by jacob kilimnik and yair gam
+-- written by solekiller and yair gam
 -- jacob's email: solekiller@gmail.com
 -- yair gam's email: gamyair@gmail.com
 -- this progam is a generic queue package for any type of Items specified.

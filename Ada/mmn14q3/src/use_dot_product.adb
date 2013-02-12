@@ -4,7 +4,7 @@ with dot_product;
 -- it also demonstrates the usage of dot product with an array of chars and an array of positive numbers
 -- contact information:
 -- solekiller@gmail.com
--- name: jacob kilimnik
+-- name: solekiller
 -- gamyair@gmail.com
 -- name: yair gam
 procedure use_dot_product is
