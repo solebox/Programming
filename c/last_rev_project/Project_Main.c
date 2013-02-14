@@ -5,7 +5,7 @@
 #include "WorkFlow.h"
 
 /*this program is a two pass assambler , without linker/loader support
-	this project was written by - tomer zilka and jacob (koby) kilimnik*/
+	this project was written by - tomer zilka and jacob (koby) kili*/
 int main(int argc,char* argv[])
 {
 	char **fileNames=ObtainFileNames(argc-1,argv);

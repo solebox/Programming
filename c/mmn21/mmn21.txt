@@ -1,0 +1,5 @@
+i chose to use a symple dynamic array in the heap,
+any other data structure would have required alot more redundant coding,
+in my opinion this data structure is more than enough due to the fact we did not need
+to make something that has the best performence and just needed to work :).
+
