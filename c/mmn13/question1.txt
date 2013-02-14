@@ -1,0 +1,10 @@
+1.
+	a. always false , although we don't have any control 
+	over the way the memory is allocated 
+	 , we can in fact count on the OS to allocate it as a 
+	consecutive block of memory because of the logic arrays operate on
+	in the c language , if it wasnt consecutive in the memory all
+	of its basic operations would not work.
+	
+	b. yes that is always true , we can treat argv as a pointer to pointer 
+	to char, and no error would  arias.
